@@ -774,7 +774,7 @@ export function bufferAllocationSuccessful(buffer: buffer_t): bool_t
 export function bufferAppend(buffer: buffer_t, source: buffer_t, start: number, end: number): void
 export function bufferClearContents(buffer: buffer_t): void
 export function bufferCreate(): buffer_t
-export function bufferDeserializeGlyphs(buffer: buffer_t, buf: string[], font: font_t, format: buffer_serialize_format_t): [ /* returnType */ bool_t, /* endPtr */ string ]
+export function bufferDeserializeGlyphs(buffer: buffer_t, buf: string[], font: font_t, format: buffer_serialize_format_t): { returnType: bool_t, endPtr: string }
 export function bufferDiff(buffer: buffer_t, reference: buffer_t, dottedcircleGlyph: codepoint_t, positionFuzz: number): buffer_diff_flags_t
 export function bufferGetClusterLevel(buffer: buffer_t): buffer_cluster_level_t
 export function bufferGetContentType(buffer: buffer_t): buffer_content_type_t
@@ -788,7 +788,7 @@ export function bufferGetLanguage(buffer: buffer_t): language_t
 export function bufferGetLength(buffer: buffer_t): number
 export function bufferGetReplacementCodepoint(buffer: buffer_t): codepoint_t
 export function bufferGetScript(buffer: buffer_t): script_t
-export function bufferGetSegmentProperties(buffer: buffer_t): /* props */ segment_properties_t
+export function bufferGetSegmentProperties(buffer: buffer_t): { props: segment_properties_t }
 export function bufferGetUnicodeFuncs(buffer: buffer_t): unicode_funcs_t
 export function bufferGuessSegmentProperties(buffer: buffer_t): void
 export function bufferNormalizeGlyphs(buffer: buffer_t): void
@@ -799,7 +799,7 @@ export function bufferReverseClusters(buffer: buffer_t): void
 export function bufferReverseRange(buffer: buffer_t, start: number, end: number): void
 export function bufferSerializeFormatFromString(str: any[]): buffer_serialize_format_t
 export function bufferSerializeFormatToString(format: buffer_serialize_format_t): string
-export function bufferSerializeGlyphs(buffer: buffer_t, start: number, end: number, font: font_t | null, format: buffer_serialize_format_t, flags: buffer_serialize_flags_t): [ /* returnType */ number, /* buf */ any[], /* bufConsumed */ number | null ]
+export function bufferSerializeGlyphs(buffer: buffer_t, start: number, end: number, font: font_t | null, format: buffer_serialize_format_t, flags: buffer_serialize_flags_t): { returnType: number, buf: any[], bufConsumed: number | null }
 export function bufferSerializeListFormats(): string[]
 export function bufferSetClusterLevel(buffer: buffer_t, clusterLevel: buffer_cluster_level_t): void
 export function bufferSetContentType(buffer: buffer_t, contentType: buffer_content_type_t): void
@@ -839,9 +839,9 @@ export function faceReferenceTable(face: face_t, tag: tag_t): blob_t
 export function faceSetGlyphCount(face: face_t, glyphCount: number): void
 export function faceSetIndex(face: face_t, index: number): void
 export function faceSetUpem(face: face_t, upem: number): void
-export function featureFromString(str: any[]): [ /* returnType */ bool_t, /* feature */ feature_t ]
-export function featureToString(feature: feature_t): /* buf */ string[]
-export function fontAddGlyphOriginForDirection(font: font_t, glyph: codepoint_t, direction: direction_t): [ /* x */ position_t, /* y */ position_t ]
+export function featureFromString(str: any[]): { returnType: bool_t, feature: feature_t }
+export function featureToString(feature: feature_t): { buf: string[] }
+export function fontAddGlyphOriginForDirection(font: font_t, glyph: codepoint_t, direction: direction_t): { x: position_t, y: position_t }
 export function fontCreate(face: face_t): font_t
 export function fontCreateSubFont(parent: font_t): font_t
 export function fontFuncsCreate(): font_funcs_t
@@ -867,38 +867,38 @@ export function fontFuncsSetNominalGlyphFunc(ffuncs: font_funcs_t, func: font_ge
 export function fontFuncsSetNominalGlyphsFunc(ffuncs: font_funcs_t, func: font_get_nominal_glyphs_func_t): void
 export function fontFuncsSetVariationGlyphFunc(ffuncs: font_funcs_t, func: font_get_variation_glyph_func_t): void
 export function fontGetEmpty(): font_t
-export function fontGetExtentsForDirection(font: font_t, direction: direction_t): /* extents */ font_extents_t
+export function fontGetExtentsForDirection(font: font_t, direction: direction_t): { extents: font_extents_t }
 export function fontGetFace(font: font_t): face_t
-export function fontGetGlyph(font: font_t, unicode: codepoint_t, variationSelector: codepoint_t): [ /* returnType */ bool_t, /* glyph */ codepoint_t ]
-export function fontGetGlyphAdvanceForDirection(font: font_t, glyph: codepoint_t, direction: direction_t): [ /* x */ position_t, /* y */ position_t ]
+export function fontGetGlyph(font: font_t, unicode: codepoint_t, variationSelector: codepoint_t): { returnType: bool_t, glyph: codepoint_t }
+export function fontGetGlyphAdvanceForDirection(font: font_t, glyph: codepoint_t, direction: direction_t): { x: position_t, y: position_t }
 export function fontGetGlyphAdvancesForDirection(font: font_t, direction: direction_t, count: number, firstGlyph: codepoint_t, glyphStride: number, firstAdvance: position_t, advanceStride: number): void
-export function fontGetGlyphContourPoint(font: font_t, glyph: codepoint_t, pointIndex: number): [ /* returnType */ bool_t, /* x */ position_t, /* y */ position_t ]
-export function fontGetGlyphContourPointForOrigin(font: font_t, glyph: codepoint_t, pointIndex: number, direction: direction_t): [ /* returnType */ bool_t, /* x */ position_t, /* y */ position_t ]
-export function fontGetGlyphExtents(font: font_t, glyph: codepoint_t): [ /* returnType */ bool_t, /* extents */ glyph_extents_t ]
-export function fontGetGlyphExtentsForOrigin(font: font_t, glyph: codepoint_t, direction: direction_t): [ /* returnType */ bool_t, /* extents */ glyph_extents_t ]
-export function fontGetGlyphFromName(font: font_t, name: string[]): [ /* returnType */ bool_t, /* glyph */ codepoint_t ]
+export function fontGetGlyphContourPoint(font: font_t, glyph: codepoint_t, pointIndex: number): { returnType: bool_t, x: position_t, y: position_t }
+export function fontGetGlyphContourPointForOrigin(font: font_t, glyph: codepoint_t, pointIndex: number, direction: direction_t): { returnType: bool_t, x: position_t, y: position_t }
+export function fontGetGlyphExtents(font: font_t, glyph: codepoint_t): { returnType: bool_t, extents: glyph_extents_t }
+export function fontGetGlyphExtentsForOrigin(font: font_t, glyph: codepoint_t, direction: direction_t): { returnType: bool_t, extents: glyph_extents_t }
+export function fontGetGlyphFromName(font: font_t, name: string[]): { returnType: bool_t, glyph: codepoint_t }
 export function fontGetGlyphHAdvance(font: font_t, glyph: codepoint_t): position_t
 export function fontGetGlyphHAdvances(font: font_t, count: number, firstGlyph: codepoint_t, glyphStride: number, firstAdvance: position_t, advanceStride: number): void
 export function fontGetGlyphHKerning(font: font_t, leftGlyph: codepoint_t, rightGlyph: codepoint_t): position_t
-export function fontGetGlyphHOrigin(font: font_t, glyph: codepoint_t): [ /* returnType */ bool_t, /* x */ position_t, /* y */ position_t ]
-export function fontGetGlyphKerningForDirection(font: font_t, firstGlyph: codepoint_t, secondGlyph: codepoint_t, direction: direction_t): [ /* x */ position_t, /* y */ position_t ]
+export function fontGetGlyphHOrigin(font: font_t, glyph: codepoint_t): { returnType: bool_t, x: position_t, y: position_t }
+export function fontGetGlyphKerningForDirection(font: font_t, firstGlyph: codepoint_t, secondGlyph: codepoint_t, direction: direction_t): { x: position_t, y: position_t }
 export function fontGetGlyphName(font: font_t, glyph: codepoint_t, name: string[]): bool_t
-export function fontGetGlyphOriginForDirection(font: font_t, glyph: codepoint_t, direction: direction_t): [ /* x */ position_t, /* y */ position_t ]
+export function fontGetGlyphOriginForDirection(font: font_t, glyph: codepoint_t, direction: direction_t): { x: position_t, y: position_t }
 export function fontGetGlyphVAdvance(font: font_t, glyph: codepoint_t): position_t
 export function fontGetGlyphVAdvances(font: font_t, count: number, firstGlyph: codepoint_t, glyphStride: number, firstAdvance: position_t, advanceStride: number): void
 export function fontGetGlyphVKerning(font: font_t, topGlyph: codepoint_t, bottomGlyph: codepoint_t): position_t
-export function fontGetGlyphVOrigin(font: font_t, glyph: codepoint_t): [ /* returnType */ bool_t, /* x */ position_t, /* y */ position_t ]
-export function fontGetHExtents(font: font_t): [ /* returnType */ bool_t, /* extents */ font_extents_t ]
-export function fontGetNominalGlyph(font: font_t, unicode: codepoint_t): [ /* returnType */ bool_t, /* glyph */ codepoint_t ]
+export function fontGetGlyphVOrigin(font: font_t, glyph: codepoint_t): { returnType: bool_t, x: position_t, y: position_t }
+export function fontGetHExtents(font: font_t): { returnType: bool_t, extents: font_extents_t }
+export function fontGetNominalGlyph(font: font_t, unicode: codepoint_t): { returnType: bool_t, glyph: codepoint_t }
 export function fontGetNominalGlyphs(font: font_t, count: number, firstUnicode: codepoint_t, unicodeStride: number, firstGlyph: codepoint_t, glyphStride: number): number
 export function fontGetParent(font: font_t): font_t
-export function fontGetPpem(font: font_t): [ /* xPpem */ number, /* yPpem */ number ]
+export function fontGetPpem(font: font_t): { xPpem: number, yPpem: number }
 export function fontGetPtem(font: font_t): number
-export function fontGetScale(font: font_t): [ /* xScale */ number, /* yScale */ number ]
-export function fontGetVExtents(font: font_t): [ /* returnType */ bool_t, /* extents */ font_extents_t ]
+export function fontGetScale(font: font_t): { xScale: number, yScale: number }
+export function fontGetVExtents(font: font_t): { returnType: bool_t, extents: font_extents_t }
 export function fontGetVarCoordsNormalized(font: font_t, length: number): number
-export function fontGetVariationGlyph(font: font_t, unicode: codepoint_t, variationSelector: codepoint_t): [ /* returnType */ bool_t, /* glyph */ codepoint_t ]
-export function fontGlyphFromString(font: font_t, s: any[]): [ /* returnType */ bool_t, /* glyph */ codepoint_t ]
+export function fontGetVariationGlyph(font: font_t, unicode: codepoint_t, variationSelector: codepoint_t): { returnType: bool_t, glyph: codepoint_t }
+export function fontGlyphFromString(font: font_t, s: any[]): { returnType: bool_t, glyph: codepoint_t }
 export function fontGlyphToString(font: font_t, glyph: codepoint_t, s: string[]): void
 export function fontIsImmutable(font: font_t): bool_t
 export function fontMakeImmutable(font: font_t): void
@@ -913,7 +913,7 @@ export function fontSetVarCoordsDesign(font: font_t, coords: number, coordsLengt
 export function fontSetVarCoordsNormalized(font: font_t, coords: number, coordsLength: number): void
 export function fontSetVarNamedInstance(font: font_t, instanceIndex: number): void
 export function fontSetVariations(font: font_t, variations: variation_t, variationsLength: number): void
-export function fontSubtractGlyphOriginForDirection(font: font_t, glyph: codepoint_t, direction: direction_t): [ /* x */ position_t, /* y */ position_t ]
+export function fontSubtractGlyphOriginForDirection(font: font_t, glyph: codepoint_t, direction: direction_t): { x: position_t, y: position_t }
 export function ftFontChanged(font: font_t): void
 export function ftFontGetLoadFlags(font: font_t): number
 export function ftFontSetFuncs(font: font_t): void
@@ -936,7 +936,7 @@ export function mapGetPopulation(map: map_t): number
 export function mapHas(map: map_t, key: codepoint_t): bool_t
 export function mapIsEmpty(map: map_t): bool_t
 export function mapSet(map: map_t, key: codepoint_t, value: codepoint_t): void
-export function otColorGlyphGetLayers(face: face_t, glyph: codepoint_t, startOffset: number): [ /* returnType */ number, /* layers */ ot_color_layer_t[] | null ]
+export function otColorGlyphGetLayers(face: face_t, glyph: codepoint_t, startOffset: number): { returnType: number, layers: ot_color_layer_t[] | null }
 export function otColorGlyphReferencePng(font: font_t, glyph: codepoint_t): blob_t
 export function otColorGlyphReferenceSvg(face: face_t, glyph: codepoint_t): blob_t
 export function otColorHasLayers(face: face_t): bool_t
@@ -944,70 +944,70 @@ export function otColorHasPalettes(face: face_t): bool_t
 export function otColorHasPng(face: face_t): bool_t
 export function otColorHasSvg(face: face_t): bool_t
 export function otColorPaletteColorGetNameId(face: face_t, colorIndex: number): ot_name_id_t
-export function otColorPaletteGetColors(face: face_t, paletteIndex: number, startOffset: number): [ /* returnType */ number, /* colors */ color_t[] | null ]
+export function otColorPaletteGetColors(face: face_t, paletteIndex: number, startOffset: number): { returnType: number, colors: color_t[] | null }
 export function otColorPaletteGetCount(face: face_t): number
 export function otColorPaletteGetFlags(face: face_t, paletteIndex: number): ot_color_palette_flags_t
 export function otColorPaletteGetNameId(face: face_t, paletteIndex: number): ot_name_id_t
 export function otFontSetFuncs(font: font_t): void
-export function otLayoutCollectFeatures(face: face_t, tableTag: tag_t, scripts: tag_t, languages: tag_t, features: tag_t): /* featureIndexes */ set_t
-export function otLayoutCollectLookups(face: face_t, tableTag: tag_t, scripts: tag_t, languages: tag_t, features: tag_t): /* lookupIndexes */ set_t
-export function otLayoutFeatureGetCharacters(face: face_t, tableTag: tag_t, featureIndex: number, startOffset: number): [ /* returnType */ number, /* characters */ codepoint_t[] ]
-export function otLayoutFeatureGetLookups(face: face_t, tableTag: tag_t, featureIndex: number, startOffset: number): [ /* returnType */ number, /* lookupIndexes */ number[] ]
-export function otLayoutFeatureGetNameIds(face: face_t, tableTag: tag_t, featureIndex: number): [ /* returnType */ bool_t, /* labelId */ ot_name_id_t | null, /* tooltipId */ ot_name_id_t | null, /* sampleId */ ot_name_id_t | null, /* numNamedParameters */ number | null, /* firstParamId */ ot_name_id_t | null ]
-export function otLayoutFeatureWithVariationsGetLookups(face: face_t, tableTag: tag_t, featureIndex: number, variationsIndex: number, startOffset: number): [ /* returnType */ number, /* lookupIndexes */ number[] ]
-export function otLayoutGetAttachPoints(face: face_t, glyph: codepoint_t, startOffset: number): [ /* returnType */ number, /* pointArray */ number[] ]
-export function otLayoutGetBaseline(font: font_t, baselineTag: ot_layout_baseline_tag_t, direction: direction_t, scriptTag: tag_t, languageTag: tag_t): [ /* returnType */ bool_t, /* coord */ position_t ]
+export function otLayoutCollectFeatures(face: face_t, tableTag: tag_t, scripts: tag_t, languages: tag_t, features: tag_t): { featureIndexes: set_t }
+export function otLayoutCollectLookups(face: face_t, tableTag: tag_t, scripts: tag_t, languages: tag_t, features: tag_t): { lookupIndexes: set_t }
+export function otLayoutFeatureGetCharacters(face: face_t, tableTag: tag_t, featureIndex: number, startOffset: number): { returnType: number, characters: codepoint_t[] }
+export function otLayoutFeatureGetLookups(face: face_t, tableTag: tag_t, featureIndex: number, startOffset: number): { returnType: number, lookupIndexes: number[] }
+export function otLayoutFeatureGetNameIds(face: face_t, tableTag: tag_t, featureIndex: number): { returnType: bool_t, labelId: ot_name_id_t | null, tooltipId: ot_name_id_t | null, sampleId: ot_name_id_t | null, numNamedParameters: number | null, firstParamId: ot_name_id_t | null }
+export function otLayoutFeatureWithVariationsGetLookups(face: face_t, tableTag: tag_t, featureIndex: number, variationsIndex: number, startOffset: number): { returnType: number, lookupIndexes: number[] }
+export function otLayoutGetAttachPoints(face: face_t, glyph: codepoint_t, startOffset: number): { returnType: number, pointArray: number[] }
+export function otLayoutGetBaseline(font: font_t, baselineTag: ot_layout_baseline_tag_t, direction: direction_t, scriptTag: tag_t, languageTag: tag_t): { returnType: bool_t, coord: position_t }
 export function otLayoutGetGlyphClass(face: face_t, glyph: codepoint_t): ot_layout_glyph_class_t
-export function otLayoutGetGlyphsInClass(face: face_t, klass: ot_layout_glyph_class_t): /* glyphs */ set_t
-export function otLayoutGetLigatureCarets(font: font_t, direction: direction_t, glyph: codepoint_t, startOffset: number): [ /* returnType */ number, /* caretArray */ position_t[] ]
-export function otLayoutGetSizeParams(face: face_t): [ /* returnType */ bool_t, /* designSize */ number, /* subfamilyId */ number, /* subfamilyNameId */ ot_name_id_t, /* rangeStart */ number, /* rangeEnd */ number ]
+export function otLayoutGetGlyphsInClass(face: face_t, klass: ot_layout_glyph_class_t): { glyphs: set_t }
+export function otLayoutGetLigatureCarets(font: font_t, direction: direction_t, glyph: codepoint_t, startOffset: number): { returnType: number, caretArray: position_t[] }
+export function otLayoutGetSizeParams(face: face_t): { returnType: bool_t, designSize: number, subfamilyId: number, subfamilyNameId: ot_name_id_t, rangeStart: number, rangeEnd: number }
 export function otLayoutHasGlyphClasses(face: face_t): bool_t
 export function otLayoutHasPositioning(face: face_t): bool_t
 export function otLayoutHasSubstitution(face: face_t): bool_t
-export function otLayoutLanguageFindFeature(face: face_t, tableTag: tag_t, scriptIndex: number, languageIndex: number, featureTag: tag_t): [ /* returnType */ bool_t, /* featureIndex */ number ]
-export function otLayoutLanguageGetFeatureIndexes(face: face_t, tableTag: tag_t, scriptIndex: number, languageIndex: number, startOffset: number): [ /* returnType */ number, /* featureIndexes */ number[] ]
-export function otLayoutLanguageGetFeatureTags(face: face_t, tableTag: tag_t, scriptIndex: number, languageIndex: number, startOffset: number): [ /* returnType */ number, /* featureTags */ tag_t[] ]
-export function otLayoutLanguageGetRequiredFeature(face: face_t, tableTag: tag_t, scriptIndex: number, languageIndex: number, featureIndex: number): [ /* returnType */ bool_t, /* featureTag */ tag_t ]
-export function otLayoutLanguageGetRequiredFeatureIndex(face: face_t, tableTag: tag_t, scriptIndex: number, languageIndex: number): [ /* returnType */ bool_t, /* featureIndex */ number ]
-export function otLayoutLookupCollectGlyphs(face: face_t, tableTag: tag_t, lookupIndex: number): [ /* glyphsBefore */ set_t, /* glyphsInput */ set_t, /* glyphsAfter */ set_t, /* glyphsOutput */ set_t ]
-export function otLayoutLookupSubstituteClosure(face: face_t, lookupIndex: number): /* glyphs */ set_t
+export function otLayoutLanguageFindFeature(face: face_t, tableTag: tag_t, scriptIndex: number, languageIndex: number, featureTag: tag_t): { returnType: bool_t, featureIndex: number }
+export function otLayoutLanguageGetFeatureIndexes(face: face_t, tableTag: tag_t, scriptIndex: number, languageIndex: number, startOffset: number): { returnType: number, featureIndexes: number[] }
+export function otLayoutLanguageGetFeatureTags(face: face_t, tableTag: tag_t, scriptIndex: number, languageIndex: number, startOffset: number): { returnType: number, featureTags: tag_t[] }
+export function otLayoutLanguageGetRequiredFeature(face: face_t, tableTag: tag_t, scriptIndex: number, languageIndex: number, featureIndex: number): { returnType: bool_t, featureTag: tag_t }
+export function otLayoutLanguageGetRequiredFeatureIndex(face: face_t, tableTag: tag_t, scriptIndex: number, languageIndex: number): { returnType: bool_t, featureIndex: number }
+export function otLayoutLookupCollectGlyphs(face: face_t, tableTag: tag_t, lookupIndex: number): { glyphsBefore: set_t, glyphsInput: set_t, glyphsAfter: set_t, glyphsOutput: set_t }
+export function otLayoutLookupSubstituteClosure(face: face_t, lookupIndex: number): { glyphs: set_t }
 export function otLayoutLookupWouldSubstitute(face: face_t, lookupIndex: number, glyphs: codepoint_t, glyphsLength: number, zeroContext: bool_t): bool_t
-export function otLayoutLookupsSubstituteClosure(face: face_t, lookups: set_t): /* glyphs */ set_t
+export function otLayoutLookupsSubstituteClosure(face: face_t, lookups: set_t): { glyphs: set_t }
 export function otLayoutScriptFindLanguage(face: face_t, tableTag: tag_t, scriptIndex: number, languageTag: tag_t, languageIndex: number): bool_t
-export function otLayoutScriptGetLanguageTags(face: face_t, tableTag: tag_t, scriptIndex: number, startOffset: number): [ /* returnType */ number, /* languageTags */ tag_t[] ]
-export function otLayoutScriptSelectLanguage(face: face_t, tableTag: tag_t, scriptIndex: number, languageCount: number, languageTags: tag_t): [ /* returnType */ bool_t, /* languageIndex */ number ]
-export function otLayoutTableChooseScript(face: face_t, tableTag: tag_t, scriptTags: tag_t): [ /* returnType */ bool_t, /* scriptIndex */ number, /* chosenScript */ tag_t ]
-export function otLayoutTableFindFeatureVariations(face: face_t, tableTag: tag_t, coords: number, numCoords: number): [ /* returnType */ bool_t, /* variationsIndex */ number ]
-export function otLayoutTableFindScript(face: face_t, tableTag: tag_t, scriptTag: tag_t): [ /* returnType */ bool_t, /* scriptIndex */ number ]
-export function otLayoutTableGetFeatureTags(face: face_t, tableTag: tag_t, startOffset: number): [ /* returnType */ number, /* featureTags */ tag_t[] ]
+export function otLayoutScriptGetLanguageTags(face: face_t, tableTag: tag_t, scriptIndex: number, startOffset: number): { returnType: number, languageTags: tag_t[] }
+export function otLayoutScriptSelectLanguage(face: face_t, tableTag: tag_t, scriptIndex: number, languageCount: number, languageTags: tag_t): { returnType: bool_t, languageIndex: number }
+export function otLayoutTableChooseScript(face: face_t, tableTag: tag_t, scriptTags: tag_t): { returnType: bool_t, scriptIndex: number, chosenScript: tag_t }
+export function otLayoutTableFindFeatureVariations(face: face_t, tableTag: tag_t, coords: number, numCoords: number): { returnType: bool_t, variationsIndex: number }
+export function otLayoutTableFindScript(face: face_t, tableTag: tag_t, scriptTag: tag_t): { returnType: bool_t, scriptIndex: number }
+export function otLayoutTableGetFeatureTags(face: face_t, tableTag: tag_t, startOffset: number): { returnType: number, featureTags: tag_t[] }
 export function otLayoutTableGetLookupCount(face: face_t, tableTag: tag_t): number
-export function otLayoutTableGetScriptTags(face: face_t, tableTag: tag_t, startOffset: number): [ /* returnType */ number, /* scriptTags */ tag_t[] ]
-export function otLayoutTableSelectScript(face: face_t, tableTag: tag_t, scriptCount: number, scriptTags: tag_t): [ /* returnType */ bool_t, /* scriptIndex */ number, /* chosenScript */ tag_t ]
+export function otLayoutTableGetScriptTags(face: face_t, tableTag: tag_t, startOffset: number): { returnType: number, scriptTags: tag_t[] }
+export function otLayoutTableSelectScript(face: face_t, tableTag: tag_t, scriptCount: number, scriptTags: tag_t): { returnType: bool_t, scriptIndex: number, chosenScript: tag_t }
 export function otMathGetConstant(font: font_t, constant: ot_math_constant_t): position_t
-export function otMathGetGlyphAssembly(font: font_t, glyph: codepoint_t, direction: direction_t, startOffset: number): [ /* returnType */ number, /* parts */ ot_math_glyph_part_t[], /* italicsCorrection */ position_t ]
+export function otMathGetGlyphAssembly(font: font_t, glyph: codepoint_t, direction: direction_t, startOffset: number): { returnType: number, parts: ot_math_glyph_part_t[], italicsCorrection: position_t }
 export function otMathGetGlyphItalicsCorrection(font: font_t, glyph: codepoint_t): position_t
 export function otMathGetGlyphKerning(font: font_t, glyph: codepoint_t, kern: ot_math_kern_t, correctionHeight: position_t): position_t
 export function otMathGetGlyphTopAccentAttachment(font: font_t, glyph: codepoint_t): position_t
-export function otMathGetGlyphVariants(font: font_t, glyph: codepoint_t, direction: direction_t, startOffset: number): [ /* returnType */ number, /* variants */ ot_math_glyph_variant_t[] ]
+export function otMathGetGlyphVariants(font: font_t, glyph: codepoint_t, direction: direction_t, startOffset: number): { returnType: number, variants: ot_math_glyph_variant_t[] }
 export function otMathGetMinConnectorOverlap(font: font_t, direction: direction_t): position_t
 export function otMathHasData(face: face_t): bool_t
 export function otMathIsGlyphExtendedShape(face: face_t, glyph: codepoint_t): bool_t
 export function otMetaGetEntryTags(face: face_t, startOffset: number, entriesCount: number, entries: ot_meta_tag_t): number
 export function otMetaReferenceEntry(face: face_t, metaTag: ot_meta_tag_t): blob_t
-export function otMetricsGetPosition(font: font_t, metricsTag: ot_metrics_tag_t): [ /* returnType */ bool_t, /* position */ position_t | null ]
+export function otMetricsGetPosition(font: font_t, metricsTag: ot_metrics_tag_t): { returnType: bool_t, position: position_t | null }
 export function otMetricsGetVariation(font: font_t, metricsTag: ot_metrics_tag_t): number
 export function otMetricsGetXVariation(font: font_t, metricsTag: ot_metrics_tag_t): position_t
 export function otMetricsGetYVariation(font: font_t, metricsTag: ot_metrics_tag_t): position_t
-export function otNameGetUtf16(face: face_t, nameId: ot_name_id_t, language: language_t): [ /* returnType */ number, /* text */ number[] ]
-export function otNameGetUtf32(face: face_t, nameId: ot_name_id_t, language: language_t): [ /* returnType */ number, /* text */ number[] ]
-export function otNameGetUtf8(face: face_t, nameId: ot_name_id_t, language: language_t): [ /* returnType */ number, /* text */ string[] ]
+export function otNameGetUtf16(face: face_t, nameId: ot_name_id_t, language: language_t): { returnType: number, text: number[] }
+export function otNameGetUtf32(face: face_t, nameId: ot_name_id_t, language: language_t): { returnType: number, text: number[] }
+export function otNameGetUtf8(face: face_t, nameId: ot_name_id_t, language: language_t): { returnType: number, text: string[] }
 export function otNameListNames(face: face_t): ot_name_entry_t[]
 export function otShapeGlyphsClosure(font: font_t, buffer: buffer_t, features: feature_t, numFeatures: number, glyphs: set_t): void
 export function otTagFromLanguage(language: language_t): tag_t
 export function otTagToLanguage(tag: tag_t): language_t
 export function otTagToScript(tag: tag_t): script_t
 export function otTagsFromScript(script: script_t, scriptTag1: tag_t, scriptTag2: tag_t): void
-export function otTagsFromScriptAndLanguage(script: script_t, language: language_t, scriptCount?: number | null, languageCount?: number | null): [ /* scriptTags */ tag_t | null, /* languageTags */ tag_t | null ]
+export function otTagsFromScriptAndLanguage(script: script_t, language: language_t, scriptCount?: number | null, languageCount?: number | null): { scriptTags: tag_t | null, languageTags: tag_t | null }
 export function otTagsToScriptAndLanguage(scriptTag: tag_t, languageTag: tag_t, script?: script_t | null, language?: language_t | null): void
 export function otVarFindAxis(face: face_t, axisTag: tag_t, axisIndex: number, axisInfo: ot_var_axis_t): bool_t
 export function otVarFindAxisInfo(face: face_t, axisTag: tag_t, axisInfo: ot_var_axis_info_t): bool_t
@@ -1044,10 +1044,10 @@ export function setInvert(set: set_t): void
 export function setIsEmpty(set: set_t): bool_t
 export function setIsEqual(set: set_t, other: set_t): bool_t
 export function setIsSubset(set: set_t, largerSet: set_t): bool_t
-export function setNext(set: set_t, codepoint: codepoint_t): [ /* returnType */ bool_t, /* codepoint */ codepoint_t ]
-export function setNextRange(set: set_t, last: codepoint_t): [ /* returnType */ bool_t, /* first */ codepoint_t, /* last */ codepoint_t ]
-export function setPrevious(set: set_t, codepoint: codepoint_t): [ /* returnType */ bool_t, /* codepoint */ codepoint_t ]
-export function setPreviousRange(set: set_t, first: codepoint_t): [ /* returnType */ bool_t, /* first */ codepoint_t, /* last */ codepoint_t ]
+export function setNext(set: set_t, codepoint: codepoint_t): { returnType: bool_t, codepoint: codepoint_t }
+export function setNextRange(set: set_t, last: codepoint_t): { returnType: bool_t, first: codepoint_t, last: codepoint_t }
+export function setPrevious(set: set_t, codepoint: codepoint_t): { returnType: bool_t, codepoint: codepoint_t }
+export function setPreviousRange(set: set_t, first: codepoint_t): { returnType: bool_t, first: codepoint_t, last: codepoint_t }
 export function setSet(set: set_t, other: set_t): void
 export function setSubtract(set: set_t, other: set_t): void
 export function setSymmetricDifference(set: set_t, other: set_t): void
@@ -1063,11 +1063,11 @@ export function shapePlanExecute(shapePlan: shape_plan_t, font: font_t, buffer: 
 export function shapePlanGetEmpty(): shape_plan_t
 export function shapePlanGetShaper(shapePlan: shape_plan_t): string
 export function tagFromString(str: any[]): tag_t
-export function tagToString(tag: tag_t): /* buf */ any[]
+export function tagToString(tag: tag_t): { buf: any[] }
 export function unicodeCombiningClass(ufuncs: unicode_funcs_t, unicode: codepoint_t): unicode_combining_class_t
-export function unicodeCompose(ufuncs: unicode_funcs_t, a: codepoint_t, b: codepoint_t): [ /* returnType */ bool_t, /* ab */ codepoint_t ]
-export function unicodeDecompose(ufuncs: unicode_funcs_t, ab: codepoint_t): [ /* returnType */ bool_t, /* a */ codepoint_t, /* b */ codepoint_t ]
-export function unicodeDecomposeCompatibility(ufuncs: unicode_funcs_t, u: codepoint_t): [ /* returnType */ number, /* decomposed */ codepoint_t ]
+export function unicodeCompose(ufuncs: unicode_funcs_t, a: codepoint_t, b: codepoint_t): { returnType: bool_t, ab: codepoint_t }
+export function unicodeDecompose(ufuncs: unicode_funcs_t, ab: codepoint_t): { returnType: bool_t, a: codepoint_t, b: codepoint_t }
+export function unicodeDecomposeCompatibility(ufuncs: unicode_funcs_t, u: codepoint_t): { returnType: number, decomposed: codepoint_t }
 export function unicodeEastasianWidth(ufuncs: unicode_funcs_t, unicode: codepoint_t): number
 export function unicodeFuncsCreate(parent?: unicode_funcs_t | null): unicode_funcs_t
 export function unicodeFuncsGetDefault(): unicode_funcs_t
@@ -1088,7 +1088,7 @@ export function unicodeMirroring(ufuncs: unicode_funcs_t, unicode: codepoint_t):
 export function unicodeScript(ufuncs: unicode_funcs_t, unicode: codepoint_t): script_t
 export function variationFromString(str: string, len: number, variation: variation_t): bool_t
 export function variationToString(variation: variation_t, buf: string, size: number): void
-export function version(): [ /* major */ number, /* minor */ number, /* micro */ number ]
+export function version(): { major: number, minor: number, micro: number }
 export function versionAtleast(major: number, minor: number, micro: number): bool_t
 export function versionString(): string
 export interface buffer_message_func_t {
@@ -1179,7 +1179,7 @@ export class feature_t {
     start: number
     end: number
     /* Methods of HarfBuzz-0.0.HarfBuzz.feature_t */
-    string(): /* buf */ string[]
+    string(): { buf: string[] }
     static name: string
 }
 export class font_extents_t {

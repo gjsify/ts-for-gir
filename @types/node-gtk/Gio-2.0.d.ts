@@ -690,7 +690,7 @@ export const VOLUME_IDENTIFIER_KIND_UNIX_DEVICE: string
 export const VOLUME_IDENTIFIER_KIND_UUID: string
 export const VOLUME_MONITOR_EXTENSION_POINT_NAME: string
 export function actionNameIsValid(actionName: string): boolean
-export function actionParseDetailedName(detailedName: string): [ /* returnType */ boolean, /* actionName */ string, /* targetValue */ GLib.Variant ]
+export function actionParseDetailedName(detailedName: string): { returnType: boolean, actionName: string, targetValue: GLib.Variant }
 export function actionPrintDetailedName(actionName: string, targetValue?: GLib.Variant | null): string
 export function appInfoCreateFromCommandline(commandline: string, applicationName: string | null, flags: AppInfoCreateFlags): AppInfo
 export function appInfoGetAll(): AppInfo[]
@@ -722,7 +722,7 @@ export function contentTypeGetIcon(type: string): Icon
 export function contentTypeGetMimeDirs(): string[]
 export function contentTypeGetMimeType(type: string): string | null
 export function contentTypeGetSymbolicIcon(type: string): Icon
-export function contentTypeGuess(filename: string | null, data: any[] | null): [ /* returnType */ string, /* resultUncertain */ boolean | null ]
+export function contentTypeGuess(filename: string | null, data: any[] | null): { returnType: string, resultUncertain: boolean | null }
 export function contentTypeGuessForTree(root: File): string[]
 export function contentTypeIsA(type: string, supertype: string): boolean
 export function contentTypeIsMimeType(type: string, mimeType: string): boolean
@@ -732,8 +732,8 @@ export function contentTypesGetRegistered(): string[]
 export function dbusAddressEscapeValue(string: string): string
 export function dbusAddressGetForBusSync(busType: BusType, cancellable?: Cancellable | null): string
 export function dbusAddressGetStream(address: string, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-export function dbusAddressGetStreamFinish(res: AsyncResult): [ /* returnType */ IOStream, /* outGuid */ string | null ]
-export function dbusAddressGetStreamSync(address: string, cancellable?: Cancellable | null): [ /* returnType */ IOStream, /* outGuid */ string | null ]
+export function dbusAddressGetStreamFinish(res: AsyncResult): { returnType: IOStream, outGuid: string | null }
+export function dbusAddressGetStreamSync(address: string, cancellable?: Cancellable | null): { returnType: IOStream, outGuid: string | null }
 export function dbusAnnotationInfoLookup(annotations: DBusAnnotationInfo[] | null, name: string): string
 export function dbusErrorEncodeGerror(error: GLib.Error): string
 export function dbusErrorGetRemoteError(error: GLib.Error): string
@@ -746,7 +746,7 @@ export function dbusErrorStripRemoteError(error: GLib.Error): boolean
 export function dbusErrorUnregisterError(errorDomain: GLib.Quark, errorCode: number, dbusErrorName: string): boolean
 export function dbusGenerateGuid(): string
 export function dbusGvalueToGvariant(gvalue: any, type: GLib.VariantType): GLib.Variant
-export function dbusGvariantToGvalue(value: GLib.Variant): /* outGvalue */ any
+export function dbusGvariantToGvalue(value: GLib.Variant): { outGvalue: any }
 export function dbusIsAddress(string: string): boolean
 export function dbusIsGuid(string: string): boolean
 export function dbusIsInterfaceName(string: string): boolean
@@ -760,7 +760,7 @@ export function fileNewForCommandlineArg(arg: string): File
 export function fileNewForCommandlineArgAndCwd(arg: string, cwd: string): File
 export function fileNewForPath(path: string): File
 export function fileNewForUri(uri: string): File
-export function fileNewTmp(tmpl?: string | null): [ /* returnType */ File, /* iostream */ FileIOStream ]
+export function fileNewTmp(tmpl?: string | null): { returnType: File, iostream: FileIOStream }
 export function fileParseName(parseName: string): File
 export function iconDeserialize(value: GLib.Variant): Icon
 export function iconHash(icon: object): number
@@ -787,14 +787,14 @@ export function pollableSourceNew(pollableStream: GObject.Object): GLib.Source
 export function pollableSourceNewFull(pollableStream: GObject.Object, childSource?: GLib.Source | null, cancellable?: Cancellable | null): GLib.Source
 export function pollableStreamRead(stream: InputStream, buffer: any[], blocking: boolean, cancellable?: Cancellable | null): number
 export function pollableStreamWrite(stream: OutputStream, buffer: any[], blocking: boolean, cancellable?: Cancellable | null): number
-export function pollableStreamWriteAll(stream: OutputStream, buffer: any[], blocking: boolean, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number ]
+export function pollableStreamWriteAll(stream: OutputStream, buffer: any[], blocking: boolean, cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number }
 export function proxyGetDefaultForProtocol(protocol: string): Proxy
 export function proxyResolverGetDefault(): ProxyResolver
 export function resolverErrorQuark(): GLib.Quark
 export function resourceErrorQuark(): GLib.Quark
 export function resourceLoad(filename: string): Resource
 export function resourcesEnumerateChildren(path: string, lookupFlags: ResourceLookupFlags): string[]
-export function resourcesGetInfo(path: string, lookupFlags: ResourceLookupFlags): [ /* returnType */ boolean, /* size */ number | null, /* flags */ number | null ]
+export function resourcesGetInfo(path: string, lookupFlags: ResourceLookupFlags): { returnType: boolean, size: number | null, flags: number | null }
 export function resourcesLookupData(path: string, lookupFlags: ResourceLookupFlags): any
 export function resourcesOpenStream(path: string, lookupFlags: ResourceLookupFlags): InputStream
 export function resourcesRegister(resource: Resource): void
@@ -810,10 +810,10 @@ export function tlsServerConnectionNew(baseIoStream: IOStream, certificate?: Tls
 export function unixIsMountPathSystemInternal(mountPath: string): boolean
 export function unixIsSystemDevicePath(devicePath: string): boolean
 export function unixIsSystemFsType(fsType: string): boolean
-export function unixMountAt(mountPath: string): [ /* returnType */ UnixMountEntry, /* timeRead */ number | null ]
+export function unixMountAt(mountPath: string): { returnType: UnixMountEntry, timeRead: number | null }
 export function unixMountCompare(mount1: UnixMountEntry, mount2: UnixMountEntry): number
 export function unixMountCopy(mountEntry: UnixMountEntry): UnixMountEntry
-export function unixMountFor(filePath: string): [ /* returnType */ UnixMountEntry, /* timeRead */ number | null ]
+export function unixMountFor(filePath: string): { returnType: UnixMountEntry, timeRead: number | null }
 export function unixMountFree(mountEntry: UnixMountEntry): void
 export function unixMountGetDevicePath(mountEntry: UnixMountEntry): string
 export function unixMountGetFsType(mountEntry: UnixMountEntry): string
@@ -827,11 +827,11 @@ export function unixMountGuessShouldDisplay(mountEntry: UnixMountEntry): boolean
 export function unixMountGuessSymbolicIcon(mountEntry: UnixMountEntry): Icon
 export function unixMountIsReadonly(mountEntry: UnixMountEntry): boolean
 export function unixMountIsSystemInternal(mountEntry: UnixMountEntry): boolean
-export function unixMountPointAt(mountPath: string): [ /* returnType */ UnixMountPoint | null, /* timeRead */ number | null ]
+export function unixMountPointAt(mountPath: string): { returnType: UnixMountPoint | null, timeRead: number | null }
 export function unixMountPointsChangedSince(time: number): boolean
-export function unixMountPointsGet(): [ /* returnType */ UnixMountPoint[], /* timeRead */ number | null ]
+export function unixMountPointsGet(): { returnType: UnixMountPoint[], timeRead: number | null }
 export function unixMountsChangedSince(time: number): boolean
-export function unixMountsGet(): [ /* returnType */ UnixMountEntry[], /* timeRead */ number | null ]
+export function unixMountsGet(): { returnType: UnixMountEntry[], timeRead: number | null }
 export interface AsyncReadyCallback {
     (sourceObject: GObject.Object | null, res: AsyncResult): void
 }
@@ -950,7 +950,7 @@ export class Action {
     static name: string
     /* Static methods and pseudo-constructors */
     static nameIsValid(actionName: string): boolean
-    static parseDetailedName(detailedName: string): [ /* returnType */ boolean, /* actionName */ string, /* targetValue */ GLib.Variant ]
+    static parseDetailedName(detailedName: string): { returnType: boolean, actionName: string, targetValue: GLib.Variant }
     static printDetailedName(actionName: string, targetValue?: GLib.Variant | null): string
 }
 export class ActionGroup {
@@ -968,7 +968,7 @@ export class ActionGroup {
     getActionStateType(actionName: string): GLib.VariantType | null
     hasAction(actionName: string): boolean
     listActions(): string[]
-    queryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
+    queryAction(actionName: string): { returnType: boolean, enabled: boolean, parameterType: GLib.VariantType | null, stateType: GLib.VariantType | null, stateHint: GLib.Variant | null, state: GLib.Variant | null }
     /* Virtual methods of Gio-2.0.Gio.ActionGroup */
     vfuncActionAdded(actionName: string): void
     vfuncActionEnabledChanged(actionName: string, enabled: boolean): void
@@ -983,7 +983,7 @@ export class ActionGroup {
     vfuncGetActionStateType(actionName: string): GLib.VariantType | null
     vfuncHasAction(actionName: string): boolean
     vfuncListActions(): string[]
-    vfuncQueryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
+    vfuncQueryAction(actionName: string): { returnType: boolean, enabled: boolean, parameterType: GLib.VariantType | null, stateType: GLib.VariantType | null, stateHint: GLib.Variant | null, state: GLib.Variant | null }
     /* Signals of Gio-2.0.Gio.ActionGroup */
     connect(sigName: "action-added", callback: (($obj: ActionGroup, actionName: string) => void)): number
     on(sigName: "action-added", callback: (actionName: string) => void, after?: boolean): NodeJS.EventEmitter
@@ -1112,10 +1112,10 @@ export class AsyncResult {
 }
 export class Converter {
     /* Methods of Gio-2.0.Gio.Converter */
-    convert(inbuf: any[], outbuf: any[], flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytesRead */ number, /* bytesWritten */ number ]
+    convert(inbuf: any[], outbuf: any[], flags: ConverterFlags): { returnType: ConverterResult, bytesRead: number, bytesWritten: number }
     reset(): void
     /* Virtual methods of Gio-2.0.Gio.Converter */
-    vfuncConvert(inbuf: any[] | null, outbuf: any[] | null, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytesRead */ number, /* bytesWritten */ number ]
+    vfuncConvert(inbuf: any[] | null, outbuf: any[] | null, flags: ConverterFlags): { returnType: ConverterResult, bytesRead: number, bytesWritten: number }
     vfuncReset(): void
     static name: string
 }
@@ -1342,7 +1342,7 @@ export class DtlsConnection {
     closeFinish(result: AsyncResult): boolean
     emitAcceptCertificate(peerCert: TlsCertificate, errors: TlsCertificateFlags): boolean
     getCertificate(): TlsCertificate | null
-    getChannelBindingData(type: TlsChannelBindingType): [ /* returnType */ boolean, /* data */ any[] | null ]
+    getChannelBindingData(type: TlsChannelBindingType): { returnType: boolean, data: any[] | null }
     getDatabase(): TlsDatabase | null
     getInteraction(): TlsInteraction | null
     getNegotiatedProtocol(): string | null
@@ -1454,19 +1454,19 @@ export class File {
     hasUriScheme(uriScheme: string): boolean
     hash(): number
     isNative(): boolean
-    loadBytes(cancellable?: Cancellable | null): [ /* returnType */ any, /* etagOut */ string | null ]
+    loadBytes(cancellable?: Cancellable | null): { returnType: any, etagOut: string | null }
     loadBytesAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    loadBytesFinish(result: AsyncResult): [ /* returnType */ any, /* etagOut */ string | null ]
-    loadContents(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* contents */ any[], /* etagOut */ string | null ]
+    loadBytesFinish(result: AsyncResult): { returnType: any, etagOut: string | null }
+    loadContents(cancellable?: Cancellable | null): { returnType: boolean, contents: any[], etagOut: string | null }
     loadContentsAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    loadContentsFinish(res: AsyncResult): [ /* returnType */ boolean, /* contents */ any[], /* etagOut */ string | null ]
-    loadPartialContentsFinish(res: AsyncResult): [ /* returnType */ boolean, /* contents */ any[], /* etagOut */ string | null ]
+    loadContentsFinish(res: AsyncResult): { returnType: boolean, contents: any[], etagOut: string | null }
+    loadPartialContentsFinish(res: AsyncResult): { returnType: boolean, contents: any[], etagOut: string | null }
     makeDirectory(cancellable?: Cancellable | null): boolean
     makeDirectoryAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     makeDirectoryFinish(result: AsyncResult): boolean
     makeDirectoryWithParents(cancellable?: Cancellable | null): boolean
     makeSymbolicLink(symlinkValue: string, cancellable?: Cancellable | null): boolean
-    measureDiskUsageFinish(result: AsyncResult): [ /* returnType */ boolean, /* diskUsage */ number | null, /* numDirs */ number | null, /* numFiles */ number | null ]
+    measureDiskUsageFinish(result: AsyncResult): { returnType: boolean, diskUsage: number | null, numDirs: number | null, numFiles: number | null }
     monitor(flags: FileMonitorFlags, cancellable?: Cancellable | null): FileMonitor
     monitorDirectory(flags: FileMonitorFlags, cancellable?: Cancellable | null): FileMonitor
     monitorFile(flags: FileMonitorFlags, cancellable?: Cancellable | null): FileMonitor
@@ -1499,10 +1499,10 @@ export class File {
     readFinish(res: AsyncResult): FileInputStream
     replace(etag: string | null, makeBackup: boolean, flags: FileCreateFlags, cancellable?: Cancellable | null): FileOutputStream
     replaceAsync(etag: string | null, makeBackup: boolean, flags: FileCreateFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    replaceContents(contents: any[], etag: string | null, makeBackup: boolean, flags: FileCreateFlags, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* newEtag */ string | null ]
+    replaceContents(contents: any[], etag: string | null, makeBackup: boolean, flags: FileCreateFlags, cancellable?: Cancellable | null): { returnType: boolean, newEtag: string | null }
     replaceContentsAsync(contents: any[], etag: string | null, makeBackup: boolean, flags: FileCreateFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     replaceContentsBytesAsync(contents: any, etag: string | null, makeBackup: boolean, flags: FileCreateFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    replaceContentsFinish(res: AsyncResult): [ /* returnType */ boolean, /* newEtag */ string | null ]
+    replaceContentsFinish(res: AsyncResult): { returnType: boolean, newEtag: string | null }
     replaceFinish(res: AsyncResult): FileOutputStream
     replaceReadwrite(etag: string | null, makeBackup: boolean, flags: FileCreateFlags, cancellable?: Cancellable | null): FileIOStream
     replaceReadwriteAsync(etag: string | null, makeBackup: boolean, flags: FileCreateFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -1516,7 +1516,7 @@ export class File {
     setAttributeUint32(attribute: string, value: number, flags: FileQueryInfoFlags, cancellable?: Cancellable | null): boolean
     setAttributeUint64(attribute: string, value: number, flags: FileQueryInfoFlags, cancellable?: Cancellable | null): boolean
     setAttributesAsync(info: FileInfo, flags: FileQueryInfoFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    setAttributesFinish(result: AsyncResult): [ /* returnType */ boolean, /* info */ FileInfo ]
+    setAttributesFinish(result: AsyncResult): { returnType: boolean, info: FileInfo }
     setAttributesFromInfo(info: FileInfo, flags: FileQueryInfoFlags, cancellable?: Cancellable | null): boolean
     setDisplayName(displayName: string, cancellable?: Cancellable | null): File
     setDisplayNameAsync(displayName: string, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -1576,7 +1576,7 @@ export class File {
     vfuncMakeDirectoryAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncMakeDirectoryFinish(result: AsyncResult): boolean
     vfuncMakeSymbolicLink(symlinkValue: string, cancellable?: Cancellable | null): boolean
-    vfuncMeasureDiskUsageFinish(result: AsyncResult): [ /* returnType */ boolean, /* diskUsage */ number | null, /* numDirs */ number | null, /* numFiles */ number | null ]
+    vfuncMeasureDiskUsageFinish(result: AsyncResult): { returnType: boolean, diskUsage: number | null, numDirs: number | null, numFiles: number | null }
     vfuncMonitorDir(flags: FileMonitorFlags, cancellable?: Cancellable | null): FileMonitor
     vfuncMonitorFile(flags: FileMonitorFlags, cancellable?: Cancellable | null): FileMonitor
     vfuncMountEnclosingVolume(flags: MountMountFlags, mountOperation?: MountOperation | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -1610,7 +1610,7 @@ export class File {
     vfuncResolveRelativePath(relativePath: string): File
     vfuncSetAttribute(attribute: string, type: FileAttributeType, valueP: object | null, flags: FileQueryInfoFlags, cancellable?: Cancellable | null): boolean
     vfuncSetAttributesAsync(info: FileInfo, flags: FileQueryInfoFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    vfuncSetAttributesFinish(result: AsyncResult): [ /* returnType */ boolean, /* info */ FileInfo ]
+    vfuncSetAttributesFinish(result: AsyncResult): { returnType: boolean, info: FileInfo }
     vfuncSetAttributesFromInfo(info: FileInfo, flags: FileQueryInfoFlags, cancellable?: Cancellable | null): boolean
     vfuncSetDisplayName(displayName: string, cancellable?: Cancellable | null): File
     vfuncSetDisplayNameAsync(displayName: string, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
@@ -1632,7 +1632,7 @@ export class File {
     static newForCommandlineArgAndCwd(arg: string, cwd: string): File
     static newForPath(path: string): File
     static newForUri(uri: string): File
-    static newTmp(tmpl?: string | null): [ /* returnType */ File, /* iostream */ FileIOStream ]
+    static newTmp(tmpl?: string | null): { returnType: File, iostream: FileIOStream }
     static parseName(parseName: string): File
 }
 export class FileDescriptorBased {
@@ -1686,17 +1686,17 @@ export class ListModel {
 }
 export class LoadableIcon {
     /* Methods of Gio-2.0.Gio.LoadableIcon */
-    load(size: number, cancellable?: Cancellable | null): [ /* returnType */ InputStream, /* type */ string | null ]
+    load(size: number, cancellable?: Cancellable | null): { returnType: InputStream, type: string | null }
     loadAsync(size: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    loadFinish(res: AsyncResult): [ /* returnType */ InputStream, /* type */ string | null ]
+    loadFinish(res: AsyncResult): { returnType: InputStream, type: string | null }
     /* Methods of Gio-2.0.Gio.Icon */
     equal(icon2?: Icon | null): boolean
     serialize(): GLib.Variant
     toString(): string | null
     /* Virtual methods of Gio-2.0.Gio.LoadableIcon */
-    vfuncLoad(size: number, cancellable?: Cancellable | null): [ /* returnType */ InputStream, /* type */ string | null ]
+    vfuncLoad(size: number, cancellable?: Cancellable | null): { returnType: InputStream, type: string | null }
     vfuncLoadAsync(size: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    vfuncLoadFinish(res: AsyncResult): [ /* returnType */ InputStream, /* type */ string | null ]
+    vfuncLoadFinish(res: AsyncResult): { returnType: InputStream, type: string | null }
     /* Virtual methods of Gio-2.0.Gio.Icon */
     vfuncEqual(icon2?: Icon | null): boolean
     vfuncHash(): number
@@ -1845,11 +1845,11 @@ export class PollableInputStream {
     closeFinish(result: AsyncResult): boolean
     hasPending(): boolean
     isClosed(): boolean
-    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ any[] ]
-    readAll(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ any[], /* bytesRead */ number ]
-    readAllAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[]
-    readAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesRead */ number ]
-    readAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[]
+    read(cancellable?: Cancellable | null): { returnType: number, buffer: any[] }
+    readAll(cancellable?: Cancellable | null): { returnType: boolean, buffer: any[], bytesRead: number }
+    readAllAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] }
+    readAllFinish(result: AsyncResult): { returnType: boolean, bytesRead: number }
+    readAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] }
     readBytes(count: number, cancellable?: Cancellable | null): any
     readBytesAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     readBytesFinish(result: AsyncResult): any
@@ -1889,7 +1889,7 @@ export class PollableInputStream {
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
-    vfuncReadAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[] | null
+    vfuncReadAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] | null }
     vfuncReadFinish(result: AsyncResult): number
     vfuncReadFn(buffer: object | null, count: number, cancellable?: Cancellable | null): number
     vfuncSkip(count: number, cancellable?: Cancellable | null): number
@@ -1933,7 +1933,7 @@ export class PollableOutputStream {
     createSource(cancellable?: Cancellable | null): GLib.Source
     isWritable(): boolean
     writeNonblocking(buffer: any[], cancellable?: Cancellable | null): number
-    writevNonblocking(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ PollableReturn, /* bytesWritten */ number | null ]
+    writevNonblocking(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: PollableReturn, bytesWritten: number | null }
     /* Methods of Gio-2.0.Gio.OutputStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
@@ -1950,20 +1950,20 @@ export class PollableOutputStream {
     spliceAsync(source: InputStream, flags: OutputStreamSpliceFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     spliceFinish(result: AsyncResult): number
     write(buffer: any[], cancellable?: Cancellable | null): number
-    writeAll(buffer: any[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAll(buffer: any[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     writeAllAsync(buffer: any[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writeAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAllFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     writeAsync(buffer: any[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytes(bytes: any, cancellable?: Cancellable | null): number
     writeBytesAsync(bytes: any, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytesFinish(result: AsyncResult): number
     writeFinish(result: AsyncResult): number
-    writev(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    writevAll(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writev(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
+    writevAll(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     writevAllAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writevAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writevAllFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     writevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writevFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -1991,7 +1991,7 @@ export class PollableOutputStream {
     vfuncCreateSource(cancellable?: Cancellable | null): GLib.Source
     vfuncIsWritable(): boolean
     vfuncWriteNonblocking(buffer: any[] | null): number
-    vfuncWritevNonblocking(vectors: OutputVector[]): [ /* returnType */ PollableReturn, /* bytesWritten */ number | null ]
+    vfuncWritevNonblocking(vectors: OutputVector[]): { returnType: PollableReturn, bytesWritten: number | null }
     /* Virtual methods of Gio-2.0.Gio.OutputStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
@@ -2006,8 +2006,8 @@ export class PollableOutputStream {
     vfuncWriteFinish(result: AsyncResult): number
     vfuncWriteFn(buffer: any[] | null, cancellable?: Cancellable | null): number
     vfuncWritevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    vfuncWritevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    vfuncWritevFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
+    vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -2082,7 +2082,7 @@ export class RemoteActionGroup {
     getActionStateType(actionName: string): GLib.VariantType | null
     hasAction(actionName: string): boolean
     listActions(): string[]
-    queryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
+    queryAction(actionName: string): { returnType: boolean, enabled: boolean, parameterType: GLib.VariantType | null, stateType: GLib.VariantType | null, stateHint: GLib.Variant | null, state: GLib.Variant | null }
     /* Virtual methods of Gio-2.0.Gio.RemoteActionGroup */
     vfuncActivateActionFull(actionName: string, parameter: GLib.Variant | null, platformData: GLib.Variant): void
     vfuncChangeActionStateFull(actionName: string, value: GLib.Variant, platformData: GLib.Variant): void
@@ -2100,7 +2100,7 @@ export class RemoteActionGroup {
     vfuncGetActionStateType(actionName: string): GLib.VariantType | null
     vfuncHasAction(actionName: string): boolean
     vfuncListActions(): string[]
-    vfuncQueryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
+    vfuncQueryAction(actionName: string): { returnType: boolean, enabled: boolean, parameterType: GLib.VariantType | null, stateType: GLib.VariantType | null, stateHint: GLib.Variant | null, state: GLib.Variant | null }
     /* Signals of Gio-2.0.Gio.ActionGroup */
     connect(sigName: "action-added", callback: (($obj: RemoteActionGroup, actionName: string) => void)): number
     on(sigName: "action-added", callback: (actionName: string) => void, after?: boolean): NodeJS.EventEmitter
@@ -2213,7 +2213,7 @@ export class TlsClientConnection {
     /* Methods of Gio-2.0.Gio.TlsConnection */
     emitAcceptCertificate(peerCert: TlsCertificate, errors: TlsCertificateFlags): boolean
     getCertificate(): TlsCertificate | null
-    getChannelBindingData(type: TlsChannelBindingType): [ /* returnType */ boolean, /* data */ any[] | null ]
+    getChannelBindingData(type: TlsChannelBindingType): { returnType: boolean, data: any[] | null }
     getDatabase(): TlsDatabase | null
     getInteraction(): TlsInteraction | null
     getNegotiatedProtocol(): string | null
@@ -2517,7 +2517,7 @@ export class TlsServerConnection {
     /* Methods of Gio-2.0.Gio.TlsConnection */
     emitAcceptCertificate(peerCert: TlsCertificate, errors: TlsCertificateFlags): boolean
     getCertificate(): TlsCertificate | null
-    getChannelBindingData(type: TlsChannelBindingType): [ /* returnType */ boolean, /* data */ any[] | null ]
+    getChannelBindingData(type: TlsChannelBindingType): { returnType: boolean, data: any[] | null }
     getDatabase(): TlsDatabase | null
     getInteraction(): TlsInteraction | null
     getNegotiatedProtocol(): string | null
@@ -2970,7 +2970,7 @@ export class Application {
     getActionStateType(actionName: string): GLib.VariantType | null
     hasAction(actionName: string): boolean
     listActions(): string[]
-    queryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
+    queryAction(actionName: string): { returnType: boolean, enabled: boolean, parameterType: GLib.VariantType | null, stateType: GLib.VariantType | null, stateHint: GLib.Variant | null, state: GLib.Variant | null }
     /* Methods of Gio-2.0.Gio.ActionMap */
     addAction(action: Action): void
     addActionEntries(entries: ActionEntry[], userData?: object | null): void
@@ -2985,7 +2985,7 @@ export class Application {
     vfuncDbusRegister(connection: DBusConnection, objectPath: string): boolean
     vfuncDbusUnregister(connection: DBusConnection, objectPath: string): void
     vfuncHandleLocalOptions(options: GLib.VariantDict): number
-    vfuncLocalCommandLine(arguments_: string[]): [ /* returnType */ boolean, /* arguments_ */ string[], /* exitStatus */ number ]
+    vfuncLocalCommandLine(arguments_: string[]): { returnType: boolean, arguments_: string[], exitStatus: number }
     vfuncNameLost(): boolean
     vfuncOpen(files: File[], hint: string): void
     vfuncQuitMainloop(): void
@@ -3005,7 +3005,7 @@ export class Application {
     vfuncGetActionStateType(actionName: string): GLib.VariantType | null
     vfuncHasAction(actionName: string): boolean
     vfuncListActions(): string[]
-    vfuncQueryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
+    vfuncQueryAction(actionName: string): { returnType: boolean, enabled: boolean, parameterType: GLib.VariantType | null, stateType: GLib.VariantType | null, stateHint: GLib.Variant | null, state: GLib.Variant | null }
     vfuncAddAction(action: Action): void
     vfuncLookupAction(actionName: string): Action
     vfuncRemoveAction(actionName: string): void
@@ -3250,11 +3250,11 @@ export class BufferedInputStream {
     closeFinish(result: AsyncResult): boolean
     hasPending(): boolean
     isClosed(): boolean
-    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ any[] ]
-    readAll(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ any[], /* bytesRead */ number ]
-    readAllAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[]
-    readAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesRead */ number ]
-    readAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[]
+    read(cancellable?: Cancellable | null): { returnType: number, buffer: any[] }
+    readAll(cancellable?: Cancellable | null): { returnType: boolean, buffer: any[], bytesRead: number }
+    readAllAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] }
+    readAllFinish(result: AsyncResult): { returnType: boolean, bytesRead: number }
+    readAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] }
     readBytes(count: number, cancellable?: Cancellable | null): any
     readBytesAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     readBytesFinish(result: AsyncResult): any
@@ -3304,7 +3304,7 @@ export class BufferedInputStream {
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
-    vfuncReadAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[] | null
+    vfuncReadAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] | null }
     vfuncReadFinish(result: AsyncResult): number
     vfuncReadFn(buffer: object | null, count: number, cancellable?: Cancellable | null): number
     vfuncSkip(count: number, cancellable?: Cancellable | null): number
@@ -3389,20 +3389,20 @@ export class BufferedOutputStream {
     spliceAsync(source: InputStream, flags: OutputStreamSpliceFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     spliceFinish(result: AsyncResult): number
     write(buffer: any[], cancellable?: Cancellable | null): number
-    writeAll(buffer: any[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAll(buffer: any[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     writeAllAsync(buffer: any[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writeAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAllFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     writeAsync(buffer: any[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytes(bytes: any, cancellable?: Cancellable | null): number
     writeBytesAsync(bytes: any, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytesFinish(result: AsyncResult): number
     writeFinish(result: AsyncResult): number
-    writev(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    writevAll(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writev(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
+    writevAll(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     writevAllAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writevAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writevAllFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     writevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writevFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -3451,8 +3451,8 @@ export class BufferedOutputStream {
     vfuncWriteFinish(result: AsyncResult): number
     vfuncWriteFn(buffer: any[] | null, cancellable?: Cancellable | null): number
     vfuncWritevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    vfuncWritevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    vfuncWritevFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
+    vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -3527,16 +3527,16 @@ export class BytesIcon {
     serialize(): GLib.Variant
     toString(): string | null
     /* Methods of Gio-2.0.Gio.LoadableIcon */
-    load(size: number, cancellable?: Cancellable | null): [ /* returnType */ InputStream, /* type */ string | null ]
+    load(size: number, cancellable?: Cancellable | null): { returnType: InputStream, type: string | null }
     loadAsync(size: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    loadFinish(res: AsyncResult): [ /* returnType */ InputStream, /* type */ string | null ]
+    loadFinish(res: AsyncResult): { returnType: InputStream, type: string | null }
     /* Virtual methods of Gio-2.0.Gio.BytesIcon */
     vfuncEqual(icon2?: Icon | null): boolean
     vfuncHash(): number
     vfuncSerialize(): GLib.Variant
-    vfuncLoad(size: number, cancellable?: Cancellable | null): [ /* returnType */ InputStream, /* type */ string | null ]
+    vfuncLoad(size: number, cancellable?: Cancellable | null): { returnType: InputStream, type: string | null }
     vfuncLoadAsync(size: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    vfuncLoadFinish(res: AsyncResult): [ /* returnType */ InputStream, /* type */ string | null ]
+    vfuncLoadFinish(res: AsyncResult): { returnType: InputStream, type: string | null }
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -3684,12 +3684,12 @@ export class CharsetConverter {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Methods of Gio-2.0.Gio.Converter */
-    convert(inbuf: any[], outbuf: any[], flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytesRead */ number, /* bytesWritten */ number ]
+    convert(inbuf: any[], outbuf: any[], flags: ConverterFlags): { returnType: ConverterResult, bytesRead: number, bytesWritten: number }
     reset(): void
     /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Cancellable | null): boolean
     /* Virtual methods of Gio-2.0.Gio.CharsetConverter */
-    vfuncConvert(inbuf: any[] | null, outbuf: any[] | null, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytesRead */ number, /* bytesWritten */ number ]
+    vfuncConvert(inbuf: any[] | null, outbuf: any[] | null, flags: ConverterFlags): { returnType: ConverterResult, bytesRead: number, bytesWritten: number }
     vfuncReset(): void
     vfuncInit(cancellable?: Cancellable | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
@@ -3751,11 +3751,11 @@ export class ConverterInputStream {
     closeFinish(result: AsyncResult): boolean
     hasPending(): boolean
     isClosed(): boolean
-    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ any[] ]
-    readAll(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ any[], /* bytesRead */ number ]
-    readAllAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[]
-    readAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesRead */ number ]
-    readAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[]
+    read(cancellable?: Cancellable | null): { returnType: number, buffer: any[] }
+    readAll(cancellable?: Cancellable | null): { returnType: boolean, buffer: any[], bytesRead: number }
+    readAllAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] }
+    readAllFinish(result: AsyncResult): { returnType: boolean, bytesRead: number }
+    readAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] }
     readBytes(count: number, cancellable?: Cancellable | null): any
     readBytesAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     readBytesFinish(result: AsyncResult): any
@@ -3800,7 +3800,7 @@ export class ConverterInputStream {
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
-    vfuncReadAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[] | null
+    vfuncReadAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] | null }
     vfuncReadFinish(result: AsyncResult): number
     vfuncReadFn(buffer: object | null, count: number, cancellable?: Cancellable | null): number
     vfuncSkip(count: number, cancellable?: Cancellable | null): number
@@ -3871,20 +3871,20 @@ export class ConverterOutputStream {
     spliceAsync(source: InputStream, flags: OutputStreamSpliceFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     spliceFinish(result: AsyncResult): number
     write(buffer: any[], cancellable?: Cancellable | null): number
-    writeAll(buffer: any[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAll(buffer: any[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     writeAllAsync(buffer: any[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writeAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAllFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     writeAsync(buffer: any[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytes(bytes: any, cancellable?: Cancellable | null): number
     writeBytesAsync(bytes: any, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytesFinish(result: AsyncResult): number
     writeFinish(result: AsyncResult): number
-    writev(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    writevAll(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writev(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
+    writevAll(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     writevAllAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writevAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writevAllFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     writevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writevFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -3912,13 +3912,13 @@ export class ConverterOutputStream {
     createSource(cancellable?: Cancellable | null): GLib.Source
     isWritable(): boolean
     writeNonblocking(buffer: any[], cancellable?: Cancellable | null): number
-    writevNonblocking(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ PollableReturn, /* bytesWritten */ number | null ]
+    writevNonblocking(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: PollableReturn, bytesWritten: number | null }
     /* Virtual methods of Gio-2.0.Gio.ConverterOutputStream */
     vfuncCanPoll(): boolean
     vfuncCreateSource(cancellable?: Cancellable | null): GLib.Source
     vfuncIsWritable(): boolean
     vfuncWriteNonblocking(buffer: any[] | null): number
-    vfuncWritevNonblocking(vectors: OutputVector[]): [ /* returnType */ PollableReturn, /* bytesWritten */ number | null ]
+    vfuncWritevNonblocking(vectors: OutputVector[]): { returnType: PollableReturn, bytesWritten: number | null }
     /* Virtual methods of Gio-2.0.Gio.OutputStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
@@ -3933,8 +3933,8 @@ export class ConverterOutputStream {
     vfuncWriteFinish(result: AsyncResult): number
     vfuncWriteFn(buffer: any[] | null, cancellable?: Cancellable | null): number
     vfuncWritevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    vfuncWritevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    vfuncWritevFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
+    vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -4066,7 +4066,7 @@ export class DBusActionGroup {
     getActionStateType(actionName: string): GLib.VariantType | null
     hasAction(actionName: string): boolean
     listActions(): string[]
-    queryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
+    queryAction(actionName: string): { returnType: boolean, enabled: boolean, parameterType: GLib.VariantType | null, stateType: GLib.VariantType | null, stateHint: GLib.Variant | null, state: GLib.Variant | null }
     /* Methods of Gio-2.0.Gio.RemoteActionGroup */
     activateActionFull(actionName: string, parameter: GLib.Variant | null, platformData: GLib.Variant): void
     changeActionStateFull(actionName: string, value: GLib.Variant, platformData: GLib.Variant): void
@@ -4084,7 +4084,7 @@ export class DBusActionGroup {
     vfuncGetActionStateType(actionName: string): GLib.VariantType | null
     vfuncHasAction(actionName: string): boolean
     vfuncListActions(): string[]
-    vfuncQueryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
+    vfuncQueryAction(actionName: string): { returnType: boolean, enabled: boolean, parameterType: GLib.VariantType | null, stateType: GLib.VariantType | null, stateHint: GLib.Variant | null, state: GLib.Variant | null }
     vfuncActivateActionFull(actionName: string, parameter: GLib.Variant | null, platformData: GLib.Variant): void
     vfuncChangeActionStateFull(actionName: string, value: GLib.Variant, platformData: GLib.Variant): void
     /* Virtual methods of GObject-2.0.GObject.Object */
@@ -4227,8 +4227,8 @@ export class DBusConnection {
     callFinish(res: AsyncResult): GLib.Variant
     callSync(busName: string | null, objectPath: string, interfaceName: string, methodName: string, parameters: GLib.Variant | null, replyType: GLib.VariantType | null, flags: DBusCallFlags, timeoutMsec: number, cancellable?: Cancellable | null): GLib.Variant
     callWithUnixFdList(busName: string | null, objectPath: string, interfaceName: string, methodName: string, parameters: GLib.Variant | null, replyType: GLib.VariantType | null, flags: DBusCallFlags, timeoutMsec: number, fdList?: UnixFDList | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ UnixFDList | null ]
-    callWithUnixFdListSync(busName: string | null, objectPath: string, interfaceName: string, methodName: string, parameters: GLib.Variant | null, replyType: GLib.VariantType | null, flags: DBusCallFlags, timeoutMsec: number, fdList?: UnixFDList | null, cancellable?: Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ UnixFDList | null ]
+    callWithUnixFdListFinish(res: AsyncResult): { returnType: GLib.Variant, outFdList: UnixFDList | null }
+    callWithUnixFdListSync(busName: string | null, objectPath: string, interfaceName: string, methodName: string, parameters: GLib.Variant | null, replyType: GLib.VariantType | null, flags: DBusCallFlags, timeoutMsec: number, fdList?: UnixFDList | null, cancellable?: Cancellable | null): { returnType: GLib.Variant, outFdList: UnixFDList | null }
     close(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     closeFinish(res: AsyncResult): boolean
     closeSync(cancellable?: Cancellable | null): boolean
@@ -4250,10 +4250,10 @@ export class DBusConnection {
     registerObject(objectPath: string, interfaceInfo: DBusInterfaceInfo, methodCallClosure?: Function | null, getPropertyClosure?: Function | null, setPropertyClosure?: Function | null): number
     registerSubtree(objectPath: string, vtable: DBusSubtreeVTable, flags: DBusSubtreeFlags, userData: object | null, userDataFreeFunc: GLib.DestroyNotify): number
     removeFilter(filterId: number): void
-    sendMessage(message: DBusMessage, flags: DBusSendMessageFlags): [ /* returnType */ boolean, /* outSerial */ number | null ]
-    sendMessageWithReply(message: DBusMessage, flags: DBusSendMessageFlags, timeoutMsec: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* outSerial */ number | null
+    sendMessage(message: DBusMessage, flags: DBusSendMessageFlags): { returnType: boolean, outSerial: number | null }
+    sendMessageWithReply(message: DBusMessage, flags: DBusSendMessageFlags, timeoutMsec: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { outSerial: number | null }
     sendMessageWithReplyFinish(res: AsyncResult): DBusMessage
-    sendMessageWithReplySync(message: DBusMessage, flags: DBusSendMessageFlags, timeoutMsec: number, cancellable?: Cancellable | null): [ /* returnType */ DBusMessage, /* outSerial */ number | null ]
+    sendMessageWithReplySync(message: DBusMessage, flags: DBusSendMessageFlags, timeoutMsec: number, cancellable?: Cancellable | null): { returnType: DBusMessage, outSerial: number | null }
     setExitOnClose(exitOnClose: boolean): void
     signalSubscribe(sender: string | null, interfaceName: string | null, member: string | null, objectPath: string | null, arg0: string | null, flags: DBusSignalFlags, callback: DBusSignalCallback): number
     signalUnsubscribe(subscriptionId: number): void
@@ -4484,9 +4484,9 @@ export class DBusMenuModel {
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Gio-2.0.Gio.MenuModel */
     vfuncGetItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant
-    vfuncGetItemAttributes(itemIndex: number): /* attributes */ GLib.HashTable
+    vfuncGetItemAttributes(itemIndex: number): { attributes: GLib.HashTable }
     vfuncGetItemLink(itemIndex: number, link: string): MenuModel
-    vfuncGetItemLinks(itemIndex: number): /* links */ GLib.HashTable
+    vfuncGetItemLinks(itemIndex: number): { links: GLib.HashTable }
     vfuncGetNItems(): number
     vfuncIsMutable(): boolean
     vfuncIterateItemAttributes(itemIndex: number): MenuAttributeIter
@@ -5145,8 +5145,8 @@ export class DBusProxy {
     callFinish(res: AsyncResult): GLib.Variant
     callSync(methodName: string, parameters: GLib.Variant | null, flags: DBusCallFlags, timeoutMsec: number, cancellable?: Cancellable | null): GLib.Variant
     callWithUnixFdList(methodName: string, parameters: GLib.Variant | null, flags: DBusCallFlags, timeoutMsec: number, fdList?: UnixFDList | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    callWithUnixFdListFinish(res: AsyncResult): [ /* returnType */ GLib.Variant, /* outFdList */ UnixFDList | null ]
-    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: DBusCallFlags, timeoutMsec: number, fdList?: UnixFDList | null, cancellable?: Cancellable | null): [ /* returnType */ GLib.Variant, /* outFdList */ UnixFDList | null ]
+    callWithUnixFdListFinish(res: AsyncResult): { returnType: GLib.Variant, outFdList: UnixFDList | null }
+    callWithUnixFdListSync(methodName: string, parameters: GLib.Variant | null, flags: DBusCallFlags, timeoutMsec: number, fdList?: UnixFDList | null, cancellable?: Cancellable | null): { returnType: GLib.Variant, outFdList: UnixFDList | null }
     getCachedProperty(propertyName: string): GLib.Variant | null
     getCachedPropertyNames(): string[] | null
     getConnection(): DBusConnection
@@ -5376,20 +5376,20 @@ export class DataInputStream {
     readInt16(cancellable?: Cancellable | null): number
     readInt32(cancellable?: Cancellable | null): number
     readInt64(cancellable?: Cancellable | null): number
-    readLine(cancellable?: Cancellable | null): [ /* returnType */ any[] | null, /* length */ number | null ]
+    readLine(cancellable?: Cancellable | null): { returnType: any[] | null, length: number | null }
     readLineAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    readLineFinish(result: AsyncResult): [ /* returnType */ any[] | null, /* length */ number | null ]
-    readLineFinishUtf8(result: AsyncResult): [ /* returnType */ string | null, /* length */ number | null ]
-    readLineUtf8(cancellable?: Cancellable | null): [ /* returnType */ string | null, /* length */ number | null ]
+    readLineFinish(result: AsyncResult): { returnType: any[] | null, length: number | null }
+    readLineFinishUtf8(result: AsyncResult): { returnType: string | null, length: number | null }
+    readLineUtf8(cancellable?: Cancellable | null): { returnType: string | null, length: number | null }
     readUint16(cancellable?: Cancellable | null): number
     readUint32(cancellable?: Cancellable | null): number
     readUint64(cancellable?: Cancellable | null): number
-    readUntil(stopChars: string, cancellable?: Cancellable | null): [ /* returnType */ string, /* length */ number | null ]
+    readUntil(stopChars: string, cancellable?: Cancellable | null): { returnType: string, length: number | null }
     readUntilAsync(stopChars: string, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    readUntilFinish(result: AsyncResult): [ /* returnType */ string, /* length */ number | null ]
-    readUpto(stopChars: string, stopCharsLen: number, cancellable?: Cancellable | null): [ /* returnType */ string, /* length */ number | null ]
+    readUntilFinish(result: AsyncResult): { returnType: string, length: number | null }
+    readUpto(stopChars: string, stopCharsLen: number, cancellable?: Cancellable | null): { returnType: string, length: number | null }
     readUptoAsync(stopChars: string, stopCharsLen: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    readUptoFinish(result: AsyncResult): [ /* returnType */ string, /* length */ number | null ]
+    readUptoFinish(result: AsyncResult): { returnType: string, length: number | null }
     setByteOrder(order: DataStreamByteOrder): void
     setNewlineType(type: DataStreamNewlineType): void
     /* Methods of Gio-2.0.Gio.BufferedInputStream */
@@ -5412,11 +5412,11 @@ export class DataInputStream {
     closeFinish(result: AsyncResult): boolean
     hasPending(): boolean
     isClosed(): boolean
-    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ any[] ]
-    readAll(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ any[], /* bytesRead */ number ]
-    readAllAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[]
-    readAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesRead */ number ]
-    readAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[]
+    read(cancellable?: Cancellable | null): { returnType: number, buffer: any[] }
+    readAll(cancellable?: Cancellable | null): { returnType: boolean, buffer: any[], bytesRead: number }
+    readAllAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] }
+    readAllFinish(result: AsyncResult): { returnType: boolean, bytesRead: number }
+    readAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] }
     readBytes(count: number, cancellable?: Cancellable | null): any
     readBytesAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     readBytesFinish(result: AsyncResult): any
@@ -5466,7 +5466,7 @@ export class DataInputStream {
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
-    vfuncReadAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[] | null
+    vfuncReadAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] | null }
     vfuncReadFinish(result: AsyncResult): number
     vfuncReadFn(buffer: object | null, count: number, cancellable?: Cancellable | null): number
     vfuncSkip(count: number, cancellable?: Cancellable | null): number
@@ -5563,20 +5563,20 @@ export class DataOutputStream {
     spliceAsync(source: InputStream, flags: OutputStreamSpliceFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     spliceFinish(result: AsyncResult): number
     write(buffer: any[], cancellable?: Cancellable | null): number
-    writeAll(buffer: any[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAll(buffer: any[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     writeAllAsync(buffer: any[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writeAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAllFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     writeAsync(buffer: any[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytes(bytes: any, cancellable?: Cancellable | null): number
     writeBytesAsync(bytes: any, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytesFinish(result: AsyncResult): number
     writeFinish(result: AsyncResult): number
-    writev(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    writevAll(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writev(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
+    writevAll(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     writevAllAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writevAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writevAllFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     writevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writevFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -5625,8 +5625,8 @@ export class DataOutputStream {
     vfuncWriteFinish(result: AsyncResult): number
     vfuncWriteFn(buffer: any[] | null, cancellable?: Cancellable | null): number
     vfuncWritevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    vfuncWritevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    vfuncWritevFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
+    vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -5965,7 +5965,7 @@ export class FileEnumerator {
     getContainer(): File
     hasPending(): boolean
     isClosed(): boolean
-    iterate(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* outInfo */ FileInfo | null, /* outChild */ File | null ]
+    iterate(cancellable?: Cancellable | null): { returnType: boolean, outInfo: FileInfo | null, outChild: File | null }
     nextFile(cancellable?: Cancellable | null): FileInfo | null
     nextFilesAsync(numFiles: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     nextFilesFinish(result: AsyncResult): FileInfo[]
@@ -6172,16 +6172,16 @@ export class FileIcon {
     serialize(): GLib.Variant
     toString(): string | null
     /* Methods of Gio-2.0.Gio.LoadableIcon */
-    load(size: number, cancellable?: Cancellable | null): [ /* returnType */ InputStream, /* type */ string | null ]
+    load(size: number, cancellable?: Cancellable | null): { returnType: InputStream, type: string | null }
     loadAsync(size: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    loadFinish(res: AsyncResult): [ /* returnType */ InputStream, /* type */ string | null ]
+    loadFinish(res: AsyncResult): { returnType: InputStream, type: string | null }
     /* Virtual methods of Gio-2.0.Gio.FileIcon */
     vfuncEqual(icon2?: Icon | null): boolean
     vfuncHash(): number
     vfuncSerialize(): GLib.Variant
-    vfuncLoad(size: number, cancellable?: Cancellable | null): [ /* returnType */ InputStream, /* type */ string | null ]
+    vfuncLoad(size: number, cancellable?: Cancellable | null): { returnType: InputStream, type: string | null }
     vfuncLoadAsync(size: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    vfuncLoadFinish(res: AsyncResult): [ /* returnType */ InputStream, /* type */ string | null ]
+    vfuncLoadFinish(res: AsyncResult): { returnType: InputStream, type: string | null }
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -6225,7 +6225,7 @@ export class FileInfo {
     getAttributeAsString(attribute: string): string | null
     getAttributeBoolean(attribute: string): boolean
     getAttributeByteString(attribute: string): string | null
-    getAttributeData(attribute: string): [ /* returnType */ boolean, /* type */ FileAttributeType | null, /* valuePp */ object | null, /* status */ FileAttributeStatus | null ]
+    getAttributeData(attribute: string): { returnType: boolean, type: FileAttributeType | null, valuePp: object | null, status: FileAttributeStatus | null }
     getAttributeInt32(attribute: string): number
     getAttributeInt64(attribute: string): number
     getAttributeObject(attribute: string): GObject.Object | null
@@ -6246,7 +6246,7 @@ export class FileInfo {
     getIsHidden(): boolean
     getIsSymlink(): boolean
     getModificationDateTime(): GLib.DateTime | null
-    getModificationTime(): /* result */ GLib.TimeVal
+    getModificationTime(): { result: GLib.TimeVal }
     getName(): string
     getSize(): number
     getSortOrder(): number
@@ -6351,11 +6351,11 @@ export class FileInputStream {
     closeFinish(result: AsyncResult): boolean
     hasPending(): boolean
     isClosed(): boolean
-    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ any[] ]
-    readAll(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ any[], /* bytesRead */ number ]
-    readAllAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[]
-    readAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesRead */ number ]
-    readAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[]
+    read(cancellable?: Cancellable | null): { returnType: number, buffer: any[] }
+    readAll(cancellable?: Cancellable | null): { returnType: boolean, buffer: any[], bytesRead: number }
+    readAllAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] }
+    readAllFinish(result: AsyncResult): { returnType: boolean, bytesRead: number }
+    readAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] }
     readBytes(count: number, cancellable?: Cancellable | null): any
     readBytesAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     readBytesFinish(result: AsyncResult): any
@@ -6405,7 +6405,7 @@ export class FileInputStream {
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
-    vfuncReadAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[] | null
+    vfuncReadAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] | null }
     vfuncReadFinish(result: AsyncResult): number
     vfuncReadFn(buffer: object | null, count: number, cancellable?: Cancellable | null): number
     vfuncSkip(count: number, cancellable?: Cancellable | null): number
@@ -6548,20 +6548,20 @@ export class FileOutputStream {
     spliceAsync(source: InputStream, flags: OutputStreamSpliceFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     spliceFinish(result: AsyncResult): number
     write(buffer: any[], cancellable?: Cancellable | null): number
-    writeAll(buffer: any[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAll(buffer: any[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     writeAllAsync(buffer: any[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writeAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAllFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     writeAsync(buffer: any[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytes(bytes: any, cancellable?: Cancellable | null): number
     writeBytesAsync(bytes: any, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytesFinish(result: AsyncResult): number
     writeFinish(result: AsyncResult): number
-    writev(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    writevAll(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writev(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
+    writevAll(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     writevAllAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writevAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writevAllFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     writevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writevFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -6614,8 +6614,8 @@ export class FileOutputStream {
     vfuncWriteFinish(result: AsyncResult): number
     vfuncWriteFn(buffer: any[] | null, cancellable?: Cancellable | null): number
     vfuncWritevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    vfuncWritevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    vfuncWritevFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
+    vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -6732,11 +6732,11 @@ export class FilterInputStream {
     closeFinish(result: AsyncResult): boolean
     hasPending(): boolean
     isClosed(): boolean
-    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ any[] ]
-    readAll(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ any[], /* bytesRead */ number ]
-    readAllAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[]
-    readAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesRead */ number ]
-    readAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[]
+    read(cancellable?: Cancellable | null): { returnType: number, buffer: any[] }
+    readAll(cancellable?: Cancellable | null): { returnType: boolean, buffer: any[], bytesRead: number }
+    readAllAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] }
+    readAllFinish(result: AsyncResult): { returnType: boolean, bytesRead: number }
+    readAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] }
     readBytes(count: number, cancellable?: Cancellable | null): any
     readBytesAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     readBytesFinish(result: AsyncResult): any
@@ -6771,7 +6771,7 @@ export class FilterInputStream {
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
-    vfuncReadAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[] | null
+    vfuncReadAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] | null }
     vfuncReadFinish(result: AsyncResult): number
     vfuncReadFn(buffer: object | null, count: number, cancellable?: Cancellable | null): number
     vfuncSkip(count: number, cancellable?: Cancellable | null): number
@@ -6838,20 +6838,20 @@ export class FilterOutputStream {
     spliceAsync(source: InputStream, flags: OutputStreamSpliceFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     spliceFinish(result: AsyncResult): number
     write(buffer: any[], cancellable?: Cancellable | null): number
-    writeAll(buffer: any[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAll(buffer: any[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     writeAllAsync(buffer: any[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writeAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAllFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     writeAsync(buffer: any[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytes(bytes: any, cancellable?: Cancellable | null): number
     writeBytesAsync(bytes: any, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytesFinish(result: AsyncResult): number
     writeFinish(result: AsyncResult): number
-    writev(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    writevAll(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writev(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
+    writevAll(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     writevAllAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writevAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writevAllFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     writevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writevFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -6888,8 +6888,8 @@ export class FilterOutputStream {
     vfuncWriteFinish(result: AsyncResult): number
     vfuncWriteFn(buffer: any[] | null, cancellable?: Cancellable | null): number
     vfuncWritevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    vfuncWritevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    vfuncWritevFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
+    vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -7423,11 +7423,11 @@ export class InputStream {
     closeFinish(result: AsyncResult): boolean
     hasPending(): boolean
     isClosed(): boolean
-    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ any[] ]
-    readAll(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ any[], /* bytesRead */ number ]
-    readAllAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[]
-    readAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesRead */ number ]
-    readAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[]
+    read(cancellable?: Cancellable | null): { returnType: number, buffer: any[] }
+    readAll(cancellable?: Cancellable | null): { returnType: boolean, buffer: any[], bytesRead: number }
+    readAllAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] }
+    readAllFinish(result: AsyncResult): { returnType: boolean, bytesRead: number }
+    readAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] }
     readBytes(count: number, cancellable?: Cancellable | null): any
     readBytesAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     readBytesFinish(result: AsyncResult): any
@@ -7462,7 +7462,7 @@ export class InputStream {
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
-    vfuncReadAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[] | null
+    vfuncReadAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] | null }
     vfuncReadFinish(result: AsyncResult): number
     vfuncReadFn(buffer: object | null, count: number, cancellable?: Cancellable | null): number
     vfuncSkip(count: number, cancellable?: Cancellable | null): number
@@ -7502,8 +7502,8 @@ export class ListStore {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.ListStore */
     append(item: GObject.Object): void
-    find(item: GObject.Object): [ /* returnType */ boolean, /* position */ number | null ]
-    findWithEqualFunc(item: GObject.Object, equalFunc: GLib.EqualFunc): [ /* returnType */ boolean, /* position */ number | null ]
+    find(item: GObject.Object): { returnType: boolean, position: number | null }
+    findWithEqualFunc(item: GObject.Object, equalFunc: GLib.EqualFunc): { returnType: boolean, position: number | null }
     insert(position: number, item: GObject.Object): void
     insertSorted(item: GObject.Object, compareFunc: GLib.CompareDataFunc): number
     remove(position: number): void
@@ -7592,11 +7592,11 @@ export class MemoryInputStream {
     closeFinish(result: AsyncResult): boolean
     hasPending(): boolean
     isClosed(): boolean
-    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ any[] ]
-    readAll(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ any[], /* bytesRead */ number ]
-    readAllAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[]
-    readAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesRead */ number ]
-    readAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[]
+    read(cancellable?: Cancellable | null): { returnType: number, buffer: any[] }
+    readAll(cancellable?: Cancellable | null): { returnType: boolean, buffer: any[], bytesRead: number }
+    readAllAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] }
+    readAllFinish(result: AsyncResult): { returnType: boolean, bytesRead: number }
+    readAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] }
     readBytes(count: number, cancellable?: Cancellable | null): any
     readBytesAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     readBytesFinish(result: AsyncResult): any
@@ -7652,7 +7652,7 @@ export class MemoryInputStream {
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
-    vfuncReadAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[] | null
+    vfuncReadAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] | null }
     vfuncReadFinish(result: AsyncResult): number
     vfuncReadFn(buffer: object | null, count: number, cancellable?: Cancellable | null): number
     vfuncSkip(count: number, cancellable?: Cancellable | null): number
@@ -7721,20 +7721,20 @@ export class MemoryOutputStream {
     spliceAsync(source: InputStream, flags: OutputStreamSpliceFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     spliceFinish(result: AsyncResult): number
     write(buffer: any[], cancellable?: Cancellable | null): number
-    writeAll(buffer: any[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAll(buffer: any[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     writeAllAsync(buffer: any[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writeAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAllFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     writeAsync(buffer: any[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytes(bytes: any, cancellable?: Cancellable | null): number
     writeBytesAsync(bytes: any, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytesFinish(result: AsyncResult): number
     writeFinish(result: AsyncResult): number
-    writev(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    writevAll(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writev(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
+    writevAll(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     writevAllAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writevAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writevAllFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     writevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writevFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -7762,7 +7762,7 @@ export class MemoryOutputStream {
     createSource(cancellable?: Cancellable | null): GLib.Source
     isWritable(): boolean
     writeNonblocking(buffer: any[], cancellable?: Cancellable | null): number
-    writevNonblocking(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ PollableReturn, /* bytesWritten */ number | null ]
+    writevNonblocking(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: PollableReturn, bytesWritten: number | null }
     /* Methods of Gio-2.0.Gio.Seekable */
     canSeek(): boolean
     canTruncate(): boolean
@@ -7774,7 +7774,7 @@ export class MemoryOutputStream {
     vfuncCreateSource(cancellable?: Cancellable | null): GLib.Source
     vfuncIsWritable(): boolean
     vfuncWriteNonblocking(buffer: any[] | null): number
-    vfuncWritevNonblocking(vectors: OutputVector[]): [ /* returnType */ PollableReturn, /* bytesWritten */ number | null ]
+    vfuncWritevNonblocking(vectors: OutputVector[]): { returnType: PollableReturn, bytesWritten: number | null }
     vfuncCanSeek(): boolean
     vfuncCanTruncate(): boolean
     vfuncSeek(offset: number, type: GLib.SeekType, cancellable?: Cancellable | null): boolean
@@ -7794,8 +7794,8 @@ export class MemoryOutputStream {
     vfuncWriteFinish(result: AsyncResult): number
     vfuncWriteFn(buffer: any[] | null, cancellable?: Cancellable | null): number
     vfuncWritevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    vfuncWritevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    vfuncWritevFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
+    vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -7885,9 +7885,9 @@ export class Menu {
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Gio-2.0.Gio.MenuModel */
     vfuncGetItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant
-    vfuncGetItemAttributes(itemIndex: number): /* attributes */ GLib.HashTable
+    vfuncGetItemAttributes(itemIndex: number): { attributes: GLib.HashTable }
     vfuncGetItemLink(itemIndex: number, link: string): MenuModel
-    vfuncGetItemLinks(itemIndex: number): /* links */ GLib.HashTable
+    vfuncGetItemLinks(itemIndex: number): { links: GLib.HashTable }
     vfuncGetNItems(): number
     vfuncIsMutable(): boolean
     vfuncIterateItemAttributes(itemIndex: number): MenuAttributeIter
@@ -7936,7 +7936,7 @@ export class MenuAttributeIter {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.MenuAttributeIter */
     getName(): string
-    getNext(): [ /* returnType */ boolean, /* outName */ string | null, /* value */ GLib.Variant | null ]
+    getNext(): { returnType: boolean, outName: string | null, value: GLib.Variant | null }
     getValue(): GLib.Variant
     next(): boolean
     /* Methods of GObject-2.0.GObject.Object */
@@ -7962,7 +7962,7 @@ export class MenuAttributeIter {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Gio-2.0.Gio.MenuAttributeIter */
-    vfuncGetNext(): [ /* returnType */ boolean, /* outName */ string | null, /* value */ GLib.Variant | null ]
+    vfuncGetNext(): { returnType: boolean, outName: string | null, value: GLib.Variant | null }
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -8068,7 +8068,7 @@ export class MenuLinkIter {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.MenuLinkIter */
     getName(): string
-    getNext(): [ /* returnType */ boolean, /* outLink */ string | null, /* value */ MenuModel | null ]
+    getNext(): { returnType: boolean, outLink: string | null, value: MenuModel | null }
     getValue(): MenuModel
     next(): boolean
     /* Methods of GObject-2.0.GObject.Object */
@@ -8094,7 +8094,7 @@ export class MenuLinkIter {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Gio-2.0.Gio.MenuLinkIter */
-    vfuncGetNext(): [ /* returnType */ boolean, /* outLink */ string | null, /* value */ MenuModel | null ]
+    vfuncGetNext(): { returnType: boolean, outLink: string | null, value: MenuModel | null }
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -8161,9 +8161,9 @@ export class MenuModel {
     watchClosure(closure: GObject.Closure): void
     /* Virtual methods of Gio-2.0.Gio.MenuModel */
     vfuncGetItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant
-    vfuncGetItemAttributes(itemIndex: number): /* attributes */ GLib.HashTable
+    vfuncGetItemAttributes(itemIndex: number): { attributes: GLib.HashTable }
     vfuncGetItemLink(itemIndex: number, link: string): MenuModel
-    vfuncGetItemLinks(itemIndex: number): /* links */ GLib.HashTable
+    vfuncGetItemLinks(itemIndex: number): { links: GLib.HashTable }
     vfuncGetNItems(): number
     vfuncIsMutable(): boolean
     vfuncIterateItemAttributes(itemIndex: number): MenuAttributeIter
@@ -8844,20 +8844,20 @@ export class OutputStream {
     spliceAsync(source: InputStream, flags: OutputStreamSpliceFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     spliceFinish(result: AsyncResult): number
     write(buffer: any[], cancellable?: Cancellable | null): number
-    writeAll(buffer: any[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAll(buffer: any[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     writeAllAsync(buffer: any[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writeAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAllFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     writeAsync(buffer: any[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytes(bytes: any, cancellable?: Cancellable | null): number
     writeBytesAsync(bytes: any, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytesFinish(result: AsyncResult): number
     writeFinish(result: AsyncResult): number
-    writev(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    writevAll(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writev(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
+    writevAll(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     writevAllAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writevAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writevAllFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     writevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writevFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -8894,8 +8894,8 @@ export class OutputStream {
     vfuncWriteFinish(result: AsyncResult): number
     vfuncWriteFn(buffer: any[] | null, cancellable?: Cancellable | null): number
     vfuncWritevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    vfuncWritevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    vfuncWritevFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
+    vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -9122,7 +9122,7 @@ export class PropertyAction {
     /* Static methods and pseudo-constructors */
     static new(name: string, object: GObject.Object, propertyName: string): PropertyAction
     static nameIsValid(actionName: string): boolean
-    static parseDetailedName(detailedName: string): [ /* returnType */ boolean, /* actionName */ string, /* targetValue */ GLib.Variant ]
+    static parseDetailedName(detailedName: string): { returnType: boolean, actionName: string, targetValue: GLib.Variant }
     static printDetailedName(actionName: string, targetValue?: GLib.Variant | null): string
     static $gtype: GObject.Type
 }
@@ -9616,7 +9616,7 @@ export class SettingsBackend {
     constructor (config?: SettingsBackend_ConstructProps)
     _init (config?: SettingsBackend_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static flattenTree(tree: GLib.Tree): [ /* path */ string, /* keys */ string[], /* values */ GLib.Variant[] | null ]
+    static flattenTree(tree: GLib.Tree): { path: string, keys: string[], values: GLib.Variant[] | null }
     static getDefault(): SettingsBackend
     static $gtype: GObject.Type
 }
@@ -9744,7 +9744,7 @@ export class SimpleAction {
     static new(name: string, parameterType?: GLib.VariantType | null): SimpleAction
     static newStateful(name: string, parameterType: GLib.VariantType | null, state: GLib.Variant): SimpleAction
     static nameIsValid(actionName: string): boolean
-    static parseDetailedName(detailedName: string): [ /* returnType */ boolean, /* actionName */ string, /* targetValue */ GLib.Variant ]
+    static parseDetailedName(detailedName: string): { returnType: boolean, actionName: string, targetValue: GLib.Variant }
     static printDetailedName(actionName: string, targetValue?: GLib.Variant | null): string
     static $gtype: GObject.Type
 }
@@ -9794,7 +9794,7 @@ export class SimpleActionGroup {
     getActionStateType(actionName: string): GLib.VariantType | null
     hasAction(actionName: string): boolean
     listActions(): string[]
-    queryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
+    queryAction(actionName: string): { returnType: boolean, enabled: boolean, parameterType: GLib.VariantType | null, stateType: GLib.VariantType | null, stateHint: GLib.Variant | null, state: GLib.Variant | null }
     /* Methods of Gio-2.0.Gio.ActionMap */
     addAction(action: Action): void
     addActionEntries(entries: ActionEntry[], userData?: object | null): void
@@ -9814,7 +9814,7 @@ export class SimpleActionGroup {
     vfuncGetActionStateType(actionName: string): GLib.VariantType | null
     vfuncHasAction(actionName: string): boolean
     vfuncListActions(): string[]
-    vfuncQueryAction(actionName: string): [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
+    vfuncQueryAction(actionName: string): { returnType: boolean, enabled: boolean, parameterType: GLib.VariantType | null, stateType: GLib.VariantType | null, stateHint: GLib.Variant | null, state: GLib.Variant | null }
     vfuncAddAction(action: Action): void
     vfuncLookupAction(actionName: string): Action
     vfuncRemoveAction(actionName: string): void
@@ -10271,7 +10271,7 @@ export class Socket {
     getLocalAddress(): SocketAddress
     getMulticastLoopback(): boolean
     getMulticastTtl(): number
-    getOption(level: number, optname: number): [ /* returnType */ boolean, /* value */ number ]
+    getOption(level: number, optname: number): { returnType: boolean, value: number }
     getProtocol(): SocketProtocol
     getRemoteAddress(): SocketAddress
     getSocketType(): SocketType
@@ -10284,14 +10284,14 @@ export class Socket {
     leaveMulticastGroup(group: InetAddress, sourceSpecific: boolean, iface?: string | null): boolean
     leaveMulticastGroupSsm(group: InetAddress, sourceSpecific?: InetAddress | null, iface?: string | null): boolean
     listen(): boolean
-    receive(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ any[] ]
-    receiveFrom(cancellable?: Cancellable | null): [ /* returnType */ number, /* address */ SocketAddress | null, /* buffer */ any[] ]
-    receiveMessage(vectors: InputVector[], flags: number, cancellable?: Cancellable | null): [ /* returnType */ number, /* address */ SocketAddress | null, /* messages */ SocketControlMessage[] | null, /* flags */ number ]
+    receive(cancellable?: Cancellable | null): { returnType: number, buffer: any[] }
+    receiveFrom(cancellable?: Cancellable | null): { returnType: number, address: SocketAddress | null, buffer: any[] }
+    receiveMessage(vectors: InputVector[], flags: number, cancellable?: Cancellable | null): { returnType: number, address: SocketAddress | null, messages: SocketControlMessage[] | null, flags: number }
     receiveMessages(messages: InputMessage[], flags: number, cancellable?: Cancellable | null): number
-    receiveWithBlocking(blocking: boolean, cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ any[] ]
+    receiveWithBlocking(blocking: boolean, cancellable?: Cancellable | null): { returnType: number, buffer: any[] }
     send(buffer: any[], cancellable?: Cancellable | null): number
     sendMessage(address: SocketAddress | null, vectors: OutputVector[], messages: SocketControlMessage[] | null, flags: number, cancellable?: Cancellable | null): number
-    sendMessageWithTimeout(address: SocketAddress | null, vectors: OutputVector[], messages: SocketControlMessage[] | null, flags: number, timeoutUs: number, cancellable?: Cancellable | null): [ /* returnType */ PollableReturn, /* bytesWritten */ number | null ]
+    sendMessageWithTimeout(address: SocketAddress | null, vectors: OutputVector[], messages: SocketControlMessage[] | null, flags: number, timeoutUs: number, cancellable?: Cancellable | null): { returnType: PollableReturn, bytesWritten: number | null }
     sendMessages(messages: OutputMessage[], flags: number, cancellable?: Cancellable | null): number
     sendTo(address: SocketAddress | null, buffer: any[], cancellable?: Cancellable | null): number
     sendWithBlocking(buffer: any[], blocking: boolean, cancellable?: Cancellable | null): number
@@ -10908,13 +10908,13 @@ export class SocketListener {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.SocketListener */
-    accept(cancellable?: Cancellable | null): [ /* returnType */ SocketConnection, /* sourceObject */ GObject.Object | null ]
+    accept(cancellable?: Cancellable | null): { returnType: SocketConnection, sourceObject: GObject.Object | null }
     acceptAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    acceptFinish(result: AsyncResult): [ /* returnType */ SocketConnection, /* sourceObject */ GObject.Object | null ]
-    acceptSocket(cancellable?: Cancellable | null): [ /* returnType */ Socket, /* sourceObject */ GObject.Object | null ]
+    acceptFinish(result: AsyncResult): { returnType: SocketConnection, sourceObject: GObject.Object | null }
+    acceptSocket(cancellable?: Cancellable | null): { returnType: Socket, sourceObject: GObject.Object | null }
     acceptSocketAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    acceptSocketFinish(result: AsyncResult): [ /* returnType */ Socket, /* sourceObject */ GObject.Object | null ]
-    addAddress(address: SocketAddress, type: SocketType, protocol: SocketProtocol, sourceObject?: GObject.Object | null): [ /* returnType */ boolean, /* effectiveAddress */ SocketAddress | null ]
+    acceptSocketFinish(result: AsyncResult): { returnType: Socket, sourceObject: GObject.Object | null }
+    addAddress(address: SocketAddress, type: SocketType, protocol: SocketProtocol, sourceObject?: GObject.Object | null): { returnType: boolean, effectiveAddress: SocketAddress | null }
     addAnyInetPort(sourceObject?: GObject.Object | null): number
     addInetPort(port: number, sourceObject?: GObject.Object | null): boolean
     addSocket(socket: Socket, sourceObject?: GObject.Object | null): boolean
@@ -11002,13 +11002,13 @@ export class SocketService {
     start(): void
     stop(): void
     /* Methods of Gio-2.0.Gio.SocketListener */
-    accept(cancellable?: Cancellable | null): [ /* returnType */ SocketConnection, /* sourceObject */ GObject.Object | null ]
+    accept(cancellable?: Cancellable | null): { returnType: SocketConnection, sourceObject: GObject.Object | null }
     acceptAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    acceptFinish(result: AsyncResult): [ /* returnType */ SocketConnection, /* sourceObject */ GObject.Object | null ]
-    acceptSocket(cancellable?: Cancellable | null): [ /* returnType */ Socket, /* sourceObject */ GObject.Object | null ]
+    acceptFinish(result: AsyncResult): { returnType: SocketConnection, sourceObject: GObject.Object | null }
+    acceptSocket(cancellable?: Cancellable | null): { returnType: Socket, sourceObject: GObject.Object | null }
     acceptSocketAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    acceptSocketFinish(result: AsyncResult): [ /* returnType */ Socket, /* sourceObject */ GObject.Object | null ]
-    addAddress(address: SocketAddress, type: SocketType, protocol: SocketProtocol, sourceObject?: GObject.Object | null): [ /* returnType */ boolean, /* effectiveAddress */ SocketAddress | null ]
+    acceptSocketFinish(result: AsyncResult): { returnType: Socket, sourceObject: GObject.Object | null }
+    addAddress(address: SocketAddress, type: SocketType, protocol: SocketProtocol, sourceObject?: GObject.Object | null): { returnType: boolean, effectiveAddress: SocketAddress | null }
     addAnyInetPort(sourceObject?: GObject.Object | null): number
     addInetPort(port: number, sourceObject?: GObject.Object | null): boolean
     addSocket(socket: Socket, sourceObject?: GObject.Object | null): boolean
@@ -11099,12 +11099,12 @@ export class Subprocess {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.Subprocess */
-    communicate(stdinBuf?: any | null, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* stdoutBuf */ any | null, /* stderrBuf */ any | null ]
+    communicate(stdinBuf?: any | null, cancellable?: Cancellable | null): { returnType: boolean, stdoutBuf: any | null, stderrBuf: any | null }
     communicateAsync(stdinBuf?: any | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    communicateFinish(result: AsyncResult): [ /* returnType */ boolean, /* stdoutBuf */ any | null, /* stderrBuf */ any | null ]
-    communicateUtf8(stdinBuf?: string | null, cancellable?: Cancellable | null): [ /* returnType */ boolean, /* stdoutBuf */ string | null, /* stderrBuf */ string | null ]
+    communicateFinish(result: AsyncResult): { returnType: boolean, stdoutBuf: any | null, stderrBuf: any | null }
+    communicateUtf8(stdinBuf?: string | null, cancellable?: Cancellable | null): { returnType: boolean, stdoutBuf: string | null, stderrBuf: string | null }
     communicateUtf8Async(stdinBuf?: string | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    communicateUtf8Finish(result: AsyncResult): [ /* returnType */ boolean, /* stdoutBuf */ string | null, /* stderrBuf */ string | null ]
+    communicateUtf8Finish(result: AsyncResult): { returnType: boolean, stdoutBuf: string | null, stderrBuf: string | null }
     forceExit(): void
     getExitStatus(): number
     getIdentifier(): string | null
@@ -11271,7 +11271,7 @@ export class Task {
     propagateBoolean(): boolean
     propagateInt(): number
     propagatePointer(): object | null
-    propagateValue(): [ /* returnType */ boolean, /* value */ any ]
+    propagateValue(): { returnType: boolean, value: any }
     returnBoolean(result: boolean): void
     returnError(error: GLib.Error): void
     returnErrorIfCancelled(): boolean
@@ -11734,13 +11734,13 @@ export class ThreadedSocketService {
     start(): void
     stop(): void
     /* Methods of Gio-2.0.Gio.SocketListener */
-    accept(cancellable?: Cancellable | null): [ /* returnType */ SocketConnection, /* sourceObject */ GObject.Object | null ]
+    accept(cancellable?: Cancellable | null): { returnType: SocketConnection, sourceObject: GObject.Object | null }
     acceptAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    acceptFinish(result: AsyncResult): [ /* returnType */ SocketConnection, /* sourceObject */ GObject.Object | null ]
-    acceptSocket(cancellable?: Cancellable | null): [ /* returnType */ Socket, /* sourceObject */ GObject.Object | null ]
+    acceptFinish(result: AsyncResult): { returnType: SocketConnection, sourceObject: GObject.Object | null }
+    acceptSocket(cancellable?: Cancellable | null): { returnType: Socket, sourceObject: GObject.Object | null }
     acceptSocketAsync(cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    acceptSocketFinish(result: AsyncResult): [ /* returnType */ Socket, /* sourceObject */ GObject.Object | null ]
-    addAddress(address: SocketAddress, type: SocketType, protocol: SocketProtocol, sourceObject?: GObject.Object | null): [ /* returnType */ boolean, /* effectiveAddress */ SocketAddress | null ]
+    acceptSocketFinish(result: AsyncResult): { returnType: Socket, sourceObject: GObject.Object | null }
+    addAddress(address: SocketAddress, type: SocketType, protocol: SocketProtocol, sourceObject?: GObject.Object | null): { returnType: boolean, effectiveAddress: SocketAddress | null }
     addAnyInetPort(sourceObject?: GObject.Object | null): number
     addInetPort(port: number, sourceObject?: GObject.Object | null): boolean
     addSocket(socket: Socket, sourceObject?: GObject.Object | null): boolean
@@ -11938,7 +11938,7 @@ export class TlsConnection {
     /* Methods of Gio-2.0.Gio.TlsConnection */
     emitAcceptCertificate(peerCert: TlsCertificate, errors: TlsCertificateFlags): boolean
     getCertificate(): TlsCertificate | null
-    getChannelBindingData(type: TlsChannelBindingType): [ /* returnType */ boolean, /* data */ any[] | null ]
+    getChannelBindingData(type: TlsChannelBindingType): { returnType: boolean, data: any[] | null }
     getDatabase(): TlsDatabase | null
     getInteraction(): TlsInteraction | null
     getNegotiatedProtocol(): string | null
@@ -12689,11 +12689,11 @@ export class UnixInputStream {
     closeFinish(result: AsyncResult): boolean
     hasPending(): boolean
     isClosed(): boolean
-    read(cancellable?: Cancellable | null): [ /* returnType */ number, /* buffer */ any[] ]
-    readAll(cancellable?: Cancellable | null): [ /* returnType */ boolean, /* buffer */ any[], /* bytesRead */ number ]
-    readAllAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[]
-    readAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesRead */ number ]
-    readAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[]
+    read(cancellable?: Cancellable | null): { returnType: number, buffer: any[] }
+    readAll(cancellable?: Cancellable | null): { returnType: boolean, buffer: any[], bytesRead: number }
+    readAllAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] }
+    readAllFinish(result: AsyncResult): { returnType: boolean, bytesRead: number }
+    readAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] }
     readBytes(count: number, cancellable?: Cancellable | null): any
     readBytesAsync(count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     readBytesFinish(result: AsyncResult): any
@@ -12739,7 +12739,7 @@ export class UnixInputStream {
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
     vfuncCloseFn(cancellable?: Cancellable | null): boolean
-    vfuncReadAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): /* buffer */ any[] | null
+    vfuncReadAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): { buffer: any[] | null }
     vfuncReadFinish(result: AsyncResult): number
     vfuncReadFn(buffer: object | null, count: number, cancellable?: Cancellable | null): number
     vfuncSkip(count: number, cancellable?: Cancellable | null): number
@@ -12878,20 +12878,20 @@ export class UnixOutputStream {
     spliceAsync(source: InputStream, flags: OutputStreamSpliceFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     spliceFinish(result: AsyncResult): number
     write(buffer: any[], cancellable?: Cancellable | null): number
-    writeAll(buffer: any[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAll(buffer: any[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     writeAllAsync(buffer: any[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writeAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writeAllFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     writeAsync(buffer: any[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytes(bytes: any, cancellable?: Cancellable | null): number
     writeBytesAsync(bytes: any, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     writeBytesFinish(result: AsyncResult): number
     writeFinish(result: AsyncResult): number
-    writev(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    writevAll(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writev(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
+    writevAll(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     writevAllAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writevAllFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writevAllFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     writevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    writevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writevFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -12919,14 +12919,14 @@ export class UnixOutputStream {
     createSource(cancellable?: Cancellable | null): GLib.Source
     isWritable(): boolean
     writeNonblocking(buffer: any[], cancellable?: Cancellable | null): number
-    writevNonblocking(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ PollableReturn, /* bytesWritten */ number | null ]
+    writevNonblocking(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: PollableReturn, bytesWritten: number | null }
     /* Virtual methods of Gio-2.0.Gio.UnixOutputStream */
     vfuncGetFd(): number
     vfuncCanPoll(): boolean
     vfuncCreateSource(cancellable?: Cancellable | null): GLib.Source
     vfuncIsWritable(): boolean
     vfuncWriteNonblocking(buffer: any[] | null): number
-    vfuncWritevNonblocking(vectors: OutputVector[]): [ /* returnType */ PollableReturn, /* bytesWritten */ number | null ]
+    vfuncWritevNonblocking(vectors: OutputVector[]): { returnType: PollableReturn, bytesWritten: number | null }
     /* Virtual methods of Gio-2.0.Gio.OutputStream */
     vfuncCloseAsync(ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     vfuncCloseFinish(result: AsyncResult): boolean
@@ -12941,8 +12941,8 @@ export class UnixOutputStream {
     vfuncWriteFinish(result: AsyncResult): number
     vfuncWriteFn(buffer: any[] | null, cancellable?: Cancellable | null): number
     vfuncWritevAsync(vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    vfuncWritevFinish(result: AsyncResult): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
-    vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    vfuncWritevFinish(result: AsyncResult): { returnType: boolean, bytesWritten: number | null }
+    vfuncWritevFn(vectors: OutputVector[], cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number | null }
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -13323,10 +13323,10 @@ export class ZlibCompressor {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Methods of Gio-2.0.Gio.Converter */
-    convert(inbuf: any[], outbuf: any[], flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytesRead */ number, /* bytesWritten */ number ]
+    convert(inbuf: any[], outbuf: any[], flags: ConverterFlags): { returnType: ConverterResult, bytesRead: number, bytesWritten: number }
     reset(): void
     /* Virtual methods of Gio-2.0.Gio.ZlibCompressor */
-    vfuncConvert(inbuf: any[] | null, outbuf: any[] | null, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytesRead */ number, /* bytesWritten */ number ]
+    vfuncConvert(inbuf: any[] | null, outbuf: any[] | null, flags: ConverterFlags): { returnType: ConverterResult, bytesRead: number, bytesWritten: number }
     vfuncReset(): void
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
@@ -13394,10 +13394,10 @@ export class ZlibDecompressor {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Methods of Gio-2.0.Gio.Converter */
-    convert(inbuf: any[], outbuf: any[], flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytesRead */ number, /* bytesWritten */ number ]
+    convert(inbuf: any[], outbuf: any[], flags: ConverterFlags): { returnType: ConverterResult, bytesRead: number, bytesWritten: number }
     reset(): void
     /* Virtual methods of Gio-2.0.Gio.ZlibDecompressor */
-    vfuncConvert(inbuf: any[] | null, outbuf: any[] | null, flags: ConverterFlags): [ /* returnType */ ConverterResult, /* bytesRead */ number, /* bytesWritten */ number ]
+    vfuncConvert(inbuf: any[] | null, outbuf: any[] | null, flags: ConverterFlags): { returnType: ConverterResult, bytesRead: number, bytesWritten: number }
     vfuncReset(): void
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
@@ -13457,7 +13457,7 @@ export abstract class ActionGroupInterface {
     actionRemoved: (actionGroup: ActionGroup, actionName: string) => void
     actionEnabledChanged: (actionGroup: ActionGroup, actionName: string, enabled: boolean) => void
     actionStateChanged: (actionGroup: ActionGroup, actionName: string, state: GLib.Variant) => void
-    queryAction: (actionGroup: ActionGroup, actionName: string) => [ /* returnType */ boolean, /* enabled */ boolean, /* parameterType */ GLib.VariantType | null, /* stateType */ GLib.VariantType | null, /* stateHint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
+    queryAction: (actionGroup: ActionGroup, actionName: string) => { returnType: boolean, enabled: boolean, parameterType: GLib.VariantType | null, stateType: GLib.VariantType | null, stateHint: GLib.Variant | null, state: GLib.Variant | null }
     static name: string
 }
 export abstract class ActionInterface {
@@ -13529,7 +13529,7 @@ export abstract class ApplicationClass {
     activate: (application: Application) => void
     open: (application: Application, files: File[], hint: string) => void
     commandLine: (application: Application, commandLine: ApplicationCommandLine) => number
-    localCommandLine: (application: Application, arguments_: string[]) => [ /* returnType */ boolean, /* arguments_ */ string[], /* exitStatus */ number ]
+    localCommandLine: (application: Application, arguments_: string[]) => { returnType: boolean, arguments_: string[], exitStatus: number }
     beforeEmit: (application: Application, platformData: GLib.Variant) => void
     afterEmit: (application: Application, platformData: GLib.Variant) => void
     addPlatformData: (application: Application, builder: GLib.VariantBuilder) => void
@@ -13606,7 +13606,7 @@ export abstract class CharsetConverterClass {
 export abstract class ConverterIface {
     /* Fields of Gio-2.0.Gio.ConverterIface */
     gIface: GObject.TypeInterface
-    convert: (converter: Converter, inbuf: any[] | null, outbuf: any[] | null, flags: ConverterFlags) => [ /* returnType */ ConverterResult, /* bytesRead */ number, /* bytesWritten */ number ]
+    convert: (converter: Converter, inbuf: any[] | null, outbuf: any[] | null, flags: ConverterFlags) => { returnType: ConverterResult, bytesRead: number, bytesWritten: number }
     reset: (converter: Converter) => void
     static name: string
 }
@@ -14057,7 +14057,7 @@ export abstract class FileIface {
     setAttribute: (file: File, attribute: string, type: FileAttributeType, valueP: object | null, flags: FileQueryInfoFlags, cancellable?: Cancellable | null) => boolean
     setAttributesFromInfo: (file: File, info: FileInfo, flags: FileQueryInfoFlags, cancellable?: Cancellable | null) => boolean
     setAttributesAsync: (file: File, info: FileInfo, flags: FileQueryInfoFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
-    setAttributesFinish: (file: File, result: AsyncResult) => [ /* returnType */ boolean, /* info */ FileInfo ]
+    setAttributesFinish: (file: File, result: AsyncResult) => { returnType: boolean, info: FileInfo }
     readFn: (file: File, cancellable?: Cancellable | null) => FileInputStream
     readAsync: (file: File, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     readFinish: (file: File, res: AsyncResult) => FileInputStream
@@ -14114,7 +14114,7 @@ export abstract class FileIface {
     ejectMountableWithOperationFinish: (file: File, result: AsyncResult) => boolean
     pollMountable: (file: File, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     pollMountableFinish: (file: File, result: AsyncResult) => boolean
-    measureDiskUsageFinish: (file: File, result: AsyncResult) => [ /* returnType */ boolean, /* diskUsage */ number | null, /* numDirs */ number | null, /* numFiles */ number | null ]
+    measureDiskUsageFinish: (file: File, result: AsyncResult) => { returnType: boolean, diskUsage: number | null, numDirs: number | null, numFiles: number | null }
     static name: string
 }
 export abstract class FileInfoClass {
@@ -14284,7 +14284,7 @@ export abstract class InputStreamClass {
     readFn: (stream: InputStream, buffer: object | null, count: number, cancellable?: Cancellable | null) => number
     skip: (stream: InputStream, count: number, cancellable?: Cancellable | null) => number
     closeFn: (stream: InputStream, cancellable?: Cancellable | null) => boolean
-    readAsync: (stream: InputStream, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => /* buffer */ any[] | null
+    readAsync: (stream: InputStream, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => { buffer: any[] | null }
     readFinish: (stream: InputStream, result: AsyncResult) => number
     skipAsync: (stream: InputStream, count: number, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     skipFinish: (stream: InputStream, result: AsyncResult) => number
@@ -14317,9 +14317,9 @@ export abstract class ListStoreClass {
 export abstract class LoadableIconIface {
     /* Fields of Gio-2.0.Gio.LoadableIconIface */
     gIface: GObject.TypeInterface
-    load: (icon: LoadableIcon, size: number, cancellable?: Cancellable | null) => [ /* returnType */ InputStream, /* type */ string | null ]
+    load: (icon: LoadableIcon, size: number, cancellable?: Cancellable | null) => { returnType: InputStream, type: string | null }
     loadAsync: (icon: LoadableIcon, size: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
-    loadFinish: (icon: LoadableIcon, res: AsyncResult) => [ /* returnType */ InputStream, /* type */ string | null ]
+    loadFinish: (icon: LoadableIcon, res: AsyncResult) => { returnType: InputStream, type: string | null }
     static name: string
 }
 export abstract class MemoryInputStreamClass {
@@ -14346,7 +14346,7 @@ export class MemoryOutputStreamPrivate {
 export abstract class MenuAttributeIterClass {
     /* Fields of Gio-2.0.Gio.MenuAttributeIterClass */
     parentClass: GObject.ObjectClass
-    getNext: (iter: MenuAttributeIter) => [ /* returnType */ boolean, /* outName */ string | null, /* value */ GLib.Variant | null ]
+    getNext: (iter: MenuAttributeIter) => { returnType: boolean, outName: string | null, value: GLib.Variant | null }
     static name: string
 }
 export class MenuAttributeIterPrivate {
@@ -14355,7 +14355,7 @@ export class MenuAttributeIterPrivate {
 export abstract class MenuLinkIterClass {
     /* Fields of Gio-2.0.Gio.MenuLinkIterClass */
     parentClass: GObject.ObjectClass
-    getNext: (iter: MenuLinkIter) => [ /* returnType */ boolean, /* outLink */ string | null, /* value */ MenuModel | null ]
+    getNext: (iter: MenuLinkIter) => { returnType: boolean, outLink: string | null, value: MenuModel | null }
     static name: string
 }
 export class MenuLinkIterPrivate {
@@ -14366,10 +14366,10 @@ export abstract class MenuModelClass {
     parentClass: GObject.ObjectClass
     isMutable: (model: MenuModel) => boolean
     getNItems: (model: MenuModel) => number
-    getItemAttributes: (model: MenuModel, itemIndex: number) => /* attributes */ GLib.HashTable
+    getItemAttributes: (model: MenuModel, itemIndex: number) => { attributes: GLib.HashTable }
     iterateItemAttributes: (model: MenuModel, itemIndex: number) => MenuAttributeIter
     getItemAttributeValue: (model: MenuModel, itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null) => GLib.Variant
-    getItemLinks: (model: MenuModel, itemIndex: number) => /* links */ GLib.HashTable
+    getItemLinks: (model: MenuModel, itemIndex: number) => { links: GLib.HashTable }
     iterateItemLinks: (model: MenuModel, itemIndex: number) => MenuLinkIter
     getItemLink: (model: MenuModel, itemIndex: number, link: string) => MenuModel
     static name: string
@@ -14486,9 +14486,9 @@ export abstract class OutputStreamClass {
     flushFinish: (stream: OutputStream, result: AsyncResult) => boolean
     closeAsync: (stream: OutputStream, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     closeFinish: (stream: OutputStream, result: AsyncResult) => boolean
-    writevFn: (stream: OutputStream, vectors: OutputVector[], cancellable?: Cancellable | null) => [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writevFn: (stream: OutputStream, vectors: OutputVector[], cancellable?: Cancellable | null) => { returnType: boolean, bytesWritten: number | null }
     writevAsync: (stream: OutputStream, vectors: OutputVector[], ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
-    writevFinish: (stream: OutputStream, result: AsyncResult) => [ /* returnType */ boolean, /* bytesWritten */ number | null ]
+    writevFinish: (stream: OutputStream, result: AsyncResult) => { returnType: boolean, bytesWritten: number | null }
     static name: string
 }
 export class OutputStreamPrivate {
@@ -14531,7 +14531,7 @@ export abstract class PollableOutputStreamInterface {
     isWritable: (stream: PollableOutputStream) => boolean
     createSource: (stream: PollableOutputStream, cancellable?: Cancellable | null) => GLib.Source
     writeNonblocking: (stream: PollableOutputStream, buffer: any[] | null) => number
-    writevNonblocking: (stream: PollableOutputStream, vectors: OutputVector[]) => [ /* returnType */ PollableReturn, /* bytesWritten */ number | null ]
+    writevNonblocking: (stream: PollableOutputStream, vectors: OutputVector[]) => { returnType: PollableReturn, bytesWritten: number | null }
     static name: string
 }
 export abstract class ProxyAddressClass {
@@ -14601,7 +14601,7 @@ export class Resource {
     register(): void
     unregister(): void
     enumerateChildren(path: string, lookupFlags: ResourceLookupFlags): string[]
-    getInfo(path: string, lookupFlags: ResourceLookupFlags): [ /* returnType */ boolean, /* size */ number | null, /* flags */ number | null ]
+    getInfo(path: string, lookupFlags: ResourceLookupFlags): { returnType: boolean, size: number | null, flags: number | null }
     lookupData(path: string, lookupFlags: ResourceLookupFlags): any
     openStream(path: string, lookupFlags: ResourceLookupFlags): InputStream
     ref(): Resource
@@ -14678,7 +14678,7 @@ export class SettingsSchemaKey {
 }
 export class SettingsSchemaSource {
     /* Methods of Gio-2.0.Gio.SettingsSchemaSource */
-    listSchemas(recursive: boolean): [ /* nonRelocatable */ string[], /* relocatable */ string[] ]
+    listSchemas(recursive: boolean): { nonRelocatable: string[], relocatable: string[] }
     lookup(schemaId: string, recursive: boolean): SettingsSchema | null
     ref(): SettingsSchemaSource
     unref(): void
@@ -14996,7 +14996,7 @@ export class UnixMountPoint {
     isUserMountable(): boolean
     static name: string
     /* Static methods and pseudo-constructors */
-    static at(mountPath: string): [ /* returnType */ UnixMountPoint | null, /* timeRead */ number | null ]
+    static at(mountPath: string): { returnType: UnixMountPoint | null, timeRead: number | null }
 }
 export abstract class UnixOutputStreamClass {
     /* Fields of Gio-2.0.Gio.UnixOutputStreamClass */

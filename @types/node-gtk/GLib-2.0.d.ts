@@ -966,12 +966,12 @@ export function asciiDtostr(buffer: string, bufLen: number, d: number): string
 export function asciiFormatd(buffer: string, bufLen: number, format: string, d: number): string
 export function asciiStrcasecmp(s1: string, s2: string): number
 export function asciiStrdown(str: string, len: number): string
-export function asciiStringToSigned(str: string, base: number, min: number, max: number): [ /* returnType */ boolean, /* outNum */ number | null ]
-export function asciiStringToUnsigned(str: string, base: number, min: number, max: number): [ /* returnType */ boolean, /* outNum */ number | null ]
+export function asciiStringToSigned(str: string, base: number, min: number, max: number): { returnType: boolean, outNum: number | null }
+export function asciiStringToUnsigned(str: string, base: number, min: number, max: number): { returnType: boolean, outNum: number | null }
 export function asciiStrncasecmp(s1: string, s2: string, n: number): number
-export function asciiStrtod(nptr: string): [ /* returnType */ number, /* endptr */ string | null ]
-export function asciiStrtoll(nptr: string, base: number): [ /* returnType */ number, /* endptr */ string | null ]
-export function asciiStrtoull(nptr: string, base: number): [ /* returnType */ number, /* endptr */ string | null ]
+export function asciiStrtod(nptr: string): { returnType: number, endptr: string | null }
+export function asciiStrtoll(nptr: string, base: number): { returnType: number, endptr: string | null }
+export function asciiStrtoull(nptr: string, base: number): { returnType: number, endptr: string | null }
 export function asciiStrup(str: string, len: number): string
 export function asciiTolower(c: number): number
 export function asciiToupper(c: number): number
@@ -1010,10 +1010,10 @@ export function atomicRefCountDec(arc: number): boolean
 export function atomicRefCountInc(arc: number): void
 export function atomicRefCountInit(arc: number): void
 export function base64Decode(text: string): any[]
-export function base64DecodeInplace(text: any[]): [ /* returnType */ number, /* text */ any[] ]
+export function base64DecodeInplace(text: any[]): { returnType: number, text: any[] }
 export function base64Encode(data: any[] | null): string
-export function base64EncodeClose(breakLines: boolean, state: number, save: number): [ /* returnType */ number, /* out */ any[], /* state */ number, /* save */ number ]
-export function base64EncodeStep(in_: any[], breakLines: boolean, state: number, save: number): [ /* returnType */ number, /* out */ any[], /* state */ number, /* save */ number ]
+export function base64EncodeClose(breakLines: boolean, state: number, save: number): { returnType: number, out: any[], state: number, save: number }
+export function base64EncodeStep(in_: any[], breakLines: boolean, state: number, save: number): { returnType: number, out: any[], state: number, save: number }
 export function basename(fileName: string): string
 export function bitLock(address: number, lockBit: number): void
 export function bitNthLsf(mask: number, nthBit: number): number
@@ -1028,7 +1028,7 @@ export function byteArrayFree(array: any[], freeSegment: boolean): number
 export function byteArrayFreeToBytes(array: any[]): Bytes
 export function byteArrayNew(): any[]
 export function byteArrayNewTake(data: any[]): any[]
-export function byteArraySteal(array: any[]): [ /* returnType */ number, /* len */ number | null ]
+export function byteArraySteal(array: any[]): { returnType: number, len: number | null }
 export function byteArrayUnref(array: any[]): void
 export function canonicalizeFilename(filename: string, relativeTo?: string | null): string
 export function chdir(path: string): number
@@ -1044,9 +1044,9 @@ export function computeChecksumForString(checksumType: ChecksumType, str: string
 export function computeHmacForBytes(digestType: ChecksumType, key: Bytes, data: Bytes): string
 export function computeHmacForData(digestType: ChecksumType, key: any[], data: any[]): string
 export function computeHmacForString(digestType: ChecksumType, key: any[], str: string, length: number): string
-export function convert(str: any[], toCodeset: string, fromCodeset: string): [ /* returnType */ any[], /* bytesRead */ number | null ]
+export function convert(str: any[], toCodeset: string, fromCodeset: string): { returnType: any[], bytesRead: number | null }
 export function convertErrorQuark(): Quark
-export function convertWithFallback(str: any[], toCodeset: string, fromCodeset: string, fallback: string): [ /* returnType */ any[], /* bytesRead */ number | null ]
+export function convertWithFallback(str: any[], toCodeset: string, fromCodeset: string, fallback: string): { returnType: any[], bytesRead: number | null }
 export function datalistForeach(datalist: Data, func: DataForeachFunc): void
 export function datalistGetData(datalist: Data, key: string): object | null
 export function datalistGetFlags(datalist: Data): number
@@ -1085,31 +1085,31 @@ export function environSetenv(envp: string[] | null, variable: string, value: st
 export function environUnsetenv(envp: string[] | null, variable: string): string[]
 export function fileErrorFromErrno(errNo: number): FileError
 export function fileErrorQuark(): Quark
-export function fileGetContents(filename: string): [ /* returnType */ boolean, /* contents */ any[] ]
-export function fileOpenTmp(tmpl?: string | null): [ /* returnType */ number, /* nameUsed */ string ]
+export function fileGetContents(filename: string): { returnType: boolean, contents: any[] }
+export function fileOpenTmp(tmpl?: string | null): { returnType: number, nameUsed: string }
 export function fileReadLink(filename: string): string
 export function fileSetContents(filename: string, contents: any[]): boolean
 export function fileSetContentsFull(filename: string, contents: any[], flags: FileSetContentsFlags, mode: number): boolean
 export function fileTest(filename: string, test: FileTest): boolean
 export function filenameDisplayBasename(filename: string): string
 export function filenameDisplayName(filename: string): string
-export function filenameFromUri(uri: string): [ /* returnType */ string, /* hostname */ string | null ]
-export function filenameFromUtf8(utf8string: string, len: number): [ /* returnType */ string, /* bytesRead */ number | null, /* bytesWritten */ number | null ]
+export function filenameFromUri(uri: string): { returnType: string, hostname: string | null }
+export function filenameFromUtf8(utf8string: string, len: number): { returnType: string, bytesRead: number | null, bytesWritten: number | null }
 export function filenameToUri(filename: string, hostname?: string | null): string
-export function filenameToUtf8(opsysstring: string, len: number): [ /* returnType */ string, /* bytesRead */ number | null, /* bytesWritten */ number | null ]
+export function filenameToUtf8(opsysstring: string, len: number): { returnType: string, bytesRead: number | null, bytesWritten: number | null }
 export function findProgramInPath(program: string): string | null
 export function formatSize(size: number): string
 export function formatSizeForDisplay(size: number): string
 export function formatSizeFull(size: number, flags: FormatSizeFlags): string
 export function free(mem?: object | null): void
 export function getApplicationName(): string | null
-export function getCharset(): [ /* returnType */ boolean, /* charset */ string | null ]
+export function getCharset(): { returnType: boolean, charset: string | null }
 export function getCodeset(): string
-export function getConsoleCharset(): [ /* returnType */ boolean, /* charset */ string | null ]
+export function getConsoleCharset(): { returnType: boolean, charset: string | null }
 export function getCurrentDir(): string
 export function getCurrentTime(result: TimeVal): void
 export function getEnviron(): string[]
-export function getFilenameCharsets(): [ /* returnType */ boolean, /* filenameCharsets */ string[] ]
+export function getFilenameCharsets(): { returnType: boolean, filenameCharsets: string[] }
 export function getHomeDir(): string
 export function getHostName(): string
 export function getLanguageNames(): string[]
@@ -1136,14 +1136,14 @@ export function hashTableContains(hashTable: HashTable, key?: object | null): bo
 export function hashTableDestroy(hashTable: HashTable): void
 export function hashTableInsert(hashTable: HashTable, key?: object | null, value?: object | null): boolean
 export function hashTableLookup(hashTable: HashTable, key?: object | null): object | null
-export function hashTableLookupExtended(hashTable: HashTable, lookupKey?: object | null): [ /* returnType */ boolean, /* origKey */ object | null, /* value */ object | null ]
+export function hashTableLookupExtended(hashTable: HashTable, lookupKey?: object | null): { returnType: boolean, origKey: object | null, value: object | null }
 export function hashTableRemove(hashTable: HashTable, key?: object | null): boolean
 export function hashTableRemoveAll(hashTable: HashTable): void
 export function hashTableReplace(hashTable: HashTable, key?: object | null, value?: object | null): boolean
 export function hashTableSize(hashTable: HashTable): number
 export function hashTableSteal(hashTable: HashTable, key?: object | null): boolean
 export function hashTableStealAll(hashTable: HashTable): void
-export function hashTableStealExtended(hashTable: HashTable, lookupKey?: object | null): [ /* returnType */ boolean, /* stolenKey */ object | null, /* stolenValue */ object | null ]
+export function hashTableStealExtended(hashTable: HashTable, lookupKey?: object | null): { returnType: boolean, stolenKey: object | null, stolenValue: object | null }
 export function hashTableUnref(hashTable: HashTable): void
 export function hookDestroy(hookList: HookList, hookId: number): boolean
 export function hookDestroyLink(hookList: HookList, hook: Hook): void
@@ -1171,8 +1171,8 @@ export function ioChannelErrorQuark(): Quark
 export function ioCreateWatch(channel: IOChannel, condition: IOCondition): Source
 export function keyFileErrorQuark(): Quark
 export function listenv(): string[]
-export function localeFromUtf8(utf8string: string, len: number): [ /* returnType */ any[], /* bytesRead */ number | null ]
-export function localeToUtf8(opsysstring: any[]): [ /* returnType */ string, /* bytesRead */ number | null, /* bytesWritten */ number | null ]
+export function localeFromUtf8(utf8string: string, len: number): { returnType: any[], bytesRead: number | null }
+export function localeToUtf8(opsysstring: any[]): { returnType: string, bytesRead: number | null, bytesWritten: number | null }
 export function logDefaultHandler(logDomain: string | null, logLevel: LogLevelFlags, message?: string | null, unusedData?: object | null): void
 export function logRemoveHandler(logDomain: string, handlerId: number): void
 export function logSetAlwaysFatal(fatalMask: LogLevelFlags): LogLevelFlags
@@ -1222,7 +1222,7 @@ export function pointerBitLock(address: object, lockBit: number): void
 export function pointerBitTrylock(address: object, lockBit: number): boolean
 export function pointerBitUnlock(address: object, lockBit: number): void
 export function poll(fds: PollFD, nfds: number, timeout: number): number
-export function propagateError(src: Error): /* dest */ Error | null
+export function propagateError(src: Error): { dest: Error | null }
 export function quarkFromStaticString(string?: string | null): Quark
 export function quarkFromString(string?: string | null): Quark
 export function quarkToString(quark: Quark): string
@@ -1251,7 +1251,7 @@ export function refStringNew(str: string): string
 export function refStringNewIntern(str: string): string
 export function refStringNewLen(str: string, len: number): string
 export function refStringRelease(str: string): void
-export function regexCheckReplacement(replacement: string): [ /* returnType */ boolean, /* hasReferences */ boolean | null ]
+export function regexCheckReplacement(replacement: string): { returnType: boolean, hasReferences: boolean | null }
 export function regexErrorQuark(): Quark
 export function regexEscapeNul(string: string, length: number): string
 export function regexEscapeString(string: string[]): string
@@ -1269,11 +1269,11 @@ export function sequenceRemoveRange(begin: SequenceIter, end: SequenceIter): voi
 export function sequenceSet(iter: SequenceIter, data?: object | null): void
 export function sequenceSwap(a: SequenceIter, b: SequenceIter): void
 export function setApplicationName(applicationName: string): void
-export function setErrorLiteral(domain: Quark, code: number, message: string): /* err */ Error | null
+export function setErrorLiteral(domain: Quark, code: number, message: string): { err: Error | null }
 export function setPrgname(prgname: string): void
 export function setenv(variable: string, value: string, overwrite: boolean): boolean
 export function shellErrorQuark(): Quark
-export function shellParseArgv(commandLine: string): [ /* returnType */ boolean, /* argvp */ string[] | null ]
+export function shellParseArgv(commandLine: string): { returnType: boolean, argvp: string[] | null }
 export function shellQuote(unquotedString: string): string
 export function shellUnquote(quotedString: string): string
 export function sliceAlloc(blockSize: number): object | null
@@ -1289,16 +1289,16 @@ export function sourceRemoveByFuncsUserData(funcs: SourceFuncs, userData?: objec
 export function sourceRemoveByUserData(userData?: object | null): boolean
 export function sourceSetNameById(tag: number, name: string): void
 export function spacedPrimesClosest(num: number): number
-export function spawnAsync(workingDirectory: string | null, argv: string[], envp: string[] | null, flags: SpawnFlags, childSetup?: SpawnChildSetupFunc | null): [ /* returnType */ boolean, /* childPid */ Pid | null ]
-export function spawnAsyncWithFds(workingDirectory: string | null, argv: string[], envp: string[] | null, flags: SpawnFlags, childSetup: SpawnChildSetupFunc | null, stdinFd: number, stdoutFd: number, stderrFd: number): [ /* returnType */ boolean, /* childPid */ Pid | null ]
-export function spawnAsyncWithPipes(workingDirectory: string | null, argv: string[], envp: string[] | null, flags: SpawnFlags, childSetup?: SpawnChildSetupFunc | null): [ /* returnType */ boolean, /* childPid */ Pid | null, /* standardInput */ number | null, /* standardOutput */ number | null, /* standardError */ number | null ]
+export function spawnAsync(workingDirectory: string | null, argv: string[], envp: string[] | null, flags: SpawnFlags, childSetup?: SpawnChildSetupFunc | null): { returnType: boolean, childPid: Pid | null }
+export function spawnAsyncWithFds(workingDirectory: string | null, argv: string[], envp: string[] | null, flags: SpawnFlags, childSetup: SpawnChildSetupFunc | null, stdinFd: number, stdoutFd: number, stderrFd: number): { returnType: boolean, childPid: Pid | null }
+export function spawnAsyncWithPipes(workingDirectory: string | null, argv: string[], envp: string[] | null, flags: SpawnFlags, childSetup?: SpawnChildSetupFunc | null): { returnType: boolean, childPid: Pid | null, standardInput: number | null, standardOutput: number | null, standardError: number | null }
 export function spawnCheckExitStatus(exitStatus: number): boolean
 export function spawnClosePid(pid: Pid): void
 export function spawnCommandLineAsync(commandLine: string): boolean
-export function spawnCommandLineSync(commandLine: string): [ /* returnType */ boolean, /* standardOutput */ any[] | null, /* standardError */ any[] | null, /* exitStatus */ number | null ]
+export function spawnCommandLineSync(commandLine: string): { returnType: boolean, standardOutput: any[] | null, standardError: any[] | null, exitStatus: number | null }
 export function spawnErrorQuark(): Quark
 export function spawnExitErrorQuark(): Quark
-export function spawnSync(workingDirectory: string | null, argv: string[], envp: string[] | null, flags: SpawnFlags, childSetup?: SpawnChildSetupFunc | null): [ /* returnType */ boolean, /* standardOutput */ any[] | null, /* standardError */ any[] | null, /* exitStatus */ number | null ]
+export function spawnSync(workingDirectory: string | null, argv: string[], envp: string[] | null, flags: SpawnFlags, childSetup?: SpawnChildSetupFunc | null): { returnType: boolean, standardOutput: any[] | null, standardError: any[] | null, exitStatus: number | null }
 export function stpcpy(dest: string, src: string): string
 export function strEqual(v1: object, v2: object): boolean
 export function strHasPrefix(str: string, prefix: string): boolean
@@ -1307,7 +1307,7 @@ export function strHash(v: object): number
 export function strIsAscii(str: string): boolean
 export function strMatchString(searchTerm: string, potentialHit: string, acceptAlternates: boolean): boolean
 export function strToAscii(str: string, fromLocale?: string | null): string
-export function strTokenizeAndFold(string: string, translitLocale?: string | null): [ /* returnType */ string[], /* asciiAlternates */ string[] ]
+export function strTokenizeAndFold(string: string, translitLocale?: string | null): { returnType: string[], asciiAlternates: string[] }
 export function strcanon(string: string, validChars: string, substitutor: number): string
 export function strcasecmp(s1: string, s2: string): number
 export function strchomp(string: string): string
@@ -1335,7 +1335,7 @@ export function strrstr(haystack: string, needle: string): string
 export function strrstrLen(haystack: string, haystackLen: number, needle: string): string
 export function strsignal(signum: number): string
 export function strstrLen(haystack: string, haystackLen: number, needle: string): string
-export function strtod(nptr: string): [ /* returnType */ number, /* endptr */ string | null ]
+export function strtod(nptr: string): { returnType: number, endptr: string | null }
 export function strup(string: string): string
 export function strvContains(strv: string, str: string): boolean
 export function strvEqual(strv1: string, strv2: string): boolean
@@ -1383,7 +1383,7 @@ export function threadPoolSetMaxUnusedThreads(maxThreads: number): void
 export function threadPoolStopUnusedThreads(): void
 export function threadSelf(): Thread
 export function threadYield(): void
-export function timeValFromIso8601(isoDate: string): [ /* returnType */ boolean, /* time */ TimeVal ]
+export function timeValFromIso8601(isoDate: string): { returnType: boolean, time: TimeVal }
 export function timeoutAdd(priority: number, interval: number, function_: SourceFunc): number
 export function timeoutAddSeconds(priority: number, interval: number, function_: SourceFunc): number
 export function timeoutSourceNew(interval: number): Source
@@ -1398,14 +1398,14 @@ export function tryMalloc0N(nBlocks: number, nBlockBytes: number): object | null
 export function tryMallocN(nBlocks: number, nBlockBytes: number): object | null
 export function tryRealloc(mem: object | null, nBytes: number): object | null
 export function tryReallocN(mem: object | null, nBlocks: number, nBlockBytes: number): object | null
-export function ucs4ToUtf16(str: number, len: number): [ /* returnType */ number, /* itemsRead */ number | null, /* itemsWritten */ number | null ]
-export function ucs4ToUtf8(str: number, len: number): [ /* returnType */ string, /* itemsRead */ number | null, /* itemsWritten */ number | null ]
+export function ucs4ToUtf16(str: number, len: number): { returnType: number, itemsRead: number | null, itemsWritten: number | null }
+export function ucs4ToUtf8(str: number, len: number): { returnType: string, itemsRead: number | null, itemsWritten: number | null }
 export function unicharBreakType(c: number): UnicodeBreakType
 export function unicharCombiningClass(uc: number): number
-export function unicharCompose(a: number, b: number): [ /* returnType */ boolean, /* ch */ number ]
-export function unicharDecompose(ch: number): [ /* returnType */ boolean, /* a */ number, /* b */ number ]
+export function unicharCompose(a: number, b: number): { returnType: boolean, ch: number }
+export function unicharDecompose(ch: number): { returnType: boolean, a: number, b: number }
 export function unicharDigitValue(c: number): number
-export function unicharFullyDecompose(ch: number, compat: boolean, resultLen: number): [ /* returnType */ number, /* result */ number | null ]
+export function unicharFullyDecompose(ch: number, compat: boolean, resultLen: number): { returnType: number, result: number | null }
 export function unicharGetMirrorChar(ch: number, mirroredCh: number): boolean
 export function unicharGetScript(ch: number): UnicodeScript
 export function unicharIsalnum(c: number): boolean
@@ -1425,7 +1425,7 @@ export function unicharIswide(c: number): boolean
 export function unicharIswideCjk(c: number): boolean
 export function unicharIsxdigit(c: number): boolean
 export function unicharIszerowidth(c: number): boolean
-export function unicharToUtf8(c: number): [ /* returnType */ number, /* outbuf */ string | null ]
+export function unicharToUtf8(c: number): { returnType: number, outbuf: string | null }
 export function unicharTolower(c: number): number
 export function unicharTotitle(c: number): number
 export function unicharToupper(c: number): number
@@ -1460,15 +1460,15 @@ export function uriParseParams(params: string, length: number, separators: strin
 export function uriParseScheme(uri: string): string | null
 export function uriPeekScheme(uri: string): string | null
 export function uriResolveRelative(baseUriString: string | null, uriRef: string, flags: UriFlags): string
-export function uriSplit(uriRef: string, flags: UriFlags): [ /* returnType */ boolean, /* scheme */ string | null, /* userinfo */ string | null, /* host */ string | null, /* port */ number | null, /* path */ string | null, /* query */ string | null, /* fragment */ string | null ]
-export function uriSplitNetwork(uriString: string, flags: UriFlags): [ /* returnType */ boolean, /* scheme */ string | null, /* host */ string | null, /* port */ number | null ]
-export function uriSplitWithUser(uriRef: string, flags: UriFlags): [ /* returnType */ boolean, /* scheme */ string | null, /* user */ string | null, /* password */ string | null, /* authParams */ string | null, /* host */ string | null, /* port */ number | null, /* path */ string | null, /* query */ string | null, /* fragment */ string | null ]
+export function uriSplit(uriRef: string, flags: UriFlags): { returnType: boolean, scheme: string | null, userinfo: string | null, host: string | null, port: number | null, path: string | null, query: string | null, fragment: string | null }
+export function uriSplitNetwork(uriString: string, flags: UriFlags): { returnType: boolean, scheme: string | null, host: string | null, port: number | null }
+export function uriSplitWithUser(uriRef: string, flags: UriFlags): { returnType: boolean, scheme: string | null, user: string | null, password: string | null, authParams: string | null, host: string | null, port: number | null, path: string | null, query: string | null, fragment: string | null }
 export function uriUnescapeBytes(escapedString: string, length: number, illegalCharacters?: string | null): Bytes
 export function uriUnescapeSegment(escapedString?: string | null, escapedStringEnd?: string | null, illegalCharacters?: string | null): string
 export function uriUnescapeString(escapedString: string, illegalCharacters?: string | null): string
 export function usleep(microseconds: number): void
-export function utf16ToUcs4(str: number, len: number): [ /* returnType */ number, /* itemsRead */ number | null, /* itemsWritten */ number | null ]
-export function utf16ToUtf8(str: number, len: number): [ /* returnType */ string, /* itemsRead */ number | null, /* itemsWritten */ number | null ]
+export function utf16ToUcs4(str: number, len: number): { returnType: number, itemsRead: number | null, itemsWritten: number | null }
+export function utf16ToUtf8(str: number, len: number): { returnType: string, itemsRead: number | null, itemsWritten: number | null }
 export function utf8Casefold(str: string, len: number): string
 export function utf8Collate(str1: string, str2: string): number
 export function utf8CollateKey(str: string, len: number): string
@@ -1490,11 +1490,11 @@ export function utf8Strrchr(p: string, len: number, c: number): string | null
 export function utf8Strreverse(str: string, len: number): string
 export function utf8Strup(str: string, len: number): string
 export function utf8Substring(str: string, startPos: number, endPos: number): string
-export function utf8ToUcs4(str: string, len: number): [ /* returnType */ number, /* itemsRead */ number | null, /* itemsWritten */ number | null ]
-export function utf8ToUcs4Fast(str: string, len: number): [ /* returnType */ number, /* itemsWritten */ number | null ]
-export function utf8ToUtf16(str: string, len: number): [ /* returnType */ number, /* itemsRead */ number | null, /* itemsWritten */ number | null ]
-export function utf8Validate(str: any[]): [ /* returnType */ boolean, /* end */ string | null ]
-export function utf8ValidateLen(str: any[]): [ /* returnType */ boolean, /* end */ string | null ]
+export function utf8ToUcs4(str: string, len: number): { returnType: number, itemsRead: number | null, itemsWritten: number | null }
+export function utf8ToUcs4Fast(str: string, len: number): { returnType: number, itemsWritten: number | null }
+export function utf8ToUtf16(str: string, len: number): { returnType: number, itemsRead: number | null, itemsWritten: number | null }
+export function utf8Validate(str: any[]): { returnType: boolean, end: string | null }
+export function utf8ValidateLen(str: any[]): { returnType: boolean, end: string | null }
 export function uuidStringIsValid(str: string): boolean
 export function uuidStringRandom(): string
 export function variantGetGtype(): GObject.Type
@@ -1507,7 +1507,7 @@ export function variantParserGetErrorQuark(): Quark
 export function variantTypeChecked(arg0: string): VariantType
 export function variantTypeStringGetDepth(typeString: string): number
 export function variantTypeStringIsValid(typeString: string): boolean
-export function variantTypeStringScan(string: string, limit?: string | null): [ /* returnType */ boolean, /* endptr */ string | null ]
+export function variantTypeStringScan(string: string, limit?: string | null): { returnType: boolean, endptr: string | null }
 export interface ChildWatchFunc {
     (pid: Pid, status: number): void
 }
@@ -1687,12 +1687,12 @@ export class BookmarkFile {
     free(): void
     getAdded(uri: string): number
     getAddedDateTime(uri: string): DateTime
-    getAppInfo(uri: string, name: string): [ /* returnType */ boolean, /* exec */ string | null, /* count */ number | null, /* stamp */ number | null ]
-    getApplicationInfo(uri: string, name: string): [ /* returnType */ boolean, /* exec */ string | null, /* count */ number | null, /* stamp */ DateTime | null ]
+    getAppInfo(uri: string, name: string): { returnType: boolean, exec: string | null, count: number | null, stamp: number | null }
+    getApplicationInfo(uri: string, name: string): { returnType: boolean, exec: string | null, count: number | null, stamp: DateTime | null }
     getApplications(uri: string): string[]
     getDescription(uri: string): string
     getGroups(uri: string): string[]
-    getIcon(uri: string): [ /* returnType */ boolean, /* href */ string | null, /* mimeType */ string | null ]
+    getIcon(uri: string): { returnType: boolean, href: string | null, mimeType: string | null }
     getIsPrivate(uri: string): boolean
     getMimeType(uri: string): string
     getModified(uri: string): number
@@ -1706,7 +1706,7 @@ export class BookmarkFile {
     hasGroup(uri: string, group: string): boolean
     hasItem(uri: string): boolean
     loadFromData(data: any[]): boolean
-    loadFromDataDirs(file: string): [ /* returnType */ boolean, /* fullPath */ string | null ]
+    loadFromDataDirs(file: string): { returnType: boolean, fullPath: string | null }
     loadFromFile(filename: string): boolean
     moveItem(oldUri: string, newUri?: string | null): boolean
     removeApplication(uri: string, name: string): boolean
@@ -1741,7 +1741,7 @@ export class ByteArray {
     static free(array: any[], freeSegment: boolean): number
     static freeToBytes(array: any[]): Bytes
     static newTake(data: any[]): any[]
-    static steal(array: any[]): [ /* returnType */ number, /* len */ number | null ]
+    static steal(array: any[]): { returnType: number, len: number | null }
     static unref(array: any[]): void
 }
 export class Bytes {
@@ -1882,7 +1882,7 @@ export class DateTime {
     getWeekNumberingYear(): number
     getWeekOfYear(): number
     getYear(): number
-    getYmd(): [ /* year */ number | null, /* month */ number | null, /* day */ number | null ]
+    getYmd(): { year: number | null, month: number | null, day: number | null }
     isDaylightSavings(): boolean
     ref(): DateTime
     toLocal(): DateTime | null
@@ -1946,20 +1946,20 @@ export class HashTable {
     static destroy(hashTable: HashTable): void
     static insert(hashTable: HashTable, key?: object | null, value?: object | null): boolean
     static lookup(hashTable: HashTable, key?: object | null): object | null
-    static lookupExtended(hashTable: HashTable, lookupKey?: object | null): [ /* returnType */ boolean, /* origKey */ object | null, /* value */ object | null ]
+    static lookupExtended(hashTable: HashTable, lookupKey?: object | null): { returnType: boolean, origKey: object | null, value: object | null }
     static remove(hashTable: HashTable, key?: object | null): boolean
     static removeAll(hashTable: HashTable): void
     static replace(hashTable: HashTable, key?: object | null, value?: object | null): boolean
     static size(hashTable: HashTable): number
     static steal(hashTable: HashTable, key?: object | null): boolean
     static stealAll(hashTable: HashTable): void
-    static stealExtended(hashTable: HashTable, lookupKey?: object | null): [ /* returnType */ boolean, /* stolenKey */ object | null, /* stolenValue */ object | null ]
+    static stealExtended(hashTable: HashTable, lookupKey?: object | null): { returnType: boolean, stolenKey: object | null, stolenValue: object | null }
     static unref(hashTable: HashTable): void
 }
 export class HashTableIter {
     /* Methods of GLib-2.0.GLib.HashTableIter */
     init(hashTable: HashTable): void
-    next(): [ /* returnType */ boolean, /* key */ object | null, /* value */ object | null ]
+    next(): { returnType: boolean, key: object | null, value: object | null }
     remove(): void
     replace(value?: object | null): void
     steal(): void
@@ -2026,11 +2026,11 @@ export class IOChannel {
     getLineTerm(length: number): string
     init(): void
     read(buf: string, count: number, bytesRead: number): IOError
-    readChars(): [ /* returnType */ IOStatus, /* buf */ any[], /* bytesRead */ number | null ]
-    readLine(): [ /* returnType */ IOStatus, /* strReturn */ string, /* length */ number | null, /* terminatorPos */ number | null ]
+    readChars(): { returnType: IOStatus, buf: any[], bytesRead: number | null }
+    readLine(): { returnType: IOStatus, strReturn: string, length: number | null, terminatorPos: number | null }
     readLineString(buffer: String, terminatorPos?: number | null): IOStatus
-    readToEnd(): [ /* returnType */ IOStatus, /* strReturn */ any[] ]
-    readUnichar(): [ /* returnType */ IOStatus, /* thechar */ number ]
+    readToEnd(): { returnType: IOStatus, strReturn: any[] }
+    readUnichar(): { returnType: IOStatus, thechar: number }
     ref(): IOChannel
     seek(offset: number, type: SeekType): IOError
     seekPosition(offset: number, type: SeekType): IOStatus
@@ -2044,7 +2044,7 @@ export class IOChannel {
     unixGetFd(): number
     unref(): void
     write(buf: string, count: number, bytesWritten: number): IOError
-    writeChars(buf: any[], count: number): [ /* returnType */ IOStatus, /* bytesWritten */ number ]
+    writeChars(buf: any[], count: number): { returnType: IOStatus, bytesWritten: number }
     writeUnichar(thechar: number): IOStatus
     static name: string
     /* Static methods and pseudo-constructors */
@@ -2072,11 +2072,11 @@ export class KeyFile {
     getComment(groupName: string | null, key: string): string
     getDouble(groupName: string, key: string): number
     getDoubleList(groupName: string, key: string): number[]
-    getGroups(): [ /* returnType */ string[], /* length */ number | null ]
+    getGroups(): { returnType: string[], length: number | null }
     getInt64(groupName: string, key: string): number
     getInteger(groupName: string, key: string): number
     getIntegerList(groupName: string, key: string): number[]
-    getKeys(groupName: string): [ /* returnType */ string[], /* length */ number | null ]
+    getKeys(groupName: string): { returnType: string[], length: number | null }
     getLocaleForKey(groupName: string, key: string, locale?: string | null): string | null
     getLocaleString(groupName: string, key: string, locale?: string | null): string
     getLocaleStringList(groupName: string, key: string, locale?: string | null): string[]
@@ -2088,8 +2088,8 @@ export class KeyFile {
     hasGroup(groupName: string): boolean
     loadFromBytes(bytes: Bytes, flags: KeyFileFlags): boolean
     loadFromData(data: string, length: number, flags: KeyFileFlags): boolean
-    loadFromDataDirs(file: string, flags: KeyFileFlags): [ /* returnType */ boolean, /* fullPath */ string | null ]
-    loadFromDirs(file: string, searchDirs: string[], flags: KeyFileFlags): [ /* returnType */ boolean, /* fullPath */ string | null ]
+    loadFromDataDirs(file: string, flags: KeyFileFlags): { returnType: boolean, fullPath: string | null }
+    loadFromDirs(file: string, searchDirs: string[], flags: KeyFileFlags): { returnType: boolean, fullPath: string | null }
     loadFromFile(file: string, flags: KeyFileFlags): boolean
     removeComment(groupName?: string | null, key?: string | null): boolean
     removeGroup(groupName: string): boolean
@@ -2110,7 +2110,7 @@ export class KeyFile {
     setStringList(groupName: string, key: string, list: string[]): void
     setUint64(groupName: string, key: string, value: number): void
     setValue(groupName: string, key: string, value: string): void
-    toData(): [ /* returnType */ string, /* length */ number | null ]
+    toData(): { returnType: string, length: number | null }
     unref(): void
     static name: string
     static new(): KeyFile
@@ -2147,9 +2147,9 @@ export class MainContext {
     iteration(mayBlock: boolean): boolean
     pending(): boolean
     popThreadDefault(): void
-    prepare(): [ /* returnType */ boolean, /* priority */ number | null ]
+    prepare(): { returnType: boolean, priority: number | null }
     pushThreadDefault(): void
-    query(maxPriority: number): [ /* returnType */ number, /* timeout */ number, /* fds */ PollFD[] ]
+    query(maxPriority: number): { returnType: number, timeout: number, fds: PollFD[] }
     ref(): MainContext
     release(): void
     removePoll(fd: PollFD): void
@@ -2199,7 +2199,7 @@ export class MarkupParseContext {
     endParse(): boolean
     free(): void
     getElement(): string
-    getPosition(): [ /* lineNumber */ number | null, /* charNumber */ number | null ]
+    getPosition(): { lineNumber: number | null, charNumber: number | null }
     getUserData(): object | null
     parse(text: string, textLen: number): boolean
     pop(): object | null
@@ -2227,8 +2227,8 @@ export class MatchInfo {
     fetch(matchNum: number): string | null
     fetchAll(): string[]
     fetchNamed(name: string): string | null
-    fetchNamedPos(name: string): [ /* returnType */ boolean, /* startPos */ number | null, /* endPos */ number | null ]
-    fetchPos(matchNum: number): [ /* returnType */ boolean, /* startPos */ number | null, /* endPos */ number | null ]
+    fetchNamedPos(name: string): { returnType: boolean, startPos: number | null, endPos: number | null }
+    fetchPos(matchNum: number): { returnType: boolean, startPos: number | null, endPos: number | null }
     free(): void
     getMatchCount(): number
     getRegex(): Regex
@@ -2291,8 +2291,8 @@ export class OptionContext {
     getMainGroup(): OptionGroup
     getStrictPosix(): boolean
     getSummary(): string
-    parse(argv?: string[] | null): [ /* returnType */ boolean, /* argv */ string[] | null ]
-    parseStrv(arguments_?: string[] | null): [ /* returnType */ boolean, /* arguments_ */ string[] | null ]
+    parse(argv?: string[] | null): { returnType: boolean, argv: string[] | null }
+    parseStrv(arguments_?: string[] | null): { returnType: boolean, arguments_: string[] | null }
     setDescription(description?: string | null): void
     setHelpEnabled(helpEnabled: boolean): void
     setIgnoreUnknownOptions(ignoreUnknown: boolean): void
@@ -2424,10 +2424,10 @@ export class Regex {
     getMaxLookbehind(): number
     getPattern(): string
     getStringNumber(name: string): number
-    match(string: string, matchOptions: RegexMatchFlags): [ /* returnType */ boolean, /* matchInfo */ MatchInfo | null ]
-    matchAll(string: string, matchOptions: RegexMatchFlags): [ /* returnType */ boolean, /* matchInfo */ MatchInfo | null ]
-    matchAllFull(string: string[], startPosition: number, matchOptions: RegexMatchFlags): [ /* returnType */ boolean, /* matchInfo */ MatchInfo | null ]
-    matchFull(string: string[], startPosition: number, matchOptions: RegexMatchFlags): [ /* returnType */ boolean, /* matchInfo */ MatchInfo | null ]
+    match(string: string, matchOptions: RegexMatchFlags): { returnType: boolean, matchInfo: MatchInfo | null }
+    matchAll(string: string, matchOptions: RegexMatchFlags): { returnType: boolean, matchInfo: MatchInfo | null }
+    matchAllFull(string: string[], startPosition: number, matchOptions: RegexMatchFlags): { returnType: boolean, matchInfo: MatchInfo | null }
+    matchFull(string: string[], startPosition: number, matchOptions: RegexMatchFlags): { returnType: boolean, matchInfo: MatchInfo | null }
     ref(): Regex
     replace(string: string[], startPosition: number, replacement: string, matchOptions: RegexMatchFlags): string
     replaceLiteral(string: string[], startPosition: number, replacement: string, matchOptions: RegexMatchFlags): string
@@ -2439,7 +2439,7 @@ export class Regex {
     constructor(pattern: string, compileOptions: RegexCompileFlags, matchOptions: RegexMatchFlags)
     /* Static methods and pseudo-constructors */
     static new(pattern: string, compileOptions: RegexCompileFlags, matchOptions: RegexMatchFlags): Regex
-    static checkReplacement(replacement: string): [ /* returnType */ boolean, /* hasReferences */ boolean | null ]
+    static checkReplacement(replacement: string): { returnType: boolean, hasReferences: boolean | null }
     static errorQuark(): Quark
     static escapeNul(string: string, length: number): string
     static escapeString(string: string[]): string
@@ -2737,7 +2737,7 @@ export class TimeVal {
     toIso8601(): string | null
     static name: string
     /* Static methods and pseudo-constructors */
-    static fromIso8601(isoDate: string): [ /* returnType */ boolean, /* time */ TimeVal ]
+    static fromIso8601(isoDate: string): { returnType: boolean, time: TimeVal }
 }
 export class TimeZone {
     /* Methods of GLib-2.0.GLib.TimeZone */
@@ -2785,7 +2785,7 @@ export class Tree {
     height(): number
     insert(key?: object | null, value?: object | null): void
     lookup(key?: object | null): object | null
-    lookupExtended(lookupKey?: object | null): [ /* returnType */ boolean, /* origKey */ object | null, /* value */ object | null ]
+    lookupExtended(lookupKey?: object | null): { returnType: boolean, origKey: object | null, value: object | null }
     nnodes(): number
     remove(key?: object | null): boolean
     replace(key?: object | null, value?: object | null): void
@@ -2825,9 +2825,9 @@ export class Uri {
     static parseScheme(uri: string): string | null
     static peekScheme(uri: string): string | null
     static resolveRelative(baseUriString: string | null, uriRef: string, flags: UriFlags): string
-    static split(uriRef: string, flags: UriFlags): [ /* returnType */ boolean, /* scheme */ string | null, /* userinfo */ string | null, /* host */ string | null, /* port */ number | null, /* path */ string | null, /* query */ string | null, /* fragment */ string | null ]
-    static splitNetwork(uriString: string, flags: UriFlags): [ /* returnType */ boolean, /* scheme */ string | null, /* host */ string | null, /* port */ number | null ]
-    static splitWithUser(uriRef: string, flags: UriFlags): [ /* returnType */ boolean, /* scheme */ string | null, /* user */ string | null, /* password */ string | null, /* authParams */ string | null, /* host */ string | null, /* port */ number | null, /* path */ string | null, /* query */ string | null, /* fragment */ string | null ]
+    static split(uriRef: string, flags: UriFlags): { returnType: boolean, scheme: string | null, userinfo: string | null, host: string | null, port: number | null, path: string | null, query: string | null, fragment: string | null }
+    static splitNetwork(uriString: string, flags: UriFlags): { returnType: boolean, scheme: string | null, host: string | null, port: number | null }
+    static splitWithUser(uriRef: string, flags: UriFlags): { returnType: boolean, scheme: string | null, user: string | null, password: string | null, authParams: string | null, host: string | null, port: number | null, path: string | null, query: string | null, fragment: string | null }
     static unescapeBytes(escapedString: string, length: number, illegalCharacters?: string | null): Bytes
     static unescapeSegment(escapedString?: string | null, escapedStringEnd?: string | null, illegalCharacters?: string | null): string
     static unescapeString(escapedString: string, illegalCharacters?: string | null): string
@@ -2835,7 +2835,7 @@ export class Uri {
 export class UriParamsIter {
     /* Methods of GLib-2.0.GLib.UriParamsIter */
     init(params: string, length: number, separators: string, flags: UriParamsFlags): void
-    next(): [ /* returnType */ boolean, /* attribute */ string | null, /* value */ string | null ]
+    next(): { returnType: boolean, attribute: string | null, value: string | null }
     static name: string
 }
 export class Variant {
@@ -2847,7 +2847,7 @@ export class Variant {
     dupBytestring(): any[]
     dupBytestringArray(): string[]
     dupObjv(): string[]
-    dupString(): [ /* returnType */ string, /* length */ number ]
+    dupString(): { returnType: string, length: number }
     dupStrv(): string[]
     equal(two: Variant): boolean
     getBoolean(): boolean
@@ -2866,7 +2866,7 @@ export class Variant {
     getNormalForm(): Variant
     getObjv(): string[]
     getSize(): number
-    getString(): [ /* returnType */ string, /* length */ number | null ]
+    getString(): { returnType: string, length: number | null }
     getStrv(): string[]
     getType(): VariantType
     getTypeString(): string
@@ -2993,7 +2993,7 @@ export class VariantType {
     static checked(arg0: string): VariantType
     static stringGetDepth(typeString: string): number
     static stringIsValid(typeString: string): boolean
-    static stringScan(string: string, limit?: string | null): [ /* returnType */ boolean, /* endptr */ string | null ]
+    static stringScan(string: string, limit?: string | null): { returnType: boolean, endptr: string | null }
 }
 export class DoubleIEEE754 {
     /* Fields of GLib-2.0.GLib.DoubleIEEE754 */

@@ -92,7 +92,7 @@ export class Pixbuf {
     removeOption(key: string): boolean
     rotateSimple(angle: PixbufRotation): Pixbuf | null
     saturateAndPixelate(dest: Pixbuf, saturation: number, pixelate: boolean): void
-    saveToBufferv(type: string, optionKeys: string[], optionValues: string[]): [ /* returnType */ boolean, /* buffer */ any[] ]
+    saveToBufferv(type: string, optionKeys: string[], optionValues: string[]): { returnType: boolean, buffer: any[] }
     saveToCallbackv(saveFunc: PixbufSaveFunc, type: string, optionKeys: string[], optionValues: string[]): boolean
     saveToStreamv(stream: Gio.OutputStream, type: string, optionKeys: string[], optionValues: string[], cancellable?: Gio.Cancellable | null): boolean
     saveToStreamvAsync(stream: Gio.OutputStream, type: string, optionKeys: string[], optionValues: string[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -127,16 +127,16 @@ export class Pixbuf {
     serialize(): GLib.Variant
     toString(): string | null
     /* Methods of Gio-2.0.Gio.LoadableIcon */
-    load(size: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ Gio.InputStream, /* type */ string | null ]
+    load(size: number, cancellable?: Gio.Cancellable | null): { returnType: Gio.InputStream, type: string | null }
     loadAsync(size: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    loadFinish(res: Gio.AsyncResult): [ /* returnType */ Gio.InputStream, /* type */ string | null ]
+    loadFinish(res: Gio.AsyncResult): { returnType: Gio.InputStream, type: string | null }
     /* Virtual methods of GdkPixbuf-2.0.GdkPixbuf.Pixbuf */
     vfuncEqual(icon2?: Gio.Icon | null): boolean
     vfuncHash(): number
     vfuncSerialize(): GLib.Variant
-    vfuncLoad(size: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ Gio.InputStream, /* type */ string | null ]
+    vfuncLoad(size: number, cancellable?: Gio.Cancellable | null): { returnType: Gio.InputStream, type: string | null }
     vfuncLoadAsync(size: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfuncLoadFinish(res: Gio.AsyncResult): [ /* returnType */ Gio.InputStream, /* type */ string | null ]
+    vfuncLoadFinish(res: Gio.AsyncResult): { returnType: Gio.InputStream, type: string | null }
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -176,9 +176,9 @@ export class Pixbuf {
     static newFromStreamFinish(asyncResult: Gio.AsyncResult): Pixbuf
     static newFromXpmData(data: string[]): Pixbuf
     static calculateRowstride(colorspace: Colorspace, hasAlpha: boolean, bitsPerSample: number, width: number, height: number): number
-    static getFileInfo(filename: string): [ /* returnType */ PixbufFormat | null, /* width */ number | null, /* height */ number | null ]
+    static getFileInfo(filename: string): { returnType: PixbufFormat | null, width: number | null, height: number | null }
     static getFileInfoAsync(filename: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    static getFileInfoFinish(asyncResult: Gio.AsyncResult): [ /* returnType */ PixbufFormat, /* width */ number, /* height */ number ]
+    static getFileInfoFinish(asyncResult: Gio.AsyncResult): { returnType: PixbufFormat, width: number, height: number }
     static getFormats(): PixbufFormat[]
     static initModules(path: string): boolean
     static newFromStreamAsync(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void

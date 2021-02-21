@@ -108,13 +108,13 @@ export function cclosureMarshalVOIDVARIANT(closure: Closure, returnValue: Value,
 export function cclosureMarshalVOIDVOID(closure: Closure, returnValue: Value, nParamValues: number, paramValues: Value, invocationHint?: object | null, marshalData?: object | null): void
 export function cclosureMarshalGeneric(closure: Closure, returnGvalue: Value, nParamValues: number, paramValues: Value, invocationHint?: object | null, marshalData?: object | null): void
 export function clearSignalHandler(handlerIdPtr: number, instance: Object): void
-export function enumCompleteTypeInfo(gEnumType: Type, constValues: EnumValue): /* info */ TypeInfo
+export function enumCompleteTypeInfo(gEnumType: Type, constValues: EnumValue): { info: TypeInfo }
 export function enumGetValue(enumClass: EnumClass, value: number): EnumValue
 export function enumGetValueByName(enumClass: EnumClass, name: string): EnumValue
 export function enumGetValueByNick(enumClass: EnumClass, nick: string): EnumValue
 export function enumRegisterStatic(name: string, constStaticValues: EnumValue): Type
 export function enumToString(gEnumType: Type, value: number): string
-export function flagsCompleteTypeInfo(gFlagsType: Type, constValues: FlagsValue): /* info */ TypeInfo
+export function flagsCompleteTypeInfo(gFlagsType: Type, constValues: FlagsValue): { info: TypeInfo }
 export function flagsGetFirstValue(flagsClass: FlagsClass, value: number): FlagsValue
 export function flagsGetValueByName(flagsClass: FlagsClass, name: string): FlagsValue
 export function flagsGetValueByNick(flagsClass: FlagsClass, nick: string): FlagsValue
@@ -156,7 +156,7 @@ export function signalAddEmissionHook(signalId: number, detail: GLib.Quark, hook
 export function signalChainFromOverridden(instanceAndParams: Value[], returnValue: Value): void
 export function signalConnectClosure(instance: Object, detailedSignal: string, closure: Closure, after: boolean): number
 export function signalConnectClosureById(instance: Object, signalId: number, detail: GLib.Quark, closure: Closure, after: boolean): number
-export function signalEmitv(instanceAndParams: Value[], signalId: number, detail: GLib.Quark, returnValue?: Value | null): /* returnValue */ Value | null
+export function signalEmitv(instanceAndParams: Value[], signalId: number, detail: GLib.Quark, returnValue?: Value | null): { returnValue: Value | null }
 export function signalGetInvocationHint(instance: Object): SignalInvocationHint
 export function signalHandlerBlock(instance: Object, handlerId: number): void
 export function signalHandlerDisconnect(instance: Object, handlerId: number): void
@@ -173,8 +173,8 @@ export function signalListIds(itype: Type): number[]
 export function signalLookup(name: string, itype: Type): number
 export function signalName(signalId: number): string
 export function signalOverrideClassClosure(signalId: number, instanceType: Type, classClosure: Closure): void
-export function signalParseName(detailedSignal: string, itype: Type, forceDetailQuark: boolean): [ /* returnType */ boolean, /* signalIdP */ number, /* detailP */ GLib.Quark ]
-export function signalQuery(signalId: number): /* query */ SignalQuery
+export function signalParseName(detailedSignal: string, itype: Type, forceDetailQuark: boolean): { returnType: boolean, signalIdP: number, detailP: GLib.Quark }
+export function signalQuery(signalId: number): { query: SignalQuery }
 export function signalRemoveEmissionHook(signalId: number, hookId: number): void
 export function signalSetVaMarshaller(signalId: number, instanceType: Type, vaMarshaller: SignalCVaMarshaller): void
 export function signalStopEmission(instance: Object, signalId: number, detail: GLib.Quark): void
@@ -226,7 +226,7 @@ export function typeNameFromInstance(instance: TypeInstance): string
 export function typeNextBase(leafType: Type, rootType: Type): Type
 export function typeParent(type: Type): Type
 export function typeQname(type: Type): GLib.Quark
-export function typeQuery(type: Type): /* query */ TypeQuery
+export function typeQuery(type: Type): { query: TypeQuery }
 export function typeRegisterDynamic(parentType: Type, typeName: string, plugin: TypePlugin, flags: TypeFlags): Type
 export function typeRegisterFundamental(typeId: Type, typeName: string, info: TypeInfo, finfo: TypeFundamentalInfo, flags: TypeFlags): Type
 export function typeRegisterStatic(parentType: Type, typeName: string, info: TypeInfo, flags: TypeFlags): Type
@@ -1342,7 +1342,7 @@ export class Closure {
     marshal: (closure: Closure, returnValue: Value, nParamValues: number, paramValues: Value, invocationHint: object, marshalData: object) => void
     /* Methods of GObject-2.0.GObject.Closure */
     invalidate(): void
-    invoke(paramValues: Value[], invocationHint?: object | null): /* returnValue */ Value | null
+    invoke(paramValues: Value[], invocationHint?: object | null): { returnValue: Value | null }
     ref(): Closure
     sink(): void
     unref(): void

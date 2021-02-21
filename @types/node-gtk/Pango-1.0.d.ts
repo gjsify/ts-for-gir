@@ -357,7 +357,7 @@ export function break_TODO(text: string, length: number, analysis: Analysis, att
 export function defaultBreak(text: string, length: number, analysis: Analysis | null, attrs: LogAttr, attrsLen: number): void
 export function extentsToPixels(inclusive?: Rectangle | null, nearest?: Rectangle | null): void
 export function findBaseDir(text: string, length: number): Direction
-export function findParagraphBoundary(text: string, length: number): [ /* paragraphDelimiterIndex */ number, /* nextParagraphStart */ number ]
+export function findParagraphBoundary(text: string, length: number): { paragraphDelimiterIndex: number, nextParagraphStart: number }
 export function fontDescriptionFromString(str: string): FontDescription
 export function getLogAttrs(text: string, length: number, level: number, language: Language, logAttrs: LogAttr[]): void
 export function getMirrorChar(ch: number, mirroredCh: number): boolean
@@ -371,26 +371,26 @@ export function itemizeWithBaseDir(context: Context, baseDir: Direction, text: s
 export function languageFromString(language?: string | null): Language | null
 export function languageGetDefault(): Language
 export function log2visGetEmbeddingLevels(text: string, length: number, pbaseDir: Direction): number
-export function markupParserFinish(context: GLib.MarkupParseContext): [ /* returnType */ boolean, /* attrList */ AttrList | null, /* text */ string | null, /* accelChar */ number | null ]
+export function markupParserFinish(context: GLib.MarkupParseContext): { returnType: boolean, attrList: AttrList | null, text: string | null, accelChar: number | null }
 export function markupParserNew(accelMarker: number): GLib.MarkupParseContext
-export function parseEnum(type: GObject.Type, str: string | null, warn: boolean): [ /* returnType */ boolean, /* value */ number | null, /* possibleValues */ string | null ]
-export function parseMarkup(markupText: string, length: number, accelMarker: number): [ /* returnType */ boolean, /* attrList */ AttrList | null, /* text */ string | null, /* accelChar */ number | null ]
-export function parseStretch(str: string, warn: boolean): [ /* returnType */ boolean, /* stretch */ Stretch ]
-export function parseStyle(str: string, warn: boolean): [ /* returnType */ boolean, /* style */ Style ]
-export function parseVariant(str: string, warn: boolean): [ /* returnType */ boolean, /* variant */ Variant ]
-export function parseWeight(str: string, warn: boolean): [ /* returnType */ boolean, /* weight */ Weight ]
-export function quantizeLineGeometry(thickness: number, position: number): [ /* thickness */ number, /* position */ number ]
+export function parseEnum(type: GObject.Type, str: string | null, warn: boolean): { returnType: boolean, value: number | null, possibleValues: string | null }
+export function parseMarkup(markupText: string, length: number, accelMarker: number): { returnType: boolean, attrList: AttrList | null, text: string | null, accelChar: number | null }
+export function parseStretch(str: string, warn: boolean): { returnType: boolean, stretch: Stretch }
+export function parseStyle(str: string, warn: boolean): { returnType: boolean, style: Style }
+export function parseVariant(str: string, warn: boolean): { returnType: boolean, variant: Variant }
+export function parseWeight(str: string, warn: boolean): { returnType: boolean, weight: Weight }
+export function quantizeLineGeometry(thickness: number, position: number): { thickness: number, position: number }
 export function readLine(stream: object | null, str: GLib.String): number
 export function reorderItems(logicalItems: Item[]): Item[]
-export function scanInt(pos: string): [ /* returnType */ boolean, /* pos */ string, /* out */ number ]
-export function scanString(pos: string, out: GLib.String): [ /* returnType */ boolean, /* pos */ string ]
-export function scanWord(pos: string, out: GLib.String): [ /* returnType */ boolean, /* pos */ string ]
+export function scanInt(pos: string): { returnType: boolean, pos: string, out: number }
+export function scanString(pos: string, out: GLib.String): { returnType: boolean, pos: string }
+export function scanWord(pos: string, out: GLib.String): { returnType: boolean, pos: string }
 export function scriptForUnichar(ch: number): Script
 export function scriptGetSampleLanguage(script: Script): Language | null
 export function shape(text: string, length: number, analysis: Analysis, glyphs: GlyphString): void
 export function shapeFull(itemText: string, itemLength: number, paragraphText: string | null, paragraphLength: number, analysis: Analysis, glyphs: GlyphString): void
 export function shapeWithFlags(itemText: string, itemLength: number, paragraphText: string | null, paragraphLength: number, analysis: Analysis, glyphs: GlyphString, flags: ShapeFlags): void
-export function skipSpace(pos: string): [ /* returnType */ boolean, /* pos */ string ]
+export function skipSpace(pos: string): { returnType: boolean, pos: string }
 export function splitFileList(str: string): string[]
 export function tailorBreak(text: string, length: number, analysis: Analysis, offset: number, logAttrs: LogAttr[]): void
 export function trimString(str: string): string
@@ -427,7 +427,7 @@ export class Context {
     getMetrics(desc?: FontDescription | null, language?: Language | null): FontMetrics
     getRoundGlyphPositions(): boolean
     getSerial(): number
-    listFamilies(): /* families */ FontFamily[]
+    listFamilies(): { families: FontFamily[] }
     loadFont(desc: FontDescription): Font | null
     loadFontset(desc: FontDescription, language: Language): Fontset | null
     setBaseDir(direction: Direction): void
@@ -499,7 +499,7 @@ export class Coverage {
     max(other: Coverage): void
     ref(): Coverage
     set(index: number, level: CoverageLevel): void
-    toBytes(): /* bytes */ any[]
+    toBytes(): { bytes: any[] }
     unref(): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -730,9 +730,9 @@ export class Font {
     findShaper(language: Language, ch: number): EngineShape
     getCoverage(language: Language): Coverage
     getFace(): FontFace
-    getFeatures(numFeatures: number): [ /* features */ HarfBuzz.feature_t[], /* numFeatures */ number ]
+    getFeatures(numFeatures: number): { features: HarfBuzz.feature_t[], numFeatures: number }
     getFontMap(): FontMap | null
-    getGlyphExtents(glyph: Glyph): [ /* inkRect */ Rectangle | null, /* logicalRect */ Rectangle | null ]
+    getGlyphExtents(glyph: Glyph): { inkRect: Rectangle | null, logicalRect: Rectangle | null }
     getMetrics(language?: Language | null): FontMetrics
     hasChar(wc: number): boolean
     /* Methods of GObject-2.0.GObject.Object */
@@ -762,9 +762,9 @@ export class Font {
     vfuncDescribe(): FontDescription
     vfuncDescribeAbsolute(): FontDescription
     vfuncGetCoverage(language: Language): Coverage
-    vfuncGetFeatures(numFeatures: number): [ /* features */ HarfBuzz.feature_t[], /* numFeatures */ number ]
+    vfuncGetFeatures(numFeatures: number): { features: HarfBuzz.feature_t[], numFeatures: number }
     vfuncGetFontMap(): FontMap | null
-    vfuncGetGlyphExtents(glyph: Glyph): [ /* inkRect */ Rectangle | null, /* logicalRect */ Rectangle | null ]
+    vfuncGetGlyphExtents(glyph: Glyph): { inkRect: Rectangle | null, logicalRect: Rectangle | null }
     vfuncGetMetrics(language?: Language | null): FontMetrics
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
@@ -806,7 +806,7 @@ export class FontFace {
     getFaceName(): string
     getFamily(): FontFamily
     isSynthesized(): boolean
-    listSizes(): /* sizes */ number[] | null
+    listSizes(): { sizes: number[] | null }
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -834,7 +834,7 @@ export class FontFace {
     vfuncGetFaceName(): string
     vfuncGetFamily(): FontFamily
     vfuncIsSynthesized(): boolean
-    vfuncListSizes(): /* sizes */ number[] | null
+    vfuncListSizes(): { sizes: number[] | null }
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -873,7 +873,7 @@ export class FontFamily {
     getName(): string
     isMonospace(): boolean
     isVariable(): boolean
-    listFaces(): /* faces */ FontFace[] | null
+    listFaces(): { faces: FontFace[] | null }
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -901,7 +901,7 @@ export class FontFamily {
     vfuncGetName(): string
     vfuncIsMonospace(): boolean
     vfuncIsVariable(): boolean
-    vfuncListFaces(): /* faces */ FontFace[] | null
+    vfuncListFaces(): { faces: FontFace[] | null }
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -940,7 +940,7 @@ export class FontMap {
     createContext(): Context
     getFamily(name: string): FontFamily
     getSerial(): number
-    listFamilies(): /* families */ FontFamily[]
+    listFamilies(): { families: FontFamily[] }
     loadFont(context: Context, desc: FontDescription): Font | null
     loadFontset(context: Context, desc: FontDescription, language: Language): Fontset | null
     /* Methods of GObject-2.0.GObject.Object */
@@ -969,7 +969,7 @@ export class FontMap {
     vfuncChanged(): void
     vfuncGetFamily(name: string): FontFamily
     vfuncGetSerial(): number
-    vfuncListFamilies(): /* families */ FontFamily[]
+    vfuncListFamilies(): { families: FontFamily[] }
     vfuncLoadFont(context: Context, desc: FontDescription): Font | null
     vfuncLoadFontset(context: Context, desc: FontDescription, language: Language): Fontset | null
     /* Virtual methods of GObject-2.0.GObject.Object */
@@ -1145,10 +1145,10 @@ export class Layout {
     getBaseline(): number
     getCharacterCount(): number
     getContext(): Context
-    getCursorPos(index: number): [ /* strongPos */ Rectangle | null, /* weakPos */ Rectangle | null ]
+    getCursorPos(index: number): { strongPos: Rectangle | null, weakPos: Rectangle | null }
     getDirection(index: number): Direction
     getEllipsize(): EllipsizeMode
-    getExtents(): [ /* inkRect */ Rectangle | null, /* logicalRect */ Rectangle | null ]
+    getExtents(): { inkRect: Rectangle | null, logicalRect: Rectangle | null }
     getFontDescription(): FontDescription | null
     getHeight(): number
     getIndent(): number
@@ -1160,24 +1160,24 @@ export class Layout {
     getLineSpacing(): number
     getLines(): LayoutLine[]
     getLinesReadonly(): LayoutLine[]
-    getLogAttrs(): /* attrs */ LogAttr[]
+    getLogAttrs(): { attrs: LogAttr[] }
     getLogAttrsReadonly(): LogAttr[]
-    getPixelExtents(): [ /* inkRect */ Rectangle | null, /* logicalRect */ Rectangle | null ]
-    getPixelSize(): [ /* width */ number | null, /* height */ number | null ]
+    getPixelExtents(): { inkRect: Rectangle | null, logicalRect: Rectangle | null }
+    getPixelSize(): { width: number | null, height: number | null }
     getSerial(): number
     getSingleParagraphMode(): boolean
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getSize(): { width: number | null, height: number | null }
     getSpacing(): number
     getTabs(): TabArray | null
     getText(): string
     getUnknownGlyphsCount(): number
     getWidth(): number
     getWrap(): WrapMode
-    indexToLineX(index: number, trailing: boolean): [ /* line */ number | null, /* xPos */ number | null ]
-    indexToPos(index: number): /* pos */ Rectangle
+    indexToLineX(index: number, trailing: boolean): { line: number | null, xPos: number | null }
+    indexToPos(index: number): { pos: Rectangle }
     isEllipsized(): boolean
     isWrapped(): boolean
-    moveCursorVisually(strong: boolean, oldIndex: number, oldTrailing: number, direction: number): [ /* newIndex */ number, /* newTrailing */ number ]
+    moveCursorVisually(strong: boolean, oldIndex: number, oldTrailing: number, direction: number): { newIndex: number, newTrailing: number }
     setAlignment(alignment: Alignment): void
     setAttributes(attrs?: AttrList | null): void
     setAutoDir(autoDir: boolean): void
@@ -1188,14 +1188,14 @@ export class Layout {
     setJustify(justify: boolean): void
     setLineSpacing(factor: number): void
     setMarkup(markup: string, length: number): void
-    setMarkupWithAccel(markup: string, length: number, accelMarker: number): /* accelChar */ number | null
+    setMarkupWithAccel(markup: string, length: number, accelMarker: number): { accelChar: number | null }
     setSingleParagraphMode(setting: boolean): void
     setSpacing(spacing: number): void
     setTabs(tabs?: TabArray | null): void
     setText(text: string, length: number): void
     setWidth(width: number): void
     setWrap(wrap: WrapMode): void
-    xyToIndex(x: number, y: number): [ /* returnType */ boolean, /* index */ number, /* trailing */ number ]
+    xyToIndex(x: number, y: number): { returnType: boolean, index: number, trailing: number }
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -1392,7 +1392,7 @@ export class AttrIterator {
     getAttrs(): Attribute[]
     getFont(desc: FontDescription, language?: Language | null, extraAttrs?: Attribute[] | null): void
     next(): boolean
-    range(): [ /* start */ number, /* end */ number ]
+    range(): { start: number, end: number }
     static name: string
 }
 export class AttrLanguage {
@@ -1469,7 +1469,7 @@ export class Color {
     copy(): Color | null
     free(): void
     parse(spec: string): boolean
-    parseWithAlpha(spec: string): [ /* returnType */ boolean, /* alpha */ number | null ]
+    parseWithAlpha(spec: string): { returnType: boolean, alpha: number | null }
     toString(): string
     static name: string
 }
@@ -1510,11 +1510,11 @@ export abstract class FontClass {
     parentClass: GObject.ObjectClass
     describe: (font: Font) => FontDescription
     getCoverage: (font: Font, language: Language) => Coverage
-    getGlyphExtents: (font: Font | null, glyph: Glyph) => [ /* inkRect */ Rectangle | null, /* logicalRect */ Rectangle | null ]
+    getGlyphExtents: (font: Font | null, glyph: Glyph) => { inkRect: Rectangle | null, logicalRect: Rectangle | null }
     getMetrics: (font?: Font | null, language?: Language | null) => FontMetrics
     getFontMap: (font?: Font | null) => FontMap | null
     describeAbsolute: (font: Font) => FontDescription
-    getFeatures: (font: Font, numFeatures: number) => [ /* features */ HarfBuzz.feature_t[], /* numFeatures */ number ]
+    getFeatures: (font: Font, numFeatures: number) => { features: HarfBuzz.feature_t[], numFeatures: number }
     createHbFont: (font: Font) => HarfBuzz.font_t
     static name: string
 }
@@ -1564,7 +1564,7 @@ export abstract class FontFaceClass {
     parentClass: GObject.ObjectClass
     getFaceName: (face: FontFace) => string
     describe: (face: FontFace) => FontDescription
-    listSizes: (face: FontFace) => /* sizes */ number[] | null
+    listSizes: (face: FontFace) => { sizes: number[] | null }
     isSynthesized: (face: FontFace) => boolean
     getFamily: (face: FontFace) => FontFamily
     static name: string
@@ -1572,7 +1572,7 @@ export abstract class FontFaceClass {
 export abstract class FontFamilyClass {
     /* Fields of Pango-1.0.Pango.FontFamilyClass */
     parentClass: GObject.ObjectClass
-    listFaces: (family: FontFamily) => /* faces */ FontFace[] | null
+    listFaces: (family: FontFamily) => { faces: FontFace[] | null }
     getName: (family: FontFamily) => string
     isMonospace: (family: FontFamily) => boolean
     isVariable: (family: FontFamily) => boolean
@@ -1583,7 +1583,7 @@ export abstract class FontMapClass {
     /* Fields of Pango-1.0.Pango.FontMapClass */
     parentClass: GObject.ObjectClass
     loadFont: (fontmap: FontMap, context: Context, desc: FontDescription) => Font | null
-    listFamilies: (fontmap: FontMap) => /* families */ FontFamily[]
+    listFamilies: (fontmap: FontMap) => { families: FontFamily[] }
     loadFontset: (fontmap: FontMap, context: Context, desc: FontDescription, language: Language) => Fontset | null
     shapeEngineType: string
     getSerial: (fontmap: FontMap) => number
@@ -1671,14 +1671,14 @@ export class GlyphString {
     logClusters: number
     /* Methods of Pango-1.0.Pango.GlyphString */
     copy(): GlyphString | null
-    extents(font: Font): [ /* inkRect */ Rectangle | null, /* logicalRect */ Rectangle | null ]
-    extentsRange(start: number, end: number, font: Font): [ /* inkRect */ Rectangle | null, /* logicalRect */ Rectangle | null ]
+    extents(font: Font): { inkRect: Rectangle | null, logicalRect: Rectangle | null }
+    extentsRange(start: number, end: number, font: Font): { inkRect: Rectangle | null, logicalRect: Rectangle | null }
     free(): void
     getLogicalWidths(text: string, length: number, embeddingLevel: number, logicalWidths: number[]): void
     getWidth(): number
-    indexToX(text: string, length: number, analysis: Analysis, index: number, trailing: boolean): /* xPos */ number
+    indexToX(text: string, length: number, analysis: Analysis, index: number, trailing: boolean): { xPos: number }
     setSize(newLen: number): void
-    xToIndex(text: string, length: number, analysis: Analysis, xPos: number): [ /* index */ number, /* trailing */ number ]
+    xToIndex(text: string, length: number, analysis: Analysis, xPos: number): { index: number, trailing: number }
     static name: string
     static new(): GlyphString
     constructor()
@@ -1735,17 +1735,17 @@ export class LayoutIter {
     copy(): LayoutIter | null
     free(): void
     getBaseline(): number
-    getCharExtents(): /* logicalRect */ Rectangle
-    getClusterExtents(): [ /* inkRect */ Rectangle | null, /* logicalRect */ Rectangle | null ]
+    getCharExtents(): { logicalRect: Rectangle }
+    getClusterExtents(): { inkRect: Rectangle | null, logicalRect: Rectangle | null }
     getIndex(): number
     getLayout(): Layout
-    getLayoutExtents(): [ /* inkRect */ Rectangle | null, /* logicalRect */ Rectangle | null ]
+    getLayoutExtents(): { inkRect: Rectangle | null, logicalRect: Rectangle | null }
     getLine(): LayoutLine
-    getLineExtents(): [ /* inkRect */ Rectangle | null, /* logicalRect */ Rectangle | null ]
+    getLineExtents(): { inkRect: Rectangle | null, logicalRect: Rectangle | null }
     getLineReadonly(): LayoutLine
-    getLineYrange(): [ /* y0 */ number | null, /* y1 */ number | null ]
+    getLineYrange(): { y0: number | null, y1: number | null }
     getRun(): LayoutRun | null
-    getRunExtents(): [ /* inkRect */ Rectangle | null, /* logicalRect */ Rectangle | null ]
+    getRunExtents(): { inkRect: Rectangle | null, logicalRect: Rectangle | null }
     getRunReadonly(): LayoutRun | null
     nextChar(): boolean
     nextCluster(): boolean
@@ -1762,14 +1762,14 @@ export class LayoutLine {
     isParagraphStart: number
     resolvedDir: number
     /* Methods of Pango-1.0.Pango.LayoutLine */
-    getExtents(): [ /* inkRect */ Rectangle | null, /* logicalRect */ Rectangle | null ]
-    getHeight(): /* height */ number | null
-    getPixelExtents(): [ /* inkRect */ Rectangle | null, /* logicalRect */ Rectangle | null ]
-    getXRanges(startIndex: number, endIndex: number): /* ranges */ number[]
-    indexToX(index: number, trailing: boolean): /* xPos */ number
+    getExtents(): { inkRect: Rectangle | null, logicalRect: Rectangle | null }
+    getHeight(): { height: number | null }
+    getPixelExtents(): { inkRect: Rectangle | null, logicalRect: Rectangle | null }
+    getXRanges(startIndex: number, endIndex: number): { ranges: number[] }
+    indexToX(index: number, trailing: boolean): { xPos: number }
     ref(): LayoutLine
     unref(): void
-    xToIndex(xPos: number): [ /* returnType */ boolean, /* index */ number, /* trailing */ number ]
+    xToIndex(xPos: number): { returnType: boolean, index: number, trailing: number }
     static name: string
 }
 export class LogAttr {
@@ -1808,13 +1808,13 @@ export class Matrix {
     copy(): Matrix | null
     free(): void
     getFontScaleFactor(): number
-    getFontScaleFactors(): [ /* xscale */ number | null, /* yscale */ number | null ]
+    getFontScaleFactors(): { xscale: number | null, yscale: number | null }
     rotate(degrees: number): void
     scale(scaleX: number, scaleY: number): void
-    transformDistance(dx: number, dy: number): [ /* dx */ number, /* dy */ number ]
-    transformPixelRectangle(rect?: Rectangle | null): /* rect */ Rectangle | null
-    transformPoint(x: number, y: number): [ /* x */ number, /* y */ number ]
-    transformRectangle(rect?: Rectangle | null): /* rect */ Rectangle | null
+    transformDistance(dx: number, dy: number): { dx: number, dy: number }
+    transformPixelRectangle(rect?: Rectangle | null): { rect: Rectangle | null }
+    transformPoint(x: number, y: number): { x: number, y: number }
+    transformRectangle(rect?: Rectangle | null): { rect: Rectangle | null }
     translate(tx: number, ty: number): void
     static name: string
 }
@@ -1847,7 +1847,7 @@ export class RendererPrivate {
 export class ScriptIter {
     /* Methods of Pango-1.0.Pango.ScriptIter */
     free(): void
-    getRange(): [ /* start */ string | null, /* end */ string | null, /* script */ Script | null ]
+    getRange(): { start: string | null, end: string | null, script: Script | null }
     next(): boolean
     static name: string
     static new(text: string, length: number): ScriptIter
@@ -1861,8 +1861,8 @@ export class TabArray {
     free(): void
     getPositionsInPixels(): boolean
     getSize(): number
-    getTab(tabIndex: number): [ /* alignment */ TabAlign | null, /* location */ number | null ]
-    getTabs(): [ /* alignments */ TabAlign | null, /* locations */ number[] | null ]
+    getTab(tabIndex: number): { alignment: TabAlign | null, location: number | null }
+    getTabs(): { alignments: TabAlign | null, locations: number[] | null }
     resize(newSize: number): void
     setTab(tabIndex: number, alignment: TabAlign, location: number): void
     static name: string

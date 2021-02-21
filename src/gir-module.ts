@@ -519,7 +519,12 @@ export class GirModule {
                     const paramType = this.typeLookup(param)
 
                     if (out) {
-                        outParams.push(`/* ${paramName} */ ${paramType}`)
+                        if (this.config.environment === 'gjs') {
+                            outParams.push(`/* ${paramName} */ ${paramType}`)
+                        } else if (this.config.environment === 'node') {
+                            outParams.push(`${paramName}: ${paramType}`)
+                        }
+
                         if (optDirection == 'out') continue
                     }
 
@@ -635,17 +640,32 @@ export class GirModule {
 
         const retTypeIsVoid = retType === 'void'
 
-        if (overrideReturnType) {
-            retType = overrideReturnType
-        } else if (outParams.length + (retTypeIsVoid ? 0 : 1) > 1) {
-            if (!retTypeIsVoid) {
-                outParams.unshift(`/* returnType */ ${retType}`)
+        if (this.config.environment === 'gjs') {
+            if (overrideReturnType) {
+                retType = overrideReturnType
+            } else if (outParams.length + (retTypeIsVoid ? 0 : 1) > 1) {
+                if (!retTypeIsVoid) {
+                    outParams.unshift(`/* returnType */ ${retType}`)
+                }
+                const retDesc = outParams.join(', ')
+                retType = `[ ${retDesc} ]`
+            } else if (outParams.length === 1 && retTypeIsVoid) {
+                retType = outParams[0]
             }
-            const retDesc = outParams.join(', ')
-            retType = `[ ${retDesc} ]`
-        } else if (outParams.length === 1 && retTypeIsVoid) {
-            retType = outParams[0]
         }
+        // See point 6 on https://github.com/sammydre/ts-for-gjs/issues/21
+        if (this.config.environment === 'node') {
+            if (overrideReturnType) {
+                retType = overrideReturnType
+            } else if (outParams.length >= 1) {
+                if (!retTypeIsVoid) {
+                    outParams.unshift(`returnType: ${retType}`)
+                }
+                const retDesc = outParams.join(', ')
+                retType = `{ ${retDesc} }`
+            }
+        }
+
         let retSep: string
         if (arrowType) {
             prefix = ''

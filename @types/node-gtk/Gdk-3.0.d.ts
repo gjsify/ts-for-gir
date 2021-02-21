@@ -2847,7 +2847,7 @@ export function atomInternStaticString(atomName: string): Atom
 export function beep(): void
 export function cairoCreate(window: Window): cairo.Context
 export function cairoDrawFromGl(cr: cairo.Context, window: Window, source: number, sourceType: number, bufferScale: number, x: number, y: number, width: number, height: number): void
-export function cairoGetClipRectangle(cr: cairo.Context): [ /* returnType */ boolean, /* rect */ Rectangle | null ]
+export function cairoGetClipRectangle(cr: cairo.Context): { returnType: boolean, rect: Rectangle | null }
 export function cairoGetDrawingContext(cr: cairo.Context): DrawingContext | null
 export function cairoRectangle(cr: cairo.Context, rectangle: Rectangle): void
 export function cairoRegion(cr: cairo.Context, region: cairo.Region): void
@@ -2857,7 +2857,7 @@ export function cairoSetSourcePixbuf(cr: cairo.Context, pixbuf: GdkPixbuf.Pixbuf
 export function cairoSetSourceRgba(cr: cairo.Context, rgba: RGBA): void
 export function cairoSetSourceWindow(cr: cairo.Context, window: Window, x: number, y: number): void
 export function cairoSurfaceCreateFromPixbuf(pixbuf: GdkPixbuf.Pixbuf, scale: number, forWindow?: Window | null): cairo.Surface
-export function colorParse(spec: string): [ /* returnType */ boolean, /* color */ Color ]
+export function colorParse(spec: string): { returnType: boolean, color: Color }
 export function disableMultidevice(): void
 export function dragAbort(context: DragContext, time: number): void
 export function dragBegin(window: Window, targets: Atom[]): DragContext
@@ -2866,7 +2866,7 @@ export function dragBeginFromPoint(window: Window, device: Device, targets: Atom
 export function dragDrop(context: DragContext, time: number): void
 export function dragDropDone(context: DragContext, success: boolean): void
 export function dragDropSucceeded(context: DragContext): boolean
-export function dragFindWindowForScreen(context: DragContext, dragWindow: Window, screen: Screen, xRoot: number, yRoot: number): [ /* destWindow */ Window, /* protocol */ DragProtocol ]
+export function dragFindWindowForScreen(context: DragContext, dragWindow: Window, screen: Screen, xRoot: number, yRoot: number): { destWindow: Window, protocol: DragProtocol }
 export function dragGetSelection(context: DragContext): Atom
 export function dragMotion(context: DragContext, destWindow: Window, protocol: DragProtocol, xRoot: number, yRoot: number, suggestedAction: DragAction, possibleActions: DragAction, time: number): boolean
 export function dragStatus(context: DragContext, action: DragAction, time: number): void
@@ -2879,9 +2879,9 @@ export function eventGet(): Event | null
 export function eventHandlerSet(func: EventFunc): void
 export function eventPeek(): Event | null
 export function eventRequestMotions(event: EventMotion): void
-export function eventsGetAngle(event1: Event, event2: Event): [ /* returnType */ boolean, /* angle */ number ]
-export function eventsGetCenter(event1: Event, event2: Event): [ /* returnType */ boolean, /* x */ number, /* y */ number ]
-export function eventsGetDistance(event1: Event, event2: Event): [ /* returnType */ boolean, /* distance */ number ]
+export function eventsGetAngle(event1: Event, event2: Event): { returnType: boolean, angle: number }
+export function eventsGetCenter(event1: Event, event2: Event): { returnType: boolean, x: number, y: number }
+export function eventsGetDistance(event1: Event, event2: Event): { returnType: boolean, distance: number }
 export function eventsPending(): boolean
 export function flush(): void
 export function getDefaultRootWindow(): Window
@@ -2890,11 +2890,11 @@ export function getDisplayArgName(): string | null
 export function getProgramClass(): string
 export function getShowEvents(): boolean
 export function glErrorQuark(): GLib.Quark
-export function init(argv: string[]): /* argv */ string[]
-export function initCheck(argv: string[]): [ /* returnType */ boolean, /* argv */ string[] ]
+export function init(argv: string[]): { argv: string[] }
+export function initCheck(argv: string[]): { returnType: boolean, argv: string[] }
 export function keyboardGrab(window: Window, ownerEvents: boolean, time: number): GrabStatus
 export function keyboardUngrab(time: number): void
-export function keyvalConvertCase(symbol: number): [ /* lower */ number, /* upper */ number ]
+export function keyvalConvertCase(symbol: number): { lower: number, upper: number }
 export function keyvalFromName(keyvalName: string): number
 export function keyvalIsLower(keyval: number): boolean
 export function keyvalIsUpper(keyval: number): boolean
@@ -2911,7 +2911,7 @@ export function offscreenWindowSetEmbedder(window: Window, embedder: Window): vo
 export function pangoContextGet(): Pango.Context
 export function pangoContextGetForDisplay(display: Display): Pango.Context
 export function pangoContextGetForScreen(screen: Screen): Pango.Context
-export function parseArgs(argv: string[]): /* argv */ string[]
+export function parseArgs(argv: string[]): { argv: string[] }
 export function pixbufGetFromSurface(surface: cairo.Surface, srcX: number, srcY: number, width: number, height: number): GdkPixbuf.Pixbuf | null
 export function pixbufGetFromWindow(window: Window, srcX: number, srcY: number, width: number, height: number): GdkPixbuf.Pixbuf | null
 export function pointerGrab(window: Window, ownerEvents: boolean, eventMask: EventMask, confineTo: Window | null, cursor: Cursor | null, time: number): GrabStatus
@@ -2919,9 +2919,9 @@ export function pointerIsGrabbed(): boolean
 export function pointerUngrab(time: number): void
 export function preParseLibgtkOnly(): void
 export function propertyDelete(window: Window, property: Atom): void
-export function propertyGet(window: Window, property: Atom, type: Atom, offset: number, length: number, pdelete: number): [ /* returnType */ boolean, /* actualPropertyType */ Atom, /* actualFormat */ number, /* data */ any[] ]
-export function queryDepths(): /* depths */ number[]
-export function queryVisualTypes(): /* visualTypes */ VisualType[]
+export function propertyGet(window: Window, property: Atom, type: Atom, offset: number, length: number, pdelete: number): { returnType: boolean, actualPropertyType: Atom, actualFormat: number, data: any[] }
+export function queryDepths(): { depths: number[] }
+export function queryVisualTypes(): { visualTypes: VisualType[] }
 export function selectionConvert(requestor: Window, selection: Atom, target: Atom, time: number): void
 export function selectionOwnerGet(selection: Atom): Window | null
 export function selectionOwnerGetForDisplay(display: Display, selection: Atom): Window | null
@@ -2938,7 +2938,7 @@ export function synthesizeWindowState(window: Window, unsetFlags: WindowState, s
 export function testRenderSync(window: Window): void
 export function testSimulateButton(window: Window, x: number, y: number, button: number, modifiers: ModifierType, buttonPressrelease: EventType): boolean
 export function testSimulateKey(window: Window, x: number, y: number, keyval: number, modifiers: ModifierType, keyPressrelease: EventType): boolean
-export function textPropertyToUtf8ListForDisplay(display: Display, encoding: Atom, format: number, text: any[]): [ /* returnType */ number, /* list */ string[] ]
+export function textPropertyToUtf8ListForDisplay(display: Display, encoding: Atom, format: number, text: any[]): { returnType: number, list: string[] }
 export function threadsAddIdle(priority: number, function_: GLib.SourceFunc): number
 export function threadsAddTimeout(priority: number, interval: number, function_: GLib.SourceFunc): number
 export function threadsAddTimeoutSeconds(priority: number, interval: number, function_: GLib.SourceFunc): number
@@ -2986,20 +2986,20 @@ export class DevicePad {
     getDeviceType(): DeviceType
     getDisplay(): Display
     getHasCursor(): boolean
-    getKey(index: number): [ /* returnType */ boolean, /* keyval */ number, /* modifiers */ ModifierType ]
+    getKey(index: number): { returnType: boolean, keyval: number, modifiers: ModifierType }
     getLastEventWindow(): Window | null
     getMode(): InputMode
     getNAxes(): number
     getNKeys(): number
     getName(): string
-    getPosition(): [ /* screen */ Screen | null, /* x */ number | null, /* y */ number | null ]
-    getPositionDouble(): [ /* screen */ Screen | null, /* x */ number | null, /* y */ number | null ]
+    getPosition(): { screen: Screen | null, x: number | null, y: number | null }
+    getPositionDouble(): { screen: Screen | null, x: number | null, y: number | null }
     getProductId(): string | null
     getSeat(): Seat
     getSource(): InputSource
     getVendorId(): string | null
-    getWindowAtPosition(): [ /* returnType */ Window | null, /* winX */ number | null, /* winY */ number | null ]
-    getWindowAtPositionDouble(): [ /* returnType */ Window | null, /* winX */ number | null, /* winY */ number | null ]
+    getWindowAtPosition(): { returnType: Window | null, winX: number | null, winY: number | null }
+    getWindowAtPositionDouble(): { returnType: Window | null, winX: number | null, winY: number | null }
     grab(window: Window, grabOwnership: GrabOwnership, ownerEvents: boolean, eventMask: EventMask, cursor: Cursor | null, time: number): GrabStatus
     listAxes(): Atom[]
     listSlaveDevices(): Device[] | null
@@ -3196,7 +3196,7 @@ export class Cursor {
     getCursorType(): CursorType
     getDisplay(): Display
     getImage(): GdkPixbuf.Pixbuf | null
-    getSurface(): [ /* returnType */ cairo.Surface | null, /* xHot */ number | null, /* yHot */ number | null ]
+    getSurface(): { returnType: cairo.Surface | null, xHot: number | null, yHot: number | null }
     ref(): Cursor
     unref(): void
     /* Methods of GObject-2.0.GObject.Object */
@@ -3282,20 +3282,20 @@ export class Device {
     getDeviceType(): DeviceType
     getDisplay(): Display
     getHasCursor(): boolean
-    getKey(index: number): [ /* returnType */ boolean, /* keyval */ number, /* modifiers */ ModifierType ]
+    getKey(index: number): { returnType: boolean, keyval: number, modifiers: ModifierType }
     getLastEventWindow(): Window | null
     getMode(): InputMode
     getNAxes(): number
     getNKeys(): number
     getName(): string
-    getPosition(): [ /* screen */ Screen | null, /* x */ number | null, /* y */ number | null ]
-    getPositionDouble(): [ /* screen */ Screen | null, /* x */ number | null, /* y */ number | null ]
+    getPosition(): { screen: Screen | null, x: number | null, y: number | null }
+    getPositionDouble(): { screen: Screen | null, x: number | null, y: number | null }
     getProductId(): string | null
     getSeat(): Seat
     getSource(): InputSource
     getVendorId(): string | null
-    getWindowAtPosition(): [ /* returnType */ Window | null, /* winX */ number | null, /* winY */ number | null ]
-    getWindowAtPositionDouble(): [ /* returnType */ Window | null, /* winX */ number | null, /* winY */ number | null ]
+    getWindowAtPosition(): { returnType: Window | null, winX: number | null, winY: number | null }
+    getWindowAtPositionDouble(): { returnType: Window | null, winX: number | null, winY: number | null }
     grab(window: Window, grabOwnership: GrabOwnership, ownerEvents: boolean, eventMask: EventMask, cursor: Cursor | null, time: number): GrabStatus
     listAxes(): Atom[]
     listSlaveDevices(): Device[] | null
@@ -3392,7 +3392,7 @@ export class Device {
     constructor (config?: Device_ConstructProps)
     _init (config?: Device_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static grabInfoLibgtkOnly(display: Display, device: Device): [ /* returnType */ boolean, /* grabWindow */ Window, /* ownerEvents */ boolean ]
+    static grabInfoLibgtkOnly(display: Display, device: Device): { returnType: boolean, grabWindow: Window, ownerEvents: boolean }
     static $gtype: GObject.Type
 }
 export interface DeviceManager_ConstructProps extends GObject.Object_ConstructProps {
@@ -3547,17 +3547,17 @@ export class Display {
     getDefaultSeat(): Seat
     getDeviceManager(): DeviceManager | null
     getEvent(): Event | null
-    getMaximalCursorSize(): [ /* width */ number, /* height */ number ]
+    getMaximalCursorSize(): { width: number, height: number }
     getMonitor(monitorNum: number): Monitor | null
     getMonitorAtPoint(x: number, y: number): Monitor
     getMonitorAtWindow(window: Window): Monitor
     getNMonitors(): number
     getNScreens(): number
     getName(): string
-    getPointer(): [ /* screen */ Screen | null, /* x */ number | null, /* y */ number | null, /* mask */ ModifierType | null ]
+    getPointer(): { screen: Screen | null, x: number | null, y: number | null, mask: ModifierType | null }
     getPrimaryMonitor(): Monitor | null
     getScreen(screenNum: number): Screen
-    getWindowAtPointer(): [ /* returnType */ Window | null, /* winX */ number | null, /* winY */ number | null ]
+    getWindowAtPointer(): { returnType: Window | null, winX: number | null, winY: number | null }
     hasPending(): boolean
     isClosed(): boolean
     keyboardUngrab(time: number): void
@@ -3897,7 +3897,7 @@ export class FrameClock {
     getFrameCounter(): number
     getFrameTime(): number
     getHistoryStart(): number
-    getRefreshInfo(baseTime: number): [ /* refreshIntervalReturn */ number | null, /* presentationTimeReturn */ number ]
+    getRefreshInfo(baseTime: number): { refreshIntervalReturn: number | null, presentationTimeReturn: number }
     getTimings(frameCounter: number): FrameTimings | null
     requestPhase(phase: FrameClockPhase): void
     /* Methods of GObject-2.0.GObject.Object */
@@ -3996,10 +3996,10 @@ export class GLContext {
     getDebugEnabled(): boolean
     getDisplay(): Display | null
     getForwardCompatible(): boolean
-    getRequiredVersion(): [ /* major */ number | null, /* minor */ number | null ]
+    getRequiredVersion(): { major: number | null, minor: number | null }
     getSharedContext(): GLContext | null
     getUseEs(): boolean
-    getVersion(): [ /* major */ number, /* minor */ number ]
+    getVersion(): { major: number, minor: number }
     getWindow(): Window | null
     isLegacy(): boolean
     makeCurrent(): void
@@ -4065,19 +4065,19 @@ export class Keymap {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gdk-3.0.Gdk.Keymap */
-    addVirtualModifiers(state: ModifierType): /* state */ ModifierType
+    addVirtualModifiers(state: ModifierType): { state: ModifierType }
     getCapsLockState(): boolean
     getDirection(): Pango.Direction
-    getEntriesForKeycode(hardwareKeycode: number): [ /* returnType */ boolean, /* keys */ KeymapKey[] | null, /* keyvals */ number[] | null ]
-    getEntriesForKeyval(keyval: number): [ /* returnType */ boolean, /* keys */ KeymapKey[] ]
+    getEntriesForKeycode(hardwareKeycode: number): { returnType: boolean, keys: KeymapKey[] | null, keyvals: number[] | null }
+    getEntriesForKeyval(keyval: number): { returnType: boolean, keys: KeymapKey[] }
     getModifierMask(intent: ModifierIntent): ModifierType
     getModifierState(): number
     getNumLockState(): boolean
     getScrollLockState(): boolean
     haveBidiLayouts(): boolean
     lookupKey(key: KeymapKey): number
-    mapVirtualModifiers(state: ModifierType): [ /* returnType */ boolean, /* state */ ModifierType ]
-    translateKeyboardState(hardwareKeycode: number, state: ModifierType, group: number): [ /* returnType */ boolean, /* keyval */ number | null, /* effectiveGroup */ number | null, /* level */ number | null, /* consumedModifiers */ ModifierType | null ]
+    mapVirtualModifiers(state: ModifierType): { returnType: boolean, state: ModifierType }
+    translateKeyboardState(hardwareKeycode: number, state: ModifierType, group: number): { returnType: boolean, keyval: number | null, effectiveGroup: number | null, level: number | null, consumedModifiers: ModifierType | null }
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -4163,7 +4163,7 @@ export class Monitor {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gdk-3.0.Gdk.Monitor */
     getDisplay(): Display
-    getGeometry(): /* geometry */ Rectangle
+    getGeometry(): { geometry: Rectangle }
     getHeightMm(): number
     getManufacturer(): string | null
     getModel(): string | null
@@ -4171,7 +4171,7 @@ export class Monitor {
     getScaleFactor(): number
     getSubpixelLayout(): SubpixelLayout
     getWidthMm(): number
-    getWorkarea(): /* workarea */ Rectangle
+    getWorkarea(): { workarea: Rectangle }
     isPrimary(): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -4290,12 +4290,12 @@ export class Screen {
     getHeightMm(): number
     getMonitorAtPoint(x: number, y: number): number
     getMonitorAtWindow(window: Window): number
-    getMonitorGeometry(monitorNum: number): /* dest */ Rectangle | null
+    getMonitorGeometry(monitorNum: number): { dest: Rectangle | null }
     getMonitorHeightMm(monitorNum: number): number
     getMonitorPlugName(monitorNum: number): string | null
     getMonitorScaleFactor(monitorNum: number): number
     getMonitorWidthMm(monitorNum: number): number
-    getMonitorWorkarea(monitorNum: number): /* dest */ Rectangle | null
+    getMonitorWorkarea(monitorNum: number): { dest: Rectangle | null }
     getNMonitors(): number
     getNumber(): number
     getPrimaryMonitor(): number
@@ -4485,12 +4485,12 @@ export class Visual {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gdk-3.0.Gdk.Visual */
     getBitsPerRgb(): number
-    getBluePixelDetails(): [ /* mask */ number | null, /* shift */ number | null, /* precision */ number | null ]
+    getBluePixelDetails(): { mask: number | null, shift: number | null, precision: number | null }
     getByteOrder(): ByteOrder
     getColormapSize(): number
     getDepth(): number
-    getGreenPixelDetails(): [ /* mask */ number | null, /* shift */ number | null, /* precision */ number | null ]
-    getRedPixelDetails(): [ /* mask */ number | null, /* shift */ number | null, /* precision */ number | null ]
+    getGreenPixelDetails(): { mask: number | null, shift: number | null, precision: number | null }
+    getRedPixelDetails(): { mask: number | null, shift: number | null, precision: number | null }
     getScreen(): Screen
     getVisualType(): VisualType
     /* Methods of GObject-2.0.GObject.Object */
@@ -4567,8 +4567,8 @@ export class Window {
     beginResizeDrag(edge: WindowEdge, button: number, rootX: number, rootY: number, timestamp: number): void
     beginResizeDragForDevice(edge: WindowEdge, device: Device, button: number, rootX: number, rootY: number, timestamp: number): void
     configureFinished(): void
-    coordsFromParent(parentX: number, parentY: number): [ /* x */ number | null, /* y */ number | null ]
-    coordsToParent(x: number, y: number): [ /* parentX */ number | null, /* parentY */ number | null ]
+    coordsFromParent(parentX: number, parentY: number): { x: number | null, y: number | null }
+    coordsToParent(x: number, y: number): { parentX: number | null, parentY: number | null }
     createGlContext(): GLContext
     createSimilarImageSurface(format: number, width: number, height: number, scale: number): cairo.Surface
     createSimilarSurface(content: cairo.Content, width: number, height: number): cairo.Surface
@@ -4593,32 +4593,32 @@ export class Window {
     getClipRegion(): cairo.Region
     getComposited(): boolean
     getCursor(): Cursor | null
-    getDecorations(): [ /* returnType */ boolean, /* decorations */ WMDecoration ]
+    getDecorations(): { returnType: boolean, decorations: WMDecoration }
     getDeviceCursor(device: Device): Cursor | null
     getDeviceEvents(device: Device): EventMask
-    getDevicePosition(device: Device): [ /* returnType */ Window | null, /* x */ number | null, /* y */ number | null, /* mask */ ModifierType | null ]
-    getDevicePositionDouble(device: Device): [ /* returnType */ Window | null, /* x */ number | null, /* y */ number | null, /* mask */ ModifierType | null ]
+    getDevicePosition(device: Device): { returnType: Window | null, x: number | null, y: number | null, mask: ModifierType | null }
+    getDevicePositionDouble(device: Device): { returnType: Window | null, x: number | null, y: number | null, mask: ModifierType | null }
     getDisplay(): Display
-    getDragProtocol(): [ /* returnType */ DragProtocol, /* target */ Window | null ]
+    getDragProtocol(): { returnType: DragProtocol, target: Window | null }
     getEffectiveParent(): Window
     getEffectiveToplevel(): Window
     getEventCompression(): boolean
     getEvents(): EventMask
     getFocusOnMap(): boolean
     getFrameClock(): FrameClock
-    getFrameExtents(): /* rect */ Rectangle
+    getFrameExtents(): { rect: Rectangle }
     getFullscreenMode(): FullscreenMode
-    getGeometry(): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
+    getGeometry(): { x: number | null, y: number | null, width: number | null, height: number | null }
     getGroup(): Window
     getHeight(): number
     getModalHint(): boolean
-    getOrigin(): [ /* returnType */ number, /* x */ number | null, /* y */ number | null ]
+    getOrigin(): { returnType: number, x: number | null, y: number | null }
     getParent(): Window
     getPassThrough(): boolean
-    getPointer(): [ /* returnType */ Window | null, /* x */ number | null, /* y */ number | null, /* mask */ ModifierType | null ]
-    getPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getRootCoords(x: number, y: number): [ /* rootX */ number, /* rootY */ number ]
-    getRootOrigin(): [ /* x */ number, /* y */ number ]
+    getPointer(): { returnType: Window | null, x: number | null, y: number | null, mask: ModifierType | null }
+    getPosition(): { x: number | null, y: number | null }
+    getRootCoords(x: number, y: number): { rootX: number, rootY: number }
+    getRootOrigin(): { x: number, y: number }
     getScaleFactor(): number
     getScreen(): Screen
     getSourceEvents(source: InputSource): EventMask
@@ -4627,7 +4627,7 @@ export class Window {
     getToplevel(): Window
     getTypeHint(): WindowTypeHint
     getUpdateArea(): cairo.Region
-    getUserData(): /* data */ object | null
+    getUserData(): { data: object | null }
     getVisibleRegion(): cairo.Region
     getVisual(): Visual
     getWidth(): number
@@ -4795,8 +4795,8 @@ export class Window {
     _init (config?: Window_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(parent: Window | null, attributes: WindowAttr, attributesMask: WindowAttributesType): Window
-    static atPointer(): [ /* returnType */ Window, /* winX */ number | null, /* winY */ number | null ]
-    static constrainSize(geometry: Geometry, flags: WindowHints, width: number, height: number): [ /* newWidth */ number, /* newHeight */ number ]
+    static atPointer(): { returnType: Window, winX: number | null, winY: number | null }
+    static constrainSize(geometry: Geometry, flags: WindowHints, width: number, height: number): { newWidth: number, newHeight: number }
     static processAllUpdates(): void
     static setDebugUpdates(setting: boolean): void
     static $gtype: GObject.Type
@@ -4823,7 +4823,7 @@ export class Color {
     toString(): string
     static name: string
     /* Static methods and pseudo-constructors */
-    static parse(spec: string): [ /* returnType */ boolean, /* color */ Color ]
+    static parse(spec: string): { returnType: boolean, color: Color }
 }
 export abstract class DevicePadInterface {
     static name: string
@@ -5200,8 +5200,8 @@ export class Rectangle {
     height: number
     /* Methods of Gdk-3.0.Gdk.Rectangle */
     equal(rect2: Rectangle): boolean
-    intersect(src2: Rectangle): [ /* returnType */ boolean, /* dest */ Rectangle | null ]
-    union(src2: Rectangle): /* dest */ Rectangle
+    intersect(src2: Rectangle): { returnType: boolean, dest: Rectangle | null }
+    union(src2: Rectangle): { dest: Rectangle }
     static name: string
 }
 export class TimeCoord {
@@ -5267,30 +5267,30 @@ export class Event {
     padAxis: EventPadAxis
     padGroupMode: EventPadGroupMode
     /* Methods of Gdk-3.0.Gdk.Event */
-    getAngle(event2: Event): [ /* returnType */ boolean, /* angle */ number ]
-    getCenter(event2: Event): [ /* returnType */ boolean, /* x */ number, /* y */ number ]
-    getDistance(event2: Event): [ /* returnType */ boolean, /* distance */ number ]
+    getAngle(event2: Event): { returnType: boolean, angle: number }
+    getCenter(event2: Event): { returnType: boolean, x: number, y: number }
+    getDistance(event2: Event): { returnType: boolean, distance: number }
     copy(): Event
     free(): void
-    getAxis(axisUse: AxisUse): [ /* returnType */ boolean, /* value */ number ]
-    getButton(): [ /* returnType */ boolean, /* button */ number ]
-    getClickCount(): [ /* returnType */ boolean, /* clickCount */ number ]
-    getCoords(): [ /* returnType */ boolean, /* xWin */ number | null, /* yWin */ number | null ]
+    getAxis(axisUse: AxisUse): { returnType: boolean, value: number }
+    getButton(): { returnType: boolean, button: number }
+    getClickCount(): { returnType: boolean, clickCount: number }
+    getCoords(): { returnType: boolean, xWin: number | null, yWin: number | null }
     getDevice(): Device | null
     getDeviceTool(): DeviceTool
     getEventSequence(): EventSequence
     getEventType(): EventType
-    getKeycode(): [ /* returnType */ boolean, /* keycode */ number ]
-    getKeyval(): [ /* returnType */ boolean, /* keyval */ number ]
+    getKeycode(): { returnType: boolean, keycode: number }
+    getKeyval(): { returnType: boolean, keyval: number }
     getPointerEmulated(): boolean
-    getRootCoords(): [ /* returnType */ boolean, /* xRoot */ number | null, /* yRoot */ number | null ]
+    getRootCoords(): { returnType: boolean, xRoot: number | null, yRoot: number | null }
     getScancode(): number
     getScreen(): Screen
-    getScrollDeltas(): [ /* returnType */ boolean, /* deltaX */ number, /* deltaY */ number ]
-    getScrollDirection(): [ /* returnType */ boolean, /* direction */ ScrollDirection ]
+    getScrollDeltas(): { returnType: boolean, deltaX: number, deltaY: number }
+    getScrollDirection(): { returnType: boolean, direction: ScrollDirection }
     getSeat(): Seat
     getSourceDevice(): Device | null
-    getState(): [ /* returnType */ boolean, /* state */ ModifierType ]
+    getState(): { returnType: boolean, state: ModifierType }
     getTime(): number
     getWindow(): Window
     isScrollStopEvent(): boolean

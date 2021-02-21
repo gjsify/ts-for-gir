@@ -392,11 +392,11 @@ export class Component {
     /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coordType: CoordType): boolean
     getAlpha(): number
-    getExtents(coordType: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
+    getExtents(coordType: CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
     getLayer(): Layer
     getMdiZorder(): number
-    getPosition(coordType: CoordType): [ /* x */ number | null, /* y */ number | null ]
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getPosition(coordType: CoordType): { x: number | null, y: number | null }
+    getSize(): { width: number | null, height: number | null }
     grabFocus(): boolean
     refAccessibleAtPoint(x: number, y: number, coordType: CoordType): Object | null
     removeFocusHandler(handlerId: number): void
@@ -409,11 +409,11 @@ export class Component {
     vfuncBoundsChanged(bounds: Rectangle): void
     vfuncContains(x: number, y: number, coordType: CoordType): boolean
     vfuncGetAlpha(): number
-    vfuncGetExtents(coordType: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
+    vfuncGetExtents(coordType: CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
     vfuncGetLayer(): Layer
     vfuncGetMdiZorder(): number
-    vfuncGetPosition(coordType: CoordType): [ /* x */ number | null, /* y */ number | null ]
-    vfuncGetSize(): [ /* width */ number | null, /* height */ number | null ]
+    vfuncGetPosition(coordType: CoordType): { x: number | null, y: number | null }
+    vfuncGetSize(): { width: number | null, height: number | null }
     vfuncGrabFocus(): boolean
     vfuncRefAccessibleAtPoint(x: number, y: number, coordType: CoordType): Object | null
     vfuncRemoveFocusHandler(handlerId: number): void
@@ -520,14 +520,14 @@ export class Image {
     /* Methods of Atk-1.0.Atk.Image */
     getImageDescription(): string
     getImageLocale(): string | null
-    getImagePosition(coordType: CoordType): [ /* x */ number | null, /* y */ number | null ]
-    getImageSize(): [ /* width */ number | null, /* height */ number | null ]
+    getImagePosition(coordType: CoordType): { x: number | null, y: number | null }
+    getImageSize(): { width: number | null, height: number | null }
     setImageDescription(description: string): boolean
     /* Virtual methods of Atk-1.0.Atk.Image */
     vfuncGetImageDescription(): string
     vfuncGetImageLocale(): string | null
-    vfuncGetImagePosition(coordType: CoordType): [ /* x */ number | null, /* y */ number | null ]
-    vfuncGetImageSize(): [ /* width */ number | null, /* height */ number | null ]
+    vfuncGetImagePosition(coordType: CoordType): { x: number | null, y: number | null }
+    vfuncGetImageSize(): { width: number | null, height: number | null }
     vfuncSetImageDescription(description: string): boolean
     static name: string
 }
@@ -710,8 +710,8 @@ export class TableCell {
     /* Methods of Atk-1.0.Atk.TableCell */
     getColumnHeaderCells(): Object[]
     getColumnSpan(): number
-    getPosition(): [ /* returnType */ boolean, /* row */ number, /* column */ number ]
-    getRowColumnSpan(): [ /* returnType */ boolean, /* row */ number, /* column */ number, /* rowSpan */ number, /* columnSpan */ number ]
+    getPosition(): { returnType: boolean, row: number, column: number }
+    getRowColumnSpan(): { returnType: boolean, row: number, column: number, rowSpan: number, columnSpan: number }
     getRowHeaderCells(): Object[]
     getRowSpan(): number
     getTable(): Object
@@ -766,8 +766,8 @@ export class TableCell {
     /* Virtual methods of Atk-1.0.Atk.TableCell */
     vfuncGetColumnHeaderCells(): Object[]
     vfuncGetColumnSpan(): number
-    vfuncGetPosition(): [ /* returnType */ boolean, /* row */ number, /* column */ number ]
-    vfuncGetRowColumnSpan(): [ /* returnType */ boolean, /* row */ number, /* column */ number, /* rowSpan */ number, /* columnSpan */ number ]
+    vfuncGetPosition(): { returnType: boolean, row: number, column: number }
+    vfuncGetRowColumnSpan(): { returnType: boolean, row: number, column: number, rowSpan: number, columnSpan: number }
     vfuncGetRowHeaderCells(): Object[]
     vfuncGetRowSpan(): number
     vfuncGetTable(): Object
@@ -935,18 +935,18 @@ export class Text {
     getCaretOffset(): number
     getCharacterAtOffset(offset: number): number
     getCharacterCount(): number
-    getCharacterExtents(offset: number, coords: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
+    getCharacterExtents(offset: number, coords: CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
     getDefaultAttributes(): AttributeSet
     getNSelections(): number
     getOffsetAtPoint(x: number, y: number, coords: CoordType): number
-    getRangeExtents(startOffset: number, endOffset: number, coordType: CoordType): /* rect */ TextRectangle
-    getRunAttributes(offset: number): [ /* returnType */ AttributeSet, /* startOffset */ number, /* endOffset */ number ]
-    getSelection(selectionNum: number): [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
-    getStringAtOffset(offset: number, granularity: TextGranularity): [ /* returnType */ string | null, /* startOffset */ number, /* endOffset */ number ]
+    getRangeExtents(startOffset: number, endOffset: number, coordType: CoordType): { rect: TextRectangle }
+    getRunAttributes(offset: number): { returnType: AttributeSet, startOffset: number, endOffset: number }
+    getSelection(selectionNum: number): { returnType: string, startOffset: number, endOffset: number }
+    getStringAtOffset(offset: number, granularity: TextGranularity): { returnType: string | null, startOffset: number, endOffset: number }
     getText(startOffset: number, endOffset: number): string
-    getTextAfterOffset(offset: number, boundaryType: TextBoundary): [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
-    getTextAtOffset(offset: number, boundaryType: TextBoundary): [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
-    getTextBeforeOffset(offset: number, boundaryType: TextBoundary): [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
+    getTextAfterOffset(offset: number, boundaryType: TextBoundary): { returnType: string, startOffset: number, endOffset: number }
+    getTextAtOffset(offset: number, boundaryType: TextBoundary): { returnType: string, startOffset: number, endOffset: number }
+    getTextBeforeOffset(offset: number, boundaryType: TextBoundary): { returnType: string, startOffset: number, endOffset: number }
     removeSelection(selectionNum: number): boolean
     scrollSubstringTo(startOffset: number, endOffset: number, type: ScrollType): boolean
     scrollSubstringToPoint(startOffset: number, endOffset: number, coords: CoordType, x: number, y: number): boolean
@@ -958,18 +958,18 @@ export class Text {
     vfuncGetCaretOffset(): number
     vfuncGetCharacterAtOffset(offset: number): number
     vfuncGetCharacterCount(): number
-    vfuncGetCharacterExtents(offset: number, coords: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
+    vfuncGetCharacterExtents(offset: number, coords: CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
     vfuncGetDefaultAttributes(): AttributeSet
     vfuncGetNSelections(): number
     vfuncGetOffsetAtPoint(x: number, y: number, coords: CoordType): number
-    vfuncGetRangeExtents(startOffset: number, endOffset: number, coordType: CoordType): /* rect */ TextRectangle
-    vfuncGetRunAttributes(offset: number): [ /* returnType */ AttributeSet, /* startOffset */ number, /* endOffset */ number ]
-    vfuncGetSelection(selectionNum: number): [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
-    vfuncGetStringAtOffset(offset: number, granularity: TextGranularity): [ /* returnType */ string | null, /* startOffset */ number, /* endOffset */ number ]
+    vfuncGetRangeExtents(startOffset: number, endOffset: number, coordType: CoordType): { rect: TextRectangle }
+    vfuncGetRunAttributes(offset: number): { returnType: AttributeSet, startOffset: number, endOffset: number }
+    vfuncGetSelection(selectionNum: number): { returnType: string, startOffset: number, endOffset: number }
+    vfuncGetStringAtOffset(offset: number, granularity: TextGranularity): { returnType: string | null, startOffset: number, endOffset: number }
     vfuncGetText(startOffset: number, endOffset: number): string
-    vfuncGetTextAfterOffset(offset: number, boundaryType: TextBoundary): [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
-    vfuncGetTextAtOffset(offset: number, boundaryType: TextBoundary): [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
-    vfuncGetTextBeforeOffset(offset: number, boundaryType: TextBoundary): [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
+    vfuncGetTextAfterOffset(offset: number, boundaryType: TextBoundary): { returnType: string, startOffset: number, endOffset: number }
+    vfuncGetTextAtOffset(offset: number, boundaryType: TextBoundary): { returnType: string, startOffset: number, endOffset: number }
+    vfuncGetTextBeforeOffset(offset: number, boundaryType: TextBoundary): { returnType: string, startOffset: number, endOffset: number }
     vfuncRemoveSelection(selectionNum: number): boolean
     vfuncScrollSubstringTo(startOffset: number, endOffset: number, type: ScrollType): boolean
     vfuncScrollSubstringToPoint(startOffset: number, endOffset: number, coords: CoordType, x: number, y: number): boolean
@@ -1016,25 +1016,25 @@ export class Text {
 }
 export class Value {
     /* Methods of Atk-1.0.Atk.Value */
-    getCurrentValue(): /* value */ any
+    getCurrentValue(): { value: any }
     getIncrement(): number
-    getMaximumValue(): /* value */ any
-    getMinimumIncrement(): /* value */ any
-    getMinimumValue(): /* value */ any
+    getMaximumValue(): { value: any }
+    getMinimumIncrement(): { value: any }
+    getMinimumValue(): { value: any }
     getRange(): Range | null
     getSubRanges(): Range[]
-    getValueAndText(): [ /* value */ number, /* text */ string | null ]
+    getValueAndText(): { value: number, text: string | null }
     setCurrentValue(value: any): boolean
     setValue(newValue: number): void
     /* Virtual methods of Atk-1.0.Atk.Value */
-    vfuncGetCurrentValue(): /* value */ any
+    vfuncGetCurrentValue(): { value: any }
     vfuncGetIncrement(): number
-    vfuncGetMaximumValue(): /* value */ any
-    vfuncGetMinimumIncrement(): /* value */ any
-    vfuncGetMinimumValue(): /* value */ any
+    vfuncGetMaximumValue(): { value: any }
+    vfuncGetMinimumIncrement(): { value: any }
+    vfuncGetMinimumValue(): { value: any }
     vfuncGetRange(): Range | null
     vfuncGetSubRanges(): Range[]
-    vfuncGetValueAndText(): [ /* value */ number, /* text */ string | null ]
+    vfuncGetValueAndText(): { value: number, text: string | null }
     vfuncSetCurrentValue(value: any): boolean
     vfuncSetValue(newValue: number): void
     /* Signals of Atk-1.0.Atk.Value */
@@ -1833,9 +1833,9 @@ export class NoOpObject {
     /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coordType: CoordType): boolean
     getAlpha(): number
-    getExtents(coordType: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    getPosition(coordType: CoordType): [ /* x */ number | null, /* y */ number | null ]
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getExtents(coordType: CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
+    getPosition(coordType: CoordType): { x: number | null, y: number | null }
+    getSize(): { width: number | null, height: number | null }
     grabFocus(): boolean
     refAccessibleAtPoint(x: number, y: number, coordType: CoordType): Object | null
     removeFocusHandler(handlerId: number): void
@@ -1867,8 +1867,8 @@ export class NoOpObject {
     /* Methods of Atk-1.0.Atk.Image */
     getImageDescription(): string
     getImageLocale(): string | null
-    getImagePosition(coordType: CoordType): [ /* x */ number | null, /* y */ number | null ]
-    getImageSize(): [ /* width */ number | null, /* height */ number | null ]
+    getImagePosition(coordType: CoordType): { x: number | null, y: number | null }
+    getImageSize(): { width: number | null, height: number | null }
     setImageDescription(description: string): boolean
     /* Methods of Atk-1.0.Atk.Selection */
     addSelection(i: number): boolean
@@ -1911,8 +1911,8 @@ export class NoOpObject {
     /* Methods of Atk-1.0.Atk.TableCell */
     getColumnHeaderCells(): Object[]
     getColumnSpan(): number
-    getPosition(): [ /* returnType */ boolean, /* row */ number, /* column */ number ]
-    getRowColumnSpan(): [ /* returnType */ boolean, /* row */ number, /* column */ number, /* rowSpan */ number, /* columnSpan */ number ]
+    getPosition(): { returnType: boolean, row: number, column: number }
+    getRowColumnSpan(): { returnType: boolean, row: number, column: number, rowSpan: number, columnSpan: number }
     getRowHeaderCells(): Object[]
     getRowSpan(): number
     getTable(): Object
@@ -1922,32 +1922,32 @@ export class NoOpObject {
     getCaretOffset(): number
     getCharacterAtOffset(offset: number): number
     getCharacterCount(): number
-    getCharacterExtents(offset: number, coords: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
+    getCharacterExtents(offset: number, coords: CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
     getDefaultAttributes(): AttributeSet
     getNSelections(): number
     getOffsetAtPoint(x: number, y: number, coords: CoordType): number
-    getRangeExtents(startOffset: number, endOffset: number, coordType: CoordType): /* rect */ TextRectangle
-    getRunAttributes(offset: number): [ /* returnType */ AttributeSet, /* startOffset */ number, /* endOffset */ number ]
-    getSelection(selectionNum: number): [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
-    getStringAtOffset(offset: number, granularity: TextGranularity): [ /* returnType */ string | null, /* startOffset */ number, /* endOffset */ number ]
+    getRangeExtents(startOffset: number, endOffset: number, coordType: CoordType): { rect: TextRectangle }
+    getRunAttributes(offset: number): { returnType: AttributeSet, startOffset: number, endOffset: number }
+    getSelection(selectionNum: number): { returnType: string, startOffset: number, endOffset: number }
+    getStringAtOffset(offset: number, granularity: TextGranularity): { returnType: string | null, startOffset: number, endOffset: number }
     getText(startOffset: number, endOffset: number): string
-    getTextAfterOffset(offset: number, boundaryType: TextBoundary): [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
-    getTextAtOffset(offset: number, boundaryType: TextBoundary): [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
-    getTextBeforeOffset(offset: number, boundaryType: TextBoundary): [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
+    getTextAfterOffset(offset: number, boundaryType: TextBoundary): { returnType: string, startOffset: number, endOffset: number }
+    getTextAtOffset(offset: number, boundaryType: TextBoundary): { returnType: string, startOffset: number, endOffset: number }
+    getTextBeforeOffset(offset: number, boundaryType: TextBoundary): { returnType: string, startOffset: number, endOffset: number }
     removeSelection(selectionNum: number): boolean
     scrollSubstringTo(startOffset: number, endOffset: number, type: ScrollType): boolean
     scrollSubstringToPoint(startOffset: number, endOffset: number, coords: CoordType, x: number, y: number): boolean
     setCaretOffset(offset: number): boolean
     setSelection(selectionNum: number, startOffset: number, endOffset: number): boolean
     /* Methods of Atk-1.0.Atk.Value */
-    getCurrentValue(): /* value */ any
+    getCurrentValue(): { value: any }
     getIncrement(): number
-    getMaximumValue(): /* value */ any
-    getMinimumIncrement(): /* value */ any
-    getMinimumValue(): /* value */ any
+    getMaximumValue(): { value: any }
+    getMinimumIncrement(): { value: any }
+    getMinimumValue(): { value: any }
     getRange(): Range | null
     getSubRanges(): Range[]
-    getValueAndText(): [ /* value */ number, /* text */ string | null ]
+    getValueAndText(): { value: number, text: string | null }
     setCurrentValue(value: any): boolean
     setValue(newValue: number): void
     /* Virtual methods of Atk-1.0.Atk.NoOpObject */
@@ -1964,12 +1964,12 @@ export class NoOpObject {
     vfuncBoundsChanged(bounds: Rectangle): void
     vfuncContains(x: number, y: number, coordType: CoordType): boolean
     vfuncGetAlpha(): number
-    vfuncGetExtents(coordType: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
+    vfuncGetExtents(coordType: CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
     vfuncGetLayer(): Layer
     vfuncGetMdiZorder(): number
-    vfuncGetPosition(coordType: CoordType): [ /* x */ number | null, /* y */ number | null ]
-    vfuncGetPosition(): [ /* returnType */ boolean, /* row */ number, /* column */ number ]
-    vfuncGetSize(): [ /* width */ number | null, /* height */ number | null ]
+    vfuncGetPosition(coordType: CoordType): { x: number | null, y: number | null }
+    vfuncGetPosition(): { returnType: boolean, row: number, column: number }
+    vfuncGetSize(): { width: number | null, height: number | null }
     vfuncGrabFocus(): boolean
     vfuncRefAccessibleAtPoint(x: number, y: number, coordType: CoordType): Object | null
     vfuncRemoveFocusHandler(handlerId: number): void
@@ -1999,8 +1999,8 @@ export class NoOpObject {
     vfuncLinkSelected(linkIndex: number): void
     vfuncGetImageDescription(): string
     vfuncGetImageLocale(): string | null
-    vfuncGetImagePosition(coordType: CoordType): [ /* x */ number | null, /* y */ number | null ]
-    vfuncGetImageSize(): [ /* width */ number | null, /* height */ number | null ]
+    vfuncGetImagePosition(coordType: CoordType): { x: number | null, y: number | null }
+    vfuncGetImageSize(): { width: number | null, height: number | null }
     vfuncSetImageDescription(description: string): boolean
     vfuncAddSelection(i: number): boolean
     vfuncAddSelection(startOffset: number, endOffset: number): boolean
@@ -2049,7 +2049,7 @@ export class NoOpObject {
     vfuncSetSummary(accessible: Object): void
     vfuncGetColumnHeaderCells(): Object[]
     vfuncGetColumnSpan(): number
-    vfuncGetRowColumnSpan(): [ /* returnType */ boolean, /* row */ number, /* column */ number, /* rowSpan */ number, /* columnSpan */ number ]
+    vfuncGetRowColumnSpan(): { returnType: boolean, row: number, column: number, rowSpan: number, columnSpan: number }
     vfuncGetRowHeaderCells(): Object[]
     vfuncGetRowSpan(): number
     vfuncGetTable(): Object
@@ -2057,18 +2057,18 @@ export class NoOpObject {
     vfuncGetCaretOffset(): number
     vfuncGetCharacterAtOffset(offset: number): number
     vfuncGetCharacterCount(): number
-    vfuncGetCharacterExtents(offset: number, coords: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
+    vfuncGetCharacterExtents(offset: number, coords: CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
     vfuncGetDefaultAttributes(): AttributeSet
     vfuncGetNSelections(): number
     vfuncGetOffsetAtPoint(x: number, y: number, coords: CoordType): number
-    vfuncGetRangeExtents(startOffset: number, endOffset: number, coordType: CoordType): /* rect */ TextRectangle
-    vfuncGetRunAttributes(offset: number): [ /* returnType */ AttributeSet, /* startOffset */ number, /* endOffset */ number ]
-    vfuncGetSelection(selectionNum: number): [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
-    vfuncGetStringAtOffset(offset: number, granularity: TextGranularity): [ /* returnType */ string | null, /* startOffset */ number, /* endOffset */ number ]
+    vfuncGetRangeExtents(startOffset: number, endOffset: number, coordType: CoordType): { rect: TextRectangle }
+    vfuncGetRunAttributes(offset: number): { returnType: AttributeSet, startOffset: number, endOffset: number }
+    vfuncGetSelection(selectionNum: number): { returnType: string, startOffset: number, endOffset: number }
+    vfuncGetStringAtOffset(offset: number, granularity: TextGranularity): { returnType: string | null, startOffset: number, endOffset: number }
     vfuncGetText(startOffset: number, endOffset: number): string
-    vfuncGetTextAfterOffset(offset: number, boundaryType: TextBoundary): [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
-    vfuncGetTextAtOffset(offset: number, boundaryType: TextBoundary): [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
-    vfuncGetTextBeforeOffset(offset: number, boundaryType: TextBoundary): [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
+    vfuncGetTextAfterOffset(offset: number, boundaryType: TextBoundary): { returnType: string, startOffset: number, endOffset: number }
+    vfuncGetTextAtOffset(offset: number, boundaryType: TextBoundary): { returnType: string, startOffset: number, endOffset: number }
+    vfuncGetTextBeforeOffset(offset: number, boundaryType: TextBoundary): { returnType: string, startOffset: number, endOffset: number }
     vfuncScrollSubstringTo(startOffset: number, endOffset: number, type: ScrollType): boolean
     vfuncScrollSubstringToPoint(startOffset: number, endOffset: number, coords: CoordType, x: number, y: number): boolean
     vfuncSetCaretOffset(offset: number): boolean
@@ -2077,14 +2077,14 @@ export class NoOpObject {
     vfuncTextCaretMoved(location: number): void
     vfuncTextChanged(position: number, length: number): void
     vfuncTextSelectionChanged(): void
-    vfuncGetCurrentValue(): /* value */ any
+    vfuncGetCurrentValue(): { value: any }
     vfuncGetIncrement(): number
-    vfuncGetMaximumValue(): /* value */ any
-    vfuncGetMinimumIncrement(): /* value */ any
-    vfuncGetMinimumValue(): /* value */ any
+    vfuncGetMaximumValue(): { value: any }
+    vfuncGetMinimumIncrement(): { value: any }
+    vfuncGetMinimumValue(): { value: any }
     vfuncGetRange(): Range | null
     vfuncGetSubRanges(): Range[]
-    vfuncGetValueAndText(): [ /* value */ number, /* text */ string | null ]
+    vfuncGetValueAndText(): { value: number, text: string | null }
     vfuncSetCurrentValue(value: any): boolean
     vfuncSetValue(newValue: number): void
     /* Virtual methods of Atk-1.0.Atk.Object */
@@ -2857,9 +2857,9 @@ export class Plug {
     /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coordType: CoordType): boolean
     getAlpha(): number
-    getExtents(coordType: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    getPosition(coordType: CoordType): [ /* x */ number | null, /* y */ number | null ]
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getExtents(coordType: CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
+    getPosition(coordType: CoordType): { x: number | null, y: number | null }
+    getSize(): { width: number | null, height: number | null }
     grabFocus(): boolean
     refAccessibleAtPoint(x: number, y: number, coordType: CoordType): Object | null
     removeFocusHandler(handlerId: number): void
@@ -2873,11 +2873,11 @@ export class Plug {
     vfuncBoundsChanged(bounds: Rectangle): void
     vfuncContains(x: number, y: number, coordType: CoordType): boolean
     vfuncGetAlpha(): number
-    vfuncGetExtents(coordType: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
+    vfuncGetExtents(coordType: CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
     vfuncGetLayer(): Layer
     vfuncGetMdiZorder(): number
-    vfuncGetPosition(coordType: CoordType): [ /* x */ number | null, /* y */ number | null ]
-    vfuncGetSize(): [ /* width */ number | null, /* height */ number | null ]
+    vfuncGetPosition(coordType: CoordType): { x: number | null, y: number | null }
+    vfuncGetSize(): { width: number | null, height: number | null }
     vfuncGrabFocus(): boolean
     vfuncRefAccessibleAtPoint(x: number, y: number, coordType: CoordType): Object | null
     vfuncRemoveFocusHandler(handlerId: number): void
@@ -3340,9 +3340,9 @@ export class Socket {
     /* Methods of Atk-1.0.Atk.Component */
     contains(x: number, y: number, coordType: CoordType): boolean
     getAlpha(): number
-    getExtents(coordType: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    getPosition(coordType: CoordType): [ /* x */ number | null, /* y */ number | null ]
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getExtents(coordType: CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
+    getPosition(coordType: CoordType): { x: number | null, y: number | null }
+    getSize(): { width: number | null, height: number | null }
     grabFocus(): boolean
     refAccessibleAtPoint(x: number, y: number, coordType: CoordType): Object | null
     removeFocusHandler(handlerId: number): void
@@ -3356,11 +3356,11 @@ export class Socket {
     vfuncBoundsChanged(bounds: Rectangle): void
     vfuncContains(x: number, y: number, coordType: CoordType): boolean
     vfuncGetAlpha(): number
-    vfuncGetExtents(coordType: CoordType): [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
+    vfuncGetExtents(coordType: CoordType): { x: number | null, y: number | null, width: number | null, height: number | null }
     vfuncGetLayer(): Layer
     vfuncGetMdiZorder(): number
-    vfuncGetPosition(coordType: CoordType): [ /* x */ number | null, /* y */ number | null ]
-    vfuncGetSize(): [ /* width */ number | null, /* height */ number | null ]
+    vfuncGetPosition(coordType: CoordType): { x: number | null, y: number | null }
+    vfuncGetSize(): { width: number | null, height: number | null }
     vfuncGrabFocus(): boolean
     vfuncRefAccessibleAtPoint(x: number, y: number, coordType: CoordType): Object | null
     vfuncRemoveFocusHandler(handlerId: number): void
@@ -3680,9 +3680,9 @@ export abstract class ComponentIface {
     /* Fields of Atk-1.0.Atk.ComponentIface */
     contains: (component: Component, x: number, y: number, coordType: CoordType) => boolean
     refAccessibleAtPoint: (component: Component, x: number, y: number, coordType: CoordType) => Object | null
-    getExtents: (component: Component, coordType: CoordType) => [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
-    getPosition: (component: Component, coordType: CoordType) => [ /* x */ number | null, /* y */ number | null ]
-    getSize: (component: Component) => [ /* width */ number | null, /* height */ number | null ]
+    getExtents: (component: Component, coordType: CoordType) => { x: number | null, y: number | null, width: number | null, height: number | null }
+    getPosition: (component: Component, coordType: CoordType) => { x: number | null, y: number | null }
+    getSize: (component: Component) => { width: number | null, height: number | null }
     grabFocus: (component: Component) => boolean
     removeFocusHandler: (component: Component, handlerId: number) => void
     setExtents: (component: Component, x: number, y: number, width: number, height: number, coordType: CoordType) => boolean
@@ -3761,9 +3761,9 @@ export abstract class HypertextIface {
 export abstract class ImageIface {
     /* Fields of Atk-1.0.Atk.ImageIface */
     parent: GObject.TypeInterface
-    getImagePosition: (image: Image, coordType: CoordType) => [ /* x */ number | null, /* y */ number | null ]
+    getImagePosition: (image: Image, coordType: CoordType) => { x: number | null, y: number | null }
     getImageDescription: (image: Image) => string
-    getImageSize: (image: Image) => [ /* width */ number | null, /* height */ number | null ]
+    getImageSize: (image: Image) => { width: number | null, height: number | null }
     setImageDescription: (image: Image, description: string) => boolean
     getImageLocale: (image: Image) => string | null
     static name: string
@@ -3932,10 +3932,10 @@ export abstract class TableCellIface {
     /* Fields of Atk-1.0.Atk.TableCellIface */
     getColumnSpan: (cell: TableCell) => number
     getColumnHeaderCells: (cell: TableCell) => Object[]
-    getPosition: (cell: TableCell) => [ /* returnType */ boolean, /* row */ number, /* column */ number ]
+    getPosition: (cell: TableCell) => { returnType: boolean, row: number, column: number }
     getRowSpan: (cell: TableCell) => number
     getRowHeaderCells: (cell: TableCell) => Object[]
-    getRowColumnSpan: (cell: TableCell) => [ /* returnType */ boolean, /* row */ number, /* column */ number, /* rowSpan */ number, /* columnSpan */ number ]
+    getRowColumnSpan: (cell: TableCell) => { returnType: boolean, row: number, column: number, rowSpan: number, columnSpan: number }
     getTable: (cell: TableCell) => Object
     static name: string
 }
@@ -3984,18 +3984,18 @@ export abstract class TextIface {
     /* Fields of Atk-1.0.Atk.TextIface */
     parent: GObject.TypeInterface
     getText: (text: Text, startOffset: number, endOffset: number) => string
-    getTextAfterOffset: (text: Text, offset: number, boundaryType: TextBoundary) => [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
-    getTextAtOffset: (text: Text, offset: number, boundaryType: TextBoundary) => [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
+    getTextAfterOffset: (text: Text, offset: number, boundaryType: TextBoundary) => { returnType: string, startOffset: number, endOffset: number }
+    getTextAtOffset: (text: Text, offset: number, boundaryType: TextBoundary) => { returnType: string, startOffset: number, endOffset: number }
     getCharacterAtOffset: (text: Text, offset: number) => number
-    getTextBeforeOffset: (text: Text, offset: number, boundaryType: TextBoundary) => [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
+    getTextBeforeOffset: (text: Text, offset: number, boundaryType: TextBoundary) => { returnType: string, startOffset: number, endOffset: number }
     getCaretOffset: (text: Text) => number
-    getRunAttributes: (text: Text, offset: number) => [ /* returnType */ AttributeSet, /* startOffset */ number, /* endOffset */ number ]
+    getRunAttributes: (text: Text, offset: number) => { returnType: AttributeSet, startOffset: number, endOffset: number }
     getDefaultAttributes: (text: Text) => AttributeSet
-    getCharacterExtents: (text: Text, offset: number, coords: CoordType) => [ /* x */ number | null, /* y */ number | null, /* width */ number | null, /* height */ number | null ]
+    getCharacterExtents: (text: Text, offset: number, coords: CoordType) => { x: number | null, y: number | null, width: number | null, height: number | null }
     getCharacterCount: (text: Text) => number
     getOffsetAtPoint: (text: Text, x: number, y: number, coords: CoordType) => number
     getNSelections: (text: Text) => number
-    getSelection: (text: Text, selectionNum: number) => [ /* returnType */ string, /* startOffset */ number, /* endOffset */ number ]
+    getSelection: (text: Text, selectionNum: number) => { returnType: string, startOffset: number, endOffset: number }
     addSelection: (text: Text, startOffset: number, endOffset: number) => boolean
     removeSelection: (text: Text, selectionNum: number) => boolean
     setSelection: (text: Text, selectionNum: number, startOffset: number, endOffset: number) => boolean
@@ -4004,9 +4004,9 @@ export abstract class TextIface {
     textCaretMoved: (text: Text, location: number) => void
     textSelectionChanged: (text: Text) => void
     textAttributesChanged: (text: Text) => void
-    getRangeExtents: (text: Text, startOffset: number, endOffset: number, coordType: CoordType) => /* rect */ TextRectangle
+    getRangeExtents: (text: Text, startOffset: number, endOffset: number, coordType: CoordType) => { rect: TextRectangle }
     getBoundedRanges: (text: Text, rect: TextRectangle, coordType: CoordType, xClipType: TextClipType, yClipType: TextClipType) => TextRange[]
-    getStringAtOffset: (text: Text, offset: number, granularity: TextGranularity) => [ /* returnType */ string | null, /* startOffset */ number, /* endOffset */ number ]
+    getStringAtOffset: (text: Text, offset: number, granularity: TextGranularity) => { returnType: string | null, startOffset: number, endOffset: number }
     scrollSubstringTo: (text: Text, startOffset: number, endOffset: number, type: ScrollType) => boolean
     scrollSubstringToPoint: (text: Text, startOffset: number, endOffset: number, coords: CoordType, x: number, y: number) => boolean
     static name: string
@@ -4039,12 +4039,12 @@ export abstract class UtilClass {
 export abstract class ValueIface {
     /* Fields of Atk-1.0.Atk.ValueIface */
     parent: GObject.TypeInterface
-    getCurrentValue: (obj: Value) => /* value */ any
-    getMaximumValue: (obj: Value) => /* value */ any
-    getMinimumValue: (obj: Value) => /* value */ any
+    getCurrentValue: (obj: Value) => { value: any }
+    getMaximumValue: (obj: Value) => { value: any }
+    getMinimumValue: (obj: Value) => { value: any }
     setCurrentValue: (obj: Value, value: any) => boolean
-    getMinimumIncrement: (obj: Value) => /* value */ any
-    getValueAndText: (obj: Value) => [ /* value */ number, /* text */ string | null ]
+    getMinimumIncrement: (obj: Value) => { value: any }
+    getValueAndText: (obj: Value) => { value: number, text: string | null }
     getRange: (obj: Value) => Range | null
     getIncrement: (obj: Value) => number
     getSubRanges: (obj: Value) => Range[]

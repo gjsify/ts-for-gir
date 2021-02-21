@@ -74,7 +74,7 @@ export interface Compressor_ConstructProps extends GObject.Object_ConstructProps
     sourceFiles?: object
 }
 export class Compressor {
-    /* Properties of GnomeAutoar.Compressor */
+    /* Properties of GnomeAutoar-0.1.GnomeAutoar.Compressor */
     readonly completedFiles: number
     readonly completedSize: number
     createTopLevelDirectory: boolean
@@ -82,9 +82,9 @@ export class Compressor {
     notifyInterval: number
     outputIsDest: boolean
     readonly size: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GnomeAutoar.Compressor */
+    /* Methods of GnomeAutoar-0.1.GnomeAutoar.Compressor */
     getCompletedFiles(): number
     getCompletedSize(): number
     getCreateTopLevelDirectory(): boolean
@@ -100,7 +100,7 @@ export class Compressor {
     setOutputIsDest(outputIsDest: boolean): void
     start(cancellable?: Gio.Cancellable | null): void
     startAsync(cancellable?: Gio.Cancellable | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -122,52 +122,38 @@ export class Compressor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GnomeAutoar.Compressor */
+    /* Signals of GnomeAutoar-0.1.GnomeAutoar.Compressor */
     connect(sigName: "cancelled", callback: (($obj: Compressor) => void)): number
-    connect_after(sigName: "cancelled", callback: (($obj: Compressor) => void)): number
+    on(sigName: "cancelled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cancelled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cancelled", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cancelled"): void
-    on(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "completed", callback: (($obj: Compressor) => void)): number
-    connect_after(sigName: "completed", callback: (($obj: Compressor) => void)): number
+    on(sigName: "completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "completed"): void
-    on(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "decide-dest", callback: (($obj: Compressor, destination: Gio.File) => void)): number
-    connect_after(sigName: "decide-dest", callback: (($obj: Compressor, destination: Gio.File) => void)): number
+    on(sigName: "decide-dest", callback: (destination: Gio.File) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "decide-dest", callback: (destination: Gio.File) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "decide-dest", callback: (destination: Gio.File) => void): NodeJS.EventEmitter
     emit(sigName: "decide-dest", destination: Gio.File): void
-    on(sigName: "decide-dest", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "decide-dest", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "decide-dest", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "error", callback: (($obj: Compressor, error: GLib.Error) => void)): number
-    connect_after(sigName: "error", callback: (($obj: Compressor, error: GLib.Error) => void)): number
+    on(sigName: "error", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "error", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "error", callback: (error: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "error", error: GLib.Error): void
-    on(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "progress", callback: (($obj: Compressor, completedSize: number, completedFiles: number) => void)): number
-    connect_after(sigName: "progress", callback: (($obj: Compressor, completedSize: number, completedFiles: number) => void)): number
+    on(sigName: "progress", callback: (completedSize: number, completedFiles: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "progress", callback: (completedSize: number, completedFiles: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "progress", callback: (completedSize: number, completedFiles: number) => void): NodeJS.EventEmitter
     emit(sigName: "progress", completedSize: number, completedFiles: number): void
-    on(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Compressor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Compressor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::completed-files", callback: (($obj: Compressor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::completed-files", callback: (($obj: Compressor, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::completed-files", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -226,7 +212,7 @@ export interface Extractor_ConstructProps extends GObject.Object_ConstructProps 
     sourceFile?: Gio.File
 }
 export class Extractor {
-    /* Properties of GnomeAutoar.Extractor */
+    /* Properties of GnomeAutoar-0.1.GnomeAutoar.Extractor */
     readonly completedFiles: number
     readonly completedSize: number
     deleteAfterExtraction: boolean
@@ -234,9 +220,9 @@ export class Extractor {
     outputIsDest: boolean
     readonly totalFiles: number
     readonly totalSize: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GnomeAutoar.Extractor */
+    /* Methods of GnomeAutoar-0.1.GnomeAutoar.Extractor */
     getCompletedFiles(): number
     getCompletedSize(): number
     getDeleteAfterExtraction(): boolean
@@ -251,7 +237,7 @@ export class Extractor {
     setOutputIsDest(outputIsDest: boolean): void
     start(cancellable?: Gio.Cancellable | null): void
     startAsync(cancellable?: Gio.Cancellable | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -273,70 +259,53 @@ export class Extractor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GnomeAutoar.Extractor */
+    /* Signals of GnomeAutoar-0.1.GnomeAutoar.Extractor */
     connect(sigName: "cancelled", callback: (($obj: Extractor) => void)): number
-    connect_after(sigName: "cancelled", callback: (($obj: Extractor) => void)): number
+    on(sigName: "cancelled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cancelled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cancelled", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cancelled"): void
-    on(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "completed", callback: (($obj: Extractor) => void)): number
-    connect_after(sigName: "completed", callback: (($obj: Extractor) => void)): number
+    on(sigName: "completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "completed"): void
-    on(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "conflict", callback: (($obj: Extractor, file: Gio.File, newFile?: object | null) => number)): number
-    connect_after(sigName: "conflict", callback: (($obj: Extractor, file: Gio.File, newFile?: object | null) => number)): number
+    on(sigName: "conflict", callback: (file: Gio.File, newFile?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "conflict", callback: (file: Gio.File, newFile?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "conflict", callback: (file: Gio.File, newFile?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "conflict", file: Gio.File, newFile?: object | null): void
-    on(sigName: "conflict", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "conflict", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "conflict", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "decide-destination", callback: (($obj: Extractor, destination: Gio.File, files?: object | null) => GObject.Object)): number
-    connect_after(sigName: "decide-destination", callback: (($obj: Extractor, destination: Gio.File, files?: object | null) => GObject.Object)): number
+    on(sigName: "decide-destination", callback: (destination: Gio.File, files?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "decide-destination", callback: (destination: Gio.File, files?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "decide-destination", callback: (destination: Gio.File, files?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "decide-destination", destination: Gio.File, files?: object | null): void
-    on(sigName: "decide-destination", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "decide-destination", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "decide-destination", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "error", callback: (($obj: Extractor, error: GLib.Error) => void)): number
-    connect_after(sigName: "error", callback: (($obj: Extractor, error: GLib.Error) => void)): number
+    on(sigName: "error", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "error", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "error", callback: (error: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "error", error: GLib.Error): void
-    on(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "progress", callback: (($obj: Extractor, completedSize: number, completedFiles: number) => void)): number
-    connect_after(sigName: "progress", callback: (($obj: Extractor, completedSize: number, completedFiles: number) => void)): number
+    on(sigName: "progress", callback: (completedSize: number, completedFiles: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "progress", callback: (completedSize: number, completedFiles: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "progress", callback: (completedSize: number, completedFiles: number) => void): NodeJS.EventEmitter
     emit(sigName: "progress", completedSize: number, completedFiles: number): void
-    on(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "request-passphrase", callback: (($obj: Extractor) => string)): number
-    connect_after(sigName: "request-passphrase", callback: (($obj: Extractor) => string)): number
+    on(sigName: "request-passphrase", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "request-passphrase", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "request-passphrase", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "request-passphrase"): void
-    on(sigName: "request-passphrase", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "request-passphrase", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "request-passphrase", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scanned", callback: (($obj: Extractor, files: number) => void)): number
-    connect_after(sigName: "scanned", callback: (($obj: Extractor, files: number) => void)): number
+    on(sigName: "scanned", callback: (files: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scanned", callback: (files: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scanned", callback: (files: number) => void): NodeJS.EventEmitter
     emit(sigName: "scanned", files: number): void
-    on(sigName: "scanned", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scanned", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scanned", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Extractor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Extractor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::completed-files", callback: (($obj: Extractor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::completed-files", callback: (($obj: Extractor, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::completed-files", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -388,12 +357,12 @@ export class Extractor {
     static $gtype: GObject.Type
 }
 export abstract class CompressorClass {
-    /* Fields of GnomeAutoar.CompressorClass */
+    /* Fields of GnomeAutoar-0.1.GnomeAutoar.CompressorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class ExtractorClass {
-    /* Fields of GnomeAutoar.ExtractorClass */
+    /* Fields of GnomeAutoar-0.1.GnomeAutoar.ExtractorClass */
     parentClass: GObject.ObjectClass
     static name: string
 }

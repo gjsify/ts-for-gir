@@ -393,7 +393,7 @@ export function bufferSetData(buffer: Buffer, offset: number, data: object | nul
 export function bufferSetUpdateHint(buffer: Buffer, hint: BufferUpdateHint): void
 export function bufferUnmap(buffer: Buffer): void
 export function colorEqual(v1?: object | null, v2?: object | null): Bool
-export function colorInitFromHsl(hue: number, saturation: number, luminance: number): /* color */ Color
+export function colorInitFromHsl(hue: number, saturation: number, luminance: number): { color: Color }
 export function debugMatrixEntryPrint(entry: MatrixEntry): void
 export function debugMatrixPrint(matrix: Matrix): void
 export function debugObjectForeachType(func: DebugObjectForeachTypeCallback): void
@@ -527,7 +527,7 @@ export interface SwapBuffersNotify {
     (framebuffer: Framebuffer): void
 }
 export class Framebuffer {
-    /* Methods of Cogl.Framebuffer */
+    /* Methods of Cogl-2.0.Cogl.Framebuffer */
     allocate(): Bool
     cancelFenceCallback(closure: FenceClosure): void
     clear(buffers: number, color: Color): void
@@ -555,12 +555,12 @@ export class Framebuffer {
     getGreenBits(): number
     getHeight(): number
     getIsStereo(): Bool
-    getModelviewMatrix(): /* matrix */ Matrix
-    getProjectionMatrix(): /* matrix */ Matrix
+    getModelviewMatrix(): { matrix: Matrix }
+    getProjectionMatrix(): { matrix: Matrix }
     getRedBits(): number
     getSamplesPerPixel(): number
     getStereoMode(): StereoMode
-    getViewport4fv(): /* viewport */ number[]
+    getViewport4fv(): { viewport: number[] }
     getViewportHeight(): number
     getViewportWidth(): number
     getViewportX(): number
@@ -599,11 +599,11 @@ export class Framebuffer {
     static errorQuark(): number
 }
 export class Texture {
-    /* Methods of Cogl.Texture */
+    /* Methods of Cogl-2.0.Cogl.Texture */
     allocate(): Bool
     getComponents(): TextureComponents
     getData(format: PixelFormat, rowstride: number, data: number): number
-    getGlTexture(): [ /* returnType */ Bool, /* outGlHandle */ number | null, /* outGlTarget */ number | null ]
+    getGlTexture(): { returnType: Bool, outGlHandle: number | null, outGlTarget: number | null }
     getHeight(): number
     getMaxWaste(): number
     getPremultiplied(): Bool
@@ -625,7 +625,7 @@ export class AtlasTexture {
     static newWithSize(ctx: Context, width: number, height: number): AtlasTexture
 }
 export class Attribute {
-    /* Methods of Cogl.Attribute */
+    /* Methods of Cogl-2.0.Cogl.Attribute */
     getBuffer(): AttributeBuffer
     getNormalized(): Bool
     setBuffer(attributeBuffer: AttributeBuffer): void
@@ -652,7 +652,7 @@ export class AttributeBuffer {
     static newWithSize(context: Context, bytes: number): AttributeBuffer
 }
 export class Bitmap {
-    /* Methods of Cogl.Bitmap */
+    /* Methods of Cogl-2.0.Cogl.Bitmap */
     getBuffer(): PixelBuffer
     getFormat(): PixelFormat
     getHeight(): number
@@ -664,10 +664,10 @@ export class Bitmap {
     static newFromBuffer(buffer: Buffer, format: PixelFormat, width: number, height: number, rowstride: number, offset: number): Bitmap
     static newFromFile(filename: string): Bitmap
     static newWithSize(context: Context, width: number, height: number, format: PixelFormat): Bitmap
-    static getSizeFromFile(filename: string): [ /* returnType */ Bool, /* width */ number, /* height */ number ]
+    static getSizeFromFile(filename: string): { returnType: Bool, width: number, height: number }
 }
 export class Context {
-    /* Methods of Cogl.Context */
+    /* Methods of Cogl-2.0.Cogl.Context */
     getDisplay(): Display
     getRenderer(): Renderer
     static name: string
@@ -677,7 +677,7 @@ export class Context {
     static new(display?: Display | null): Context
 }
 export class Display {
-    /* Methods of Cogl.Display */
+    /* Methods of Cogl-2.0.Cogl.Display */
     getRenderer(): Renderer
     setOnscreenTemplate(onscreenTemplate: OnscreenTemplate): void
     setup(): Bool
@@ -691,7 +691,7 @@ export class Fixed {
     static name: string
 }
 export class FrameInfo {
-    /* Methods of Cogl.FrameInfo */
+    /* Methods of Cogl-2.0.Cogl.FrameInfo */
     getFrameCounter(): number
     getOutput(): Output
     getPresentationTime(): number
@@ -699,7 +699,7 @@ export class FrameInfo {
     static name: string
 }
 export class GLES2Context {
-    /* Methods of Cogl.GLES2Context */
+    /* Methods of Cogl-2.0.Cogl.GLES2Context */
     getVtable(): GLES2Vtable
     static name: string
     static new(ctx: Context): GLES2Context
@@ -715,7 +715,7 @@ export class IndexBuffer {
     static new(context: Context, bytes: number): IndexBuffer
 }
 export class Indices {
-    /* Methods of Cogl.Indices */
+    /* Methods of Cogl-2.0.Cogl.Indices */
     getOffset(): number
     getType(): IndicesType
     setOffset(offset: number): void
@@ -727,11 +727,11 @@ export class Indices {
     static newForBuffer(type: IndicesType, buffer: IndexBuffer, offset: number): Indices
 }
 export class MatrixStack {
-    /* Methods of Cogl.MatrixStack */
+    /* Methods of Cogl-2.0.Cogl.MatrixStack */
     frustum(left: number, right: number, bottom: number, top: number, zNear: number, zFar: number): void
-    get(): [ /* returnType */ Matrix, /* matrix */ Matrix ]
+    get(): { returnType: Matrix, matrix: Matrix }
     getEntry(): MatrixEntry
-    getInverse(): [ /* returnType */ Bool, /* inverse */ Matrix ]
+    getInverse(): { returnType: Bool, inverse: Matrix }
     loadIdentity(): void
     multiply(matrix: Matrix): void
     orthographic(x1: number, y1: number, x2: number, y2: number, near: number, far: number): void
@@ -757,7 +757,7 @@ export class Object {
     static valueSetObject(value: any, object?: object | null): void
 }
 export class Onscreen {
-    /* Methods of Cogl.Onscreen */
+    /* Methods of Cogl-2.0.Cogl.Onscreen */
     addDirtyCallback(callback: OnscreenDirtyCallback, destroy?: UserDataDestroyCallback | null): OnscreenDirtyClosure
     addFrameCallback(callback: FrameCallback, destroy?: UserDataDestroyCallback | null): FrameClosure
     addResizeCallback(callback: OnscreenResizeCallback, destroy?: UserDataDestroyCallback | null): OnscreenResizeClosure
@@ -776,7 +776,7 @@ export class Onscreen {
     swapBuffers(): void
     swapBuffersWithDamage(rectangles: number, nRectangles: number): void
     swapRegion(rectangles: number, nRectangles: number): void
-    /* Methods of Cogl.Framebuffer */
+    /* Methods of Cogl-2.0.Cogl.Framebuffer */
     allocate(): Bool
     cancelFenceCallback(closure: FenceClosure): void
     clear(buffers: number, color: Color): void
@@ -804,12 +804,12 @@ export class Onscreen {
     getGreenBits(): number
     getHeight(): number
     getIsStereo(): Bool
-    getModelviewMatrix(): /* matrix */ Matrix
-    getProjectionMatrix(): /* matrix */ Matrix
+    getModelviewMatrix(): { matrix: Matrix }
+    getProjectionMatrix(): { matrix: Matrix }
     getRedBits(): number
     getSamplesPerPixel(): number
     getStereoMode(): StereoMode
-    getViewport4fv(): /* viewport */ number[]
+    getViewport4fv(): { viewport: number[] }
     getViewportHeight(): number
     getViewportWidth(): number
     getViewportX(): number
@@ -851,7 +851,7 @@ export class Onscreen {
     static errorQuark(): number
 }
 export class OnscreenTemplate {
-    /* Methods of Cogl.OnscreenTemplate */
+    /* Methods of Cogl-2.0.Cogl.OnscreenTemplate */
     setSamplesPerPixel(n: number): void
     setStereoEnabled(enabled: Bool): void
     setSwapThrottled(throttled: Bool): void
@@ -862,7 +862,7 @@ export class OnscreenTemplate {
     static new(swapChain: SwapChain): OnscreenTemplate
 }
 export class Output {
-    /* Methods of Cogl.Output */
+    /* Methods of Cogl-2.0.Cogl.Output */
     getHeight(): number
     getMmHeight(): number
     getMmWidth(): number
@@ -874,7 +874,7 @@ export class Output {
     static name: string
 }
 export class Pipeline {
-    /* Methods of Cogl.Pipeline */
+    /* Methods of Cogl-2.0.Cogl.Pipeline */
     addLayerSnippet(layer: number, snippet: Snippet): void
     addSnippet(snippet: Snippet): void
     copy(): Pipeline
@@ -882,10 +882,10 @@ export class Pipeline {
     getAlphaTestFunction(): PipelineAlphaFunc
     getAlphaTestReference(): number
     getAmbient(ambient: Color): void
-    getColor(): /* color */ Color
+    getColor(): { color: Color }
     getColorMask(): ColorMask
     getCullFaceMode(): PipelineCullFaceMode
-    getDepthState(): /* stateOut */ DepthState
+    getDepthState(): { stateOut: DepthState }
     getDiffuse(diffuse: Color): void
     getEmission(emission: Color): void
     getFrontFaceWinding(): Winding
@@ -953,7 +953,7 @@ export class PixelBuffer {
     static new(context: Context, size: number, data?: object | null): PixelBuffer
 }
 export class Primitive {
-    /* Methods of Cogl.Primitive */
+    /* Methods of Cogl-2.0.Cogl.Primitive */
     copy(): Primitive
     draw(framebuffer: Framebuffer, pipeline: Pipeline): void
     foreachAttribute(callback: PrimitiveAttributeCallback): void
@@ -980,7 +980,7 @@ export class Primitive {
     static textureSetAutoMipmap(primitiveTexture: PrimitiveTexture, value: Bool): void
 }
 export class Renderer {
-    /* Methods of Cogl.Renderer */
+    /* Methods of Cogl-2.0.Cogl.Renderer */
     addConstraint(constraint: RendererConstraint): void
     checkOnscreenTemplate(onscreenTemplate: OnscreenTemplate): Bool
     connect(): Bool
@@ -998,7 +998,7 @@ export class Renderer {
     static new(): Renderer
 }
 export class Snippet {
-    /* Methods of Cogl.Snippet */
+    /* Methods of Cogl-2.0.Cogl.Snippet */
     getDeclarations(): string
     getHook(): SnippetHook
     getPost(): string
@@ -1015,7 +1015,7 @@ export class Snippet {
     static new(hook: SnippetHook, declarations: string, post: string): Snippet
 }
 export class SubTexture {
-    /* Methods of Cogl.SubTexture */
+    /* Methods of Cogl-2.0.Cogl.SubTexture */
     getParent(): Texture
     static name: string
     static new(ctx: Context, parentTexture: Texture, subX: number, subY: number, subWidth: number, subHeight: number): SubTexture
@@ -1024,7 +1024,7 @@ export class SubTexture {
     static new(ctx: Context, parentTexture: Texture, subX: number, subY: number, subWidth: number, subHeight: number): SubTexture
 }
 export class SwapChain {
-    /* Methods of Cogl.SwapChain */
+    /* Methods of Cogl-2.0.Cogl.SwapChain */
     setHasAlpha(hasAlpha: Bool): void
     setLength(length: number): void
     static name: string
@@ -1034,11 +1034,11 @@ export class SwapChain {
     static new(): SwapChain
 }
 export class Texture2D {
-    /* Methods of Cogl.Texture */
+    /* Methods of Cogl-2.0.Cogl.Texture */
     allocate(): Bool
     getComponents(): TextureComponents
     getData(format: PixelFormat, rowstride: number, data: number): number
-    getGlTexture(): [ /* returnType */ Bool, /* outGlHandle */ number | null, /* outGlTarget */ number | null ]
+    getGlTexture(): { returnType: Bool, outGlHandle: number | null, outGlTarget: number | null }
     getHeight(): number
     getMaxWaste(): number
     getPremultiplied(): Bool
@@ -1058,11 +1058,11 @@ export class Texture2D {
     static newWithSize(ctx: Context, width: number, height: number): Texture2D
 }
 export class Texture2DSliced {
-    /* Methods of Cogl.Texture */
+    /* Methods of Cogl-2.0.Cogl.Texture */
     allocate(): Bool
     getComponents(): TextureComponents
     getData(format: PixelFormat, rowstride: number, data: number): number
-    getGlTexture(): [ /* returnType */ Bool, /* outGlHandle */ number | null, /* outGlTarget */ number | null ]
+    getGlTexture(): { returnType: Bool, outGlHandle: number | null, outGlTarget: number | null }
     getHeight(): number
     getMaxWaste(): number
     getPremultiplied(): Bool
@@ -1081,11 +1081,11 @@ export class Texture2DSliced {
     static newWithSize(ctx: Context, width: number, height: number, maxWaste: number): Texture2DSliced
 }
 export class Texture3D {
-    /* Methods of Cogl.Texture */
+    /* Methods of Cogl-2.0.Cogl.Texture */
     allocate(): Bool
     getComponents(): TextureComponents
     getData(format: PixelFormat, rowstride: number, data: number): number
-    getGlTexture(): [ /* returnType */ Bool, /* outGlHandle */ number | null, /* outGlTarget */ number | null ]
+    getGlTexture(): { returnType: Bool, outGlHandle: number | null, outGlTarget: number | null }
     getHeight(): number
     getMaxWaste(): number
     getPremultiplied(): Bool
@@ -1103,7 +1103,7 @@ export class Texture3D {
     static newWithSize(context: Context, width: number, height: number, depth: number): Texture3D
 }
 export class TexturePixmapX11 {
-    /* Methods of Cogl.TexturePixmapX11 */
+    /* Methods of Cogl-2.0.Cogl.TexturePixmapX11 */
     isUsingTfpExtension(): Bool
     setDamageObject(damage: number, reportLevel: TexturePixmapX11ReportLevel): void
     updateArea(x: number, y: number, width: number, height: number): void
@@ -1116,11 +1116,11 @@ export class TexturePixmapX11 {
     static errorQuark(): number
 }
 export class TextureRectangle {
-    /* Methods of Cogl.Texture */
+    /* Methods of Cogl-2.0.Cogl.Texture */
     allocate(): Bool
     getComponents(): TextureComponents
     getData(format: PixelFormat, rowstride: number, data: number): number
-    getGlTexture(): [ /* returnType */ Bool, /* outGlHandle */ number | null, /* outGlTarget */ number | null ]
+    getGlTexture(): { returnType: Bool, outGlHandle: number | null, outGlTarget: number | null }
     getHeight(): number
     getMaxWaste(): number
     getPremultiplied(): Bool
@@ -1138,7 +1138,7 @@ export class TextureRectangle {
     static newWithSize(ctx: Context, width: number, height: number): TextureRectangle
 }
 export class Color {
-    /* Methods of Cogl.Color */
+    /* Methods of Cogl-2.0.Cogl.Color */
     copy(): Color
     free(): void
     getAlpha(): number
@@ -1171,7 +1171,7 @@ export class Color {
     setRed(red: number): void
     setRedByte(red: number): void
     setRedFloat(red: number): void
-    toHsl(): [ /* hue */ number, /* saturation */ number, /* luminance */ number ]
+    toHsl(): { hue: number, saturation: number, luminance: number }
     unpremultiply(): void
     static name: string
     static new(): Color
@@ -1179,16 +1179,16 @@ export class Color {
     /* Static methods and pseudo-constructors */
     static new(): Color
     static equal(v1?: object | null, v2?: object | null): Bool
-    static initFromHsl(hue: number, saturation: number, luminance: number): /* color */ Color
+    static initFromHsl(hue: number, saturation: number, luminance: number): { color: Color }
 }
 export class DebugObjectTypeInfo {
-    /* Fields of Cogl.DebugObjectTypeInfo */
+    /* Fields of Cogl-2.0.Cogl.DebugObjectTypeInfo */
     name: string
     instanceCount: number
     static name: string
 }
 export class DepthState {
-    /* Methods of Cogl.DepthState */
+    /* Methods of Cogl-2.0.Cogl.DepthState */
     getRange(nearVal: number, farVal: number): void
     getTestEnabled(): Bool
     getTestFunction(): DepthTestFunction
@@ -1201,11 +1201,11 @@ export class DepthState {
     static name: string
 }
 export class Euler {
-    /* Fields of Cogl.Euler */
+    /* Fields of Cogl-2.0.Cogl.Euler */
     heading: number
     pitch: number
     roll: number
-    /* Methods of Cogl.Euler */
+    /* Methods of Cogl-2.0.Cogl.Euler */
     copy(): Euler
     free(): void
     init(heading: number, pitch: number, roll: number): void
@@ -1219,7 +1219,7 @@ export class Fence {
     static name: string
 }
 export class FenceClosure {
-    /* Methods of Cogl.FenceClosure */
+    /* Methods of Cogl-2.0.Cogl.FenceClosure */
     getUserData(): object | null
     static name: string
 }
@@ -1227,7 +1227,7 @@ export class FrameClosure {
     static name: string
 }
 export class GLES2Vtable {
-    /* Fields of Cogl.GLES2Vtable */
+    /* Fields of Cogl-2.0.Cogl.GLES2Vtable */
     glBindTexture: (target: GL.enum_, texture: GL.uint) => void
     glBlendFunc: (sfactor: GL.enum_, dfactor: GL.enum_) => void
     glClear: (mask: GL.bitfield) => void
@@ -1355,19 +1355,19 @@ export class GLES2Vtable {
     static name: string
 }
 export class GtypeClass {
-    /* Fields of Cogl.GtypeClass */
+    /* Fields of Cogl-2.0.Cogl.GtypeClass */
     baseClass: GObject.TypeClass
     dummy: number
     static name: string
 }
 export class GtypeObject {
-    /* Fields of Cogl.GtypeObject */
+    /* Fields of Cogl-2.0.Cogl.GtypeObject */
     parentInstance: GObject.TypeInstance
     dummy: number
     static name: string
 }
 export class KmsCrtc {
-    /* Fields of Cogl.KmsCrtc */
+    /* Fields of Cogl-2.0.Cogl.KmsCrtc */
     id: number
     x: number
     y: number
@@ -1377,7 +1377,7 @@ export class KmsCrtc {
     static name: string
 }
 export class Matrix {
-    /* Fields of Cogl.Matrix */
+    /* Fields of Cogl-2.0.Cogl.Matrix */
     xx: number
     yx: number
     zx: number
@@ -1394,12 +1394,12 @@ export class Matrix {
     yw: number
     zw: number
     ww: number
-    /* Methods of Cogl.Matrix */
+    /* Methods of Cogl-2.0.Cogl.Matrix */
     copy(): Matrix
     free(): void
     frustum(left: number, right: number, bottom: number, top: number, zNear: number, zFar: number): void
     getArray(): number
-    getInverse(): [ /* returnType */ Bool, /* inverse */ Matrix ]
+    getInverse(): { returnType: Bool, inverse: Matrix }
     initFromArray(array: number): void
     initFromEuler(euler: Euler): void
     initFromQuaternion(quaternion: Quaternion): void
@@ -1416,7 +1416,7 @@ export class Matrix {
     rotateEuler(euler: Euler): void
     rotateQuaternion(quaternion: Quaternion): void
     scale(sx: number, sy: number, sz: number): void
-    transformPoint(x: number, y: number, z: number, w: number): [ /* x */ number, /* y */ number, /* z */ number, /* w */ number ]
+    transformPoint(x: number, y: number, z: number, w: number): { x: number, y: number, z: number, w: number }
     transformPoints(nComponents: number, strideIn: number, pointsIn: object | null, strideOut: number, pointsOut: object | null, nPoints: number): void
     translate(x: number, y: number, z: number): void
     transpose(): void
@@ -1427,10 +1427,10 @@ export class Matrix {
     static equal(v1?: object | null, v2?: object | null): Bool
 }
 export class MatrixEntry {
-    /* Methods of Cogl.MatrixEntry */
-    calculateTranslation(entry1: MatrixEntry): [ /* returnType */ Bool, /* x */ number, /* y */ number, /* z */ number ]
+    /* Methods of Cogl-2.0.Cogl.MatrixEntry */
+    calculateTranslation(entry1: MatrixEntry): { returnType: Bool, x: number, y: number, z: number }
     equal(entry1: MatrixEntry): Bool
-    get(): [ /* returnType */ Matrix, /* matrix */ Matrix ]
+    get(): { returnType: Matrix, matrix: Matrix }
     isIdentity(): Bool
     ref(): MatrixEntry
     unref(): void
@@ -1440,7 +1440,7 @@ export class OnscreenDirtyClosure {
     static name: string
 }
 export class OnscreenDirtyInfo {
-    /* Fields of Cogl.OnscreenDirtyInfo */
+    /* Fields of Cogl-2.0.Cogl.OnscreenDirtyInfo */
     x: number
     y: number
     width: number
@@ -1451,22 +1451,22 @@ export class OnscreenResizeClosure {
     static name: string
 }
 export class PollFD {
-    /* Fields of Cogl.PollFD */
+    /* Fields of Cogl-2.0.Cogl.PollFD */
     fd: number
     static name: string
 }
 export class Quaternion {
-    /* Fields of Cogl.Quaternion */
+    /* Fields of Cogl-2.0.Cogl.Quaternion */
     w: number
     x: number
     y: number
     z: number
-    /* Methods of Cogl.Quaternion */
+    /* Methods of Cogl-2.0.Cogl.Quaternion */
     copy(): Quaternion
     dotProduct(b: Quaternion): number
     free(): void
     getRotationAngle(): number
-    getRotationAxis(): /* vector3 */ number
+    getRotationAxis(): { vector3: number }
     init(angle: number, x: number, y: number, z: number): void
     initFromAngleVector(angle: number, axis3f: number): void
     initFromArray(array: number): void
@@ -1489,7 +1489,7 @@ export class Quaternion {
     static equal(v1?: object | null, v2?: object | null): Bool
 }
 export class TextureVertex {
-    /* Fields of Cogl.TextureVertex */
+    /* Fields of Cogl-2.0.Cogl.TextureVertex */
     x: number
     y: number
     z: number
@@ -1499,18 +1499,18 @@ export class TextureVertex {
     static name: string
 }
 export class UserDataKey {
-    /* Fields of Cogl.UserDataKey */
+    /* Fields of Cogl-2.0.Cogl.UserDataKey */
     unused: number
     static name: string
 }
 export class VertexP2 {
-    /* Fields of Cogl.VertexP2 */
+    /* Fields of Cogl-2.0.Cogl.VertexP2 */
     x: number
     y: number
     static name: string
 }
 export class VertexP2C4 {
-    /* Fields of Cogl.VertexP2C4 */
+    /* Fields of Cogl-2.0.Cogl.VertexP2C4 */
     x: number
     y: number
     r: number
@@ -1520,7 +1520,7 @@ export class VertexP2C4 {
     static name: string
 }
 export class VertexP2T2 {
-    /* Fields of Cogl.VertexP2T2 */
+    /* Fields of Cogl-2.0.Cogl.VertexP2T2 */
     x: number
     y: number
     s: number
@@ -1528,7 +1528,7 @@ export class VertexP2T2 {
     static name: string
 }
 export class VertexP2T2C4 {
-    /* Fields of Cogl.VertexP2T2C4 */
+    /* Fields of Cogl-2.0.Cogl.VertexP2T2C4 */
     x: number
     y: number
     s: number
@@ -1540,14 +1540,14 @@ export class VertexP2T2C4 {
     static name: string
 }
 export class VertexP3 {
-    /* Fields of Cogl.VertexP3 */
+    /* Fields of Cogl-2.0.Cogl.VertexP3 */
     x: number
     y: number
     z: number
     static name: string
 }
 export class VertexP3C4 {
-    /* Fields of Cogl.VertexP3C4 */
+    /* Fields of Cogl-2.0.Cogl.VertexP3C4 */
     x: number
     y: number
     z: number
@@ -1558,7 +1558,7 @@ export class VertexP3C4 {
     static name: string
 }
 export class VertexP3T2 {
-    /* Fields of Cogl.VertexP3T2 */
+    /* Fields of Cogl-2.0.Cogl.VertexP3T2 */
     x: number
     y: number
     z: number
@@ -1567,7 +1567,7 @@ export class VertexP3T2 {
     static name: string
 }
 export class VertexP3T2C4 {
-    /* Fields of Cogl.VertexP3T2C4 */
+    /* Fields of Cogl-2.0.Cogl.VertexP3T2C4 */
     x: number
     y: number
     z: number
@@ -1580,27 +1580,27 @@ export class VertexP3T2C4 {
     static name: string
 }
 export class _ColorSizeCheck {
-    /* Fields of Cogl._ColorSizeCheck */
+    /* Fields of Cogl-2.0.Cogl._ColorSizeCheck */
     compileTimeAssertCoglColorSize: number[]
     static name: string
 }
 export class _EulerSizeCheck {
-    /* Fields of Cogl._EulerSizeCheck */
+    /* Fields of Cogl-2.0.Cogl._EulerSizeCheck */
     compileTimeAssertCoglEulerSize: number[]
     static name: string
 }
 export class _MatrixSizeCheck {
-    /* Fields of Cogl._MatrixSizeCheck */
+    /* Fields of Cogl-2.0.Cogl._MatrixSizeCheck */
     compileTimeAssertCoglMatrixSize: number[]
     static name: string
 }
 export class _QuaternionSizeCheck {
-    /* Fields of Cogl._QuaternionSizeCheck */
+    /* Fields of Cogl-2.0.Cogl._QuaternionSizeCheck */
     compileTimeAssertCoglQuaternionSize: number[]
     static name: string
 }
 export class _TextureVertexSizeCheck {
-    /* Fields of Cogl._TextureVertexSizeCheck */
+    /* Fields of Cogl-2.0.Cogl._TextureVertexSizeCheck */
     compileTimeAssertCoglTextureVertexSize: number[]
     static name: string
 }

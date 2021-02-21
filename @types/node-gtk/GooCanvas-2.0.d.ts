@@ -127,7 +127,7 @@ export function canvasItemModelClassFindChildProperty(mclass: GObject.ObjectClas
 export function canvasItemModelClassInstallChildProperty(mclass: GObject.ObjectClass, propertyId: number, pspec: GObject.ParamSpec): void
 export function canvasItemModelClassListChildProperties(mclass: GObject.ObjectClass): GObject.ParamSpec[]
 export class CanvasItem {
-    /* Properties of GooCanvas.CanvasItem */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItem */
     canFocus: boolean
     description: string
     parent: CanvasItem
@@ -137,13 +137,13 @@ export class CanvasItem {
     transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
-    /* Methods of GooCanvas.CanvasItem */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItem */
     addChild(child: CanvasItem, position: number): void
     allocateArea(cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number): void
     animate(x: number, y: number, scale: number, degrees: number, absolute: boolean, duration: number, stepTime: number, type: CanvasAnimateType): void
     ensureUpdated(): void
     findChild(child: CanvasItem): number
-    getBounds(): /* bounds */ CanvasBounds
+    getBounds(): { bounds: CanvasBounds }
     getCanvas(): Canvas
     getChild(childNum: number): CanvasItem
     getChildProperty(child: CanvasItem, propertyName: string, value: any): void
@@ -155,10 +155,10 @@ export class CanvasItem {
     getRequestedArea(cr: cairo.Context, requestedArea: CanvasBounds): boolean
     getRequestedAreaForWidth(cr: cairo.Context, width: number, requestedArea: CanvasBounds): boolean
     getRequestedHeight(cr: cairo.Context, width: number): number
-    getSimpleTransform(): [ /* returnType */ boolean, /* x */ number, /* y */ number, /* scale */ number, /* rotation */ number ]
+    getSimpleTransform(): { returnType: boolean, x: number, y: number, scale: number, rotation: number }
     getStyle(): CanvasStyle
-    getTransform(): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    getTransformForChild(child: CanvasItem): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
+    getTransform(): { returnType: boolean, transform: cairo.Matrix }
+    getTransformForChild(child: CanvasItem): { returnType: boolean, transform: cairo.Matrix }
     isContainer(): boolean
     isVisible(): boolean
     lower(below?: CanvasItem | null): void
@@ -183,136 +183,77 @@ export class CanvasItem {
     stopAnimation(): void
     translate(tx: number, ty: number): void
     update(entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds): void
-    /* Virtual methods of GooCanvas.CanvasItem */
-    vfuncAddChild(child: CanvasItem, position: number): void
-    vfuncAllocateArea(cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number): void
-    vfuncAnimationFinished(stopped: boolean): void
-    vfuncButtonPressEvent(target: CanvasItem, event: Gdk.EventButton): boolean
-    vfuncButtonReleaseEvent(target: CanvasItem, event: Gdk.EventButton): boolean
-    vfuncChildNotify(pspec: GObject.ParamSpec): void
-    vfuncEnterNotifyEvent(target: CanvasItem, event: Gdk.EventCrossing): boolean
-    vfuncFocusInEvent(target: CanvasItem, event: Gdk.EventFocus): boolean
-    vfuncFocusOutEvent(target: CanvasItem, event: Gdk.EventFocus): boolean
-    vfuncGetBounds(): /* bounds */ CanvasBounds
-    vfuncGetCanvas(): Canvas
-    vfuncGetChild(childNum: number): CanvasItem
-    vfuncGetChildProperty(child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetIsStatic(): boolean
-    vfuncGetItemsAt(x: number, y: number, cr: cairo.Context, isPointerEvent: boolean, parentIsVisible: boolean, foundItems: CanvasItem[]): CanvasItem[]
-    vfuncGetModel(): CanvasItemModel
-    vfuncGetNChildren(): number
-    vfuncGetParent(): CanvasItem
-    vfuncGetRequestedArea(cr: cairo.Context, requestedArea: CanvasBounds): boolean
-    vfuncGetRequestedAreaForWidth(cr: cairo.Context, width: number, requestedArea: CanvasBounds): boolean
-    vfuncGetRequestedHeight(cr: cairo.Context, width: number): number
-    vfuncGetStyle(): CanvasStyle
-    vfuncGetTransform(): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    vfuncGetTransformForChild(child: CanvasItem): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    vfuncGrabBrokenEvent(target: CanvasItem, event: Gdk.EventGrabBroken): boolean
-    vfuncIsVisible(): boolean
-    vfuncKeyPressEvent(target: CanvasItem, event: Gdk.EventKey): boolean
-    vfuncKeyReleaseEvent(target: CanvasItem, event: Gdk.EventKey): boolean
-    vfuncLeaveNotifyEvent(target: CanvasItem, event: Gdk.EventCrossing): boolean
-    vfuncMotionNotifyEvent(target: CanvasItem, event: Gdk.EventMotion): boolean
-    vfuncMoveChild(oldPosition: number, newPosition: number): void
-    vfuncPaint(cr: cairo.Context, bounds: CanvasBounds, scale: number): void
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncRemoveChild(childNum: number): void
-    vfuncRequestUpdate(): void
-    vfuncScrollEvent(target: CanvasItem, event: Gdk.EventScroll): boolean
-    vfuncSetCanvas(canvas: Canvas): void
-    vfuncSetChildProperty(child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetIsStatic(isStatic: boolean): void
-    vfuncSetModel(model: CanvasItemModel): void
-    vfuncSetParent(parent: CanvasItem): void
-    vfuncSetStyle(style: CanvasStyle): void
-    vfuncSetTransform(transform?: cairo.Matrix | null): void
-    vfuncUpdate(entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds): void
-    /* Signals of GooCanvas.CanvasItem */
+    /* Signals of GooCanvas-2.0.GooCanvas.CanvasItem */
     connect(sigName: "animation-finished", callback: (($obj: CanvasItem, stopped: boolean) => void)): number
-    connect_after(sigName: "animation-finished", callback: (($obj: CanvasItem, stopped: boolean) => void)): number
+    on(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "animation-finished", callback: (stopped: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "animation-finished", stopped: boolean): void
-    on(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: CanvasItem, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: CanvasItem, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", targetItem: CanvasItem, event: Gdk.EventButton): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: CanvasItem, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: CanvasItem, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", targetItem: CanvasItem, event: Gdk.EventButton): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: CanvasItem, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: CanvasItem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-notify-event", callback: (($obj: CanvasItem, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "enter-notify-event", callback: (($obj: CanvasItem, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "enter-notify-event", targetItem: CanvasItem, event: Gdk.EventCrossing): void
-    on(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in-event", callback: (($obj: CanvasItem, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-in-event", callback: (($obj: CanvasItem, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in-event", targetItem: CanvasItem, event: Gdk.EventFocus): void
-    on(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out-event", callback: (($obj: CanvasItem, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-out-event", callback: (($obj: CanvasItem, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out-event", targetItem: CanvasItem, event: Gdk.EventFocus): void
-    on(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-broken-event", callback: (($obj: CanvasItem, targetItem: CanvasItem, event: Gdk.EventGrabBroken) => boolean)): number
-    connect_after(sigName: "grab-broken-event", callback: (($obj: CanvasItem, targetItem: CanvasItem, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
     emit(sigName: "grab-broken-event", targetItem: CanvasItem, event: Gdk.EventGrabBroken): void
-    on(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: CanvasItem, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: CanvasItem, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", targetItem: CanvasItem, event: Gdk.EventKey): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: CanvasItem, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: CanvasItem, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", targetItem: CanvasItem, event: Gdk.EventKey): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-notify-event", callback: (($obj: CanvasItem, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "leave-notify-event", callback: (($obj: CanvasItem, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "leave-notify-event", targetItem: CanvasItem, event: Gdk.EventCrossing): void
-    on(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-notify-event", callback: (($obj: CanvasItem, targetItem: CanvasItem, event: Gdk.EventMotion) => boolean)): number
-    connect_after(sigName: "motion-notify-event", callback: (($obj: CanvasItem, targetItem: CanvasItem, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void): NodeJS.EventEmitter
     emit(sigName: "motion-notify-event", targetItem: CanvasItem, event: Gdk.EventMotion): void
-    on(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: CanvasItem, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: CanvasItem, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: CanvasItem, targetItem: CanvasItem, event: Gdk.EventScroll) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: CanvasItem, targetItem: CanvasItem, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", targetItem: CanvasItem, event: Gdk.EventScroll): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static classFindChildProperty(iclass: GObject.ObjectClass, propertyName: string): GObject.ParamSpec
@@ -320,7 +261,7 @@ export class CanvasItem {
     static classListChildProperties(iclass: GObject.ObjectClass): GObject.ParamSpec[]
 }
 export class CanvasItemModel {
-    /* Properties of GooCanvas.CanvasItemModel */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     canFocus: boolean
     description: string
     parent: CanvasItemModel
@@ -330,7 +271,7 @@ export class CanvasItemModel {
     transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
-    /* Methods of GooCanvas.CanvasItemModel */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     addChild(child: CanvasItemModel, position: number): void
     animate(x: number, y: number, scale: number, degrees: number, absolute: boolean, duration: number, stepTime: number, type: CanvasAnimateType): void
     findChild(child: CanvasItemModel): number
@@ -358,63 +299,37 @@ export class CanvasItemModel {
     skewY(degrees: number, cx: number, cy: number): void
     stopAnimation(): void
     translate(tx: number, ty: number): void
-    /* Virtual methods of GooCanvas.CanvasItemModel */
-    vfuncAddChild(child: CanvasItemModel, position: number): void
-    vfuncAnimationFinished(stopped: boolean): void
-    vfuncChanged(recomputeBounds: boolean): void
-    vfuncChildAdded(childNum: number): void
-    vfuncChildMoved(oldChildNum: number, newChildNum: number): void
-    vfuncChildNotify(pspec: GObject.ParamSpec): void
-    vfuncChildRemoved(childNum: number): void
-    vfuncGetChild(childNum: number): CanvasItemModel
-    vfuncGetChildProperty(child: CanvasItemModel, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetNChildren(): number
-    vfuncGetParent(): CanvasItemModel
-    vfuncGetStyle(): CanvasStyle
-    vfuncGetTransform(transform: cairo.Matrix): boolean
-    vfuncMoveChild(oldPosition: number, newPosition: number): void
-    vfuncRemoveChild(childNum: number): void
-    vfuncSetChildProperty(child: CanvasItemModel, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetParent(parent: CanvasItemModel): void
-    vfuncSetStyle(style: CanvasStyle): void
-    vfuncSetTransform(transform?: cairo.Matrix | null): void
-    /* Signals of GooCanvas.CanvasItemModel */
+    /* Signals of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     connect(sigName: "animation-finished", callback: (($obj: CanvasItemModel, stopped: boolean) => void)): number
-    connect_after(sigName: "animation-finished", callback: (($obj: CanvasItemModel, stopped: boolean) => void)): number
+    on(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "animation-finished", callback: (stopped: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "animation-finished", stopped: boolean): void
-    on(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: CanvasItemModel, recomputeBounds: boolean) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: CanvasItemModel, recomputeBounds: boolean) => void)): number
+    on(sigName: "changed", callback: (recomputeBounds: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (recomputeBounds: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (recomputeBounds: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "changed", recomputeBounds: boolean): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-added", callback: (($obj: CanvasItemModel, childNum: number) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: CanvasItemModel, childNum: number) => void)): number
+    on(sigName: "child-added", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (childNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", childNum: number): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-moved", callback: (($obj: CanvasItemModel, oldChildNum: number, newChildNum: number) => void)): number
-    connect_after(sigName: "child-moved", callback: (($obj: CanvasItemModel, oldChildNum: number, newChildNum: number) => void)): number
+    on(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-moved", oldChildNum: number, newChildNum: number): void
-    on(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: CanvasItemModel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: CanvasItemModel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: CanvasItemModel, childNum: number) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: CanvasItemModel, childNum: number) => void)): number
+    on(sigName: "child-removed", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (childNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", childNum: number): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static classFindChildProperty(mclass: GObject.ObjectClass, propertyName: string): GObject.ParamSpec
@@ -448,7 +363,7 @@ export interface Canvas_ConstructProps extends Gtk.Container_ConstructProps {
     vscrollPolicy?: Gtk.ScrollablePolicy
 }
 export class Canvas {
-    /* Properties of GooCanvas.Canvas */
+    /* Properties of GooCanvas-2.0.GooCanvas.Canvas */
     anchor: CanvasAnchorType
     automaticBounds: boolean
     backgroundColor: string
@@ -469,11 +384,11 @@ export class Canvas {
     x2: number
     y1: number
     y2: number
-    /* Properties of Gtk.Container */
+    /* Properties of Gtk-3.0.Gtk.Container */
     borderWidth: number
     child: Gtk.Widget
     resizeMode: Gtk.ResizeMode
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     appPaintable: boolean
     canDefault: boolean
     canFocus: boolean
@@ -513,12 +428,12 @@ export class Canvas {
     visible: boolean
     widthRequest: number
     readonly window: Gdk.Window
-    /* Properties of Gtk.Scrollable */
+    /* Properties of Gtk-3.0.Gtk.Scrollable */
     hadjustment: Gtk.Adjustment
     hscrollPolicy: Gtk.ScrollablePolicy
     vadjustment: Gtk.Adjustment
     vscrollPolicy: Gtk.ScrollablePolicy
-    /* Fields of GooCanvas.Canvas */
+    /* Fields of GooCanvas-2.0.GooCanvas.Canvas */
     container: Gtk.Container
     rootItemModel: CanvasItemModel
     rootItem: CanvasItem
@@ -543,23 +458,23 @@ export class Canvas {
     deviceToPixelsX: number
     deviceToPixelsY: number
     widgetItems: object[]
-    /* Fields of Gtk.Container */
+    /* Fields of Gtk-3.0.Gtk.Container */
     widget: Gtk.Widget
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parentInstance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GooCanvas.Canvas */
+    /* Methods of GooCanvas-2.0.GooCanvas.Canvas */
     convertBoundsToItemSpace(item: CanvasItem, bounds: CanvasBounds): void
-    convertFromItemSpace(item: CanvasItem, x: number, y: number): [ /* x */ number, /* y */ number ]
-    convertFromPixels(x: number, y: number): [ /* x */ number, /* y */ number ]
-    convertToItemSpace(item: CanvasItem, x: number, y: number): [ /* x */ number, /* y */ number ]
-    convertToPixels(x: number, y: number): [ /* x */ number, /* y */ number ]
-    convertUnitsFromPixels(x: number, y: number): [ /* x */ number, /* y */ number ]
-    convertUnitsToPixels(x: number, y: number): [ /* x */ number, /* y */ number ]
+    convertFromItemSpace(item: CanvasItem, x: number, y: number): { x: number, y: number }
+    convertFromPixels(x: number, y: number): { x: number, y: number }
+    convertToItemSpace(item: CanvasItem, x: number, y: number): { x: number, y: number }
+    convertToPixels(x: number, y: number): { x: number, y: number }
+    convertUnitsFromPixels(x: number, y: number): { x: number, y: number }
+    convertUnitsToPixels(x: number, y: number): { x: number, y: number }
     createCairoContext(): cairo.Context
     createItem(model: CanvasItemModel): CanvasItem
-    getBounds(): [ /* left */ number | null, /* top */ number | null, /* right */ number | null, /* bottom */ number | null ]
+    getBounds(): { left: number | null, top: number | null, right: number | null, bottom: number | null }
     getDefaultLineWidth(): number
     getItem(model: CanvasItemModel): CanvasItem
     getItemAt(x: number, y: number, isPointerEvent: boolean): CanvasItem
@@ -590,7 +505,7 @@ export class Canvas {
     unregisterItem(model: CanvasItemModel): void
     unregisterWidgetItem(witem: CanvasWidget): void
     update(): void
-    /* Methods of Gtk.Container */
+    /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
@@ -601,7 +516,7 @@ export class Canvas {
     foreach(callback: Gtk.Callback): void
     getBorderWidth(): number
     getChildren(): Gtk.Widget[]
-    getFocusChain(): [ /* returnType */ boolean, /* focusableWidgets */ Gtk.Widget[] ]
+    getFocusChain(): { returnType: boolean, focusableWidgets: Gtk.Widget[] }
     getFocusChild(): Gtk.Widget | null
     getFocusHadjustment(): Gtk.Adjustment | null
     getFocusVadjustment(): Gtk.Adjustment | null
@@ -618,7 +533,7 @@ export class Canvas {
     setReallocateRedraws(needsRedraws: boolean): void
     setResizeMode(resizeMode: Gtk.ResizeMode): void
     unsetFocusChain(): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     addAccelerator(accelSignal: string, accelGroup: Gtk.AccelGroup, accelKey: number, accelMods: Gdk.ModifierType, accelFlags: Gtk.AccelFlags): void
     addDeviceEvents(device: Gdk.Device, events: Gdk.EventMask): void
@@ -628,12 +543,12 @@ export class Canvas {
     canActivateAccel(signalId: number): boolean
     childFocus(direction: Gtk.DirectionType): boolean
     childNotify(childProperty: string): void
-    classPath(): [ /* pathLength */ number | null, /* path */ string | null, /* pathReversed */ string | null ]
+    classPath(): { pathLength: number | null, path: string | null, pathReversed: string | null }
     computeExpand(orientation: Gtk.Orientation): boolean
     createPangoContext(): Pango.Context
     createPangoLayout(text?: string | null): Pango.Layout
     destroy(): void
-    destroyed(widgetPointer: Gtk.Widget): /* widgetPointer */ Gtk.Widget
+    destroyed(widgetPointer: Gtk.Widget): { widgetPointer: Gtk.Widget }
     deviceIsShadowed(device: Gdk.Device): boolean
     dragBegin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event?: Gdk.Event | null): Gdk.DragContext
     dragBeginWithCoordinates(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null, x: number, y: number): Gdk.DragContext
@@ -672,16 +587,16 @@ export class Canvas {
     getActionGroup(prefix: string): Gio.ActionGroup | null
     getAllocatedBaseline(): number
     getAllocatedHeight(): number
-    getAllocatedSize(): [ /* allocation */ Gtk.Allocation, /* baseline */ number | null ]
+    getAllocatedSize(): { allocation: Gtk.Allocation, baseline: number | null }
     getAllocatedWidth(): number
-    getAllocation(): /* allocation */ Gtk.Allocation
+    getAllocation(): { allocation: Gtk.Allocation }
     getAncestor(widgetType: GObject.Type): Gtk.Widget | null
     getAppPaintable(): boolean
     getCanDefault(): boolean
     getCanFocus(): boolean
-    getChildRequisition(): /* requisition */ Gtk.Requisition
+    getChildRequisition(): { requisition: Gtk.Requisition }
     getChildVisible(): boolean
-    getClip(): /* clip */ Gtk.Allocation
+    getClip(): { clip: Gtk.Allocation }
     getClipboard(selection: Gdk.Atom): Gtk.Clipboard
     getCompositeName(): string
     getDeviceEnabled(device: Gdk.Device): boolean
@@ -715,23 +630,23 @@ export class Canvas {
     getParent(): Gtk.Widget | null
     getParentWindow(): Gdk.Window | null
     getPath(): Gtk.WidgetPath
-    getPointer(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    getPreferredHeightAndBaselineForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    getPreferredHeightForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    getPreferredSize(): [ /* minimumSize */ Gtk.Requisition | null, /* naturalSize */ Gtk.Requisition | null ]
-    getPreferredWidth(): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    getPreferredWidthForHeight(height: number): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
+    getPointer(): { x: number | null, y: number | null }
+    getPreferredHeight(): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredHeightAndBaselineForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
+    getPreferredHeightForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
+    getPreferredWidth(): { minimumWidth: number | null, naturalWidth: number | null }
+    getPreferredWidthForHeight(height: number): { minimumWidth: number | null, naturalWidth: number | null }
     getRealized(): boolean
     getReceivesDefault(): boolean
     getRequestMode(): Gtk.SizeRequestMode
-    getRequisition(): /* requisition */ Gtk.Requisition
+    getRequisition(): { requisition: Gtk.Requisition }
     getRootWindow(): Gdk.Window
     getScaleFactor(): number
     getScreen(): Gdk.Screen
     getSensitive(): boolean
     getSettings(): Gtk.Settings
-    getSizeRequest(): [ /* width */ number | null, /* height */ number | null ]
+    getSizeRequest(): { width: number | null, height: number | null }
     getState(): Gtk.StateType
     getStateFlags(): Gtk.StateFlags
     getStyle(): Gtk.Style
@@ -763,7 +678,7 @@ export class Canvas {
     initTemplate(): void
     inputShapeCombineRegion(region?: cairo.Region | null): void
     insertActionGroup(name: string, group?: Gio.ActionGroup | null): void
-    intersect(area: Gdk.Rectangle): [ /* returnType */ boolean, /* intersection */ Gdk.Rectangle | null ]
+    intersect(area: Gdk.Rectangle): { returnType: boolean, intersection: Gdk.Rectangle | null }
     isAncestor(ancestor: Gtk.Widget): boolean
     isComposited(): boolean
     isDrawable(): boolean
@@ -788,7 +703,7 @@ export class Canvas {
     overrideCursor(cursor?: Gdk.RGBA | null, secondaryCursor?: Gdk.RGBA | null): void
     overrideFont(fontDesc?: Pango.FontDescription | null): void
     overrideSymbolicColor(name: string, color?: Gdk.RGBA | null): void
-    path(): [ /* pathLength */ number | null, /* path */ string | null, /* pathReversed */ string | null ]
+    path(): { pathLength: number | null, path: string | null, pathReversed: string | null }
     queueAllocate(): void
     queueComputeExpand(): void
     queueDraw(): void
@@ -866,18 +781,18 @@ export class Canvas {
     showNow(): void
     sizeAllocate(allocation: Gtk.Allocation): void
     sizeAllocateWithBaseline(allocation: Gtk.Allocation, baseline: number): void
-    sizeRequest(): /* requisition */ Gtk.Requisition
+    sizeRequest(): { requisition: Gtk.Requisition }
     styleAttach(): void
     styleGetProperty(propertyName: string, value: any): void
     thawChildNotify(): void
-    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): [ /* returnType */ boolean, /* destX */ number | null, /* destY */ number | null ]
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
     triggerTooltipQuery(): void
     unmap(): void
     unparent(): void
     unrealize(): void
     unregisterWindow(window: Gdk.Window): void
     unsetStateFlags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -899,17 +814,17 @@ export class Canvas {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
     customFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
     customTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
+    customTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): { returnType: boolean, parser: GLib.MarkupParser, data: object | null }
     getInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
     parserFinished(builder: Gtk.Builder): void
     setBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    /* Methods of Gtk.Scrollable */
-    getBorder(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
+    /* Methods of Gtk-3.0.Gtk.Scrollable */
+    getBorder(): { returnType: boolean, border: Gtk.Border }
     getHadjustment(): Gtk.Adjustment
     getHscrollPolicy(): Gtk.ScrollablePolicy
     getVadjustment(): Gtk.Adjustment
@@ -918,576 +833,385 @@ export class Canvas {
     setHscrollPolicy(policy: Gtk.ScrollablePolicy): void
     setVadjustment(vadjustment?: Gtk.Adjustment | null): void
     setVscrollPolicy(policy: Gtk.ScrollablePolicy): void
-    /* Virtual methods of GooCanvas.Canvas */
-    vfuncCreateItem(model: CanvasItemModel): CanvasItem
-    vfuncItemCreated(item: CanvasItem, model: CanvasItemModel): void
-    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
-    vfuncConstructChild(builder: Gtk.Builder, name: string): GObject.Object
-    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
-    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ GLib.MarkupParser, /* data */ object | null ]
-    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
-    vfuncGetName(): string
-    vfuncParserFinished(builder: Gtk.Builder): void
-    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
-    vfuncSetName(name: string): void
-    vfuncGetBorder(): [ /* returnType */ boolean, /* border */ Gtk.Border ]
-    /* Virtual methods of Gtk.Container */
-    vfuncAdd(widget: Gtk.Widget): void
-    vfuncCheckResize(): void
-    vfuncChildType(): GObject.Type
-    vfuncCompositeName(child: Gtk.Widget): string
-    vfuncForall(includeInternals: boolean, callback: Gtk.Callback): void
-    vfuncGetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetPathForChild(child: Gtk.Widget): Gtk.WidgetPath
-    vfuncRemove(widget: Gtk.Widget): void
-    vfuncSetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetFocusChild(child?: Gtk.Widget | null): void
-    /* Virtual methods of Gtk.Widget */
-    vfuncAdjustBaselineAllocation(baseline: number): void
-    vfuncAdjustBaselineRequest(minimumBaseline: number, naturalBaseline: number): void
-    vfuncAdjustSizeAllocation(orientation: Gtk.Orientation, minimumSize: number, naturalSize: number, allocatedPos: number, allocatedSize: number): void
-    vfuncAdjustSizeRequest(orientation: Gtk.Orientation, minimumSize: number, naturalSize: number): void
-    vfuncButtonPressEvent(event: Gdk.EventButton): boolean
-    vfuncButtonReleaseEvent(event: Gdk.EventButton): boolean
-    vfuncCanActivateAccel(signalId: number): boolean
-    vfuncChildNotify(childProperty: GObject.ParamSpec): void
-    vfuncCompositedChanged(): void
-    vfuncComputeExpand(hexpandP: boolean, vexpandP: boolean): void
-    vfuncConfigureEvent(event: Gdk.EventConfigure): boolean
-    vfuncDamageEvent(event: Gdk.EventExpose): boolean
-    vfuncDeleteEvent(event: Gdk.EventAny): boolean
-    vfuncDestroy(): void
-    vfuncDestroyEvent(event: Gdk.EventAny): boolean
-    vfuncDirectionChanged(previousDirection: Gtk.TextDirection): void
-    vfuncDispatchChildPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDragBegin(context: Gdk.DragContext): void
-    vfuncDragDataDelete(context: Gdk.DragContext): void
-    vfuncDragDataGet(context: Gdk.DragContext, selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncDragDataReceived(context: Gdk.DragContext, x: number, y: number, selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncDragDrop(context: Gdk.DragContext, x: number, y: number, time: number): boolean
-    vfuncDragEnd(context: Gdk.DragContext): void
-    vfuncDragFailed(context: Gdk.DragContext, result: Gtk.DragResult): boolean
-    vfuncDragLeave(context: Gdk.DragContext, time: number): void
-    vfuncDragMotion(context: Gdk.DragContext, x: number, y: number, time: number): boolean
-    vfuncDraw(cr: cairo.Context): boolean
-    vfuncEnterNotifyEvent(event: Gdk.EventCrossing): boolean
-    vfuncEvent(event: Gdk.Event): boolean
-    vfuncFocus(direction: Gtk.DirectionType): boolean
-    vfuncFocusInEvent(event: Gdk.EventFocus): boolean
-    vfuncFocusOutEvent(event: Gdk.EventFocus): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPreferredHeight(): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    vfuncGetPreferredHeightAndBaselineForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
-    vfuncGetPreferredHeightForWidth(width: number): [ /* minimumHeight */ number | null, /* naturalHeight */ number | null ]
-    vfuncGetPreferredWidth(): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    vfuncGetPreferredWidthForHeight(height: number): [ /* minimumWidth */ number | null, /* naturalWidth */ number | null ]
-    vfuncGetRequestMode(): Gtk.SizeRequestMode
-    vfuncGrabBrokenEvent(event: Gdk.EventGrabBroken): boolean
-    vfuncGrabFocus(): void
-    vfuncGrabNotify(wasGrabbed: boolean): void
-    vfuncHide(): void
-    vfuncHierarchyChanged(previousToplevel: Gtk.Widget): void
-    vfuncKeyPressEvent(event: Gdk.EventKey): boolean
-    vfuncKeyReleaseEvent(event: Gdk.EventKey): boolean
-    vfuncKeynavFailed(direction: Gtk.DirectionType): boolean
-    vfuncLeaveNotifyEvent(event: Gdk.EventCrossing): boolean
-    vfuncMap(): void
-    vfuncMapEvent(event: Gdk.EventAny): boolean
-    vfuncMnemonicActivate(groupCycling: boolean): boolean
-    vfuncMotionNotifyEvent(event: Gdk.EventMotion): boolean
-    vfuncMoveFocus(direction: Gtk.DirectionType): void
-    vfuncParentSet(previousParent: Gtk.Widget): void
-    vfuncPopupMenu(): boolean
-    vfuncPropertyNotifyEvent(event: Gdk.EventProperty): boolean
-    vfuncProximityInEvent(event: Gdk.EventProximity): boolean
-    vfuncProximityOutEvent(event: Gdk.EventProximity): boolean
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncQueueDrawRegion(region: cairo.Region): void
-    vfuncRealize(): void
-    vfuncScreenChanged(previousScreen: Gdk.Screen): void
-    vfuncScrollEvent(event: Gdk.EventScroll): boolean
-    vfuncSelectionClearEvent(event: Gdk.EventSelection): boolean
-    vfuncSelectionGet(selectionData: Gtk.SelectionData, info: number, time: number): void
-    vfuncSelectionNotifyEvent(event: Gdk.EventSelection): boolean
-    vfuncSelectionReceived(selectionData: Gtk.SelectionData, time: number): void
-    vfuncSelectionRequestEvent(event: Gdk.EventSelection): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncShowHelp(helpType: Gtk.WidgetHelpType): boolean
-    vfuncSizeAllocate(allocation: Gtk.Allocation): void
-    vfuncStateChanged(previousState: Gtk.StateType): void
-    vfuncStateFlagsChanged(previousStateFlags: Gtk.StateFlags): void
-    vfuncStyleSet(previousStyle: Gtk.Style): void
-    vfuncStyleUpdated(): void
-    vfuncTouchEvent(event: Gdk.EventTouch): boolean
-    vfuncUnmap(): void
-    vfuncUnmapEvent(event: Gdk.EventAny): boolean
-    vfuncUnrealize(): void
-    vfuncVisibilityNotifyEvent(event: Gdk.EventVisibility): boolean
-    vfuncWindowStateEvent(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GooCanvas.Canvas */
+    /* Signals of GooCanvas-2.0.GooCanvas.Canvas */
     connect(sigName: "item-created", callback: (($obj: Canvas, item: CanvasItem, model: CanvasItemModel) => void)): number
-    connect_after(sigName: "item-created", callback: (($obj: Canvas, item: CanvasItem, model: CanvasItemModel) => void)): number
+    on(sigName: "item-created", callback: (item: CanvasItem, model: CanvasItemModel) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "item-created", callback: (item: CanvasItem, model: CanvasItemModel) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "item-created", callback: (item: CanvasItem, model: CanvasItemModel) => void): NodeJS.EventEmitter
     emit(sigName: "item-created", item: CanvasItem, model: CanvasItemModel): void
-    on(sigName: "item-created", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "item-created", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "item-created", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Container */
+    /* Signals of Gtk-3.0.Gtk.Container */
     connect(sigName: "add", callback: (($obj: Canvas, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "add", callback: (($obj: Canvas, object: Gtk.Widget) => void)): number
+    on(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "add", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "add", object: Gtk.Widget): void
-    on(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "check-resize", callback: (($obj: Canvas) => void)): number
-    connect_after(sigName: "check-resize", callback: (($obj: Canvas) => void)): number
+    on(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "check-resize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "check-resize"): void
-    on(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "remove", callback: (($obj: Canvas, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "remove", callback: (($obj: Canvas, object: Gtk.Widget) => void)): number
+    on(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "remove", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "remove", object: Gtk.Widget): void
-    on(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "set-focus-child", callback: (($obj: Canvas, object: Gtk.Widget) => void)): number
-    connect_after(sigName: "set-focus-child", callback: (($obj: Canvas, object: Gtk.Widget) => void)): number
+    on(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
     emit(sigName: "set-focus-child", object: Gtk.Widget): void
-    on(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: Canvas) => void)): number
-    connect_after(sigName: "accel-closures-changed", callback: (($obj: Canvas) => void)): number
+    on(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "accel-closures-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "accel-closures-changed"): void
-    on(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "accel-closures-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: Canvas, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: Canvas, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: Gdk.EventButton): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: Canvas, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: Canvas, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: Gdk.EventButton): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "can-activate-accel", callback: (($obj: Canvas, signalId: number) => boolean)): number
-    connect_after(sigName: "can-activate-accel", callback: (($obj: Canvas, signalId: number) => boolean)): number
+    on(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "can-activate-accel", callback: (signalId: number) => void): NodeJS.EventEmitter
     emit(sigName: "can-activate-accel", signalId: number): void
-    on(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "can-activate-accel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: Canvas, childProperty: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: Canvas, childProperty: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", childProperty: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "composited-changed", callback: (($obj: Canvas) => void)): number
-    connect_after(sigName: "composited-changed", callback: (($obj: Canvas) => void)): number
+    on(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "composited-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "composited-changed"): void
-    on(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "composited-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "configure-event", callback: (($obj: Canvas, event: Gdk.EventConfigure) => boolean)): number
-    connect_after(sigName: "configure-event", callback: (($obj: Canvas, event: Gdk.EventConfigure) => boolean)): number
+    on(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void): NodeJS.EventEmitter
     emit(sigName: "configure-event", event: Gdk.EventConfigure): void
-    on(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "configure-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "damage-event", callback: (($obj: Canvas, event: Gdk.EventExpose) => boolean)): number
-    connect_after(sigName: "damage-event", callback: (($obj: Canvas, event: Gdk.EventExpose) => boolean)): number
+    on(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void): NodeJS.EventEmitter
     emit(sigName: "damage-event", event: Gdk.EventExpose): void
-    on(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "damage-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "delete-event", callback: (($obj: Canvas, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "delete-event", callback: (($obj: Canvas, event: Gdk.Event) => boolean)): number
+    on(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "delete-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "delete-event", event: Gdk.Event): void
-    on(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: Canvas) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Canvas) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy-event", callback: (($obj: Canvas, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "destroy-event", callback: (($obj: Canvas, event: Gdk.Event) => boolean)): number
+    on(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "destroy-event", event: Gdk.Event): void
-    on(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "direction-changed", callback: (($obj: Canvas, previousDirection: Gtk.TextDirection) => void)): number
-    connect_after(sigName: "direction-changed", callback: (($obj: Canvas, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
     emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
-    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-begin", callback: (($obj: Canvas, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-begin", callback: (($obj: Canvas, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-begin", context: Gdk.DragContext): void
-    on(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-delete", callback: (($obj: Canvas, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-data-delete", callback: (($obj: Canvas, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-delete", context: Gdk.DragContext): void
-    on(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-delete", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-get", callback: (($obj: Canvas, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "drag-data-get", callback: (($obj: Canvas, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-get", context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-data-received", callback: (($obj: Canvas, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "drag-data-received", callback: (($obj: Canvas, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-data-received", context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-data-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-drop", callback: (($obj: Canvas, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
-    connect_after(sigName: "drag-drop", callback: (($obj: Canvas, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-drop", context: Gdk.DragContext, x: number, y: number, time: number): void
-    on(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-end", callback: (($obj: Canvas, context: Gdk.DragContext) => void)): number
-    connect_after(sigName: "drag-end", callback: (($obj: Canvas, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-end", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
     emit(sigName: "drag-end", context: Gdk.DragContext): void
-    on(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-failed", callback: (($obj: Canvas, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
-    connect_after(sigName: "drag-failed", callback: (($obj: Canvas, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
+    on(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void): NodeJS.EventEmitter
     emit(sigName: "drag-failed", context: Gdk.DragContext, result: Gtk.DragResult): void
-    on(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-leave", callback: (($obj: Canvas, context: Gdk.DragContext, time: number) => void)): number
-    connect_after(sigName: "drag-leave", callback: (($obj: Canvas, context: Gdk.DragContext, time: number) => void)): number
+    on(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-leave", context: Gdk.DragContext, time: number): void
-    on(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-leave", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-motion", callback: (($obj: Canvas, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
-    connect_after(sigName: "drag-motion", callback: (($obj: Canvas, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-motion", context: Gdk.DragContext, x: number, y: number, time: number): void
-    on(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "draw", callback: (($obj: Canvas, cr: cairo.Context) => boolean)): number
-    connect_after(sigName: "draw", callback: (($obj: Canvas, cr: cairo.Context) => boolean)): number
+    on(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "draw", callback: (cr: cairo.Context) => void): NodeJS.EventEmitter
     emit(sigName: "draw", cr: cairo.Context): void
-    on(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-notify-event", callback: (($obj: Canvas, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "enter-notify-event", callback: (($obj: Canvas, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "enter-notify-event", event: Gdk.EventCrossing): void
-    on(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: Canvas, event: Gdk.Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: Canvas, event: Gdk.Event) => boolean)): number
+    on(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Gdk.Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event-after", callback: (($obj: Canvas, event: Gdk.Event) => void)): number
-    connect_after(sigName: "event-after", callback: (($obj: Canvas, event: Gdk.Event) => void)): number
+    on(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event-after", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "event-after", event: Gdk.Event): void
-    on(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus", callback: (($obj: Canvas, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "focus", callback: (($obj: Canvas, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "focus", direction: Gtk.DirectionType): void
-    on(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in-event", callback: (($obj: Canvas, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-in-event", callback: (($obj: Canvas, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in-event", event: Gdk.EventFocus): void
-    on(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out-event", callback: (($obj: Canvas, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-out-event", callback: (($obj: Canvas, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out-event", event: Gdk.EventFocus): void
-    on(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-broken-event", callback: (($obj: Canvas, event: Gdk.EventGrabBroken) => boolean)): number
-    connect_after(sigName: "grab-broken-event", callback: (($obj: Canvas, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
     emit(sigName: "grab-broken-event", event: Gdk.EventGrabBroken): void
-    on(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-focus", callback: (($obj: Canvas) => void)): number
-    connect_after(sigName: "grab-focus", callback: (($obj: Canvas) => void)): number
+    on(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-focus", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "grab-focus"): void
-    on(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-notify", callback: (($obj: Canvas, wasGrabbed: boolean) => void)): number
-    connect_after(sigName: "grab-notify", callback: (($obj: Canvas, wasGrabbed: boolean) => void)): number
+    on(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "grab-notify", wasGrabbed: boolean): void
-    on(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: Canvas) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: Canvas) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hierarchy-changed", callback: (($obj: Canvas, previousToplevel?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "hierarchy-changed", callback: (($obj: Canvas, previousToplevel?: Gtk.Widget | null) => void)): number
+    on(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "hierarchy-changed", previousToplevel?: Gtk.Widget | null): void
-    on(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hierarchy-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: Canvas, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: Canvas, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: Gdk.EventKey): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: Canvas, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: Canvas, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: Gdk.EventKey): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "keynav-failed", callback: (($obj: Canvas, direction: Gtk.DirectionType) => boolean)): number
-    connect_after(sigName: "keynav-failed", callback: (($obj: Canvas, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
-    on(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-notify-event", callback: (($obj: Canvas, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "leave-notify-event", callback: (($obj: Canvas, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "leave-notify-event", event: Gdk.EventCrossing): void
-    on(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map", callback: (($obj: Canvas) => void)): number
-    connect_after(sigName: "map", callback: (($obj: Canvas) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "map"): void
-    on(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "map-event", callback: (($obj: Canvas, event: Gdk.EventAny) => boolean)): number
-    connect_after(sigName: "map-event", callback: (($obj: Canvas, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
     emit(sigName: "map-event", event: Gdk.EventAny): void
-    on(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "map-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "mnemonic-activate", callback: (($obj: Canvas, groupCycling: boolean) => boolean)): number
-    connect_after(sigName: "mnemonic-activate", callback: (($obj: Canvas, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "mnemonic-activate", groupCycling: boolean): void
-    on(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-notify-event", callback: (($obj: Canvas, event: Gdk.EventMotion) => boolean)): number
-    connect_after(sigName: "motion-notify-event", callback: (($obj: Canvas, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void): NodeJS.EventEmitter
     emit(sigName: "motion-notify-event", event: Gdk.EventMotion): void
-    on(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "move-focus", callback: (($obj: Canvas, direction: Gtk.DirectionType) => void)): number
-    connect_after(sigName: "move-focus", callback: (($obj: Canvas, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
     emit(sigName: "move-focus", direction: Gtk.DirectionType): void
-    on(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: Canvas, oldParent?: Gtk.Widget | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: Canvas, oldParent?: Gtk.Widget | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Gtk.Widget | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "popup-menu", callback: (($obj: Canvas) => boolean)): number
-    connect_after(sigName: "popup-menu", callback: (($obj: Canvas) => boolean)): number
+    on(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "popup-menu", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "popup-menu"): void
-    on(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "popup-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "property-notify-event", callback: (($obj: Canvas, event: Gdk.EventProperty) => boolean)): number
-    connect_after(sigName: "property-notify-event", callback: (($obj: Canvas, event: Gdk.EventProperty) => boolean)): number
+    on(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void): NodeJS.EventEmitter
     emit(sigName: "property-notify-event", event: Gdk.EventProperty): void
-    on(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "property-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "proximity-in-event", callback: (($obj: Canvas, event: Gdk.EventProximity) => boolean)): number
-    connect_after(sigName: "proximity-in-event", callback: (($obj: Canvas, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
     emit(sigName: "proximity-in-event", event: Gdk.EventProximity): void
-    on(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "proximity-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "proximity-out-event", callback: (($obj: Canvas, event: Gdk.EventProximity) => boolean)): number
-    connect_after(sigName: "proximity-out-event", callback: (($obj: Canvas, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
     emit(sigName: "proximity-out-event", event: Gdk.EventProximity): void
-    on(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "proximity-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: Canvas, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: Canvas, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: Canvas) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: Canvas) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "screen-changed", callback: (($obj: Canvas, previousScreen?: Gdk.Screen | null) => void)): number
-    connect_after(sigName: "screen-changed", callback: (($obj: Canvas, previousScreen?: Gdk.Screen | null) => void)): number
+    on(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void): NodeJS.EventEmitter
     emit(sigName: "screen-changed", previousScreen?: Gdk.Screen | null): void
-    on(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "screen-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: Canvas, event: Gdk.EventScroll) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: Canvas, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: Gdk.EventScroll): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-clear-event", callback: (($obj: Canvas, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-clear-event", callback: (($obj: Canvas, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-clear-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-clear-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-get", callback: (($obj: Canvas, data: Gtk.SelectionData, info: number, time: number) => void)): number
-    connect_after(sigName: "selection-get", callback: (($obj: Canvas, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "selection-get", data: Gtk.SelectionData, info: number, time: number): void
-    on(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-get", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-notify-event", callback: (($obj: Canvas, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-notify-event", callback: (($obj: Canvas, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-notify-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-received", callback: (($obj: Canvas, data: Gtk.SelectionData, time: number) => void)): number
-    connect_after(sigName: "selection-received", callback: (($obj: Canvas, data: Gtk.SelectionData, time: number) => void)): number
+    on(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void): NodeJS.EventEmitter
     emit(sigName: "selection-received", data: Gtk.SelectionData, time: number): void
-    on(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-received", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "selection-request-event", callback: (($obj: Canvas, event: Gdk.EventSelection) => boolean)): number
-    connect_after(sigName: "selection-request-event", callback: (($obj: Canvas, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
     emit(sigName: "selection-request-event", event: Gdk.EventSelection): void
-    on(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "selection-request-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: Canvas) => void)): number
-    connect_after(sigName: "show", callback: (($obj: Canvas) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show-help", callback: (($obj: Canvas, helpType: Gtk.WidgetHelpType) => boolean)): number
-    connect_after(sigName: "show-help", callback: (($obj: Canvas, helpType: Gtk.WidgetHelpType) => boolean)): number
+    on(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void): NodeJS.EventEmitter
     emit(sigName: "show-help", helpType: Gtk.WidgetHelpType): void
-    on(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show-help", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "size-allocate", callback: (($obj: Canvas, allocation: Gtk.Allocation) => void)): number
-    connect_after(sigName: "size-allocate", callback: (($obj: Canvas, allocation: Gtk.Allocation) => void)): number
+    on(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void): NodeJS.EventEmitter
     emit(sigName: "size-allocate", allocation: Gtk.Allocation): void
-    on(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-allocate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-changed", callback: (($obj: Canvas, state: Gtk.StateType) => void)): number
-    connect_after(sigName: "state-changed", callback: (($obj: Canvas, state: Gtk.StateType) => void)): number
+    on(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (state: Gtk.StateType) => void): NodeJS.EventEmitter
     emit(sigName: "state-changed", state: Gtk.StateType): void
-    on(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "state-flags-changed", callback: (($obj: Canvas, flags: Gtk.StateFlags) => void)): number
-    connect_after(sigName: "state-flags-changed", callback: (($obj: Canvas, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
     emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
-    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "style-set", callback: (($obj: Canvas, previousStyle?: Gtk.Style | null) => void)): number
-    connect_after(sigName: "style-set", callback: (($obj: Canvas, previousStyle?: Gtk.Style | null) => void)): number
+    on(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void): NodeJS.EventEmitter
     emit(sigName: "style-set", previousStyle?: Gtk.Style | null): void
-    on(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "style-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "style-updated", callback: (($obj: Canvas) => void)): number
-    connect_after(sigName: "style-updated", callback: (($obj: Canvas) => void)): number
+    on(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-updated", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "style-updated"): void
-    on(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "style-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: Canvas, object: Gdk.Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: Canvas, object: Gdk.Event) => boolean)): number
+    on(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (object: Gdk.Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", object: Gdk.Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap", callback: (($obj: Canvas) => void)): number
-    connect_after(sigName: "unmap", callback: (($obj: Canvas) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unmap"): void
-    on(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unmap-event", callback: (($obj: Canvas, event: Gdk.EventAny) => boolean)): number
-    connect_after(sigName: "unmap-event", callback: (($obj: Canvas, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
     emit(sigName: "unmap-event", event: Gdk.EventAny): void
-    on(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unmap-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: Canvas) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: Canvas) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "visibility-notify-event", callback: (($obj: Canvas, event: Gdk.EventVisibility) => boolean)): number
-    connect_after(sigName: "visibility-notify-event", callback: (($obj: Canvas, event: Gdk.EventVisibility) => boolean)): number
+    on(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void): NodeJS.EventEmitter
     emit(sigName: "visibility-notify-event", event: Gdk.EventVisibility): void
-    on(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "visibility-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "window-state-event", callback: (($obj: Canvas, event: Gdk.EventWindowState) => boolean)): number
-    connect_after(sigName: "window-state-event", callback: (($obj: Canvas, event: Gdk.EventWindowState) => boolean)): number
+    on(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void): NodeJS.EventEmitter
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    on(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "window-state-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::anchor", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::anchor", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::anchor", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1842,15 +1566,15 @@ export class Canvas {
 export interface CanvasAccessibleFactory_ConstructProps extends Atk.ObjectFactory_ConstructProps {
 }
 export class CanvasAccessibleFactory {
-    /* Fields of Atk.ObjectFactory */
+    /* Fields of Atk-1.0.Atk.ObjectFactory */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atk.ObjectFactory */
+    /* Methods of Atk-1.0.Atk.ObjectFactory */
     createAccessible(obj: GObject.Object): Atk.Object
     getAccessibleType(): GObject.Type
     invalidate(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1872,23 +1596,12 @@ export class CanvasAccessibleFactory {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Atk.ObjectFactory */
-    vfuncInvalidate(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasAccessibleFactory, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasAccessibleFactory, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1921,7 +1634,7 @@ export interface CanvasEllipse_ConstructProps extends CanvasItemSimple_Construct
     visibilityThreshold?: number
 }
 export class CanvasEllipse {
-    /* Properties of GooCanvas.CanvasEllipse */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasEllipse */
     centerX: number
     centerY: number
     height: number
@@ -1930,7 +1643,7 @@ export class CanvasEllipse {
     width: number
     x: number
     y: number
-    /* Properties of GooCanvas.CanvasItemSimple */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     antialias: CairoAntialias
     clipFillRule: CairoFillRule
     clipPath: string
@@ -1954,7 +1667,7 @@ export class CanvasEllipse {
     strokeColorRgba: number
     strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
-    /* Properties of GooCanvas.CanvasItem */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItem */
     canFocus: boolean
     description: string
     parent: CanvasItem
@@ -1964,19 +1677,19 @@ export class CanvasEllipse {
     transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
-    /* Fields of GooCanvas.CanvasEllipse */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasEllipse */
     parentObject: CanvasItemSimple
     ellipseData: CanvasEllipseData
-    /* Fields of GooCanvas.CanvasItemSimple */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     canvas: Canvas
     model: CanvasItemModelSimple
     simpleData: CanvasItemSimpleData
     bounds: CanvasBounds
     needUpdate: number
     needEntireSubtreeUpdate: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GooCanvas.CanvasItemSimple */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     changed(recomputeBounds: boolean): void
     checkInPath(x: number, y: number, cr: cairo.Context, pointerEvents: CanvasPointerEvents): boolean
     checkStyle(): void
@@ -1986,7 +1699,7 @@ export class CanvasEllipse {
     setModel(model: CanvasItemModel): void
     userBoundsToDevice(cr: cairo.Context, bounds: CanvasBounds): void
     userBoundsToParent(cr: cairo.Context, bounds: CanvasBounds): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2008,13 +1721,13 @@ export class CanvasEllipse {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GooCanvas.CanvasItem */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItem */
     addChild(child: CanvasItem, position: number): void
     allocateArea(cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number): void
     animate(x: number, y: number, scale: number, degrees: number, absolute: boolean, duration: number, stepTime: number, type: CanvasAnimateType): void
     ensureUpdated(): void
     findChild(child: CanvasItem): number
-    getBounds(): /* bounds */ CanvasBounds
+    getBounds(): { bounds: CanvasBounds }
     getCanvas(): Canvas
     getChild(childNum: number): CanvasItem
     getChildProperty(child: CanvasItem, propertyName: string, value: any): void
@@ -2026,10 +1739,10 @@ export class CanvasEllipse {
     getRequestedArea(cr: cairo.Context, requestedArea: CanvasBounds): boolean
     getRequestedAreaForWidth(cr: cairo.Context, width: number, requestedArea: CanvasBounds): boolean
     getRequestedHeight(cr: cairo.Context, width: number): number
-    getSimpleTransform(): [ /* returnType */ boolean, /* x */ number, /* y */ number, /* scale */ number, /* rotation */ number ]
+    getSimpleTransform(): { returnType: boolean, x: number, y: number, scale: number, rotation: number }
     getStyle(): CanvasStyle
-    getTransform(): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    getTransformForChild(child: CanvasItem): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
+    getTransform(): { returnType: boolean, transform: cairo.Matrix }
+    getTransformForChild(child: CanvasItem): { returnType: boolean, transform: cairo.Matrix }
     isContainer(): boolean
     isVisible(): boolean
     lower(below?: CanvasItem | null): void
@@ -2053,155 +1766,83 @@ export class CanvasEllipse {
     stopAnimation(): void
     translate(tx: number, ty: number): void
     update(entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds): void
-    /* Virtual methods of GooCanvas.CanvasItemSimple */
-    vfuncSimpleCreatePath(cr: cairo.Context): void
-    vfuncSimpleIsItemAt(x: number, y: number, cr: cairo.Context, isPointerEvent: boolean): boolean
-    vfuncSimplePaint(cr: cairo.Context, bounds: CanvasBounds): void
-    vfuncSimpleUpdate(cr: cairo.Context): void
-    vfuncAddChild(child: CanvasItem, position: number): void
-    vfuncAllocateArea(cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number): void
-    vfuncAnimationFinished(stopped: boolean): void
-    vfuncButtonPressEvent(target: CanvasItem, event: Gdk.EventButton): boolean
-    vfuncButtonReleaseEvent(target: CanvasItem, event: Gdk.EventButton): boolean
-    vfuncChildNotify(pspec: GObject.ParamSpec): void
-    vfuncEnterNotifyEvent(target: CanvasItem, event: Gdk.EventCrossing): boolean
-    vfuncFocusInEvent(target: CanvasItem, event: Gdk.EventFocus): boolean
-    vfuncFocusOutEvent(target: CanvasItem, event: Gdk.EventFocus): boolean
-    vfuncGetBounds(): /* bounds */ CanvasBounds
-    vfuncGetCanvas(): Canvas
-    vfuncGetChild(childNum: number): CanvasItem
-    vfuncGetChildProperty(child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetIsStatic(): boolean
-    vfuncGetItemsAt(x: number, y: number, cr: cairo.Context, isPointerEvent: boolean, parentIsVisible: boolean, foundItems: CanvasItem[]): CanvasItem[]
-    vfuncGetModel(): CanvasItemModel
-    vfuncGetNChildren(): number
-    vfuncGetParent(): CanvasItem
-    vfuncGetRequestedArea(cr: cairo.Context, requestedArea: CanvasBounds): boolean
-    vfuncGetRequestedAreaForWidth(cr: cairo.Context, width: number, requestedArea: CanvasBounds): boolean
-    vfuncGetRequestedHeight(cr: cairo.Context, width: number): number
-    vfuncGetStyle(): CanvasStyle
-    vfuncGetTransform(): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    vfuncGetTransformForChild(child: CanvasItem): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    vfuncGrabBrokenEvent(target: CanvasItem, event: Gdk.EventGrabBroken): boolean
-    vfuncIsVisible(): boolean
-    vfuncKeyPressEvent(target: CanvasItem, event: Gdk.EventKey): boolean
-    vfuncKeyReleaseEvent(target: CanvasItem, event: Gdk.EventKey): boolean
-    vfuncLeaveNotifyEvent(target: CanvasItem, event: Gdk.EventCrossing): boolean
-    vfuncMotionNotifyEvent(target: CanvasItem, event: Gdk.EventMotion): boolean
-    vfuncMoveChild(oldPosition: number, newPosition: number): void
-    vfuncPaint(cr: cairo.Context, bounds: CanvasBounds, scale: number): void
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncRemoveChild(childNum: number): void
-    vfuncRequestUpdate(): void
-    vfuncScrollEvent(target: CanvasItem, event: Gdk.EventScroll): boolean
-    vfuncSetCanvas(canvas: Canvas): void
-    vfuncSetChildProperty(child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetIsStatic(isStatic: boolean): void
-    vfuncSetModel(model: CanvasItemModel): void
-    vfuncSetParent(parent: CanvasItem): void
-    vfuncSetStyle(style: CanvasStyle): void
-    vfuncSetTransform(transform?: cairo.Matrix | null): void
-    vfuncUpdate(entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasEllipse, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasEllipse, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GooCanvas.CanvasItem */
+    /* Signals of GooCanvas-2.0.GooCanvas.CanvasItem */
     connect(sigName: "animation-finished", callback: (($obj: CanvasEllipse, stopped: boolean) => void)): number
-    connect_after(sigName: "animation-finished", callback: (($obj: CanvasEllipse, stopped: boolean) => void)): number
+    on(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "animation-finished", callback: (stopped: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "animation-finished", stopped: boolean): void
-    on(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: CanvasEllipse, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: CanvasEllipse, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", targetItem: CanvasItem, event: Gdk.EventButton): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: CanvasEllipse, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: CanvasEllipse, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", targetItem: CanvasItem, event: Gdk.EventButton): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: CanvasEllipse, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: CanvasEllipse, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-notify-event", callback: (($obj: CanvasEllipse, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "enter-notify-event", callback: (($obj: CanvasEllipse, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "enter-notify-event", targetItem: CanvasItem, event: Gdk.EventCrossing): void
-    on(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in-event", callback: (($obj: CanvasEllipse, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-in-event", callback: (($obj: CanvasEllipse, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in-event", targetItem: CanvasItem, event: Gdk.EventFocus): void
-    on(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out-event", callback: (($obj: CanvasEllipse, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-out-event", callback: (($obj: CanvasEllipse, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out-event", targetItem: CanvasItem, event: Gdk.EventFocus): void
-    on(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-broken-event", callback: (($obj: CanvasEllipse, targetItem: CanvasItem, event: Gdk.EventGrabBroken) => boolean)): number
-    connect_after(sigName: "grab-broken-event", callback: (($obj: CanvasEllipse, targetItem: CanvasItem, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
     emit(sigName: "grab-broken-event", targetItem: CanvasItem, event: Gdk.EventGrabBroken): void
-    on(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: CanvasEllipse, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: CanvasEllipse, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", targetItem: CanvasItem, event: Gdk.EventKey): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: CanvasEllipse, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: CanvasEllipse, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", targetItem: CanvasItem, event: Gdk.EventKey): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-notify-event", callback: (($obj: CanvasEllipse, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "leave-notify-event", callback: (($obj: CanvasEllipse, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "leave-notify-event", targetItem: CanvasItem, event: Gdk.EventCrossing): void
-    on(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-notify-event", callback: (($obj: CanvasEllipse, targetItem: CanvasItem, event: Gdk.EventMotion) => boolean)): number
-    connect_after(sigName: "motion-notify-event", callback: (($obj: CanvasEllipse, targetItem: CanvasItem, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void): NodeJS.EventEmitter
     emit(sigName: "motion-notify-event", targetItem: CanvasItem, event: Gdk.EventMotion): void
-    on(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: CanvasEllipse, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: CanvasEllipse, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: CanvasEllipse, targetItem: CanvasItem, event: Gdk.EventScroll) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: CanvasEllipse, targetItem: CanvasItem, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", targetItem: CanvasItem, event: Gdk.EventScroll): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::center-x", callback: (($obj: CanvasEllipse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::center-x", callback: (($obj: CanvasEllipse, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::center-x", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2434,7 +2075,7 @@ export interface CanvasEllipseModel_ConstructProps extends CanvasItemModelSimple
     visibilityThreshold?: number
 }
 export class CanvasEllipseModel {
-    /* Properties of GooCanvas.CanvasEllipseModel */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasEllipseModel */
     centerX: number
     centerY: number
     height: number
@@ -2443,7 +2084,7 @@ export class CanvasEllipseModel {
     width: number
     x: number
     y: number
-    /* Properties of GooCanvas.CanvasItemModelSimple */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemModelSimple */
     antialias: CairoAntialias
     clipFillRule: CairoFillRule
     clipPath: string
@@ -2467,7 +2108,7 @@ export class CanvasEllipseModel {
     strokeColorRgba: number
     strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
-    /* Properties of GooCanvas.CanvasItemModel */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     canFocus: boolean
     description: string
     parent: CanvasItemModel
@@ -2477,14 +2118,14 @@ export class CanvasEllipseModel {
     transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
-    /* Fields of GooCanvas.CanvasEllipseModel */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasEllipseModel */
     parentObject: CanvasItemModelSimple
     ellipseData: CanvasEllipseData
-    /* Fields of GooCanvas.CanvasItemModelSimple */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemModelSimple */
     simpleData: CanvasItemSimpleData
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2506,7 +2147,7 @@ export class CanvasEllipseModel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GooCanvas.CanvasItemModel */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     addChild(child: CanvasItemModel, position: number): void
     animate(x: number, y: number, scale: number, degrees: number, absolute: boolean, duration: number, stepTime: number, type: CanvasAnimateType): void
     findChild(child: CanvasItemModel): number
@@ -2534,78 +2175,43 @@ export class CanvasEllipseModel {
     skewY(degrees: number, cx: number, cy: number): void
     stopAnimation(): void
     translate(tx: number, ty: number): void
-    /* Virtual methods of GooCanvas.CanvasItemModelSimple */
-    vfuncAddChild(child: CanvasItemModel, position: number): void
-    vfuncAnimationFinished(stopped: boolean): void
-    vfuncChanged(recomputeBounds: boolean): void
-    vfuncChildAdded(childNum: number): void
-    vfuncChildMoved(oldChildNum: number, newChildNum: number): void
-    vfuncChildNotify(pspec: GObject.ParamSpec): void
-    vfuncChildRemoved(childNum: number): void
-    vfuncGetChild(childNum: number): CanvasItemModel
-    vfuncGetChildProperty(child: CanvasItemModel, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetNChildren(): number
-    vfuncGetParent(): CanvasItemModel
-    vfuncGetStyle(): CanvasStyle
-    vfuncGetTransform(transform: cairo.Matrix): boolean
-    vfuncMoveChild(oldPosition: number, newPosition: number): void
-    vfuncRemoveChild(childNum: number): void
-    vfuncSetChildProperty(child: CanvasItemModel, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetParent(parent: CanvasItemModel): void
-    vfuncSetStyle(style: CanvasStyle): void
-    vfuncSetTransform(transform?: cairo.Matrix | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasEllipseModel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasEllipseModel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GooCanvas.CanvasItemModel */
+    /* Signals of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     connect(sigName: "animation-finished", callback: (($obj: CanvasEllipseModel, stopped: boolean) => void)): number
-    connect_after(sigName: "animation-finished", callback: (($obj: CanvasEllipseModel, stopped: boolean) => void)): number
+    on(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "animation-finished", callback: (stopped: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "animation-finished", stopped: boolean): void
-    on(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: CanvasEllipseModel, recomputeBounds: boolean) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: CanvasEllipseModel, recomputeBounds: boolean) => void)): number
+    on(sigName: "changed", callback: (recomputeBounds: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (recomputeBounds: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (recomputeBounds: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "changed", recomputeBounds: boolean): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-added", callback: (($obj: CanvasEllipseModel, childNum: number) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: CanvasEllipseModel, childNum: number) => void)): number
+    on(sigName: "child-added", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (childNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", childNum: number): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-moved", callback: (($obj: CanvasEllipseModel, oldChildNum: number, newChildNum: number) => void)): number
-    connect_after(sigName: "child-moved", callback: (($obj: CanvasEllipseModel, oldChildNum: number, newChildNum: number) => void)): number
+    on(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-moved", oldChildNum: number, newChildNum: number): void
-    on(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: CanvasEllipseModel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: CanvasEllipseModel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: CanvasEllipseModel, childNum: number) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: CanvasEllipseModel, childNum: number) => void)): number
+    on(sigName: "child-removed", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (childNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", childNum: number): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::center-x", callback: (($obj: CanvasEllipseModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::center-x", callback: (($obj: CanvasEllipseModel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::center-x", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2859,7 +2465,7 @@ export interface CanvasGrid_ConstructProps extends CanvasItemSimple_ConstructPro
     visibilityThreshold?: number
 }
 export class CanvasGrid {
-    /* Properties of GooCanvas.CanvasGrid */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasGrid */
     borderColor: string
     borderColorGdkRgba: Gdk.RGBA
     borderColorRgba: number
@@ -2889,7 +2495,7 @@ export class CanvasGrid {
     y: number
     yOffset: number
     yStep: number
-    /* Properties of GooCanvas.CanvasItemSimple */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     antialias: CairoAntialias
     clipFillRule: CairoFillRule
     clipPath: string
@@ -2913,7 +2519,7 @@ export class CanvasGrid {
     strokeColorRgba: number
     strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
-    /* Properties of GooCanvas.CanvasItem */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItem */
     canFocus: boolean
     description: string
     parent: CanvasItem
@@ -2923,19 +2529,19 @@ export class CanvasGrid {
     transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
-    /* Fields of GooCanvas.CanvasGrid */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasGrid */
     parentObject: CanvasItemSimple
     gridData: CanvasGridData
-    /* Fields of GooCanvas.CanvasItemSimple */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     canvas: Canvas
     model: CanvasItemModelSimple
     simpleData: CanvasItemSimpleData
     bounds: CanvasBounds
     needUpdate: number
     needEntireSubtreeUpdate: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GooCanvas.CanvasItemSimple */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     changed(recomputeBounds: boolean): void
     checkInPath(x: number, y: number, cr: cairo.Context, pointerEvents: CanvasPointerEvents): boolean
     checkStyle(): void
@@ -2945,7 +2551,7 @@ export class CanvasGrid {
     setModel(model: CanvasItemModel): void
     userBoundsToDevice(cr: cairo.Context, bounds: CanvasBounds): void
     userBoundsToParent(cr: cairo.Context, bounds: CanvasBounds): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2967,13 +2573,13 @@ export class CanvasGrid {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GooCanvas.CanvasItem */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItem */
     addChild(child: CanvasItem, position: number): void
     allocateArea(cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number): void
     animate(x: number, y: number, scale: number, degrees: number, absolute: boolean, duration: number, stepTime: number, type: CanvasAnimateType): void
     ensureUpdated(): void
     findChild(child: CanvasItem): number
-    getBounds(): /* bounds */ CanvasBounds
+    getBounds(): { bounds: CanvasBounds }
     getCanvas(): Canvas
     getChild(childNum: number): CanvasItem
     getChildProperty(child: CanvasItem, propertyName: string, value: any): void
@@ -2985,10 +2591,10 @@ export class CanvasGrid {
     getRequestedArea(cr: cairo.Context, requestedArea: CanvasBounds): boolean
     getRequestedAreaForWidth(cr: cairo.Context, width: number, requestedArea: CanvasBounds): boolean
     getRequestedHeight(cr: cairo.Context, width: number): number
-    getSimpleTransform(): [ /* returnType */ boolean, /* x */ number, /* y */ number, /* scale */ number, /* rotation */ number ]
+    getSimpleTransform(): { returnType: boolean, x: number, y: number, scale: number, rotation: number }
     getStyle(): CanvasStyle
-    getTransform(): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    getTransformForChild(child: CanvasItem): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
+    getTransform(): { returnType: boolean, transform: cairo.Matrix }
+    getTransformForChild(child: CanvasItem): { returnType: boolean, transform: cairo.Matrix }
     isContainer(): boolean
     isVisible(): boolean
     lower(below?: CanvasItem | null): void
@@ -3012,155 +2618,83 @@ export class CanvasGrid {
     stopAnimation(): void
     translate(tx: number, ty: number): void
     update(entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds): void
-    /* Virtual methods of GooCanvas.CanvasItemSimple */
-    vfuncSimpleCreatePath(cr: cairo.Context): void
-    vfuncSimpleIsItemAt(x: number, y: number, cr: cairo.Context, isPointerEvent: boolean): boolean
-    vfuncSimplePaint(cr: cairo.Context, bounds: CanvasBounds): void
-    vfuncSimpleUpdate(cr: cairo.Context): void
-    vfuncAddChild(child: CanvasItem, position: number): void
-    vfuncAllocateArea(cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number): void
-    vfuncAnimationFinished(stopped: boolean): void
-    vfuncButtonPressEvent(target: CanvasItem, event: Gdk.EventButton): boolean
-    vfuncButtonReleaseEvent(target: CanvasItem, event: Gdk.EventButton): boolean
-    vfuncChildNotify(pspec: GObject.ParamSpec): void
-    vfuncEnterNotifyEvent(target: CanvasItem, event: Gdk.EventCrossing): boolean
-    vfuncFocusInEvent(target: CanvasItem, event: Gdk.EventFocus): boolean
-    vfuncFocusOutEvent(target: CanvasItem, event: Gdk.EventFocus): boolean
-    vfuncGetBounds(): /* bounds */ CanvasBounds
-    vfuncGetCanvas(): Canvas
-    vfuncGetChild(childNum: number): CanvasItem
-    vfuncGetChildProperty(child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetIsStatic(): boolean
-    vfuncGetItemsAt(x: number, y: number, cr: cairo.Context, isPointerEvent: boolean, parentIsVisible: boolean, foundItems: CanvasItem[]): CanvasItem[]
-    vfuncGetModel(): CanvasItemModel
-    vfuncGetNChildren(): number
-    vfuncGetParent(): CanvasItem
-    vfuncGetRequestedArea(cr: cairo.Context, requestedArea: CanvasBounds): boolean
-    vfuncGetRequestedAreaForWidth(cr: cairo.Context, width: number, requestedArea: CanvasBounds): boolean
-    vfuncGetRequestedHeight(cr: cairo.Context, width: number): number
-    vfuncGetStyle(): CanvasStyle
-    vfuncGetTransform(): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    vfuncGetTransformForChild(child: CanvasItem): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    vfuncGrabBrokenEvent(target: CanvasItem, event: Gdk.EventGrabBroken): boolean
-    vfuncIsVisible(): boolean
-    vfuncKeyPressEvent(target: CanvasItem, event: Gdk.EventKey): boolean
-    vfuncKeyReleaseEvent(target: CanvasItem, event: Gdk.EventKey): boolean
-    vfuncLeaveNotifyEvent(target: CanvasItem, event: Gdk.EventCrossing): boolean
-    vfuncMotionNotifyEvent(target: CanvasItem, event: Gdk.EventMotion): boolean
-    vfuncMoveChild(oldPosition: number, newPosition: number): void
-    vfuncPaint(cr: cairo.Context, bounds: CanvasBounds, scale: number): void
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncRemoveChild(childNum: number): void
-    vfuncRequestUpdate(): void
-    vfuncScrollEvent(target: CanvasItem, event: Gdk.EventScroll): boolean
-    vfuncSetCanvas(canvas: Canvas): void
-    vfuncSetChildProperty(child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetIsStatic(isStatic: boolean): void
-    vfuncSetModel(model: CanvasItemModel): void
-    vfuncSetParent(parent: CanvasItem): void
-    vfuncSetStyle(style: CanvasStyle): void
-    vfuncSetTransform(transform?: cairo.Matrix | null): void
-    vfuncUpdate(entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasGrid, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasGrid, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GooCanvas.CanvasItem */
+    /* Signals of GooCanvas-2.0.GooCanvas.CanvasItem */
     connect(sigName: "animation-finished", callback: (($obj: CanvasGrid, stopped: boolean) => void)): number
-    connect_after(sigName: "animation-finished", callback: (($obj: CanvasGrid, stopped: boolean) => void)): number
+    on(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "animation-finished", callback: (stopped: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "animation-finished", stopped: boolean): void
-    on(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: CanvasGrid, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: CanvasGrid, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", targetItem: CanvasItem, event: Gdk.EventButton): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: CanvasGrid, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: CanvasGrid, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", targetItem: CanvasItem, event: Gdk.EventButton): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: CanvasGrid, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: CanvasGrid, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-notify-event", callback: (($obj: CanvasGrid, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "enter-notify-event", callback: (($obj: CanvasGrid, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "enter-notify-event", targetItem: CanvasItem, event: Gdk.EventCrossing): void
-    on(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in-event", callback: (($obj: CanvasGrid, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-in-event", callback: (($obj: CanvasGrid, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in-event", targetItem: CanvasItem, event: Gdk.EventFocus): void
-    on(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out-event", callback: (($obj: CanvasGrid, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-out-event", callback: (($obj: CanvasGrid, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out-event", targetItem: CanvasItem, event: Gdk.EventFocus): void
-    on(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-broken-event", callback: (($obj: CanvasGrid, targetItem: CanvasItem, event: Gdk.EventGrabBroken) => boolean)): number
-    connect_after(sigName: "grab-broken-event", callback: (($obj: CanvasGrid, targetItem: CanvasItem, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
     emit(sigName: "grab-broken-event", targetItem: CanvasItem, event: Gdk.EventGrabBroken): void
-    on(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: CanvasGrid, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: CanvasGrid, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", targetItem: CanvasItem, event: Gdk.EventKey): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: CanvasGrid, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: CanvasGrid, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", targetItem: CanvasItem, event: Gdk.EventKey): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-notify-event", callback: (($obj: CanvasGrid, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "leave-notify-event", callback: (($obj: CanvasGrid, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "leave-notify-event", targetItem: CanvasItem, event: Gdk.EventCrossing): void
-    on(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-notify-event", callback: (($obj: CanvasGrid, targetItem: CanvasItem, event: Gdk.EventMotion) => boolean)): number
-    connect_after(sigName: "motion-notify-event", callback: (($obj: CanvasGrid, targetItem: CanvasItem, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void): NodeJS.EventEmitter
     emit(sigName: "motion-notify-event", targetItem: CanvasItem, event: Gdk.EventMotion): void
-    on(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: CanvasGrid, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: CanvasGrid, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: CanvasGrid, targetItem: CanvasItem, event: Gdk.EventScroll) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: CanvasGrid, targetItem: CanvasItem, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", targetItem: CanvasItem, event: Gdk.EventScroll): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::border-color", callback: (($obj: CanvasGrid, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::border-color", callback: (($obj: CanvasGrid, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::border-color", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3519,7 +3053,7 @@ export interface CanvasGridModel_ConstructProps extends CanvasItemModelSimple_Co
     visibilityThreshold?: number
 }
 export class CanvasGridModel {
-    /* Properties of GooCanvas.CanvasGridModel */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasGridModel */
     borderColor: string
     borderColorGdkRgba: Gdk.RGBA
     borderColorRgba: number
@@ -3549,7 +3083,7 @@ export class CanvasGridModel {
     y: number
     yOffset: number
     yStep: number
-    /* Properties of GooCanvas.CanvasItemModelSimple */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemModelSimple */
     antialias: CairoAntialias
     clipFillRule: CairoFillRule
     clipPath: string
@@ -3573,7 +3107,7 @@ export class CanvasGridModel {
     strokeColorRgba: number
     strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
-    /* Properties of GooCanvas.CanvasItemModel */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     canFocus: boolean
     description: string
     parent: CanvasItemModel
@@ -3583,14 +3117,14 @@ export class CanvasGridModel {
     transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
-    /* Fields of GooCanvas.CanvasGridModel */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasGridModel */
     parentObject: CanvasItemModelSimple
     gridData: CanvasGridData
-    /* Fields of GooCanvas.CanvasItemModelSimple */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemModelSimple */
     simpleData: CanvasItemSimpleData
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -3612,7 +3146,7 @@ export class CanvasGridModel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GooCanvas.CanvasItemModel */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     addChild(child: CanvasItemModel, position: number): void
     animate(x: number, y: number, scale: number, degrees: number, absolute: boolean, duration: number, stepTime: number, type: CanvasAnimateType): void
     findChild(child: CanvasItemModel): number
@@ -3640,78 +3174,43 @@ export class CanvasGridModel {
     skewY(degrees: number, cx: number, cy: number): void
     stopAnimation(): void
     translate(tx: number, ty: number): void
-    /* Virtual methods of GooCanvas.CanvasItemModelSimple */
-    vfuncAddChild(child: CanvasItemModel, position: number): void
-    vfuncAnimationFinished(stopped: boolean): void
-    vfuncChanged(recomputeBounds: boolean): void
-    vfuncChildAdded(childNum: number): void
-    vfuncChildMoved(oldChildNum: number, newChildNum: number): void
-    vfuncChildNotify(pspec: GObject.ParamSpec): void
-    vfuncChildRemoved(childNum: number): void
-    vfuncGetChild(childNum: number): CanvasItemModel
-    vfuncGetChildProperty(child: CanvasItemModel, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetNChildren(): number
-    vfuncGetParent(): CanvasItemModel
-    vfuncGetStyle(): CanvasStyle
-    vfuncGetTransform(transform: cairo.Matrix): boolean
-    vfuncMoveChild(oldPosition: number, newPosition: number): void
-    vfuncRemoveChild(childNum: number): void
-    vfuncSetChildProperty(child: CanvasItemModel, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetParent(parent: CanvasItemModel): void
-    vfuncSetStyle(style: CanvasStyle): void
-    vfuncSetTransform(transform?: cairo.Matrix | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasGridModel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasGridModel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GooCanvas.CanvasItemModel */
+    /* Signals of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     connect(sigName: "animation-finished", callback: (($obj: CanvasGridModel, stopped: boolean) => void)): number
-    connect_after(sigName: "animation-finished", callback: (($obj: CanvasGridModel, stopped: boolean) => void)): number
+    on(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "animation-finished", callback: (stopped: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "animation-finished", stopped: boolean): void
-    on(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: CanvasGridModel, recomputeBounds: boolean) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: CanvasGridModel, recomputeBounds: boolean) => void)): number
+    on(sigName: "changed", callback: (recomputeBounds: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (recomputeBounds: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (recomputeBounds: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "changed", recomputeBounds: boolean): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-added", callback: (($obj: CanvasGridModel, childNum: number) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: CanvasGridModel, childNum: number) => void)): number
+    on(sigName: "child-added", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (childNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", childNum: number): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-moved", callback: (($obj: CanvasGridModel, oldChildNum: number, newChildNum: number) => void)): number
-    connect_after(sigName: "child-moved", callback: (($obj: CanvasGridModel, oldChildNum: number, newChildNum: number) => void)): number
+    on(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-moved", oldChildNum: number, newChildNum: number): void
-    on(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: CanvasGridModel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: CanvasGridModel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: CanvasGridModel, childNum: number) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: CanvasGridModel, childNum: number) => void)): number
+    on(sigName: "child-removed", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (childNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", childNum: number): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::border-color", callback: (($obj: CanvasGridModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::border-color", callback: (($obj: CanvasGridModel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::border-color", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4045,12 +3544,12 @@ export interface CanvasGroup_ConstructProps extends CanvasItemSimple_ConstructPr
     visibilityThreshold?: number
 }
 export class CanvasGroup {
-    /* Properties of GooCanvas.CanvasGroup */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasGroup */
     height: number
     width: number
     x: number
     y: number
-    /* Properties of GooCanvas.CanvasItemSimple */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     antialias: CairoAntialias
     clipFillRule: CairoFillRule
     clipPath: string
@@ -4074,7 +3573,7 @@ export class CanvasGroup {
     strokeColorRgba: number
     strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
-    /* Properties of GooCanvas.CanvasItem */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItem */
     canFocus: boolean
     description: string
     parent: CanvasItem
@@ -4084,19 +3583,19 @@ export class CanvasGroup {
     transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
-    /* Fields of GooCanvas.CanvasGroup */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasGroup */
     parentObject: CanvasItemSimple
     items: object[]
-    /* Fields of GooCanvas.CanvasItemSimple */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     canvas: Canvas
     model: CanvasItemModelSimple
     simpleData: CanvasItemSimpleData
     bounds: CanvasBounds
     needUpdate: number
     needEntireSubtreeUpdate: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GooCanvas.CanvasItemSimple */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     changed(recomputeBounds: boolean): void
     checkInPath(x: number, y: number, cr: cairo.Context, pointerEvents: CanvasPointerEvents): boolean
     checkStyle(): void
@@ -4106,7 +3605,7 @@ export class CanvasGroup {
     setModel(model: CanvasItemModel): void
     userBoundsToDevice(cr: cairo.Context, bounds: CanvasBounds): void
     userBoundsToParent(cr: cairo.Context, bounds: CanvasBounds): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4128,13 +3627,13 @@ export class CanvasGroup {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GooCanvas.CanvasItem */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItem */
     addChild(child: CanvasItem, position: number): void
     allocateArea(cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number): void
     animate(x: number, y: number, scale: number, degrees: number, absolute: boolean, duration: number, stepTime: number, type: CanvasAnimateType): void
     ensureUpdated(): void
     findChild(child: CanvasItem): number
-    getBounds(): /* bounds */ CanvasBounds
+    getBounds(): { bounds: CanvasBounds }
     getCanvas(): Canvas
     getChild(childNum: number): CanvasItem
     getChildProperty(child: CanvasItem, propertyName: string, value: any): void
@@ -4146,10 +3645,10 @@ export class CanvasGroup {
     getRequestedArea(cr: cairo.Context, requestedArea: CanvasBounds): boolean
     getRequestedAreaForWidth(cr: cairo.Context, width: number, requestedArea: CanvasBounds): boolean
     getRequestedHeight(cr: cairo.Context, width: number): number
-    getSimpleTransform(): [ /* returnType */ boolean, /* x */ number, /* y */ number, /* scale */ number, /* rotation */ number ]
+    getSimpleTransform(): { returnType: boolean, x: number, y: number, scale: number, rotation: number }
     getStyle(): CanvasStyle
-    getTransform(): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    getTransformForChild(child: CanvasItem): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
+    getTransform(): { returnType: boolean, transform: cairo.Matrix }
+    getTransformForChild(child: CanvasItem): { returnType: boolean, transform: cairo.Matrix }
     isContainer(): boolean
     isVisible(): boolean
     lower(below?: CanvasItem | null): void
@@ -4173,155 +3672,83 @@ export class CanvasGroup {
     stopAnimation(): void
     translate(tx: number, ty: number): void
     update(entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds): void
-    /* Virtual methods of GooCanvas.CanvasItemSimple */
-    vfuncSimpleCreatePath(cr: cairo.Context): void
-    vfuncSimpleIsItemAt(x: number, y: number, cr: cairo.Context, isPointerEvent: boolean): boolean
-    vfuncSimplePaint(cr: cairo.Context, bounds: CanvasBounds): void
-    vfuncSimpleUpdate(cr: cairo.Context): void
-    vfuncAddChild(child: CanvasItem, position: number): void
-    vfuncAllocateArea(cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number): void
-    vfuncAnimationFinished(stopped: boolean): void
-    vfuncButtonPressEvent(target: CanvasItem, event: Gdk.EventButton): boolean
-    vfuncButtonReleaseEvent(target: CanvasItem, event: Gdk.EventButton): boolean
-    vfuncChildNotify(pspec: GObject.ParamSpec): void
-    vfuncEnterNotifyEvent(target: CanvasItem, event: Gdk.EventCrossing): boolean
-    vfuncFocusInEvent(target: CanvasItem, event: Gdk.EventFocus): boolean
-    vfuncFocusOutEvent(target: CanvasItem, event: Gdk.EventFocus): boolean
-    vfuncGetBounds(): /* bounds */ CanvasBounds
-    vfuncGetCanvas(): Canvas
-    vfuncGetChild(childNum: number): CanvasItem
-    vfuncGetChildProperty(child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetIsStatic(): boolean
-    vfuncGetItemsAt(x: number, y: number, cr: cairo.Context, isPointerEvent: boolean, parentIsVisible: boolean, foundItems: CanvasItem[]): CanvasItem[]
-    vfuncGetModel(): CanvasItemModel
-    vfuncGetNChildren(): number
-    vfuncGetParent(): CanvasItem
-    vfuncGetRequestedArea(cr: cairo.Context, requestedArea: CanvasBounds): boolean
-    vfuncGetRequestedAreaForWidth(cr: cairo.Context, width: number, requestedArea: CanvasBounds): boolean
-    vfuncGetRequestedHeight(cr: cairo.Context, width: number): number
-    vfuncGetStyle(): CanvasStyle
-    vfuncGetTransform(): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    vfuncGetTransformForChild(child: CanvasItem): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    vfuncGrabBrokenEvent(target: CanvasItem, event: Gdk.EventGrabBroken): boolean
-    vfuncIsVisible(): boolean
-    vfuncKeyPressEvent(target: CanvasItem, event: Gdk.EventKey): boolean
-    vfuncKeyReleaseEvent(target: CanvasItem, event: Gdk.EventKey): boolean
-    vfuncLeaveNotifyEvent(target: CanvasItem, event: Gdk.EventCrossing): boolean
-    vfuncMotionNotifyEvent(target: CanvasItem, event: Gdk.EventMotion): boolean
-    vfuncMoveChild(oldPosition: number, newPosition: number): void
-    vfuncPaint(cr: cairo.Context, bounds: CanvasBounds, scale: number): void
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncRemoveChild(childNum: number): void
-    vfuncRequestUpdate(): void
-    vfuncScrollEvent(target: CanvasItem, event: Gdk.EventScroll): boolean
-    vfuncSetCanvas(canvas: Canvas): void
-    vfuncSetChildProperty(child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetIsStatic(isStatic: boolean): void
-    vfuncSetModel(model: CanvasItemModel): void
-    vfuncSetParent(parent: CanvasItem): void
-    vfuncSetStyle(style: CanvasStyle): void
-    vfuncSetTransform(transform?: cairo.Matrix | null): void
-    vfuncUpdate(entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasGroup, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GooCanvas.CanvasItem */
+    /* Signals of GooCanvas-2.0.GooCanvas.CanvasItem */
     connect(sigName: "animation-finished", callback: (($obj: CanvasGroup, stopped: boolean) => void)): number
-    connect_after(sigName: "animation-finished", callback: (($obj: CanvasGroup, stopped: boolean) => void)): number
+    on(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "animation-finished", callback: (stopped: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "animation-finished", stopped: boolean): void
-    on(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: CanvasGroup, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: CanvasGroup, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", targetItem: CanvasItem, event: Gdk.EventButton): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: CanvasGroup, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: CanvasGroup, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", targetItem: CanvasItem, event: Gdk.EventButton): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: CanvasGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: CanvasGroup, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-notify-event", callback: (($obj: CanvasGroup, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "enter-notify-event", callback: (($obj: CanvasGroup, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "enter-notify-event", targetItem: CanvasItem, event: Gdk.EventCrossing): void
-    on(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in-event", callback: (($obj: CanvasGroup, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-in-event", callback: (($obj: CanvasGroup, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in-event", targetItem: CanvasItem, event: Gdk.EventFocus): void
-    on(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out-event", callback: (($obj: CanvasGroup, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-out-event", callback: (($obj: CanvasGroup, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out-event", targetItem: CanvasItem, event: Gdk.EventFocus): void
-    on(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-broken-event", callback: (($obj: CanvasGroup, targetItem: CanvasItem, event: Gdk.EventGrabBroken) => boolean)): number
-    connect_after(sigName: "grab-broken-event", callback: (($obj: CanvasGroup, targetItem: CanvasItem, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
     emit(sigName: "grab-broken-event", targetItem: CanvasItem, event: Gdk.EventGrabBroken): void
-    on(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: CanvasGroup, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: CanvasGroup, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", targetItem: CanvasItem, event: Gdk.EventKey): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: CanvasGroup, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: CanvasGroup, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", targetItem: CanvasItem, event: Gdk.EventKey): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-notify-event", callback: (($obj: CanvasGroup, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "leave-notify-event", callback: (($obj: CanvasGroup, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "leave-notify-event", targetItem: CanvasItem, event: Gdk.EventCrossing): void
-    on(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-notify-event", callback: (($obj: CanvasGroup, targetItem: CanvasItem, event: Gdk.EventMotion) => boolean)): number
-    connect_after(sigName: "motion-notify-event", callback: (($obj: CanvasGroup, targetItem: CanvasItem, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void): NodeJS.EventEmitter
     emit(sigName: "motion-notify-event", targetItem: CanvasItem, event: Gdk.EventMotion): void
-    on(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: CanvasGroup, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: CanvasGroup, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: CanvasGroup, targetItem: CanvasItem, event: Gdk.EventScroll) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: CanvasGroup, targetItem: CanvasItem, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", targetItem: CanvasItem, event: Gdk.EventScroll): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::height", callback: (($obj: CanvasGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::height", callback: (($obj: CanvasGroup, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::height", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4530,12 +3957,12 @@ export interface CanvasGroupModel_ConstructProps extends CanvasItemModelSimple_C
     visibilityThreshold?: number
 }
 export class CanvasGroupModel {
-    /* Properties of GooCanvas.CanvasGroupModel */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasGroupModel */
     height: number
     width: number
     x: number
     y: number
-    /* Properties of GooCanvas.CanvasItemModelSimple */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemModelSimple */
     antialias: CairoAntialias
     clipFillRule: CairoFillRule
     clipPath: string
@@ -4559,7 +3986,7 @@ export class CanvasGroupModel {
     strokeColorRgba: number
     strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
-    /* Properties of GooCanvas.CanvasItemModel */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     canFocus: boolean
     description: string
     parent: CanvasItemModel
@@ -4569,14 +3996,14 @@ export class CanvasGroupModel {
     transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
-    /* Fields of GooCanvas.CanvasGroupModel */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasGroupModel */
     parentObject: CanvasItemModelSimple
     children: object[]
-    /* Fields of GooCanvas.CanvasItemModelSimple */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemModelSimple */
     simpleData: CanvasItemSimpleData
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4598,7 +4025,7 @@ export class CanvasGroupModel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GooCanvas.CanvasItemModel */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     addChild(child: CanvasItemModel, position: number): void
     animate(x: number, y: number, scale: number, degrees: number, absolute: boolean, duration: number, stepTime: number, type: CanvasAnimateType): void
     findChild(child: CanvasItemModel): number
@@ -4626,78 +4053,43 @@ export class CanvasGroupModel {
     skewY(degrees: number, cx: number, cy: number): void
     stopAnimation(): void
     translate(tx: number, ty: number): void
-    /* Virtual methods of GooCanvas.CanvasItemModelSimple */
-    vfuncAddChild(child: CanvasItemModel, position: number): void
-    vfuncAnimationFinished(stopped: boolean): void
-    vfuncChanged(recomputeBounds: boolean): void
-    vfuncChildAdded(childNum: number): void
-    vfuncChildMoved(oldChildNum: number, newChildNum: number): void
-    vfuncChildNotify(pspec: GObject.ParamSpec): void
-    vfuncChildRemoved(childNum: number): void
-    vfuncGetChild(childNum: number): CanvasItemModel
-    vfuncGetChildProperty(child: CanvasItemModel, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetNChildren(): number
-    vfuncGetParent(): CanvasItemModel
-    vfuncGetStyle(): CanvasStyle
-    vfuncGetTransform(transform: cairo.Matrix): boolean
-    vfuncMoveChild(oldPosition: number, newPosition: number): void
-    vfuncRemoveChild(childNum: number): void
-    vfuncSetChildProperty(child: CanvasItemModel, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetParent(parent: CanvasItemModel): void
-    vfuncSetStyle(style: CanvasStyle): void
-    vfuncSetTransform(transform?: cairo.Matrix | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasGroupModel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasGroupModel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GooCanvas.CanvasItemModel */
+    /* Signals of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     connect(sigName: "animation-finished", callback: (($obj: CanvasGroupModel, stopped: boolean) => void)): number
-    connect_after(sigName: "animation-finished", callback: (($obj: CanvasGroupModel, stopped: boolean) => void)): number
+    on(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "animation-finished", callback: (stopped: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "animation-finished", stopped: boolean): void
-    on(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: CanvasGroupModel, recomputeBounds: boolean) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: CanvasGroupModel, recomputeBounds: boolean) => void)): number
+    on(sigName: "changed", callback: (recomputeBounds: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (recomputeBounds: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (recomputeBounds: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "changed", recomputeBounds: boolean): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-added", callback: (($obj: CanvasGroupModel, childNum: number) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: CanvasGroupModel, childNum: number) => void)): number
+    on(sigName: "child-added", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (childNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", childNum: number): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-moved", callback: (($obj: CanvasGroupModel, oldChildNum: number, newChildNum: number) => void)): number
-    connect_after(sigName: "child-moved", callback: (($obj: CanvasGroupModel, oldChildNum: number, newChildNum: number) => void)): number
+    on(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-moved", oldChildNum: number, newChildNum: number): void
-    on(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: CanvasGroupModel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: CanvasGroupModel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: CanvasGroupModel, childNum: number) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: CanvasGroupModel, childNum: number) => void)): number
+    on(sigName: "child-removed", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (childNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", childNum: number): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::height", callback: (($obj: CanvasGroupModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::height", callback: (($obj: CanvasGroupModel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::height", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4910,7 +4302,7 @@ export interface CanvasImage_ConstructProps extends CanvasItemSimple_ConstructPr
     visibilityThreshold?: number
 }
 export class CanvasImage {
-    /* Properties of GooCanvas.CanvasImage */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasImage */
     alpha: number
     height: number
     pattern: any
@@ -4919,7 +4311,7 @@ export class CanvasImage {
     width: number
     x: number
     y: number
-    /* Properties of GooCanvas.CanvasItemSimple */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     antialias: CairoAntialias
     clipFillRule: CairoFillRule
     clipPath: string
@@ -4943,7 +4335,7 @@ export class CanvasImage {
     strokeColorRgba: number
     strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
-    /* Properties of GooCanvas.CanvasItem */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItem */
     canFocus: boolean
     description: string
     parent: CanvasItem
@@ -4953,19 +4345,19 @@ export class CanvasImage {
     transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
-    /* Fields of GooCanvas.CanvasImage */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasImage */
     parentObject: CanvasItemSimple
     imageData: CanvasImageData
-    /* Fields of GooCanvas.CanvasItemSimple */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     canvas: Canvas
     model: CanvasItemModelSimple
     simpleData: CanvasItemSimpleData
     bounds: CanvasBounds
     needUpdate: number
     needEntireSubtreeUpdate: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GooCanvas.CanvasItemSimple */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     changed(recomputeBounds: boolean): void
     checkInPath(x: number, y: number, cr: cairo.Context, pointerEvents: CanvasPointerEvents): boolean
     checkStyle(): void
@@ -4975,7 +4367,7 @@ export class CanvasImage {
     setModel(model: CanvasItemModel): void
     userBoundsToDevice(cr: cairo.Context, bounds: CanvasBounds): void
     userBoundsToParent(cr: cairo.Context, bounds: CanvasBounds): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -4997,13 +4389,13 @@ export class CanvasImage {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GooCanvas.CanvasItem */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItem */
     addChild(child: CanvasItem, position: number): void
     allocateArea(cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number): void
     animate(x: number, y: number, scale: number, degrees: number, absolute: boolean, duration: number, stepTime: number, type: CanvasAnimateType): void
     ensureUpdated(): void
     findChild(child: CanvasItem): number
-    getBounds(): /* bounds */ CanvasBounds
+    getBounds(): { bounds: CanvasBounds }
     getCanvas(): Canvas
     getChild(childNum: number): CanvasItem
     getChildProperty(child: CanvasItem, propertyName: string, value: any): void
@@ -5015,10 +4407,10 @@ export class CanvasImage {
     getRequestedArea(cr: cairo.Context, requestedArea: CanvasBounds): boolean
     getRequestedAreaForWidth(cr: cairo.Context, width: number, requestedArea: CanvasBounds): boolean
     getRequestedHeight(cr: cairo.Context, width: number): number
-    getSimpleTransform(): [ /* returnType */ boolean, /* x */ number, /* y */ number, /* scale */ number, /* rotation */ number ]
+    getSimpleTransform(): { returnType: boolean, x: number, y: number, scale: number, rotation: number }
     getStyle(): CanvasStyle
-    getTransform(): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    getTransformForChild(child: CanvasItem): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
+    getTransform(): { returnType: boolean, transform: cairo.Matrix }
+    getTransformForChild(child: CanvasItem): { returnType: boolean, transform: cairo.Matrix }
     isContainer(): boolean
     isVisible(): boolean
     lower(below?: CanvasItem | null): void
@@ -5042,155 +4434,83 @@ export class CanvasImage {
     stopAnimation(): void
     translate(tx: number, ty: number): void
     update(entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds): void
-    /* Virtual methods of GooCanvas.CanvasItemSimple */
-    vfuncSimpleCreatePath(cr: cairo.Context): void
-    vfuncSimpleIsItemAt(x: number, y: number, cr: cairo.Context, isPointerEvent: boolean): boolean
-    vfuncSimplePaint(cr: cairo.Context, bounds: CanvasBounds): void
-    vfuncSimpleUpdate(cr: cairo.Context): void
-    vfuncAddChild(child: CanvasItem, position: number): void
-    vfuncAllocateArea(cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number): void
-    vfuncAnimationFinished(stopped: boolean): void
-    vfuncButtonPressEvent(target: CanvasItem, event: Gdk.EventButton): boolean
-    vfuncButtonReleaseEvent(target: CanvasItem, event: Gdk.EventButton): boolean
-    vfuncChildNotify(pspec: GObject.ParamSpec): void
-    vfuncEnterNotifyEvent(target: CanvasItem, event: Gdk.EventCrossing): boolean
-    vfuncFocusInEvent(target: CanvasItem, event: Gdk.EventFocus): boolean
-    vfuncFocusOutEvent(target: CanvasItem, event: Gdk.EventFocus): boolean
-    vfuncGetBounds(): /* bounds */ CanvasBounds
-    vfuncGetCanvas(): Canvas
-    vfuncGetChild(childNum: number): CanvasItem
-    vfuncGetChildProperty(child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetIsStatic(): boolean
-    vfuncGetItemsAt(x: number, y: number, cr: cairo.Context, isPointerEvent: boolean, parentIsVisible: boolean, foundItems: CanvasItem[]): CanvasItem[]
-    vfuncGetModel(): CanvasItemModel
-    vfuncGetNChildren(): number
-    vfuncGetParent(): CanvasItem
-    vfuncGetRequestedArea(cr: cairo.Context, requestedArea: CanvasBounds): boolean
-    vfuncGetRequestedAreaForWidth(cr: cairo.Context, width: number, requestedArea: CanvasBounds): boolean
-    vfuncGetRequestedHeight(cr: cairo.Context, width: number): number
-    vfuncGetStyle(): CanvasStyle
-    vfuncGetTransform(): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    vfuncGetTransformForChild(child: CanvasItem): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    vfuncGrabBrokenEvent(target: CanvasItem, event: Gdk.EventGrabBroken): boolean
-    vfuncIsVisible(): boolean
-    vfuncKeyPressEvent(target: CanvasItem, event: Gdk.EventKey): boolean
-    vfuncKeyReleaseEvent(target: CanvasItem, event: Gdk.EventKey): boolean
-    vfuncLeaveNotifyEvent(target: CanvasItem, event: Gdk.EventCrossing): boolean
-    vfuncMotionNotifyEvent(target: CanvasItem, event: Gdk.EventMotion): boolean
-    vfuncMoveChild(oldPosition: number, newPosition: number): void
-    vfuncPaint(cr: cairo.Context, bounds: CanvasBounds, scale: number): void
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncRemoveChild(childNum: number): void
-    vfuncRequestUpdate(): void
-    vfuncScrollEvent(target: CanvasItem, event: Gdk.EventScroll): boolean
-    vfuncSetCanvas(canvas: Canvas): void
-    vfuncSetChildProperty(child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetIsStatic(isStatic: boolean): void
-    vfuncSetModel(model: CanvasItemModel): void
-    vfuncSetParent(parent: CanvasItem): void
-    vfuncSetStyle(style: CanvasStyle): void
-    vfuncSetTransform(transform?: cairo.Matrix | null): void
-    vfuncUpdate(entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasImage, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasImage, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GooCanvas.CanvasItem */
+    /* Signals of GooCanvas-2.0.GooCanvas.CanvasItem */
     connect(sigName: "animation-finished", callback: (($obj: CanvasImage, stopped: boolean) => void)): number
-    connect_after(sigName: "animation-finished", callback: (($obj: CanvasImage, stopped: boolean) => void)): number
+    on(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "animation-finished", callback: (stopped: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "animation-finished", stopped: boolean): void
-    on(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: CanvasImage, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: CanvasImage, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", targetItem: CanvasItem, event: Gdk.EventButton): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: CanvasImage, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: CanvasImage, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", targetItem: CanvasItem, event: Gdk.EventButton): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: CanvasImage, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: CanvasImage, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-notify-event", callback: (($obj: CanvasImage, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "enter-notify-event", callback: (($obj: CanvasImage, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "enter-notify-event", targetItem: CanvasItem, event: Gdk.EventCrossing): void
-    on(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in-event", callback: (($obj: CanvasImage, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-in-event", callback: (($obj: CanvasImage, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in-event", targetItem: CanvasItem, event: Gdk.EventFocus): void
-    on(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out-event", callback: (($obj: CanvasImage, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-out-event", callback: (($obj: CanvasImage, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out-event", targetItem: CanvasItem, event: Gdk.EventFocus): void
-    on(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-broken-event", callback: (($obj: CanvasImage, targetItem: CanvasItem, event: Gdk.EventGrabBroken) => boolean)): number
-    connect_after(sigName: "grab-broken-event", callback: (($obj: CanvasImage, targetItem: CanvasItem, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
     emit(sigName: "grab-broken-event", targetItem: CanvasItem, event: Gdk.EventGrabBroken): void
-    on(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: CanvasImage, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: CanvasImage, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", targetItem: CanvasItem, event: Gdk.EventKey): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: CanvasImage, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: CanvasImage, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", targetItem: CanvasItem, event: Gdk.EventKey): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-notify-event", callback: (($obj: CanvasImage, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "leave-notify-event", callback: (($obj: CanvasImage, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "leave-notify-event", targetItem: CanvasItem, event: Gdk.EventCrossing): void
-    on(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-notify-event", callback: (($obj: CanvasImage, targetItem: CanvasItem, event: Gdk.EventMotion) => boolean)): number
-    connect_after(sigName: "motion-notify-event", callback: (($obj: CanvasImage, targetItem: CanvasItem, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void): NodeJS.EventEmitter
     emit(sigName: "motion-notify-event", targetItem: CanvasItem, event: Gdk.EventMotion): void
-    on(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: CanvasImage, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: CanvasImage, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: CanvasImage, targetItem: CanvasItem, event: Gdk.EventScroll) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: CanvasImage, targetItem: CanvasItem, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", targetItem: CanvasItem, event: Gdk.EventScroll): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::alpha", callback: (($obj: CanvasImage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::alpha", callback: (($obj: CanvasImage, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::alpha", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5423,7 +4743,7 @@ export interface CanvasImageModel_ConstructProps extends CanvasItemModelSimple_C
     visibilityThreshold?: number
 }
 export class CanvasImageModel {
-    /* Properties of GooCanvas.CanvasImageModel */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasImageModel */
     alpha: number
     height: number
     pattern: any
@@ -5432,7 +4752,7 @@ export class CanvasImageModel {
     width: number
     x: number
     y: number
-    /* Properties of GooCanvas.CanvasItemModelSimple */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemModelSimple */
     antialias: CairoAntialias
     clipFillRule: CairoFillRule
     clipPath: string
@@ -5456,7 +4776,7 @@ export class CanvasImageModel {
     strokeColorRgba: number
     strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
-    /* Properties of GooCanvas.CanvasItemModel */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     canFocus: boolean
     description: string
     parent: CanvasItemModel
@@ -5466,14 +4786,14 @@ export class CanvasImageModel {
     transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
-    /* Fields of GooCanvas.CanvasImageModel */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasImageModel */
     parentObject: CanvasItemModelSimple
     imageData: CanvasImageData
-    /* Fields of GooCanvas.CanvasItemModelSimple */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemModelSimple */
     simpleData: CanvasItemSimpleData
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5495,7 +4815,7 @@ export class CanvasImageModel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GooCanvas.CanvasItemModel */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     addChild(child: CanvasItemModel, position: number): void
     animate(x: number, y: number, scale: number, degrees: number, absolute: boolean, duration: number, stepTime: number, type: CanvasAnimateType): void
     findChild(child: CanvasItemModel): number
@@ -5523,78 +4843,43 @@ export class CanvasImageModel {
     skewY(degrees: number, cx: number, cy: number): void
     stopAnimation(): void
     translate(tx: number, ty: number): void
-    /* Virtual methods of GooCanvas.CanvasItemModelSimple */
-    vfuncAddChild(child: CanvasItemModel, position: number): void
-    vfuncAnimationFinished(stopped: boolean): void
-    vfuncChanged(recomputeBounds: boolean): void
-    vfuncChildAdded(childNum: number): void
-    vfuncChildMoved(oldChildNum: number, newChildNum: number): void
-    vfuncChildNotify(pspec: GObject.ParamSpec): void
-    vfuncChildRemoved(childNum: number): void
-    vfuncGetChild(childNum: number): CanvasItemModel
-    vfuncGetChildProperty(child: CanvasItemModel, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetNChildren(): number
-    vfuncGetParent(): CanvasItemModel
-    vfuncGetStyle(): CanvasStyle
-    vfuncGetTransform(transform: cairo.Matrix): boolean
-    vfuncMoveChild(oldPosition: number, newPosition: number): void
-    vfuncRemoveChild(childNum: number): void
-    vfuncSetChildProperty(child: CanvasItemModel, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetParent(parent: CanvasItemModel): void
-    vfuncSetStyle(style: CanvasStyle): void
-    vfuncSetTransform(transform?: cairo.Matrix | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasImageModel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasImageModel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GooCanvas.CanvasItemModel */
+    /* Signals of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     connect(sigName: "animation-finished", callback: (($obj: CanvasImageModel, stopped: boolean) => void)): number
-    connect_after(sigName: "animation-finished", callback: (($obj: CanvasImageModel, stopped: boolean) => void)): number
+    on(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "animation-finished", callback: (stopped: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "animation-finished", stopped: boolean): void
-    on(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: CanvasImageModel, recomputeBounds: boolean) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: CanvasImageModel, recomputeBounds: boolean) => void)): number
+    on(sigName: "changed", callback: (recomputeBounds: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (recomputeBounds: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (recomputeBounds: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "changed", recomputeBounds: boolean): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-added", callback: (($obj: CanvasImageModel, childNum: number) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: CanvasImageModel, childNum: number) => void)): number
+    on(sigName: "child-added", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (childNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", childNum: number): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-moved", callback: (($obj: CanvasImageModel, oldChildNum: number, newChildNum: number) => void)): number
-    connect_after(sigName: "child-moved", callback: (($obj: CanvasImageModel, oldChildNum: number, newChildNum: number) => void)): number
+    on(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-moved", oldChildNum: number, newChildNum: number): void
-    on(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: CanvasImageModel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: CanvasImageModel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: CanvasImageModel, childNum: number) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: CanvasImageModel, childNum: number) => void)): number
+    on(sigName: "child-removed", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (childNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", childNum: number): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::alpha", callback: (($obj: CanvasImageModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::alpha", callback: (($obj: CanvasImageModel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::alpha", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5810,15 +5095,15 @@ export class CanvasImageModel {
 export interface CanvasItemAccessibleFactory_ConstructProps extends Atk.ObjectFactory_ConstructProps {
 }
 export class CanvasItemAccessibleFactory {
-    /* Fields of Atk.ObjectFactory */
+    /* Fields of Atk-1.0.Atk.ObjectFactory */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atk.ObjectFactory */
+    /* Methods of Atk-1.0.Atk.ObjectFactory */
     createAccessible(obj: GObject.Object): Atk.Object
     getAccessibleType(): GObject.Type
     invalidate(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5840,23 +5125,12 @@ export class CanvasItemAccessibleFactory {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Atk.ObjectFactory */
-    vfuncInvalidate(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasItemAccessibleFactory, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasItemAccessibleFactory, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5904,7 +5178,7 @@ export interface CanvasItemModelSimple_ConstructProps extends GObject.Object_Con
     visibilityThreshold?: number
 }
 export class CanvasItemModelSimple {
-    /* Properties of GooCanvas.CanvasItemModelSimple */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemModelSimple */
     antialias: CairoAntialias
     clipFillRule: CairoFillRule
     clipPath: string
@@ -5928,7 +5202,7 @@ export class CanvasItemModelSimple {
     strokeColorRgba: number
     strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
-    /* Properties of GooCanvas.CanvasItemModel */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     canFocus: boolean
     description: string
     parent: CanvasItemModel
@@ -5938,12 +5212,12 @@ export class CanvasItemModelSimple {
     transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
-    /* Fields of GooCanvas.CanvasItemModelSimple */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemModelSimple */
     parentObject: GObject.Object
     simpleData: CanvasItemSimpleData
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5965,7 +5239,7 @@ export class CanvasItemModelSimple {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GooCanvas.CanvasItemModel */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     addChild(child: CanvasItemModel, position: number): void
     animate(x: number, y: number, scale: number, degrees: number, absolute: boolean, duration: number, stepTime: number, type: CanvasAnimateType): void
     findChild(child: CanvasItemModel): number
@@ -5993,78 +5267,43 @@ export class CanvasItemModelSimple {
     skewY(degrees: number, cx: number, cy: number): void
     stopAnimation(): void
     translate(tx: number, ty: number): void
-    /* Virtual methods of GooCanvas.CanvasItemModelSimple */
-    vfuncAddChild(child: CanvasItemModel, position: number): void
-    vfuncAnimationFinished(stopped: boolean): void
-    vfuncChanged(recomputeBounds: boolean): void
-    vfuncChildAdded(childNum: number): void
-    vfuncChildMoved(oldChildNum: number, newChildNum: number): void
-    vfuncChildNotify(pspec: GObject.ParamSpec): void
-    vfuncChildRemoved(childNum: number): void
-    vfuncGetChild(childNum: number): CanvasItemModel
-    vfuncGetChildProperty(child: CanvasItemModel, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetNChildren(): number
-    vfuncGetParent(): CanvasItemModel
-    vfuncGetStyle(): CanvasStyle
-    vfuncGetTransform(transform: cairo.Matrix): boolean
-    vfuncMoveChild(oldPosition: number, newPosition: number): void
-    vfuncRemoveChild(childNum: number): void
-    vfuncSetChildProperty(child: CanvasItemModel, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetParent(parent: CanvasItemModel): void
-    vfuncSetStyle(style: CanvasStyle): void
-    vfuncSetTransform(transform?: cairo.Matrix | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasItemModelSimple, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasItemModelSimple, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GooCanvas.CanvasItemModel */
+    /* Signals of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     connect(sigName: "animation-finished", callback: (($obj: CanvasItemModelSimple, stopped: boolean) => void)): number
-    connect_after(sigName: "animation-finished", callback: (($obj: CanvasItemModelSimple, stopped: boolean) => void)): number
+    on(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "animation-finished", callback: (stopped: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "animation-finished", stopped: boolean): void
-    on(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: CanvasItemModelSimple, recomputeBounds: boolean) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: CanvasItemModelSimple, recomputeBounds: boolean) => void)): number
+    on(sigName: "changed", callback: (recomputeBounds: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (recomputeBounds: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (recomputeBounds: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "changed", recomputeBounds: boolean): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-added", callback: (($obj: CanvasItemModelSimple, childNum: number) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: CanvasItemModelSimple, childNum: number) => void)): number
+    on(sigName: "child-added", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (childNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", childNum: number): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-moved", callback: (($obj: CanvasItemModelSimple, oldChildNum: number, newChildNum: number) => void)): number
-    connect_after(sigName: "child-moved", callback: (($obj: CanvasItemModelSimple, oldChildNum: number, newChildNum: number) => void)): number
+    on(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-moved", oldChildNum: number, newChildNum: number): void
-    on(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: CanvasItemModelSimple, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: CanvasItemModelSimple, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: CanvasItemModelSimple, childNum: number) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: CanvasItemModelSimple, childNum: number) => void)): number
+    on(sigName: "child-removed", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (childNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", childNum: number): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::antialias", callback: (($obj: CanvasItemModelSimple, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::antialias", callback: (($obj: CanvasItemModelSimple, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::antialias", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6276,7 +5515,7 @@ export interface CanvasItemSimple_ConstructProps extends GObject.Object_Construc
     visibilityThreshold?: number
 }
 export class CanvasItemSimple {
-    /* Properties of GooCanvas.CanvasItemSimple */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     antialias: CairoAntialias
     clipFillRule: CairoFillRule
     clipPath: string
@@ -6300,7 +5539,7 @@ export class CanvasItemSimple {
     strokeColorRgba: number
     strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
-    /* Properties of GooCanvas.CanvasItem */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItem */
     canFocus: boolean
     description: string
     parent: CanvasItem
@@ -6310,16 +5549,16 @@ export class CanvasItemSimple {
     transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
-    /* Fields of GooCanvas.CanvasItemSimple */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     canvas: Canvas
     model: CanvasItemModelSimple
     simpleData: CanvasItemSimpleData
     bounds: CanvasBounds
     needUpdate: number
     needEntireSubtreeUpdate: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GooCanvas.CanvasItemSimple */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     changed(recomputeBounds: boolean): void
     checkInPath(x: number, y: number, cr: cairo.Context, pointerEvents: CanvasPointerEvents): boolean
     checkStyle(): void
@@ -6329,7 +5568,7 @@ export class CanvasItemSimple {
     setModel(model: CanvasItemModel): void
     userBoundsToDevice(cr: cairo.Context, bounds: CanvasBounds): void
     userBoundsToParent(cr: cairo.Context, bounds: CanvasBounds): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6351,13 +5590,13 @@ export class CanvasItemSimple {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GooCanvas.CanvasItem */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItem */
     addChild(child: CanvasItem, position: number): void
     allocateArea(cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number): void
     animate(x: number, y: number, scale: number, degrees: number, absolute: boolean, duration: number, stepTime: number, type: CanvasAnimateType): void
     ensureUpdated(): void
     findChild(child: CanvasItem): number
-    getBounds(): /* bounds */ CanvasBounds
+    getBounds(): { bounds: CanvasBounds }
     getCanvas(): Canvas
     getChild(childNum: number): CanvasItem
     getChildProperty(child: CanvasItem, propertyName: string, value: any): void
@@ -6369,10 +5608,10 @@ export class CanvasItemSimple {
     getRequestedArea(cr: cairo.Context, requestedArea: CanvasBounds): boolean
     getRequestedAreaForWidth(cr: cairo.Context, width: number, requestedArea: CanvasBounds): boolean
     getRequestedHeight(cr: cairo.Context, width: number): number
-    getSimpleTransform(): [ /* returnType */ boolean, /* x */ number, /* y */ number, /* scale */ number, /* rotation */ number ]
+    getSimpleTransform(): { returnType: boolean, x: number, y: number, scale: number, rotation: number }
     getStyle(): CanvasStyle
-    getTransform(): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    getTransformForChild(child: CanvasItem): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
+    getTransform(): { returnType: boolean, transform: cairo.Matrix }
+    getTransformForChild(child: CanvasItem): { returnType: boolean, transform: cairo.Matrix }
     isContainer(): boolean
     isVisible(): boolean
     lower(below?: CanvasItem | null): void
@@ -6396,155 +5635,83 @@ export class CanvasItemSimple {
     stopAnimation(): void
     translate(tx: number, ty: number): void
     update(entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds): void
-    /* Virtual methods of GooCanvas.CanvasItemSimple */
-    vfuncSimpleCreatePath(cr: cairo.Context): void
-    vfuncSimpleIsItemAt(x: number, y: number, cr: cairo.Context, isPointerEvent: boolean): boolean
-    vfuncSimplePaint(cr: cairo.Context, bounds: CanvasBounds): void
-    vfuncSimpleUpdate(cr: cairo.Context): void
-    vfuncAddChild(child: CanvasItem, position: number): void
-    vfuncAllocateArea(cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number): void
-    vfuncAnimationFinished(stopped: boolean): void
-    vfuncButtonPressEvent(target: CanvasItem, event: Gdk.EventButton): boolean
-    vfuncButtonReleaseEvent(target: CanvasItem, event: Gdk.EventButton): boolean
-    vfuncChildNotify(pspec: GObject.ParamSpec): void
-    vfuncEnterNotifyEvent(target: CanvasItem, event: Gdk.EventCrossing): boolean
-    vfuncFocusInEvent(target: CanvasItem, event: Gdk.EventFocus): boolean
-    vfuncFocusOutEvent(target: CanvasItem, event: Gdk.EventFocus): boolean
-    vfuncGetBounds(): /* bounds */ CanvasBounds
-    vfuncGetCanvas(): Canvas
-    vfuncGetChild(childNum: number): CanvasItem
-    vfuncGetChildProperty(child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetIsStatic(): boolean
-    vfuncGetItemsAt(x: number, y: number, cr: cairo.Context, isPointerEvent: boolean, parentIsVisible: boolean, foundItems: CanvasItem[]): CanvasItem[]
-    vfuncGetModel(): CanvasItemModel
-    vfuncGetNChildren(): number
-    vfuncGetParent(): CanvasItem
-    vfuncGetRequestedArea(cr: cairo.Context, requestedArea: CanvasBounds): boolean
-    vfuncGetRequestedAreaForWidth(cr: cairo.Context, width: number, requestedArea: CanvasBounds): boolean
-    vfuncGetRequestedHeight(cr: cairo.Context, width: number): number
-    vfuncGetStyle(): CanvasStyle
-    vfuncGetTransform(): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    vfuncGetTransformForChild(child: CanvasItem): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    vfuncGrabBrokenEvent(target: CanvasItem, event: Gdk.EventGrabBroken): boolean
-    vfuncIsVisible(): boolean
-    vfuncKeyPressEvent(target: CanvasItem, event: Gdk.EventKey): boolean
-    vfuncKeyReleaseEvent(target: CanvasItem, event: Gdk.EventKey): boolean
-    vfuncLeaveNotifyEvent(target: CanvasItem, event: Gdk.EventCrossing): boolean
-    vfuncMotionNotifyEvent(target: CanvasItem, event: Gdk.EventMotion): boolean
-    vfuncMoveChild(oldPosition: number, newPosition: number): void
-    vfuncPaint(cr: cairo.Context, bounds: CanvasBounds, scale: number): void
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncRemoveChild(childNum: number): void
-    vfuncRequestUpdate(): void
-    vfuncScrollEvent(target: CanvasItem, event: Gdk.EventScroll): boolean
-    vfuncSetCanvas(canvas: Canvas): void
-    vfuncSetChildProperty(child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetIsStatic(isStatic: boolean): void
-    vfuncSetModel(model: CanvasItemModel): void
-    vfuncSetParent(parent: CanvasItem): void
-    vfuncSetStyle(style: CanvasStyle): void
-    vfuncSetTransform(transform?: cairo.Matrix | null): void
-    vfuncUpdate(entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasItemSimple, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasItemSimple, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GooCanvas.CanvasItem */
+    /* Signals of GooCanvas-2.0.GooCanvas.CanvasItem */
     connect(sigName: "animation-finished", callback: (($obj: CanvasItemSimple, stopped: boolean) => void)): number
-    connect_after(sigName: "animation-finished", callback: (($obj: CanvasItemSimple, stopped: boolean) => void)): number
+    on(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "animation-finished", callback: (stopped: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "animation-finished", stopped: boolean): void
-    on(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: CanvasItemSimple, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: CanvasItemSimple, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", targetItem: CanvasItem, event: Gdk.EventButton): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: CanvasItemSimple, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: CanvasItemSimple, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", targetItem: CanvasItem, event: Gdk.EventButton): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: CanvasItemSimple, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: CanvasItemSimple, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-notify-event", callback: (($obj: CanvasItemSimple, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "enter-notify-event", callback: (($obj: CanvasItemSimple, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "enter-notify-event", targetItem: CanvasItem, event: Gdk.EventCrossing): void
-    on(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in-event", callback: (($obj: CanvasItemSimple, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-in-event", callback: (($obj: CanvasItemSimple, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in-event", targetItem: CanvasItem, event: Gdk.EventFocus): void
-    on(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out-event", callback: (($obj: CanvasItemSimple, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-out-event", callback: (($obj: CanvasItemSimple, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out-event", targetItem: CanvasItem, event: Gdk.EventFocus): void
-    on(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-broken-event", callback: (($obj: CanvasItemSimple, targetItem: CanvasItem, event: Gdk.EventGrabBroken) => boolean)): number
-    connect_after(sigName: "grab-broken-event", callback: (($obj: CanvasItemSimple, targetItem: CanvasItem, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
     emit(sigName: "grab-broken-event", targetItem: CanvasItem, event: Gdk.EventGrabBroken): void
-    on(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: CanvasItemSimple, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: CanvasItemSimple, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", targetItem: CanvasItem, event: Gdk.EventKey): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: CanvasItemSimple, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: CanvasItemSimple, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", targetItem: CanvasItem, event: Gdk.EventKey): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-notify-event", callback: (($obj: CanvasItemSimple, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "leave-notify-event", callback: (($obj: CanvasItemSimple, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "leave-notify-event", targetItem: CanvasItem, event: Gdk.EventCrossing): void
-    on(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-notify-event", callback: (($obj: CanvasItemSimple, targetItem: CanvasItem, event: Gdk.EventMotion) => boolean)): number
-    connect_after(sigName: "motion-notify-event", callback: (($obj: CanvasItemSimple, targetItem: CanvasItem, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void): NodeJS.EventEmitter
     emit(sigName: "motion-notify-event", targetItem: CanvasItem, event: Gdk.EventMotion): void
-    on(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: CanvasItemSimple, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: CanvasItemSimple, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: CanvasItemSimple, targetItem: CanvasItem, event: Gdk.EventScroll) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: CanvasItemSimple, targetItem: CanvasItem, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", targetItem: CanvasItem, event: Gdk.EventScroll): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::antialias", callback: (($obj: CanvasItemSimple, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::antialias", callback: (($obj: CanvasItemSimple, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::antialias", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6738,13 +5905,13 @@ export interface CanvasPath_ConstructProps extends CanvasItemSimple_ConstructPro
     visibilityThreshold?: number
 }
 export class CanvasPath {
-    /* Properties of GooCanvas.CanvasPath */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasPath */
     data: string
     height: number
     width: number
     x: number
     y: number
-    /* Properties of GooCanvas.CanvasItemSimple */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     antialias: CairoAntialias
     clipFillRule: CairoFillRule
     clipPath: string
@@ -6768,7 +5935,7 @@ export class CanvasPath {
     strokeColorRgba: number
     strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
-    /* Properties of GooCanvas.CanvasItem */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItem */
     canFocus: boolean
     description: string
     parent: CanvasItem
@@ -6778,18 +5945,18 @@ export class CanvasPath {
     transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
-    /* Fields of GooCanvas.CanvasPath */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasPath */
     pathData: CanvasPathData
-    /* Fields of GooCanvas.CanvasItemSimple */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     canvas: Canvas
     model: CanvasItemModelSimple
     simpleData: CanvasItemSimpleData
     bounds: CanvasBounds
     needUpdate: number
     needEntireSubtreeUpdate: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GooCanvas.CanvasItemSimple */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     changed(recomputeBounds: boolean): void
     checkInPath(x: number, y: number, cr: cairo.Context, pointerEvents: CanvasPointerEvents): boolean
     checkStyle(): void
@@ -6799,7 +5966,7 @@ export class CanvasPath {
     setModel(model: CanvasItemModel): void
     userBoundsToDevice(cr: cairo.Context, bounds: CanvasBounds): void
     userBoundsToParent(cr: cairo.Context, bounds: CanvasBounds): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6821,13 +5988,13 @@ export class CanvasPath {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GooCanvas.CanvasItem */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItem */
     addChild(child: CanvasItem, position: number): void
     allocateArea(cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number): void
     animate(x: number, y: number, scale: number, degrees: number, absolute: boolean, duration: number, stepTime: number, type: CanvasAnimateType): void
     ensureUpdated(): void
     findChild(child: CanvasItem): number
-    getBounds(): /* bounds */ CanvasBounds
+    getBounds(): { bounds: CanvasBounds }
     getCanvas(): Canvas
     getChild(childNum: number): CanvasItem
     getChildProperty(child: CanvasItem, propertyName: string, value: any): void
@@ -6839,10 +6006,10 @@ export class CanvasPath {
     getRequestedArea(cr: cairo.Context, requestedArea: CanvasBounds): boolean
     getRequestedAreaForWidth(cr: cairo.Context, width: number, requestedArea: CanvasBounds): boolean
     getRequestedHeight(cr: cairo.Context, width: number): number
-    getSimpleTransform(): [ /* returnType */ boolean, /* x */ number, /* y */ number, /* scale */ number, /* rotation */ number ]
+    getSimpleTransform(): { returnType: boolean, x: number, y: number, scale: number, rotation: number }
     getStyle(): CanvasStyle
-    getTransform(): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    getTransformForChild(child: CanvasItem): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
+    getTransform(): { returnType: boolean, transform: cairo.Matrix }
+    getTransformForChild(child: CanvasItem): { returnType: boolean, transform: cairo.Matrix }
     isContainer(): boolean
     isVisible(): boolean
     lower(below?: CanvasItem | null): void
@@ -6866,155 +6033,83 @@ export class CanvasPath {
     stopAnimation(): void
     translate(tx: number, ty: number): void
     update(entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds): void
-    /* Virtual methods of GooCanvas.CanvasItemSimple */
-    vfuncSimpleCreatePath(cr: cairo.Context): void
-    vfuncSimpleIsItemAt(x: number, y: number, cr: cairo.Context, isPointerEvent: boolean): boolean
-    vfuncSimplePaint(cr: cairo.Context, bounds: CanvasBounds): void
-    vfuncSimpleUpdate(cr: cairo.Context): void
-    vfuncAddChild(child: CanvasItem, position: number): void
-    vfuncAllocateArea(cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number): void
-    vfuncAnimationFinished(stopped: boolean): void
-    vfuncButtonPressEvent(target: CanvasItem, event: Gdk.EventButton): boolean
-    vfuncButtonReleaseEvent(target: CanvasItem, event: Gdk.EventButton): boolean
-    vfuncChildNotify(pspec: GObject.ParamSpec): void
-    vfuncEnterNotifyEvent(target: CanvasItem, event: Gdk.EventCrossing): boolean
-    vfuncFocusInEvent(target: CanvasItem, event: Gdk.EventFocus): boolean
-    vfuncFocusOutEvent(target: CanvasItem, event: Gdk.EventFocus): boolean
-    vfuncGetBounds(): /* bounds */ CanvasBounds
-    vfuncGetCanvas(): Canvas
-    vfuncGetChild(childNum: number): CanvasItem
-    vfuncGetChildProperty(child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetIsStatic(): boolean
-    vfuncGetItemsAt(x: number, y: number, cr: cairo.Context, isPointerEvent: boolean, parentIsVisible: boolean, foundItems: CanvasItem[]): CanvasItem[]
-    vfuncGetModel(): CanvasItemModel
-    vfuncGetNChildren(): number
-    vfuncGetParent(): CanvasItem
-    vfuncGetRequestedArea(cr: cairo.Context, requestedArea: CanvasBounds): boolean
-    vfuncGetRequestedAreaForWidth(cr: cairo.Context, width: number, requestedArea: CanvasBounds): boolean
-    vfuncGetRequestedHeight(cr: cairo.Context, width: number): number
-    vfuncGetStyle(): CanvasStyle
-    vfuncGetTransform(): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    vfuncGetTransformForChild(child: CanvasItem): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    vfuncGrabBrokenEvent(target: CanvasItem, event: Gdk.EventGrabBroken): boolean
-    vfuncIsVisible(): boolean
-    vfuncKeyPressEvent(target: CanvasItem, event: Gdk.EventKey): boolean
-    vfuncKeyReleaseEvent(target: CanvasItem, event: Gdk.EventKey): boolean
-    vfuncLeaveNotifyEvent(target: CanvasItem, event: Gdk.EventCrossing): boolean
-    vfuncMotionNotifyEvent(target: CanvasItem, event: Gdk.EventMotion): boolean
-    vfuncMoveChild(oldPosition: number, newPosition: number): void
-    vfuncPaint(cr: cairo.Context, bounds: CanvasBounds, scale: number): void
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncRemoveChild(childNum: number): void
-    vfuncRequestUpdate(): void
-    vfuncScrollEvent(target: CanvasItem, event: Gdk.EventScroll): boolean
-    vfuncSetCanvas(canvas: Canvas): void
-    vfuncSetChildProperty(child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetIsStatic(isStatic: boolean): void
-    vfuncSetModel(model: CanvasItemModel): void
-    vfuncSetParent(parent: CanvasItem): void
-    vfuncSetStyle(style: CanvasStyle): void
-    vfuncSetTransform(transform?: cairo.Matrix | null): void
-    vfuncUpdate(entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasPath, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasPath, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GooCanvas.CanvasItem */
+    /* Signals of GooCanvas-2.0.GooCanvas.CanvasItem */
     connect(sigName: "animation-finished", callback: (($obj: CanvasPath, stopped: boolean) => void)): number
-    connect_after(sigName: "animation-finished", callback: (($obj: CanvasPath, stopped: boolean) => void)): number
+    on(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "animation-finished", callback: (stopped: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "animation-finished", stopped: boolean): void
-    on(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: CanvasPath, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: CanvasPath, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", targetItem: CanvasItem, event: Gdk.EventButton): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: CanvasPath, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: CanvasPath, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", targetItem: CanvasItem, event: Gdk.EventButton): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: CanvasPath, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: CanvasPath, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-notify-event", callback: (($obj: CanvasPath, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "enter-notify-event", callback: (($obj: CanvasPath, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "enter-notify-event", targetItem: CanvasItem, event: Gdk.EventCrossing): void
-    on(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in-event", callback: (($obj: CanvasPath, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-in-event", callback: (($obj: CanvasPath, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in-event", targetItem: CanvasItem, event: Gdk.EventFocus): void
-    on(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out-event", callback: (($obj: CanvasPath, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-out-event", callback: (($obj: CanvasPath, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out-event", targetItem: CanvasItem, event: Gdk.EventFocus): void
-    on(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-broken-event", callback: (($obj: CanvasPath, targetItem: CanvasItem, event: Gdk.EventGrabBroken) => boolean)): number
-    connect_after(sigName: "grab-broken-event", callback: (($obj: CanvasPath, targetItem: CanvasItem, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
     emit(sigName: "grab-broken-event", targetItem: CanvasItem, event: Gdk.EventGrabBroken): void
-    on(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: CanvasPath, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: CanvasPath, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", targetItem: CanvasItem, event: Gdk.EventKey): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: CanvasPath, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: CanvasPath, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", targetItem: CanvasItem, event: Gdk.EventKey): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-notify-event", callback: (($obj: CanvasPath, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "leave-notify-event", callback: (($obj: CanvasPath, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "leave-notify-event", targetItem: CanvasItem, event: Gdk.EventCrossing): void
-    on(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-notify-event", callback: (($obj: CanvasPath, targetItem: CanvasItem, event: Gdk.EventMotion) => boolean)): number
-    connect_after(sigName: "motion-notify-event", callback: (($obj: CanvasPath, targetItem: CanvasItem, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void): NodeJS.EventEmitter
     emit(sigName: "motion-notify-event", targetItem: CanvasItem, event: Gdk.EventMotion): void
-    on(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: CanvasPath, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: CanvasPath, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: CanvasPath, targetItem: CanvasItem, event: Gdk.EventScroll) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: CanvasPath, targetItem: CanvasItem, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", targetItem: CanvasItem, event: Gdk.EventScroll): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::data", callback: (($obj: CanvasPath, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: CanvasPath, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::data", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7229,13 +6324,13 @@ export interface CanvasPathModel_ConstructProps extends CanvasItemModelSimple_Co
     visibilityThreshold?: number
 }
 export class CanvasPathModel {
-    /* Properties of GooCanvas.CanvasPathModel */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasPathModel */
     data: string
     height: number
     width: number
     x: number
     y: number
-    /* Properties of GooCanvas.CanvasItemModelSimple */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemModelSimple */
     antialias: CairoAntialias
     clipFillRule: CairoFillRule
     clipPath: string
@@ -7259,7 +6354,7 @@ export class CanvasPathModel {
     strokeColorRgba: number
     strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
-    /* Properties of GooCanvas.CanvasItemModel */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     canFocus: boolean
     description: string
     parent: CanvasItemModel
@@ -7269,14 +6364,14 @@ export class CanvasPathModel {
     transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
-    /* Fields of GooCanvas.CanvasPathModel */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasPathModel */
     parentObject: CanvasItemModelSimple
     pathData: CanvasPathData
-    /* Fields of GooCanvas.CanvasItemModelSimple */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemModelSimple */
     simpleData: CanvasItemSimpleData
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7298,7 +6393,7 @@ export class CanvasPathModel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GooCanvas.CanvasItemModel */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     addChild(child: CanvasItemModel, position: number): void
     animate(x: number, y: number, scale: number, degrees: number, absolute: boolean, duration: number, stepTime: number, type: CanvasAnimateType): void
     findChild(child: CanvasItemModel): number
@@ -7326,78 +6421,43 @@ export class CanvasPathModel {
     skewY(degrees: number, cx: number, cy: number): void
     stopAnimation(): void
     translate(tx: number, ty: number): void
-    /* Virtual methods of GooCanvas.CanvasItemModelSimple */
-    vfuncAddChild(child: CanvasItemModel, position: number): void
-    vfuncAnimationFinished(stopped: boolean): void
-    vfuncChanged(recomputeBounds: boolean): void
-    vfuncChildAdded(childNum: number): void
-    vfuncChildMoved(oldChildNum: number, newChildNum: number): void
-    vfuncChildNotify(pspec: GObject.ParamSpec): void
-    vfuncChildRemoved(childNum: number): void
-    vfuncGetChild(childNum: number): CanvasItemModel
-    vfuncGetChildProperty(child: CanvasItemModel, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetNChildren(): number
-    vfuncGetParent(): CanvasItemModel
-    vfuncGetStyle(): CanvasStyle
-    vfuncGetTransform(transform: cairo.Matrix): boolean
-    vfuncMoveChild(oldPosition: number, newPosition: number): void
-    vfuncRemoveChild(childNum: number): void
-    vfuncSetChildProperty(child: CanvasItemModel, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetParent(parent: CanvasItemModel): void
-    vfuncSetStyle(style: CanvasStyle): void
-    vfuncSetTransform(transform?: cairo.Matrix | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasPathModel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasPathModel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GooCanvas.CanvasItemModel */
+    /* Signals of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     connect(sigName: "animation-finished", callback: (($obj: CanvasPathModel, stopped: boolean) => void)): number
-    connect_after(sigName: "animation-finished", callback: (($obj: CanvasPathModel, stopped: boolean) => void)): number
+    on(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "animation-finished", callback: (stopped: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "animation-finished", stopped: boolean): void
-    on(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: CanvasPathModel, recomputeBounds: boolean) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: CanvasPathModel, recomputeBounds: boolean) => void)): number
+    on(sigName: "changed", callback: (recomputeBounds: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (recomputeBounds: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (recomputeBounds: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "changed", recomputeBounds: boolean): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-added", callback: (($obj: CanvasPathModel, childNum: number) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: CanvasPathModel, childNum: number) => void)): number
+    on(sigName: "child-added", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (childNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", childNum: number): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-moved", callback: (($obj: CanvasPathModel, oldChildNum: number, newChildNum: number) => void)): number
-    connect_after(sigName: "child-moved", callback: (($obj: CanvasPathModel, oldChildNum: number, newChildNum: number) => void)): number
+    on(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-moved", oldChildNum: number, newChildNum: number): void
-    on(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: CanvasPathModel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: CanvasPathModel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: CanvasPathModel, childNum: number) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: CanvasPathModel, childNum: number) => void)): number
+    on(sigName: "child-removed", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (childNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", childNum: number): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::data", callback: (($obj: CanvasPathModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: CanvasPathModel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::data", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7618,7 +6678,7 @@ export interface CanvasPolyline_ConstructProps extends CanvasItemSimple_Construc
     visibilityThreshold?: number
 }
 export class CanvasPolyline {
-    /* Properties of GooCanvas.CanvasPolyline */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasPolyline */
     arrowLength: number
     arrowTipLength: number
     arrowWidth: number
@@ -7630,7 +6690,7 @@ export class CanvasPolyline {
     width: number
     x: number
     y: number
-    /* Properties of GooCanvas.CanvasItemSimple */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     antialias: CairoAntialias
     clipFillRule: CairoFillRule
     clipPath: string
@@ -7654,7 +6714,7 @@ export class CanvasPolyline {
     strokeColorRgba: number
     strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
-    /* Properties of GooCanvas.CanvasItem */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItem */
     canFocus: boolean
     description: string
     parent: CanvasItem
@@ -7664,18 +6724,18 @@ export class CanvasPolyline {
     transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
-    /* Fields of GooCanvas.CanvasPolyline */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasPolyline */
     polylineData: CanvasPolylineData
-    /* Fields of GooCanvas.CanvasItemSimple */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     canvas: Canvas
     model: CanvasItemModelSimple
     simpleData: CanvasItemSimpleData
     bounds: CanvasBounds
     needUpdate: number
     needEntireSubtreeUpdate: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GooCanvas.CanvasItemSimple */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     changed(recomputeBounds: boolean): void
     checkInPath(x: number, y: number, cr: cairo.Context, pointerEvents: CanvasPointerEvents): boolean
     checkStyle(): void
@@ -7685,7 +6745,7 @@ export class CanvasPolyline {
     setModel(model: CanvasItemModel): void
     userBoundsToDevice(cr: cairo.Context, bounds: CanvasBounds): void
     userBoundsToParent(cr: cairo.Context, bounds: CanvasBounds): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7707,13 +6767,13 @@ export class CanvasPolyline {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GooCanvas.CanvasItem */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItem */
     addChild(child: CanvasItem, position: number): void
     allocateArea(cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number): void
     animate(x: number, y: number, scale: number, degrees: number, absolute: boolean, duration: number, stepTime: number, type: CanvasAnimateType): void
     ensureUpdated(): void
     findChild(child: CanvasItem): number
-    getBounds(): /* bounds */ CanvasBounds
+    getBounds(): { bounds: CanvasBounds }
     getCanvas(): Canvas
     getChild(childNum: number): CanvasItem
     getChildProperty(child: CanvasItem, propertyName: string, value: any): void
@@ -7725,10 +6785,10 @@ export class CanvasPolyline {
     getRequestedArea(cr: cairo.Context, requestedArea: CanvasBounds): boolean
     getRequestedAreaForWidth(cr: cairo.Context, width: number, requestedArea: CanvasBounds): boolean
     getRequestedHeight(cr: cairo.Context, width: number): number
-    getSimpleTransform(): [ /* returnType */ boolean, /* x */ number, /* y */ number, /* scale */ number, /* rotation */ number ]
+    getSimpleTransform(): { returnType: boolean, x: number, y: number, scale: number, rotation: number }
     getStyle(): CanvasStyle
-    getTransform(): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    getTransformForChild(child: CanvasItem): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
+    getTransform(): { returnType: boolean, transform: cairo.Matrix }
+    getTransformForChild(child: CanvasItem): { returnType: boolean, transform: cairo.Matrix }
     isContainer(): boolean
     isVisible(): boolean
     lower(below?: CanvasItem | null): void
@@ -7752,155 +6812,83 @@ export class CanvasPolyline {
     stopAnimation(): void
     translate(tx: number, ty: number): void
     update(entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds): void
-    /* Virtual methods of GooCanvas.CanvasItemSimple */
-    vfuncSimpleCreatePath(cr: cairo.Context): void
-    vfuncSimpleIsItemAt(x: number, y: number, cr: cairo.Context, isPointerEvent: boolean): boolean
-    vfuncSimplePaint(cr: cairo.Context, bounds: CanvasBounds): void
-    vfuncSimpleUpdate(cr: cairo.Context): void
-    vfuncAddChild(child: CanvasItem, position: number): void
-    vfuncAllocateArea(cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number): void
-    vfuncAnimationFinished(stopped: boolean): void
-    vfuncButtonPressEvent(target: CanvasItem, event: Gdk.EventButton): boolean
-    vfuncButtonReleaseEvent(target: CanvasItem, event: Gdk.EventButton): boolean
-    vfuncChildNotify(pspec: GObject.ParamSpec): void
-    vfuncEnterNotifyEvent(target: CanvasItem, event: Gdk.EventCrossing): boolean
-    vfuncFocusInEvent(target: CanvasItem, event: Gdk.EventFocus): boolean
-    vfuncFocusOutEvent(target: CanvasItem, event: Gdk.EventFocus): boolean
-    vfuncGetBounds(): /* bounds */ CanvasBounds
-    vfuncGetCanvas(): Canvas
-    vfuncGetChild(childNum: number): CanvasItem
-    vfuncGetChildProperty(child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetIsStatic(): boolean
-    vfuncGetItemsAt(x: number, y: number, cr: cairo.Context, isPointerEvent: boolean, parentIsVisible: boolean, foundItems: CanvasItem[]): CanvasItem[]
-    vfuncGetModel(): CanvasItemModel
-    vfuncGetNChildren(): number
-    vfuncGetParent(): CanvasItem
-    vfuncGetRequestedArea(cr: cairo.Context, requestedArea: CanvasBounds): boolean
-    vfuncGetRequestedAreaForWidth(cr: cairo.Context, width: number, requestedArea: CanvasBounds): boolean
-    vfuncGetRequestedHeight(cr: cairo.Context, width: number): number
-    vfuncGetStyle(): CanvasStyle
-    vfuncGetTransform(): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    vfuncGetTransformForChild(child: CanvasItem): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    vfuncGrabBrokenEvent(target: CanvasItem, event: Gdk.EventGrabBroken): boolean
-    vfuncIsVisible(): boolean
-    vfuncKeyPressEvent(target: CanvasItem, event: Gdk.EventKey): boolean
-    vfuncKeyReleaseEvent(target: CanvasItem, event: Gdk.EventKey): boolean
-    vfuncLeaveNotifyEvent(target: CanvasItem, event: Gdk.EventCrossing): boolean
-    vfuncMotionNotifyEvent(target: CanvasItem, event: Gdk.EventMotion): boolean
-    vfuncMoveChild(oldPosition: number, newPosition: number): void
-    vfuncPaint(cr: cairo.Context, bounds: CanvasBounds, scale: number): void
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncRemoveChild(childNum: number): void
-    vfuncRequestUpdate(): void
-    vfuncScrollEvent(target: CanvasItem, event: Gdk.EventScroll): boolean
-    vfuncSetCanvas(canvas: Canvas): void
-    vfuncSetChildProperty(child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetIsStatic(isStatic: boolean): void
-    vfuncSetModel(model: CanvasItemModel): void
-    vfuncSetParent(parent: CanvasItem): void
-    vfuncSetStyle(style: CanvasStyle): void
-    vfuncSetTransform(transform?: cairo.Matrix | null): void
-    vfuncUpdate(entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasPolyline, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasPolyline, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GooCanvas.CanvasItem */
+    /* Signals of GooCanvas-2.0.GooCanvas.CanvasItem */
     connect(sigName: "animation-finished", callback: (($obj: CanvasPolyline, stopped: boolean) => void)): number
-    connect_after(sigName: "animation-finished", callback: (($obj: CanvasPolyline, stopped: boolean) => void)): number
+    on(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "animation-finished", callback: (stopped: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "animation-finished", stopped: boolean): void
-    on(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: CanvasPolyline, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: CanvasPolyline, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", targetItem: CanvasItem, event: Gdk.EventButton): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: CanvasPolyline, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: CanvasPolyline, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", targetItem: CanvasItem, event: Gdk.EventButton): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: CanvasPolyline, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: CanvasPolyline, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-notify-event", callback: (($obj: CanvasPolyline, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "enter-notify-event", callback: (($obj: CanvasPolyline, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "enter-notify-event", targetItem: CanvasItem, event: Gdk.EventCrossing): void
-    on(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in-event", callback: (($obj: CanvasPolyline, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-in-event", callback: (($obj: CanvasPolyline, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in-event", targetItem: CanvasItem, event: Gdk.EventFocus): void
-    on(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out-event", callback: (($obj: CanvasPolyline, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-out-event", callback: (($obj: CanvasPolyline, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out-event", targetItem: CanvasItem, event: Gdk.EventFocus): void
-    on(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-broken-event", callback: (($obj: CanvasPolyline, targetItem: CanvasItem, event: Gdk.EventGrabBroken) => boolean)): number
-    connect_after(sigName: "grab-broken-event", callback: (($obj: CanvasPolyline, targetItem: CanvasItem, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
     emit(sigName: "grab-broken-event", targetItem: CanvasItem, event: Gdk.EventGrabBroken): void
-    on(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: CanvasPolyline, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: CanvasPolyline, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", targetItem: CanvasItem, event: Gdk.EventKey): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: CanvasPolyline, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: CanvasPolyline, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", targetItem: CanvasItem, event: Gdk.EventKey): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-notify-event", callback: (($obj: CanvasPolyline, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "leave-notify-event", callback: (($obj: CanvasPolyline, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "leave-notify-event", targetItem: CanvasItem, event: Gdk.EventCrossing): void
-    on(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-notify-event", callback: (($obj: CanvasPolyline, targetItem: CanvasItem, event: Gdk.EventMotion) => boolean)): number
-    connect_after(sigName: "motion-notify-event", callback: (($obj: CanvasPolyline, targetItem: CanvasItem, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void): NodeJS.EventEmitter
     emit(sigName: "motion-notify-event", targetItem: CanvasItem, event: Gdk.EventMotion): void
-    on(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: CanvasPolyline, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: CanvasPolyline, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: CanvasPolyline, targetItem: CanvasItem, event: Gdk.EventScroll) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: CanvasPolyline, targetItem: CanvasItem, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", targetItem: CanvasItem, event: Gdk.EventScroll): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::arrow-length", callback: (($obj: CanvasPolyline, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::arrow-length", callback: (($obj: CanvasPolyline, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::arrow-length", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8151,7 +7139,7 @@ export interface CanvasPolylineModel_ConstructProps extends CanvasItemModelSimpl
     visibilityThreshold?: number
 }
 export class CanvasPolylineModel {
-    /* Properties of GooCanvas.CanvasPolylineModel */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasPolylineModel */
     arrowLength: number
     arrowTipLength: number
     arrowWidth: number
@@ -8163,7 +7151,7 @@ export class CanvasPolylineModel {
     width: number
     x: number
     y: number
-    /* Properties of GooCanvas.CanvasItemModelSimple */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemModelSimple */
     antialias: CairoAntialias
     clipFillRule: CairoFillRule
     clipPath: string
@@ -8187,7 +7175,7 @@ export class CanvasPolylineModel {
     strokeColorRgba: number
     strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
-    /* Properties of GooCanvas.CanvasItemModel */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     canFocus: boolean
     description: string
     parent: CanvasItemModel
@@ -8197,14 +7185,14 @@ export class CanvasPolylineModel {
     transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
-    /* Fields of GooCanvas.CanvasPolylineModel */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasPolylineModel */
     parentObject: CanvasItemModelSimple
     polylineData: CanvasPolylineData
-    /* Fields of GooCanvas.CanvasItemModelSimple */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemModelSimple */
     simpleData: CanvasItemSimpleData
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8226,7 +7214,7 @@ export class CanvasPolylineModel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GooCanvas.CanvasItemModel */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     addChild(child: CanvasItemModel, position: number): void
     animate(x: number, y: number, scale: number, degrees: number, absolute: boolean, duration: number, stepTime: number, type: CanvasAnimateType): void
     findChild(child: CanvasItemModel): number
@@ -8254,78 +7242,43 @@ export class CanvasPolylineModel {
     skewY(degrees: number, cx: number, cy: number): void
     stopAnimation(): void
     translate(tx: number, ty: number): void
-    /* Virtual methods of GooCanvas.CanvasItemModelSimple */
-    vfuncAddChild(child: CanvasItemModel, position: number): void
-    vfuncAnimationFinished(stopped: boolean): void
-    vfuncChanged(recomputeBounds: boolean): void
-    vfuncChildAdded(childNum: number): void
-    vfuncChildMoved(oldChildNum: number, newChildNum: number): void
-    vfuncChildNotify(pspec: GObject.ParamSpec): void
-    vfuncChildRemoved(childNum: number): void
-    vfuncGetChild(childNum: number): CanvasItemModel
-    vfuncGetChildProperty(child: CanvasItemModel, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetNChildren(): number
-    vfuncGetParent(): CanvasItemModel
-    vfuncGetStyle(): CanvasStyle
-    vfuncGetTransform(transform: cairo.Matrix): boolean
-    vfuncMoveChild(oldPosition: number, newPosition: number): void
-    vfuncRemoveChild(childNum: number): void
-    vfuncSetChildProperty(child: CanvasItemModel, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetParent(parent: CanvasItemModel): void
-    vfuncSetStyle(style: CanvasStyle): void
-    vfuncSetTransform(transform?: cairo.Matrix | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasPolylineModel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasPolylineModel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GooCanvas.CanvasItemModel */
+    /* Signals of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     connect(sigName: "animation-finished", callback: (($obj: CanvasPolylineModel, stopped: boolean) => void)): number
-    connect_after(sigName: "animation-finished", callback: (($obj: CanvasPolylineModel, stopped: boolean) => void)): number
+    on(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "animation-finished", callback: (stopped: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "animation-finished", stopped: boolean): void
-    on(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: CanvasPolylineModel, recomputeBounds: boolean) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: CanvasPolylineModel, recomputeBounds: boolean) => void)): number
+    on(sigName: "changed", callback: (recomputeBounds: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (recomputeBounds: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (recomputeBounds: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "changed", recomputeBounds: boolean): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-added", callback: (($obj: CanvasPolylineModel, childNum: number) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: CanvasPolylineModel, childNum: number) => void)): number
+    on(sigName: "child-added", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (childNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", childNum: number): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-moved", callback: (($obj: CanvasPolylineModel, oldChildNum: number, newChildNum: number) => void)): number
-    connect_after(sigName: "child-moved", callback: (($obj: CanvasPolylineModel, oldChildNum: number, newChildNum: number) => void)): number
+    on(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-moved", oldChildNum: number, newChildNum: number): void
-    on(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: CanvasPolylineModel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: CanvasPolylineModel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: CanvasPolylineModel, childNum: number) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: CanvasPolylineModel, childNum: number) => void)): number
+    on(sigName: "child-removed", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (childNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", childNum: number): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::arrow-length", callback: (($obj: CanvasPolylineModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::arrow-length", callback: (($obj: CanvasPolylineModel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::arrow-length", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8571,14 +7524,14 @@ export interface CanvasRect_ConstructProps extends CanvasItemSimple_ConstructPro
     visibilityThreshold?: number
 }
 export class CanvasRect {
-    /* Properties of GooCanvas.CanvasRect */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasRect */
     height: number
     radiusX: number
     radiusY: number
     width: number
     x: number
     y: number
-    /* Properties of GooCanvas.CanvasItemSimple */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     antialias: CairoAntialias
     clipFillRule: CairoFillRule
     clipPath: string
@@ -8602,7 +7555,7 @@ export class CanvasRect {
     strokeColorRgba: number
     strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
-    /* Properties of GooCanvas.CanvasItem */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItem */
     canFocus: boolean
     description: string
     parent: CanvasItem
@@ -8612,18 +7565,18 @@ export class CanvasRect {
     transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
-    /* Fields of GooCanvas.CanvasRect */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasRect */
     rectData: CanvasRectData
-    /* Fields of GooCanvas.CanvasItemSimple */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     canvas: Canvas
     model: CanvasItemModelSimple
     simpleData: CanvasItemSimpleData
     bounds: CanvasBounds
     needUpdate: number
     needEntireSubtreeUpdate: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GooCanvas.CanvasItemSimple */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     changed(recomputeBounds: boolean): void
     checkInPath(x: number, y: number, cr: cairo.Context, pointerEvents: CanvasPointerEvents): boolean
     checkStyle(): void
@@ -8633,7 +7586,7 @@ export class CanvasRect {
     setModel(model: CanvasItemModel): void
     userBoundsToDevice(cr: cairo.Context, bounds: CanvasBounds): void
     userBoundsToParent(cr: cairo.Context, bounds: CanvasBounds): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8655,13 +7608,13 @@ export class CanvasRect {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GooCanvas.CanvasItem */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItem */
     addChild(child: CanvasItem, position: number): void
     allocateArea(cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number): void
     animate(x: number, y: number, scale: number, degrees: number, absolute: boolean, duration: number, stepTime: number, type: CanvasAnimateType): void
     ensureUpdated(): void
     findChild(child: CanvasItem): number
-    getBounds(): /* bounds */ CanvasBounds
+    getBounds(): { bounds: CanvasBounds }
     getCanvas(): Canvas
     getChild(childNum: number): CanvasItem
     getChildProperty(child: CanvasItem, propertyName: string, value: any): void
@@ -8673,10 +7626,10 @@ export class CanvasRect {
     getRequestedArea(cr: cairo.Context, requestedArea: CanvasBounds): boolean
     getRequestedAreaForWidth(cr: cairo.Context, width: number, requestedArea: CanvasBounds): boolean
     getRequestedHeight(cr: cairo.Context, width: number): number
-    getSimpleTransform(): [ /* returnType */ boolean, /* x */ number, /* y */ number, /* scale */ number, /* rotation */ number ]
+    getSimpleTransform(): { returnType: boolean, x: number, y: number, scale: number, rotation: number }
     getStyle(): CanvasStyle
-    getTransform(): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    getTransformForChild(child: CanvasItem): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
+    getTransform(): { returnType: boolean, transform: cairo.Matrix }
+    getTransformForChild(child: CanvasItem): { returnType: boolean, transform: cairo.Matrix }
     isContainer(): boolean
     isVisible(): boolean
     lower(below?: CanvasItem | null): void
@@ -8700,155 +7653,83 @@ export class CanvasRect {
     stopAnimation(): void
     translate(tx: number, ty: number): void
     update(entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds): void
-    /* Virtual methods of GooCanvas.CanvasItemSimple */
-    vfuncSimpleCreatePath(cr: cairo.Context): void
-    vfuncSimpleIsItemAt(x: number, y: number, cr: cairo.Context, isPointerEvent: boolean): boolean
-    vfuncSimplePaint(cr: cairo.Context, bounds: CanvasBounds): void
-    vfuncSimpleUpdate(cr: cairo.Context): void
-    vfuncAddChild(child: CanvasItem, position: number): void
-    vfuncAllocateArea(cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number): void
-    vfuncAnimationFinished(stopped: boolean): void
-    vfuncButtonPressEvent(target: CanvasItem, event: Gdk.EventButton): boolean
-    vfuncButtonReleaseEvent(target: CanvasItem, event: Gdk.EventButton): boolean
-    vfuncChildNotify(pspec: GObject.ParamSpec): void
-    vfuncEnterNotifyEvent(target: CanvasItem, event: Gdk.EventCrossing): boolean
-    vfuncFocusInEvent(target: CanvasItem, event: Gdk.EventFocus): boolean
-    vfuncFocusOutEvent(target: CanvasItem, event: Gdk.EventFocus): boolean
-    vfuncGetBounds(): /* bounds */ CanvasBounds
-    vfuncGetCanvas(): Canvas
-    vfuncGetChild(childNum: number): CanvasItem
-    vfuncGetChildProperty(child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetIsStatic(): boolean
-    vfuncGetItemsAt(x: number, y: number, cr: cairo.Context, isPointerEvent: boolean, parentIsVisible: boolean, foundItems: CanvasItem[]): CanvasItem[]
-    vfuncGetModel(): CanvasItemModel
-    vfuncGetNChildren(): number
-    vfuncGetParent(): CanvasItem
-    vfuncGetRequestedArea(cr: cairo.Context, requestedArea: CanvasBounds): boolean
-    vfuncGetRequestedAreaForWidth(cr: cairo.Context, width: number, requestedArea: CanvasBounds): boolean
-    vfuncGetRequestedHeight(cr: cairo.Context, width: number): number
-    vfuncGetStyle(): CanvasStyle
-    vfuncGetTransform(): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    vfuncGetTransformForChild(child: CanvasItem): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    vfuncGrabBrokenEvent(target: CanvasItem, event: Gdk.EventGrabBroken): boolean
-    vfuncIsVisible(): boolean
-    vfuncKeyPressEvent(target: CanvasItem, event: Gdk.EventKey): boolean
-    vfuncKeyReleaseEvent(target: CanvasItem, event: Gdk.EventKey): boolean
-    vfuncLeaveNotifyEvent(target: CanvasItem, event: Gdk.EventCrossing): boolean
-    vfuncMotionNotifyEvent(target: CanvasItem, event: Gdk.EventMotion): boolean
-    vfuncMoveChild(oldPosition: number, newPosition: number): void
-    vfuncPaint(cr: cairo.Context, bounds: CanvasBounds, scale: number): void
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncRemoveChild(childNum: number): void
-    vfuncRequestUpdate(): void
-    vfuncScrollEvent(target: CanvasItem, event: Gdk.EventScroll): boolean
-    vfuncSetCanvas(canvas: Canvas): void
-    vfuncSetChildProperty(child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetIsStatic(isStatic: boolean): void
-    vfuncSetModel(model: CanvasItemModel): void
-    vfuncSetParent(parent: CanvasItem): void
-    vfuncSetStyle(style: CanvasStyle): void
-    vfuncSetTransform(transform?: cairo.Matrix | null): void
-    vfuncUpdate(entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasRect, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasRect, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GooCanvas.CanvasItem */
+    /* Signals of GooCanvas-2.0.GooCanvas.CanvasItem */
     connect(sigName: "animation-finished", callback: (($obj: CanvasRect, stopped: boolean) => void)): number
-    connect_after(sigName: "animation-finished", callback: (($obj: CanvasRect, stopped: boolean) => void)): number
+    on(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "animation-finished", callback: (stopped: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "animation-finished", stopped: boolean): void
-    on(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: CanvasRect, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: CanvasRect, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", targetItem: CanvasItem, event: Gdk.EventButton): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: CanvasRect, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: CanvasRect, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", targetItem: CanvasItem, event: Gdk.EventButton): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: CanvasRect, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: CanvasRect, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-notify-event", callback: (($obj: CanvasRect, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "enter-notify-event", callback: (($obj: CanvasRect, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "enter-notify-event", targetItem: CanvasItem, event: Gdk.EventCrossing): void
-    on(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in-event", callback: (($obj: CanvasRect, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-in-event", callback: (($obj: CanvasRect, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in-event", targetItem: CanvasItem, event: Gdk.EventFocus): void
-    on(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out-event", callback: (($obj: CanvasRect, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-out-event", callback: (($obj: CanvasRect, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out-event", targetItem: CanvasItem, event: Gdk.EventFocus): void
-    on(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-broken-event", callback: (($obj: CanvasRect, targetItem: CanvasItem, event: Gdk.EventGrabBroken) => boolean)): number
-    connect_after(sigName: "grab-broken-event", callback: (($obj: CanvasRect, targetItem: CanvasItem, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
     emit(sigName: "grab-broken-event", targetItem: CanvasItem, event: Gdk.EventGrabBroken): void
-    on(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: CanvasRect, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: CanvasRect, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", targetItem: CanvasItem, event: Gdk.EventKey): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: CanvasRect, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: CanvasRect, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", targetItem: CanvasItem, event: Gdk.EventKey): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-notify-event", callback: (($obj: CanvasRect, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "leave-notify-event", callback: (($obj: CanvasRect, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "leave-notify-event", targetItem: CanvasItem, event: Gdk.EventCrossing): void
-    on(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-notify-event", callback: (($obj: CanvasRect, targetItem: CanvasItem, event: Gdk.EventMotion) => boolean)): number
-    connect_after(sigName: "motion-notify-event", callback: (($obj: CanvasRect, targetItem: CanvasItem, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void): NodeJS.EventEmitter
     emit(sigName: "motion-notify-event", targetItem: CanvasItem, event: Gdk.EventMotion): void
-    on(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: CanvasRect, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: CanvasRect, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: CanvasRect, targetItem: CanvasItem, event: Gdk.EventScroll) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: CanvasRect, targetItem: CanvasItem, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", targetItem: CanvasItem, event: Gdk.EventScroll): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::height", callback: (($obj: CanvasRect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::height", callback: (($obj: CanvasRect, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::height", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9069,14 +7950,14 @@ export interface CanvasRectModel_ConstructProps extends CanvasItemModelSimple_Co
     visibilityThreshold?: number
 }
 export class CanvasRectModel {
-    /* Properties of GooCanvas.CanvasRectModel */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasRectModel */
     height: number
     radiusX: number
     radiusY: number
     width: number
     x: number
     y: number
-    /* Properties of GooCanvas.CanvasItemModelSimple */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemModelSimple */
     antialias: CairoAntialias
     clipFillRule: CairoFillRule
     clipPath: string
@@ -9100,7 +7981,7 @@ export class CanvasRectModel {
     strokeColorRgba: number
     strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
-    /* Properties of GooCanvas.CanvasItemModel */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     canFocus: boolean
     description: string
     parent: CanvasItemModel
@@ -9110,14 +7991,14 @@ export class CanvasRectModel {
     transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
-    /* Fields of GooCanvas.CanvasRectModel */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasRectModel */
     parentObject: CanvasItemModelSimple
     rectData: CanvasRectData
-    /* Fields of GooCanvas.CanvasItemModelSimple */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemModelSimple */
     simpleData: CanvasItemSimpleData
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9139,7 +8020,7 @@ export class CanvasRectModel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GooCanvas.CanvasItemModel */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     addChild(child: CanvasItemModel, position: number): void
     animate(x: number, y: number, scale: number, degrees: number, absolute: boolean, duration: number, stepTime: number, type: CanvasAnimateType): void
     findChild(child: CanvasItemModel): number
@@ -9167,78 +8048,43 @@ export class CanvasRectModel {
     skewY(degrees: number, cx: number, cy: number): void
     stopAnimation(): void
     translate(tx: number, ty: number): void
-    /* Virtual methods of GooCanvas.CanvasItemModelSimple */
-    vfuncAddChild(child: CanvasItemModel, position: number): void
-    vfuncAnimationFinished(stopped: boolean): void
-    vfuncChanged(recomputeBounds: boolean): void
-    vfuncChildAdded(childNum: number): void
-    vfuncChildMoved(oldChildNum: number, newChildNum: number): void
-    vfuncChildNotify(pspec: GObject.ParamSpec): void
-    vfuncChildRemoved(childNum: number): void
-    vfuncGetChild(childNum: number): CanvasItemModel
-    vfuncGetChildProperty(child: CanvasItemModel, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetNChildren(): number
-    vfuncGetParent(): CanvasItemModel
-    vfuncGetStyle(): CanvasStyle
-    vfuncGetTransform(transform: cairo.Matrix): boolean
-    vfuncMoveChild(oldPosition: number, newPosition: number): void
-    vfuncRemoveChild(childNum: number): void
-    vfuncSetChildProperty(child: CanvasItemModel, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetParent(parent: CanvasItemModel): void
-    vfuncSetStyle(style: CanvasStyle): void
-    vfuncSetTransform(transform?: cairo.Matrix | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasRectModel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasRectModel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GooCanvas.CanvasItemModel */
+    /* Signals of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     connect(sigName: "animation-finished", callback: (($obj: CanvasRectModel, stopped: boolean) => void)): number
-    connect_after(sigName: "animation-finished", callback: (($obj: CanvasRectModel, stopped: boolean) => void)): number
+    on(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "animation-finished", callback: (stopped: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "animation-finished", stopped: boolean): void
-    on(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: CanvasRectModel, recomputeBounds: boolean) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: CanvasRectModel, recomputeBounds: boolean) => void)): number
+    on(sigName: "changed", callback: (recomputeBounds: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (recomputeBounds: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (recomputeBounds: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "changed", recomputeBounds: boolean): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-added", callback: (($obj: CanvasRectModel, childNum: number) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: CanvasRectModel, childNum: number) => void)): number
+    on(sigName: "child-added", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (childNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", childNum: number): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-moved", callback: (($obj: CanvasRectModel, oldChildNum: number, newChildNum: number) => void)): number
-    connect_after(sigName: "child-moved", callback: (($obj: CanvasRectModel, oldChildNum: number, newChildNum: number) => void)): number
+    on(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-moved", oldChildNum: number, newChildNum: number): void
-    on(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: CanvasRectModel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: CanvasRectModel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: CanvasRectModel, childNum: number) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: CanvasRectModel, childNum: number) => void)): number
+    on(sigName: "child-removed", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (childNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", childNum: number): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::height", callback: (($obj: CanvasRectModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::height", callback: (($obj: CanvasRectModel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::height", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9444,12 +8290,12 @@ export class CanvasRectModel {
 export interface CanvasStyle_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CanvasStyle {
-    /* Fields of GooCanvas.CanvasStyle */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasStyle */
     parent: CanvasStyle
     properties: object[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GooCanvas.CanvasStyle */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasStyle */
     copy(): CanvasStyle
     getParent(): CanvasStyle
     getProperty(propertyId: GLib.Quark): any
@@ -9457,7 +8303,7 @@ export class CanvasStyle {
     setParent(parent: CanvasStyle): void
     setProperty(propertyId: GLib.Quark, value: any): void
     setStrokeOptions(cr: cairo.Context): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9479,21 +8325,12 @@ export class CanvasStyle {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasStyle, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasStyle, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9528,7 +8365,7 @@ export interface CanvasTable_ConstructProps extends CanvasGroup_ConstructProps {
     visibilityThreshold?: number
 }
 export class CanvasTable {
-    /* Properties of GooCanvas.CanvasTable */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasTable */
     columnSpacing: number
     homogeneousColumns: boolean
     homogeneousRows: boolean
@@ -9537,12 +8374,12 @@ export class CanvasTable {
     vertGridLineWidth: number
     xBorderSpacing: number
     yBorderSpacing: number
-    /* Properties of GooCanvas.CanvasGroup */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasGroup */
     height: number
     width: number
     x: number
     y: number
-    /* Properties of GooCanvas.CanvasItemSimple */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     antialias: CairoAntialias
     clipFillRule: CairoFillRule
     clipPath: string
@@ -9566,7 +8403,7 @@ export class CanvasTable {
     strokeColorRgba: number
     strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
-    /* Properties of GooCanvas.CanvasItem */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItem */
     canFocus: boolean
     description: string
     parent: CanvasItem
@@ -9576,21 +8413,21 @@ export class CanvasTable {
     transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
-    /* Fields of GooCanvas.CanvasTable */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasTable */
     tableData: CanvasTableData
-    /* Fields of GooCanvas.CanvasGroup */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasGroup */
     parentObject: CanvasItemSimple
     items: object[]
-    /* Fields of GooCanvas.CanvasItemSimple */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     canvas: Canvas
     model: CanvasItemModelSimple
     simpleData: CanvasItemSimpleData
     bounds: CanvasBounds
     needUpdate: number
     needEntireSubtreeUpdate: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GooCanvas.CanvasItemSimple */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     changed(recomputeBounds: boolean): void
     checkInPath(x: number, y: number, cr: cairo.Context, pointerEvents: CanvasPointerEvents): boolean
     checkStyle(): void
@@ -9600,7 +8437,7 @@ export class CanvasTable {
     setModel(model: CanvasItemModel): void
     userBoundsToDevice(cr: cairo.Context, bounds: CanvasBounds): void
     userBoundsToParent(cr: cairo.Context, bounds: CanvasBounds): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9622,13 +8459,13 @@ export class CanvasTable {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GooCanvas.CanvasItem */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItem */
     addChild(child: CanvasItem, position: number): void
     allocateArea(cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number): void
     animate(x: number, y: number, scale: number, degrees: number, absolute: boolean, duration: number, stepTime: number, type: CanvasAnimateType): void
     ensureUpdated(): void
     findChild(child: CanvasItem): number
-    getBounds(): /* bounds */ CanvasBounds
+    getBounds(): { bounds: CanvasBounds }
     getCanvas(): Canvas
     getChild(childNum: number): CanvasItem
     getChildProperty(child: CanvasItem, propertyName: string, value: any): void
@@ -9640,10 +8477,10 @@ export class CanvasTable {
     getRequestedArea(cr: cairo.Context, requestedArea: CanvasBounds): boolean
     getRequestedAreaForWidth(cr: cairo.Context, width: number, requestedArea: CanvasBounds): boolean
     getRequestedHeight(cr: cairo.Context, width: number): number
-    getSimpleTransform(): [ /* returnType */ boolean, /* x */ number, /* y */ number, /* scale */ number, /* rotation */ number ]
+    getSimpleTransform(): { returnType: boolean, x: number, y: number, scale: number, rotation: number }
     getStyle(): CanvasStyle
-    getTransform(): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    getTransformForChild(child: CanvasItem): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
+    getTransform(): { returnType: boolean, transform: cairo.Matrix }
+    getTransformForChild(child: CanvasItem): { returnType: boolean, transform: cairo.Matrix }
     isContainer(): boolean
     isVisible(): boolean
     lower(below?: CanvasItem | null): void
@@ -9667,155 +8504,83 @@ export class CanvasTable {
     stopAnimation(): void
     translate(tx: number, ty: number): void
     update(entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds): void
-    /* Virtual methods of GooCanvas.CanvasItemSimple */
-    vfuncSimpleCreatePath(cr: cairo.Context): void
-    vfuncSimpleIsItemAt(x: number, y: number, cr: cairo.Context, isPointerEvent: boolean): boolean
-    vfuncSimplePaint(cr: cairo.Context, bounds: CanvasBounds): void
-    vfuncSimpleUpdate(cr: cairo.Context): void
-    vfuncAddChild(child: CanvasItem, position: number): void
-    vfuncAllocateArea(cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number): void
-    vfuncAnimationFinished(stopped: boolean): void
-    vfuncButtonPressEvent(target: CanvasItem, event: Gdk.EventButton): boolean
-    vfuncButtonReleaseEvent(target: CanvasItem, event: Gdk.EventButton): boolean
-    vfuncChildNotify(pspec: GObject.ParamSpec): void
-    vfuncEnterNotifyEvent(target: CanvasItem, event: Gdk.EventCrossing): boolean
-    vfuncFocusInEvent(target: CanvasItem, event: Gdk.EventFocus): boolean
-    vfuncFocusOutEvent(target: CanvasItem, event: Gdk.EventFocus): boolean
-    vfuncGetBounds(): /* bounds */ CanvasBounds
-    vfuncGetCanvas(): Canvas
-    vfuncGetChild(childNum: number): CanvasItem
-    vfuncGetChildProperty(child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetIsStatic(): boolean
-    vfuncGetItemsAt(x: number, y: number, cr: cairo.Context, isPointerEvent: boolean, parentIsVisible: boolean, foundItems: CanvasItem[]): CanvasItem[]
-    vfuncGetModel(): CanvasItemModel
-    vfuncGetNChildren(): number
-    vfuncGetParent(): CanvasItem
-    vfuncGetRequestedArea(cr: cairo.Context, requestedArea: CanvasBounds): boolean
-    vfuncGetRequestedAreaForWidth(cr: cairo.Context, width: number, requestedArea: CanvasBounds): boolean
-    vfuncGetRequestedHeight(cr: cairo.Context, width: number): number
-    vfuncGetStyle(): CanvasStyle
-    vfuncGetTransform(): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    vfuncGetTransformForChild(child: CanvasItem): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    vfuncGrabBrokenEvent(target: CanvasItem, event: Gdk.EventGrabBroken): boolean
-    vfuncIsVisible(): boolean
-    vfuncKeyPressEvent(target: CanvasItem, event: Gdk.EventKey): boolean
-    vfuncKeyReleaseEvent(target: CanvasItem, event: Gdk.EventKey): boolean
-    vfuncLeaveNotifyEvent(target: CanvasItem, event: Gdk.EventCrossing): boolean
-    vfuncMotionNotifyEvent(target: CanvasItem, event: Gdk.EventMotion): boolean
-    vfuncMoveChild(oldPosition: number, newPosition: number): void
-    vfuncPaint(cr: cairo.Context, bounds: CanvasBounds, scale: number): void
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncRemoveChild(childNum: number): void
-    vfuncRequestUpdate(): void
-    vfuncScrollEvent(target: CanvasItem, event: Gdk.EventScroll): boolean
-    vfuncSetCanvas(canvas: Canvas): void
-    vfuncSetChildProperty(child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetIsStatic(isStatic: boolean): void
-    vfuncSetModel(model: CanvasItemModel): void
-    vfuncSetParent(parent: CanvasItem): void
-    vfuncSetStyle(style: CanvasStyle): void
-    vfuncSetTransform(transform?: cairo.Matrix | null): void
-    vfuncUpdate(entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasTable, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasTable, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GooCanvas.CanvasItem */
+    /* Signals of GooCanvas-2.0.GooCanvas.CanvasItem */
     connect(sigName: "animation-finished", callback: (($obj: CanvasTable, stopped: boolean) => void)): number
-    connect_after(sigName: "animation-finished", callback: (($obj: CanvasTable, stopped: boolean) => void)): number
+    on(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "animation-finished", callback: (stopped: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "animation-finished", stopped: boolean): void
-    on(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: CanvasTable, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: CanvasTable, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", targetItem: CanvasItem, event: Gdk.EventButton): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: CanvasTable, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: CanvasTable, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", targetItem: CanvasItem, event: Gdk.EventButton): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: CanvasTable, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: CanvasTable, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-notify-event", callback: (($obj: CanvasTable, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "enter-notify-event", callback: (($obj: CanvasTable, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "enter-notify-event", targetItem: CanvasItem, event: Gdk.EventCrossing): void
-    on(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in-event", callback: (($obj: CanvasTable, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-in-event", callback: (($obj: CanvasTable, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in-event", targetItem: CanvasItem, event: Gdk.EventFocus): void
-    on(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out-event", callback: (($obj: CanvasTable, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-out-event", callback: (($obj: CanvasTable, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out-event", targetItem: CanvasItem, event: Gdk.EventFocus): void
-    on(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-broken-event", callback: (($obj: CanvasTable, targetItem: CanvasItem, event: Gdk.EventGrabBroken) => boolean)): number
-    connect_after(sigName: "grab-broken-event", callback: (($obj: CanvasTable, targetItem: CanvasItem, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
     emit(sigName: "grab-broken-event", targetItem: CanvasItem, event: Gdk.EventGrabBroken): void
-    on(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: CanvasTable, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: CanvasTable, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", targetItem: CanvasItem, event: Gdk.EventKey): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: CanvasTable, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: CanvasTable, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", targetItem: CanvasItem, event: Gdk.EventKey): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-notify-event", callback: (($obj: CanvasTable, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "leave-notify-event", callback: (($obj: CanvasTable, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "leave-notify-event", targetItem: CanvasItem, event: Gdk.EventCrossing): void
-    on(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-notify-event", callback: (($obj: CanvasTable, targetItem: CanvasItem, event: Gdk.EventMotion) => boolean)): number
-    connect_after(sigName: "motion-notify-event", callback: (($obj: CanvasTable, targetItem: CanvasItem, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void): NodeJS.EventEmitter
     emit(sigName: "motion-notify-event", targetItem: CanvasItem, event: Gdk.EventMotion): void
-    on(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: CanvasTable, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: CanvasTable, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: CanvasTable, targetItem: CanvasItem, event: Gdk.EventScroll) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: CanvasTable, targetItem: CanvasItem, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", targetItem: CanvasItem, event: Gdk.EventScroll): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::column-spacing", callback: (($obj: CanvasTable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::column-spacing", callback: (($obj: CanvasTable, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::column-spacing", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10068,7 +8833,7 @@ export interface CanvasTableModel_ConstructProps extends CanvasGroupModel_Constr
     visibilityThreshold?: number
 }
 export class CanvasTableModel {
-    /* Properties of GooCanvas.CanvasTableModel */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasTableModel */
     columnSpacing: number
     homogeneousColumns: boolean
     homogeneousRows: boolean
@@ -10077,12 +8842,12 @@ export class CanvasTableModel {
     vertGridLineWidth: number
     xBorderSpacing: number
     yBorderSpacing: number
-    /* Properties of GooCanvas.CanvasGroupModel */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasGroupModel */
     height: number
     width: number
     x: number
     y: number
-    /* Properties of GooCanvas.CanvasItemModelSimple */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemModelSimple */
     antialias: CairoAntialias
     clipFillRule: CairoFillRule
     clipPath: string
@@ -10106,7 +8871,7 @@ export class CanvasTableModel {
     strokeColorRgba: number
     strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
-    /* Properties of GooCanvas.CanvasItemModel */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     canFocus: boolean
     description: string
     parent: CanvasItemModel
@@ -10116,16 +8881,16 @@ export class CanvasTableModel {
     transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
-    /* Fields of GooCanvas.CanvasTableModel */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasTableModel */
     parentObject: CanvasGroupModel
     tableData: CanvasTableData
-    /* Fields of GooCanvas.CanvasGroupModel */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasGroupModel */
     children: object[]
-    /* Fields of GooCanvas.CanvasItemModelSimple */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemModelSimple */
     simpleData: CanvasItemSimpleData
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10147,7 +8912,7 @@ export class CanvasTableModel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GooCanvas.CanvasItemModel */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     addChild(child: CanvasItemModel, position: number): void
     animate(x: number, y: number, scale: number, degrees: number, absolute: boolean, duration: number, stepTime: number, type: CanvasAnimateType): void
     findChild(child: CanvasItemModel): number
@@ -10175,78 +8940,43 @@ export class CanvasTableModel {
     skewY(degrees: number, cx: number, cy: number): void
     stopAnimation(): void
     translate(tx: number, ty: number): void
-    /* Virtual methods of GooCanvas.CanvasItemModelSimple */
-    vfuncAddChild(child: CanvasItemModel, position: number): void
-    vfuncAnimationFinished(stopped: boolean): void
-    vfuncChanged(recomputeBounds: boolean): void
-    vfuncChildAdded(childNum: number): void
-    vfuncChildMoved(oldChildNum: number, newChildNum: number): void
-    vfuncChildNotify(pspec: GObject.ParamSpec): void
-    vfuncChildRemoved(childNum: number): void
-    vfuncGetChild(childNum: number): CanvasItemModel
-    vfuncGetChildProperty(child: CanvasItemModel, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetNChildren(): number
-    vfuncGetParent(): CanvasItemModel
-    vfuncGetStyle(): CanvasStyle
-    vfuncGetTransform(transform: cairo.Matrix): boolean
-    vfuncMoveChild(oldPosition: number, newPosition: number): void
-    vfuncRemoveChild(childNum: number): void
-    vfuncSetChildProperty(child: CanvasItemModel, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetParent(parent: CanvasItemModel): void
-    vfuncSetStyle(style: CanvasStyle): void
-    vfuncSetTransform(transform?: cairo.Matrix | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasTableModel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasTableModel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GooCanvas.CanvasItemModel */
+    /* Signals of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     connect(sigName: "animation-finished", callback: (($obj: CanvasTableModel, stopped: boolean) => void)): number
-    connect_after(sigName: "animation-finished", callback: (($obj: CanvasTableModel, stopped: boolean) => void)): number
+    on(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "animation-finished", callback: (stopped: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "animation-finished", stopped: boolean): void
-    on(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: CanvasTableModel, recomputeBounds: boolean) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: CanvasTableModel, recomputeBounds: boolean) => void)): number
+    on(sigName: "changed", callback: (recomputeBounds: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (recomputeBounds: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (recomputeBounds: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "changed", recomputeBounds: boolean): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-added", callback: (($obj: CanvasTableModel, childNum: number) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: CanvasTableModel, childNum: number) => void)): number
+    on(sigName: "child-added", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (childNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", childNum: number): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-moved", callback: (($obj: CanvasTableModel, oldChildNum: number, newChildNum: number) => void)): number
-    connect_after(sigName: "child-moved", callback: (($obj: CanvasTableModel, oldChildNum: number, newChildNum: number) => void)): number
+    on(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-moved", oldChildNum: number, newChildNum: number): void
-    on(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: CanvasTableModel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: CanvasTableModel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: CanvasTableModel, childNum: number) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: CanvasTableModel, childNum: number) => void)): number
+    on(sigName: "child-removed", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (childNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", childNum: number): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::column-spacing", callback: (($obj: CanvasTableModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::column-spacing", callback: (($obj: CanvasTableModel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::column-spacing", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10501,7 +9231,7 @@ export interface CanvasText_ConstructProps extends CanvasItemSimple_ConstructPro
     visibilityThreshold?: number
 }
 export class CanvasText {
-    /* Properties of GooCanvas.CanvasText */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasText */
     alignment: Pango.Alignment
     anchor: CanvasAnchorType
     ellipsize: Pango.EllipsizeMode
@@ -10512,7 +9242,7 @@ export class CanvasText {
     wrap: Pango.WrapMode
     x: number
     y: number
-    /* Properties of GooCanvas.CanvasItemSimple */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     antialias: CairoAntialias
     clipFillRule: CairoFillRule
     clipPath: string
@@ -10536,7 +9266,7 @@ export class CanvasText {
     strokeColorRgba: number
     strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
-    /* Properties of GooCanvas.CanvasItem */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItem */
     canFocus: boolean
     description: string
     parent: CanvasItem
@@ -10546,21 +9276,21 @@ export class CanvasText {
     transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
-    /* Fields of GooCanvas.CanvasText */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasText */
     textData: CanvasTextData
     layoutWidth: number
-    /* Fields of GooCanvas.CanvasItemSimple */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     canvas: Canvas
     model: CanvasItemModelSimple
     simpleData: CanvasItemSimpleData
     bounds: CanvasBounds
     needUpdate: number
     needEntireSubtreeUpdate: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GooCanvas.CanvasText */
-    getNaturalExtents(): [ /* inkRect */ Pango.Rectangle | null, /* logicalRect */ Pango.Rectangle | null ]
-    /* Methods of GooCanvas.CanvasItemSimple */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasText */
+    getNaturalExtents(): { inkRect: Pango.Rectangle | null, logicalRect: Pango.Rectangle | null }
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     changed(recomputeBounds: boolean): void
     checkInPath(x: number, y: number, cr: cairo.Context, pointerEvents: CanvasPointerEvents): boolean
     checkStyle(): void
@@ -10570,7 +9300,7 @@ export class CanvasText {
     setModel(model: CanvasItemModel): void
     userBoundsToDevice(cr: cairo.Context, bounds: CanvasBounds): void
     userBoundsToParent(cr: cairo.Context, bounds: CanvasBounds): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10592,13 +9322,13 @@ export class CanvasText {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GooCanvas.CanvasItem */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItem */
     addChild(child: CanvasItem, position: number): void
     allocateArea(cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number): void
     animate(x: number, y: number, scale: number, degrees: number, absolute: boolean, duration: number, stepTime: number, type: CanvasAnimateType): void
     ensureUpdated(): void
     findChild(child: CanvasItem): number
-    getBounds(): /* bounds */ CanvasBounds
+    getBounds(): { bounds: CanvasBounds }
     getCanvas(): Canvas
     getChild(childNum: number): CanvasItem
     getChildProperty(child: CanvasItem, propertyName: string, value: any): void
@@ -10610,10 +9340,10 @@ export class CanvasText {
     getRequestedArea(cr: cairo.Context, requestedArea: CanvasBounds): boolean
     getRequestedAreaForWidth(cr: cairo.Context, width: number, requestedArea: CanvasBounds): boolean
     getRequestedHeight(cr: cairo.Context, width: number): number
-    getSimpleTransform(): [ /* returnType */ boolean, /* x */ number, /* y */ number, /* scale */ number, /* rotation */ number ]
+    getSimpleTransform(): { returnType: boolean, x: number, y: number, scale: number, rotation: number }
     getStyle(): CanvasStyle
-    getTransform(): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    getTransformForChild(child: CanvasItem): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
+    getTransform(): { returnType: boolean, transform: cairo.Matrix }
+    getTransformForChild(child: CanvasItem): { returnType: boolean, transform: cairo.Matrix }
     isContainer(): boolean
     isVisible(): boolean
     lower(below?: CanvasItem | null): void
@@ -10637,155 +9367,83 @@ export class CanvasText {
     stopAnimation(): void
     translate(tx: number, ty: number): void
     update(entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds): void
-    /* Virtual methods of GooCanvas.CanvasItemSimple */
-    vfuncSimpleCreatePath(cr: cairo.Context): void
-    vfuncSimpleIsItemAt(x: number, y: number, cr: cairo.Context, isPointerEvent: boolean): boolean
-    vfuncSimplePaint(cr: cairo.Context, bounds: CanvasBounds): void
-    vfuncSimpleUpdate(cr: cairo.Context): void
-    vfuncAddChild(child: CanvasItem, position: number): void
-    vfuncAllocateArea(cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number): void
-    vfuncAnimationFinished(stopped: boolean): void
-    vfuncButtonPressEvent(target: CanvasItem, event: Gdk.EventButton): boolean
-    vfuncButtonReleaseEvent(target: CanvasItem, event: Gdk.EventButton): boolean
-    vfuncChildNotify(pspec: GObject.ParamSpec): void
-    vfuncEnterNotifyEvent(target: CanvasItem, event: Gdk.EventCrossing): boolean
-    vfuncFocusInEvent(target: CanvasItem, event: Gdk.EventFocus): boolean
-    vfuncFocusOutEvent(target: CanvasItem, event: Gdk.EventFocus): boolean
-    vfuncGetBounds(): /* bounds */ CanvasBounds
-    vfuncGetCanvas(): Canvas
-    vfuncGetChild(childNum: number): CanvasItem
-    vfuncGetChildProperty(child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetIsStatic(): boolean
-    vfuncGetItemsAt(x: number, y: number, cr: cairo.Context, isPointerEvent: boolean, parentIsVisible: boolean, foundItems: CanvasItem[]): CanvasItem[]
-    vfuncGetModel(): CanvasItemModel
-    vfuncGetNChildren(): number
-    vfuncGetParent(): CanvasItem
-    vfuncGetRequestedArea(cr: cairo.Context, requestedArea: CanvasBounds): boolean
-    vfuncGetRequestedAreaForWidth(cr: cairo.Context, width: number, requestedArea: CanvasBounds): boolean
-    vfuncGetRequestedHeight(cr: cairo.Context, width: number): number
-    vfuncGetStyle(): CanvasStyle
-    vfuncGetTransform(): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    vfuncGetTransformForChild(child: CanvasItem): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    vfuncGrabBrokenEvent(target: CanvasItem, event: Gdk.EventGrabBroken): boolean
-    vfuncIsVisible(): boolean
-    vfuncKeyPressEvent(target: CanvasItem, event: Gdk.EventKey): boolean
-    vfuncKeyReleaseEvent(target: CanvasItem, event: Gdk.EventKey): boolean
-    vfuncLeaveNotifyEvent(target: CanvasItem, event: Gdk.EventCrossing): boolean
-    vfuncMotionNotifyEvent(target: CanvasItem, event: Gdk.EventMotion): boolean
-    vfuncMoveChild(oldPosition: number, newPosition: number): void
-    vfuncPaint(cr: cairo.Context, bounds: CanvasBounds, scale: number): void
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncRemoveChild(childNum: number): void
-    vfuncRequestUpdate(): void
-    vfuncScrollEvent(target: CanvasItem, event: Gdk.EventScroll): boolean
-    vfuncSetCanvas(canvas: Canvas): void
-    vfuncSetChildProperty(child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetIsStatic(isStatic: boolean): void
-    vfuncSetModel(model: CanvasItemModel): void
-    vfuncSetParent(parent: CanvasItem): void
-    vfuncSetStyle(style: CanvasStyle): void
-    vfuncSetTransform(transform?: cairo.Matrix | null): void
-    vfuncUpdate(entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasText, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasText, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GooCanvas.CanvasItem */
+    /* Signals of GooCanvas-2.0.GooCanvas.CanvasItem */
     connect(sigName: "animation-finished", callback: (($obj: CanvasText, stopped: boolean) => void)): number
-    connect_after(sigName: "animation-finished", callback: (($obj: CanvasText, stopped: boolean) => void)): number
+    on(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "animation-finished", callback: (stopped: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "animation-finished", stopped: boolean): void
-    on(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: CanvasText, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: CanvasText, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", targetItem: CanvasItem, event: Gdk.EventButton): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: CanvasText, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: CanvasText, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", targetItem: CanvasItem, event: Gdk.EventButton): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: CanvasText, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: CanvasText, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-notify-event", callback: (($obj: CanvasText, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "enter-notify-event", callback: (($obj: CanvasText, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "enter-notify-event", targetItem: CanvasItem, event: Gdk.EventCrossing): void
-    on(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in-event", callback: (($obj: CanvasText, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-in-event", callback: (($obj: CanvasText, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in-event", targetItem: CanvasItem, event: Gdk.EventFocus): void
-    on(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out-event", callback: (($obj: CanvasText, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-out-event", callback: (($obj: CanvasText, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out-event", targetItem: CanvasItem, event: Gdk.EventFocus): void
-    on(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-broken-event", callback: (($obj: CanvasText, targetItem: CanvasItem, event: Gdk.EventGrabBroken) => boolean)): number
-    connect_after(sigName: "grab-broken-event", callback: (($obj: CanvasText, targetItem: CanvasItem, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
     emit(sigName: "grab-broken-event", targetItem: CanvasItem, event: Gdk.EventGrabBroken): void
-    on(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: CanvasText, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: CanvasText, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", targetItem: CanvasItem, event: Gdk.EventKey): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: CanvasText, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: CanvasText, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", targetItem: CanvasItem, event: Gdk.EventKey): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-notify-event", callback: (($obj: CanvasText, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "leave-notify-event", callback: (($obj: CanvasText, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "leave-notify-event", targetItem: CanvasItem, event: Gdk.EventCrossing): void
-    on(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-notify-event", callback: (($obj: CanvasText, targetItem: CanvasItem, event: Gdk.EventMotion) => boolean)): number
-    connect_after(sigName: "motion-notify-event", callback: (($obj: CanvasText, targetItem: CanvasItem, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void): NodeJS.EventEmitter
     emit(sigName: "motion-notify-event", targetItem: CanvasItem, event: Gdk.EventMotion): void
-    on(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: CanvasText, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: CanvasText, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: CanvasText, targetItem: CanvasItem, event: Gdk.EventScroll) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: CanvasText, targetItem: CanvasItem, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", targetItem: CanvasItem, event: Gdk.EventScroll): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::alignment", callback: (($obj: CanvasText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::alignment", callback: (($obj: CanvasText, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::alignment", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11030,7 +9688,7 @@ export interface CanvasTextModel_ConstructProps extends CanvasItemModelSimple_Co
     visibilityThreshold?: number
 }
 export class CanvasTextModel {
-    /* Properties of GooCanvas.CanvasTextModel */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasTextModel */
     alignment: Pango.Alignment
     anchor: CanvasAnchorType
     ellipsize: Pango.EllipsizeMode
@@ -11041,7 +9699,7 @@ export class CanvasTextModel {
     wrap: Pango.WrapMode
     x: number
     y: number
-    /* Properties of GooCanvas.CanvasItemModelSimple */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemModelSimple */
     antialias: CairoAntialias
     clipFillRule: CairoFillRule
     clipPath: string
@@ -11065,7 +9723,7 @@ export class CanvasTextModel {
     strokeColorRgba: number
     strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
-    /* Properties of GooCanvas.CanvasItemModel */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     canFocus: boolean
     description: string
     parent: CanvasItemModel
@@ -11075,14 +9733,14 @@ export class CanvasTextModel {
     transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
-    /* Fields of GooCanvas.CanvasTextModel */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasTextModel */
     parentObject: CanvasItemModelSimple
     textData: CanvasTextData
-    /* Fields of GooCanvas.CanvasItemModelSimple */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemModelSimple */
     simpleData: CanvasItemSimpleData
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11104,7 +9762,7 @@ export class CanvasTextModel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GooCanvas.CanvasItemModel */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     addChild(child: CanvasItemModel, position: number): void
     animate(x: number, y: number, scale: number, degrees: number, absolute: boolean, duration: number, stepTime: number, type: CanvasAnimateType): void
     findChild(child: CanvasItemModel): number
@@ -11132,78 +9790,43 @@ export class CanvasTextModel {
     skewY(degrees: number, cx: number, cy: number): void
     stopAnimation(): void
     translate(tx: number, ty: number): void
-    /* Virtual methods of GooCanvas.CanvasItemModelSimple */
-    vfuncAddChild(child: CanvasItemModel, position: number): void
-    vfuncAnimationFinished(stopped: boolean): void
-    vfuncChanged(recomputeBounds: boolean): void
-    vfuncChildAdded(childNum: number): void
-    vfuncChildMoved(oldChildNum: number, newChildNum: number): void
-    vfuncChildNotify(pspec: GObject.ParamSpec): void
-    vfuncChildRemoved(childNum: number): void
-    vfuncGetChild(childNum: number): CanvasItemModel
-    vfuncGetChildProperty(child: CanvasItemModel, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetNChildren(): number
-    vfuncGetParent(): CanvasItemModel
-    vfuncGetStyle(): CanvasStyle
-    vfuncGetTransform(transform: cairo.Matrix): boolean
-    vfuncMoveChild(oldPosition: number, newPosition: number): void
-    vfuncRemoveChild(childNum: number): void
-    vfuncSetChildProperty(child: CanvasItemModel, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetParent(parent: CanvasItemModel): void
-    vfuncSetStyle(style: CanvasStyle): void
-    vfuncSetTransform(transform?: cairo.Matrix | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasTextModel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasTextModel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GooCanvas.CanvasItemModel */
+    /* Signals of GooCanvas-2.0.GooCanvas.CanvasItemModel */
     connect(sigName: "animation-finished", callback: (($obj: CanvasTextModel, stopped: boolean) => void)): number
-    connect_after(sigName: "animation-finished", callback: (($obj: CanvasTextModel, stopped: boolean) => void)): number
+    on(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "animation-finished", callback: (stopped: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "animation-finished", stopped: boolean): void
-    on(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "changed", callback: (($obj: CanvasTextModel, recomputeBounds: boolean) => void)): number
-    connect_after(sigName: "changed", callback: (($obj: CanvasTextModel, recomputeBounds: boolean) => void)): number
+    on(sigName: "changed", callback: (recomputeBounds: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (recomputeBounds: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (recomputeBounds: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "changed", recomputeBounds: boolean): void
-    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-added", callback: (($obj: CanvasTextModel, childNum: number) => void)): number
-    connect_after(sigName: "child-added", callback: (($obj: CanvasTextModel, childNum: number) => void)): number
+    on(sigName: "child-added", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-added", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-added", callback: (childNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-added", childNum: number): void
-    on(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-moved", callback: (($obj: CanvasTextModel, oldChildNum: number, newChildNum: number) => void)): number
-    connect_after(sigName: "child-moved", callback: (($obj: CanvasTextModel, oldChildNum: number, newChildNum: number) => void)): number
+    on(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-moved", callback: (oldChildNum: number, newChildNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-moved", oldChildNum: number, newChildNum: number): void
-    on(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-moved", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: CanvasTextModel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: CanvasTextModel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-removed", callback: (($obj: CanvasTextModel, childNum: number) => void)): number
-    connect_after(sigName: "child-removed", callback: (($obj: CanvasTextModel, childNum: number) => void)): number
+    on(sigName: "child-removed", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-removed", callback: (childNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-removed", callback: (childNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-removed", childNum: number): void
-    on(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::alignment", callback: (($obj: CanvasTextModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::alignment", callback: (($obj: CanvasTextModel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::alignment", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11444,14 +10067,14 @@ export interface CanvasWidget_ConstructProps extends CanvasItemSimple_ConstructP
     visibilityThreshold?: number
 }
 export class CanvasWidget {
-    /* Properties of GooCanvas.CanvasWidget */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasWidget */
     anchor: CanvasAnchorType
     height: number
     widget: Gtk.Widget
     width: number
     x: number
     y: number
-    /* Properties of GooCanvas.CanvasItemSimple */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     antialias: CairoAntialias
     clipFillRule: CairoFillRule
     clipPath: string
@@ -11475,7 +10098,7 @@ export class CanvasWidget {
     strokeColorRgba: number
     strokePattern: any
     strokePixbuf: GdkPixbuf.Pixbuf
-    /* Properties of GooCanvas.CanvasItem */
+    /* Properties of GooCanvas-2.0.GooCanvas.CanvasItem */
     canFocus: boolean
     description: string
     parent: CanvasItem
@@ -11485,18 +10108,18 @@ export class CanvasWidget {
     transform: any
     visibility: CanvasItemVisibility
     visibilityThreshold: number
-    /* Fields of GooCanvas.CanvasWidget */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasWidget */
     parentObject: CanvasItemSimple
-    /* Fields of GooCanvas.CanvasItemSimple */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     canvas: Canvas
     model: CanvasItemModelSimple
     simpleData: CanvasItemSimpleData
     bounds: CanvasBounds
     needUpdate: number
     needEntireSubtreeUpdate: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GooCanvas.CanvasItemSimple */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItemSimple */
     changed(recomputeBounds: boolean): void
     checkInPath(x: number, y: number, cr: cairo.Context, pointerEvents: CanvasPointerEvents): boolean
     checkStyle(): void
@@ -11506,7 +10129,7 @@ export class CanvasWidget {
     setModel(model: CanvasItemModel): void
     userBoundsToDevice(cr: cairo.Context, bounds: CanvasBounds): void
     userBoundsToParent(cr: cairo.Context, bounds: CanvasBounds): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11528,13 +10151,13 @@ export class CanvasWidget {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of GooCanvas.CanvasItem */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasItem */
     addChild(child: CanvasItem, position: number): void
     allocateArea(cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number): void
     animate(x: number, y: number, scale: number, degrees: number, absolute: boolean, duration: number, stepTime: number, type: CanvasAnimateType): void
     ensureUpdated(): void
     findChild(child: CanvasItem): number
-    getBounds(): /* bounds */ CanvasBounds
+    getBounds(): { bounds: CanvasBounds }
     getCanvas(): Canvas
     getChild(childNum: number): CanvasItem
     getChildProperty(child: CanvasItem, propertyName: string, value: any): void
@@ -11546,10 +10169,10 @@ export class CanvasWidget {
     getRequestedArea(cr: cairo.Context, requestedArea: CanvasBounds): boolean
     getRequestedAreaForWidth(cr: cairo.Context, width: number, requestedArea: CanvasBounds): boolean
     getRequestedHeight(cr: cairo.Context, width: number): number
-    getSimpleTransform(): [ /* returnType */ boolean, /* x */ number, /* y */ number, /* scale */ number, /* rotation */ number ]
+    getSimpleTransform(): { returnType: boolean, x: number, y: number, scale: number, rotation: number }
     getStyle(): CanvasStyle
-    getTransform(): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    getTransformForChild(child: CanvasItem): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
+    getTransform(): { returnType: boolean, transform: cairo.Matrix }
+    getTransformForChild(child: CanvasItem): { returnType: boolean, transform: cairo.Matrix }
     isContainer(): boolean
     isVisible(): boolean
     lower(below?: CanvasItem | null): void
@@ -11573,155 +10196,83 @@ export class CanvasWidget {
     stopAnimation(): void
     translate(tx: number, ty: number): void
     update(entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds): void
-    /* Virtual methods of GooCanvas.CanvasItemSimple */
-    vfuncSimpleCreatePath(cr: cairo.Context): void
-    vfuncSimpleIsItemAt(x: number, y: number, cr: cairo.Context, isPointerEvent: boolean): boolean
-    vfuncSimplePaint(cr: cairo.Context, bounds: CanvasBounds): void
-    vfuncSimpleUpdate(cr: cairo.Context): void
-    vfuncAddChild(child: CanvasItem, position: number): void
-    vfuncAllocateArea(cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number): void
-    vfuncAnimationFinished(stopped: boolean): void
-    vfuncButtonPressEvent(target: CanvasItem, event: Gdk.EventButton): boolean
-    vfuncButtonReleaseEvent(target: CanvasItem, event: Gdk.EventButton): boolean
-    vfuncChildNotify(pspec: GObject.ParamSpec): void
-    vfuncEnterNotifyEvent(target: CanvasItem, event: Gdk.EventCrossing): boolean
-    vfuncFocusInEvent(target: CanvasItem, event: Gdk.EventFocus): boolean
-    vfuncFocusOutEvent(target: CanvasItem, event: Gdk.EventFocus): boolean
-    vfuncGetBounds(): /* bounds */ CanvasBounds
-    vfuncGetCanvas(): Canvas
-    vfuncGetChild(childNum: number): CanvasItem
-    vfuncGetChildProperty(child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncGetIsStatic(): boolean
-    vfuncGetItemsAt(x: number, y: number, cr: cairo.Context, isPointerEvent: boolean, parentIsVisible: boolean, foundItems: CanvasItem[]): CanvasItem[]
-    vfuncGetModel(): CanvasItemModel
-    vfuncGetNChildren(): number
-    vfuncGetParent(): CanvasItem
-    vfuncGetRequestedArea(cr: cairo.Context, requestedArea: CanvasBounds): boolean
-    vfuncGetRequestedAreaForWidth(cr: cairo.Context, width: number, requestedArea: CanvasBounds): boolean
-    vfuncGetRequestedHeight(cr: cairo.Context, width: number): number
-    vfuncGetStyle(): CanvasStyle
-    vfuncGetTransform(): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    vfuncGetTransformForChild(child: CanvasItem): [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
-    vfuncGrabBrokenEvent(target: CanvasItem, event: Gdk.EventGrabBroken): boolean
-    vfuncIsVisible(): boolean
-    vfuncKeyPressEvent(target: CanvasItem, event: Gdk.EventKey): boolean
-    vfuncKeyReleaseEvent(target: CanvasItem, event: Gdk.EventKey): boolean
-    vfuncLeaveNotifyEvent(target: CanvasItem, event: Gdk.EventCrossing): boolean
-    vfuncMotionNotifyEvent(target: CanvasItem, event: Gdk.EventMotion): boolean
-    vfuncMoveChild(oldPosition: number, newPosition: number): void
-    vfuncPaint(cr: cairo.Context, bounds: CanvasBounds, scale: number): void
-    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
-    vfuncRemoveChild(childNum: number): void
-    vfuncRequestUpdate(): void
-    vfuncScrollEvent(target: CanvasItem, event: Gdk.EventScroll): boolean
-    vfuncSetCanvas(canvas: Canvas): void
-    vfuncSetChildProperty(child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec): void
-    vfuncSetIsStatic(isStatic: boolean): void
-    vfuncSetModel(model: CanvasItemModel): void
-    vfuncSetParent(parent: CanvasItem): void
-    vfuncSetStyle(style: CanvasStyle): void
-    vfuncSetTransform(transform?: cairo.Matrix | null): void
-    vfuncUpdate(entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasWidget, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasWidget, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GooCanvas.CanvasItem */
+    /* Signals of GooCanvas-2.0.GooCanvas.CanvasItem */
     connect(sigName: "animation-finished", callback: (($obj: CanvasWidget, stopped: boolean) => void)): number
-    connect_after(sigName: "animation-finished", callback: (($obj: CanvasWidget, stopped: boolean) => void)): number
+    on(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "animation-finished", callback: (stopped: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "animation-finished", callback: (stopped: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "animation-finished", stopped: boolean): void
-    on(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "animation-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: CanvasWidget, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: CanvasWidget, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", targetItem: CanvasItem, event: Gdk.EventButton): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: CanvasWidget, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: CanvasWidget, targetItem: CanvasItem, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventButton) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", targetItem: CanvasItem, event: Gdk.EventButton): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: CanvasWidget, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: CanvasWidget, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-notify-event", callback: (($obj: CanvasWidget, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "enter-notify-event", callback: (($obj: CanvasWidget, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "enter-notify-event", targetItem: CanvasItem, event: Gdk.EventCrossing): void
-    on(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-in-event", callback: (($obj: CanvasWidget, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-in-event", callback: (($obj: CanvasWidget, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-in-event", targetItem: CanvasItem, event: Gdk.EventFocus): void
-    on(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-in-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "focus-out-event", callback: (($obj: CanvasWidget, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
-    connect_after(sigName: "focus-out-event", callback: (($obj: CanvasWidget, targetItem: CanvasItem, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (targetItem: CanvasItem, event: Gdk.EventFocus) => void): NodeJS.EventEmitter
     emit(sigName: "focus-out-event", targetItem: CanvasItem, event: Gdk.EventFocus): void
-    on(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "focus-out-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "grab-broken-event", callback: (($obj: CanvasWidget, targetItem: CanvasItem, event: Gdk.EventGrabBroken) => boolean)): number
-    connect_after(sigName: "grab-broken-event", callback: (($obj: CanvasWidget, targetItem: CanvasItem, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (targetItem: CanvasItem, event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
     emit(sigName: "grab-broken-event", targetItem: CanvasItem, event: Gdk.EventGrabBroken): void
-    on(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "grab-broken-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: CanvasWidget, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: CanvasWidget, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", targetItem: CanvasItem, event: Gdk.EventKey): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: CanvasWidget, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: CanvasWidget, targetItem: CanvasItem, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (targetItem: CanvasItem, event: Gdk.EventKey) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", targetItem: CanvasItem, event: Gdk.EventKey): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-notify-event", callback: (($obj: CanvasWidget, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
-    connect_after(sigName: "leave-notify-event", callback: (($obj: CanvasWidget, targetItem: CanvasItem, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
     emit(sigName: "leave-notify-event", targetItem: CanvasItem, event: Gdk.EventCrossing): void
-    on(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-notify-event", callback: (($obj: CanvasWidget, targetItem: CanvasItem, event: Gdk.EventMotion) => boolean)): number
-    connect_after(sigName: "motion-notify-event", callback: (($obj: CanvasWidget, targetItem: CanvasItem, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (targetItem: CanvasItem, event: Gdk.EventMotion) => void): NodeJS.EventEmitter
     emit(sigName: "motion-notify-event", targetItem: CanvasItem, event: Gdk.EventMotion): void
-    on(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-notify-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "query-tooltip", callback: (($obj: CanvasWidget, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
-    connect_after(sigName: "query-tooltip", callback: (($obj: CanvasWidget, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
     emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
-    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: CanvasWidget, targetItem: CanvasItem, event: Gdk.EventScroll) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: CanvasWidget, targetItem: CanvasItem, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (targetItem: CanvasItem, event: Gdk.EventScroll) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", targetItem: CanvasItem, event: Gdk.EventScroll): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::anchor", callback: (($obj: CanvasWidget, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::anchor", callback: (($obj: CanvasWidget, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::anchor", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11927,15 +10478,15 @@ export class CanvasWidget {
 export interface CanvasWidgetAccessibleFactory_ConstructProps extends Atk.ObjectFactory_ConstructProps {
 }
 export class CanvasWidgetAccessibleFactory {
-    /* Fields of Atk.ObjectFactory */
+    /* Fields of Atk-1.0.Atk.ObjectFactory */
     parent: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Atk.ObjectFactory */
+    /* Methods of Atk-1.0.Atk.ObjectFactory */
     createAccessible(obj: GObject.Object): Atk.Object
     getAccessibleType(): GObject.Type
     invalidate(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11957,23 +10508,12 @@ export class CanvasWidgetAccessibleFactory {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Atk.ObjectFactory */
-    vfuncInvalidate(): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CanvasWidgetAccessibleFactory, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CanvasWidgetAccessibleFactory, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11987,7 +10527,7 @@ export class CanvasWidgetAccessibleFactory {
     static $gtype: GObject.Type
 }
 export class CanvasBounds {
-    /* Fields of GooCanvas.CanvasBounds */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasBounds */
     x1: number
     y1: number
     x2: number
@@ -11995,18 +10535,18 @@ export class CanvasBounds {
     static name: string
 }
 export abstract class CanvasClass {
-    /* Fields of GooCanvas.CanvasClass */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasClass */
     createItem: (canvas: Canvas, model: CanvasItemModel) => CanvasItem
     itemCreated: (canvas: Canvas, item: CanvasItem, model: CanvasItemModel) => void
     static name: string
 }
 export abstract class CanvasEllipseClass {
-    /* Fields of GooCanvas.CanvasEllipseClass */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasEllipseClass */
     parentClass: CanvasItemSimpleClass
     static name: string
 }
 export class CanvasEllipseData {
-    /* Fields of GooCanvas.CanvasEllipseData */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasEllipseData */
     centerX: number
     centerY: number
     radiusX: number
@@ -12014,17 +10554,17 @@ export class CanvasEllipseData {
     static name: string
 }
 export abstract class CanvasEllipseModelClass {
-    /* Fields of GooCanvas.CanvasEllipseModelClass */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasEllipseModelClass */
     parentClass: CanvasItemModelSimpleClass
     static name: string
 }
 export abstract class CanvasGridClass {
-    /* Fields of GooCanvas.CanvasGridClass */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasGridClass */
     parentClass: CanvasItemSimpleClass
     static name: string
 }
 export class CanvasGridData {
-    /* Fields of GooCanvas.CanvasGridData */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasGridData */
     x: number
     y: number
     width: number
@@ -12045,27 +10585,27 @@ export class CanvasGridData {
     static name: string
 }
 export abstract class CanvasGridModelClass {
-    /* Fields of GooCanvas.CanvasGridModelClass */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasGridModelClass */
     parentClass: CanvasItemModelSimpleClass
     static name: string
 }
 export abstract class CanvasGroupClass {
-    /* Fields of GooCanvas.CanvasGroupClass */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasGroupClass */
     parentClass: CanvasItemSimpleClass
     static name: string
 }
 export abstract class CanvasGroupModelClass {
-    /* Fields of GooCanvas.CanvasGroupModelClass */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasGroupModelClass */
     parentClass: CanvasItemModelSimpleClass
     static name: string
 }
 export abstract class CanvasImageClass {
-    /* Fields of GooCanvas.CanvasImageClass */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasImageClass */
     parentClass: CanvasItemSimpleClass
     static name: string
 }
 export class CanvasImageData {
-    /* Fields of GooCanvas.CanvasImageData */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasImageData */
     pattern: cairo.Pattern
     x: number
     y: number
@@ -12074,12 +10614,12 @@ export class CanvasImageData {
     static name: string
 }
 export abstract class CanvasImageModelClass {
-    /* Fields of GooCanvas.CanvasImageModelClass */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasImageModelClass */
     parentClass: CanvasItemModelSimpleClass
     static name: string
 }
 export abstract class CanvasItemIface {
-    /* Fields of GooCanvas.CanvasItemIface */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemIface */
     getCanvas: (item: CanvasItem) => Canvas
     setCanvas: (item: CanvasItem, canvas: Canvas) => void
     getNChildren: (item: CanvasItem) => number
@@ -12090,16 +10630,16 @@ export abstract class CanvasItemIface {
     removeChild: (item: CanvasItem, childNum: number) => void
     getChildProperty: (item: CanvasItem, child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec) => void
     setChildProperty: (item: CanvasItem, child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec) => void
-    getTransformForChild: (item: CanvasItem, child: CanvasItem) => [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
+    getTransformForChild: (item: CanvasItem, child: CanvasItem) => { returnType: boolean, transform: cairo.Matrix }
     getParent: (item: CanvasItem) => CanvasItem
     setParent: (item: CanvasItem, parent: CanvasItem) => void
-    getBounds: (item: CanvasItem) => /* bounds */ CanvasBounds
+    getBounds: (item: CanvasItem) => { bounds: CanvasBounds }
     getItemsAt: (item: CanvasItem, x: number, y: number, cr: cairo.Context, isPointerEvent: boolean, parentIsVisible: boolean, foundItems: CanvasItem[]) => CanvasItem[]
     update: (item: CanvasItem, entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds) => void
     paint: (item: CanvasItem, cr: cairo.Context, bounds: CanvasBounds, scale: number) => void
     getRequestedArea: (item: CanvasItem, cr: cairo.Context, requestedArea: CanvasBounds) => boolean
     allocateArea: (item: CanvasItem, cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number) => void
-    getTransform: (item: CanvasItem) => [ /* returnType */ boolean, /* transform */ cairo.Matrix ]
+    getTransform: (item: CanvasItem) => { returnType: boolean, transform: cairo.Matrix }
     setTransform: (item: CanvasItem, transform?: cairo.Matrix | null) => void
     getStyle: (item: CanvasItem) => CanvasStyle
     setStyle: (item: CanvasItem, style: CanvasStyle) => void
@@ -12127,7 +10667,7 @@ export abstract class CanvasItemIface {
     static name: string
 }
 export abstract class CanvasItemModelIface {
-    /* Fields of GooCanvas.CanvasItemModelIface */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemModelIface */
     getNChildren: (model: CanvasItemModel) => number
     getChild: (model: CanvasItemModel, childNum: number) => CanvasItemModel
     addChild: (model: CanvasItemModel, child: CanvasItemModel, position: number) => void
@@ -12150,12 +10690,12 @@ export abstract class CanvasItemModelIface {
     static name: string
 }
 export abstract class CanvasItemModelSimpleClass {
-    /* Fields of GooCanvas.CanvasItemModelSimpleClass */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemModelSimpleClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class CanvasItemSimpleClass {
-    /* Fields of GooCanvas.CanvasItemSimpleClass */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemSimpleClass */
     simpleCreatePath: (simple: CanvasItemSimple, cr: cairo.Context) => void
     simpleUpdate: (simple: CanvasItemSimple, cr: cairo.Context) => void
     simplePaint: (simple: CanvasItemSimple, cr: cairo.Context, bounds: CanvasBounds) => void
@@ -12163,7 +10703,7 @@ export abstract class CanvasItemSimpleClass {
     static name: string
 }
 export class CanvasItemSimpleData {
-    /* Fields of GooCanvas.CanvasItemSimpleData */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasItemSimpleData */
     style: CanvasStyle
     transform: cairo.Matrix
     clipPathCommands: object[]
@@ -12178,12 +10718,12 @@ export class CanvasItemSimpleData {
     static name: string
 }
 export class CanvasLineDash {
-    /* Fields of GooCanvas.CanvasLineDash */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasLineDash */
     refCount: number
     numDashes: number
     dashes: number
     dashOffset: number
-    /* Methods of GooCanvas.CanvasLineDash */
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasLineDash */
     ref(): CanvasLineDash
     setOffset(dashOffset: number): void
     unref(): void
@@ -12192,27 +10732,27 @@ export class CanvasLineDash {
     static newv(dashes: number[]): CanvasLineDash
 }
 export abstract class CanvasPathClass {
-    /* Fields of GooCanvas.CanvasPathClass */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasPathClass */
     parentClass: CanvasItemSimpleClass
     static name: string
 }
 export class CanvasPathData {
-    /* Fields of GooCanvas.CanvasPathData */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasPathData */
     pathCommands: object[]
     static name: string
 }
 export abstract class CanvasPathModelClass {
-    /* Fields of GooCanvas.CanvasPathModelClass */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasPathModelClass */
     parentClass: CanvasItemModelSimpleClass
     static name: string
 }
 export class CanvasPoints {
-    /* Fields of GooCanvas.CanvasPoints */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasPoints */
     coords: number
     numPoints: number
     refCount: number
-    /* Methods of GooCanvas.CanvasPoints */
-    getPoint(idx: number): [ /* x */ number, /* y */ number ]
+    /* Methods of GooCanvas-2.0.GooCanvas.CanvasPoints */
+    getPoint(idx: number): { x: number, y: number }
     ref(): CanvasPoints
     setPoint(idx: number, x: number, y: number): void
     unref(): void
@@ -12223,7 +10763,7 @@ export class CanvasPoints {
     static new(numPoints: number): CanvasPoints
 }
 export class CanvasPolylineArrowData {
-    /* Fields of GooCanvas.CanvasPolylineArrowData */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasPolylineArrowData */
     arrowWidth: number
     arrowLength: number
     arrowTipLength: number
@@ -12234,12 +10774,12 @@ export class CanvasPolylineArrowData {
     static name: string
 }
 export abstract class CanvasPolylineClass {
-    /* Fields of GooCanvas.CanvasPolylineClass */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasPolylineClass */
     parentClass: CanvasItemSimpleClass
     static name: string
 }
 export class CanvasPolylineData {
-    /* Fields of GooCanvas.CanvasPolylineData */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasPolylineData */
     coords: number
     arrowData: CanvasPolylineArrowData
     numPoints: number
@@ -12250,17 +10790,17 @@ export class CanvasPolylineData {
     static name: string
 }
 export abstract class CanvasPolylineModelClass {
-    /* Fields of GooCanvas.CanvasPolylineModelClass */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasPolylineModelClass */
     parentClass: CanvasItemModelSimpleClass
     static name: string
 }
 export abstract class CanvasRectClass {
-    /* Fields of GooCanvas.CanvasRectClass */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasRectClass */
     parentClass: CanvasItemSimpleClass
     static name: string
 }
 export class CanvasRectData {
-    /* Fields of GooCanvas.CanvasRectData */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasRectData */
     x: number
     y: number
     width: number
@@ -12270,28 +10810,28 @@ export class CanvasRectData {
     static name: string
 }
 export abstract class CanvasRectModelClass {
-    /* Fields of GooCanvas.CanvasRectModelClass */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasRectModelClass */
     parentClass: CanvasItemModelSimpleClass
     static name: string
 }
 export abstract class CanvasStyleClass {
-    /* Fields of GooCanvas.CanvasStyleClass */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasStyleClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class CanvasStyleProperty {
-    /* Fields of GooCanvas.CanvasStyleProperty */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasStyleProperty */
     id: GLib.Quark
     value: any
     static name: string
 }
 export abstract class CanvasTableClass {
-    /* Fields of GooCanvas.CanvasTableClass */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasTableClass */
     parentClass: CanvasGroupClass
     static name: string
 }
 export class CanvasTableData {
-    /* Fields of GooCanvas.CanvasTableData */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasTableData */
     width: number
     height: number
     dimensions: CanvasTableDimension[]
@@ -12301,7 +10841,7 @@ export class CanvasTableData {
     static name: string
 }
 export class CanvasTableDimension {
-    /* Fields of GooCanvas.CanvasTableDimension */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasTableDimension */
     size: number
     defaultSpacing: number
     spacings: number
@@ -12312,17 +10852,17 @@ export class CanvasTableLayoutData {
     static name: string
 }
 export abstract class CanvasTableModelClass {
-    /* Fields of GooCanvas.CanvasTableModelClass */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasTableModelClass */
     parentClass: CanvasGroupModelClass
     static name: string
 }
 export abstract class CanvasTextClass {
-    /* Fields of GooCanvas.CanvasTextClass */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasTextClass */
     parentClass: CanvasItemSimpleClass
     static name: string
 }
 export class CanvasTextData {
-    /* Fields of GooCanvas.CanvasTextData */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasTextData */
     text: string
     x: number
     y: number
@@ -12335,12 +10875,12 @@ export class CanvasTextData {
     static name: string
 }
 export abstract class CanvasTextModelClass {
-    /* Fields of GooCanvas.CanvasTextModelClass */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasTextModelClass */
     parentClass: CanvasItemModelSimpleClass
     static name: string
 }
 export abstract class CanvasWidgetClass {
-    /* Fields of GooCanvas.CanvasWidgetClass */
+    /* Fields of GooCanvas-2.0.GooCanvas.CanvasWidgetClass */
     parentClass: CanvasItemSimpleClass
     static name: string
 }

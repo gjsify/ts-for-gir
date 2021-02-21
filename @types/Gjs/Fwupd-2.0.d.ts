@@ -342,7 +342,7 @@ export interface Client_ConstructProps extends GObject.Object_ConstructProps {
     status?: number
 }
 export class Client {
-    /* Properties of Fwupd.Client */
+    /* Properties of Fwupd-2.0.Fwupd.Client */
     readonly daemon_version: string
     readonly host_machine_id: string
     readonly host_product: string
@@ -352,11 +352,11 @@ export class Client {
     readonly soup_session: GObject.Object
     status: number
     readonly tainted: boolean
-    /* Fields of Fwupd.Client */
+    /* Fields of Fwupd-2.0.Fwupd.Client */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Fwupd.Client */
+    /* Methods of Fwupd-2.0.Fwupd.Client */
     activate(cancellable: Gio.Cancellable | null, device_id: string): boolean
     activate_async(device_id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     activate_finish(res: Gio.AsyncResult): boolean
@@ -482,7 +482,7 @@ export class Client {
     verify_update(device_id: string, cancellable?: Gio.Cancellable | null): boolean
     verify_update_async(device_id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     verify_update_finish(res: Gio.AsyncResult): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -504,13 +504,13 @@ export class Client {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Fwupd.Client */
+    /* Virtual methods of Fwupd-2.0.Fwupd.Client */
     vfunc_changed(): void
     vfunc_device_added(result: Device): void
     vfunc_device_changed(result: Device): void
     vfunc_device_removed(result: Device): void
     vfunc_status_changed(status: Status): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -518,7 +518,7 @@ export class Client {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Fwupd.Client */
+    /* Signals of Fwupd-2.0.Fwupd.Client */
     connect(sigName: "changed", callback: (($obj: Client) => void)): number
     connect_after(sigName: "changed", callback: (($obj: Client) => void)): number
     emit(sigName: "changed"): void
@@ -534,7 +534,7 @@ export class Client {
     connect(sigName: "status-changed", callback: (($obj: Client, object: number) => void)): number
     connect_after(sigName: "status-changed", callback: (($obj: Client, object: number) => void)): number
     emit(sigName: "status-changed", object: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -575,17 +575,17 @@ export interface Device_ConstructProps extends GObject.Object_ConstructProps {
     version_format?: number
 }
 export class Device {
-    /* Properties of Fwupd.Device */
+    /* Properties of Fwupd-2.0.Fwupd.Device */
     flags: number
     parent: Device
     protocol: string
     status: number
     version_format: number
-    /* Fields of Fwupd.Device */
+    /* Fields of Fwupd-2.0.Fwupd.Device */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Fwupd.Device */
+    /* Methods of Fwupd-2.0.Fwupd.Device */
     add_checksum(checksum: string): void
     add_child(child: Device): void
     add_flag(flag: DeviceFlags): void
@@ -671,7 +671,7 @@ export class Device {
     to_string(): string
     to_variant(): GLib.Variant
     to_variant_full(flags: DeviceFlags): GLib.Variant
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -693,7 +693,7 @@ export class Device {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -701,7 +701,7 @@ export class Device {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -737,14 +737,14 @@ export interface Plugin_ConstructProps extends GObject.Object_ConstructProps {
     name?: string
 }
 export class Plugin {
-    /* Properties of Fwupd.Plugin */
+    /* Properties of Fwupd-2.0.Fwupd.Plugin */
     flags: number
     name: string
-    /* Fields of Fwupd.Plugin */
+    /* Fields of Fwupd-2.0.Fwupd.Plugin */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Fwupd.Plugin */
+    /* Methods of Fwupd-2.0.Fwupd.Plugin */
     add_flag(flag: PluginFlags): void
     get_flags(): number
     get_name(): string
@@ -754,7 +754,7 @@ export class Plugin {
     set_name(name: string): void
     to_string(): string
     to_variant(): GLib.Variant
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -776,7 +776,7 @@ export class Plugin {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -784,7 +784,7 @@ export class Plugin {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Plugin, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Plugin, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -810,11 +810,11 @@ export class Plugin {
 export interface Release_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Release {
-    /* Fields of Fwupd.Release */
+    /* Fields of Fwupd-2.0.Fwupd.Release */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Fwupd.Release */
+    /* Methods of Fwupd-2.0.Fwupd.Release */
     add_category(category: string): void
     add_checksum(checksum: string): void
     add_flag(flag: ReleaseFlags): void
@@ -884,7 +884,7 @@ export class Release {
     set_version(version: string): void
     to_string(): string
     to_variant(): GLib.Variant
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -906,7 +906,7 @@ export class Release {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -914,7 +914,7 @@ export class Release {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Release, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Release, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -943,17 +943,17 @@ export interface Remote_ConstructProps extends GObject.Object_ConstructProps {
     id?: string
 }
 export class Remote {
-    /* Properties of Fwupd.Remote */
+    /* Properties of Fwupd-2.0.Fwupd.Remote */
     approval_required: boolean
     automatic_reports: boolean
     automatic_security_reports: boolean
     enabled: boolean
     id: string
-    /* Fields of Fwupd.Remote */
+    /* Fields of Fwupd-2.0.Fwupd.Remote */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Fwupd.Remote */
+    /* Methods of Fwupd-2.0.Fwupd.Remote */
     build_firmware_uri(url: string): string
     get_age(): number
     get_agreement(): string
@@ -989,7 +989,7 @@ export class Remote {
     set_priority(priority: number): void
     set_remotes_dir(directory: string): void
     to_variant(): GLib.Variant
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1011,7 +1011,7 @@ export class Remote {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1019,7 +1019,7 @@ export class Remote {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Remote, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Remote, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1051,11 +1051,11 @@ export class Remote {
 export interface SecurityAttr_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SecurityAttr {
-    /* Fields of Fwupd.SecurityAttr */
+    /* Fields of Fwupd-2.0.Fwupd.SecurityAttr */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Fwupd.SecurityAttr */
+    /* Methods of Fwupd-2.0.Fwupd.SecurityAttr */
     add_flag(flag: SecurityAttrFlags): void
     add_metadata(key: string, value?: string | null): void
     add_obsolete(appstream_id: string): void
@@ -1079,7 +1079,7 @@ export class SecurityAttr {
     set_url(url: string): void
     to_string(): string
     to_variant(): GLib.Variant
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1101,7 +1101,7 @@ export class SecurityAttr {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1109,7 +1109,7 @@ export class SecurityAttr {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SecurityAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SecurityAttr, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1130,7 +1130,7 @@ export class SecurityAttr {
     static $gtype: GObject.Type
 }
 export abstract class ClientClass {
-    /* Fields of Fwupd.ClientClass */
+    /* Fields of Fwupd-2.0.Fwupd.ClientClass */
     parent_class: GObject.ObjectClass
     changed: (client: Client) => void
     status_changed: (client: Client, status: Status) => void
@@ -1140,27 +1140,27 @@ export abstract class ClientClass {
     static name: string
 }
 export abstract class DeviceClass {
-    /* Fields of Fwupd.DeviceClass */
+    /* Fields of Fwupd-2.0.Fwupd.DeviceClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class PluginClass {
-    /* Fields of Fwupd.PluginClass */
+    /* Fields of Fwupd-2.0.Fwupd.PluginClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class ReleaseClass {
-    /* Fields of Fwupd.ReleaseClass */
+    /* Fields of Fwupd-2.0.Fwupd.ReleaseClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class RemoteClass {
-    /* Fields of Fwupd.RemoteClass */
+    /* Fields of Fwupd-2.0.Fwupd.RemoteClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class SecurityAttrClass {
-    /* Fields of Fwupd.SecurityAttrClass */
+    /* Fields of Fwupd-2.0.Fwupd.SecurityAttrClass */
     parent_class: GObject.ObjectClass
     static name: string
 }

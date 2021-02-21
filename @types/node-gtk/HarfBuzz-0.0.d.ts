@@ -600,6 +600,10 @@ export enum script_t {
     NANDINAGARI,
     NYIAKENG_PUACHUE_HMONG,
     WANCHO,
+    CHORASMIAN,
+    DIVES_AKURU,
+    KHITAN_SMALL_SCRIPT,
+    YEZIDI,
     INVALID,
 }
 export enum unicode_combining_class_t {
@@ -775,6 +779,7 @@ export function bufferAppend(buffer: buffer_t, source: buffer_t, start: number, 
 export function bufferClearContents(buffer: buffer_t): void
 export function bufferCreate(): buffer_t
 export function bufferDeserializeGlyphs(buffer: buffer_t, buf: string[], font: font_t, format: buffer_serialize_format_t): { returnType: bool_t, endPtr: string }
+export function bufferDeserializeUnicode(buffer: buffer_t, buf: string[], format: buffer_serialize_format_t): { returnType: bool_t, endPtr: string }
 export function bufferDiff(buffer: buffer_t, reference: buffer_t, dottedcircleGlyph: codepoint_t, positionFuzz: number): buffer_diff_flags_t
 export function bufferGetClusterLevel(buffer: buffer_t): buffer_cluster_level_t
 export function bufferGetContentType(buffer: buffer_t): buffer_content_type_t
@@ -791,16 +796,19 @@ export function bufferGetScript(buffer: buffer_t): script_t
 export function bufferGetSegmentProperties(buffer: buffer_t): { props: segment_properties_t }
 export function bufferGetUnicodeFuncs(buffer: buffer_t): unicode_funcs_t
 export function bufferGuessSegmentProperties(buffer: buffer_t): void
+export function bufferHasPositions(buffer: buffer_t): bool_t
 export function bufferNormalizeGlyphs(buffer: buffer_t): void
 export function bufferPreAllocate(buffer: buffer_t, size: number): bool_t
 export function bufferReset(buffer: buffer_t): void
 export function bufferReverse(buffer: buffer_t): void
 export function bufferReverseClusters(buffer: buffer_t): void
 export function bufferReverseRange(buffer: buffer_t, start: number, end: number): void
+export function bufferSerialize(buffer: buffer_t, start: number, end: number, font: font_t | null, format: buffer_serialize_format_t, flags: buffer_serialize_flags_t): { returnType: number, buf: any[], bufConsumed: number | null }
 export function bufferSerializeFormatFromString(str: any[]): buffer_serialize_format_t
 export function bufferSerializeFormatToString(format: buffer_serialize_format_t): string
 export function bufferSerializeGlyphs(buffer: buffer_t, start: number, end: number, font: font_t | null, format: buffer_serialize_format_t, flags: buffer_serialize_flags_t): { returnType: number, buf: any[], bufConsumed: number | null }
 export function bufferSerializeListFormats(): string[]
+export function bufferSerializeUnicode(buffer: buffer_t, start: number, end: number, format: buffer_serialize_format_t, flags: buffer_serialize_flags_t): { returnType: number, buf: any[], bufConsumed: number | null }
 export function bufferSetClusterLevel(buffer: buffer_t, clusterLevel: buffer_cluster_level_t): void
 export function bufferSetContentType(buffer: buffer_t, contentType: buffer_content_type_t): void
 export function bufferSetDirection(buffer: buffer_t, direction: direction_t): void
@@ -830,7 +838,7 @@ export function faceCreateForTables(referenceTableFunc: reference_table_func_t):
 export function faceGetEmpty(): face_t
 export function faceGetGlyphCount(face: face_t): number
 export function faceGetIndex(face: face_t): number
-export function faceGetTableTags(face: face_t, startOffset: number, tableCount: number, tableTags: tag_t): number
+export function faceGetTableTags(face: face_t, startOffset: number): { returnType: number, tableTags: tag_t[] }
 export function faceGetUpem(face: face_t): number
 export function faceIsImmutable(face: face_t): bool_t
 export function faceMakeImmutable(face: face_t): void
@@ -918,6 +926,7 @@ export function ftFontChanged(font: font_t): void
 export function ftFontGetLoadFlags(font: font_t): number
 export function ftFontSetFuncs(font: font_t): void
 export function ftFontSetLoadFlags(font: font_t, loadFlags: number): void
+export function ftFontUnlockFace(font: font_t): void
 export function glibBlobCreate(gbytes: any): blob_t
 export function glibGetUnicodeFuncs(): unicode_funcs_t
 export function glibScriptFromScript(script: script_t): GLib.UnicodeScript
@@ -967,9 +976,10 @@ export function otLayoutHasSubstitution(face: face_t): bool_t
 export function otLayoutLanguageFindFeature(face: face_t, tableTag: tag_t, scriptIndex: number, languageIndex: number, featureTag: tag_t): { returnType: bool_t, featureIndex: number }
 export function otLayoutLanguageGetFeatureIndexes(face: face_t, tableTag: tag_t, scriptIndex: number, languageIndex: number, startOffset: number): { returnType: number, featureIndexes: number[] }
 export function otLayoutLanguageGetFeatureTags(face: face_t, tableTag: tag_t, scriptIndex: number, languageIndex: number, startOffset: number): { returnType: number, featureTags: tag_t[] }
-export function otLayoutLanguageGetRequiredFeature(face: face_t, tableTag: tag_t, scriptIndex: number, languageIndex: number, featureIndex: number): { returnType: bool_t, featureTag: tag_t }
+export function otLayoutLanguageGetRequiredFeature(face: face_t, tableTag: tag_t, scriptIndex: number, languageIndex: number): { returnType: bool_t, featureIndex: number, featureTag: tag_t }
 export function otLayoutLanguageGetRequiredFeatureIndex(face: face_t, tableTag: tag_t, scriptIndex: number, languageIndex: number): { returnType: bool_t, featureIndex: number }
 export function otLayoutLookupCollectGlyphs(face: face_t, tableTag: tag_t, lookupIndex: number): { glyphsBefore: set_t, glyphsInput: set_t, glyphsAfter: set_t, glyphsOutput: set_t }
+export function otLayoutLookupGetGlyphAlternates(face: face_t, lookupIndex: number, glyph: codepoint_t, startOffset: number): { returnType: number, alternateGlyphs: codepoint_t[] }
 export function otLayoutLookupSubstituteClosure(face: face_t, lookupIndex: number): { glyphs: set_t }
 export function otLayoutLookupWouldSubstitute(face: face_t, lookupIndex: number, glyphs: codepoint_t, glyphsLength: number, zeroContext: bool_t): bool_t
 export function otLayoutLookupsSubstituteClosure(face: face_t, lookups: set_t): { glyphs: set_t }
@@ -992,7 +1002,7 @@ export function otMathGetGlyphVariants(font: font_t, glyph: codepoint_t, directi
 export function otMathGetMinConnectorOverlap(font: font_t, direction: direction_t): position_t
 export function otMathHasData(face: face_t): bool_t
 export function otMathIsGlyphExtendedShape(face: face_t, glyph: codepoint_t): bool_t
-export function otMetaGetEntryTags(face: face_t, startOffset: number, entriesCount: number, entries: ot_meta_tag_t): number
+export function otMetaGetEntryTags(face: face_t, startOffset: number): { returnType: number, entries: ot_meta_tag_t[] }
 export function otMetaReferenceEntry(face: face_t, metaTag: ot_meta_tag_t): blob_t
 export function otMetricsGetPosition(font: font_t, metricsTag: ot_metrics_tag_t): { returnType: bool_t, position: position_t | null }
 export function otMetricsGetVariation(font: font_t, metricsTag: ot_metrics_tag_t): number
@@ -1002,25 +1012,25 @@ export function otNameGetUtf16(face: face_t, nameId: ot_name_id_t, language: lan
 export function otNameGetUtf32(face: face_t, nameId: ot_name_id_t, language: language_t): { returnType: number, text: number[] }
 export function otNameGetUtf8(face: face_t, nameId: ot_name_id_t, language: language_t): { returnType: number, text: string[] }
 export function otNameListNames(face: face_t): ot_name_entry_t[]
-export function otShapeGlyphsClosure(font: font_t, buffer: buffer_t, features: feature_t, numFeatures: number, glyphs: set_t): void
+export function otShapeGlyphsClosure(font: font_t, buffer: buffer_t, features: feature_t[]): { glyphs: set_t }
 export function otTagFromLanguage(language: language_t): tag_t
 export function otTagToLanguage(tag: tag_t): language_t
 export function otTagToScript(tag: tag_t): script_t
 export function otTagsFromScript(script: script_t, scriptTag1: tag_t, scriptTag2: tag_t): void
 export function otTagsFromScriptAndLanguage(script: script_t, language: language_t, scriptCount?: number | null, languageCount?: number | null): { scriptTags: tag_t | null, languageTags: tag_t | null }
 export function otTagsToScriptAndLanguage(scriptTag: tag_t, languageTag: tag_t, script?: script_t | null, language?: language_t | null): void
-export function otVarFindAxis(face: face_t, axisTag: tag_t, axisIndex: number, axisInfo: ot_var_axis_t): bool_t
-export function otVarFindAxisInfo(face: face_t, axisTag: tag_t, axisInfo: ot_var_axis_info_t): bool_t
-export function otVarGetAxes(face: face_t, startOffset: number, axesCount: number, axesArray: ot_var_axis_t): number
+export function otVarFindAxis(face: face_t, axisTag: tag_t, axisIndex: number): { returnType: bool_t, axisInfo: ot_var_axis_t }
+export function otVarFindAxisInfo(face: face_t, axisTag: tag_t): { returnType: bool_t, axisInfo: ot_var_axis_info_t }
+export function otVarGetAxes(face: face_t, startOffset: number): { returnType: number, axesArray: ot_var_axis_t[] }
 export function otVarGetAxisCount(face: face_t): number
-export function otVarGetAxisInfos(face: face_t, startOffset: number, axesCount: number, axesArray: ot_var_axis_info_t): number
+export function otVarGetAxisInfos(face: face_t, startOffset: number): { returnType: number, axesArray: ot_var_axis_info_t[] }
 export function otVarGetNamedInstanceCount(face: face_t): number
 export function otVarHasData(face: face_t): bool_t
-export function otVarNamedInstanceGetDesignCoords(face: face_t, instanceIndex: number, coordsLength: number, coords: number): number
+export function otVarNamedInstanceGetDesignCoords(face: face_t, instanceIndex: number): { returnType: number, coords: number[] }
 export function otVarNamedInstanceGetPostscriptNameId(face: face_t, instanceIndex: number): ot_name_id_t
 export function otVarNamedInstanceGetSubfamilyNameId(face: face_t, instanceIndex: number): ot_name_id_t
-export function otVarNormalizeCoords(face: face_t, coordsLength: number, designCoords: number, normalizedCoords: number): void
-export function otVarNormalizeVariations(face: face_t, variations: variation_t, variationsLength: number, coords: number, coordsLength: number): void
+export function otVarNormalizeCoords(face: face_t, coordsLength: number, designCoords: number): { normalizedCoords: number }
+export function otVarNormalizeVariations(face: face_t, variations: variation_t, variationsLength: number): { coords: number[] }
 export function scriptFromIso15924Tag(tag: tag_t): script_t
 export function scriptFromString(str: any[]): script_t
 export function scriptGetHorizontalDirection(script: script_t): direction_t
@@ -1056,9 +1066,9 @@ export function shape(font: font_t, buffer: buffer_t, features: feature_t[] | nu
 export function shapeFull(font: font_t, buffer: buffer_t, features: feature_t[] | null, shaperList?: string[] | null): bool_t
 export function shapeListShapers(): string[]
 export function shapePlanCreate(face: face_t, props: segment_properties_t, userFeatures: feature_t[], shaperList: string[]): shape_plan_t
-export function shapePlanCreate2(face: face_t, props: segment_properties_t, userFeatures: feature_t, numUserFeatures: number, coords: number, numCoords: number, shaperList: string): shape_plan_t
+export function shapePlanCreate2(face: face_t, props: segment_properties_t, userFeatures: feature_t[], coords: number[], shaperList: string[]): shape_plan_t
 export function shapePlanCreateCached(face: face_t, props: segment_properties_t, userFeatures: feature_t[], shaperList: string[]): shape_plan_t
-export function shapePlanCreateCached2(face: face_t, props: segment_properties_t, userFeatures: feature_t, numUserFeatures: number, coords: number, numCoords: number, shaperList: string): shape_plan_t
+export function shapePlanCreateCached2(face: face_t, props: segment_properties_t, userFeatures: feature_t[], coords: number[], shaperList: string[]): shape_plan_t
 export function shapePlanExecute(shapePlan: shape_plan_t, font: font_t, buffer: buffer_t, features: feature_t[]): bool_t
 export function shapePlanGetEmpty(): shape_plan_t
 export function shapePlanGetShaper(shapePlan: shape_plan_t): string

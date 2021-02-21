@@ -77,7 +77,7 @@ export interface TermFilterFunc {
     (terms_in: TermList, terms_out: TermList): void
 }
 export class Model {
-    /* Methods of Dee.Model */
+    /* Methods of Dee-1.0.Dee.Model */
     append_row(row_members: GLib.Variant[]): ModelIter
     begin_changeset(): void
     clear(): void
@@ -126,7 +126,7 @@ export class Model {
     set_schema_full(column_schemas: string[]): void
     set_tag(iter: ModelIter, tag: ModelTag, value?: object | null): void
     set_value(iter: ModelIter, column: number, value: GLib.Variant): void
-    /* Virtual methods of Dee.Model */
+    /* Virtual methods of Dee-1.0.Dee.Model */
     vfunc_append_row(row_members: GLib.Variant[]): ModelIter
     vfunc_begin_changeset(): void
     vfunc_changeset_finished(): void
@@ -177,7 +177,7 @@ export class Model {
     vfunc_set_schema_full(column_schemas: string[]): void
     vfunc_set_tag(iter: ModelIter, tag: ModelTag, value?: object | null): void
     vfunc_set_value(iter: ModelIter, column: number, value: GLib.Variant): void
-    /* Signals of Dee.Model */
+    /* Signals of Dee-1.0.Dee.Model */
     connect(sigName: "changeset-finished", callback: (($obj: Model) => void)): number
     connect_after(sigName: "changeset-finished", callback: (($obj: Model) => void)): number
     emit(sigName: "changeset-finished"): void
@@ -196,10 +196,10 @@ export class Model {
     static name: string
 }
 export class ResourceManager {
-    /* Methods of Dee.ResourceManager */
+    /* Methods of Dee-1.0.Dee.ResourceManager */
     load(resource_name: string): GObject.Object
     store(resource: Serializable, resource_name: string): boolean
-    /* Virtual methods of Dee.ResourceManager */
+    /* Virtual methods of Dee-1.0.Dee.ResourceManager */
     vfunc_load(resource_name: string): GObject.Object
     vfunc_store(resource: Serializable, resource_name: string): boolean
     static name: string
@@ -207,7 +207,7 @@ export class ResourceManager {
     static get_default(): ResourceManager
 }
 export class ResultSet {
-    /* Methods of Dee.ResultSet */
+    /* Methods of Dee-1.0.Dee.ResultSet */
     get_model(): Model
     get_n_rows(): number
     has_next(): boolean
@@ -215,7 +215,7 @@ export class ResultSet {
     peek(): ModelIter
     seek(pos: number): void
     tell(): number
-    /* Virtual methods of Dee.ResultSet */
+    /* Virtual methods of Dee-1.0.Dee.ResultSet */
     vfunc_get_model(): Model
     vfunc_get_n_rows(): number
     vfunc_has_next(): boolean
@@ -226,10 +226,10 @@ export class ResultSet {
     static name: string
 }
 export class Serializable {
-    /* Methods of Dee.Serializable */
+    /* Methods of Dee-1.0.Dee.Serializable */
     externalize(): GLib.Variant
     serialize(): GLib.Variant
-    /* Virtual methods of Dee.Serializable */
+    /* Virtual methods of Dee-1.0.Dee.Serializable */
     vfunc_serialize(): GLib.Variant
     static name: string
     /* Static methods and pseudo-constructors */
@@ -239,15 +239,15 @@ export class Serializable {
 export interface Analyzer_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Analyzer {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Dee.Analyzer */
+    /* Methods of Dee-1.0.Dee.Analyzer */
     add_term_filter(filter_func: TermFilterFunc): void
     analyze(data: string, terms_out?: TermList | null, colkeys_out?: TermList | null): void
     collate_cmp(key1: string, key2: string): number
     collate_key(data: string): string
     tokenize(data: string, terms_out: TermList): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -269,13 +269,13 @@ export class Analyzer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Dee.Analyzer */
+    /* Virtual methods of Dee-1.0.Dee.Analyzer */
     vfunc_add_term_filter(filter_func: TermFilterFunc): void
     vfunc_analyze(data: string, terms_out?: TermList | null, colkeys_out?: TermList | null): void
     vfunc_collate_cmp(key1: string, key2: string): number
     vfunc_collate_key(data: string): string
     vfunc_tokenize(data: string, terms_out: TermList): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -283,7 +283,7 @@ export class Analyzer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Analyzer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Analyzer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -303,19 +303,19 @@ export interface Client_ConstructProps extends Peer_ConstructProps {
     bus_address?: string
 }
 export class Client {
-    /* Properties of Dee.Peer */
+    /* Properties of Dee-1.0.Dee.Peer */
     readonly swarm_leader: string
     swarm_name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Dee.Peer */
+    /* Methods of Dee-1.0.Dee.Peer */
     get_connections(): Gio.DBusConnection[]
     get_swarm_leader(): string
     get_swarm_name(): string
     is_swarm_leader(): boolean
     is_swarm_owner(): boolean
     list_peers(): string[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -337,7 +337,7 @@ export class Client {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Dee.Peer */
+    /* Virtual methods of Dee-1.0.Dee.Peer */
     vfunc_connection_acquired(connection: Gio.DBusConnection): void
     vfunc_connection_closed(connection: Gio.DBusConnection): void
     vfunc_get_connections(): Gio.DBusConnection[]
@@ -346,7 +346,7 @@ export class Client {
     vfunc_list_peers(): string[]
     vfunc_peer_found(name: string): void
     vfunc_peer_lost(name: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -354,7 +354,7 @@ export class Client {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Dee.Peer */
+    /* Signals of Dee-1.0.Dee.Peer */
     connect(sigName: "connection-acquired", callback: (($obj: Client, object: Gio.DBusConnection) => void)): number
     connect_after(sigName: "connection-acquired", callback: (($obj: Client, object: Gio.DBusConnection) => void)): number
     emit(sigName: "connection-acquired", object: Gio.DBusConnection): void
@@ -367,7 +367,7 @@ export class Client {
     connect(sigName: "peer-lost", callback: (($obj: Client, name: string) => void)): number
     connect_after(sigName: "peer-lost", callback: (($obj: Client, name: string) => void)): number
     emit(sigName: "peer-lost", name: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -391,14 +391,14 @@ export interface FileResourceManager_ConstructProps extends GObject.Object_Const
     primary_path?: string
 }
 export class FileResourceManager {
-    /* Fields of Dee.FileResourceManager */
+    /* Fields of Dee-1.0.Dee.FileResourceManager */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Dee.FileResourceManager */
+    /* Methods of Dee-1.0.Dee.FileResourceManager */
     add_search_path(path: string): void
     get_primary_path(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -420,13 +420,13 @@ export class FileResourceManager {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Dee.ResourceManager */
+    /* Methods of Dee-1.0.Dee.ResourceManager */
     load(resource_name: string): GObject.Object
     store(resource: Serializable, resource_name: string): boolean
-    /* Virtual methods of Dee.FileResourceManager */
+    /* Virtual methods of Dee-1.0.Dee.FileResourceManager */
     vfunc_load(resource_name: string): GObject.Object
     vfunc_store(resource: Serializable, resource_name: string): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -434,7 +434,7 @@ export class FileResourceManager {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FileResourceManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FileResourceManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -454,20 +454,20 @@ export interface FilterModel_ConstructProps extends ProxyModel_ConstructProps {
     filter?: Filter
 }
 export class FilterModel {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Dee.FilterModel */
+    /* Methods of Dee-1.0.Dee.FilterModel */
     append_iter(iter: ModelIter): ModelIter
     contains(iter: ModelIter): boolean
     insert_iter(iter: ModelIter, pos: number): ModelIter
     insert_iter_before(iter: ModelIter, pos: ModelIter): ModelIter
     insert_iter_with_original_order(iter: ModelIter): ModelIter
     prepend_iter(iter: ModelIter): ModelIter
-    /* Methods of Dee.SerializableModel */
+    /* Methods of Dee-1.0.Dee.SerializableModel */
     get_seqnum(): number
     inc_seqnum(): number
     set_seqnum(seqnum: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -489,7 +489,7 @@ export class FilterModel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Dee.Model */
+    /* Methods of Dee-1.0.Dee.Model */
     append_row(row_members: GLib.Variant[]): ModelIter
     begin_changeset(): void
     clear(): void
@@ -538,10 +538,10 @@ export class FilterModel {
     set_schema_full(column_schemas: string[]): void
     set_tag(iter: ModelIter, tag: ModelTag, value?: object | null): void
     set_value(iter: ModelIter, column: number, value: GLib.Variant): void
-    /* Methods of Dee.Serializable */
+    /* Methods of Dee-1.0.Dee.Serializable */
     externalize(): GLib.Variant
     serialize(): GLib.Variant
-    /* Virtual methods of Dee.SerializableModel */
+    /* Virtual methods of Dee-1.0.Dee.SerializableModel */
     vfunc_append_row(row_members: GLib.Variant[]): ModelIter
     vfunc_begin_changeset(): void
     vfunc_changeset_finished(): void
@@ -593,7 +593,7 @@ export class FilterModel {
     vfunc_set_tag(iter: ModelIter, tag: ModelTag, value?: object | null): void
     vfunc_set_value(iter: ModelIter, column: number, value: GLib.Variant): void
     vfunc_serialize(): GLib.Variant
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -601,11 +601,11 @@ export class FilterModel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FilterModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FilterModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Dee.Model */
+    /* Signals of Dee-1.0.Dee.Model */
     connect(sigName: "changeset-finished", callback: (($obj: FilterModel) => void)): number
     connect_after(sigName: "changeset-finished", callback: (($obj: FilterModel) => void)): number
     emit(sigName: "changeset-finished"): void
@@ -635,11 +635,11 @@ export class FilterModel {
 export interface GListResultSet_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GListResultSet {
-    /* Fields of Dee.GListResultSet */
+    /* Fields of Dee-1.0.Dee.GListResultSet */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -661,7 +661,7 @@ export class GListResultSet {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Dee.ResultSet */
+    /* Methods of Dee-1.0.Dee.ResultSet */
     get_model(): Model
     get_n_rows(): number
     has_next(): boolean
@@ -669,7 +669,7 @@ export class GListResultSet {
     peek(): ModelIter
     seek(pos: number): void
     tell(): number
-    /* Virtual methods of Dee.GListResultSet */
+    /* Virtual methods of Dee-1.0.Dee.GListResultSet */
     vfunc_get_model(): Model
     vfunc_get_n_rows(): number
     vfunc_has_next(): boolean
@@ -677,7 +677,7 @@ export class GListResultSet {
     vfunc_peek(): ModelIter
     vfunc_seek(pos: number): void
     vfunc_tell(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -685,7 +685,7 @@ export class GListResultSet {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GListResultSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GListResultSet, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -701,9 +701,9 @@ export class GListResultSet {
 export interface HashIndex_ConstructProps extends Index_ConstructProps {
 }
 export class HashIndex {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Dee.Index */
+    /* Methods of Dee-1.0.Dee.Index */
     foreach(start_term: string, func: IndexIterFunc): void
     get_analyzer(): Analyzer
     get_model(): Model
@@ -714,7 +714,7 @@ export class HashIndex {
     get_supported_term_match_flags(): number
     lookup(term: string, flags: TermMatchFlag): ResultSet
     lookup_one(term: string): ModelIter
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -736,14 +736,14 @@ export class HashIndex {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Dee.Index */
+    /* Virtual methods of Dee-1.0.Dee.Index */
     vfunc_foreach(start_term: string, func: IndexIterFunc): void
     vfunc_get_n_rows(): number
     vfunc_get_n_rows_for_term(term: string): number
     vfunc_get_n_terms(): number
     vfunc_get_supported_term_match_flags(): number
     vfunc_lookup(term: string, flags: TermMatchFlag): ResultSet
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -751,7 +751,7 @@ export class HashIndex {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HashIndex, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: HashIndex, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -772,9 +772,9 @@ export interface Index_ConstructProps extends GObject.Object_ConstructProps {
     reader?: ModelReader
 }
 export class Index {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Dee.Index */
+    /* Methods of Dee-1.0.Dee.Index */
     foreach(start_term: string, func: IndexIterFunc): void
     get_analyzer(): Analyzer
     get_model(): Model
@@ -785,7 +785,7 @@ export class Index {
     get_supported_term_match_flags(): number
     lookup(term: string, flags: TermMatchFlag): ResultSet
     lookup_one(term: string): ModelIter
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -807,14 +807,14 @@ export class Index {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Dee.Index */
+    /* Virtual methods of Dee-1.0.Dee.Index */
     vfunc_foreach(start_term: string, func: IndexIterFunc): void
     vfunc_get_n_rows(): number
     vfunc_get_n_rows_for_term(term: string): number
     vfunc_get_n_terms(): number
     vfunc_get_supported_term_match_flags(): number
     vfunc_lookup(term: string, flags: TermMatchFlag): ResultSet
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -822,7 +822,7 @@ export class Index {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Index, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Index, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -840,19 +840,19 @@ export interface Peer_ConstructProps extends GObject.Object_ConstructProps {
     swarm_owner?: boolean
 }
 export class Peer {
-    /* Properties of Dee.Peer */
+    /* Properties of Dee-1.0.Dee.Peer */
     readonly swarm_leader: string
     swarm_name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Dee.Peer */
+    /* Methods of Dee-1.0.Dee.Peer */
     get_connections(): Gio.DBusConnection[]
     get_swarm_leader(): string
     get_swarm_name(): string
     is_swarm_leader(): boolean
     is_swarm_owner(): boolean
     list_peers(): string[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -874,7 +874,7 @@ export class Peer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Dee.Peer */
+    /* Virtual methods of Dee-1.0.Dee.Peer */
     vfunc_connection_acquired(connection: Gio.DBusConnection): void
     vfunc_connection_closed(connection: Gio.DBusConnection): void
     vfunc_get_connections(): Gio.DBusConnection[]
@@ -883,7 +883,7 @@ export class Peer {
     vfunc_list_peers(): string[]
     vfunc_peer_found(name: string): void
     vfunc_peer_lost(name: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -891,7 +891,7 @@ export class Peer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Dee.Peer */
+    /* Signals of Dee-1.0.Dee.Peer */
     connect(sigName: "connection-acquired", callback: (($obj: Peer, object: Gio.DBusConnection) => void)): number
     connect_after(sigName: "connection-acquired", callback: (($obj: Peer, object: Gio.DBusConnection) => void)): number
     emit(sigName: "connection-acquired", object: Gio.DBusConnection): void
@@ -904,7 +904,7 @@ export class Peer {
     connect(sigName: "peer-lost", callback: (($obj: Peer, name: string) => void)): number
     connect_after(sigName: "peer-lost", callback: (($obj: Peer, name: string) => void)): number
     emit(sigName: "peer-lost", name: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Peer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Peer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -929,13 +929,13 @@ export interface ProxyModel_ConstructProps extends SerializableModel_ConstructPr
     proxy_signals?: boolean
 }
 export class ProxyModel {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Dee.SerializableModel */
+    /* Methods of Dee-1.0.Dee.SerializableModel */
     get_seqnum(): number
     inc_seqnum(): number
     set_seqnum(seqnum: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -957,7 +957,7 @@ export class ProxyModel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Dee.Model */
+    /* Methods of Dee-1.0.Dee.Model */
     append_row(row_members: GLib.Variant[]): ModelIter
     begin_changeset(): void
     clear(): void
@@ -1006,10 +1006,10 @@ export class ProxyModel {
     set_schema_full(column_schemas: string[]): void
     set_tag(iter: ModelIter, tag: ModelTag, value?: object | null): void
     set_value(iter: ModelIter, column: number, value: GLib.Variant): void
-    /* Methods of Dee.Serializable */
+    /* Methods of Dee-1.0.Dee.Serializable */
     externalize(): GLib.Variant
     serialize(): GLib.Variant
-    /* Virtual methods of Dee.SerializableModel */
+    /* Virtual methods of Dee-1.0.Dee.SerializableModel */
     vfunc_append_row(row_members: GLib.Variant[]): ModelIter
     vfunc_begin_changeset(): void
     vfunc_changeset_finished(): void
@@ -1061,7 +1061,7 @@ export class ProxyModel {
     vfunc_set_tag(iter: ModelIter, tag: ModelTag, value?: object | null): void
     vfunc_set_value(iter: ModelIter, column: number, value: GLib.Variant): void
     vfunc_serialize(): GLib.Variant
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1069,11 +1069,11 @@ export class ProxyModel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProxyModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ProxyModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Dee.Model */
+    /* Signals of Dee-1.0.Dee.Model */
     connect(sigName: "changeset-finished", callback: (($obj: ProxyModel) => void)): number
     connect_after(sigName: "changeset-finished", callback: (($obj: ProxyModel) => void)): number
     emit(sigName: "changeset-finished"): void
@@ -1101,13 +1101,13 @@ export class ProxyModel {
 export interface SequenceModel_ConstructProps extends SerializableModel_ConstructProps {
 }
 export class SequenceModel {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Dee.SerializableModel */
+    /* Methods of Dee-1.0.Dee.SerializableModel */
     get_seqnum(): number
     inc_seqnum(): number
     set_seqnum(seqnum: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1129,7 +1129,7 @@ export class SequenceModel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Dee.Model */
+    /* Methods of Dee-1.0.Dee.Model */
     append_row(row_members: GLib.Variant[]): ModelIter
     begin_changeset(): void
     clear(): void
@@ -1178,10 +1178,10 @@ export class SequenceModel {
     set_schema_full(column_schemas: string[]): void
     set_tag(iter: ModelIter, tag: ModelTag, value?: object | null): void
     set_value(iter: ModelIter, column: number, value: GLib.Variant): void
-    /* Methods of Dee.Serializable */
+    /* Methods of Dee-1.0.Dee.Serializable */
     externalize(): GLib.Variant
     serialize(): GLib.Variant
-    /* Virtual methods of Dee.SerializableModel */
+    /* Virtual methods of Dee-1.0.Dee.SerializableModel */
     vfunc_append_row(row_members: GLib.Variant[]): ModelIter
     vfunc_begin_changeset(): void
     vfunc_changeset_finished(): void
@@ -1233,7 +1233,7 @@ export class SequenceModel {
     vfunc_set_tag(iter: ModelIter, tag: ModelTag, value?: object | null): void
     vfunc_set_value(iter: ModelIter, column: number, value: GLib.Variant): void
     vfunc_serialize(): GLib.Variant
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1241,11 +1241,11 @@ export class SequenceModel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SequenceModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SequenceModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Dee.Model */
+    /* Signals of Dee-1.0.Dee.Model */
     connect(sigName: "changeset-finished", callback: (($obj: SequenceModel) => void)): number
     connect_after(sigName: "changeset-finished", callback: (($obj: SequenceModel) => void)): number
     emit(sigName: "changeset-finished"): void
@@ -1275,13 +1275,13 @@ export class SequenceModel {
 export interface SerializableModel_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableModel {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Dee.SerializableModel */
+    /* Methods of Dee-1.0.Dee.SerializableModel */
     get_seqnum(): number
     inc_seqnum(): number
     set_seqnum(seqnum: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1303,7 +1303,7 @@ export class SerializableModel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Dee.Model */
+    /* Methods of Dee-1.0.Dee.Model */
     append_row(row_members: GLib.Variant[]): ModelIter
     begin_changeset(): void
     clear(): void
@@ -1352,10 +1352,10 @@ export class SerializableModel {
     set_schema_full(column_schemas: string[]): void
     set_tag(iter: ModelIter, tag: ModelTag, value?: object | null): void
     set_value(iter: ModelIter, column: number, value: GLib.Variant): void
-    /* Methods of Dee.Serializable */
+    /* Methods of Dee-1.0.Dee.Serializable */
     externalize(): GLib.Variant
     serialize(): GLib.Variant
-    /* Virtual methods of Dee.SerializableModel */
+    /* Virtual methods of Dee-1.0.Dee.SerializableModel */
     vfunc_append_row(row_members: GLib.Variant[]): ModelIter
     vfunc_begin_changeset(): void
     vfunc_changeset_finished(): void
@@ -1407,7 +1407,7 @@ export class SerializableModel {
     vfunc_set_tag(iter: ModelIter, tag: ModelTag, value?: object | null): void
     vfunc_set_value(iter: ModelIter, column: number, value: GLib.Variant): void
     vfunc_serialize(): GLib.Variant
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1415,11 +1415,11 @@ export class SerializableModel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Dee.Model */
+    /* Signals of Dee-1.0.Dee.Model */
     connect(sigName: "changeset-finished", callback: (($obj: SerializableModel) => void)): number
     connect_after(sigName: "changeset-finished", callback: (($obj: SerializableModel) => void)): number
     emit(sigName: "changeset-finished"): void
@@ -1452,21 +1452,21 @@ export interface Server_ConstructProps extends Peer_ConstructProps {
     same_user_only?: boolean
 }
 export class Server {
-    /* Properties of Dee.Peer */
+    /* Properties of Dee-1.0.Dee.Peer */
     readonly swarm_leader: string
     swarm_name: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Dee.Server */
+    /* Methods of Dee-1.0.Dee.Server */
     get_client_address(): string
-    /* Methods of Dee.Peer */
+    /* Methods of Dee-1.0.Dee.Peer */
     get_connections(): Gio.DBusConnection[]
     get_swarm_leader(): string
     get_swarm_name(): string
     is_swarm_leader(): boolean
     is_swarm_owner(): boolean
     list_peers(): string[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1488,7 +1488,7 @@ export class Server {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Dee.Peer */
+    /* Virtual methods of Dee-1.0.Dee.Peer */
     vfunc_connection_acquired(connection: Gio.DBusConnection): void
     vfunc_connection_closed(connection: Gio.DBusConnection): void
     vfunc_get_connections(): Gio.DBusConnection[]
@@ -1497,7 +1497,7 @@ export class Server {
     vfunc_list_peers(): string[]
     vfunc_peer_found(name: string): void
     vfunc_peer_lost(name: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1505,7 +1505,7 @@ export class Server {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Dee.Peer */
+    /* Signals of Dee-1.0.Dee.Peer */
     connect(sigName: "connection-acquired", callback: (($obj: Server, object: Gio.DBusConnection) => void)): number
     connect_after(sigName: "connection-acquired", callback: (($obj: Server, object: Gio.DBusConnection) => void)): number
     emit(sigName: "connection-acquired", object: Gio.DBusConnection): void
@@ -1518,7 +1518,7 @@ export class Server {
     connect(sigName: "peer-lost", callback: (($obj: Server, name: string) => void)): number
     connect_after(sigName: "peer-lost", callback: (($obj: Server, name: string) => void)): number
     emit(sigName: "peer-lost", name: string): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Server, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Server, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1545,12 +1545,12 @@ export interface SharedModel_ConstructProps extends ProxyModel_ConstructProps {
     peer?: Peer
 }
 export class SharedModel {
-    /* Properties of Dee.SharedModel */
+    /* Properties of Dee-1.0.Dee.SharedModel */
     flush_mode: SharedModelFlushMode
     readonly synchronized: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Dee.SharedModel */
+    /* Methods of Dee-1.0.Dee.SharedModel */
     flush_revision_queue(): number
     flush_revision_queue_sync(): number
     get_flush_mode(): SharedModelFlushMode
@@ -1559,11 +1559,11 @@ export class SharedModel {
     is_leader(): boolean
     is_synchronized(): boolean
     set_flush_mode(mode: SharedModelFlushMode): void
-    /* Methods of Dee.SerializableModel */
+    /* Methods of Dee-1.0.Dee.SerializableModel */
     get_seqnum(): number
     inc_seqnum(): number
     set_seqnum(seqnum: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1585,7 +1585,7 @@ export class SharedModel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Dee.Model */
+    /* Methods of Dee-1.0.Dee.Model */
     append_row(row_members: GLib.Variant[]): ModelIter
     begin_changeset(): void
     clear(): void
@@ -1634,10 +1634,10 @@ export class SharedModel {
     set_schema_full(column_schemas: string[]): void
     set_tag(iter: ModelIter, tag: ModelTag, value?: object | null): void
     set_value(iter: ModelIter, column: number, value: GLib.Variant): void
-    /* Methods of Dee.Serializable */
+    /* Methods of Dee-1.0.Dee.Serializable */
     externalize(): GLib.Variant
     serialize(): GLib.Variant
-    /* Virtual methods of Dee.SerializableModel */
+    /* Virtual methods of Dee-1.0.Dee.SerializableModel */
     vfunc_append_row(row_members: GLib.Variant[]): ModelIter
     vfunc_begin_changeset(): void
     vfunc_changeset_finished(): void
@@ -1689,7 +1689,7 @@ export class SharedModel {
     vfunc_set_tag(iter: ModelIter, tag: ModelTag, value?: object | null): void
     vfunc_set_value(iter: ModelIter, column: number, value: GLib.Variant): void
     vfunc_serialize(): GLib.Variant
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1697,18 +1697,18 @@ export class SharedModel {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Dee.SharedModel */
+    /* Signals of Dee-1.0.Dee.SharedModel */
     connect(sigName: "begin-transaction", callback: (($obj: SharedModel, begin_seqnum: number, end_seqnum: number) => void)): number
     connect_after(sigName: "begin-transaction", callback: (($obj: SharedModel, begin_seqnum: number, end_seqnum: number) => void)): number
     emit(sigName: "begin-transaction", begin_seqnum: number, end_seqnum: number): void
     connect(sigName: "end-transaction", callback: (($obj: SharedModel, begin_seqnum: number, end_seqnum: number) => void)): number
     connect_after(sigName: "end-transaction", callback: (($obj: SharedModel, begin_seqnum: number, end_seqnum: number) => void)): number
     emit(sigName: "end-transaction", begin_seqnum: number, end_seqnum: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SharedModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SharedModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Dee.Model */
+    /* Signals of Dee-1.0.Dee.Model */
     connect(sigName: "changeset-finished", callback: (($obj: SharedModel) => void)): number
     connect_after(sigName: "changeset-finished", callback: (($obj: SharedModel) => void)): number
     emit(sigName: "changeset-finished"): void
@@ -1744,15 +1744,15 @@ export class SharedModel {
 export interface TermList_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class TermList {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Dee.TermList */
+    /* Methods of Dee-1.0.Dee.TermList */
     add_term(term: string): TermList
     clear(): TermList
     clone(): TermList
     get_term(n: number): string
     num_terms(): number
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1774,13 +1774,13 @@ export class TermList {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Dee.TermList */
+    /* Virtual methods of Dee-1.0.Dee.TermList */
     vfunc_add_term(term: string): TermList
     vfunc_clear(): TermList
     vfunc_clone(): TermList
     vfunc_get_term(n: number): string
     vfunc_num_terms(): number
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1788,7 +1788,7 @@ export class TermList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TermList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TermList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1804,15 +1804,15 @@ export class TermList {
 export interface TextAnalyzer_ConstructProps extends Analyzer_ConstructProps {
 }
 export class TextAnalyzer {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Dee.Analyzer */
+    /* Methods of Dee-1.0.Dee.Analyzer */
     add_term_filter(filter_func: TermFilterFunc): void
     analyze(data: string, terms_out?: TermList | null, colkeys_out?: TermList | null): void
     collate_cmp(key1: string, key2: string): number
     collate_key(data: string): string
     tokenize(data: string, terms_out: TermList): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1834,13 +1834,13 @@ export class TextAnalyzer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Dee.Analyzer */
+    /* Virtual methods of Dee-1.0.Dee.Analyzer */
     vfunc_add_term_filter(filter_func: TermFilterFunc): void
     vfunc_analyze(data: string, terms_out?: TermList | null, colkeys_out?: TermList | null): void
     vfunc_collate_cmp(key1: string, key2: string): number
     vfunc_collate_key(data: string): string
     vfunc_tokenize(data: string, terms_out: TermList): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1848,7 +1848,7 @@ export class TextAnalyzer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TextAnalyzer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TextAnalyzer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1867,17 +1867,17 @@ export interface Transaction_ConstructProps extends SerializableModel_ConstructP
     target?: Model
 }
 export class Transaction {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Dee.Transaction */
+    /* Methods of Dee-1.0.Dee.Transaction */
     commit(): boolean
     get_target(): Model
     is_committed(): boolean
-    /* Methods of Dee.SerializableModel */
+    /* Methods of Dee-1.0.Dee.SerializableModel */
     get_seqnum(): number
     inc_seqnum(): number
     set_seqnum(seqnum: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1899,7 +1899,7 @@ export class Transaction {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Dee.Model */
+    /* Methods of Dee-1.0.Dee.Model */
     append_row(row_members: GLib.Variant[]): ModelIter
     begin_changeset(): void
     clear(): void
@@ -1948,10 +1948,10 @@ export class Transaction {
     set_schema_full(column_schemas: string[]): void
     set_tag(iter: ModelIter, tag: ModelTag, value?: object | null): void
     set_value(iter: ModelIter, column: number, value: GLib.Variant): void
-    /* Methods of Dee.Serializable */
+    /* Methods of Dee-1.0.Dee.Serializable */
     externalize(): GLib.Variant
     serialize(): GLib.Variant
-    /* Virtual methods of Dee.SerializableModel */
+    /* Virtual methods of Dee-1.0.Dee.SerializableModel */
     vfunc_append_row(row_members: GLib.Variant[]): ModelIter
     vfunc_begin_changeset(): void
     vfunc_changeset_finished(): void
@@ -2003,7 +2003,7 @@ export class Transaction {
     vfunc_set_tag(iter: ModelIter, tag: ModelTag, value?: object | null): void
     vfunc_set_value(iter: ModelIter, column: number, value: GLib.Variant): void
     vfunc_serialize(): GLib.Variant
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2011,11 +2011,11 @@ export class Transaction {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Transaction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Transaction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Dee.Model */
+    /* Signals of Dee-1.0.Dee.Model */
     connect(sigName: "changeset-finished", callback: (($obj: Transaction) => void)): number
     connect_after(sigName: "changeset-finished", callback: (($obj: Transaction) => void)): number
     emit(sigName: "changeset-finished"): void
@@ -2046,9 +2046,9 @@ export class Transaction {
 export interface TreeIndex_ConstructProps extends Index_ConstructProps {
 }
 export class TreeIndex {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Dee.Index */
+    /* Methods of Dee-1.0.Dee.Index */
     foreach(start_term: string, func: IndexIterFunc): void
     get_analyzer(): Analyzer
     get_model(): Model
@@ -2059,7 +2059,7 @@ export class TreeIndex {
     get_supported_term_match_flags(): number
     lookup(term: string, flags: TermMatchFlag): ResultSet
     lookup_one(term: string): ModelIter
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2081,14 +2081,14 @@ export class TreeIndex {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Dee.Index */
+    /* Virtual methods of Dee-1.0.Dee.Index */
     vfunc_foreach(start_term: string, func: IndexIterFunc): void
     vfunc_get_n_rows(): number
     vfunc_get_n_rows_for_term(term: string): number
     vfunc_get_n_terms(): number
     vfunc_get_supported_term_match_flags(): number
     vfunc_lookup(term: string, flags: TermMatchFlag): ResultSet
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2096,7 +2096,7 @@ export class TreeIndex {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TreeIndex, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TreeIndex, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2112,7 +2112,7 @@ export class TreeIndex {
     static $gtype: GObject.Type
 }
 export abstract class AnalyzerClass {
-    /* Fields of Dee.AnalyzerClass */
+    /* Fields of Dee-1.0.Dee.AnalyzerClass */
     analyze: (self: Analyzer, data: string, terms_out?: TermList | null, colkeys_out?: TermList | null) => void
     tokenize: (self: Analyzer, data: string, terms_out: TermList) => void
     add_term_filter: (self: Analyzer, filter_func: TermFilterFunc) => void
@@ -2130,17 +2130,17 @@ export class ClientPrivate {
     static name: string
 }
 export abstract class FileResourceManagerClass {
-    /* Fields of Dee.FileResourceManagerClass */
+    /* Fields of Dee-1.0.Dee.FileResourceManagerClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export class Filter {
-    /* Fields of Dee.Filter */
+    /* Fields of Dee-1.0.Dee.Filter */
     map_func: FilterMapFunc
     map_notify: FilterMapNotify
     destroy: GLib.DestroyNotify
     userdata: object
-    /* Methods of Dee.Filter */
+    /* Methods of Dee-1.0.Dee.Filter */
     map(orig_model: Model, filter_model: FilterModel): void
     notify(orig_iter: ModelIter, orig_model: Model, filter_model: FilterModel): boolean
     static name: string
@@ -2159,12 +2159,12 @@ export class FilterModelPrivate {
     static name: string
 }
 export abstract class GListResultSetClass {
-    /* Fields of Dee.GListResultSetClass */
+    /* Fields of Dee-1.0.Dee.GListResultSetClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class HashIndexClass {
-    /* Fields of Dee.HashIndexClass */
+    /* Fields of Dee-1.0.Dee.HashIndexClass */
     parent_class: IndexClass
     static name: string
 }
@@ -2172,13 +2172,13 @@ export class HashIndexPrivate {
     static name: string
 }
 export class ICUTermFilter {
-    /* Methods of Dee.ICUTermFilter */
+    /* Methods of Dee-1.0.Dee.ICUTermFilter */
     apply(text: string): string
     destroy(): void
     static name: string
 }
 export abstract class IndexClass {
-    /* Fields of Dee.IndexClass */
+    /* Fields of Dee-1.0.Dee.IndexClass */
     parent_class: GObject.ObjectClass
     lookup: (self: Index, term: string, flags: TermMatchFlag) => ResultSet
     foreach: (self: Index, start_term: string, func: IndexIterFunc) => void
@@ -2192,7 +2192,7 @@ export class IndexPrivate {
     static name: string
 }
 export abstract class ModelIface {
-    /* Fields of Dee.ModelIface */
+    /* Fields of Dee-1.0.Dee.ModelIface */
     g_iface: GObject.TypeInterface
     row_added: (self: Model, iter: ModelIter) => void
     row_removed: (self: Model, iter: ModelIter) => void
@@ -2250,11 +2250,11 @@ export class ModelIter {
     static name: string
 }
 export class ModelReader {
-    /* Fields of Dee.ModelReader */
+    /* Fields of Dee-1.0.Dee.ModelReader */
     reader_func: ModelReaderFunc
     userdata: object
     destroy: GLib.DestroyNotify
-    /* Methods of Dee.ModelReader */
+    /* Methods of Dee-1.0.Dee.ModelReader */
     read(model: Model, iter: ModelIter): string
     static name: string
     /* Static methods and pseudo-constructors */
@@ -2266,7 +2266,7 @@ export class ModelTag {
     static name: string
 }
 export abstract class PeerClass {
-    /* Fields of Dee.PeerClass */
+    /* Fields of Dee-1.0.Dee.PeerClass */
     peer_found: (self: Peer, name: string) => void
     peer_lost: (self: Peer, name: string) => void
     connection_acquired: (self: Peer, connection: Gio.DBusConnection) => void
@@ -2287,14 +2287,14 @@ export class ProxyModelPrivate {
     static name: string
 }
 export abstract class ResourceManagerIface {
-    /* Fields of Dee.ResourceManagerIface */
+    /* Fields of Dee-1.0.Dee.ResourceManagerIface */
     g_iface: GObject.TypeInterface
     store: (self: ResourceManager, resource: Serializable, resource_name: string) => boolean
     load: (self: ResourceManager, resource_name: string) => GObject.Object
     static name: string
 }
 export abstract class ResultSetIface {
-    /* Fields of Dee.ResultSetIface */
+    /* Fields of Dee-1.0.Dee.ResultSetIface */
     g_iface: GObject.TypeInterface
     get_n_rows: (self: ResultSet) => number
     next: (self: ResultSet) => ModelIter
@@ -2312,13 +2312,13 @@ export class SequenceModelPrivate {
     static name: string
 }
 export abstract class SerializableIface {
-    /* Fields of Dee.SerializableIface */
+    /* Fields of Dee-1.0.Dee.SerializableIface */
     g_iface: GObject.TypeInterface
     serialize: (self: Serializable) => GLib.Variant
     static name: string
 }
 export abstract class SerializableModelClass {
-    /* Fields of Dee.SerializableModelClass */
+    /* Fields of Dee-1.0.Dee.SerializableModelClass */
     get_seqnum: (self: Model) => number
     set_seqnum: (self: Model, seqnum: number) => void
     inc_seqnum: (self: Model) => number
@@ -2340,7 +2340,7 @@ export class SharedModelPrivate {
     static name: string
 }
 export abstract class TermListClass {
-    /* Fields of Dee.TermListClass */
+    /* Fields of Dee-1.0.Dee.TermListClass */
     parent_class: GObject.ObjectClass
     get_term: (self: TermList, n: number) => string
     add_term: (self: TermList, term: string) => TermList
@@ -2365,7 +2365,7 @@ export class TransactionPrivate {
     static name: string
 }
 export abstract class TreeIndexClass {
-    /* Fields of Dee.TreeIndexClass */
+    /* Fields of Dee-1.0.Dee.TreeIndexClass */
     parent_class: IndexClass
     static name: string
 }

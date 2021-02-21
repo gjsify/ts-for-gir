@@ -26,13 +26,13 @@ export interface NonstreamAudioDecoder_ConstructProps extends Gst.Element_Constr
     num_loops?: number
 }
 export class NonstreamAudioDecoder {
-    /* Properties of GstBadAudio.NonstreamAudioDecoder */
+    /* Properties of GstBadAudio-1.0.GstBadAudio.NonstreamAudioDecoder */
     current_subsong: number
     num_loops: number
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstBadAudio.NonstreamAudioDecoder */
+    /* Fields of GstBadAudio-1.0.GstBadAudio.NonstreamAudioDecoder */
     element: Gst.Element
     sinkpad: Gst.Pad
     srcpad: Gst.Pad
@@ -52,7 +52,7 @@ export class NonstreamAudioDecoder {
     allocator: Gst.Allocator
     allocation_params: Gst.AllocationParams
     mutex: GLib.Mutex
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -74,18 +74,18 @@ export class NonstreamAudioDecoder {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstBadAudio.NonstreamAudioDecoder */
+    /* Methods of GstBadAudio-1.0.GstBadAudio.NonstreamAudioDecoder */
     allocate_output_buffer(size: number): Gst.Buffer
     get_downstream_info(format: GstAudio.AudioFormat, sample_rate: number, num_channels: number): void
     handle_loop(new_position: Gst.ClockTime): void
     set_output_format(audio_info: GstAudio.AudioInfo): boolean
     set_output_format_simple(sample_rate: number, sample_format: GstAudio.AudioFormat, num_channels: number): boolean
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -151,7 +151,7 @@ export class NonstreamAudioDecoder {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -176,7 +176,7 @@ export class NonstreamAudioDecoder {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -197,7 +197,7 @@ export class NonstreamAudioDecoder {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstBadAudio.NonstreamAudioDecoder */
+    /* Virtual methods of GstBadAudio-1.0.GstBadAudio.NonstreamAudioDecoder */
     vfunc_decide_allocation(query: Gst.Query): boolean
     vfunc_decode(buffer: Gst.Buffer, num_samples: number): boolean
     vfunc_get_current_subsong(): number
@@ -217,7 +217,7 @@ export class NonstreamAudioDecoder {
     vfunc_set_output_mode(mode: NonstreamAudioOutputMode, current_position: Gst.ClockTime): boolean
     vfunc_set_subsong_mode(mode: NonstreamAudioSubsongMode, initial_position: Gst.ClockTime): boolean
     vfunc_tell(): Gst.ClockTime
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -234,9 +234,9 @@ export class NonstreamAudioDecoder {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -244,7 +244,7 @@ export class NonstreamAudioDecoder {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: NonstreamAudioDecoder) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: NonstreamAudioDecoder) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -254,11 +254,11 @@ export class NonstreamAudioDecoder {
     connect(sigName: "pad-removed", callback: (($obj: NonstreamAudioDecoder, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: NonstreamAudioDecoder, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: NonstreamAudioDecoder, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: NonstreamAudioDecoder, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NonstreamAudioDecoder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NonstreamAudioDecoder, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -282,9 +282,9 @@ export class NonstreamAudioDecoder {
 export interface PlanarAudioAdapter_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PlanarAudioAdapter {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstBadAudio.PlanarAudioAdapter */
+    /* Methods of GstBadAudio-1.0.GstBadAudio.PlanarAudioAdapter */
     available(): number
     clear(): void
     configure(info: GstAudio.AudioInfo): void
@@ -299,7 +299,7 @@ export class PlanarAudioAdapter {
     pts_at_discont(): Gst.ClockTime
     push(buf: Gst.Buffer): void
     take_buffer(nsamples: number, flags: Gst.MapFlags): Gst.Buffer | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -321,7 +321,7 @@ export class PlanarAudioAdapter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -329,7 +329,7 @@ export class PlanarAudioAdapter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PlanarAudioAdapter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PlanarAudioAdapter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -345,7 +345,7 @@ export class PlanarAudioAdapter {
     static $gtype: GObject.Type
 }
 export abstract class NonstreamAudioDecoderClass {
-    /* Fields of GstBadAudio.NonstreamAudioDecoderClass */
+    /* Fields of GstBadAudio-1.0.GstBadAudio.NonstreamAudioDecoderClass */
     element_class: Gst.ElementClass
     loads_from_sinkpad: boolean
     seek: (dec: NonstreamAudioDecoder, new_position: Gst.ClockTime) => boolean

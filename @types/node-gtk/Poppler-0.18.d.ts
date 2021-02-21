@@ -470,9 +470,9 @@ export interface MediaSaveFunc {
 export interface Annot_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Annot {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Poppler.Annot */
+    /* Methods of Poppler-0.18.Poppler.Annot */
     getAnnotType(): AnnotType
     getColor(): Color
     getContents(): string
@@ -480,12 +480,12 @@ export class Annot {
     getModified(): string
     getName(): string
     getPageIndex(): number
-    getRectangle(): /* popplerRect */ Rectangle
+    getRectangle(): { popplerRect: Rectangle }
     setColor(popplerColor?: Color | null): void
     setContents(contents: string): void
     setFlags(flags: AnnotFlag): void
     setRectangle(popplerRect: Rectangle): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -507,21 +507,12 @@ export class Annot {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Annot, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Annot, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -537,18 +528,18 @@ export class Annot {
 export interface AnnotCircle_ConstructProps extends AnnotMarkup_ConstructProps {
 }
 export class AnnotCircle {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Poppler.AnnotCircle */
+    /* Methods of Poppler-0.18.Poppler.AnnotCircle */
     getInteriorColor(): Color
     setInteriorColor(popplerColor?: Color | null): void
-    /* Methods of Poppler.AnnotMarkup */
+    /* Methods of Poppler-0.18.Poppler.AnnotMarkup */
     getDate(): GLib.Date
     getExternalData(): AnnotExternalDataType
     getLabel(): string
     getOpacity(): number
     getPopupIsOpen(): boolean
-    getPopupRectangle(): [ /* returnType */ boolean, /* popplerRect */ Rectangle ]
+    getPopupRectangle(): { returnType: boolean, popplerRect: Rectangle }
     getReplyTo(): AnnotMarkupReplyType
     getSubject(): string
     hasPopup(): boolean
@@ -557,7 +548,7 @@ export class AnnotCircle {
     setPopup(popupRect: Rectangle): void
     setPopupIsOpen(isOpen: boolean): void
     setPopupRectangle(popplerRect: Rectangle): void
-    /* Methods of Poppler.Annot */
+    /* Methods of Poppler-0.18.Poppler.Annot */
     getAnnotType(): AnnotType
     getColor(): Color
     getContents(): string
@@ -565,12 +556,12 @@ export class AnnotCircle {
     getModified(): string
     getName(): string
     getPageIndex(): number
-    getRectangle(): /* popplerRect */ Rectangle
+    getRectangle(): { popplerRect: Rectangle }
     setColor(popplerColor?: Color | null): void
     setContents(contents: string): void
     setFlags(flags: AnnotFlag): void
     setRectangle(popplerRect: Rectangle): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -592,21 +583,12 @@ export class AnnotCircle {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AnnotCircle, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AnnotCircle, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -624,18 +606,18 @@ export class AnnotCircle {
 export interface AnnotFileAttachment_ConstructProps extends AnnotMarkup_ConstructProps {
 }
 export class AnnotFileAttachment {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Poppler.AnnotFileAttachment */
+    /* Methods of Poppler-0.18.Poppler.AnnotFileAttachment */
     getAttachment(): Attachment
     getName(): string
-    /* Methods of Poppler.AnnotMarkup */
+    /* Methods of Poppler-0.18.Poppler.AnnotMarkup */
     getDate(): GLib.Date
     getExternalData(): AnnotExternalDataType
     getLabel(): string
     getOpacity(): number
     getPopupIsOpen(): boolean
-    getPopupRectangle(): [ /* returnType */ boolean, /* popplerRect */ Rectangle ]
+    getPopupRectangle(): { returnType: boolean, popplerRect: Rectangle }
     getReplyTo(): AnnotMarkupReplyType
     getSubject(): string
     hasPopup(): boolean
@@ -644,19 +626,19 @@ export class AnnotFileAttachment {
     setPopup(popupRect: Rectangle): void
     setPopupIsOpen(isOpen: boolean): void
     setPopupRectangle(popplerRect: Rectangle): void
-    /* Methods of Poppler.Annot */
+    /* Methods of Poppler-0.18.Poppler.Annot */
     getAnnotType(): AnnotType
     getColor(): Color
     getContents(): string
     getFlags(): AnnotFlag
     getModified(): string
     getPageIndex(): number
-    getRectangle(): /* popplerRect */ Rectangle
+    getRectangle(): { popplerRect: Rectangle }
     setColor(popplerColor?: Color | null): void
     setContents(contents: string): void
     setFlags(flags: AnnotFlag): void
     setRectangle(popplerRect: Rectangle): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -678,21 +660,12 @@ export class AnnotFileAttachment {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AnnotFileAttachment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AnnotFileAttachment, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -708,18 +681,18 @@ export class AnnotFileAttachment {
 export interface AnnotFreeText_ConstructProps extends AnnotMarkup_ConstructProps {
 }
 export class AnnotFreeText {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Poppler.AnnotFreeText */
+    /* Methods of Poppler-0.18.Poppler.AnnotFreeText */
     getCalloutLine(): AnnotCalloutLine
     getQuadding(): AnnotFreeTextQuadding
-    /* Methods of Poppler.AnnotMarkup */
+    /* Methods of Poppler-0.18.Poppler.AnnotMarkup */
     getDate(): GLib.Date
     getExternalData(): AnnotExternalDataType
     getLabel(): string
     getOpacity(): number
     getPopupIsOpen(): boolean
-    getPopupRectangle(): [ /* returnType */ boolean, /* popplerRect */ Rectangle ]
+    getPopupRectangle(): { returnType: boolean, popplerRect: Rectangle }
     getReplyTo(): AnnotMarkupReplyType
     getSubject(): string
     hasPopup(): boolean
@@ -728,7 +701,7 @@ export class AnnotFreeText {
     setPopup(popupRect: Rectangle): void
     setPopupIsOpen(isOpen: boolean): void
     setPopupRectangle(popplerRect: Rectangle): void
-    /* Methods of Poppler.Annot */
+    /* Methods of Poppler-0.18.Poppler.Annot */
     getAnnotType(): AnnotType
     getColor(): Color
     getContents(): string
@@ -736,12 +709,12 @@ export class AnnotFreeText {
     getModified(): string
     getName(): string
     getPageIndex(): number
-    getRectangle(): /* popplerRect */ Rectangle
+    getRectangle(): { popplerRect: Rectangle }
     setColor(popplerColor?: Color | null): void
     setContents(contents: string): void
     setFlags(flags: AnnotFlag): void
     setRectangle(popplerRect: Rectangle): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -763,21 +736,12 @@ export class AnnotFreeText {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AnnotFreeText, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AnnotFreeText, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -793,17 +757,17 @@ export class AnnotFreeText {
 export interface AnnotLine_ConstructProps extends AnnotMarkup_ConstructProps {
 }
 export class AnnotLine {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Poppler.AnnotLine */
+    /* Methods of Poppler-0.18.Poppler.AnnotLine */
     setVertices(start: Point, end: Point): void
-    /* Methods of Poppler.AnnotMarkup */
+    /* Methods of Poppler-0.18.Poppler.AnnotMarkup */
     getDate(): GLib.Date
     getExternalData(): AnnotExternalDataType
     getLabel(): string
     getOpacity(): number
     getPopupIsOpen(): boolean
-    getPopupRectangle(): [ /* returnType */ boolean, /* popplerRect */ Rectangle ]
+    getPopupRectangle(): { returnType: boolean, popplerRect: Rectangle }
     getReplyTo(): AnnotMarkupReplyType
     getSubject(): string
     hasPopup(): boolean
@@ -812,7 +776,7 @@ export class AnnotLine {
     setPopup(popupRect: Rectangle): void
     setPopupIsOpen(isOpen: boolean): void
     setPopupRectangle(popplerRect: Rectangle): void
-    /* Methods of Poppler.Annot */
+    /* Methods of Poppler-0.18.Poppler.Annot */
     getAnnotType(): AnnotType
     getColor(): Color
     getContents(): string
@@ -820,12 +784,12 @@ export class AnnotLine {
     getModified(): string
     getName(): string
     getPageIndex(): number
-    getRectangle(): /* popplerRect */ Rectangle
+    getRectangle(): { popplerRect: Rectangle }
     setColor(popplerColor?: Color | null): void
     setContents(contents: string): void
     setFlags(flags: AnnotFlag): void
     setRectangle(popplerRect: Rectangle): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -847,21 +811,12 @@ export class AnnotLine {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AnnotLine, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AnnotLine, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -879,15 +834,15 @@ export class AnnotLine {
 export interface AnnotMarkup_ConstructProps extends Annot_ConstructProps {
 }
 export class AnnotMarkup {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Poppler.AnnotMarkup */
+    /* Methods of Poppler-0.18.Poppler.AnnotMarkup */
     getDate(): GLib.Date
     getExternalData(): AnnotExternalDataType
     getLabel(): string
     getOpacity(): number
     getPopupIsOpen(): boolean
-    getPopupRectangle(): [ /* returnType */ boolean, /* popplerRect */ Rectangle ]
+    getPopupRectangle(): { returnType: boolean, popplerRect: Rectangle }
     getReplyTo(): AnnotMarkupReplyType
     getSubject(): string
     hasPopup(): boolean
@@ -896,7 +851,7 @@ export class AnnotMarkup {
     setPopup(popupRect: Rectangle): void
     setPopupIsOpen(isOpen: boolean): void
     setPopupRectangle(popplerRect: Rectangle): void
-    /* Methods of Poppler.Annot */
+    /* Methods of Poppler-0.18.Poppler.Annot */
     getAnnotType(): AnnotType
     getColor(): Color
     getContents(): string
@@ -904,12 +859,12 @@ export class AnnotMarkup {
     getModified(): string
     getName(): string
     getPageIndex(): number
-    getRectangle(): /* popplerRect */ Rectangle
+    getRectangle(): { popplerRect: Rectangle }
     setColor(popplerColor?: Color | null): void
     setContents(contents: string): void
     setFlags(flags: AnnotFlag): void
     setRectangle(popplerRect: Rectangle): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -931,21 +886,12 @@ export class AnnotMarkup {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AnnotMarkup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AnnotMarkup, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -961,12 +907,12 @@ export class AnnotMarkup {
 export interface AnnotMovie_ConstructProps extends Annot_ConstructProps {
 }
 export class AnnotMovie {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Poppler.AnnotMovie */
+    /* Methods of Poppler-0.18.Poppler.AnnotMovie */
     getMovie(): Movie
     getTitle(): string
-    /* Methods of Poppler.Annot */
+    /* Methods of Poppler-0.18.Poppler.Annot */
     getAnnotType(): AnnotType
     getColor(): Color
     getContents(): string
@@ -974,12 +920,12 @@ export class AnnotMovie {
     getModified(): string
     getName(): string
     getPageIndex(): number
-    getRectangle(): /* popplerRect */ Rectangle
+    getRectangle(): { popplerRect: Rectangle }
     setColor(popplerColor?: Color | null): void
     setContents(contents: string): void
     setFlags(flags: AnnotFlag): void
     setRectangle(popplerRect: Rectangle): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1001,21 +947,12 @@ export class AnnotMovie {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AnnotMovie, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AnnotMovie, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1031,11 +968,11 @@ export class AnnotMovie {
 export interface AnnotScreen_ConstructProps extends Annot_ConstructProps {
 }
 export class AnnotScreen {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Poppler.AnnotScreen */
+    /* Methods of Poppler-0.18.Poppler.AnnotScreen */
     getAction(): Action
-    /* Methods of Poppler.Annot */
+    /* Methods of Poppler-0.18.Poppler.Annot */
     getAnnotType(): AnnotType
     getColor(): Color
     getContents(): string
@@ -1043,12 +980,12 @@ export class AnnotScreen {
     getModified(): string
     getName(): string
     getPageIndex(): number
-    getRectangle(): /* popplerRect */ Rectangle
+    getRectangle(): { popplerRect: Rectangle }
     setColor(popplerColor?: Color | null): void
     setContents(contents: string): void
     setFlags(flags: AnnotFlag): void
     setRectangle(popplerRect: Rectangle): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1070,21 +1007,12 @@ export class AnnotScreen {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AnnotScreen, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AnnotScreen, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1100,18 +1028,18 @@ export class AnnotScreen {
 export interface AnnotSquare_ConstructProps extends AnnotMarkup_ConstructProps {
 }
 export class AnnotSquare {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Poppler.AnnotSquare */
+    /* Methods of Poppler-0.18.Poppler.AnnotSquare */
     getInteriorColor(): Color
     setInteriorColor(popplerColor?: Color | null): void
-    /* Methods of Poppler.AnnotMarkup */
+    /* Methods of Poppler-0.18.Poppler.AnnotMarkup */
     getDate(): GLib.Date
     getExternalData(): AnnotExternalDataType
     getLabel(): string
     getOpacity(): number
     getPopupIsOpen(): boolean
-    getPopupRectangle(): [ /* returnType */ boolean, /* popplerRect */ Rectangle ]
+    getPopupRectangle(): { returnType: boolean, popplerRect: Rectangle }
     getReplyTo(): AnnotMarkupReplyType
     getSubject(): string
     hasPopup(): boolean
@@ -1120,7 +1048,7 @@ export class AnnotSquare {
     setPopup(popupRect: Rectangle): void
     setPopupIsOpen(isOpen: boolean): void
     setPopupRectangle(popplerRect: Rectangle): void
-    /* Methods of Poppler.Annot */
+    /* Methods of Poppler-0.18.Poppler.Annot */
     getAnnotType(): AnnotType
     getColor(): Color
     getContents(): string
@@ -1128,12 +1056,12 @@ export class AnnotSquare {
     getModified(): string
     getName(): string
     getPageIndex(): number
-    getRectangle(): /* popplerRect */ Rectangle
+    getRectangle(): { popplerRect: Rectangle }
     setColor(popplerColor?: Color | null): void
     setContents(contents: string): void
     setFlags(flags: AnnotFlag): void
     setRectangle(popplerRect: Rectangle): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1155,21 +1083,12 @@ export class AnnotSquare {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AnnotSquare, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AnnotSquare, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1187,21 +1106,21 @@ export class AnnotSquare {
 export interface AnnotText_ConstructProps extends AnnotMarkup_ConstructProps {
 }
 export class AnnotText {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Poppler.AnnotText */
+    /* Methods of Poppler-0.18.Poppler.AnnotText */
     getIcon(): string
     getIsOpen(): boolean
     getState(): AnnotTextState
     setIcon(icon: string): void
     setIsOpen(isOpen: boolean): void
-    /* Methods of Poppler.AnnotMarkup */
+    /* Methods of Poppler-0.18.Poppler.AnnotMarkup */
     getDate(): GLib.Date
     getExternalData(): AnnotExternalDataType
     getLabel(): string
     getOpacity(): number
     getPopupIsOpen(): boolean
-    getPopupRectangle(): [ /* returnType */ boolean, /* popplerRect */ Rectangle ]
+    getPopupRectangle(): { returnType: boolean, popplerRect: Rectangle }
     getReplyTo(): AnnotMarkupReplyType
     getSubject(): string
     hasPopup(): boolean
@@ -1210,7 +1129,7 @@ export class AnnotText {
     setPopup(popupRect: Rectangle): void
     setPopupIsOpen(isOpen: boolean): void
     setPopupRectangle(popplerRect: Rectangle): void
-    /* Methods of Poppler.Annot */
+    /* Methods of Poppler-0.18.Poppler.Annot */
     getAnnotType(): AnnotType
     getColor(): Color
     getContents(): string
@@ -1218,12 +1137,12 @@ export class AnnotText {
     getModified(): string
     getName(): string
     getPageIndex(): number
-    getRectangle(): /* popplerRect */ Rectangle
+    getRectangle(): { popplerRect: Rectangle }
     setColor(popplerColor?: Color | null): void
     setContents(contents: string): void
     setFlags(flags: AnnotFlag): void
     setRectangle(popplerRect: Rectangle): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1245,21 +1164,12 @@ export class AnnotText {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AnnotText, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AnnotText, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1277,18 +1187,18 @@ export class AnnotText {
 export interface AnnotTextMarkup_ConstructProps extends AnnotMarkup_ConstructProps {
 }
 export class AnnotTextMarkup {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Poppler.AnnotTextMarkup */
+    /* Methods of Poppler-0.18.Poppler.AnnotTextMarkup */
     getQuadrilaterals(): Quadrilateral[]
     setQuadrilaterals(quadrilaterals: Quadrilateral[]): void
-    /* Methods of Poppler.AnnotMarkup */
+    /* Methods of Poppler-0.18.Poppler.AnnotMarkup */
     getDate(): GLib.Date
     getExternalData(): AnnotExternalDataType
     getLabel(): string
     getOpacity(): number
     getPopupIsOpen(): boolean
-    getPopupRectangle(): [ /* returnType */ boolean, /* popplerRect */ Rectangle ]
+    getPopupRectangle(): { returnType: boolean, popplerRect: Rectangle }
     getReplyTo(): AnnotMarkupReplyType
     getSubject(): string
     hasPopup(): boolean
@@ -1297,7 +1207,7 @@ export class AnnotTextMarkup {
     setPopup(popupRect: Rectangle): void
     setPopupIsOpen(isOpen: boolean): void
     setPopupRectangle(popplerRect: Rectangle): void
-    /* Methods of Poppler.Annot */
+    /* Methods of Poppler-0.18.Poppler.Annot */
     getAnnotType(): AnnotType
     getColor(): Color
     getContents(): string
@@ -1305,12 +1215,12 @@ export class AnnotTextMarkup {
     getModified(): string
     getName(): string
     getPageIndex(): number
-    getRectangle(): /* popplerRect */ Rectangle
+    getRectangle(): { popplerRect: Rectangle }
     setColor(popplerColor?: Color | null): void
     setContents(contents: string): void
     setFlags(flags: AnnotFlag): void
     setRectangle(popplerRect: Rectangle): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1332,21 +1242,12 @@ export class AnnotTextMarkup {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AnnotTextMarkup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AnnotTextMarkup, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1367,7 +1268,7 @@ export class AnnotTextMarkup {
 export interface Attachment_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Attachment {
-    /* Fields of Poppler.Attachment */
+    /* Fields of Poppler-0.18.Poppler.Attachment */
     parent: GObject.Object
     name: string
     description: string
@@ -1375,9 +1276,9 @@ export class Attachment {
     mtime: GLib.Time
     ctime: GLib.Time
     checksum: GLib.String
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Poppler.Attachment */
+    /* Methods of Poppler-0.18.Poppler.Attachment */
     getChecksum(): GLib.String
     getCtime(): GLib.DateTime | null
     getDescription(): string
@@ -1386,7 +1287,7 @@ export class Attachment {
     getSize(): number
     save(filename: string): boolean
     saveToCallback(saveFunc: AttachmentSaveFunc): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1408,21 +1309,12 @@ export class Attachment {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Attachment, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Attachment, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1448,7 +1340,7 @@ export interface Document_ConstructProps extends GObject.Object_ConstructProps {
     title?: string
 }
 export class Document {
-    /* Properties of Poppler.Document */
+    /* Properties of Poppler-0.18.Poppler.Document */
     author: string
     creationDate: number
     creationDatetime: GLib.DateTime
@@ -1475,9 +1367,9 @@ export class Document {
     readonly subtypeString: string
     title: string
     readonly viewerPreferences: ViewerPreferences
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Poppler.Document */
+    /* Methods of Poppler-0.18.Poppler.Document */
     findDest(linkName: string): Dest
     getAttachments(): Attachment[]
     getAuthor(): string
@@ -1485,7 +1377,7 @@ export class Document {
     getCreationDateTime(): GLib.DateTime | null
     getCreator(): string
     getFormField(id: number): FormField
-    getId(): [ /* returnType */ boolean, /* permanentId */ string | null, /* updateId */ string | null ]
+    getId(): { returnType: boolean, permanentId: string | null, updateId: string | null }
     getKeywords(): string
     getMetadata(): string
     getModificationDate(): number
@@ -1500,7 +1392,7 @@ export class Document {
     getPdfPart(): PDFPart
     getPdfSubtype(): PDFSubtype
     getPdfSubtypeString(): string | null
-    getPdfVersion(): [ /* majorVersion */ number | null, /* minorVersion */ number | null ]
+    getPdfVersion(): { majorVersion: number | null, minorVersion: number | null }
     getPdfVersionString(): string
     getPermissions(): Permissions
     getPrintDuplex(): PrintDuplex
@@ -1525,7 +1417,7 @@ export class Document {
     setProducer(producer: string): void
     setSubject(subject: string): void
     setTitle(title: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1547,21 +1439,12 @@ export class Document {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::author", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::author", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::author", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1713,12 +1596,12 @@ export class Document {
 export interface FontInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FontInfo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Poppler.FontInfo */
+    /* Methods of Poppler-0.18.Poppler.FontInfo */
     free(): void
-    scan(nPages: number): [ /* returnType */ boolean, /* iter */ FontsIter ]
-    /* Methods of GObject.Object */
+    scan(nPages: number): { returnType: boolean, iter: FontsIter }
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1740,21 +1623,12 @@ export class FontInfo {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FontInfo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FontInfo, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1772,9 +1646,9 @@ export class FontInfo {
 export interface FormField_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FormField {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Poppler.FormField */
+    /* Methods of Poppler-0.18.Poppler.FormField */
     buttonGetButtonType(): FormButtonType
     buttonGetState(): boolean
     buttonSetState(state: boolean): void
@@ -1809,7 +1683,7 @@ export class FormField {
     textIsPassword(): boolean
     textIsRichText(): boolean
     textSetText(text: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1831,21 +1705,12 @@ export class FormField {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FormField, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FormField, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1861,16 +1726,16 @@ export class FormField {
 export interface Layer_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Layer {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Poppler.Layer */
+    /* Methods of Poppler-0.18.Poppler.Layer */
     getRadioButtonGroupId(): number
     getTitle(): string
     hide(): void
     isParent(): boolean
     isVisible(): boolean
     show(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1892,21 +1757,12 @@ export class Layer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Layer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Layer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1922,15 +1778,15 @@ export class Layer {
 export interface Media_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Media {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Poppler.Media */
+    /* Methods of Poppler-0.18.Poppler.Media */
     getFilename(): string
     getMimeType(): string
     isEmbedded(): boolean
     save(filename: string): boolean
     saveToCallback(saveFunc: MediaSaveFunc): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -1952,21 +1808,12 @@ export class Media {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Media, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Media, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1982,9 +1829,9 @@ export class Media {
 export interface Movie_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Movie {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Poppler.Movie */
+    /* Methods of Poppler-0.18.Poppler.Movie */
     getAspect(width: number, height: number): void
     getDuration(): number
     getFilename(): string
@@ -1996,7 +1843,7 @@ export class Movie {
     isSynchronous(): boolean
     needPoster(): boolean
     showControls(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2018,21 +1865,12 @@ export class Movie {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Movie, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Movie, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2048,13 +1886,13 @@ export class Movie {
 export interface PSFile_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PSFile {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Poppler.PSFile */
+    /* Methods of Poppler-0.18.Poppler.PSFile */
     free(): void
     setDuplex(duplex: boolean): void
     setPaperSize(width: number, height: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2076,21 +1914,12 @@ export class PSFile {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PSFile, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PSFile, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2108,17 +1937,17 @@ export class PSFile {
 export interface Page_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Page {
-    /* Properties of Poppler.Page */
+    /* Properties of Poppler-0.18.Poppler.Page */
     readonly label: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Poppler.Page */
+    /* Methods of Poppler-0.18.Poppler.Page */
     addAnnot(annot: Annot): void
     findText(text: string): Rectangle[]
     findTextWithOptions(text: string, options: FindFlags): Rectangle[]
     getAnnotMapping(): AnnotMapping[]
     getBoundingBox(rect: Rectangle): boolean
-    getCropBox(): /* rect */ Rectangle
+    getCropBox(): { rect: Rectangle }
     getDuration(): number
     getFormFieldMapping(): FormFieldMapping[]
     getImage(imageId: number): cairo.Surface
@@ -2129,15 +1958,15 @@ export class Page {
     getSelectedRegion(scale: number, style: SelectionStyle, selection: Rectangle): cairo.Region
     getSelectedText(style: SelectionStyle, selection: Rectangle): string
     getSelectionRegion(scale: number, style: SelectionStyle, selection: Rectangle): Rectangle[]
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getSize(): { width: number | null, height: number | null }
     getText(): string
     getTextAttributes(): TextAttributes[]
     getTextAttributesForArea(area: Rectangle): TextAttributes[]
     getTextForArea(area: Rectangle): string
-    getTextLayout(): [ /* returnType */ boolean, /* rectangles */ Rectangle[] ]
-    getTextLayoutForArea(area: Rectangle): [ /* returnType */ boolean, /* rectangles */ Rectangle[] ]
+    getTextLayout(): { returnType: boolean, rectangles: Rectangle[] }
+    getTextLayoutForArea(area: Rectangle): { returnType: boolean, rectangles: Rectangle[] }
     getThumbnail(): cairo.Surface
-    getThumbnailSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
+    getThumbnailSize(): { returnType: boolean, width: number, height: number }
     getTransition(): PageTransition
     removeAnnot(annot: Annot): void
     render(cairo: cairo.Context): void
@@ -2145,7 +1974,7 @@ export class Page {
     renderForPrintingWithOptions(cairo: cairo.Context, options: PrintFlags): void
     renderSelection(cairo: cairo.Context, selection: Rectangle, oldSelection: Rectangle, style: SelectionStyle, glyphColor: Color, backgroundColor: Color): void
     renderToPs(psFile: PSFile): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2167,21 +1996,12 @@ export class Page {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Page, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Page, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::label", callback: (($obj: Page, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::label", callback: (($obj: Page, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::label", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2209,20 +2029,20 @@ export class Page {
 export interface StructureElement_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class StructureElement {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Poppler.StructureElement */
+    /* Methods of Poppler-0.18.Poppler.StructureElement */
     getAbbreviation(): string
     getActualText(): string
     getAltText(): string
-    getBackgroundColor(): [ /* returnType */ boolean, /* color */ Color ]
+    getBackgroundColor(): { returnType: boolean, color: Color }
     getBaselineShift(): number
     getBlockAlign(): StructureBlockAlign
-    getBorderColor(): [ /* returnType */ boolean, /* colors */ Color[] ]
-    getBorderStyle(): /* borderStyles */ StructureBorderStyle[]
-    getBorderThickness(): [ /* returnType */ boolean, /* borderThicknesses */ number[] ]
-    getBoundingBox(): [ /* returnType */ boolean, /* boundingBox */ Rectangle ]
-    getColor(): [ /* returnType */ boolean, /* color */ Color ]
+    getBorderColor(): { returnType: boolean, colors: Color[] }
+    getBorderStyle(): { borderStyles: StructureBorderStyle[] }
+    getBorderThickness(): { returnType: boolean, borderThicknesses: number[] }
+    getBoundingBox(): { returnType: boolean, boundingBox: Rectangle }
+    getColor(): { returnType: boolean, color: Color }
     getColumnCount(): number
     getColumnGaps(): number[]
     getColumnWidths(): number[]
@@ -2238,7 +2058,7 @@ export class StructureElement {
     getLanguage(): string
     getLineHeight(): number
     getListNumbering(): StructureListNumbering
-    getPadding(): /* paddings */ number[]
+    getPadding(): { paddings: number[] }
     getPage(): number
     getPlacement(): StructurePlacement
     getRubyAlign(): StructureRubyAlign
@@ -2246,16 +2066,16 @@ export class StructureElement {
     getSpaceAfter(): number
     getSpaceBefore(): number
     getStartIndent(): number
-    getTableBorderStyle(): /* borderStyles */ StructureBorderStyle[]
+    getTableBorderStyle(): { borderStyles: StructureBorderStyle[] }
     getTableColumnSpan(): number
     getTableHeaders(): string[]
-    getTablePadding(): /* paddings */ number[]
+    getTablePadding(): { paddings: number[] }
     getTableRowSpan(): number
     getTableScope(): StructureTableScope
     getTableSummary(): string
     getText(flags: StructureGetTextFlags): string
     getTextAlign(): StructureTextAlign
-    getTextDecorationColor(): [ /* returnType */ boolean, /* color */ Color ]
+    getTextDecorationColor(): { returnType: boolean, color: Color }
     getTextDecorationThickness(): number
     getTextDecorationType(): StructureTextDecoration
     getTextIndent(): number
@@ -2267,7 +2087,7 @@ export class StructureElement {
     isContent(): boolean
     isGrouping(): boolean
     isInline(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -2289,21 +2109,12 @@ export class StructureElement {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StructureElement, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: StructureElement, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2317,20 +2128,20 @@ export class StructureElement {
     static $gtype: GObject.Type
 }
 export class ActionAny {
-    /* Fields of Poppler.ActionAny */
+    /* Fields of Poppler-0.18.Poppler.ActionAny */
     type: ActionType
     title: string
     static name: string
 }
 export class ActionGotoDest {
-    /* Fields of Poppler.ActionGotoDest */
+    /* Fields of Poppler-0.18.Poppler.ActionGotoDest */
     type: ActionType
     title: string
     dest: Dest
     static name: string
 }
 export class ActionGotoRemote {
-    /* Fields of Poppler.ActionGotoRemote */
+    /* Fields of Poppler-0.18.Poppler.ActionGotoRemote */
     type: ActionType
     title: string
     fileName: string
@@ -2338,14 +2149,14 @@ export class ActionGotoRemote {
     static name: string
 }
 export class ActionJavascript {
-    /* Fields of Poppler.ActionJavascript */
+    /* Fields of Poppler-0.18.Poppler.ActionJavascript */
     type: ActionType
     title: string
     script: string
     static name: string
 }
 export class ActionLaunch {
-    /* Fields of Poppler.ActionLaunch */
+    /* Fields of Poppler-0.18.Poppler.ActionLaunch */
     type: ActionType
     title: string
     fileName: string
@@ -2353,13 +2164,13 @@ export class ActionLaunch {
     static name: string
 }
 export class ActionLayer {
-    /* Fields of Poppler.ActionLayer */
+    /* Fields of Poppler-0.18.Poppler.ActionLayer */
     action: ActionLayerAction
     layers: object[]
     static name: string
 }
 export class ActionMovie {
-    /* Fields of Poppler.ActionMovie */
+    /* Fields of Poppler-0.18.Poppler.ActionMovie */
     type: ActionType
     title: string
     operation: ActionMovieOperation
@@ -2367,21 +2178,21 @@ export class ActionMovie {
     static name: string
 }
 export class ActionNamed {
-    /* Fields of Poppler.ActionNamed */
+    /* Fields of Poppler-0.18.Poppler.ActionNamed */
     type: ActionType
     title: string
     namedDest: string
     static name: string
 }
 export class ActionOCGState {
-    /* Fields of Poppler.ActionOCGState */
+    /* Fields of Poppler-0.18.Poppler.ActionOCGState */
     type: ActionType
     title: string
     stateList: object[]
     static name: string
 }
 export class ActionRendition {
-    /* Fields of Poppler.ActionRendition */
+    /* Fields of Poppler-0.18.Poppler.ActionRendition */
     type: ActionType
     title: string
     op: number
@@ -2389,7 +2200,7 @@ export class ActionRendition {
     static name: string
 }
 export class ActionResetForm {
-    /* Fields of Poppler.ActionResetForm */
+    /* Fields of Poppler-0.18.Poppler.ActionResetForm */
     type: ActionType
     title: string
     fields: object[]
@@ -2397,14 +2208,14 @@ export class ActionResetForm {
     static name: string
 }
 export class ActionUri {
-    /* Fields of Poppler.ActionUri */
+    /* Fields of Poppler-0.18.Poppler.ActionUri */
     type: ActionType
     title: string
     uri: string
     static name: string
 }
 export class AnnotCalloutLine {
-    /* Fields of Poppler.AnnotCalloutLine */
+    /* Fields of Poppler-0.18.Poppler.AnnotCalloutLine */
     multiline: boolean
     x1: number
     y1: number
@@ -2412,7 +2223,7 @@ export class AnnotCalloutLine {
     y2: number
     x3: number
     y3: number
-    /* Methods of Poppler.AnnotCalloutLine */
+    /* Methods of Poppler-0.18.Poppler.AnnotCalloutLine */
     copy(): AnnotCalloutLine
     free(): void
     static name: string
@@ -2422,10 +2233,10 @@ export class AnnotCalloutLine {
     static new(): AnnotCalloutLine
 }
 export class AnnotMapping {
-    /* Fields of Poppler.AnnotMapping */
+    /* Fields of Poppler-0.18.Poppler.AnnotMapping */
     area: Rectangle
     annot: Annot
-    /* Methods of Poppler.AnnotMapping */
+    /* Methods of Poppler-0.18.Poppler.AnnotMapping */
     copy(): AnnotMapping
     free(): void
     static name: string
@@ -2435,16 +2246,16 @@ export class AnnotMapping {
     static new(): AnnotMapping
 }
 export abstract class AttachmentClass {
-    /* Fields of Poppler.AttachmentClass */
+    /* Fields of Poppler-0.18.Poppler.AttachmentClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
 export class Color {
-    /* Fields of Poppler.Color */
+    /* Fields of Poppler-0.18.Poppler.Color */
     red: number
     green: number
     blue: number
-    /* Methods of Poppler.Color */
+    /* Methods of Poppler-0.18.Poppler.Color */
     copy(): Color
     free(): void
     static name: string
@@ -2454,7 +2265,7 @@ export class Color {
     static new(): Color
 }
 export class Dest {
-    /* Fields of Poppler.Dest */
+    /* Fields of Poppler-0.18.Poppler.Dest */
     type: DestType
     pageNum: number
     left: number
@@ -2466,13 +2277,13 @@ export class Dest {
     changeLeft: number
     changeTop: number
     changeZoom: number
-    /* Methods of Poppler.Dest */
+    /* Methods of Poppler-0.18.Poppler.Dest */
     copy(): Dest
     free(): void
     static name: string
 }
 export class FontsIter {
-    /* Methods of Poppler.FontsIter */
+    /* Methods of Poppler-0.18.Poppler.FontsIter */
     copy(): FontsIter
     free(): void
     getEncoding(): string
@@ -2487,10 +2298,10 @@ export class FontsIter {
     static name: string
 }
 export class FormFieldMapping {
-    /* Fields of Poppler.FormFieldMapping */
+    /* Fields of Poppler-0.18.Poppler.FormFieldMapping */
     area: Rectangle
     field: FormField
-    /* Methods of Poppler.FormFieldMapping */
+    /* Methods of Poppler-0.18.Poppler.FormFieldMapping */
     copy(): FormFieldMapping
     free(): void
     static name: string
@@ -2500,10 +2311,10 @@ export class FormFieldMapping {
     static new(): FormFieldMapping
 }
 export class ImageMapping {
-    /* Fields of Poppler.ImageMapping */
+    /* Fields of Poppler-0.18.Poppler.ImageMapping */
     area: Rectangle
     imageId: number
-    /* Methods of Poppler.ImageMapping */
+    /* Methods of Poppler-0.18.Poppler.ImageMapping */
     copy(): ImageMapping
     free(): void
     static name: string
@@ -2513,7 +2324,7 @@ export class ImageMapping {
     static new(): ImageMapping
 }
 export class IndexIter {
-    /* Methods of Poppler.IndexIter */
+    /* Methods of Poppler-0.18.Poppler.IndexIter */
     copy(): IndexIter
     free(): void
     getAction(): Action
@@ -2527,7 +2338,7 @@ export class IndexIter {
     static new(document: Document): IndexIter
 }
 export class LayersIter {
-    /* Methods of Poppler.LayersIter */
+    /* Methods of Poppler-0.18.Poppler.LayersIter */
     copy(): LayersIter
     free(): void
     getChild(): LayersIter
@@ -2541,10 +2352,10 @@ export class LayersIter {
     static new(document: Document): LayersIter
 }
 export class LinkMapping {
-    /* Fields of Poppler.LinkMapping */
+    /* Fields of Poppler-0.18.Poppler.LinkMapping */
     area: Rectangle
     action: Action
-    /* Methods of Poppler.LinkMapping */
+    /* Methods of Poppler-0.18.Poppler.LinkMapping */
     copy(): LinkMapping
     free(): void
     static name: string
@@ -2554,13 +2365,13 @@ export class LinkMapping {
     static new(): LinkMapping
 }
 export class PageRange {
-    /* Fields of Poppler.PageRange */
+    /* Fields of Poppler-0.18.Poppler.PageRange */
     startPage: number
     endPage: number
     static name: string
 }
 export class PageTransition {
-    /* Fields of Poppler.PageTransition */
+    /* Fields of Poppler-0.18.Poppler.PageTransition */
     type: PageTransitionType
     alignment: PageTransitionAlignment
     direction: PageTransitionDirection
@@ -2569,7 +2380,7 @@ export class PageTransition {
     scale: number
     rectangular: boolean
     durationReal: number
-    /* Methods of Poppler.PageTransition */
+    /* Methods of Poppler-0.18.Poppler.PageTransition */
     copy(): PageTransition
     free(): void
     static name: string
@@ -2579,10 +2390,10 @@ export class PageTransition {
     static new(): PageTransition
 }
 export class Point {
-    /* Fields of Poppler.Point */
+    /* Fields of Poppler-0.18.Poppler.Point */
     x: number
     y: number
-    /* Methods of Poppler.Point */
+    /* Methods of Poppler-0.18.Poppler.Point */
     copy(): Point
     free(): void
     static name: string
@@ -2592,12 +2403,12 @@ export class Point {
     static new(): Point
 }
 export class Quadrilateral {
-    /* Fields of Poppler.Quadrilateral */
+    /* Fields of Poppler-0.18.Poppler.Quadrilateral */
     p1: Point
     p2: Point
     p3: Point
     p4: Point
-    /* Methods of Poppler.Quadrilateral */
+    /* Methods of Poppler-0.18.Poppler.Quadrilateral */
     copy(): Quadrilateral
     free(): void
     static name: string
@@ -2607,12 +2418,12 @@ export class Quadrilateral {
     static new(): Quadrilateral
 }
 export class Rectangle {
-    /* Fields of Poppler.Rectangle */
+    /* Fields of Poppler-0.18.Poppler.Rectangle */
     x1: number
     y1: number
     x2: number
     y2: number
-    /* Methods of Poppler.Rectangle */
+    /* Methods of Poppler-0.18.Poppler.Rectangle */
     copy(): Rectangle
     free(): void
     static name: string
@@ -2622,7 +2433,7 @@ export class Rectangle {
     static new(): Rectangle
 }
 export class StructureElementIter {
-    /* Methods of Poppler.StructureElementIter */
+    /* Methods of Poppler-0.18.Poppler.StructureElementIter */
     copy(): StructureElementIter
     free(): void
     getChild(): StructureElementIter
@@ -2635,14 +2446,14 @@ export class StructureElementIter {
     static new(popplerDocument: Document): StructureElementIter
 }
 export class TextAttributes {
-    /* Fields of Poppler.TextAttributes */
+    /* Fields of Poppler-0.18.Poppler.TextAttributes */
     fontName: string
     fontSize: number
     isUnderlined: boolean
     color: Color
     startIndex: number
     endIndex: number
-    /* Methods of Poppler.TextAttributes */
+    /* Methods of Poppler-0.18.Poppler.TextAttributes */
     copy(): TextAttributes
     free(): void
     static name: string
@@ -2652,10 +2463,10 @@ export class TextAttributes {
     static new(): TextAttributes
 }
 export class TextSpan {
-    /* Methods of Poppler.TextSpan */
+    /* Methods of Poppler-0.18.Poppler.TextSpan */
     copy(): TextSpan
     free(): void
-    getColor(): /* color */ Color
+    getColor(): { color: Color }
     getFontName(): string
     getText(): string
     isBoldFont(): boolean
@@ -2664,7 +2475,7 @@ export class TextSpan {
     static name: string
 }
 export class Action {
-    /* Fields of Poppler.Action */
+    /* Fields of Poppler-0.18.Poppler.Action */
     type: ActionType
     any: ActionAny
     gotoDest: ActionGotoDest
@@ -2677,7 +2488,7 @@ export class Action {
     ocgState: ActionOCGState
     javascript: ActionJavascript
     resetForm: ActionResetForm
-    /* Methods of Poppler.Action */
+    /* Methods of Poppler-0.18.Poppler.Action */
     copy(): Action
     free(): void
     static name: string

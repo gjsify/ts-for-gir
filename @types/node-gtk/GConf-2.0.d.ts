@@ -83,11 +83,11 @@ export interface ListenersPredicate {
 export interface Client_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Client {
-    /* Fields of GConf.Client */
+    /* Fields of GConf-2.0.GConf.Client */
     object: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GConf.Client */
+    /* Methods of GConf-2.0.GConf.Client */
     addDir(dir: string, preload: ClientPreloadType): void
     allDirs(dir: string): string[]
     allEntries(dir: string): Entry[]
@@ -124,7 +124,7 @@ export class Client {
     unreturnedError(error: GLib.Error): void
     unset(key: string): boolean
     valueChanged(key: string, value: Value): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -146,44 +146,28 @@ export class Client {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GConf.Client */
-    vfuncError(error: GLib.Error): void
-    vfuncUnreturnedError(error: GLib.Error): void
-    vfuncValueChanged(key: string, value: Value): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GConf.Client */
+    /* Signals of GConf-2.0.GConf.Client */
     connect(sigName: "error", callback: (($obj: Client, object?: object | null) => void)): number
-    connect_after(sigName: "error", callback: (($obj: Client, object?: object | null) => void)): number
+    on(sigName: "error", callback: (object?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "error", callback: (object?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "error", callback: (object?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "error", object?: object | null): void
-    on(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unreturned-error", callback: (($obj: Client, object?: object | null) => void)): number
-    connect_after(sigName: "unreturned-error", callback: (($obj: Client, object?: object | null) => void)): number
+    on(sigName: "unreturned-error", callback: (object?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unreturned-error", callback: (object?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unreturned-error", callback: (object?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "unreturned-error", object?: object | null): void
-    on(sigName: "unreturned-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unreturned-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unreturned-error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "value-changed", callback: (($obj: Client, object: string, p0?: object | null) => void)): number
-    connect_after(sigName: "value-changed", callback: (($obj: Client, object: string, p0?: object | null) => void)): number
+    on(sigName: "value-changed", callback: (object: string, p0?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "value-changed", callback: (object: string, p0?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "value-changed", callback: (object: string, p0?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "value-changed", object: string, p0?: object | null): void
-    on(sigName: "value-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "value-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "value-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Client, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -199,7 +183,7 @@ export class Client {
     static $gtype: GObject.Type
 }
 export class ChangeSet {
-    /* Methods of GConf.ChangeSet */
+    /* Methods of GConf-2.0.GConf.ChangeSet */
     checkValue(key: string, valueRetloc: Value): boolean
     clear(): void
     foreach(func: ChangeSetForeachFunc): void
@@ -222,7 +206,7 @@ export class ChangeSet {
     static new(): ChangeSet
 }
 export abstract class ClientClass {
-    /* Fields of GConf.ClientClass */
+    /* Fields of GConf-2.0.GConf.ClientClass */
     parentClass: GObject.ObjectClass
     valueChanged: (client: Client, key: string, value: Value) => void
     unreturnedError: (client: Client, error: GLib.Error) => void
@@ -233,7 +217,7 @@ export abstract class ClientClass {
     static name: string
 }
 export class Engine {
-    /* Methods of GConf.Engine */
+    /* Methods of GConf-2.0.GConf.Engine */
     allDirs(dir: string): string[]
     allEntries(dir: string): Entry[]
     associateSchema(key: string, schemaKey: string): boolean
@@ -272,10 +256,10 @@ export class Engine {
     static name: string
 }
 export class Entry {
-    /* Fields of GConf.Entry */
+    /* Fields of GConf-2.0.GConf.Entry */
     key: string
     value: Value
-    /* Methods of GConf.Entry */
+    /* Methods of GConf-2.0.GConf.Entry */
     copy(): Entry
     equal(b: Entry): boolean
     free(): void
@@ -300,13 +284,13 @@ export class Entry {
     static newNocopy(key: string, val: Value): Entry
 }
 export class EnumStringPair {
-    /* Fields of GConf.EnumStringPair */
+    /* Fields of GConf-2.0.GConf.EnumStringPair */
     enumValue: number
     str: string
     static name: string
 }
 export class Listeners {
-    /* Methods of GConf.Listeners */
+    /* Methods of GConf-2.0.GConf.Listeners */
     add(listenPoint: string, listenerData: object | null, destroyNotify: GLib.FreeFunc): number
     count(): number
     foreach(callback: ListenersForeach): void
@@ -318,11 +302,11 @@ export class Listeners {
     static name: string
 }
 export class MetaInfo {
-    /* Fields of GConf.MetaInfo */
+    /* Fields of GConf-2.0.GConf.MetaInfo */
     schema: string
     modUser: string
     modTime: GLib.Time
-    /* Methods of GConf.MetaInfo */
+    /* Methods of GConf-2.0.GConf.MetaInfo */
     free(): void
     getModUser(): string
     getSchema(): string
@@ -332,7 +316,7 @@ export class MetaInfo {
     static name: string
 }
 export class Schema {
-    /* Methods of GConf.Schema */
+    /* Methods of GConf-2.0.GConf.Schema */
     free(): void
     getCarType(): ValueType
     getCdrType(): ValueType
@@ -356,9 +340,9 @@ export class Schema {
     static name: string
 }
 export class Value {
-    /* Fields of GConf.Value */
+    /* Fields of GConf-2.0.GConf.Value */
     type: ValueType
-    /* Methods of GConf.Value */
+    /* Methods of GConf-2.0.GConf.Value */
     compare(valueB: Value): number
     copy(): Value
     encode(): string

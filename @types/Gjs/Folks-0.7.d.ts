@@ -120,16 +120,16 @@ export interface AliasDetails_ConstructProps extends GObject.Object_ConstructPro
     alias?: string
 }
 export class AliasDetails {
-    /* Properties of Folks.AliasDetails */
+    /* Properties of Folks-0.7.Folks.AliasDetails */
     alias: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.AliasDetails */
+    /* Methods of Folks-0.7.Folks.AliasDetails */
     change_alias(alias: string, _callback_?: Gio.AsyncReadyCallback | null): void
     change_alias_finish(_res_: Gio.AsyncResult): void
     get_alias(): string
     set_alias(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -151,12 +151,12 @@ export class AliasDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AliasDetails */
+    /* Virtual methods of Folks-0.7.Folks.AliasDetails */
     vfunc_change_alias(alias: string, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_change_alias_finish(_res_: Gio.AsyncResult): void
     vfunc_get_alias(): string
     vfunc_set_alias(value: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -164,7 +164,7 @@ export class AliasDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AliasDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AliasDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -183,15 +183,15 @@ export interface AntiLinkable_ConstructProps extends Persona_ConstructProps {
     anti_links?: Gee.Set
 }
 export class AntiLinkable {
-    /* Properties of Folks.AntiLinkable */
+    /* Properties of Folks-0.7.Folks.AntiLinkable */
     anti_links: Gee.Set
-    /* Properties of Folks.Persona */
+    /* Properties of Folks-0.7.Folks.Persona */
     individual: Individual
     readonly linkable_properties: string[]
     readonly writeable_properties: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.AntiLinkable */
+    /* Methods of Folks-0.7.Folks.AntiLinkable */
     change_anti_links(anti_links: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     change_anti_links_finish(_res_: Gio.AsyncResult): void
     has_anti_link_with_persona(other_persona: Persona): boolean
@@ -206,7 +206,7 @@ export class AntiLinkable {
     has_global_anti_link(): boolean
     get_anti_links(): Gee.Set
     set_anti_links(value: Gee.Set): void
-    /* Methods of Folks.Persona */
+    /* Methods of Folks-0.7.Folks.Persona */
     linkable_property_to_links(prop_name: string, callback: any): void
     get_iid(): string
     get_uid(): string
@@ -216,7 +216,7 @@ export class AntiLinkable {
     get_individual(): Individual | null
     get_linkable_properties(): string[]
     get_writeable_properties(): string[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -238,16 +238,16 @@ export class AntiLinkable {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AntiLinkable */
+    /* Virtual methods of Folks-0.7.Folks.AntiLinkable */
     vfunc_change_anti_links(anti_links: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_change_anti_links_finish(_res_: Gio.AsyncResult): void
     vfunc_get_anti_links(): Gee.Set
     vfunc_set_anti_links(value: Gee.Set): void
-    /* Virtual methods of Folks.Persona */
+    /* Virtual methods of Folks-0.7.Folks.Persona */
     vfunc_linkable_property_to_links(prop_name: string, callback: any): void
     vfunc_get_linkable_properties(): string[]
     vfunc_get_writeable_properties(): string[]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -255,7 +255,7 @@ export class AntiLinkable {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AntiLinkable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AntiLinkable, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -280,16 +280,16 @@ export interface AvatarDetails_ConstructProps extends GObject.Object_ConstructPr
     avatar?: Gio.LoadableIcon
 }
 export class AvatarDetails {
-    /* Properties of Folks.AvatarDetails */
+    /* Properties of Folks-0.7.Folks.AvatarDetails */
     avatar: Gio.LoadableIcon
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.AvatarDetails */
+    /* Methods of Folks-0.7.Folks.AvatarDetails */
     change_avatar(avatar?: Gio.LoadableIcon | null, _callback_?: Gio.AsyncReadyCallback | null): void
     change_avatar_finish(_res_: Gio.AsyncResult): void
     get_avatar(): Gio.LoadableIcon | null
     set_avatar(value?: Gio.LoadableIcon | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -311,12 +311,12 @@ export class AvatarDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AvatarDetails */
+    /* Virtual methods of Folks-0.7.Folks.AvatarDetails */
     vfunc_change_avatar(avatar?: Gio.LoadableIcon | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_change_avatar_finish(_res_: Gio.AsyncResult): void
     vfunc_get_avatar(): Gio.LoadableIcon | null
     vfunc_set_avatar(value?: Gio.LoadableIcon | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -324,7 +324,7 @@ export class AvatarDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AvatarDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AvatarDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -344,12 +344,12 @@ export interface BirthdayDetails_ConstructProps extends GObject.Object_Construct
     calendar_event_id?: string
 }
 export class BirthdayDetails {
-    /* Properties of Folks.BirthdayDetails */
+    /* Properties of Folks-0.7.Folks.BirthdayDetails */
     birthday: GLib.DateTime
     calendar_event_id: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.BirthdayDetails */
+    /* Methods of Folks-0.7.Folks.BirthdayDetails */
     change_birthday(birthday?: GLib.DateTime | null, _callback_?: Gio.AsyncReadyCallback | null): void
     change_birthday_finish(_res_: Gio.AsyncResult): void
     change_calendar_event_id(event_id?: string | null, _callback_?: Gio.AsyncReadyCallback | null): void
@@ -358,7 +358,7 @@ export class BirthdayDetails {
     set_birthday(value?: GLib.DateTime | null): void
     get_calendar_event_id(): string | null
     set_calendar_event_id(value?: string | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -380,7 +380,7 @@ export class BirthdayDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.BirthdayDetails */
+    /* Virtual methods of Folks-0.7.Folks.BirthdayDetails */
     vfunc_change_birthday(birthday?: GLib.DateTime | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_change_birthday_finish(_res_: Gio.AsyncResult): void
     vfunc_change_calendar_event_id(event_id?: string | null, _callback_?: Gio.AsyncReadyCallback | null): void
@@ -389,7 +389,7 @@ export class BirthdayDetails {
     vfunc_set_birthday(value?: GLib.DateTime | null): void
     vfunc_get_calendar_event_id(): string | null
     vfunc_set_calendar_event_id(value?: string | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -397,7 +397,7 @@ export class BirthdayDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BirthdayDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BirthdayDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -418,16 +418,16 @@ export interface EmailDetails_ConstructProps extends GObject.Object_ConstructPro
     email_addresses?: Gee.Set
 }
 export class EmailDetails {
-    /* Properties of Folks.EmailDetails */
+    /* Properties of Folks-0.7.Folks.EmailDetails */
     email_addresses: Gee.Set
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.EmailDetails */
+    /* Methods of Folks-0.7.Folks.EmailDetails */
     change_email_addresses(email_addresses: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     change_email_addresses_finish(_res_: Gio.AsyncResult): void
     get_email_addresses(): Gee.Set
     set_email_addresses(value: Gee.Set): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -449,12 +449,12 @@ export class EmailDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.EmailDetails */
+    /* Virtual methods of Folks-0.7.Folks.EmailDetails */
     vfunc_change_email_addresses(email_addresses: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_change_email_addresses_finish(_res_: Gio.AsyncResult): void
     vfunc_get_email_addresses(): Gee.Set
     vfunc_set_email_addresses(value: Gee.Set): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -462,7 +462,7 @@ export class EmailDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EmailDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EmailDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -480,15 +480,15 @@ export class EmailDetails {
 export interface ExtendedInfo_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ExtendedInfo {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.ExtendedInfo */
+    /* Methods of Folks-0.7.Folks.ExtendedInfo */
     get_extended_field(name: string): ExtendedFieldDetails | null
     change_extended_field(name: string, value: ExtendedFieldDetails, _callback_?: Gio.AsyncReadyCallback | null): void
     change_extended_field_finish(_res_: Gio.AsyncResult): void
     remove_extended_field(name: string, _callback_?: Gio.AsyncReadyCallback | null): void
     remove_extended_field_finish(_res_: Gio.AsyncResult): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -510,13 +510,13 @@ export class ExtendedInfo {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.ExtendedInfo */
+    /* Virtual methods of Folks-0.7.Folks.ExtendedInfo */
     vfunc_get_extended_field(name: string): ExtendedFieldDetails | null
     vfunc_change_extended_field(name: string, value: ExtendedFieldDetails, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_change_extended_field_finish(_res_: Gio.AsyncResult): void
     vfunc_remove_extended_field(name: string, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_remove_extended_field_finish(_res_: Gio.AsyncResult): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -524,7 +524,7 @@ export class ExtendedInfo {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExtendedInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExtendedInfo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -541,16 +541,16 @@ export interface FavouriteDetails_ConstructProps extends GObject.Object_Construc
     is_favourite?: boolean
 }
 export class FavouriteDetails {
-    /* Properties of Folks.FavouriteDetails */
+    /* Properties of Folks-0.7.Folks.FavouriteDetails */
     is_favourite: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.FavouriteDetails */
+    /* Methods of Folks-0.7.Folks.FavouriteDetails */
     change_is_favourite(is_favourite: boolean, _callback_?: Gio.AsyncReadyCallback | null): void
     change_is_favourite_finish(_res_: Gio.AsyncResult): void
     get_is_favourite(): boolean
     set_is_favourite(value: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -572,12 +572,12 @@ export class FavouriteDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.FavouriteDetails */
+    /* Virtual methods of Folks-0.7.Folks.FavouriteDetails */
     vfunc_change_is_favourite(is_favourite: boolean, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_change_is_favourite_finish(_res_: Gio.AsyncResult): void
     vfunc_get_is_favourite(): boolean
     vfunc_set_is_favourite(value: boolean): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -585,7 +585,7 @@ export class FavouriteDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FavouriteDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: FavouriteDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -604,16 +604,16 @@ export interface GenderDetails_ConstructProps extends GObject.Object_ConstructPr
     gender?: Gender
 }
 export class GenderDetails {
-    /* Properties of Folks.GenderDetails */
+    /* Properties of Folks-0.7.Folks.GenderDetails */
     gender: Gender
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.GenderDetails */
+    /* Methods of Folks-0.7.Folks.GenderDetails */
     change_gender(gender: Gender, _callback_?: Gio.AsyncReadyCallback | null): void
     change_gender_finish(_res_: Gio.AsyncResult): void
     get_gender(): Gender
     set_gender(value: Gender): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -635,12 +635,12 @@ export class GenderDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.GenderDetails */
+    /* Virtual methods of Folks-0.7.Folks.GenderDetails */
     vfunc_change_gender(gender: Gender, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_change_gender_finish(_res_: Gio.AsyncResult): void
     vfunc_get_gender(): Gender
     vfunc_set_gender(value: Gender): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -648,7 +648,7 @@ export class GenderDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GenderDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GenderDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -667,18 +667,18 @@ export interface GroupDetails_ConstructProps extends GObject.Object_ConstructPro
     groups?: Gee.Set
 }
 export class GroupDetails {
-    /* Properties of Folks.GroupDetails */
+    /* Properties of Folks-0.7.Folks.GroupDetails */
     groups: Gee.Set
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.GroupDetails */
+    /* Methods of Folks-0.7.Folks.GroupDetails */
     change_group(group: string, is_member: boolean, _callback_?: Gio.AsyncReadyCallback | null): void
     change_group_finish(_res_: Gio.AsyncResult): void
     change_groups(groups: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     change_groups_finish(_res_: Gio.AsyncResult): void
     get_groups(): Gee.Set
     set_groups(value: Gee.Set): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -700,14 +700,14 @@ export class GroupDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.GroupDetails */
+    /* Virtual methods of Folks-0.7.Folks.GroupDetails */
     vfunc_change_group(group: string, is_member: boolean, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_change_group_finish(_res_: Gio.AsyncResult): void
     vfunc_change_groups(groups: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_change_groups_finish(_res_: Gio.AsyncResult): void
     vfunc_get_groups(): Gee.Set
     vfunc_set_groups(value: Gee.Set): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -715,11 +715,11 @@ export class GroupDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Folks.GroupDetails */
+    /* Signals of Folks-0.7.Folks.GroupDetails */
     connect(sigName: "group-changed", callback: (($obj: GroupDetails, group: string, is_member: boolean) => void)): number
     connect_after(sigName: "group-changed", callback: (($obj: GroupDetails, group: string, is_member: boolean) => void)): number
     emit(sigName: "group-changed", group: string, is_member: boolean): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GroupDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GroupDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -738,16 +738,16 @@ export interface ImDetails_ConstructProps extends GObject.Object_ConstructProps 
     im_addresses?: Gee.MultiMap
 }
 export class ImDetails {
-    /* Properties of Folks.ImDetails */
+    /* Properties of Folks-0.7.Folks.ImDetails */
     im_addresses: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.ImDetails */
+    /* Methods of Folks-0.7.Folks.ImDetails */
     change_im_addresses(im_addresses: Gee.MultiMap, _callback_?: Gio.AsyncReadyCallback | null): void
     change_im_addresses_finish(_res_: Gio.AsyncResult): void
     get_im_addresses(): Gee.MultiMap
     set_im_addresses(value: Gee.MultiMap): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -769,12 +769,12 @@ export class ImDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.ImDetails */
+    /* Virtual methods of Folks-0.7.Folks.ImDetails */
     vfunc_change_im_addresses(im_addresses: Gee.MultiMap, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_change_im_addresses_finish(_res_: Gio.AsyncResult): void
     vfunc_get_im_addresses(): Gee.MultiMap
     vfunc_set_im_addresses(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -782,7 +782,7 @@ export class ImDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ImDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ImDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -802,19 +802,19 @@ export class ImDetails {
 export interface InteractionDetails_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class InteractionDetails {
-    /* Properties of Folks.InteractionDetails */
+    /* Properties of Folks-0.7.Folks.InteractionDetails */
     readonly im_interaction_count: number
     readonly last_im_interaction_datetime: GLib.DateTime
     readonly call_interaction_count: number
     readonly last_call_interaction_datetime: GLib.DateTime
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.InteractionDetails */
+    /* Methods of Folks-0.7.Folks.InteractionDetails */
     get_im_interaction_count(): number
     get_last_im_interaction_datetime(): GLib.DateTime | null
     get_call_interaction_count(): number
     get_last_call_interaction_datetime(): GLib.DateTime | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -836,12 +836,12 @@ export class InteractionDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.InteractionDetails */
+    /* Virtual methods of Folks-0.7.Folks.InteractionDetails */
     vfunc_get_im_interaction_count(): number
     vfunc_get_last_im_interaction_datetime(): GLib.DateTime | null
     vfunc_get_call_interaction_count(): number
     vfunc_get_last_call_interaction_datetime(): GLib.DateTime | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -849,7 +849,7 @@ export class InteractionDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InteractionDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: InteractionDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -874,16 +874,16 @@ export interface LocalIdDetails_ConstructProps extends GObject.Object_ConstructP
     local_ids?: Gee.Set
 }
 export class LocalIdDetails {
-    /* Properties of Folks.LocalIdDetails */
+    /* Properties of Folks-0.7.Folks.LocalIdDetails */
     local_ids: Gee.Set
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.LocalIdDetails */
+    /* Methods of Folks-0.7.Folks.LocalIdDetails */
     change_local_ids(local_ids: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     change_local_ids_finish(_res_: Gio.AsyncResult): void
     get_local_ids(): Gee.Set
     set_local_ids(value: Gee.Set): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -905,12 +905,12 @@ export class LocalIdDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.LocalIdDetails */
+    /* Virtual methods of Folks-0.7.Folks.LocalIdDetails */
     vfunc_change_local_ids(local_ids: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_change_local_ids_finish(_res_: Gio.AsyncResult): void
     vfunc_get_local_ids(): Gee.Set
     vfunc_set_local_ids(value: Gee.Set): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -918,7 +918,7 @@ export class LocalIdDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LocalIdDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LocalIdDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -937,16 +937,16 @@ export interface LocationDetails_ConstructProps extends GObject.Object_Construct
     location?: Location
 }
 export class LocationDetails {
-    /* Properties of Folks.LocationDetails */
+    /* Properties of Folks-0.7.Folks.LocationDetails */
     location: Location
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.LocationDetails */
+    /* Methods of Folks-0.7.Folks.LocationDetails */
     change_location(location?: Location | null, _callback_?: Gio.AsyncReadyCallback | null): void
     change_location_finish(_res_: Gio.AsyncResult): void
     get_location(): Location | null
     set_location(value?: Location | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -968,12 +968,12 @@ export class LocationDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.LocationDetails */
+    /* Virtual methods of Folks-0.7.Folks.LocationDetails */
     vfunc_change_location(location?: Location | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_change_location_finish(_res_: Gio.AsyncResult): void
     vfunc_get_location(): Location | null
     vfunc_set_location(value?: Location | null): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -981,7 +981,7 @@ export class LocationDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LocationDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LocationDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1002,13 +1002,13 @@ export interface NameDetails_ConstructProps extends GObject.Object_ConstructProp
     nickname?: string
 }
 export class NameDetails {
-    /* Properties of Folks.NameDetails */
+    /* Properties of Folks-0.7.Folks.NameDetails */
     structured_name: StructuredName
     full_name: string
     nickname: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.NameDetails */
+    /* Methods of Folks-0.7.Folks.NameDetails */
     change_structured_name(name?: StructuredName | null, _callback_?: Gio.AsyncReadyCallback | null): void
     change_structured_name_finish(_res_: Gio.AsyncResult): void
     change_full_name(full_name: string, _callback_?: Gio.AsyncReadyCallback | null): void
@@ -1021,7 +1021,7 @@ export class NameDetails {
     set_full_name(value: string): void
     get_nickname(): string
     set_nickname(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1043,7 +1043,7 @@ export class NameDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.NameDetails */
+    /* Virtual methods of Folks-0.7.Folks.NameDetails */
     vfunc_change_structured_name(name?: StructuredName | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_change_structured_name_finish(_res_: Gio.AsyncResult): void
     vfunc_change_full_name(full_name: string, _callback_?: Gio.AsyncReadyCallback | null): void
@@ -1056,7 +1056,7 @@ export class NameDetails {
     vfunc_set_full_name(value: string): void
     vfunc_get_nickname(): string
     vfunc_set_nickname(value: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1064,7 +1064,7 @@ export class NameDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NameDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NameDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1087,16 +1087,16 @@ export interface NoteDetails_ConstructProps extends GObject.Object_ConstructProp
     notes?: Gee.Set
 }
 export class NoteDetails {
-    /* Properties of Folks.NoteDetails */
+    /* Properties of Folks-0.7.Folks.NoteDetails */
     notes: Gee.Set
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.NoteDetails */
+    /* Methods of Folks-0.7.Folks.NoteDetails */
     change_notes(notes: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     change_notes_finish(_res_: Gio.AsyncResult): void
     get_notes(): Gee.Set
     set_notes(value: Gee.Set): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1118,12 +1118,12 @@ export class NoteDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.NoteDetails */
+    /* Virtual methods of Folks-0.7.Folks.NoteDetails */
     vfunc_change_notes(notes: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_change_notes_finish(_res_: Gio.AsyncResult): void
     vfunc_get_notes(): Gee.Set
     vfunc_set_notes(value: Gee.Set): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1131,7 +1131,7 @@ export class NoteDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NoteDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NoteDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1150,16 +1150,16 @@ export interface PhoneDetails_ConstructProps extends GObject.Object_ConstructPro
     phone_numbers?: Gee.Set
 }
 export class PhoneDetails {
-    /* Properties of Folks.PhoneDetails */
+    /* Properties of Folks-0.7.Folks.PhoneDetails */
     phone_numbers: Gee.Set
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.PhoneDetails */
+    /* Methods of Folks-0.7.Folks.PhoneDetails */
     change_phone_numbers(phone_numbers: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     change_phone_numbers_finish(_res_: Gio.AsyncResult): void
     get_phone_numbers(): Gee.Set
     set_phone_numbers(value: Gee.Set): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1181,12 +1181,12 @@ export class PhoneDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.PhoneDetails */
+    /* Virtual methods of Folks-0.7.Folks.PhoneDetails */
     vfunc_change_phone_numbers(phone_numbers: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_change_phone_numbers_finish(_res_: Gio.AsyncResult): void
     vfunc_get_phone_numbers(): Gee.Set
     vfunc_set_phone_numbers(value: Gee.Set): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1194,7 +1194,7 @@ export class PhoneDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PhoneDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PhoneDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1213,16 +1213,16 @@ export interface PostalAddressDetails_ConstructProps extends GObject.Object_Cons
     postal_addresses?: Gee.Set
 }
 export class PostalAddressDetails {
-    /* Properties of Folks.PostalAddressDetails */
+    /* Properties of Folks-0.7.Folks.PostalAddressDetails */
     postal_addresses: Gee.Set
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.PostalAddressDetails */
+    /* Methods of Folks-0.7.Folks.PostalAddressDetails */
     change_postal_addresses(postal_addresses: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     change_postal_addresses_finish(_res_: Gio.AsyncResult): void
     get_postal_addresses(): Gee.Set
     set_postal_addresses(value: Gee.Set): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1244,12 +1244,12 @@ export class PostalAddressDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.PostalAddressDetails */
+    /* Virtual methods of Folks-0.7.Folks.PostalAddressDetails */
     vfunc_change_postal_addresses(postal_addresses: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_change_postal_addresses_finish(_res_: Gio.AsyncResult): void
     vfunc_get_postal_addresses(): Gee.Set
     vfunc_set_postal_addresses(value: Gee.Set): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1257,7 +1257,7 @@ export class PostalAddressDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PostalAddressDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PostalAddressDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1279,14 +1279,14 @@ export interface PresenceDetails_ConstructProps extends GObject.Object_Construct
     presence_status?: string
 }
 export class PresenceDetails {
-    /* Properties of Folks.PresenceDetails */
+    /* Properties of Folks-0.7.Folks.PresenceDetails */
     presence_type: PresenceType
     presence_message: string
     client_types: string[]
     presence_status: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.PresenceDetails */
+    /* Methods of Folks-0.7.Folks.PresenceDetails */
     is_online(): boolean
     get_presence_type(): PresenceType
     set_presence_type(value: PresenceType): void
@@ -1296,7 +1296,7 @@ export class PresenceDetails {
     set_client_types(value: string[]): void
     get_presence_status(): string
     set_presence_status(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1318,7 +1318,7 @@ export class PresenceDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.PresenceDetails */
+    /* Virtual methods of Folks-0.7.Folks.PresenceDetails */
     vfunc_get_presence_type(): PresenceType
     vfunc_set_presence_type(value: PresenceType): void
     vfunc_get_presence_message(): string
@@ -1327,7 +1327,7 @@ export class PresenceDetails {
     vfunc_set_client_types(value: string[]): void
     vfunc_get_presence_status(): string
     vfunc_set_presence_status(value: string): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1335,7 +1335,7 @@ export class PresenceDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PresenceDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PresenceDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1363,16 +1363,16 @@ export interface RoleDetails_ConstructProps extends GObject.Object_ConstructProp
     roles?: Gee.Set
 }
 export class RoleDetails {
-    /* Properties of Folks.RoleDetails */
+    /* Properties of Folks-0.7.Folks.RoleDetails */
     roles: Gee.Set
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.RoleDetails */
+    /* Methods of Folks-0.7.Folks.RoleDetails */
     change_roles(roles: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     change_roles_finish(_res_: Gio.AsyncResult): void
     get_roles(): Gee.Set
     set_roles(value: Gee.Set): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1394,12 +1394,12 @@ export class RoleDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.RoleDetails */
+    /* Virtual methods of Folks-0.7.Folks.RoleDetails */
     vfunc_change_roles(roles: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_change_roles_finish(_res_: Gio.AsyncResult): void
     vfunc_get_roles(): Gee.Set
     vfunc_set_roles(value: Gee.Set): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1407,7 +1407,7 @@ export class RoleDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RoleDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RoleDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1426,16 +1426,16 @@ export interface UrlDetails_ConstructProps extends GObject.Object_ConstructProps
     urls?: Gee.Set
 }
 export class UrlDetails {
-    /* Properties of Folks.UrlDetails */
+    /* Properties of Folks-0.7.Folks.UrlDetails */
     urls: Gee.Set
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.UrlDetails */
+    /* Methods of Folks-0.7.Folks.UrlDetails */
     change_urls(urls: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     change_urls_finish(_res_: Gio.AsyncResult): void
     get_urls(): Gee.Set
     set_urls(value: Gee.Set): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1457,12 +1457,12 @@ export class UrlDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.UrlDetails */
+    /* Virtual methods of Folks-0.7.Folks.UrlDetails */
     vfunc_change_urls(urls: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_change_urls_finish(_res_: Gio.AsyncResult): void
     vfunc_get_urls(): Gee.Set
     vfunc_set_urls(value: Gee.Set): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1470,7 +1470,7 @@ export class UrlDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UrlDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: UrlDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1489,16 +1489,16 @@ export interface WebServiceDetails_ConstructProps extends GObject.Object_Constru
     web_service_addresses?: Gee.MultiMap
 }
 export class WebServiceDetails {
-    /* Properties of Folks.WebServiceDetails */
+    /* Properties of Folks-0.7.Folks.WebServiceDetails */
     web_service_addresses: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.WebServiceDetails */
+    /* Methods of Folks-0.7.Folks.WebServiceDetails */
     change_web_service_addresses(web_service_addresses: Gee.MultiMap, _callback_?: Gio.AsyncReadyCallback | null): void
     change_web_service_addresses_finish(_res_: Gio.AsyncResult): void
     get_web_service_addresses(): Gee.MultiMap
     set_web_service_addresses(value: Gee.MultiMap): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1520,12 +1520,12 @@ export class WebServiceDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.WebServiceDetails */
+    /* Virtual methods of Folks-0.7.Folks.WebServiceDetails */
     vfunc_change_web_service_addresses(web_service_addresses: Gee.MultiMap, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_change_web_service_addresses_finish(_res_: Gio.AsyncResult): void
     vfunc_get_web_service_addresses(): Gee.MultiMap
     vfunc_set_web_service_addresses(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1533,7 +1533,7 @@ export class WebServiceDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebServiceDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WebServiceDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1557,14 +1557,14 @@ export interface AbstractFieldDetails_ConstructProps extends GObject.Object_Cons
     parameters?: Gee.MultiMap
 }
 export class AbstractFieldDetails {
-    /* Properties of Folks.AbstractFieldDetails */
+    /* Properties of Folks-0.7.Folks.AbstractFieldDetails */
     value: object
     readonly value_type: GObject.Type
     id: string
     parameters: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.AbstractFieldDetails */
+    /* Methods of Folks-0.7.Folks.AbstractFieldDetails */
     get_parameter_values(parameter_name: string): Gee.Collection | null
     add_parameter(parameter_name: string, parameter_value: string): void
     set_parameter(parameter_name: string, parameter_value: string): void
@@ -1581,7 +1581,7 @@ export class AbstractFieldDetails {
     set_id(value: string): void
     get_parameters(): Gee.MultiMap
     set_parameters(value: Gee.MultiMap): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1603,7 +1603,7 @@ export class AbstractFieldDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AbstractFieldDetails */
+    /* Virtual methods of Folks-0.7.Folks.AbstractFieldDetails */
     vfunc_equal(that: AbstractFieldDetails): boolean
     vfunc_parameters_equal(that: AbstractFieldDetails): boolean
     vfunc_values_equal(that: AbstractFieldDetails): boolean
@@ -1614,7 +1614,7 @@ export class AbstractFieldDetails {
     vfunc_set_id(value: string): void
     vfunc_get_parameters(): Gee.MultiMap
     vfunc_set_parameters(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1622,7 +1622,7 @@ export class AbstractFieldDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AbstractFieldDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AbstractFieldDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1649,9 +1649,9 @@ export class AbstractFieldDetails {
 export interface AvatarCache_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AvatarCache {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.AvatarCache */
+    /* Methods of Folks-0.7.Folks.AvatarCache */
     load_avatar(id: string, _callback_?: Gio.AsyncReadyCallback | null): void
     load_avatar_finish(_res_: Gio.AsyncResult): Gio.LoadableIcon | null
     store_avatar(id: string, avatar: Gio.LoadableIcon, _callback_?: Gio.AsyncReadyCallback | null): void
@@ -1659,7 +1659,7 @@ export class AvatarCache {
     remove_avatar(id: string, _callback_?: Gio.AsyncReadyCallback | null): void
     remove_avatar_finish(_res_: Gio.AsyncResult): void
     build_uri_for_avatar(id: string): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1681,7 +1681,7 @@ export class AvatarCache {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1689,7 +1689,7 @@ export class AvatarCache {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AvatarCache, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AvatarCache, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1709,14 +1709,14 @@ export interface BackendStore_ConstructProps extends GObject.Object_ConstructPro
     is_prepared?: boolean
 }
 export class BackendStore {
-    /* Properties of Folks.BackendStore */
+    /* Properties of Folks-0.7.Folks.BackendStore */
     enabled_backends: Gee.Map
     is_prepared: boolean
-    /* Fields of Folks.BackendStore */
+    /* Fields of Folks-0.7.Folks.BackendStore */
     folks_backend_store_KEY_FILE_GROUP_ALL_OTHERS: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.BackendStore */
+    /* Methods of Folks-0.7.Folks.BackendStore */
     prepare(_callback_?: Gio.AsyncReadyCallback | null): void
     prepare_finish(_res_: Gio.AsyncResult): void
     load_backends(_callback_?: Gio.AsyncReadyCallback | null): void
@@ -1730,7 +1730,7 @@ export class BackendStore {
     disable_backend_finish(_res_: Gio.AsyncResult): void
     get_enabled_backends(): Gee.Map
     get_is_prepared(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1752,7 +1752,7 @@ export class BackendStore {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1760,11 +1760,11 @@ export class BackendStore {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Folks.BackendStore */
+    /* Signals of Folks-0.7.Folks.BackendStore */
     connect(sigName: "backend-available", callback: (($obj: BackendStore, backend: Backend) => void)): number
     connect_after(sigName: "backend-available", callback: (($obj: BackendStore, backend: Backend) => void)): number
     emit(sigName: "backend-available", backend: Backend): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BackendStore, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BackendStore, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1786,14 +1786,14 @@ export class BackendStore {
 export interface Backend_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Backend {
-    /* Properties of Folks.Backend */
+    /* Properties of Folks-0.7.Folks.Backend */
     readonly is_prepared: boolean
     readonly is_quiescent: boolean
     readonly name: string
     readonly persona_stores: Gee.Map
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.Backend */
+    /* Methods of Folks-0.7.Folks.Backend */
     disable_persona_store(store: PersonaStore): void
     enable_persona_store(store: PersonaStore): void
     set_persona_stores(storeids?: Gee.Set | null): void
@@ -1805,7 +1805,7 @@ export class Backend {
     get_is_quiescent(): boolean
     get_name(): string
     get_persona_stores(): Gee.Map
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1827,7 +1827,7 @@ export class Backend {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.Backend */
+    /* Virtual methods of Folks-0.7.Folks.Backend */
     vfunc_disable_persona_store(store: PersonaStore): void
     vfunc_enable_persona_store(store: PersonaStore): void
     vfunc_set_persona_stores(storeids?: Gee.Set | null): void
@@ -1839,7 +1839,7 @@ export class Backend {
     vfunc_get_is_quiescent(): boolean
     vfunc_get_name(): string
     vfunc_get_persona_stores(): Gee.Map
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1847,14 +1847,14 @@ export class Backend {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Folks.Backend */
+    /* Signals of Folks-0.7.Folks.Backend */
     connect(sigName: "persona-store-added", callback: (($obj: Backend, store: PersonaStore) => void)): number
     connect_after(sigName: "persona-store-added", callback: (($obj: Backend, store: PersonaStore) => void)): number
     emit(sigName: "persona-store-added", store: PersonaStore): void
     connect(sigName: "persona-store-removed", callback: (($obj: Backend, store: PersonaStore) => void)): number
     connect_after(sigName: "persona-store-removed", callback: (($obj: Backend, store: PersonaStore) => void)): number
     emit(sigName: "persona-store-removed", store: PersonaStore): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Backend, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Backend, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1880,12 +1880,12 @@ export interface Debug_ConstructProps extends GObject.Object_ConstructProps {
     debug_output_enabled?: boolean
 }
 export class Debug {
-    /* Properties of Folks.Debug */
+    /* Properties of Folks-0.7.Folks.Debug */
     colour_enabled: boolean
     debug_output_enabled: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.Debug */
+    /* Methods of Folks-0.7.Folks.Debug */
     emit_print_status(): void
     indent(): void
     unindent(): void
@@ -1893,7 +1893,7 @@ export class Debug {
     set_colour_enabled(value: boolean): void
     get_debug_output_enabled(): boolean
     set_debug_output_enabled(value: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1915,7 +1915,7 @@ export class Debug {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1923,11 +1923,11 @@ export class Debug {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Folks.Debug */
+    /* Signals of Folks-0.7.Folks.Debug */
     connect(sigName: "print-status", callback: (($obj: Debug) => void)): number
     connect_after(sigName: "print-status", callback: (($obj: Debug) => void)): number
     emit(sigName: "print-status"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Debug, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Debug, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1950,14 +1950,14 @@ export class Debug {
 export interface EmailFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
 }
 export class EmailFieldDetails {
-    /* Properties of Folks.AbstractFieldDetails */
+    /* Properties of Folks-0.7.Folks.AbstractFieldDetails */
     value: object
     readonly value_type: GObject.Type
     id: string
     parameters: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.AbstractFieldDetails */
+    /* Methods of Folks-0.7.Folks.AbstractFieldDetails */
     get_parameter_values(parameter_name: string): Gee.Collection | null
     add_parameter(parameter_name: string, parameter_value: string): void
     set_parameter(parameter_name: string, parameter_value: string): void
@@ -1974,7 +1974,7 @@ export class EmailFieldDetails {
     set_id(value: string): void
     get_parameters(): Gee.MultiMap
     set_parameters(value: Gee.MultiMap): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1996,7 +1996,7 @@ export class EmailFieldDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AbstractFieldDetails */
+    /* Virtual methods of Folks-0.7.Folks.AbstractFieldDetails */
     vfunc_equal(that: AbstractFieldDetails): boolean
     vfunc_parameters_equal(that: AbstractFieldDetails): boolean
     vfunc_values_equal(that: AbstractFieldDetails): boolean
@@ -2007,7 +2007,7 @@ export class EmailFieldDetails {
     vfunc_set_id(value: string): void
     vfunc_get_parameters(): Gee.MultiMap
     vfunc_set_parameters(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2015,7 +2015,7 @@ export class EmailFieldDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EmailFieldDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EmailFieldDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2041,14 +2041,14 @@ export class EmailFieldDetails {
 export interface ExtendedFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
 }
 export class ExtendedFieldDetails {
-    /* Properties of Folks.AbstractFieldDetails */
+    /* Properties of Folks-0.7.Folks.AbstractFieldDetails */
     value: object
     readonly value_type: GObject.Type
     id: string
     parameters: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.AbstractFieldDetails */
+    /* Methods of Folks-0.7.Folks.AbstractFieldDetails */
     get_parameter_values(parameter_name: string): Gee.Collection | null
     add_parameter(parameter_name: string, parameter_value: string): void
     set_parameter(parameter_name: string, parameter_value: string): void
@@ -2065,7 +2065,7 @@ export class ExtendedFieldDetails {
     set_id(value: string): void
     get_parameters(): Gee.MultiMap
     set_parameters(value: Gee.MultiMap): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2087,7 +2087,7 @@ export class ExtendedFieldDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AbstractFieldDetails */
+    /* Virtual methods of Folks-0.7.Folks.AbstractFieldDetails */
     vfunc_equal(that: AbstractFieldDetails): boolean
     vfunc_parameters_equal(that: AbstractFieldDetails): boolean
     vfunc_values_equal(that: AbstractFieldDetails): boolean
@@ -2098,7 +2098,7 @@ export class ExtendedFieldDetails {
     vfunc_set_id(value: string): void
     vfunc_get_parameters(): Gee.MultiMap
     vfunc_set_parameters(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2106,7 +2106,7 @@ export class ExtendedFieldDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ExtendedFieldDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ExtendedFieldDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2132,14 +2132,14 @@ export class ExtendedFieldDetails {
 export interface ImFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
 }
 export class ImFieldDetails {
-    /* Properties of Folks.AbstractFieldDetails */
+    /* Properties of Folks-0.7.Folks.AbstractFieldDetails */
     value: object
     readonly value_type: GObject.Type
     id: string
     parameters: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.AbstractFieldDetails */
+    /* Methods of Folks-0.7.Folks.AbstractFieldDetails */
     get_parameter_values(parameter_name: string): Gee.Collection | null
     add_parameter(parameter_name: string, parameter_value: string): void
     set_parameter(parameter_name: string, parameter_value: string): void
@@ -2156,7 +2156,7 @@ export class ImFieldDetails {
     set_id(value: string): void
     get_parameters(): Gee.MultiMap
     set_parameters(value: Gee.MultiMap): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2178,7 +2178,7 @@ export class ImFieldDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AbstractFieldDetails */
+    /* Virtual methods of Folks-0.7.Folks.AbstractFieldDetails */
     vfunc_equal(that: AbstractFieldDetails): boolean
     vfunc_parameters_equal(that: AbstractFieldDetails): boolean
     vfunc_values_equal(that: AbstractFieldDetails): boolean
@@ -2189,7 +2189,7 @@ export class ImFieldDetails {
     vfunc_set_id(value: string): void
     vfunc_get_parameters(): Gee.MultiMap
     vfunc_set_parameters(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2197,7 +2197,7 @@ export class ImFieldDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ImFieldDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ImFieldDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2226,15 +2226,15 @@ export interface IndividualAggregator_ConstructProps extends GObject.Object_Cons
     user?: Individual
 }
 export class IndividualAggregator {
-    /* Properties of Folks.IndividualAggregator */
+    /* Properties of Folks-0.7.Folks.IndividualAggregator */
     readonly is_prepared: boolean
     readonly is_quiescent: boolean
     readonly primary_store: PersonaStore
     individuals: Gee.Map
     user: Individual
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.IndividualAggregator */
+    /* Methods of Folks-0.7.Folks.IndividualAggregator */
     prepare(_callback_?: Gio.AsyncReadyCallback | null): void
     prepare_finish(_res_: Gio.AsyncResult): void
     unprepare(_callback_?: Gio.AsyncReadyCallback | null): void
@@ -2261,7 +2261,7 @@ export class IndividualAggregator {
     get_backend_store(): BackendStore
     get_individuals(): Gee.Map
     get_user(): Individual | null
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2283,7 +2283,7 @@ export class IndividualAggregator {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2291,14 +2291,14 @@ export class IndividualAggregator {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Folks.IndividualAggregator */
+    /* Signals of Folks-0.7.Folks.IndividualAggregator */
     connect(sigName: "individuals-changed", callback: (($obj: IndividualAggregator, added: Gee.Set, removed: Gee.Set, message: string | null, actor: Persona | null, reason: GroupDetailsChangeReason) => void)): number
     connect_after(sigName: "individuals-changed", callback: (($obj: IndividualAggregator, added: Gee.Set, removed: Gee.Set, message: string | null, actor: Persona | null, reason: GroupDetailsChangeReason) => void)): number
     emit(sigName: "individuals-changed", added: Gee.Set, removed: Gee.Set, message: string | null, actor: Persona | null, reason: GroupDetailsChangeReason): void
     connect(sigName: "individuals-changed-detailed", callback: (($obj: IndividualAggregator, changes: Gee.MultiMap) => void)): number
     connect_after(sigName: "individuals-changed-detailed", callback: (($obj: IndividualAggregator, changes: Gee.MultiMap) => void)): number
     emit(sigName: "individuals-changed-detailed", changes: Gee.MultiMap): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: IndividualAggregator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: IndividualAggregator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2357,62 +2357,62 @@ export interface Individual_ConstructProps extends GObject.Object_ConstructProps
     web_service_addresses?: Gee.MultiMap
 }
 export class Individual {
-    /* Properties of Folks.Individual */
+    /* Properties of Folks-0.7.Folks.Individual */
     trust_level: TrustLevel
     is_user: boolean
     id: string
     readonly display_name: string
     personas: Gee.Set
-    /* Properties of Folks.AliasDetails */
+    /* Properties of Folks-0.7.Folks.AliasDetails */
     alias: string
-    /* Properties of Folks.AvatarDetails */
+    /* Properties of Folks-0.7.Folks.AvatarDetails */
     avatar: Gio.LoadableIcon
-    /* Properties of Folks.BirthdayDetails */
+    /* Properties of Folks-0.7.Folks.BirthdayDetails */
     birthday: GLib.DateTime
     calendar_event_id: string
-    /* Properties of Folks.EmailDetails */
+    /* Properties of Folks-0.7.Folks.EmailDetails */
     email_addresses: Gee.Set
-    /* Properties of Folks.FavouriteDetails */
+    /* Properties of Folks-0.7.Folks.FavouriteDetails */
     is_favourite: boolean
-    /* Properties of Folks.GenderDetails */
+    /* Properties of Folks-0.7.Folks.GenderDetails */
     gender: Gender
-    /* Properties of Folks.GroupDetails */
+    /* Properties of Folks-0.7.Folks.GroupDetails */
     groups: Gee.Set
-    /* Properties of Folks.ImDetails */
+    /* Properties of Folks-0.7.Folks.ImDetails */
     im_addresses: Gee.MultiMap
-    /* Properties of Folks.InteractionDetails */
+    /* Properties of Folks-0.7.Folks.InteractionDetails */
     readonly im_interaction_count: number
     readonly last_im_interaction_datetime: GLib.DateTime
     readonly call_interaction_count: number
     readonly last_call_interaction_datetime: GLib.DateTime
-    /* Properties of Folks.LocalIdDetails */
+    /* Properties of Folks-0.7.Folks.LocalIdDetails */
     local_ids: Gee.Set
-    /* Properties of Folks.LocationDetails */
+    /* Properties of Folks-0.7.Folks.LocationDetails */
     location: Location
-    /* Properties of Folks.NameDetails */
+    /* Properties of Folks-0.7.Folks.NameDetails */
     structured_name: StructuredName
     full_name: string
     nickname: string
-    /* Properties of Folks.NoteDetails */
+    /* Properties of Folks-0.7.Folks.NoteDetails */
     notes: Gee.Set
-    /* Properties of Folks.PresenceDetails */
+    /* Properties of Folks-0.7.Folks.PresenceDetails */
     presence_type: PresenceType
     presence_message: string
     client_types: string[]
     presence_status: string
-    /* Properties of Folks.PhoneDetails */
+    /* Properties of Folks-0.7.Folks.PhoneDetails */
     phone_numbers: Gee.Set
-    /* Properties of Folks.PostalAddressDetails */
+    /* Properties of Folks-0.7.Folks.PostalAddressDetails */
     postal_addresses: Gee.Set
-    /* Properties of Folks.RoleDetails */
+    /* Properties of Folks-0.7.Folks.RoleDetails */
     roles: Gee.Set
-    /* Properties of Folks.UrlDetails */
+    /* Properties of Folks-0.7.Folks.UrlDetails */
     urls: Gee.Set
-    /* Properties of Folks.WebServiceDetails */
+    /* Properties of Folks-0.7.Folks.WebServiceDetails */
     web_service_addresses: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.Individual */
+    /* Methods of Folks-0.7.Folks.Individual */
     has_anti_link_with_persona(p: Persona): boolean
     has_anti_link_with_individual(i: Individual): boolean
     get_trust_level(): TrustLevel
@@ -2421,7 +2421,7 @@ export class Individual {
     get_display_name(): string
     get_personas(): Gee.Set
     set_personas(value: Gee.Set): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2443,17 +2443,17 @@ export class Individual {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Folks.AliasDetails */
+    /* Methods of Folks-0.7.Folks.AliasDetails */
     change_alias(alias: string, _callback_?: Gio.AsyncReadyCallback | null): void
     change_alias_finish(_res_: Gio.AsyncResult): void
     get_alias(): string
     set_alias(value: string): void
-    /* Methods of Folks.AvatarDetails */
+    /* Methods of Folks-0.7.Folks.AvatarDetails */
     change_avatar(avatar?: Gio.LoadableIcon | null, _callback_?: Gio.AsyncReadyCallback | null): void
     change_avatar_finish(_res_: Gio.AsyncResult): void
     get_avatar(): Gio.LoadableIcon | null
     set_avatar(value?: Gio.LoadableIcon | null): void
-    /* Methods of Folks.BirthdayDetails */
+    /* Methods of Folks-0.7.Folks.BirthdayDetails */
     change_birthday(birthday?: GLib.DateTime | null, _callback_?: Gio.AsyncReadyCallback | null): void
     change_birthday_finish(_res_: Gio.AsyncResult): void
     change_calendar_event_id(event_id?: string | null, _callback_?: Gio.AsyncReadyCallback | null): void
@@ -2462,55 +2462,55 @@ export class Individual {
     set_birthday(value?: GLib.DateTime | null): void
     get_calendar_event_id(): string | null
     set_calendar_event_id(value?: string | null): void
-    /* Methods of Folks.EmailDetails */
+    /* Methods of Folks-0.7.Folks.EmailDetails */
     change_email_addresses(email_addresses: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     change_email_addresses_finish(_res_: Gio.AsyncResult): void
     get_email_addresses(): Gee.Set
     set_email_addresses(value: Gee.Set): void
-    /* Methods of Folks.ExtendedInfo */
+    /* Methods of Folks-0.7.Folks.ExtendedInfo */
     get_extended_field(name: string): ExtendedFieldDetails | null
     change_extended_field(name: string, value: ExtendedFieldDetails, _callback_?: Gio.AsyncReadyCallback | null): void
     change_extended_field_finish(_res_: Gio.AsyncResult): void
     remove_extended_field(name: string, _callback_?: Gio.AsyncReadyCallback | null): void
     remove_extended_field_finish(_res_: Gio.AsyncResult): void
-    /* Methods of Folks.FavouriteDetails */
+    /* Methods of Folks-0.7.Folks.FavouriteDetails */
     change_is_favourite(is_favourite: boolean, _callback_?: Gio.AsyncReadyCallback | null): void
     change_is_favourite_finish(_res_: Gio.AsyncResult): void
     get_is_favourite(): boolean
     set_is_favourite(value: boolean): void
-    /* Methods of Folks.GenderDetails */
+    /* Methods of Folks-0.7.Folks.GenderDetails */
     change_gender(gender: Gender, _callback_?: Gio.AsyncReadyCallback | null): void
     change_gender_finish(_res_: Gio.AsyncResult): void
     get_gender(): Gender
     set_gender(value: Gender): void
-    /* Methods of Folks.GroupDetails */
+    /* Methods of Folks-0.7.Folks.GroupDetails */
     change_group(group: string, is_member: boolean, _callback_?: Gio.AsyncReadyCallback | null): void
     change_group_finish(_res_: Gio.AsyncResult): void
     change_groups(groups: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     change_groups_finish(_res_: Gio.AsyncResult): void
     get_groups(): Gee.Set
     set_groups(value: Gee.Set): void
-    /* Methods of Folks.ImDetails */
+    /* Methods of Folks-0.7.Folks.ImDetails */
     change_im_addresses(im_addresses: Gee.MultiMap, _callback_?: Gio.AsyncReadyCallback | null): void
     change_im_addresses_finish(_res_: Gio.AsyncResult): void
     get_im_addresses(): Gee.MultiMap
     set_im_addresses(value: Gee.MultiMap): void
-    /* Methods of Folks.InteractionDetails */
+    /* Methods of Folks-0.7.Folks.InteractionDetails */
     get_im_interaction_count(): number
     get_last_im_interaction_datetime(): GLib.DateTime | null
     get_call_interaction_count(): number
     get_last_call_interaction_datetime(): GLib.DateTime | null
-    /* Methods of Folks.LocalIdDetails */
+    /* Methods of Folks-0.7.Folks.LocalIdDetails */
     change_local_ids(local_ids: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     change_local_ids_finish(_res_: Gio.AsyncResult): void
     get_local_ids(): Gee.Set
     set_local_ids(value: Gee.Set): void
-    /* Methods of Folks.LocationDetails */
+    /* Methods of Folks-0.7.Folks.LocationDetails */
     change_location(location?: Location | null, _callback_?: Gio.AsyncReadyCallback | null): void
     change_location_finish(_res_: Gio.AsyncResult): void
     get_location(): Location | null
     set_location(value?: Location | null): void
-    /* Methods of Folks.NameDetails */
+    /* Methods of Folks-0.7.Folks.NameDetails */
     change_structured_name(name?: StructuredName | null, _callback_?: Gio.AsyncReadyCallback | null): void
     change_structured_name_finish(_res_: Gio.AsyncResult): void
     change_full_name(full_name: string, _callback_?: Gio.AsyncReadyCallback | null): void
@@ -2523,12 +2523,12 @@ export class Individual {
     set_full_name(value: string): void
     get_nickname(): string
     set_nickname(value: string): void
-    /* Methods of Folks.NoteDetails */
+    /* Methods of Folks-0.7.Folks.NoteDetails */
     change_notes(notes: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     change_notes_finish(_res_: Gio.AsyncResult): void
     get_notes(): Gee.Set
     set_notes(value: Gee.Set): void
-    /* Methods of Folks.PresenceDetails */
+    /* Methods of Folks-0.7.Folks.PresenceDetails */
     is_online(): boolean
     get_presence_type(): PresenceType
     set_presence_type(value: PresenceType): void
@@ -2538,32 +2538,32 @@ export class Individual {
     set_client_types(value: string[]): void
     get_presence_status(): string
     set_presence_status(value: string): void
-    /* Methods of Folks.PhoneDetails */
+    /* Methods of Folks-0.7.Folks.PhoneDetails */
     change_phone_numbers(phone_numbers: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     change_phone_numbers_finish(_res_: Gio.AsyncResult): void
     get_phone_numbers(): Gee.Set
     set_phone_numbers(value: Gee.Set): void
-    /* Methods of Folks.PostalAddressDetails */
+    /* Methods of Folks-0.7.Folks.PostalAddressDetails */
     change_postal_addresses(postal_addresses: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     change_postal_addresses_finish(_res_: Gio.AsyncResult): void
     get_postal_addresses(): Gee.Set
     set_postal_addresses(value: Gee.Set): void
-    /* Methods of Folks.RoleDetails */
+    /* Methods of Folks-0.7.Folks.RoleDetails */
     change_roles(roles: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     change_roles_finish(_res_: Gio.AsyncResult): void
     get_roles(): Gee.Set
     set_roles(value: Gee.Set): void
-    /* Methods of Folks.UrlDetails */
+    /* Methods of Folks-0.7.Folks.UrlDetails */
     change_urls(urls: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null): void
     change_urls_finish(_res_: Gio.AsyncResult): void
     get_urls(): Gee.Set
     set_urls(value: Gee.Set): void
-    /* Methods of Folks.WebServiceDetails */
+    /* Methods of Folks-0.7.Folks.WebServiceDetails */
     change_web_service_addresses(web_service_addresses: Gee.MultiMap, _callback_?: Gio.AsyncReadyCallback | null): void
     change_web_service_addresses_finish(_res_: Gio.AsyncResult): void
     get_web_service_addresses(): Gee.MultiMap
     set_web_service_addresses(value: Gee.MultiMap): void
-    /* Virtual methods of Folks.Individual */
+    /* Virtual methods of Folks-0.7.Folks.Individual */
     vfunc_change_alias(alias: string, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_change_alias_finish(_res_: Gio.AsyncResult): void
     vfunc_get_alias(): string
@@ -2663,7 +2663,7 @@ export class Individual {
     vfunc_change_web_service_addresses_finish(_res_: Gio.AsyncResult): void
     vfunc_get_web_service_addresses(): Gee.MultiMap
     vfunc_set_web_service_addresses(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2671,18 +2671,18 @@ export class Individual {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Folks.Individual */
+    /* Signals of Folks-0.7.Folks.Individual */
     connect(sigName: "removed", callback: (($obj: Individual, replacement_individual?: Individual | null) => void)): number
     connect_after(sigName: "removed", callback: (($obj: Individual, replacement_individual?: Individual | null) => void)): number
     emit(sigName: "removed", replacement_individual?: Individual | null): void
     connect(sigName: "personas-changed", callback: (($obj: Individual, added: Gee.Set, removed: Gee.Set) => void)): number
     connect_after(sigName: "personas-changed", callback: (($obj: Individual, added: Gee.Set, removed: Gee.Set) => void)): number
     emit(sigName: "personas-changed", added: Gee.Set, removed: Gee.Set): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Individual, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Individual, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Folks.GroupDetails */
+    /* Signals of Folks-0.7.Folks.GroupDetails */
     connect(sigName: "group-changed", callback: (($obj: Individual, group: string, is_member: boolean) => void)): number
     connect_after(sigName: "group-changed", callback: (($obj: Individual, group: string, is_member: boolean) => void)): number
     emit(sigName: "group-changed", group: string, is_member: boolean): void
@@ -2769,15 +2769,15 @@ export class Individual {
 export interface Location_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Location {
-    /* Fields of Folks.Location */
+    /* Fields of Folks-0.7.Folks.Location */
     latitude: number
     longitude: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.Location */
+    /* Methods of Folks-0.7.Folks.Location */
     equal(other: Location): boolean
     equal_coordinates(latitude: number, longitude: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2799,7 +2799,7 @@ export class Location {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2807,7 +2807,7 @@ export class Location {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Location, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Location, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2830,15 +2830,15 @@ export interface StructuredName_ConstructProps extends GObject.Object_ConstructP
     suffixes?: string
 }
 export class StructuredName {
-    /* Properties of Folks.StructuredName */
+    /* Properties of Folks-0.7.Folks.StructuredName */
     family_name: string
     given_name: string
     additional_names: string
     prefixes: string
     suffixes: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.StructuredName */
+    /* Methods of Folks-0.7.Folks.StructuredName */
     is_empty(): boolean
     equal(other: StructuredName): boolean
     to_string(): string
@@ -2853,7 +2853,7 @@ export class StructuredName {
     set_prefixes(value: string): void
     get_suffixes(): string
     set_suffixes(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2875,7 +2875,7 @@ export class StructuredName {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2883,7 +2883,7 @@ export class StructuredName {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StructuredName, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StructuredName, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2913,19 +2913,19 @@ export interface NoteFieldDetails_ConstructProps extends AbstractFieldDetails_Co
     uid?: string
 }
 export class NoteFieldDetails {
-    /* Properties of Folks.NoteFieldDetails */
+    /* Properties of Folks-0.7.Folks.NoteFieldDetails */
     uid: string
-    /* Properties of Folks.AbstractFieldDetails */
+    /* Properties of Folks-0.7.Folks.AbstractFieldDetails */
     value: object
     readonly value_type: GObject.Type
     id: string
     parameters: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.NoteFieldDetails */
+    /* Methods of Folks-0.7.Folks.NoteFieldDetails */
     get_uid(): string
     set_uid(value: string): void
-    /* Methods of Folks.AbstractFieldDetails */
+    /* Methods of Folks-0.7.Folks.AbstractFieldDetails */
     get_parameter_values(parameter_name: string): Gee.Collection | null
     add_parameter(parameter_name: string, parameter_value: string): void
     set_parameter(parameter_name: string, parameter_value: string): void
@@ -2942,7 +2942,7 @@ export class NoteFieldDetails {
     set_id(value: string): void
     get_parameters(): Gee.MultiMap
     set_parameters(value: Gee.MultiMap): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2964,7 +2964,7 @@ export class NoteFieldDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AbstractFieldDetails */
+    /* Virtual methods of Folks-0.7.Folks.AbstractFieldDetails */
     vfunc_equal(that: AbstractFieldDetails): boolean
     vfunc_parameters_equal(that: AbstractFieldDetails): boolean
     vfunc_values_equal(that: AbstractFieldDetails): boolean
@@ -2975,7 +2975,7 @@ export class NoteFieldDetails {
     vfunc_set_id(value: string): void
     vfunc_get_parameters(): Gee.MultiMap
     vfunc_set_parameters(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2983,7 +2983,7 @@ export class NoteFieldDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NoteFieldDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NoteFieldDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3016,9 +3016,9 @@ export interface ObjectCache_ConstructProps extends GObject.Object_ConstructProp
     id?: string
 }
 export class ObjectCache {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.ObjectCache */
+    /* Methods of Folks-0.7.Folks.ObjectCache */
     get_serialised_object_type(object_version: number): GLib.VariantType | null
     get_serialised_object_version(): number
     serialise_object(object?: object | null): GLib.Variant
@@ -3031,7 +3031,7 @@ export class ObjectCache {
     clear_cache_finish(_res_: Gio.AsyncResult): void
     get_type_id(): string
     get_id(): string
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3053,12 +3053,12 @@ export class ObjectCache {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.ObjectCache */
+    /* Virtual methods of Folks-0.7.Folks.ObjectCache */
     vfunc_get_serialised_object_type(object_version: number): GLib.VariantType | null
     vfunc_get_serialised_object_version(): number
     vfunc_serialise_object(object?: object | null): GLib.Variant
     vfunc_deserialise_object(variant: GLib.Variant, object_version: number): object | null
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3066,7 +3066,7 @@ export class ObjectCache {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ObjectCache, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ObjectCache, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3088,7 +3088,7 @@ export interface PersonaStore_ConstructProps extends GObject.Object_ConstructPro
     is_user_set_default?: boolean
 }
 export class PersonaStore {
-    /* Properties of Folks.PersonaStore */
+    /* Properties of Folks-0.7.Folks.PersonaStore */
     readonly type_id: string
     readonly personas: Gee.Map
     readonly can_add_personas: MaybeBool
@@ -3102,9 +3102,9 @@ export class PersonaStore {
     readonly always_writeable_properties: string[]
     is_primary_store: boolean
     is_user_set_default: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.PersonaStore */
+    /* Methods of Folks-0.7.Folks.PersonaStore */
     _emit_personas_changed(added: Gee.Set | null, removed: Gee.Set | null, message: string | null, actor: Persona | null, reason: GroupDetailsChangeReason): void
     prepare(_callback_?: Gio.AsyncReadyCallback | null): void
     prepare_finish(_res_: Gio.AsyncResult): void
@@ -3131,7 +3131,7 @@ export class PersonaStore {
     get_always_writeable_properties(): string[]
     get_is_primary_store(): boolean
     get_is_user_set_default(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3153,7 +3153,7 @@ export class PersonaStore {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.PersonaStore */
+    /* Virtual methods of Folks-0.7.Folks.PersonaStore */
     vfunc_prepare(_callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_prepare_finish(_res_: Gio.AsyncResult): void
     vfunc_flush(_callback_?: Gio.AsyncReadyCallback | null): void
@@ -3171,7 +3171,7 @@ export class PersonaStore {
     vfunc_get_is_prepared(): boolean
     vfunc_get_is_quiescent(): boolean
     vfunc_get_always_writeable_properties(): string[]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3179,14 +3179,14 @@ export class PersonaStore {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Folks.PersonaStore */
+    /* Signals of Folks-0.7.Folks.PersonaStore */
     connect(sigName: "personas-changed", callback: (($obj: PersonaStore, added: Gee.Set, removed: Gee.Set, message: string | null, actor: Persona | null, reason: GroupDetailsChangeReason) => void)): number
     connect_after(sigName: "personas-changed", callback: (($obj: PersonaStore, added: Gee.Set, removed: Gee.Set, message: string | null, actor: Persona | null, reason: GroupDetailsChangeReason) => void)): number
     emit(sigName: "personas-changed", added: Gee.Set, removed: Gee.Set, message: string | null, actor: Persona | null, reason: GroupDetailsChangeReason): void
     connect(sigName: "removed", callback: (($obj: PersonaStore) => void)): number
     connect_after(sigName: "removed", callback: (($obj: PersonaStore) => void)): number
     emit(sigName: "removed"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PersonaStore, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PersonaStore, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3236,13 +3236,13 @@ export interface Persona_ConstructProps extends GObject.Object_ConstructProps {
     individual?: Individual
 }
 export class Persona {
-    /* Properties of Folks.Persona */
+    /* Properties of Folks-0.7.Folks.Persona */
     individual: Individual
     readonly linkable_properties: string[]
     readonly writeable_properties: string[]
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.Persona */
+    /* Methods of Folks-0.7.Folks.Persona */
     linkable_property_to_links(prop_name: string, callback: any): void
     get_iid(): string
     get_uid(): string
@@ -3252,7 +3252,7 @@ export class Persona {
     get_individual(): Individual | null
     get_linkable_properties(): string[]
     get_writeable_properties(): string[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3274,11 +3274,11 @@ export class Persona {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.Persona */
+    /* Virtual methods of Folks-0.7.Folks.Persona */
     vfunc_linkable_property_to_links(prop_name: string, callback: any): void
     vfunc_get_linkable_properties(): string[]
     vfunc_get_writeable_properties(): string[]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3286,7 +3286,7 @@ export class Persona {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Persona, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Persona, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3311,16 +3311,16 @@ export class Persona {
 export interface PhoneFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
 }
 export class PhoneFieldDetails {
-    /* Properties of Folks.AbstractFieldDetails */
+    /* Properties of Folks-0.7.Folks.AbstractFieldDetails */
     value: object
     readonly value_type: GObject.Type
     id: string
     parameters: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.PhoneFieldDetails */
+    /* Methods of Folks-0.7.Folks.PhoneFieldDetails */
     get_normalised(): string
-    /* Methods of Folks.AbstractFieldDetails */
+    /* Methods of Folks-0.7.Folks.AbstractFieldDetails */
     get_parameter_values(parameter_name: string): Gee.Collection | null
     add_parameter(parameter_name: string, parameter_value: string): void
     set_parameter(parameter_name: string, parameter_value: string): void
@@ -3337,7 +3337,7 @@ export class PhoneFieldDetails {
     set_id(value: string): void
     get_parameters(): Gee.MultiMap
     set_parameters(value: Gee.MultiMap): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3359,7 +3359,7 @@ export class PhoneFieldDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AbstractFieldDetails */
+    /* Virtual methods of Folks-0.7.Folks.AbstractFieldDetails */
     vfunc_equal(that: AbstractFieldDetails): boolean
     vfunc_parameters_equal(that: AbstractFieldDetails): boolean
     vfunc_values_equal(that: AbstractFieldDetails): boolean
@@ -3370,7 +3370,7 @@ export class PhoneFieldDetails {
     vfunc_set_id(value: string): void
     vfunc_get_parameters(): Gee.MultiMap
     vfunc_set_parameters(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3378,7 +3378,7 @@ export class PhoneFieldDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PhoneFieldDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PhoneFieldDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3413,7 +3413,7 @@ export interface PostalAddress_ConstructProps extends GObject.Object_ConstructPr
     uid?: string
 }
 export class PostalAddress {
-    /* Properties of Folks.PostalAddress */
+    /* Properties of Folks-0.7.Folks.PostalAddress */
     po_box: string
     extension: string
     street: string
@@ -3423,9 +3423,9 @@ export class PostalAddress {
     country: string
     address_format: string
     uid: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.PostalAddress */
+    /* Methods of Folks-0.7.Folks.PostalAddress */
     is_empty(): boolean
     equal(with_: PostalAddress): boolean
     to_string(): string
@@ -3447,7 +3447,7 @@ export class PostalAddress {
     set_address_format(value: string): void
     get_uid(): string
     set_uid(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3469,7 +3469,7 @@ export class PostalAddress {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3477,7 +3477,7 @@ export class PostalAddress {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PostalAddress, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PostalAddress, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3513,14 +3513,14 @@ export class PostalAddress {
 export interface PostalAddressFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
 }
 export class PostalAddressFieldDetails {
-    /* Properties of Folks.AbstractFieldDetails */
+    /* Properties of Folks-0.7.Folks.AbstractFieldDetails */
     value: object
     readonly value_type: GObject.Type
     id: string
     parameters: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.AbstractFieldDetails */
+    /* Methods of Folks-0.7.Folks.AbstractFieldDetails */
     get_parameter_values(parameter_name: string): Gee.Collection | null
     add_parameter(parameter_name: string, parameter_value: string): void
     set_parameter(parameter_name: string, parameter_value: string): void
@@ -3537,7 +3537,7 @@ export class PostalAddressFieldDetails {
     set_id(value: string): void
     get_parameters(): Gee.MultiMap
     set_parameters(value: Gee.MultiMap): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3559,7 +3559,7 @@ export class PostalAddressFieldDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AbstractFieldDetails */
+    /* Virtual methods of Folks-0.7.Folks.AbstractFieldDetails */
     vfunc_equal(that: AbstractFieldDetails): boolean
     vfunc_parameters_equal(that: AbstractFieldDetails): boolean
     vfunc_values_equal(that: AbstractFieldDetails): boolean
@@ -3570,7 +3570,7 @@ export class PostalAddressFieldDetails {
     vfunc_set_id(value: string): void
     vfunc_get_parameters(): Gee.MultiMap
     vfunc_set_parameters(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3578,7 +3578,7 @@ export class PostalAddressFieldDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PostalAddressFieldDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PostalAddressFieldDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3604,13 +3604,13 @@ export class PostalAddressFieldDetails {
 export interface PotentialMatch_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PotentialMatch {
-    /* Fields of Folks.PotentialMatch */
+    /* Fields of Folks-0.7.Folks.PotentialMatch */
     folks_potential_match_known_email_aliases: Gee.Set
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.PotentialMatch */
+    /* Methods of Folks-0.7.Folks.PotentialMatch */
     potential_match(a: Individual, b: Individual): MatchResult
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3632,7 +3632,7 @@ export class PotentialMatch {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3640,7 +3640,7 @@ export class PotentialMatch {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PotentialMatch, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PotentialMatch, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3659,12 +3659,12 @@ export interface Query_ConstructProps extends GObject.Object_ConstructProps {
     match_fields?: string[]
 }
 export class Query {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.Query */
+    /* Methods of Folks-0.7.Folks.Query */
     is_match(individual: Individual): number
     get_match_fields(): string[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3686,10 +3686,10 @@ export class Query {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.Query */
+    /* Virtual methods of Folks-0.7.Folks.Query */
     vfunc_is_match(individual: Individual): number
     vfunc_get_match_fields(): string[]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3697,7 +3697,7 @@ export class Query {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Query, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Query, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3717,14 +3717,14 @@ export interface Role_ConstructProps extends GObject.Object_ConstructProps {
     uid?: string
 }
 export class Role {
-    /* Properties of Folks.Role */
+    /* Properties of Folks-0.7.Folks.Role */
     organisation_name: string
     title: string
     role: string
     uid: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.Role */
+    /* Methods of Folks-0.7.Folks.Role */
     is_empty(): boolean
     to_string(): string
     get_organisation_name(): string
@@ -3735,7 +3735,7 @@ export class Role {
     set_role(value: string): void
     get_uid(): string
     set_uid(value: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3757,7 +3757,7 @@ export class Role {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3765,7 +3765,7 @@ export class Role {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Role, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Role, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3793,14 +3793,14 @@ export class Role {
 export interface RoleFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
 }
 export class RoleFieldDetails {
-    /* Properties of Folks.AbstractFieldDetails */
+    /* Properties of Folks-0.7.Folks.AbstractFieldDetails */
     value: object
     readonly value_type: GObject.Type
     id: string
     parameters: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.AbstractFieldDetails */
+    /* Methods of Folks-0.7.Folks.AbstractFieldDetails */
     get_parameter_values(parameter_name: string): Gee.Collection | null
     add_parameter(parameter_name: string, parameter_value: string): void
     set_parameter(parameter_name: string, parameter_value: string): void
@@ -3817,7 +3817,7 @@ export class RoleFieldDetails {
     set_id(value: string): void
     get_parameters(): Gee.MultiMap
     set_parameters(value: Gee.MultiMap): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3839,7 +3839,7 @@ export class RoleFieldDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AbstractFieldDetails */
+    /* Virtual methods of Folks-0.7.Folks.AbstractFieldDetails */
     vfunc_equal(that: AbstractFieldDetails): boolean
     vfunc_parameters_equal(that: AbstractFieldDetails): boolean
     vfunc_values_equal(that: AbstractFieldDetails): boolean
@@ -3850,7 +3850,7 @@ export class RoleFieldDetails {
     vfunc_set_id(value: string): void
     vfunc_get_parameters(): Gee.MultiMap
     vfunc_set_parameters(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3858,7 +3858,7 @@ export class RoleFieldDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RoleFieldDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RoleFieldDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3885,15 +3885,15 @@ export interface SearchView_ConstructProps extends GObject.Object_ConstructProps
     query?: Query
 }
 export class SearchView {
-    /* Properties of Folks.SearchView */
+    /* Properties of Folks-0.7.Folks.SearchView */
     readonly aggregator: IndividualAggregator
     query: Query
     readonly individuals: Gee.SortedSet
     readonly is_prepared: boolean
     readonly is_quiescent: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.SearchView */
+    /* Methods of Folks-0.7.Folks.SearchView */
     prepare(_callback_?: Gio.AsyncReadyCallback | null): void
     prepare_finish(_res_: Gio.AsyncResult): void
     unprepare(_callback_?: Gio.AsyncReadyCallback | null): void
@@ -3906,7 +3906,7 @@ export class SearchView {
     get_individuals(): Gee.SortedSet
     get_is_prepared(): boolean
     get_is_quiescent(): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -3928,7 +3928,7 @@ export class SearchView {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -3936,11 +3936,11 @@ export class SearchView {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Folks.SearchView */
+    /* Signals of Folks-0.7.Folks.SearchView */
     connect(sigName: "individuals-changed-detailed", callback: (($obj: SearchView, added: Gee.SortedSet, removed: Gee.SortedSet) => void)): number
     connect_after(sigName: "individuals-changed-detailed", callback: (($obj: SearchView, added: Gee.SortedSet, removed: Gee.SortedSet) => void)): number
     emit(sigName: "individuals-changed-detailed", added: Gee.SortedSet, removed: Gee.SortedSet): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SearchView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SearchView, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3970,20 +3970,20 @@ export interface SimpleQuery_ConstructProps extends Query_ConstructProps {
     query_locale?: string
 }
 export class SimpleQuery {
-    /* Properties of Folks.SimpleQuery */
+    /* Properties of Folks-0.7.Folks.SimpleQuery */
     query_string: string
     query_locale: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.SimpleQuery */
+    /* Methods of Folks-0.7.Folks.SimpleQuery */
     get_query_string(): string
     set_query_string(value: string): void
     get_query_locale(): string | null
     set_query_locale(value?: string | null): void
-    /* Methods of Folks.Query */
+    /* Methods of Folks-0.7.Folks.Query */
     is_match(individual: Individual): number
     get_match_fields(): string[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4005,10 +4005,10 @@ export class SimpleQuery {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.Query */
+    /* Virtual methods of Folks-0.7.Folks.Query */
     vfunc_is_match(individual: Individual): number
     vfunc_get_match_fields(): string[]
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4016,7 +4016,7 @@ export class SimpleQuery {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SimpleQuery, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4038,14 +4038,14 @@ export class SimpleQuery {
 export interface UrlFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
 }
 export class UrlFieldDetails {
-    /* Properties of Folks.AbstractFieldDetails */
+    /* Properties of Folks-0.7.Folks.AbstractFieldDetails */
     value: object
     readonly value_type: GObject.Type
     id: string
     parameters: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.AbstractFieldDetails */
+    /* Methods of Folks-0.7.Folks.AbstractFieldDetails */
     get_parameter_values(parameter_name: string): Gee.Collection | null
     add_parameter(parameter_name: string, parameter_value: string): void
     set_parameter(parameter_name: string, parameter_value: string): void
@@ -4062,7 +4062,7 @@ export class UrlFieldDetails {
     set_id(value: string): void
     get_parameters(): Gee.MultiMap
     set_parameters(value: Gee.MultiMap): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4084,7 +4084,7 @@ export class UrlFieldDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AbstractFieldDetails */
+    /* Virtual methods of Folks-0.7.Folks.AbstractFieldDetails */
     vfunc_equal(that: AbstractFieldDetails): boolean
     vfunc_parameters_equal(that: AbstractFieldDetails): boolean
     vfunc_values_equal(that: AbstractFieldDetails): boolean
@@ -4095,7 +4095,7 @@ export class UrlFieldDetails {
     vfunc_set_id(value: string): void
     vfunc_get_parameters(): Gee.MultiMap
     vfunc_set_parameters(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4103,7 +4103,7 @@ export class UrlFieldDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UrlFieldDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: UrlFieldDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4129,9 +4129,9 @@ export class UrlFieldDetails {
 export interface Utils_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Utils {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4153,7 +4153,7 @@ export class Utils {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4161,7 +4161,7 @@ export class Utils {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Utils, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Utils, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4183,14 +4183,14 @@ export class Utils {
 export interface WebServiceFieldDetails_ConstructProps extends AbstractFieldDetails_ConstructProps {
 }
 export class WebServiceFieldDetails {
-    /* Properties of Folks.AbstractFieldDetails */
+    /* Properties of Folks-0.7.Folks.AbstractFieldDetails */
     value: object
     readonly value_type: GObject.Type
     id: string
     parameters: Gee.MultiMap
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Folks.AbstractFieldDetails */
+    /* Methods of Folks-0.7.Folks.AbstractFieldDetails */
     get_parameter_values(parameter_name: string): Gee.Collection | null
     add_parameter(parameter_name: string, parameter_value: string): void
     set_parameter(parameter_name: string, parameter_value: string): void
@@ -4207,7 +4207,7 @@ export class WebServiceFieldDetails {
     set_id(value: string): void
     get_parameters(): Gee.MultiMap
     set_parameters(value: Gee.MultiMap): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -4229,7 +4229,7 @@ export class WebServiceFieldDetails {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Folks.AbstractFieldDetails */
+    /* Virtual methods of Folks-0.7.Folks.AbstractFieldDetails */
     vfunc_equal(that: AbstractFieldDetails): boolean
     vfunc_parameters_equal(that: AbstractFieldDetails): boolean
     vfunc_values_equal(that: AbstractFieldDetails): boolean
@@ -4240,7 +4240,7 @@ export class WebServiceFieldDetails {
     vfunc_set_id(value: string): void
     vfunc_get_parameters(): Gee.MultiMap
     vfunc_set_parameters(value: Gee.MultiMap): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -4248,7 +4248,7 @@ export class WebServiceFieldDetails {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebServiceFieldDetails, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WebServiceFieldDetails, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4272,7 +4272,7 @@ export class WebServiceFieldDetails {
     static $gtype: GObject.Type
 }
 export abstract class AbstractFieldDetailsClass {
-    /* Fields of Folks.AbstractFieldDetailsClass */
+    /* Fields of Folks-0.7.Folks.AbstractFieldDetailsClass */
     equal: (that: AbstractFieldDetails) => boolean
     parameters_equal: (that: AbstractFieldDetails) => boolean
     values_equal: (that: AbstractFieldDetails) => boolean
@@ -4295,7 +4295,7 @@ export class BackendStorePrivate {
     static name: string
 }
 export abstract class BackendClass {
-    /* Fields of Folks.BackendClass */
+    /* Fields of Folks-0.7.Folks.BackendClass */
     disable_persona_store: (store: PersonaStore) => void
     enable_persona_store: (store: PersonaStore) => void
     set_persona_stores: (storeids?: Gee.Set | null) => void
@@ -4363,7 +4363,7 @@ export class NoteFieldDetailsPrivate {
     static name: string
 }
 export abstract class ObjectCacheClass {
-    /* Fields of Folks.ObjectCacheClass */
+    /* Fields of Folks-0.7.Folks.ObjectCacheClass */
     get_serialised_object_type: (object_version: number) => GLib.VariantType | null
     get_serialised_object_version: () => number
     serialise_object: (object?: object | null) => GLib.Variant
@@ -4374,7 +4374,7 @@ export class ObjectCachePrivate {
     static name: string
 }
 export abstract class PersonaStoreClass {
-    /* Fields of Folks.PersonaStoreClass */
+    /* Fields of Folks-0.7.Folks.PersonaStoreClass */
     prepare: (_callback_?: Gio.AsyncReadyCallback | null) => void
     prepare_finish: (_res_: Gio.AsyncResult) => void
     flush: (_callback_?: Gio.AsyncReadyCallback | null) => void
@@ -4389,7 +4389,7 @@ export class PersonaStorePrivate {
     static name: string
 }
 export abstract class PersonaClass {
-    /* Fields of Folks.PersonaClass */
+    /* Fields of Folks-0.7.Folks.PersonaClass */
     linkable_property_to_links: (prop_name: string, callback: any) => void
     static name: string
 }
@@ -4421,7 +4421,7 @@ export class PotentialMatchPrivate {
     static name: string
 }
 export abstract class QueryClass {
-    /* Fields of Folks.QueryClass */
+    /* Fields of Folks-0.7.Folks.QueryClass */
     is_match: (individual: Individual) => number
     static name: string
 }
@@ -4471,7 +4471,7 @@ export class WebServiceFieldDetailsPrivate {
     static name: string
 }
 export abstract class AliasDetailsIface {
-    /* Fields of Folks.AliasDetailsIface */
+    /* Fields of Folks-0.7.Folks.AliasDetailsIface */
     change_alias: (alias: string, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_alias_finish: (_res_: Gio.AsyncResult) => void
     get_alias: () => string
@@ -4479,7 +4479,7 @@ export abstract class AliasDetailsIface {
     static name: string
 }
 export abstract class AntiLinkableIface {
-    /* Fields of Folks.AntiLinkableIface */
+    /* Fields of Folks-0.7.Folks.AntiLinkableIface */
     change_anti_links: (anti_links: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_anti_links_finish: (_res_: Gio.AsyncResult) => void
     get_anti_links: () => Gee.Set
@@ -4487,7 +4487,7 @@ export abstract class AntiLinkableIface {
     static name: string
 }
 export abstract class AvatarDetailsIface {
-    /* Fields of Folks.AvatarDetailsIface */
+    /* Fields of Folks-0.7.Folks.AvatarDetailsIface */
     change_avatar: (avatar?: Gio.LoadableIcon | null, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_avatar_finish: (_res_: Gio.AsyncResult) => void
     get_avatar: () => Gio.LoadableIcon | null
@@ -4495,7 +4495,7 @@ export abstract class AvatarDetailsIface {
     static name: string
 }
 export abstract class BirthdayDetailsIface {
-    /* Fields of Folks.BirthdayDetailsIface */
+    /* Fields of Folks-0.7.Folks.BirthdayDetailsIface */
     change_birthday: (birthday?: GLib.DateTime | null, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_birthday_finish: (_res_: Gio.AsyncResult) => void
     change_calendar_event_id: (event_id?: string | null, _callback_?: Gio.AsyncReadyCallback | null) => void
@@ -4507,7 +4507,7 @@ export abstract class BirthdayDetailsIface {
     static name: string
 }
 export abstract class EmailDetailsIface {
-    /* Fields of Folks.EmailDetailsIface */
+    /* Fields of Folks-0.7.Folks.EmailDetailsIface */
     change_email_addresses: (email_addresses: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_email_addresses_finish: (_res_: Gio.AsyncResult) => void
     get_email_addresses: () => Gee.Set
@@ -4515,7 +4515,7 @@ export abstract class EmailDetailsIface {
     static name: string
 }
 export abstract class ExtendedInfoIface {
-    /* Fields of Folks.ExtendedInfoIface */
+    /* Fields of Folks-0.7.Folks.ExtendedInfoIface */
     get_extended_field: (name: string) => ExtendedFieldDetails | null
     change_extended_field: (name: string, value: ExtendedFieldDetails, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_extended_field_finish: (_res_: Gio.AsyncResult) => void
@@ -4524,7 +4524,7 @@ export abstract class ExtendedInfoIface {
     static name: string
 }
 export abstract class FavouriteDetailsIface {
-    /* Fields of Folks.FavouriteDetailsIface */
+    /* Fields of Folks-0.7.Folks.FavouriteDetailsIface */
     change_is_favourite: (is_favourite: boolean, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_is_favourite_finish: (_res_: Gio.AsyncResult) => void
     get_is_favourite: () => boolean
@@ -4532,7 +4532,7 @@ export abstract class FavouriteDetailsIface {
     static name: string
 }
 export abstract class GenderDetailsIface {
-    /* Fields of Folks.GenderDetailsIface */
+    /* Fields of Folks-0.7.Folks.GenderDetailsIface */
     change_gender: (gender: Gender, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_gender_finish: (_res_: Gio.AsyncResult) => void
     get_gender: () => Gender
@@ -4540,7 +4540,7 @@ export abstract class GenderDetailsIface {
     static name: string
 }
 export abstract class GroupDetailsIface {
-    /* Fields of Folks.GroupDetailsIface */
+    /* Fields of Folks-0.7.Folks.GroupDetailsIface */
     change_group: (group: string, is_member: boolean, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_group_finish: (_res_: Gio.AsyncResult) => void
     change_groups: (groups: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
@@ -4550,7 +4550,7 @@ export abstract class GroupDetailsIface {
     static name: string
 }
 export abstract class ImDetailsIface {
-    /* Fields of Folks.ImDetailsIface */
+    /* Fields of Folks-0.7.Folks.ImDetailsIface */
     change_im_addresses: (im_addresses: Gee.MultiMap, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_im_addresses_finish: (_res_: Gio.AsyncResult) => void
     get_im_addresses: () => Gee.MultiMap
@@ -4558,7 +4558,7 @@ export abstract class ImDetailsIface {
     static name: string
 }
 export abstract class InteractionDetailsIface {
-    /* Fields of Folks.InteractionDetailsIface */
+    /* Fields of Folks-0.7.Folks.InteractionDetailsIface */
     get_im_interaction_count: () => number
     get_last_im_interaction_datetime: () => GLib.DateTime | null
     get_call_interaction_count: () => number
@@ -4566,7 +4566,7 @@ export abstract class InteractionDetailsIface {
     static name: string
 }
 export abstract class LocalIdDetailsIface {
-    /* Fields of Folks.LocalIdDetailsIface */
+    /* Fields of Folks-0.7.Folks.LocalIdDetailsIface */
     change_local_ids: (local_ids: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_local_ids_finish: (_res_: Gio.AsyncResult) => void
     get_local_ids: () => Gee.Set
@@ -4574,7 +4574,7 @@ export abstract class LocalIdDetailsIface {
     static name: string
 }
 export abstract class LocationDetailsIface {
-    /* Fields of Folks.LocationDetailsIface */
+    /* Fields of Folks-0.7.Folks.LocationDetailsIface */
     change_location: (location?: Location | null, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_location_finish: (_res_: Gio.AsyncResult) => void
     get_location: () => Location | null
@@ -4582,7 +4582,7 @@ export abstract class LocationDetailsIface {
     static name: string
 }
 export abstract class NameDetailsIface {
-    /* Fields of Folks.NameDetailsIface */
+    /* Fields of Folks-0.7.Folks.NameDetailsIface */
     change_structured_name: (name?: StructuredName | null, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_structured_name_finish: (_res_: Gio.AsyncResult) => void
     change_full_name: (full_name: string, _callback_?: Gio.AsyncReadyCallback | null) => void
@@ -4598,7 +4598,7 @@ export abstract class NameDetailsIface {
     static name: string
 }
 export abstract class NoteDetailsIface {
-    /* Fields of Folks.NoteDetailsIface */
+    /* Fields of Folks-0.7.Folks.NoteDetailsIface */
     change_notes: (notes: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_notes_finish: (_res_: Gio.AsyncResult) => void
     get_notes: () => Gee.Set
@@ -4606,7 +4606,7 @@ export abstract class NoteDetailsIface {
     static name: string
 }
 export abstract class PhoneDetailsIface {
-    /* Fields of Folks.PhoneDetailsIface */
+    /* Fields of Folks-0.7.Folks.PhoneDetailsIface */
     change_phone_numbers: (phone_numbers: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_phone_numbers_finish: (_res_: Gio.AsyncResult) => void
     get_phone_numbers: () => Gee.Set
@@ -4614,7 +4614,7 @@ export abstract class PhoneDetailsIface {
     static name: string
 }
 export abstract class PostalAddressDetailsIface {
-    /* Fields of Folks.PostalAddressDetailsIface */
+    /* Fields of Folks-0.7.Folks.PostalAddressDetailsIface */
     change_postal_addresses: (postal_addresses: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_postal_addresses_finish: (_res_: Gio.AsyncResult) => void
     get_postal_addresses: () => Gee.Set
@@ -4622,7 +4622,7 @@ export abstract class PostalAddressDetailsIface {
     static name: string
 }
 export abstract class PresenceDetailsIface {
-    /* Fields of Folks.PresenceDetailsIface */
+    /* Fields of Folks-0.7.Folks.PresenceDetailsIface */
     get_presence_type: () => PresenceType
     set_presence_type: (value: PresenceType) => void
     get_presence_message: () => string
@@ -4634,7 +4634,7 @@ export abstract class PresenceDetailsIface {
     static name: string
 }
 export abstract class RoleDetailsIface {
-    /* Fields of Folks.RoleDetailsIface */
+    /* Fields of Folks-0.7.Folks.RoleDetailsIface */
     change_roles: (roles: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_roles_finish: (_res_: Gio.AsyncResult) => void
     get_roles: () => Gee.Set
@@ -4642,7 +4642,7 @@ export abstract class RoleDetailsIface {
     static name: string
 }
 export abstract class UrlDetailsIface {
-    /* Fields of Folks.UrlDetailsIface */
+    /* Fields of Folks-0.7.Folks.UrlDetailsIface */
     change_urls: (urls: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_urls_finish: (_res_: Gio.AsyncResult) => void
     get_urls: () => Gee.Set
@@ -4650,7 +4650,7 @@ export abstract class UrlDetailsIface {
     static name: string
 }
 export abstract class WebServiceDetailsIface {
-    /* Fields of Folks.WebServiceDetailsIface */
+    /* Fields of Folks-0.7.Folks.WebServiceDetailsIface */
     change_web_service_addresses: (web_service_addresses: Gee.MultiMap, _callback_?: Gio.AsyncReadyCallback | null) => void
     change_web_service_addresses_finish: (_res_: Gio.AsyncResult) => void
     get_web_service_addresses: () => Gee.MultiMap

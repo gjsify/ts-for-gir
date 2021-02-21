@@ -5074,9 +5074,9 @@ export function cairoSetSourceColor(cr: cairo.Context, color: Color): void
 export function checkVersion(major: number, minor: number, micro: number): boolean
 export function checkWindowingBackend(backendType: string): boolean
 export function clearGlyphCache(): void
-export function colorFromHls(hue: number, luminance: number, saturation: number): /* color */ Color
-export function colorFromPixel(pixel: number): /* color */ Color
-export function colorFromString(str: string): [ /* returnType */ boolean, /* color */ Color ]
+export function colorFromHls(hue: number, luminance: number, saturation: number): { color: Color }
+export function colorFromPixel(pixel: number): { color: Color }
+export function colorFromString(str: string): { returnType: boolean, color: Color }
 export function colorGetStatic(color: StaticColor): Color
 export function containerClassFindChildProperty(klass: GObject.ObjectClass, propertyName: string): GObject.ParamSpec
 export function containerClassListChildProperties(klass: GObject.ObjectClass): GObject.ParamSpec[]
@@ -5111,9 +5111,9 @@ export function grabKeyboard(actor: Actor): void
 export function grabPointer(actor: Actor): void
 export function grabPointerForDevice(actor: Actor, id: number): void
 export function imageErrorQuark(): GLib.Quark
-export function init(argv?: string[] | null): [ /* returnType */ InitError, /* argv */ string[] | null ]
+export function init(argv?: string[] | null): { returnType: InitError, argv: string[] | null }
 export function initErrorQuark(): GLib.Quark
-export function initWithArgs(argv?: string[] | null, parameterString?: string | null, entries?: GLib.OptionEntry[] | null, translationDomain?: string | null): [ /* returnType */ InitError, /* argv */ string[] | null ]
+export function initWithArgs(argv?: string[] | null, parameterString?: string | null, entries?: GLib.OptionEntry[] | null, translationDomain?: string | null): { returnType: InitError, argv: string[] | null }
 export function keysymToUnicode(keyval: number): number
 export function main(): void
 export function mainLevel(): number
@@ -5129,8 +5129,8 @@ export function setMotionEventsEnabled(enable: boolean): void
 export function setWindowingBackend(backendType: string): void
 export function shaderErrorQuark(): GLib.Quark
 export function testAddDataFull(testPath: string, testFunc: GLib.TestDataFunc): void
-export function testCheckActorAtPoint(stage: Actor, point: Point, actor: Actor): [ /* returnType */ boolean, /* result */ Actor | null ]
-export function testCheckColorAtPoint(stage: Actor, point: Point, color: Color): [ /* returnType */ boolean, /* result */ Color ]
+export function testCheckActorAtPoint(stage: Actor, point: Point, actor: Actor): { returnType: boolean, result: Actor | null }
+export function testCheckColorAtPoint(stage: Actor, point: Point, color: Color): { returnType: boolean, result: Color }
 export function testGetStage(): Actor
 export function testInit(argc: number, argv: string): void
 export function testRun(): number
@@ -5148,13 +5148,13 @@ export function ungrabKeyboard(): void
 export function ungrabPointer(): void
 export function ungrabPointerForDevice(id: number): void
 export function unicodeToKeysym(wc: number): number
-export function unitsFromCm(cm: number): /* units */ Units
-export function unitsFromEm(em: number): /* units */ Units
-export function unitsFromEmForFont(fontName: string | null, em: number): /* units */ Units
-export function unitsFromMm(mm: number): /* units */ Units
-export function unitsFromPixels(px: number): /* units */ Units
-export function unitsFromPt(pt: number): /* units */ Units
-export function unitsFromString(str: string): [ /* returnType */ boolean, /* units */ Units ]
+export function unitsFromCm(cm: number): { units: Units }
+export function unitsFromEm(em: number): { units: Units }
+export function unitsFromEmForFont(fontName: string | null, em: number): { units: Units }
+export function unitsFromMm(mm: number): { units: Units }
+export function unitsFromPixels(px: number): { units: Units }
+export function unitsFromPt(pt: number): { units: Units }
+export function unitsFromString(str: string): { returnType: boolean, units: Units }
 export function utilNextP2(a: number): number
 export function valueDupPaintNode(value: any): PaintNode
 export function valueGetColor(value: any): Color
@@ -5210,22 +5210,16 @@ export interface TimelineProgressFunc {
     (timeline: Timeline, elapsed: number, total: number): number
 }
 export class Animatable {
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animateProperty(animation: Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     findProperty(propertyName: string): GObject.ParamSpec
     getInitialState(propertyName: string, value: any): void
-    interpolateValue(propertyName: string, interval: Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
+    interpolateValue(propertyName: string, interval: Interval, progress: number): { returnType: boolean, value: any }
     setFinalState(propertyName: string, value: any): void
-    /* Virtual methods of Clutter.Animatable */
-    vfuncAnimateProperty(animation: Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
-    vfuncFindProperty(propertyName: string): GObject.ParamSpec
-    vfuncGetInitialState(propertyName: string, value: any): void
-    vfuncInterpolateValue(propertyName: string, interval: Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
-    vfuncSetFinalState(propertyName: string, value: any): void
     static name: string
 }
 export class Container {
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     addActor(actor: Actor): void
     childGetProperty(child: Actor, property: string, value: any): void
     childNotify(child: Actor, pspec: GObject.ParamSpec): void
@@ -5241,71 +5235,46 @@ export class Container {
     raiseChild(actor: Actor, sibling?: Actor | null): void
     removeActor(actor: Actor): void
     sortDepthOrder(): void
-    /* Virtual methods of Clutter.Container */
-    vfuncActorAdded(actor: Actor): void
-    vfuncActorRemoved(actor: Actor): void
-    vfuncAdd(actor: Actor): void
-    vfuncChildNotify(child: Actor, pspec: GObject.ParamSpec): void
-    vfuncCreateChildMeta(actor: Actor): void
-    vfuncDestroyChildMeta(actor: Actor): void
-    vfuncForeach(callback: Callback): void
-    vfuncForeachWithInternals(callback: Callback): void
-    vfuncGetChildMeta(actor: Actor): ChildMeta
-    vfuncLower(actor: Actor, sibling?: Actor | null): void
-    vfuncRaise(actor: Actor, sibling?: Actor | null): void
-    vfuncRemove(actor: Actor): void
-    vfuncSortDepthOrder(): void
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Container, actor: Actor) => void)): number
-    connect_after(sigName: "actor-added", callback: (($obj: Container, actor: Actor) => void)): number
+    on(sigName: "actor-added", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-added", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-added", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-added", actor: Actor): void
-    on(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "actor-removed", callback: (($obj: Container, actor: Actor) => void)): number
-    connect_after(sigName: "actor-removed", callback: (($obj: Container, actor: Actor) => void)): number
+    on(sigName: "actor-removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-removed", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-removed", actor: Actor): void
-    on(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: Container, actor: Actor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: Container, actor: Actor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", actor: Actor, pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
     /* Static methods and pseudo-constructors */
     static classFindChildProperty(klass: GObject.ObjectClass, propertyName: string): GObject.ParamSpec
     static classListChildProperties(klass: GObject.ObjectClass): GObject.ParamSpec[]
 }
 export class Content {
-    /* Methods of Clutter.Content */
-    getPreferredSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
+    /* Methods of Clutter-1.0.Clutter.Content */
+    getPreferredSize(): { returnType: boolean, width: number, height: number }
     invalidate(): void
-    /* Virtual methods of Clutter.Content */
-    vfuncAttached(actor: Actor): void
-    vfuncDetached(actor: Actor): void
-    vfuncGetPreferredSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
-    vfuncInvalidate(): void
-    vfuncPaintContent(actor: Actor, node: PaintNode): void
-    /* Signals of Clutter.Content */
+    /* Signals of Clutter-1.0.Clutter.Content */
     connect(sigName: "attached", callback: (($obj: Content, actor: Actor) => void)): number
-    connect_after(sigName: "attached", callback: (($obj: Content, actor: Actor) => void)): number
+    on(sigName: "attached", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "attached", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "attached", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "attached", actor: Actor): void
-    on(sigName: "attached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "attached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "attached", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "detached", callback: (($obj: Content, actor: Actor) => void)): number
-    connect_after(sigName: "detached", callback: (($obj: Content, actor: Actor) => void)): number
+    on(sigName: "detached", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "detached", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "detached", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "detached", actor: Actor): void
-    on(sigName: "detached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "detached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "detached", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export class Media {
-    /* Properties of Clutter.Media */
+    /* Properties of Clutter-1.0.Clutter.Media */
     audioVolume: number
     readonly bufferFill: number
     readonly canSeek: boolean
@@ -5315,7 +5284,7 @@ export class Media {
     subtitleFontName: string
     subtitleUri: string
     uri: string
-    /* Methods of Clutter.Media */
+    /* Methods of Clutter-1.0.Clutter.Media */
     getAudioVolume(): number
     getBufferFill(): number
     getCanSeek(): boolean
@@ -5332,53 +5301,43 @@ export class Media {
     setSubtitleFontName(fontName: string): void
     setSubtitleUri(uri: string): void
     setUri(uri: string): void
-    /* Virtual methods of Clutter.Media */
-    vfuncEos(): void
-    vfuncError(error: GLib.Error): void
-    /* Signals of Clutter.Media */
+    /* Signals of Clutter-1.0.Clutter.Media */
     connect(sigName: "eos", callback: (($obj: Media) => void)): number
-    connect_after(sigName: "eos", callback: (($obj: Media) => void)): number
+    on(sigName: "eos", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "eos", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "eos", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "eos"): void
-    on(sigName: "eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "error", callback: (($obj: Media, error: GLib.Error) => void)): number
-    connect_after(sigName: "error", callback: (($obj: Media, error: GLib.Error) => void)): number
+    on(sigName: "error", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "error", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "error", callback: (error: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "error", error: GLib.Error): void
-    on(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
     static name: string
 }
 export class Scriptable {
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Scriptable */
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
     static name: string
 }
 export interface Action_ConstructProps extends ActorMeta_ConstructProps {
 }
 export class Action {
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5400,23 +5359,12 @@ export class Action {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Action, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Action, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::actor", callback: (($obj: Action, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::actor", callback: (($obj: Action, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::actor", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5518,7 +5466,7 @@ export interface Actor_ConstructProps extends GObject.InitiallyUnowned_Construct
     zPosition?: number
 }
 export class Actor {
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Action
     readonly allocation: ActorBox
     anchorGravity: Gravity
@@ -5601,11 +5549,11 @@ export class Actor {
     yAlign: ActorAlign
     yExpand: boolean
     zPosition: number
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     addAction(action: Action): void
     addActionWithName(name: string, action: Action): void
     addChild(child: Actor): void
@@ -5621,8 +5569,8 @@ export class Actor {
     animateWithAlphav(alpha: Alpha, properties: string[], values: any[]): Animation
     animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any[]): Animation
     animatev(mode: number, duration: number, properties: string[], values: any[]): Animation
-    applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): /* vertex */ Vertex
-    applyTransformToPoint(point: Vertex): /* vertex */ Vertex
+    applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): { vertex: Vertex }
+    applyTransformToPoint(point: Vertex): { vertex: Vertex }
     bindModel(model: Gio.ListModel | null, createChildFunc: ActorCreateChildFunc): void
     clearActions(): void
     clearConstraints(): void
@@ -5635,29 +5583,29 @@ export class Actor {
     destroyAllChildren(): void
     detachAnimation(): void
     event(event: Event, capture: boolean): boolean
-    getAbsAllocationVertices(): /* verts */ Vertex[]
+    getAbsAllocationVertices(): { verts: Vertex[] }
     getAccessible(): Atk.Object
     getAction(name: string): Action
     getActions(): Action[]
-    getAllocationBox(): /* box */ ActorBox
-    getAllocationGeometry(): /* geom */ Geometry
-    getAllocationVertices(ancestor?: Actor | null): /* verts */ Vertex[]
-    getAnchorPoint(): [ /* anchorX */ number, /* anchorY */ number ]
+    getAllocationBox(): { box: ActorBox }
+    getAllocationGeometry(): { geom: Geometry }
+    getAllocationVertices(ancestor?: Actor | null): { verts: Vertex[] }
+    getAnchorPoint(): { anchorX: number, anchorY: number }
     getAnchorPointGravity(): Gravity
     getAnimation(): Animation
-    getBackgroundColor(): /* color */ Color
+    getBackgroundColor(): { color: Color }
     getChildAtIndex(index: number): Actor
-    getChildTransform(): /* transform */ Matrix
+    getChildTransform(): { transform: Matrix }
     getChildren(): Actor[]
-    getClip(): [ /* xoff */ number | null, /* yoff */ number | null, /* width */ number | null, /* height */ number | null ]
+    getClip(): { xoff: number | null, yoff: number | null, width: number | null, height: number | null }
     getClipToAllocation(): boolean
     getConstraint(name: string): Constraint
     getConstraints(): Constraint[]
     getContent(): Content
-    getContentBox(): /* box */ ActorBox
+    getContentBox(): { box: ActorBox }
     getContentGravity(): ContentGravity
     getContentRepeat(): ContentRepeat
-    getContentScalingFilters(): [ /* minFilter */ ScalingFilter | null, /* magFilter */ ScalingFilter | null ]
+    getContentScalingFilters(): { minFilter: ScalingFilter | null, magFilter: ScalingFilter | null }
     getDefaultPaintVolume(): PaintVolume
     getDepth(): number
     getEasingDelay(): number
@@ -5668,12 +5616,12 @@ export class Actor {
     getFirstChild(): Actor
     getFixedPositionSet(): boolean
     getFlags(): ActorFlags
-    getGeometry(): /* geometry */ Geometry
+    getGeometry(): { geometry: Geometry }
     getGid(): number
     getHeight(): number
     getLastChild(): Actor
     getLayoutManager(): LayoutManager
-    getMargin(): /* margin */ Margin
+    getMargin(): { margin: Margin }
     getMarginBottom(): number
     getMarginLeft(): number
     getMarginRight(): number
@@ -5683,38 +5631,38 @@ export class Actor {
     getNextSibling(): Actor
     getOffscreenRedirect(): OffscreenRedirect
     getOpacity(): number
-    getPaintBox(): [ /* returnType */ boolean, /* box */ ActorBox ]
+    getPaintBox(): { returnType: boolean, box: ActorBox }
     getPaintOpacity(): number
     getPaintVisibility(): boolean
     getPaintVolume(): PaintVolume
     getPangoContext(): Pango.Context
     getParent(): Actor
-    getPivotPoint(): [ /* pivotX */ number | null, /* pivotY */ number | null ]
+    getPivotPoint(): { pivotX: number | null, pivotY: number | null }
     getPivotPointZ(): number
-    getPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredSize(): [ /* minWidthP */ number | null, /* minHeightP */ number | null, /* naturalWidthP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
+    getPosition(): { x: number | null, y: number | null }
+    getPreferredHeight(forWidth: number): { minHeightP: number | null, naturalHeightP: number | null }
+    getPreferredSize(): { minWidthP: number | null, minHeightP: number | null, naturalWidthP: number | null, naturalHeightP: number | null }
+    getPreferredWidth(forHeight: number): { minWidthP: number | null, naturalWidthP: number | null }
     getPreviousSibling(): Actor
     getReactive(): boolean
     getRequestMode(): RequestMode
-    getRotation(axis: RotateAxis): [ /* returnType */ number, /* x */ number, /* y */ number, /* z */ number ]
+    getRotation(axis: RotateAxis): { returnType: number, x: number, y: number, z: number }
     getRotationAngle(axis: RotateAxis): number
-    getScale(): [ /* scaleX */ number | null, /* scaleY */ number | null ]
-    getScaleCenter(): [ /* centerX */ number | null, /* centerY */ number | null ]
+    getScale(): { scaleX: number | null, scaleY: number | null }
+    getScaleCenter(): { centerX: number | null, centerY: number | null }
     getScaleGravity(): Gravity
     getScaleZ(): number
     getShader(): Shader
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getSize(): { width: number | null, height: number | null }
     getStage(): Stage
     getTextDirection(): TextDirection
-    getTransform(): /* transform */ Matrix
-    getTransformationMatrix(): /* matrix */ Matrix
+    getTransform(): { transform: Matrix }
+    getTransformationMatrix(): { matrix: Matrix }
     getTransformedPaintVolume(relativeToAncestor: Actor): PaintVolume
-    getTransformedPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getTransformedSize(): [ /* width */ number | null, /* height */ number | null ]
+    getTransformedPosition(): { x: number | null, y: number | null }
+    getTransformedSize(): { width: number | null, height: number | null }
     getTransition(name: string): Transition
-    getTranslation(): [ /* translateX */ number | null, /* translateY */ number | null, /* translateZ */ number | null ]
+    getTranslation(): { translateX: number | null, translateY: number | null, translateZ: number | null }
     getWidth(): number
     getX(): number
     getXAlign(): ActorAlign
@@ -5836,12 +5784,12 @@ export class Actor {
     shouldPickPaint(): boolean
     show(): void
     showAll(): void
-    transformStagePoint(x: number, y: number): [ /* returnType */ boolean, /* xOut */ number, /* yOut */ number ]
+    transformStagePoint(x: number, y: number): { returnType: boolean, xOut: number, yOut: number }
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetFlags(flags: ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -5863,13 +5811,13 @@ export class Actor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animateProperty(animation: Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     findProperty(propertyName: string): GObject.ParamSpec
     getInitialState(propertyName: string, value: any): void
-    interpolateValue(propertyName: string, interval: Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
+    interpolateValue(propertyName: string, interval: Interval, progress: number): { returnType: boolean, value: any }
     setFinalState(propertyName: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     addActor(actor: Actor): void
     childGetProperty(child: Actor, property: string, value: any): void
     childNotify(child: Actor, pspec: GObject.ParamSpec): void
@@ -5884,260 +5832,164 @@ export class Actor {
     raiseChild(actor: Actor, sibling?: Actor | null): void
     removeActor(actor: Actor): void
     sortDepthOrder(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Actor */
-    vfuncAllocate(box: ActorBox, flags: AllocationFlags): void
-    vfuncApplyTransform(matrix: Matrix): void
-    vfuncButtonPressEvent(event: ButtonEvent): boolean
-    vfuncButtonReleaseEvent(event: ButtonEvent): boolean
-    vfuncCapturedEvent(event: Event): boolean
-    vfuncDestroy(): void
-    vfuncEnterEvent(event: CrossingEvent): boolean
-    vfuncEvent(event: Event): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPaintVolume(volume: PaintVolume): boolean
-    vfuncGetPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    vfuncGetPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
-    vfuncHasOverlaps(): boolean
-    vfuncHide(): void
-    vfuncHideAll(): void
-    vfuncKeyFocusIn(): void
-    vfuncKeyFocusOut(): void
-    vfuncKeyPressEvent(event: KeyEvent): boolean
-    vfuncKeyReleaseEvent(event: KeyEvent): boolean
-    vfuncLeaveEvent(event: CrossingEvent): boolean
-    vfuncMap(): void
-    vfuncMotionEvent(event: MotionEvent): boolean
-    vfuncPaint(): void
-    vfuncPaintNode(root: PaintNode): void
-    vfuncParentSet(oldParent: Actor): void
-    vfuncPick(color: Color): void
-    vfuncQueueRedraw(leafThatQueued: Actor): void
-    vfuncQueueRelayout(): void
-    vfuncRealize(): void
-    vfuncScrollEvent(event: ScrollEvent): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncTouchEvent(event: TouchEvent): boolean
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    vfuncAnimateProperty(animation: Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
-    vfuncFindProperty(propertyName: string): GObject.ParamSpec
-    vfuncGetInitialState(propertyName: string, value: any): void
-    vfuncInterpolateValue(propertyName: string, interval: Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
-    vfuncSetFinalState(propertyName: string, value: any): void
-    vfuncActorAdded(actor: Actor): void
-    vfuncActorRemoved(actor: Actor): void
-    vfuncAdd(actor: Actor): void
-    vfuncChildNotify(child: Actor, pspec: GObject.ParamSpec): void
-    vfuncCreateChildMeta(actor: Actor): void
-    vfuncDestroyChildMeta(actor: Actor): void
-    vfuncForeach(callback: Callback): void
-    vfuncForeachWithInternals(callback: Callback): void
-    vfuncGetChildMeta(actor: Actor): ChildMeta
-    vfuncLower(actor: Actor, sibling?: Actor | null): void
-    vfuncRaise(actor: Actor, sibling?: Actor | null): void
-    vfuncRemove(actor: Actor): void
-    vfuncSortDepthOrder(): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Actor, box: ActorBox, flags: AllocationFlags) => void)): number
-    connect_after(sigName: "allocation-changed", callback: (($obj: Actor, box: ActorBox, flags: AllocationFlags) => void)): number
+    on(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void): NodeJS.EventEmitter
     emit(sigName: "allocation-changed", box: ActorBox, flags: AllocationFlags): void
-    on(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: Actor, event: ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: Actor, event: ButtonEvent) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: ButtonEvent): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: Actor, event: ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: Actor, event: ButtonEvent) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: ButtonEvent): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "captured-event", callback: (($obj: Actor, event: Event) => boolean)): number
-    connect_after(sigName: "captured-event", callback: (($obj: Actor, event: Event) => boolean)): number
+    on(sigName: "captured-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "captured-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "captured-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "captured-event", event: Event): void
-    on(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: Actor) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Actor) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-event", callback: (($obj: Actor, event: CrossingEvent) => boolean)): number
-    connect_after(sigName: "enter-event", callback: (($obj: Actor, event: CrossingEvent) => boolean)): number
+    on(sigName: "enter-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-event", callback: (event: CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "enter-event", event: CrossingEvent): void
-    on(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: Actor, event: Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: Actor, event: Event) => boolean)): number
+    on(sigName: "event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: Actor) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: Actor) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-in", callback: (($obj: Actor) => void)): number
-    connect_after(sigName: "key-focus-in", callback: (($obj: Actor) => void)): number
+    on(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-in", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-in"): void
-    on(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-out", callback: (($obj: Actor) => void)): number
-    connect_after(sigName: "key-focus-out", callback: (($obj: Actor) => void)): number
+    on(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-out", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-out"): void
-    on(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: Actor, event: KeyEvent) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: Actor, event: KeyEvent) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: KeyEvent): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: Actor, event: KeyEvent) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: Actor, event: KeyEvent) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: KeyEvent): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-event", callback: (($obj: Actor, event: CrossingEvent) => boolean)): number
-    connect_after(sigName: "leave-event", callback: (($obj: Actor, event: CrossingEvent) => boolean)): number
+    on(sigName: "leave-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-event", callback: (event: CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "leave-event", event: CrossingEvent): void
-    on(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-event", callback: (($obj: Actor, event: MotionEvent) => boolean)): number
-    connect_after(sigName: "motion-event", callback: (($obj: Actor, event: MotionEvent) => boolean)): number
+    on(sigName: "motion-event", callback: (event: MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-event", callback: (event: MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-event", callback: (event: MotionEvent) => void): NodeJS.EventEmitter
     emit(sigName: "motion-event", event: MotionEvent): void
-    on(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paint", callback: (($obj: Actor) => void)): number
-    connect_after(sigName: "paint", callback: (($obj: Actor) => void)): number
+    on(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paint", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paint"): void
-    on(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: Actor, oldParent?: Actor | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: Actor, oldParent?: Actor | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Actor | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Actor | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pick", callback: (($obj: Actor, color: Color) => void)): number
-    connect_after(sigName: "pick", callback: (($obj: Actor, color: Color) => void)): number
+    on(sigName: "pick", callback: (color: Color) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pick", callback: (color: Color) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pick", callback: (color: Color) => void): NodeJS.EventEmitter
     emit(sigName: "pick", color: Color): void
-    on(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-redraw", callback: (($obj: Actor, origin: Actor) => void)): number
-    connect_after(sigName: "queue-redraw", callback: (($obj: Actor, origin: Actor) => void)): number
+    on(sigName: "queue-redraw", callback: (origin: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-redraw", callback: (origin: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-redraw", callback: (origin: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "queue-redraw", origin: Actor): void
-    on(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-relayout", callback: (($obj: Actor) => void)): number
-    connect_after(sigName: "queue-relayout", callback: (($obj: Actor) => void)): number
+    on(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-relayout", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "queue-relayout"): void
-    on(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: Actor) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: Actor) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: Actor, event: ScrollEvent) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: Actor, event: ScrollEvent) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: ScrollEvent) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: ScrollEvent): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: Actor) => void)): number
-    connect_after(sigName: "show", callback: (($obj: Actor) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: Actor, event: Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: Actor, event: Event) => boolean)): number
+    on(sigName: "touch-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", event: Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transition-stopped", callback: (($obj: Actor, name: string, isFinished: boolean) => void)): number
-    connect_after(sigName: "transition-stopped", callback: (($obj: Actor, name: string, isFinished: boolean) => void)): number
+    on(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "transition-stopped", name: string, isFinished: boolean): void
-    on(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transitions-completed", callback: (($obj: Actor) => void)): number
-    connect_after(sigName: "transitions-completed", callback: (($obj: Actor) => void)): number
+    on(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transitions-completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "transitions-completed"): void
-    on(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: Actor) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: Actor) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Actor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Actor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Actor, actor: Actor) => void)): number
-    connect_after(sigName: "actor-added", callback: (($obj: Actor, actor: Actor) => void)): number
+    on(sigName: "actor-added", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-added", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-added", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-added", actor: Actor): void
-    on(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "actor-removed", callback: (($obj: Actor, actor: Actor) => void)): number
-    connect_after(sigName: "actor-removed", callback: (($obj: Actor, actor: Actor) => void)): number
+    on(sigName: "actor-removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-removed", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-removed", actor: Actor): void
-    on(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: Actor, actor: Actor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: Actor, actor: Actor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", actor: Actor, pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::actions", callback: (($obj: Actor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::actions", callback: (($obj: Actor, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::actions", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6569,19 +6421,19 @@ export interface ActorMeta_ConstructProps extends GObject.InitiallyUnowned_Const
     name?: string
 }
 export class ActorMeta {
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6603,23 +6455,12 @@ export class ActorMeta {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ActorMeta, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ActorMeta, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::actor", callback: (($obj: ActorMeta, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::actor", callback: (($obj: ActorMeta, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::actor", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6653,30 +6494,30 @@ export interface AlignConstraint_ConstructProps extends Constraint_ConstructProp
     source?: Actor
 }
 export class AlignConstraint {
-    /* Properties of Clutter.AlignConstraint */
+    /* Properties of Clutter-1.0.Clutter.AlignConstraint */
     alignAxis: AlignAxis
     factor: number
     source: Actor
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.AlignConstraint */
+    /* Methods of Clutter-1.0.Clutter.AlignConstraint */
     getAlignAxis(): AlignAxis
     getFactor(): number
     getSource(): Actor
     setAlignAxis(axis: AlignAxis): void
     setFactor(factor: number): void
     setSource(source?: Actor | null): void
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6698,26 +6539,12 @@ export class AlignConstraint {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.Constraint */
-    vfuncUpdateAllocation(actor: Actor, allocation: ActorBox): void
-    vfuncUpdatePreferredSize(actor: Actor, direction: Orientation, forSize: number, minimumSize: number, naturalSize: number): void
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AlignConstraint, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: AlignConstraint, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::align-axis", callback: (($obj: AlignConstraint, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::align-axis", callback: (($obj: AlignConstraint, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::align-axis", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6767,13 +6594,13 @@ export interface Alpha_ConstructProps extends GObject.InitiallyUnowned_Construct
     timeline?: Timeline
 }
 export class Alpha {
-    /* Properties of Clutter.Alpha */
+    /* Properties of Clutter-1.0.Clutter.Alpha */
     readonly alpha: number
     mode: number
     timeline: Timeline
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Alpha */
+    /* Methods of Clutter-1.0.Clutter.Alpha */
     getAlpha(): number
     getMode(): number
     getTimeline(): Timeline
@@ -6781,7 +6608,7 @@ export class Alpha {
     setFunc(func: AlphaFunc): void
     setMode(mode: number): void
     setTimeline(timeline: Timeline): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6803,31 +6630,17 @@ export class Alpha {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Alpha */
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Alpha, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Alpha, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::alpha", callback: (($obj: Alpha, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::alpha", callback: (($obj: Alpha, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::alpha", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6869,16 +6682,16 @@ export interface Animation_ConstructProps extends GObject.Object_ConstructProps 
     timeline?: Timeline
 }
 export class Animation {
-    /* Properties of Clutter.Animation */
+    /* Properties of Clutter-1.0.Clutter.Animation */
     alpha: Alpha
     duration: number
     loop: boolean
     mode: number
     object: GObject.Object
     timeline: Timeline
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Animation */
+    /* Methods of Clutter-1.0.Clutter.Animation */
     bind(propertyName: string, final: any): Animation
     bindInterval(propertyName: string, interval: Interval): Animation
     completed(): void
@@ -6899,7 +6712,7 @@ export class Animation {
     unbindProperty(propertyName: string): void
     update(propertyName: string, final: any): Animation
     updateInterval(propertyName: string, interval: Interval): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -6921,46 +6734,28 @@ export class Animation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Animation */
-    vfuncCompleted(): void
-    vfuncStarted(): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Animation */
+    /* Signals of Clutter-1.0.Clutter.Animation */
     connect(sigName: "completed", callback: (($obj: Animation) => void)): number
-    connect_after(sigName: "completed", callback: (($obj: Animation) => void)): number
+    on(sigName: "completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "completed"): void
-    on(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "started", callback: (($obj: Animation) => void)): number
-    connect_after(sigName: "started", callback: (($obj: Animation) => void)): number
+    on(sigName: "started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "started", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "started"): void
-    on(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Animation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Animation, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::alpha", callback: (($obj: Animation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::alpha", callback: (($obj: Animation, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::alpha", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7010,12 +6805,12 @@ export interface Animator_ConstructProps extends GObject.Object_ConstructProps {
     timeline?: Timeline
 }
 export class Animator {
-    /* Properties of Clutter.Animator */
+    /* Properties of Clutter-1.0.Clutter.Animator */
     duration: number
     timeline: Timeline
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Animator */
+    /* Methods of Clutter-1.0.Clutter.Animator */
     computeValue(object: GObject.Object, propertyName: string, progress: number, value: any): boolean
     getDuration(): number
     getKeys(object: GObject.Object | null, propertyName: string | null, progress: number): AnimatorKey[]
@@ -7029,7 +6824,7 @@ export class Animator {
     setKey(object: GObject.Object, propertyName: string, mode: number, progress: number, value: any): Animator
     setTimeline(timeline: Timeline): void
     start(): Timeline
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7051,31 +6846,17 @@ export class Animator {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Animator */
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Animator, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Animator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::duration", callback: (($obj: Animator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration", callback: (($obj: Animator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::duration", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7103,9 +6884,9 @@ export class Animator {
 export interface Backend_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Backend {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Backend */
+    /* Methods of Clutter-1.0.Clutter.Backend */
     getDoubleClickDistance(): number
     getDoubleClickTime(): number
     getFontName(): string
@@ -7116,7 +6897,7 @@ export class Backend {
     setFontName(fontName: string): void
     setFontOptions(options: cairo.FontOptions): void
     setResolution(dpi: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7138,40 +6919,28 @@ export class Backend {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Backend */
+    /* Signals of Clutter-1.0.Clutter.Backend */
     connect(sigName: "font-changed", callback: (($obj: Backend) => void)): number
-    connect_after(sigName: "font-changed", callback: (($obj: Backend) => void)): number
+    on(sigName: "font-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "font-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "font-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "font-changed"): void
-    on(sigName: "font-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "font-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "font-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "resolution-changed", callback: (($obj: Backend) => void)): number
-    connect_after(sigName: "resolution-changed", callback: (($obj: Backend) => void)): number
+    on(sigName: "resolution-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "resolution-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "resolution-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "resolution-changed"): void
-    on(sigName: "resolution-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "resolution-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "resolution-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "settings-changed", callback: (($obj: Backend) => void)): number
-    connect_after(sigName: "settings-changed", callback: (($obj: Backend) => void)): number
+    on(sigName: "settings-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "settings-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "settings-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "settings-changed"): void
-    on(sigName: "settings-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "settings-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "settings-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Backend, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Backend, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7188,11 +6957,11 @@ export interface Behaviour_ConstructProps extends GObject.Object_ConstructProps 
     alpha?: Alpha
 }
 export class Behaviour {
-    /* Properties of Clutter.Behaviour */
+    /* Properties of Clutter-1.0.Clutter.Behaviour */
     alpha: Alpha
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Behaviour */
+    /* Methods of Clutter-1.0.Clutter.Behaviour */
     actorsForeach(func: BehaviourForeachFunc): void
     apply(actor: Actor): void
     getActors(): Actor[]
@@ -7203,7 +6972,7 @@ export class Behaviour {
     remove(actor: Actor): void
     removeAll(): void
     setAlpha(alpha: Alpha): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7225,47 +6994,28 @@ export class Behaviour {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Behaviour */
-    vfuncAlphaNotify(alphaValue: number): void
-    vfuncApplied(actor: Actor): void
-    vfuncRemoved(actor: Actor): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Behaviour */
+    /* Signals of Clutter-1.0.Clutter.Behaviour */
     connect(sigName: "applied", callback: (($obj: Behaviour, actor: Actor) => void)): number
-    connect_after(sigName: "applied", callback: (($obj: Behaviour, actor: Actor) => void)): number
+    on(sigName: "applied", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "applied", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "applied", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "applied", actor: Actor): void
-    on(sigName: "applied", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "applied", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "applied", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "removed", callback: (($obj: Behaviour, actor: Actor) => void)): number
-    connect_after(sigName: "removed", callback: (($obj: Behaviour, actor: Actor) => void)): number
+    on(sigName: "removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "removed", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "removed", actor: Actor): void
-    on(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Behaviour, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Behaviour, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::alpha", callback: (($obj: Behaviour, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::alpha", callback: (($obj: Behaviour, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::alpha", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7288,17 +7038,17 @@ export interface BehaviourDepth_ConstructProps extends Behaviour_ConstructProps 
     depthStart?: number
 }
 export class BehaviourDepth {
-    /* Properties of Clutter.BehaviourDepth */
+    /* Properties of Clutter-1.0.Clutter.BehaviourDepth */
     depthEnd: number
     depthStart: number
-    /* Properties of Clutter.Behaviour */
+    /* Properties of Clutter-1.0.Clutter.Behaviour */
     alpha: Alpha
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.BehaviourDepth */
-    getBounds(): [ /* depthStart */ number, /* depthEnd */ number ]
+    /* Methods of Clutter-1.0.Clutter.BehaviourDepth */
+    getBounds(): { depthStart: number, depthEnd: number }
     setBounds(depthStart: number, depthEnd: number): void
-    /* Methods of Clutter.Behaviour */
+    /* Methods of Clutter-1.0.Clutter.Behaviour */
     actorsForeach(func: BehaviourForeachFunc): void
     apply(actor: Actor): void
     getActors(): Actor[]
@@ -7309,7 +7059,7 @@ export class BehaviourDepth {
     remove(actor: Actor): void
     removeAll(): void
     setAlpha(alpha: Alpha): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7331,47 +7081,28 @@ export class BehaviourDepth {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Behaviour */
-    vfuncAlphaNotify(alphaValue: number): void
-    vfuncApplied(actor: Actor): void
-    vfuncRemoved(actor: Actor): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Behaviour */
+    /* Signals of Clutter-1.0.Clutter.Behaviour */
     connect(sigName: "applied", callback: (($obj: BehaviourDepth, actor: Actor) => void)): number
-    connect_after(sigName: "applied", callback: (($obj: BehaviourDepth, actor: Actor) => void)): number
+    on(sigName: "applied", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "applied", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "applied", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "applied", actor: Actor): void
-    on(sigName: "applied", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "applied", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "applied", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "removed", callback: (($obj: BehaviourDepth, actor: Actor) => void)): number
-    connect_after(sigName: "removed", callback: (($obj: BehaviourDepth, actor: Actor) => void)): number
+    on(sigName: "removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "removed", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "removed", actor: Actor): void
-    on(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BehaviourDepth, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BehaviourDepth, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::depth-end", callback: (($obj: BehaviourDepth, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::depth-end", callback: (($obj: BehaviourDepth, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::depth-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7413,7 +7144,7 @@ export interface BehaviourEllipse_ConstructProps extends Behaviour_ConstructProp
     width?: number
 }
 export class BehaviourEllipse {
-    /* Properties of Clutter.BehaviourEllipse */
+    /* Properties of Clutter-1.0.Clutter.BehaviourEllipse */
     angleEnd: number
     angleStart: number
     angleTiltX: number
@@ -7423,18 +7154,18 @@ export class BehaviourEllipse {
     direction: RotateDirection
     height: number
     width: number
-    /* Properties of Clutter.Behaviour */
+    /* Properties of Clutter-1.0.Clutter.Behaviour */
     alpha: Alpha
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.BehaviourEllipse */
+    /* Methods of Clutter-1.0.Clutter.BehaviourEllipse */
     getAngleEnd(): number
     getAngleStart(): number
     getAngleTilt(axis: RotateAxis): number
-    getCenter(): [ /* x */ number, /* y */ number ]
+    getCenter(): { x: number, y: number }
     getDirection(): RotateDirection
     getHeight(): number
-    getTilt(): [ /* angleTiltX */ number, /* angleTiltY */ number, /* angleTiltZ */ number ]
+    getTilt(): { angleTiltX: number, angleTiltY: number, angleTiltZ: number }
     getWidth(): number
     setAngleEnd(angleEnd: number): void
     setAngleStart(angleStart: number): void
@@ -7444,7 +7175,7 @@ export class BehaviourEllipse {
     setHeight(height: number): void
     setTilt(angleTiltX: number, angleTiltY: number, angleTiltZ: number): void
     setWidth(width: number): void
-    /* Methods of Clutter.Behaviour */
+    /* Methods of Clutter-1.0.Clutter.Behaviour */
     actorsForeach(func: BehaviourForeachFunc): void
     apply(actor: Actor): void
     getActors(): Actor[]
@@ -7455,7 +7186,7 @@ export class BehaviourEllipse {
     remove(actor: Actor): void
     removeAll(): void
     setAlpha(alpha: Alpha): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7477,47 +7208,28 @@ export class BehaviourEllipse {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Behaviour */
-    vfuncAlphaNotify(alphaValue: number): void
-    vfuncApplied(actor: Actor): void
-    vfuncRemoved(actor: Actor): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Behaviour */
+    /* Signals of Clutter-1.0.Clutter.Behaviour */
     connect(sigName: "applied", callback: (($obj: BehaviourEllipse, actor: Actor) => void)): number
-    connect_after(sigName: "applied", callback: (($obj: BehaviourEllipse, actor: Actor) => void)): number
+    on(sigName: "applied", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "applied", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "applied", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "applied", actor: Actor): void
-    on(sigName: "applied", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "applied", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "applied", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "removed", callback: (($obj: BehaviourEllipse, actor: Actor) => void)): number
-    connect_after(sigName: "removed", callback: (($obj: BehaviourEllipse, actor: Actor) => void)): number
+    on(sigName: "removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "removed", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "removed", actor: Actor): void
-    on(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BehaviourEllipse, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BehaviourEllipse, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::angle-end", callback: (($obj: BehaviourEllipse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::angle-end", callback: (($obj: BehaviourEllipse, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::angle-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7587,17 +7299,17 @@ export interface BehaviourOpacity_ConstructProps extends Behaviour_ConstructProp
     opacityStart?: number
 }
 export class BehaviourOpacity {
-    /* Properties of Clutter.BehaviourOpacity */
+    /* Properties of Clutter-1.0.Clutter.BehaviourOpacity */
     opacityEnd: number
     opacityStart: number
-    /* Properties of Clutter.Behaviour */
+    /* Properties of Clutter-1.0.Clutter.Behaviour */
     alpha: Alpha
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.BehaviourOpacity */
-    getBounds(): [ /* opacityStart */ number, /* opacityEnd */ number ]
+    /* Methods of Clutter-1.0.Clutter.BehaviourOpacity */
+    getBounds(): { opacityStart: number, opacityEnd: number }
     setBounds(opacityStart: number, opacityEnd: number): void
-    /* Methods of Clutter.Behaviour */
+    /* Methods of Clutter-1.0.Clutter.Behaviour */
     actorsForeach(func: BehaviourForeachFunc): void
     apply(actor: Actor): void
     getActors(): Actor[]
@@ -7608,7 +7320,7 @@ export class BehaviourOpacity {
     remove(actor: Actor): void
     removeAll(): void
     setAlpha(alpha: Alpha): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7630,47 +7342,28 @@ export class BehaviourOpacity {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Behaviour */
-    vfuncAlphaNotify(alphaValue: number): void
-    vfuncApplied(actor: Actor): void
-    vfuncRemoved(actor: Actor): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Behaviour */
+    /* Signals of Clutter-1.0.Clutter.Behaviour */
     connect(sigName: "applied", callback: (($obj: BehaviourOpacity, actor: Actor) => void)): number
-    connect_after(sigName: "applied", callback: (($obj: BehaviourOpacity, actor: Actor) => void)): number
+    on(sigName: "applied", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "applied", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "applied", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "applied", actor: Actor): void
-    on(sigName: "applied", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "applied", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "applied", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "removed", callback: (($obj: BehaviourOpacity, actor: Actor) => void)): number
-    connect_after(sigName: "removed", callback: (($obj: BehaviourOpacity, actor: Actor) => void)): number
+    on(sigName: "removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "removed", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "removed", actor: Actor): void
-    on(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BehaviourOpacity, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BehaviourOpacity, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::opacity-end", callback: (($obj: BehaviourOpacity, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::opacity-end", callback: (($obj: BehaviourOpacity, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::opacity-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7704,16 +7397,16 @@ export interface BehaviourPath_ConstructProps extends Behaviour_ConstructProps {
     path?: Path
 }
 export class BehaviourPath {
-    /* Properties of Clutter.BehaviourPath */
+    /* Properties of Clutter-1.0.Clutter.BehaviourPath */
     path: Path
-    /* Properties of Clutter.Behaviour */
+    /* Properties of Clutter-1.0.Clutter.Behaviour */
     alpha: Alpha
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.BehaviourPath */
+    /* Methods of Clutter-1.0.Clutter.BehaviourPath */
     getPath(): Path
     setPath(path: Path): void
-    /* Methods of Clutter.Behaviour */
+    /* Methods of Clutter-1.0.Clutter.Behaviour */
     actorsForeach(func: BehaviourForeachFunc): void
     apply(actor: Actor): void
     getActors(): Actor[]
@@ -7724,7 +7417,7 @@ export class BehaviourPath {
     remove(actor: Actor): void
     removeAll(): void
     setAlpha(alpha: Alpha): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7746,56 +7439,34 @@ export class BehaviourPath {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.BehaviourPath */
-    vfuncKnotReached(knotNum: number): void
-    /* Virtual methods of Clutter.Behaviour */
-    vfuncAlphaNotify(alphaValue: number): void
-    vfuncApplied(actor: Actor): void
-    vfuncRemoved(actor: Actor): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.BehaviourPath */
+    /* Signals of Clutter-1.0.Clutter.BehaviourPath */
     connect(sigName: "knot-reached", callback: (($obj: BehaviourPath, knotNum: number) => void)): number
-    connect_after(sigName: "knot-reached", callback: (($obj: BehaviourPath, knotNum: number) => void)): number
+    on(sigName: "knot-reached", callback: (knotNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "knot-reached", callback: (knotNum: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "knot-reached", callback: (knotNum: number) => void): NodeJS.EventEmitter
     emit(sigName: "knot-reached", knotNum: number): void
-    on(sigName: "knot-reached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "knot-reached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "knot-reached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Behaviour */
+    /* Signals of Clutter-1.0.Clutter.Behaviour */
     connect(sigName: "applied", callback: (($obj: BehaviourPath, actor: Actor) => void)): number
-    connect_after(sigName: "applied", callback: (($obj: BehaviourPath, actor: Actor) => void)): number
+    on(sigName: "applied", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "applied", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "applied", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "applied", actor: Actor): void
-    on(sigName: "applied", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "applied", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "applied", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "removed", callback: (($obj: BehaviourPath, actor: Actor) => void)): number
-    connect_after(sigName: "removed", callback: (($obj: BehaviourPath, actor: Actor) => void)): number
+    on(sigName: "removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "removed", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "removed", actor: Actor): void
-    on(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BehaviourPath, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BehaviourPath, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::path", callback: (($obj: BehaviourPath, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::path", callback: (($obj: BehaviourPath, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::path", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7832,7 +7503,7 @@ export interface BehaviourRotate_ConstructProps extends Behaviour_ConstructProps
     direction?: RotateDirection
 }
 export class BehaviourRotate {
-    /* Properties of Clutter.BehaviourRotate */
+    /* Properties of Clutter-1.0.Clutter.BehaviourRotate */
     angleEnd: number
     angleStart: number
     axis: RotateAxis
@@ -7840,20 +7511,20 @@ export class BehaviourRotate {
     centerY: number
     centerZ: number
     direction: RotateDirection
-    /* Properties of Clutter.Behaviour */
+    /* Properties of Clutter-1.0.Clutter.Behaviour */
     alpha: Alpha
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.BehaviourRotate */
+    /* Methods of Clutter-1.0.Clutter.BehaviourRotate */
     getAxis(): RotateAxis
-    getBounds(): [ /* angleStart */ number, /* angleEnd */ number ]
-    getCenter(): [ /* x */ number, /* y */ number, /* z */ number ]
+    getBounds(): { angleStart: number, angleEnd: number }
+    getCenter(): { x: number, y: number, z: number }
     getDirection(): RotateDirection
     setAxis(axis: RotateAxis): void
     setBounds(angleStart: number, angleEnd: number): void
     setCenter(x: number, y: number, z: number): void
     setDirection(direction: RotateDirection): void
-    /* Methods of Clutter.Behaviour */
+    /* Methods of Clutter-1.0.Clutter.Behaviour */
     actorsForeach(func: BehaviourForeachFunc): void
     apply(actor: Actor): void
     getActors(): Actor[]
@@ -7864,7 +7535,7 @@ export class BehaviourRotate {
     remove(actor: Actor): void
     removeAll(): void
     setAlpha(alpha: Alpha): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -7886,47 +7557,28 @@ export class BehaviourRotate {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Behaviour */
-    vfuncAlphaNotify(alphaValue: number): void
-    vfuncApplied(actor: Actor): void
-    vfuncRemoved(actor: Actor): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Behaviour */
+    /* Signals of Clutter-1.0.Clutter.Behaviour */
     connect(sigName: "applied", callback: (($obj: BehaviourRotate, actor: Actor) => void)): number
-    connect_after(sigName: "applied", callback: (($obj: BehaviourRotate, actor: Actor) => void)): number
+    on(sigName: "applied", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "applied", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "applied", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "applied", actor: Actor): void
-    on(sigName: "applied", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "applied", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "applied", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "removed", callback: (($obj: BehaviourRotate, actor: Actor) => void)): number
-    connect_after(sigName: "removed", callback: (($obj: BehaviourRotate, actor: Actor) => void)): number
+    on(sigName: "removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "removed", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "removed", actor: Actor): void
-    on(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BehaviourRotate, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BehaviourRotate, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::angle-end", callback: (($obj: BehaviourRotate, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::angle-end", callback: (($obj: BehaviourRotate, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::angle-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7988,19 +7640,19 @@ export interface BehaviourScale_ConstructProps extends Behaviour_ConstructProps 
     yScaleStart?: number
 }
 export class BehaviourScale {
-    /* Properties of Clutter.BehaviourScale */
+    /* Properties of Clutter-1.0.Clutter.BehaviourScale */
     xScaleEnd: number
     xScaleStart: number
     yScaleEnd: number
     yScaleStart: number
-    /* Properties of Clutter.Behaviour */
+    /* Properties of Clutter-1.0.Clutter.Behaviour */
     alpha: Alpha
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.BehaviourScale */
-    getBounds(): [ /* xScaleStart */ number, /* yScaleStart */ number, /* xScaleEnd */ number, /* yScaleEnd */ number ]
+    /* Methods of Clutter-1.0.Clutter.BehaviourScale */
+    getBounds(): { xScaleStart: number, yScaleStart: number, xScaleEnd: number, yScaleEnd: number }
     setBounds(xScaleStart: number, yScaleStart: number, xScaleEnd: number, yScaleEnd: number): void
-    /* Methods of Clutter.Behaviour */
+    /* Methods of Clutter-1.0.Clutter.Behaviour */
     actorsForeach(func: BehaviourForeachFunc): void
     apply(actor: Actor): void
     getActors(): Actor[]
@@ -8011,7 +7663,7 @@ export class BehaviourScale {
     remove(actor: Actor): void
     removeAll(): void
     setAlpha(alpha: Alpha): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8033,47 +7685,28 @@ export class BehaviourScale {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Behaviour */
-    vfuncAlphaNotify(alphaValue: number): void
-    vfuncApplied(actor: Actor): void
-    vfuncRemoved(actor: Actor): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Behaviour */
+    /* Signals of Clutter-1.0.Clutter.Behaviour */
     connect(sigName: "applied", callback: (($obj: BehaviourScale, actor: Actor) => void)): number
-    connect_after(sigName: "applied", callback: (($obj: BehaviourScale, actor: Actor) => void)): number
+    on(sigName: "applied", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "applied", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "applied", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "applied", actor: Actor): void
-    on(sigName: "applied", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "applied", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "applied", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "removed", callback: (($obj: BehaviourScale, actor: Actor) => void)): number
-    connect_after(sigName: "removed", callback: (($obj: BehaviourScale, actor: Actor) => void)): number
+    on(sigName: "removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "removed", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "removed", actor: Actor): void
-    on(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BehaviourScale, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BehaviourScale, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::x-scale-end", callback: (($obj: BehaviourScale, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-scale-end", callback: (($obj: BehaviourScale, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::x-scale-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8118,16 +7751,16 @@ export interface BinLayout_ConstructProps extends LayoutManager_ConstructProps {
     yAlign?: BinAlignment
 }
 export class BinLayout {
-    /* Properties of Clutter.BinLayout */
+    /* Properties of Clutter-1.0.Clutter.BinLayout */
     xAlign: BinAlignment
     yAlign: BinAlignment
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.BinLayout */
+    /* Methods of Clutter-1.0.Clutter.BinLayout */
     add(child: Actor, xAlign: BinAlignment, yAlign: BinAlignment): void
-    getAlignment(child?: Actor | null): [ /* xAlign */ BinAlignment | null, /* yAlign */ BinAlignment | null ]
+    getAlignment(child?: Actor | null): { xAlign: BinAlignment | null, yAlign: BinAlignment | null }
     setAlignment(child: Actor | null, xAlign: BinAlignment, yAlign: BinAlignment): void
-    /* Methods of Clutter.LayoutManager */
+    /* Methods of Clutter-1.0.Clutter.LayoutManager */
     allocate(container: Container, allocation: ActorBox, flags: AllocationFlags): void
     beginAnimation(duration: number, mode: number): Alpha
     childGetProperty(container: Container, actor: Actor, propertyName: string, value: any): void
@@ -8136,12 +7769,12 @@ export class BinLayout {
     findChildProperty(name: string): GObject.ParamSpec
     getAnimationProgress(): number
     getChildMeta(container: Container, actor: Actor): LayoutMeta
-    getPreferredHeight(container: Container, forWidth: number): [ /* minHeightP */ number | null, /* natHeightP */ number | null ]
-    getPreferredWidth(container: Container, forHeight: number): [ /* minWidthP */ number | null, /* natWidthP */ number | null ]
+    getPreferredHeight(container: Container, forWidth: number): { minHeightP: number | null, natHeightP: number | null }
+    getPreferredWidth(container: Container, forHeight: number): { minWidthP: number | null, natWidthP: number | null }
     layoutChanged(): void
     listChildProperties(): GObject.ParamSpec[]
     setContainer(container?: Container | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8163,38 +7796,18 @@ export class BinLayout {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.LayoutManager */
-    vfuncAllocate(container: Container, allocation: ActorBox, flags: AllocationFlags): void
-    vfuncBeginAnimation(duration: number, mode: number): Alpha
-    vfuncEndAnimation(): void
-    vfuncGetAnimationProgress(): number
-    vfuncGetChildMetaType(): GObject.Type
-    vfuncGetPreferredHeight(container: Container, forWidth: number): [ /* minHeightP */ number | null, /* natHeightP */ number | null ]
-    vfuncGetPreferredWidth(container: Container, forHeight: number): [ /* minWidthP */ number | null, /* natWidthP */ number | null ]
-    vfuncLayoutChanged(): void
-    vfuncSetContainer(container?: Container | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.LayoutManager */
+    /* Signals of Clutter-1.0.Clutter.LayoutManager */
     connect(sigName: "layout-changed", callback: (($obj: BinLayout) => void)): number
-    connect_after(sigName: "layout-changed", callback: (($obj: BinLayout) => void)): number
+    on(sigName: "layout-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "layout-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "layout-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "layout-changed"): void
-    on(sigName: "layout-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "layout-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "layout-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BinLayout, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BinLayout, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::x-align", callback: (($obj: BinLayout, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-align", callback: (($obj: BinLayout, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::x-align", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8225,30 +7838,30 @@ export interface BindConstraint_ConstructProps extends Constraint_ConstructProps
     source?: Actor
 }
 export class BindConstraint {
-    /* Properties of Clutter.BindConstraint */
+    /* Properties of Clutter-1.0.Clutter.BindConstraint */
     coordinate: BindCoordinate
     offset: number
     source: Actor
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.BindConstraint */
+    /* Methods of Clutter-1.0.Clutter.BindConstraint */
     getCoordinate(): BindCoordinate
     getOffset(): number
     getSource(): Actor
     setCoordinate(coordinate: BindCoordinate): void
     setOffset(offset: number): void
     setSource(source?: Actor | null): void
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8270,26 +7883,12 @@ export class BindConstraint {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.Constraint */
-    vfuncUpdateAllocation(actor: Actor, allocation: ActorBox): void
-    vfuncUpdatePreferredSize(actor: Actor, direction: Orientation, forSize: number, minimumSize: number, naturalSize: number): void
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BindConstraint, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BindConstraint, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::coordinate", callback: (($obj: BindConstraint, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::coordinate", callback: (($obj: BindConstraint, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::coordinate", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8338,9 +7937,9 @@ export interface BindingPool_ConstructProps extends GObject.Object_ConstructProp
     name?: string
 }
 export class BindingPool {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.BindingPool */
+    /* Methods of Clutter-1.0.Clutter.BindingPool */
     activate(keyVal: number, modifiers: ModifierType, gobject: GObject.Object): boolean
     blockAction(actionName: string): void
     findAction(keyVal: number, modifiers: ModifierType): string
@@ -8350,7 +7949,7 @@ export class BindingPool {
     overrideClosure(keyVal: number, modifiers: ModifierType, closure: Function): void
     removeAction(keyVal: number, modifiers: ModifierType): void
     unblockAction(actionName: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8372,21 +7971,12 @@ export class BindingPool {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BindingPool, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BindingPool, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8406,28 +7996,28 @@ export class BindingPool {
 export interface BlurEffect_ConstructProps extends OffscreenEffect_ConstructProps {
 }
 export class BlurEffect {
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.OffscreenEffect */
+    /* Methods of Clutter-1.0.Clutter.OffscreenEffect */
     createTexture(width: number, height: number): Cogl.Handle
     getTarget(): Cogl.Material
-    getTargetRect(): [ /* returnType */ boolean, /* rect */ Rect ]
-    getTargetSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
+    getTargetRect(): { returnType: boolean, rect: Rect }
+    getTargetSize(): { returnType: boolean, width: number, height: number }
     getTexture(): Cogl.Handle
     paintTarget(): void
-    /* Methods of Clutter.Effect */
+    /* Methods of Clutter-1.0.Clutter.Effect */
     queueRepaint(): void
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8449,32 +8039,12 @@ export class BlurEffect {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.OffscreenEffect */
-    vfuncCreateTexture(width: number, height: number): Cogl.Handle
-    vfuncPaintTarget(): void
-    /* Virtual methods of Clutter.Effect */
-    vfuncGetPaintVolume(volume: PaintVolume): boolean
-    vfuncPaint(flags: EffectPaintFlags): void
-    vfuncPick(flags: EffectPaintFlags): void
-    vfuncPostPaint(): void
-    vfuncPrePaint(): boolean
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BlurEffect, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BlurEffect, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::actor", callback: (($obj: BlurEffect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::actor", callback: (($obj: BlurEffect, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::actor", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8509,10 +8079,10 @@ export interface Box_ConstructProps extends Actor_ConstructProps {
     colorSet?: boolean
 }
 export class Box {
-    /* Properties of Clutter.Box */
+    /* Properties of Clutter-1.0.Clutter.Box */
     color: Color
     colorSet: boolean
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Action
     readonly allocation: ActorBox
     anchorGravity: Gravity
@@ -8595,17 +8165,17 @@ export class Box {
     yAlign: ActorAlign
     yExpand: boolean
     zPosition: number
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Box */
-    getColor(): /* color */ Color
+    /* Methods of Clutter-1.0.Clutter.Box */
+    getColor(): { color: Color }
     getLayoutManager(): LayoutManager
     packv(actor: Actor, properties: string[], values: any[]): void
     setColor(color?: Color | null): void
     setLayoutManager(manager: LayoutManager): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     addAction(action: Action): void
     addActionWithName(name: string, action: Action): void
     addChild(child: Actor): void
@@ -8621,8 +8191,8 @@ export class Box {
     animateWithAlphav(alpha: Alpha, properties: string[], values: any[]): Animation
     animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any[]): Animation
     animatev(mode: number, duration: number, properties: string[], values: any[]): Animation
-    applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): /* vertex */ Vertex
-    applyTransformToPoint(point: Vertex): /* vertex */ Vertex
+    applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): { vertex: Vertex }
+    applyTransformToPoint(point: Vertex): { vertex: Vertex }
     bindModel(model: Gio.ListModel | null, createChildFunc: ActorCreateChildFunc): void
     clearActions(): void
     clearConstraints(): void
@@ -8635,29 +8205,29 @@ export class Box {
     destroyAllChildren(): void
     detachAnimation(): void
     event(event: Event, capture: boolean): boolean
-    getAbsAllocationVertices(): /* verts */ Vertex[]
+    getAbsAllocationVertices(): { verts: Vertex[] }
     getAccessible(): Atk.Object
     getAction(name: string): Action
     getActions(): Action[]
-    getAllocationBox(): /* box */ ActorBox
-    getAllocationGeometry(): /* geom */ Geometry
-    getAllocationVertices(ancestor?: Actor | null): /* verts */ Vertex[]
-    getAnchorPoint(): [ /* anchorX */ number, /* anchorY */ number ]
+    getAllocationBox(): { box: ActorBox }
+    getAllocationGeometry(): { geom: Geometry }
+    getAllocationVertices(ancestor?: Actor | null): { verts: Vertex[] }
+    getAnchorPoint(): { anchorX: number, anchorY: number }
     getAnchorPointGravity(): Gravity
     getAnimation(): Animation
-    getBackgroundColor(): /* color */ Color
+    getBackgroundColor(): { color: Color }
     getChildAtIndex(index: number): Actor
-    getChildTransform(): /* transform */ Matrix
+    getChildTransform(): { transform: Matrix }
     getChildren(): Actor[]
-    getClip(): [ /* xoff */ number | null, /* yoff */ number | null, /* width */ number | null, /* height */ number | null ]
+    getClip(): { xoff: number | null, yoff: number | null, width: number | null, height: number | null }
     getClipToAllocation(): boolean
     getConstraint(name: string): Constraint
     getConstraints(): Constraint[]
     getContent(): Content
-    getContentBox(): /* box */ ActorBox
+    getContentBox(): { box: ActorBox }
     getContentGravity(): ContentGravity
     getContentRepeat(): ContentRepeat
-    getContentScalingFilters(): [ /* minFilter */ ScalingFilter | null, /* magFilter */ ScalingFilter | null ]
+    getContentScalingFilters(): { minFilter: ScalingFilter | null, magFilter: ScalingFilter | null }
     getDefaultPaintVolume(): PaintVolume
     getDepth(): number
     getEasingDelay(): number
@@ -8668,11 +8238,11 @@ export class Box {
     getFirstChild(): Actor
     getFixedPositionSet(): boolean
     getFlags(): ActorFlags
-    getGeometry(): /* geometry */ Geometry
+    getGeometry(): { geometry: Geometry }
     getGid(): number
     getHeight(): number
     getLastChild(): Actor
-    getMargin(): /* margin */ Margin
+    getMargin(): { margin: Margin }
     getMarginBottom(): number
     getMarginLeft(): number
     getMarginRight(): number
@@ -8682,38 +8252,38 @@ export class Box {
     getNextSibling(): Actor
     getOffscreenRedirect(): OffscreenRedirect
     getOpacity(): number
-    getPaintBox(): [ /* returnType */ boolean, /* box */ ActorBox ]
+    getPaintBox(): { returnType: boolean, box: ActorBox }
     getPaintOpacity(): number
     getPaintVisibility(): boolean
     getPaintVolume(): PaintVolume
     getPangoContext(): Pango.Context
     getParent(): Actor
-    getPivotPoint(): [ /* pivotX */ number | null, /* pivotY */ number | null ]
+    getPivotPoint(): { pivotX: number | null, pivotY: number | null }
     getPivotPointZ(): number
-    getPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredSize(): [ /* minWidthP */ number | null, /* minHeightP */ number | null, /* naturalWidthP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
+    getPosition(): { x: number | null, y: number | null }
+    getPreferredHeight(forWidth: number): { minHeightP: number | null, naturalHeightP: number | null }
+    getPreferredSize(): { minWidthP: number | null, minHeightP: number | null, naturalWidthP: number | null, naturalHeightP: number | null }
+    getPreferredWidth(forHeight: number): { minWidthP: number | null, naturalWidthP: number | null }
     getPreviousSibling(): Actor
     getReactive(): boolean
     getRequestMode(): RequestMode
-    getRotation(axis: RotateAxis): [ /* returnType */ number, /* x */ number, /* y */ number, /* z */ number ]
+    getRotation(axis: RotateAxis): { returnType: number, x: number, y: number, z: number }
     getRotationAngle(axis: RotateAxis): number
-    getScale(): [ /* scaleX */ number | null, /* scaleY */ number | null ]
-    getScaleCenter(): [ /* centerX */ number | null, /* centerY */ number | null ]
+    getScale(): { scaleX: number | null, scaleY: number | null }
+    getScaleCenter(): { centerX: number | null, centerY: number | null }
     getScaleGravity(): Gravity
     getScaleZ(): number
     getShader(): Shader
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getSize(): { width: number | null, height: number | null }
     getStage(): Stage
     getTextDirection(): TextDirection
-    getTransform(): /* transform */ Matrix
-    getTransformationMatrix(): /* matrix */ Matrix
+    getTransform(): { transform: Matrix }
+    getTransformationMatrix(): { matrix: Matrix }
     getTransformedPaintVolume(relativeToAncestor: Actor): PaintVolume
-    getTransformedPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getTransformedSize(): [ /* width */ number | null, /* height */ number | null ]
+    getTransformedPosition(): { x: number | null, y: number | null }
+    getTransformedSize(): { width: number | null, height: number | null }
     getTransition(name: string): Transition
-    getTranslation(): [ /* translateX */ number | null, /* translateY */ number | null, /* translateZ */ number | null ]
+    getTranslation(): { translateX: number | null, translateY: number | null, translateZ: number | null }
     getWidth(): number
     getX(): number
     getXAlign(): ActorAlign
@@ -8835,12 +8405,12 @@ export class Box {
     shouldPickPaint(): boolean
     show(): void
     showAll(): void
-    transformStagePoint(x: number, y: number): [ /* returnType */ boolean, /* xOut */ number, /* yOut */ number ]
+    transformStagePoint(x: number, y: number): { returnType: boolean, xOut: number, yOut: number }
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetFlags(flags: ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -8862,13 +8432,13 @@ export class Box {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animateProperty(animation: Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     findProperty(propertyName: string): GObject.ParamSpec
     getInitialState(propertyName: string, value: any): void
-    interpolateValue(propertyName: string, interval: Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
+    interpolateValue(propertyName: string, interval: Interval, progress: number): { returnType: boolean, value: any }
     setFinalState(propertyName: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     addActor(actor: Actor): void
     childGetProperty(child: Actor, property: string, value: any): void
     childNotify(child: Actor, pspec: GObject.ParamSpec): void
@@ -8883,260 +8453,164 @@ export class Box {
     raiseChild(actor: Actor, sibling?: Actor | null): void
     removeActor(actor: Actor): void
     sortDepthOrder(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Actor */
-    vfuncAllocate(box: ActorBox, flags: AllocationFlags): void
-    vfuncApplyTransform(matrix: Matrix): void
-    vfuncButtonPressEvent(event: ButtonEvent): boolean
-    vfuncButtonReleaseEvent(event: ButtonEvent): boolean
-    vfuncCapturedEvent(event: Event): boolean
-    vfuncDestroy(): void
-    vfuncEnterEvent(event: CrossingEvent): boolean
-    vfuncEvent(event: Event): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPaintVolume(volume: PaintVolume): boolean
-    vfuncGetPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    vfuncGetPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
-    vfuncHasOverlaps(): boolean
-    vfuncHide(): void
-    vfuncHideAll(): void
-    vfuncKeyFocusIn(): void
-    vfuncKeyFocusOut(): void
-    vfuncKeyPressEvent(event: KeyEvent): boolean
-    vfuncKeyReleaseEvent(event: KeyEvent): boolean
-    vfuncLeaveEvent(event: CrossingEvent): boolean
-    vfuncMap(): void
-    vfuncMotionEvent(event: MotionEvent): boolean
-    vfuncPaint(): void
-    vfuncPaintNode(root: PaintNode): void
-    vfuncParentSet(oldParent: Actor): void
-    vfuncPick(color: Color): void
-    vfuncQueueRedraw(leafThatQueued: Actor): void
-    vfuncQueueRelayout(): void
-    vfuncRealize(): void
-    vfuncScrollEvent(event: ScrollEvent): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncTouchEvent(event: TouchEvent): boolean
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    vfuncAnimateProperty(animation: Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
-    vfuncFindProperty(propertyName: string): GObject.ParamSpec
-    vfuncGetInitialState(propertyName: string, value: any): void
-    vfuncInterpolateValue(propertyName: string, interval: Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
-    vfuncSetFinalState(propertyName: string, value: any): void
-    vfuncActorAdded(actor: Actor): void
-    vfuncActorRemoved(actor: Actor): void
-    vfuncAdd(actor: Actor): void
-    vfuncChildNotify(child: Actor, pspec: GObject.ParamSpec): void
-    vfuncCreateChildMeta(actor: Actor): void
-    vfuncDestroyChildMeta(actor: Actor): void
-    vfuncForeach(callback: Callback): void
-    vfuncForeachWithInternals(callback: Callback): void
-    vfuncGetChildMeta(actor: Actor): ChildMeta
-    vfuncLower(actor: Actor, sibling?: Actor | null): void
-    vfuncRaise(actor: Actor, sibling?: Actor | null): void
-    vfuncRemove(actor: Actor): void
-    vfuncSortDepthOrder(): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Box, box: ActorBox, flags: AllocationFlags) => void)): number
-    connect_after(sigName: "allocation-changed", callback: (($obj: Box, box: ActorBox, flags: AllocationFlags) => void)): number
+    on(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void): NodeJS.EventEmitter
     emit(sigName: "allocation-changed", box: ActorBox, flags: AllocationFlags): void
-    on(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: Box, event: ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: Box, event: ButtonEvent) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: ButtonEvent): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: Box, event: ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: Box, event: ButtonEvent) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: ButtonEvent): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "captured-event", callback: (($obj: Box, event: Event) => boolean)): number
-    connect_after(sigName: "captured-event", callback: (($obj: Box, event: Event) => boolean)): number
+    on(sigName: "captured-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "captured-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "captured-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "captured-event", event: Event): void
-    on(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: Box) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Box) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-event", callback: (($obj: Box, event: CrossingEvent) => boolean)): number
-    connect_after(sigName: "enter-event", callback: (($obj: Box, event: CrossingEvent) => boolean)): number
+    on(sigName: "enter-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-event", callback: (event: CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "enter-event", event: CrossingEvent): void
-    on(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: Box, event: Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: Box, event: Event) => boolean)): number
+    on(sigName: "event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: Box) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: Box) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-in", callback: (($obj: Box) => void)): number
-    connect_after(sigName: "key-focus-in", callback: (($obj: Box) => void)): number
+    on(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-in", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-in"): void
-    on(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-out", callback: (($obj: Box) => void)): number
-    connect_after(sigName: "key-focus-out", callback: (($obj: Box) => void)): number
+    on(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-out", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-out"): void
-    on(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: Box, event: KeyEvent) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: Box, event: KeyEvent) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: KeyEvent): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: Box, event: KeyEvent) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: Box, event: KeyEvent) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: KeyEvent): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-event", callback: (($obj: Box, event: CrossingEvent) => boolean)): number
-    connect_after(sigName: "leave-event", callback: (($obj: Box, event: CrossingEvent) => boolean)): number
+    on(sigName: "leave-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-event", callback: (event: CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "leave-event", event: CrossingEvent): void
-    on(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-event", callback: (($obj: Box, event: MotionEvent) => boolean)): number
-    connect_after(sigName: "motion-event", callback: (($obj: Box, event: MotionEvent) => boolean)): number
+    on(sigName: "motion-event", callback: (event: MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-event", callback: (event: MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-event", callback: (event: MotionEvent) => void): NodeJS.EventEmitter
     emit(sigName: "motion-event", event: MotionEvent): void
-    on(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paint", callback: (($obj: Box) => void)): number
-    connect_after(sigName: "paint", callback: (($obj: Box) => void)): number
+    on(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paint", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paint"): void
-    on(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: Box, oldParent?: Actor | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: Box, oldParent?: Actor | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Actor | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Actor | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pick", callback: (($obj: Box, color: Color) => void)): number
-    connect_after(sigName: "pick", callback: (($obj: Box, color: Color) => void)): number
+    on(sigName: "pick", callback: (color: Color) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pick", callback: (color: Color) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pick", callback: (color: Color) => void): NodeJS.EventEmitter
     emit(sigName: "pick", color: Color): void
-    on(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-redraw", callback: (($obj: Box, origin: Actor) => void)): number
-    connect_after(sigName: "queue-redraw", callback: (($obj: Box, origin: Actor) => void)): number
+    on(sigName: "queue-redraw", callback: (origin: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-redraw", callback: (origin: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-redraw", callback: (origin: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "queue-redraw", origin: Actor): void
-    on(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-relayout", callback: (($obj: Box) => void)): number
-    connect_after(sigName: "queue-relayout", callback: (($obj: Box) => void)): number
+    on(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-relayout", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "queue-relayout"): void
-    on(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: Box) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: Box) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: Box, event: ScrollEvent) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: Box, event: ScrollEvent) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: ScrollEvent) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: ScrollEvent): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: Box) => void)): number
-    connect_after(sigName: "show", callback: (($obj: Box) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: Box, event: Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: Box, event: Event) => boolean)): number
+    on(sigName: "touch-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", event: Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transition-stopped", callback: (($obj: Box, name: string, isFinished: boolean) => void)): number
-    connect_after(sigName: "transition-stopped", callback: (($obj: Box, name: string, isFinished: boolean) => void)): number
+    on(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "transition-stopped", name: string, isFinished: boolean): void
-    on(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transitions-completed", callback: (($obj: Box) => void)): number
-    connect_after(sigName: "transitions-completed", callback: (($obj: Box) => void)): number
+    on(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transitions-completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "transitions-completed"): void
-    on(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: Box) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: Box) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Box, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Box, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Box, actor: Actor) => void)): number
-    connect_after(sigName: "actor-added", callback: (($obj: Box, actor: Actor) => void)): number
+    on(sigName: "actor-added", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-added", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-added", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-added", actor: Actor): void
-    on(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "actor-removed", callback: (($obj: Box, actor: Actor) => void)): number
-    connect_after(sigName: "actor-removed", callback: (($obj: Box, actor: Actor) => void)): number
+    on(sigName: "actor-removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-removed", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-removed", actor: Actor): void
-    on(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: Box, actor: Actor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: Box, actor: Actor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", actor: Actor, pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::color", callback: (($obj: Box, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::color", callback: (($obj: Box, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::color", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9583,7 +9057,7 @@ export interface BoxLayout_ConstructProps extends LayoutManager_ConstructProps {
     vertical?: boolean
 }
 export class BoxLayout {
-    /* Properties of Clutter.BoxLayout */
+    /* Properties of Clutter-1.0.Clutter.BoxLayout */
     easingDuration: number
     easingMode: number
     homogeneous: boolean
@@ -9592,14 +9066,14 @@ export class BoxLayout {
     spacing: number
     useAnimations: boolean
     vertical: boolean
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.BoxLayout */
-    getAlignment(actor: Actor): [ /* xAlign */ BoxAlignment, /* yAlign */ BoxAlignment ]
+    /* Methods of Clutter-1.0.Clutter.BoxLayout */
+    getAlignment(actor: Actor): { xAlign: BoxAlignment, yAlign: BoxAlignment }
     getEasingDuration(): number
     getEasingMode(): number
     getExpand(actor: Actor): boolean
-    getFill(actor: Actor): [ /* xFill */ boolean, /* yFill */ boolean ]
+    getFill(actor: Actor): { xFill: boolean, yFill: boolean }
     getHomogeneous(): boolean
     getOrientation(): Orientation
     getPackStart(): boolean
@@ -9618,7 +9092,7 @@ export class BoxLayout {
     setSpacing(spacing: number): void
     setUseAnimations(animate: boolean): void
     setVertical(vertical: boolean): void
-    /* Methods of Clutter.LayoutManager */
+    /* Methods of Clutter-1.0.Clutter.LayoutManager */
     allocate(container: Container, allocation: ActorBox, flags: AllocationFlags): void
     beginAnimation(duration: number, mode: number): Alpha
     childGetProperty(container: Container, actor: Actor, propertyName: string, value: any): void
@@ -9627,12 +9101,12 @@ export class BoxLayout {
     findChildProperty(name: string): GObject.ParamSpec
     getAnimationProgress(): number
     getChildMeta(container: Container, actor: Actor): LayoutMeta
-    getPreferredHeight(container: Container, forWidth: number): [ /* minHeightP */ number | null, /* natHeightP */ number | null ]
-    getPreferredWidth(container: Container, forHeight: number): [ /* minWidthP */ number | null, /* natWidthP */ number | null ]
+    getPreferredHeight(container: Container, forWidth: number): { minHeightP: number | null, natHeightP: number | null }
+    getPreferredWidth(container: Container, forHeight: number): { minWidthP: number | null, natWidthP: number | null }
     layoutChanged(): void
     listChildProperties(): GObject.ParamSpec[]
     setContainer(container?: Container | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9654,38 +9128,18 @@ export class BoxLayout {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.LayoutManager */
-    vfuncAllocate(container: Container, allocation: ActorBox, flags: AllocationFlags): void
-    vfuncBeginAnimation(duration: number, mode: number): Alpha
-    vfuncEndAnimation(): void
-    vfuncGetAnimationProgress(): number
-    vfuncGetChildMetaType(): GObject.Type
-    vfuncGetPreferredHeight(container: Container, forWidth: number): [ /* minHeightP */ number | null, /* natHeightP */ number | null ]
-    vfuncGetPreferredWidth(container: Container, forHeight: number): [ /* minWidthP */ number | null, /* natWidthP */ number | null ]
-    vfuncLayoutChanged(): void
-    vfuncSetContainer(container?: Container | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.LayoutManager */
+    /* Signals of Clutter-1.0.Clutter.LayoutManager */
     connect(sigName: "layout-changed", callback: (($obj: BoxLayout) => void)): number
-    connect_after(sigName: "layout-changed", callback: (($obj: BoxLayout) => void)): number
+    on(sigName: "layout-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "layout-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "layout-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "layout-changed"): void
-    on(sigName: "layout-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "layout-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "layout-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BoxLayout, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BoxLayout, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::easing-duration", callback: (($obj: BoxLayout, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::easing-duration", callback: (($obj: BoxLayout, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::easing-duration", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9745,38 +9199,38 @@ export interface BrightnessContrastEffect_ConstructProps extends OffscreenEffect
     contrast?: Color
 }
 export class BrightnessContrastEffect {
-    /* Properties of Clutter.BrightnessContrastEffect */
+    /* Properties of Clutter-1.0.Clutter.BrightnessContrastEffect */
     brightness: Color
     contrast: Color
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.BrightnessContrastEffect */
-    getBrightness(): [ /* red */ number | null, /* green */ number | null, /* blue */ number | null ]
-    getContrast(): [ /* red */ number | null, /* green */ number | null, /* blue */ number | null ]
+    /* Methods of Clutter-1.0.Clutter.BrightnessContrastEffect */
+    getBrightness(): { red: number | null, green: number | null, blue: number | null }
+    getContrast(): { red: number | null, green: number | null, blue: number | null }
     setBrightness(brightness: number): void
     setBrightnessFull(red: number, green: number, blue: number): void
     setContrast(contrast: number): void
     setContrastFull(red: number, green: number, blue: number): void
-    /* Methods of Clutter.OffscreenEffect */
+    /* Methods of Clutter-1.0.Clutter.OffscreenEffect */
     createTexture(width: number, height: number): Cogl.Handle
     getTarget(): Cogl.Material
-    getTargetRect(): [ /* returnType */ boolean, /* rect */ Rect ]
-    getTargetSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
+    getTargetRect(): { returnType: boolean, rect: Rect }
+    getTargetSize(): { returnType: boolean, width: number, height: number }
     getTexture(): Cogl.Handle
     paintTarget(): void
-    /* Methods of Clutter.Effect */
+    /* Methods of Clutter-1.0.Clutter.Effect */
     queueRepaint(): void
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -9798,32 +9252,12 @@ export class BrightnessContrastEffect {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.OffscreenEffect */
-    vfuncCreateTexture(width: number, height: number): Cogl.Handle
-    vfuncPaintTarget(): void
-    /* Virtual methods of Clutter.Effect */
-    vfuncGetPaintVolume(volume: PaintVolume): boolean
-    vfuncPaint(flags: EffectPaintFlags): void
-    vfuncPick(flags: EffectPaintFlags): void
-    vfuncPostPaint(): void
-    vfuncPrePaint(): boolean
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BrightnessContrastEffect, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: BrightnessContrastEffect, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::brightness", callback: (($obj: BrightnessContrastEffect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::brightness", callback: (($obj: BrightnessContrastEffect, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::brightness", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9869,11 +9303,11 @@ export interface CairoTexture_ConstructProps extends Texture_ConstructProps {
     surfaceWidth?: number
 }
 export class CairoTexture {
-    /* Properties of Clutter.CairoTexture */
+    /* Properties of Clutter-1.0.Clutter.CairoTexture */
     autoResize: boolean
     surfaceHeight: number
     surfaceWidth: number
-    /* Properties of Clutter.Texture */
+    /* Properties of Clutter-1.0.Clutter.Texture */
     filename: string
     filterQuality: TextureQuality
     keepAspectRatio: boolean
@@ -9885,7 +9319,7 @@ export class CairoTexture {
     repeatY: boolean
     syncSize: boolean
     readonly tileWaste: number
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Action
     readonly allocation: ActorBox
     anchorGravity: Gravity
@@ -9968,22 +9402,22 @@ export class CairoTexture {
     yAlign: ActorAlign
     yExpand: boolean
     zPosition: number
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.CairoTexture */
+    /* Methods of Clutter-1.0.Clutter.CairoTexture */
     clear(): void
     create(): cairo.Context
     createRegion(xOffset: number, yOffset: number, width: number, height: number): cairo.Context
     getAutoResize(): boolean
-    getSurfaceSize(): [ /* width */ number, /* height */ number ]
+    getSurfaceSize(): { width: number, height: number }
     invalidate(): void
     invalidateRectangle(rect?: cairo.RectangleInt | null): void
     setAutoResize(value: boolean): void
     setSurfaceSize(width: number, height: number): void
-    /* Methods of Clutter.Texture */
-    getBaseSize(): [ /* width */ number, /* height */ number ]
+    /* Methods of Clutter-1.0.Clutter.Texture */
+    getBaseSize(): { width: number, height: number }
     getCoglMaterial(): Cogl.Handle
     getCoglTexture(): Cogl.Handle
     getFilterQuality(): TextureQuality
@@ -9993,7 +9427,7 @@ export class CairoTexture {
     getMaxTileWaste(): number
     getPickWithAlpha(): boolean
     getPixelFormat(): Cogl.PixelFormat
-    getRepeat(): [ /* repeatX */ boolean, /* repeatY */ boolean ]
+    getRepeat(): { repeatX: boolean, repeatY: boolean }
     getSyncSize(): boolean
     setAreaFromRgbData(data: any[], hasAlpha: boolean, x: number, y: number, width: number, height: number, rowstride: number, bpp: number, flags: TextureFlags): boolean
     setCoglMaterial(coglMaterial: Cogl.Handle): void
@@ -10008,7 +9442,7 @@ export class CairoTexture {
     setPickWithAlpha(pickWithAlpha: boolean): void
     setRepeat(repeatX: boolean, repeatY: boolean): void
     setSyncSize(syncSize: boolean): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     addAction(action: Action): void
     addActionWithName(name: string, action: Action): void
     addChild(child: Actor): void
@@ -10024,8 +9458,8 @@ export class CairoTexture {
     animateWithAlphav(alpha: Alpha, properties: string[], values: any[]): Animation
     animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any[]): Animation
     animatev(mode: number, duration: number, properties: string[], values: any[]): Animation
-    applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): /* vertex */ Vertex
-    applyTransformToPoint(point: Vertex): /* vertex */ Vertex
+    applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): { vertex: Vertex }
+    applyTransformToPoint(point: Vertex): { vertex: Vertex }
     bindModel(model: Gio.ListModel | null, createChildFunc: ActorCreateChildFunc): void
     clearActions(): void
     clearConstraints(): void
@@ -10038,29 +9472,29 @@ export class CairoTexture {
     destroyAllChildren(): void
     detachAnimation(): void
     event(event: Event, capture: boolean): boolean
-    getAbsAllocationVertices(): /* verts */ Vertex[]
+    getAbsAllocationVertices(): { verts: Vertex[] }
     getAccessible(): Atk.Object
     getAction(name: string): Action
     getActions(): Action[]
-    getAllocationBox(): /* box */ ActorBox
-    getAllocationGeometry(): /* geom */ Geometry
-    getAllocationVertices(ancestor?: Actor | null): /* verts */ Vertex[]
-    getAnchorPoint(): [ /* anchorX */ number, /* anchorY */ number ]
+    getAllocationBox(): { box: ActorBox }
+    getAllocationGeometry(): { geom: Geometry }
+    getAllocationVertices(ancestor?: Actor | null): { verts: Vertex[] }
+    getAnchorPoint(): { anchorX: number, anchorY: number }
     getAnchorPointGravity(): Gravity
     getAnimation(): Animation
-    getBackgroundColor(): /* color */ Color
+    getBackgroundColor(): { color: Color }
     getChildAtIndex(index: number): Actor
-    getChildTransform(): /* transform */ Matrix
+    getChildTransform(): { transform: Matrix }
     getChildren(): Actor[]
-    getClip(): [ /* xoff */ number | null, /* yoff */ number | null, /* width */ number | null, /* height */ number | null ]
+    getClip(): { xoff: number | null, yoff: number | null, width: number | null, height: number | null }
     getClipToAllocation(): boolean
     getConstraint(name: string): Constraint
     getConstraints(): Constraint[]
     getContent(): Content
-    getContentBox(): /* box */ ActorBox
+    getContentBox(): { box: ActorBox }
     getContentGravity(): ContentGravity
     getContentRepeat(): ContentRepeat
-    getContentScalingFilters(): [ /* minFilter */ ScalingFilter | null, /* magFilter */ ScalingFilter | null ]
+    getContentScalingFilters(): { minFilter: ScalingFilter | null, magFilter: ScalingFilter | null }
     getDefaultPaintVolume(): PaintVolume
     getDepth(): number
     getEasingDelay(): number
@@ -10071,12 +9505,12 @@ export class CairoTexture {
     getFirstChild(): Actor
     getFixedPositionSet(): boolean
     getFlags(): ActorFlags
-    getGeometry(): /* geometry */ Geometry
+    getGeometry(): { geometry: Geometry }
     getGid(): number
     getHeight(): number
     getLastChild(): Actor
     getLayoutManager(): LayoutManager
-    getMargin(): /* margin */ Margin
+    getMargin(): { margin: Margin }
     getMarginBottom(): number
     getMarginLeft(): number
     getMarginRight(): number
@@ -10086,38 +9520,38 @@ export class CairoTexture {
     getNextSibling(): Actor
     getOffscreenRedirect(): OffscreenRedirect
     getOpacity(): number
-    getPaintBox(): [ /* returnType */ boolean, /* box */ ActorBox ]
+    getPaintBox(): { returnType: boolean, box: ActorBox }
     getPaintOpacity(): number
     getPaintVisibility(): boolean
     getPaintVolume(): PaintVolume
     getPangoContext(): Pango.Context
     getParent(): Actor
-    getPivotPoint(): [ /* pivotX */ number | null, /* pivotY */ number | null ]
+    getPivotPoint(): { pivotX: number | null, pivotY: number | null }
     getPivotPointZ(): number
-    getPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredSize(): [ /* minWidthP */ number | null, /* minHeightP */ number | null, /* naturalWidthP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
+    getPosition(): { x: number | null, y: number | null }
+    getPreferredHeight(forWidth: number): { minHeightP: number | null, naturalHeightP: number | null }
+    getPreferredSize(): { minWidthP: number | null, minHeightP: number | null, naturalWidthP: number | null, naturalHeightP: number | null }
+    getPreferredWidth(forHeight: number): { minWidthP: number | null, naturalWidthP: number | null }
     getPreviousSibling(): Actor
     getReactive(): boolean
     getRequestMode(): RequestMode
-    getRotation(axis: RotateAxis): [ /* returnType */ number, /* x */ number, /* y */ number, /* z */ number ]
+    getRotation(axis: RotateAxis): { returnType: number, x: number, y: number, z: number }
     getRotationAngle(axis: RotateAxis): number
-    getScale(): [ /* scaleX */ number | null, /* scaleY */ number | null ]
-    getScaleCenter(): [ /* centerX */ number | null, /* centerY */ number | null ]
+    getScale(): { scaleX: number | null, scaleY: number | null }
+    getScaleCenter(): { centerX: number | null, centerY: number | null }
     getScaleGravity(): Gravity
     getScaleZ(): number
     getShader(): Shader
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getSize(): { width: number | null, height: number | null }
     getStage(): Stage
     getTextDirection(): TextDirection
-    getTransform(): /* transform */ Matrix
-    getTransformationMatrix(): /* matrix */ Matrix
+    getTransform(): { transform: Matrix }
+    getTransformationMatrix(): { matrix: Matrix }
     getTransformedPaintVolume(relativeToAncestor: Actor): PaintVolume
-    getTransformedPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getTransformedSize(): [ /* width */ number | null, /* height */ number | null ]
+    getTransformedPosition(): { x: number | null, y: number | null }
+    getTransformedSize(): { width: number | null, height: number | null }
     getTransition(name: string): Transition
-    getTranslation(): [ /* translateX */ number | null, /* translateY */ number | null, /* translateZ */ number | null ]
+    getTranslation(): { translateX: number | null, translateY: number | null, translateZ: number | null }
     getWidth(): number
     getX(): number
     getXAlign(): ActorAlign
@@ -10239,12 +9673,12 @@ export class CairoTexture {
     shouldPickPaint(): boolean
     show(): void
     showAll(): void
-    transformStagePoint(x: number, y: number): [ /* returnType */ boolean, /* xOut */ number, /* yOut */ number ]
+    transformStagePoint(x: number, y: number): { returnType: boolean, xOut: number, yOut: number }
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetFlags(flags: ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -10266,13 +9700,13 @@ export class CairoTexture {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animateProperty(animation: Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     findProperty(propertyName: string): GObject.ParamSpec
     getInitialState(propertyName: string, value: any): void
-    interpolateValue(propertyName: string, interval: Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
+    interpolateValue(propertyName: string, interval: Interval, progress: number): { returnType: boolean, value: any }
     setFinalState(propertyName: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     addActor(actor: Actor): void
     childGetProperty(child: Actor, property: string, value: any): void
     childNotify(child: Actor, pspec: GObject.ParamSpec): void
@@ -10287,299 +9721,191 @@ export class CairoTexture {
     raiseChild(actor: Actor, sibling?: Actor | null): void
     removeActor(actor: Actor): void
     sortDepthOrder(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.CairoTexture */
-    vfuncCreateSurface(width: number, height: number): cairo.Surface
-    vfuncDraw(cr: cairo.Context): boolean
-    /* Virtual methods of Clutter.Texture */
-    vfuncLoadFinished(error: GLib.Error): void
-    vfuncPixbufChange(): void
-    vfuncSizeChange(width: number, height: number): void
-    /* Virtual methods of Clutter.Actor */
-    vfuncAllocate(box: ActorBox, flags: AllocationFlags): void
-    vfuncApplyTransform(matrix: Matrix): void
-    vfuncButtonPressEvent(event: ButtonEvent): boolean
-    vfuncButtonReleaseEvent(event: ButtonEvent): boolean
-    vfuncCapturedEvent(event: Event): boolean
-    vfuncDestroy(): void
-    vfuncEnterEvent(event: CrossingEvent): boolean
-    vfuncEvent(event: Event): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPaintVolume(volume: PaintVolume): boolean
-    vfuncGetPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    vfuncGetPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
-    vfuncHasOverlaps(): boolean
-    vfuncHide(): void
-    vfuncHideAll(): void
-    vfuncKeyFocusIn(): void
-    vfuncKeyFocusOut(): void
-    vfuncKeyPressEvent(event: KeyEvent): boolean
-    vfuncKeyReleaseEvent(event: KeyEvent): boolean
-    vfuncLeaveEvent(event: CrossingEvent): boolean
-    vfuncMap(): void
-    vfuncMotionEvent(event: MotionEvent): boolean
-    vfuncPaint(): void
-    vfuncPaintNode(root: PaintNode): void
-    vfuncParentSet(oldParent: Actor): void
-    vfuncPick(color: Color): void
-    vfuncQueueRedraw(leafThatQueued: Actor): void
-    vfuncQueueRelayout(): void
-    vfuncRealize(): void
-    vfuncScrollEvent(event: ScrollEvent): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncTouchEvent(event: TouchEvent): boolean
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    vfuncAnimateProperty(animation: Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
-    vfuncFindProperty(propertyName: string): GObject.ParamSpec
-    vfuncGetInitialState(propertyName: string, value: any): void
-    vfuncInterpolateValue(propertyName: string, interval: Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
-    vfuncSetFinalState(propertyName: string, value: any): void
-    vfuncActorAdded(actor: Actor): void
-    vfuncActorRemoved(actor: Actor): void
-    vfuncAdd(actor: Actor): void
-    vfuncChildNotify(child: Actor, pspec: GObject.ParamSpec): void
-    vfuncCreateChildMeta(actor: Actor): void
-    vfuncDestroyChildMeta(actor: Actor): void
-    vfuncForeach(callback: Callback): void
-    vfuncForeachWithInternals(callback: Callback): void
-    vfuncGetChildMeta(actor: Actor): ChildMeta
-    vfuncLower(actor: Actor, sibling?: Actor | null): void
-    vfuncRaise(actor: Actor, sibling?: Actor | null): void
-    vfuncRemove(actor: Actor): void
-    vfuncSortDepthOrder(): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.CairoTexture */
+    /* Signals of Clutter-1.0.Clutter.CairoTexture */
     connect(sigName: "create-surface", callback: (($obj: CairoTexture, width: number, height: number) => cairo.Surface)): number
-    connect_after(sigName: "create-surface", callback: (($obj: CairoTexture, width: number, height: number) => cairo.Surface)): number
+    on(sigName: "create-surface", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "create-surface", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "create-surface", callback: (width: number, height: number) => void): NodeJS.EventEmitter
     emit(sigName: "create-surface", width: number, height: number): void
-    on(sigName: "create-surface", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "create-surface", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "create-surface", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "draw", callback: (($obj: CairoTexture, cr: cairo.Context) => boolean)): number
-    connect_after(sigName: "draw", callback: (($obj: CairoTexture, cr: cairo.Context) => boolean)): number
+    on(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "draw", callback: (cr: cairo.Context) => void): NodeJS.EventEmitter
     emit(sigName: "draw", cr: cairo.Context): void
-    on(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Texture */
+    /* Signals of Clutter-1.0.Clutter.Texture */
     connect(sigName: "load-finished", callback: (($obj: CairoTexture, error: GLib.Error) => void)): number
-    connect_after(sigName: "load-finished", callback: (($obj: CairoTexture, error: GLib.Error) => void)): number
+    on(sigName: "load-finished", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "load-finished", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "load-finished", callback: (error: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "load-finished", error: GLib.Error): void
-    on(sigName: "load-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "load-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "load-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pixbuf-change", callback: (($obj: CairoTexture) => void)): number
-    connect_after(sigName: "pixbuf-change", callback: (($obj: CairoTexture) => void)): number
+    on(sigName: "pixbuf-change", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pixbuf-change", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pixbuf-change", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "pixbuf-change"): void
-    on(sigName: "pixbuf-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pixbuf-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pixbuf-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "size-change", callback: (($obj: CairoTexture, width: number, height: number) => void)): number
-    connect_after(sigName: "size-change", callback: (($obj: CairoTexture, width: number, height: number) => void)): number
+    on(sigName: "size-change", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-change", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-change", callback: (width: number, height: number) => void): NodeJS.EventEmitter
     emit(sigName: "size-change", width: number, height: number): void
-    on(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: CairoTexture, box: ActorBox, flags: AllocationFlags) => void)): number
-    connect_after(sigName: "allocation-changed", callback: (($obj: CairoTexture, box: ActorBox, flags: AllocationFlags) => void)): number
+    on(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void): NodeJS.EventEmitter
     emit(sigName: "allocation-changed", box: ActorBox, flags: AllocationFlags): void
-    on(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: CairoTexture, event: ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: CairoTexture, event: ButtonEvent) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: ButtonEvent): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: CairoTexture, event: ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: CairoTexture, event: ButtonEvent) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: ButtonEvent): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "captured-event", callback: (($obj: CairoTexture, event: Event) => boolean)): number
-    connect_after(sigName: "captured-event", callback: (($obj: CairoTexture, event: Event) => boolean)): number
+    on(sigName: "captured-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "captured-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "captured-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "captured-event", event: Event): void
-    on(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: CairoTexture) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: CairoTexture) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-event", callback: (($obj: CairoTexture, event: CrossingEvent) => boolean)): number
-    connect_after(sigName: "enter-event", callback: (($obj: CairoTexture, event: CrossingEvent) => boolean)): number
+    on(sigName: "enter-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-event", callback: (event: CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "enter-event", event: CrossingEvent): void
-    on(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: CairoTexture, event: Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: CairoTexture, event: Event) => boolean)): number
+    on(sigName: "event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: CairoTexture) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: CairoTexture) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-in", callback: (($obj: CairoTexture) => void)): number
-    connect_after(sigName: "key-focus-in", callback: (($obj: CairoTexture) => void)): number
+    on(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-in", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-in"): void
-    on(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-out", callback: (($obj: CairoTexture) => void)): number
-    connect_after(sigName: "key-focus-out", callback: (($obj: CairoTexture) => void)): number
+    on(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-out", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-out"): void
-    on(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: CairoTexture, event: KeyEvent) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: CairoTexture, event: KeyEvent) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: KeyEvent): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: CairoTexture, event: KeyEvent) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: CairoTexture, event: KeyEvent) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: KeyEvent): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-event", callback: (($obj: CairoTexture, event: CrossingEvent) => boolean)): number
-    connect_after(sigName: "leave-event", callback: (($obj: CairoTexture, event: CrossingEvent) => boolean)): number
+    on(sigName: "leave-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-event", callback: (event: CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "leave-event", event: CrossingEvent): void
-    on(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-event", callback: (($obj: CairoTexture, event: MotionEvent) => boolean)): number
-    connect_after(sigName: "motion-event", callback: (($obj: CairoTexture, event: MotionEvent) => boolean)): number
+    on(sigName: "motion-event", callback: (event: MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-event", callback: (event: MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-event", callback: (event: MotionEvent) => void): NodeJS.EventEmitter
     emit(sigName: "motion-event", event: MotionEvent): void
-    on(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paint", callback: (($obj: CairoTexture) => void)): number
-    connect_after(sigName: "paint", callback: (($obj: CairoTexture) => void)): number
+    on(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paint", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paint"): void
-    on(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: CairoTexture, oldParent?: Actor | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: CairoTexture, oldParent?: Actor | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Actor | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Actor | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pick", callback: (($obj: CairoTexture, color: Color) => void)): number
-    connect_after(sigName: "pick", callback: (($obj: CairoTexture, color: Color) => void)): number
+    on(sigName: "pick", callback: (color: Color) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pick", callback: (color: Color) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pick", callback: (color: Color) => void): NodeJS.EventEmitter
     emit(sigName: "pick", color: Color): void
-    on(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-redraw", callback: (($obj: CairoTexture, origin: Actor) => void)): number
-    connect_after(sigName: "queue-redraw", callback: (($obj: CairoTexture, origin: Actor) => void)): number
+    on(sigName: "queue-redraw", callback: (origin: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-redraw", callback: (origin: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-redraw", callback: (origin: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "queue-redraw", origin: Actor): void
-    on(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-relayout", callback: (($obj: CairoTexture) => void)): number
-    connect_after(sigName: "queue-relayout", callback: (($obj: CairoTexture) => void)): number
+    on(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-relayout", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "queue-relayout"): void
-    on(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: CairoTexture) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: CairoTexture) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: CairoTexture, event: ScrollEvent) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: CairoTexture, event: ScrollEvent) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: ScrollEvent) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: ScrollEvent): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: CairoTexture) => void)): number
-    connect_after(sigName: "show", callback: (($obj: CairoTexture) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: CairoTexture, event: Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: CairoTexture, event: Event) => boolean)): number
+    on(sigName: "touch-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", event: Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transition-stopped", callback: (($obj: CairoTexture, name: string, isFinished: boolean) => void)): number
-    connect_after(sigName: "transition-stopped", callback: (($obj: CairoTexture, name: string, isFinished: boolean) => void)): number
+    on(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "transition-stopped", name: string, isFinished: boolean): void
-    on(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transitions-completed", callback: (($obj: CairoTexture) => void)): number
-    connect_after(sigName: "transitions-completed", callback: (($obj: CairoTexture) => void)): number
+    on(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transitions-completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "transitions-completed"): void
-    on(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: CairoTexture) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: CairoTexture) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CairoTexture, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: CairoTexture, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: CairoTexture, actor: Actor) => void)): number
-    connect_after(sigName: "actor-added", callback: (($obj: CairoTexture, actor: Actor) => void)): number
+    on(sigName: "actor-added", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-added", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-added", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-added", actor: Actor): void
-    on(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "actor-removed", callback: (($obj: CairoTexture, actor: Actor) => void)): number
-    connect_after(sigName: "actor-removed", callback: (($obj: CairoTexture, actor: Actor) => void)): number
+    on(sigName: "actor-removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-removed", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-removed", actor: Actor): void
-    on(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: CairoTexture, actor: Actor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: CairoTexture, actor: Actor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", actor: Actor, pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::auto-resize", callback: (($obj: CairoTexture, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::auto-resize", callback: (($obj: CairoTexture, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::auto-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11081,18 +10407,18 @@ export interface Canvas_ConstructProps extends GObject.Object_ConstructProps {
     width?: number
 }
 export class Canvas {
-    /* Properties of Clutter.Canvas */
+    /* Properties of Clutter-1.0.Clutter.Canvas */
     height: number
     scaleFactor: number
     readonly scaleFactorSet: boolean
     width: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Canvas */
+    /* Methods of Clutter-1.0.Clutter.Canvas */
     getScaleFactor(): number
     setScaleFactor(scale: number): void
     setSize(width: number, height: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11114,51 +10440,32 @@ export class Canvas {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Content */
-    getPreferredSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
+    /* Methods of Clutter-1.0.Clutter.Content */
+    getPreferredSize(): { returnType: boolean, width: number, height: number }
     invalidate(): void
-    /* Virtual methods of Clutter.Canvas */
-    vfuncDraw(cr: cairo.Context, width: number, height: number): boolean
-    vfuncAttached(actor: Actor): void
-    vfuncDetached(actor: Actor): void
-    vfuncGetPreferredSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
-    vfuncInvalidate(): void
-    vfuncPaintContent(actor: Actor, node: PaintNode): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Canvas */
+    /* Signals of Clutter-1.0.Clutter.Canvas */
     connect(sigName: "draw", callback: (($obj: Canvas, cr: cairo.Context, width: number, height: number) => boolean)): number
-    connect_after(sigName: "draw", callback: (($obj: Canvas, cr: cairo.Context, width: number, height: number) => boolean)): number
+    on(sigName: "draw", callback: (cr: cairo.Context, width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "draw", callback: (cr: cairo.Context, width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "draw", callback: (cr: cairo.Context, width: number, height: number) => void): NodeJS.EventEmitter
     emit(sigName: "draw", cr: cairo.Context, width: number, height: number): void
-    on(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "draw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Content */
+    /* Signals of Clutter-1.0.Clutter.Content */
     connect(sigName: "attached", callback: (($obj: Canvas, actor: Actor) => void)): number
-    connect_after(sigName: "attached", callback: (($obj: Canvas, actor: Actor) => void)): number
+    on(sigName: "attached", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "attached", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "attached", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "attached", actor: Actor): void
-    on(sigName: "attached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "attached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "attached", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "detached", callback: (($obj: Canvas, actor: Actor) => void)): number
-    connect_after(sigName: "detached", callback: (($obj: Canvas, actor: Actor) => void)): number
+    on(sigName: "detached", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "detached", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "detached", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "detached", actor: Actor): void
-    on(sigName: "detached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "detached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "detached", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::height", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::height", callback: (($obj: Canvas, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::height", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11196,15 +10503,15 @@ export interface ChildMeta_ConstructProps extends GObject.Object_ConstructProps 
     container?: Container
 }
 export class ChildMeta {
-    /* Fields of Clutter.ChildMeta */
+    /* Fields of Clutter-1.0.Clutter.ChildMeta */
     container: Container
     actor: Actor
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.ChildMeta */
+    /* Methods of Clutter-1.0.Clutter.ChildMeta */
     getActor(): Actor
     getContainer(): Container
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11226,21 +10533,12 @@ export class ChildMeta {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ChildMeta, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ChildMeta, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11258,29 +10556,29 @@ export interface ClickAction_ConstructProps extends Action_ConstructProps {
     longPressThreshold?: number
 }
 export class ClickAction {
-    /* Properties of Clutter.ClickAction */
+    /* Properties of Clutter-1.0.Clutter.ClickAction */
     readonly held: boolean
     longPressDuration: number
     longPressThreshold: number
     readonly pressed: boolean
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.ClickAction */
+    /* Methods of Clutter-1.0.Clutter.ClickAction */
     getButton(): number
-    getCoords(): [ /* pressX */ number, /* pressY */ number ]
+    getCoords(): { pressX: number, pressY: number }
     getState(): ModifierType
     release(): void
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11302,39 +10600,23 @@ export class ClickAction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.ClickAction */
-    vfuncClicked(actor: Actor): void
-    vfuncLongPress(actor: Actor, state: LongPressState): boolean
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.ClickAction */
+    /* Signals of Clutter-1.0.Clutter.ClickAction */
     connect(sigName: "clicked", callback: (($obj: ClickAction, actor: Actor) => void)): number
-    connect_after(sigName: "clicked", callback: (($obj: ClickAction, actor: Actor) => void)): number
+    on(sigName: "clicked", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "clicked", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "clicked", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "clicked", actor: Actor): void
-    on(sigName: "clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "clicked", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "long-press", callback: (($obj: ClickAction, actor: Actor, state: LongPressState) => boolean)): number
-    connect_after(sigName: "long-press", callback: (($obj: ClickAction, actor: Actor, state: LongPressState) => boolean)): number
+    on(sigName: "long-press", callback: (actor: Actor, state: LongPressState) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "long-press", callback: (actor: Actor, state: LongPressState) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "long-press", callback: (actor: Actor, state: LongPressState) => void): NodeJS.EventEmitter
     emit(sigName: "long-press", actor: Actor, state: LongPressState): void
-    on(sigName: "long-press", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "long-press", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "long-press", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ClickAction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ClickAction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::held", callback: (($obj: ClickAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::held", callback: (($obj: ClickAction, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::held", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11385,7 +10667,7 @@ export class ClickAction {
     static $gtype: GObject.Type
 }
 export class ClipNode {
-    /* Methods of Clutter.PaintNode */
+    /* Methods of Clutter-1.0.Clutter.PaintNode */
     addChild(child: PaintNode): void
     addRectangle(rect: ActorBox): void
     addTextureRectangle(rect: ActorBox, x1: number, y1: number, x2: number, y2: number): void
@@ -11402,9 +10684,9 @@ export interface Clone_ConstructProps extends Actor_ConstructProps {
     source?: Actor
 }
 export class Clone {
-    /* Properties of Clutter.Clone */
+    /* Properties of Clutter-1.0.Clutter.Clone */
     source: Actor
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Action
     readonly allocation: ActorBox
     anchorGravity: Gravity
@@ -11487,14 +10769,14 @@ export class Clone {
     yAlign: ActorAlign
     yExpand: boolean
     zPosition: number
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Clone */
+    /* Methods of Clutter-1.0.Clutter.Clone */
     getSource(): Actor
     setSource(source?: Actor | null): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     addAction(action: Action): void
     addActionWithName(name: string, action: Action): void
     addChild(child: Actor): void
@@ -11510,8 +10792,8 @@ export class Clone {
     animateWithAlphav(alpha: Alpha, properties: string[], values: any[]): Animation
     animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any[]): Animation
     animatev(mode: number, duration: number, properties: string[], values: any[]): Animation
-    applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): /* vertex */ Vertex
-    applyTransformToPoint(point: Vertex): /* vertex */ Vertex
+    applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): { vertex: Vertex }
+    applyTransformToPoint(point: Vertex): { vertex: Vertex }
     bindModel(model: Gio.ListModel | null, createChildFunc: ActorCreateChildFunc): void
     clearActions(): void
     clearConstraints(): void
@@ -11524,29 +10806,29 @@ export class Clone {
     destroyAllChildren(): void
     detachAnimation(): void
     event(event: Event, capture: boolean): boolean
-    getAbsAllocationVertices(): /* verts */ Vertex[]
+    getAbsAllocationVertices(): { verts: Vertex[] }
     getAccessible(): Atk.Object
     getAction(name: string): Action
     getActions(): Action[]
-    getAllocationBox(): /* box */ ActorBox
-    getAllocationGeometry(): /* geom */ Geometry
-    getAllocationVertices(ancestor?: Actor | null): /* verts */ Vertex[]
-    getAnchorPoint(): [ /* anchorX */ number, /* anchorY */ number ]
+    getAllocationBox(): { box: ActorBox }
+    getAllocationGeometry(): { geom: Geometry }
+    getAllocationVertices(ancestor?: Actor | null): { verts: Vertex[] }
+    getAnchorPoint(): { anchorX: number, anchorY: number }
     getAnchorPointGravity(): Gravity
     getAnimation(): Animation
-    getBackgroundColor(): /* color */ Color
+    getBackgroundColor(): { color: Color }
     getChildAtIndex(index: number): Actor
-    getChildTransform(): /* transform */ Matrix
+    getChildTransform(): { transform: Matrix }
     getChildren(): Actor[]
-    getClip(): [ /* xoff */ number | null, /* yoff */ number | null, /* width */ number | null, /* height */ number | null ]
+    getClip(): { xoff: number | null, yoff: number | null, width: number | null, height: number | null }
     getClipToAllocation(): boolean
     getConstraint(name: string): Constraint
     getConstraints(): Constraint[]
     getContent(): Content
-    getContentBox(): /* box */ ActorBox
+    getContentBox(): { box: ActorBox }
     getContentGravity(): ContentGravity
     getContentRepeat(): ContentRepeat
-    getContentScalingFilters(): [ /* minFilter */ ScalingFilter | null, /* magFilter */ ScalingFilter | null ]
+    getContentScalingFilters(): { minFilter: ScalingFilter | null, magFilter: ScalingFilter | null }
     getDefaultPaintVolume(): PaintVolume
     getDepth(): number
     getEasingDelay(): number
@@ -11557,12 +10839,12 @@ export class Clone {
     getFirstChild(): Actor
     getFixedPositionSet(): boolean
     getFlags(): ActorFlags
-    getGeometry(): /* geometry */ Geometry
+    getGeometry(): { geometry: Geometry }
     getGid(): number
     getHeight(): number
     getLastChild(): Actor
     getLayoutManager(): LayoutManager
-    getMargin(): /* margin */ Margin
+    getMargin(): { margin: Margin }
     getMarginBottom(): number
     getMarginLeft(): number
     getMarginRight(): number
@@ -11572,38 +10854,38 @@ export class Clone {
     getNextSibling(): Actor
     getOffscreenRedirect(): OffscreenRedirect
     getOpacity(): number
-    getPaintBox(): [ /* returnType */ boolean, /* box */ ActorBox ]
+    getPaintBox(): { returnType: boolean, box: ActorBox }
     getPaintOpacity(): number
     getPaintVisibility(): boolean
     getPaintVolume(): PaintVolume
     getPangoContext(): Pango.Context
     getParent(): Actor
-    getPivotPoint(): [ /* pivotX */ number | null, /* pivotY */ number | null ]
+    getPivotPoint(): { pivotX: number | null, pivotY: number | null }
     getPivotPointZ(): number
-    getPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredSize(): [ /* minWidthP */ number | null, /* minHeightP */ number | null, /* naturalWidthP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
+    getPosition(): { x: number | null, y: number | null }
+    getPreferredHeight(forWidth: number): { minHeightP: number | null, naturalHeightP: number | null }
+    getPreferredSize(): { minWidthP: number | null, minHeightP: number | null, naturalWidthP: number | null, naturalHeightP: number | null }
+    getPreferredWidth(forHeight: number): { minWidthP: number | null, naturalWidthP: number | null }
     getPreviousSibling(): Actor
     getReactive(): boolean
     getRequestMode(): RequestMode
-    getRotation(axis: RotateAxis): [ /* returnType */ number, /* x */ number, /* y */ number, /* z */ number ]
+    getRotation(axis: RotateAxis): { returnType: number, x: number, y: number, z: number }
     getRotationAngle(axis: RotateAxis): number
-    getScale(): [ /* scaleX */ number | null, /* scaleY */ number | null ]
-    getScaleCenter(): [ /* centerX */ number | null, /* centerY */ number | null ]
+    getScale(): { scaleX: number | null, scaleY: number | null }
+    getScaleCenter(): { centerX: number | null, centerY: number | null }
     getScaleGravity(): Gravity
     getScaleZ(): number
     getShader(): Shader
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getSize(): { width: number | null, height: number | null }
     getStage(): Stage
     getTextDirection(): TextDirection
-    getTransform(): /* transform */ Matrix
-    getTransformationMatrix(): /* matrix */ Matrix
+    getTransform(): { transform: Matrix }
+    getTransformationMatrix(): { matrix: Matrix }
     getTransformedPaintVolume(relativeToAncestor: Actor): PaintVolume
-    getTransformedPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getTransformedSize(): [ /* width */ number | null, /* height */ number | null ]
+    getTransformedPosition(): { x: number | null, y: number | null }
+    getTransformedSize(): { width: number | null, height: number | null }
     getTransition(name: string): Transition
-    getTranslation(): [ /* translateX */ number | null, /* translateY */ number | null, /* translateZ */ number | null ]
+    getTranslation(): { translateX: number | null, translateY: number | null, translateZ: number | null }
     getWidth(): number
     getX(): number
     getXAlign(): ActorAlign
@@ -11725,12 +11007,12 @@ export class Clone {
     shouldPickPaint(): boolean
     show(): void
     showAll(): void
-    transformStagePoint(x: number, y: number): [ /* returnType */ boolean, /* xOut */ number, /* yOut */ number ]
+    transformStagePoint(x: number, y: number): { returnType: boolean, xOut: number, yOut: number }
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetFlags(flags: ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -11752,13 +11034,13 @@ export class Clone {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animateProperty(animation: Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     findProperty(propertyName: string): GObject.ParamSpec
     getInitialState(propertyName: string, value: any): void
-    interpolateValue(propertyName: string, interval: Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
+    interpolateValue(propertyName: string, interval: Interval, progress: number): { returnType: boolean, value: any }
     setFinalState(propertyName: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     addActor(actor: Actor): void
     childGetProperty(child: Actor, property: string, value: any): void
     childNotify(child: Actor, pspec: GObject.ParamSpec): void
@@ -11773,260 +11055,164 @@ export class Clone {
     raiseChild(actor: Actor, sibling?: Actor | null): void
     removeActor(actor: Actor): void
     sortDepthOrder(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Actor */
-    vfuncAllocate(box: ActorBox, flags: AllocationFlags): void
-    vfuncApplyTransform(matrix: Matrix): void
-    vfuncButtonPressEvent(event: ButtonEvent): boolean
-    vfuncButtonReleaseEvent(event: ButtonEvent): boolean
-    vfuncCapturedEvent(event: Event): boolean
-    vfuncDestroy(): void
-    vfuncEnterEvent(event: CrossingEvent): boolean
-    vfuncEvent(event: Event): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPaintVolume(volume: PaintVolume): boolean
-    vfuncGetPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    vfuncGetPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
-    vfuncHasOverlaps(): boolean
-    vfuncHide(): void
-    vfuncHideAll(): void
-    vfuncKeyFocusIn(): void
-    vfuncKeyFocusOut(): void
-    vfuncKeyPressEvent(event: KeyEvent): boolean
-    vfuncKeyReleaseEvent(event: KeyEvent): boolean
-    vfuncLeaveEvent(event: CrossingEvent): boolean
-    vfuncMap(): void
-    vfuncMotionEvent(event: MotionEvent): boolean
-    vfuncPaint(): void
-    vfuncPaintNode(root: PaintNode): void
-    vfuncParentSet(oldParent: Actor): void
-    vfuncPick(color: Color): void
-    vfuncQueueRedraw(leafThatQueued: Actor): void
-    vfuncQueueRelayout(): void
-    vfuncRealize(): void
-    vfuncScrollEvent(event: ScrollEvent): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncTouchEvent(event: TouchEvent): boolean
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    vfuncAnimateProperty(animation: Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
-    vfuncFindProperty(propertyName: string): GObject.ParamSpec
-    vfuncGetInitialState(propertyName: string, value: any): void
-    vfuncInterpolateValue(propertyName: string, interval: Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
-    vfuncSetFinalState(propertyName: string, value: any): void
-    vfuncActorAdded(actor: Actor): void
-    vfuncActorRemoved(actor: Actor): void
-    vfuncAdd(actor: Actor): void
-    vfuncChildNotify(child: Actor, pspec: GObject.ParamSpec): void
-    vfuncCreateChildMeta(actor: Actor): void
-    vfuncDestroyChildMeta(actor: Actor): void
-    vfuncForeach(callback: Callback): void
-    vfuncForeachWithInternals(callback: Callback): void
-    vfuncGetChildMeta(actor: Actor): ChildMeta
-    vfuncLower(actor: Actor, sibling?: Actor | null): void
-    vfuncRaise(actor: Actor, sibling?: Actor | null): void
-    vfuncRemove(actor: Actor): void
-    vfuncSortDepthOrder(): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Clone, box: ActorBox, flags: AllocationFlags) => void)): number
-    connect_after(sigName: "allocation-changed", callback: (($obj: Clone, box: ActorBox, flags: AllocationFlags) => void)): number
+    on(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void): NodeJS.EventEmitter
     emit(sigName: "allocation-changed", box: ActorBox, flags: AllocationFlags): void
-    on(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: Clone, event: ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: Clone, event: ButtonEvent) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: ButtonEvent): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: Clone, event: ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: Clone, event: ButtonEvent) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: ButtonEvent): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "captured-event", callback: (($obj: Clone, event: Event) => boolean)): number
-    connect_after(sigName: "captured-event", callback: (($obj: Clone, event: Event) => boolean)): number
+    on(sigName: "captured-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "captured-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "captured-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "captured-event", event: Event): void
-    on(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: Clone) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Clone) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-event", callback: (($obj: Clone, event: CrossingEvent) => boolean)): number
-    connect_after(sigName: "enter-event", callback: (($obj: Clone, event: CrossingEvent) => boolean)): number
+    on(sigName: "enter-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-event", callback: (event: CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "enter-event", event: CrossingEvent): void
-    on(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: Clone, event: Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: Clone, event: Event) => boolean)): number
+    on(sigName: "event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: Clone) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: Clone) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-in", callback: (($obj: Clone) => void)): number
-    connect_after(sigName: "key-focus-in", callback: (($obj: Clone) => void)): number
+    on(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-in", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-in"): void
-    on(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-out", callback: (($obj: Clone) => void)): number
-    connect_after(sigName: "key-focus-out", callback: (($obj: Clone) => void)): number
+    on(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-out", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-out"): void
-    on(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: Clone, event: KeyEvent) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: Clone, event: KeyEvent) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: KeyEvent): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: Clone, event: KeyEvent) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: Clone, event: KeyEvent) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: KeyEvent): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-event", callback: (($obj: Clone, event: CrossingEvent) => boolean)): number
-    connect_after(sigName: "leave-event", callback: (($obj: Clone, event: CrossingEvent) => boolean)): number
+    on(sigName: "leave-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-event", callback: (event: CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "leave-event", event: CrossingEvent): void
-    on(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-event", callback: (($obj: Clone, event: MotionEvent) => boolean)): number
-    connect_after(sigName: "motion-event", callback: (($obj: Clone, event: MotionEvent) => boolean)): number
+    on(sigName: "motion-event", callback: (event: MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-event", callback: (event: MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-event", callback: (event: MotionEvent) => void): NodeJS.EventEmitter
     emit(sigName: "motion-event", event: MotionEvent): void
-    on(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paint", callback: (($obj: Clone) => void)): number
-    connect_after(sigName: "paint", callback: (($obj: Clone) => void)): number
+    on(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paint", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paint"): void
-    on(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: Clone, oldParent?: Actor | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: Clone, oldParent?: Actor | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Actor | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Actor | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pick", callback: (($obj: Clone, color: Color) => void)): number
-    connect_after(sigName: "pick", callback: (($obj: Clone, color: Color) => void)): number
+    on(sigName: "pick", callback: (color: Color) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pick", callback: (color: Color) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pick", callback: (color: Color) => void): NodeJS.EventEmitter
     emit(sigName: "pick", color: Color): void
-    on(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-redraw", callback: (($obj: Clone, origin: Actor) => void)): number
-    connect_after(sigName: "queue-redraw", callback: (($obj: Clone, origin: Actor) => void)): number
+    on(sigName: "queue-redraw", callback: (origin: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-redraw", callback: (origin: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-redraw", callback: (origin: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "queue-redraw", origin: Actor): void
-    on(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-relayout", callback: (($obj: Clone) => void)): number
-    connect_after(sigName: "queue-relayout", callback: (($obj: Clone) => void)): number
+    on(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-relayout", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "queue-relayout"): void
-    on(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: Clone) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: Clone) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: Clone, event: ScrollEvent) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: Clone, event: ScrollEvent) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: ScrollEvent) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: ScrollEvent): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: Clone) => void)): number
-    connect_after(sigName: "show", callback: (($obj: Clone) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: Clone, event: Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: Clone, event: Event) => boolean)): number
+    on(sigName: "touch-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", event: Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transition-stopped", callback: (($obj: Clone, name: string, isFinished: boolean) => void)): number
-    connect_after(sigName: "transition-stopped", callback: (($obj: Clone, name: string, isFinished: boolean) => void)): number
+    on(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "transition-stopped", name: string, isFinished: boolean): void
-    on(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transitions-completed", callback: (($obj: Clone) => void)): number
-    connect_after(sigName: "transitions-completed", callback: (($obj: Clone) => void)): number
+    on(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transitions-completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "transitions-completed"): void
-    on(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: Clone) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: Clone) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Clone, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Clone, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Clone, actor: Actor) => void)): number
-    connect_after(sigName: "actor-added", callback: (($obj: Clone, actor: Actor) => void)): number
+    on(sigName: "actor-added", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-added", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-added", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-added", actor: Actor): void
-    on(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "actor-removed", callback: (($obj: Clone, actor: Actor) => void)): number
-    connect_after(sigName: "actor-removed", callback: (($obj: Clone, actor: Actor) => void)): number
+    on(sigName: "actor-removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-removed", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-removed", actor: Actor): void
-    on(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: Clone, actor: Actor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: Clone, actor: Actor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", actor: Actor, pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::source", callback: (($obj: Clone, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::source", callback: (($obj: Clone, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::source", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12458,7 +11644,7 @@ export class Clone {
     static $gtype: GObject.Type
 }
 export class ColorNode {
-    /* Methods of Clutter.PaintNode */
+    /* Methods of Clutter-1.0.Clutter.PaintNode */
     addChild(child: PaintNode): void
     addRectangle(rect: ActorBox): void
     addTextureRectangle(rect: ActorBox, x1: number, y1: number, x2: number, y2: number): void
@@ -12475,33 +11661,33 @@ export interface ColorizeEffect_ConstructProps extends OffscreenEffect_Construct
     tint?: Color
 }
 export class ColorizeEffect {
-    /* Properties of Clutter.ColorizeEffect */
+    /* Properties of Clutter-1.0.Clutter.ColorizeEffect */
     tint: Color
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.ColorizeEffect */
-    getTint(): /* tint */ Color
+    /* Methods of Clutter-1.0.Clutter.ColorizeEffect */
+    getTint(): { tint: Color }
     setTint(tint: Color): void
-    /* Methods of Clutter.OffscreenEffect */
+    /* Methods of Clutter-1.0.Clutter.OffscreenEffect */
     createTexture(width: number, height: number): Cogl.Handle
     getTarget(): Cogl.Material
-    getTargetRect(): [ /* returnType */ boolean, /* rect */ Rect ]
-    getTargetSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
+    getTargetRect(): { returnType: boolean, rect: Rect }
+    getTargetSize(): { returnType: boolean, width: number, height: number }
     getTexture(): Cogl.Handle
     paintTarget(): void
-    /* Methods of Clutter.Effect */
+    /* Methods of Clutter-1.0.Clutter.Effect */
     queueRepaint(): void
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12523,32 +11709,12 @@ export class ColorizeEffect {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.OffscreenEffect */
-    vfuncCreateTexture(width: number, height: number): Cogl.Handle
-    vfuncPaintTarget(): void
-    /* Virtual methods of Clutter.Effect */
-    vfuncGetPaintVolume(volume: PaintVolume): boolean
-    vfuncPaint(flags: EffectPaintFlags): void
-    vfuncPick(flags: EffectPaintFlags): void
-    vfuncPostPaint(): void
-    vfuncPrePaint(): boolean
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ColorizeEffect, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ColorizeEffect, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::tint", callback: (($obj: ColorizeEffect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tint", callback: (($obj: ColorizeEffect, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::tint", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12586,19 +11752,19 @@ export class ColorizeEffect {
 export interface Constraint_ConstructProps extends ActorMeta_ConstructProps {
 }
 export class Constraint {
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12620,26 +11786,12 @@ export class Constraint {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.Constraint */
-    vfuncUpdateAllocation(actor: Actor, allocation: ActorBox): void
-    vfuncUpdatePreferredSize(actor: Actor, direction: Orientation, forSize: number, minimumSize: number, naturalSize: number): void
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Constraint, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Constraint, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::actor", callback: (($obj: Constraint, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::actor", callback: (($obj: Constraint, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::actor", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12672,37 +11824,37 @@ export interface DeformEffect_ConstructProps extends OffscreenEffect_ConstructPr
     yTiles?: number
 }
 export class DeformEffect {
-    /* Properties of Clutter.DeformEffect */
+    /* Properties of Clutter-1.0.Clutter.DeformEffect */
     xTiles: number
     yTiles: number
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.DeformEffect */
+    /* Methods of Clutter-1.0.Clutter.DeformEffect */
     getBackMaterial(): Cogl.Handle
-    getNTiles(): [ /* xTiles */ number, /* yTiles */ number ]
+    getNTiles(): { xTiles: number, yTiles: number }
     invalidate(): void
     setBackMaterial(material?: Cogl.Handle | null): void
     setNTiles(xTiles: number, yTiles: number): void
-    /* Methods of Clutter.OffscreenEffect */
+    /* Methods of Clutter-1.0.Clutter.OffscreenEffect */
     createTexture(width: number, height: number): Cogl.Handle
     getTarget(): Cogl.Material
-    getTargetRect(): [ /* returnType */ boolean, /* rect */ Rect ]
-    getTargetSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
+    getTargetRect(): { returnType: boolean, rect: Rect }
+    getTargetSize(): { returnType: boolean, width: number, height: number }
     getTexture(): Cogl.Handle
     paintTarget(): void
-    /* Methods of Clutter.Effect */
+    /* Methods of Clutter-1.0.Clutter.Effect */
     queueRepaint(): void
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12724,34 +11876,12 @@ export class DeformEffect {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.DeformEffect */
-    vfuncDeformVertex(width: number, height: number, vertex: Cogl.TextureVertex): void
-    /* Virtual methods of Clutter.OffscreenEffect */
-    vfuncCreateTexture(width: number, height: number): Cogl.Handle
-    vfuncPaintTarget(): void
-    /* Virtual methods of Clutter.Effect */
-    vfuncGetPaintVolume(volume: PaintVolume): boolean
-    vfuncPaint(flags: EffectPaintFlags): void
-    vfuncPick(flags: EffectPaintFlags): void
-    vfuncPostPaint(): void
-    vfuncPrePaint(): boolean
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeformEffect, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeformEffect, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::x-tiles", callback: (($obj: DeformEffect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::x-tiles", callback: (($obj: DeformEffect, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::x-tiles", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12793,33 +11923,33 @@ export interface DesaturateEffect_ConstructProps extends OffscreenEffect_Constru
     factor?: number
 }
 export class DesaturateEffect {
-    /* Properties of Clutter.DesaturateEffect */
+    /* Properties of Clutter-1.0.Clutter.DesaturateEffect */
     factor: number
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.DesaturateEffect */
+    /* Methods of Clutter-1.0.Clutter.DesaturateEffect */
     getFactor(): number
     setFactor(factor: number): void
-    /* Methods of Clutter.OffscreenEffect */
+    /* Methods of Clutter-1.0.Clutter.OffscreenEffect */
     createTexture(width: number, height: number): Cogl.Handle
     getTarget(): Cogl.Material
-    getTargetRect(): [ /* returnType */ boolean, /* rect */ Rect ]
-    getTargetSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
+    getTargetRect(): { returnType: boolean, rect: Rect }
+    getTargetSize(): { returnType: boolean, width: number, height: number }
     getTexture(): Cogl.Handle
     paintTarget(): void
-    /* Methods of Clutter.Effect */
+    /* Methods of Clutter-1.0.Clutter.Effect */
     queueRepaint(): void
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12841,32 +11971,12 @@ export class DesaturateEffect {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.OffscreenEffect */
-    vfuncCreateTexture(width: number, height: number): Cogl.Handle
-    vfuncPaintTarget(): void
-    /* Virtual methods of Clutter.Effect */
-    vfuncGetPaintVolume(volume: PaintVolume): boolean
-    vfuncPaint(flags: EffectPaintFlags): void
-    vfuncPick(flags: EffectPaintFlags): void
-    vfuncPostPaint(): void
-    vfuncPrePaint(): boolean
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DesaturateEffect, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DesaturateEffect, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::factor", callback: (($obj: DesaturateEffect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::factor", callback: (($obj: DesaturateEffect, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::factor", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12905,14 +12015,14 @@ export interface DeviceManager_ConstructProps extends GObject.Object_ConstructPr
     backend?: Backend
 }
 export class DeviceManager {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.DeviceManager */
+    /* Methods of Clutter-1.0.Clutter.DeviceManager */
     getCoreDevice(deviceType: InputDeviceType): InputDevice
     getDevice(deviceId: number): InputDevice
     listDevices(): InputDevice[]
     peekDevices(): InputDevice[]
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -12934,40 +12044,23 @@ export class DeviceManager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.DeviceManager */
-    vfuncAddDevice(device: InputDevice): void
-    vfuncGetCoreDevice(deviceType: InputDeviceType): InputDevice
-    vfuncGetDevice(deviceId: number): InputDevice
-    vfuncRemoveDevice(device: InputDevice): void
-    vfuncSelectStageEvents(stage: Stage): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.DeviceManager */
+    /* Signals of Clutter-1.0.Clutter.DeviceManager */
     connect(sigName: "device-added", callback: (($obj: DeviceManager, device: InputDevice) => void)): number
-    connect_after(sigName: "device-added", callback: (($obj: DeviceManager, device: InputDevice) => void)): number
+    on(sigName: "device-added", callback: (device: InputDevice) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-added", callback: (device: InputDevice) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-added", callback: (device: InputDevice) => void): NodeJS.EventEmitter
     emit(sigName: "device-added", device: InputDevice): void
-    on(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "device-removed", callback: (($obj: DeviceManager, device: InputDevice) => void)): number
-    connect_after(sigName: "device-removed", callback: (($obj: DeviceManager, device: InputDevice) => void)): number
+    on(sigName: "device-removed", callback: (device: InputDevice) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "device-removed", callback: (device: InputDevice) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "device-removed", callback: (device: InputDevice) => void): NodeJS.EventEmitter
     emit(sigName: "device-removed", device: InputDevice): void
-    on(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "device-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DeviceManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DeviceManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -12990,37 +12083,37 @@ export interface DragAction_ConstructProps extends Action_ConstructProps {
     yDragThreshold?: number
 }
 export class DragAction {
-    /* Properties of Clutter.DragAction */
+    /* Properties of Clutter-1.0.Clutter.DragAction */
     dragArea: Rect
     readonly dragAreaSet: boolean
     dragAxis: DragAxis
     dragHandle: Actor
     xDragThreshold: number
     yDragThreshold: number
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.DragAction */
-    getDragArea(): [ /* returnType */ boolean, /* dragArea */ Rect ]
+    /* Methods of Clutter-1.0.Clutter.DragAction */
+    getDragArea(): { returnType: boolean, dragArea: Rect }
     getDragAxis(): DragAxis
     getDragHandle(): Actor
-    getDragThreshold(): [ /* xThreshold */ number, /* yThreshold */ number ]
-    getMotionCoords(): [ /* motionX */ number, /* motionY */ number ]
-    getPressCoords(): [ /* pressX */ number, /* pressY */ number ]
+    getDragThreshold(): { xThreshold: number, yThreshold: number }
+    getMotionCoords(): { motionX: number, motionY: number }
+    getPressCoords(): { pressX: number, pressY: number }
     setDragArea(dragArea?: Rect | null): void
     setDragAxis(axis: DragAxis): void
     setDragHandle(handle?: Actor | null): void
     setDragThreshold(xThreshold: number, yThreshold: number): void
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13042,53 +12135,33 @@ export class DragAction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.DragAction */
-    vfuncDragBegin(actor: Actor, eventX: number, eventY: number, modifiers: ModifierType): void
-    vfuncDragEnd(actor: Actor, eventX: number, eventY: number, modifiers: ModifierType): void
-    vfuncDragMotion(actor: Actor, deltaX: number, deltaY: number): void
-    vfuncDragProgress(actor: Actor, deltaX: number, deltaY: number): boolean
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.DragAction */
+    /* Signals of Clutter-1.0.Clutter.DragAction */
     connect(sigName: "drag-begin", callback: (($obj: DragAction, actor: Actor, eventX: number, eventY: number, modifiers: ModifierType) => void)): number
-    connect_after(sigName: "drag-begin", callback: (($obj: DragAction, actor: Actor, eventX: number, eventY: number, modifiers: ModifierType) => void)): number
+    on(sigName: "drag-begin", callback: (actor: Actor, eventX: number, eventY: number, modifiers: ModifierType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-begin", callback: (actor: Actor, eventX: number, eventY: number, modifiers: ModifierType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-begin", callback: (actor: Actor, eventX: number, eventY: number, modifiers: ModifierType) => void): NodeJS.EventEmitter
     emit(sigName: "drag-begin", actor: Actor, eventX: number, eventY: number, modifiers: ModifierType): void
-    on(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-end", callback: (($obj: DragAction, actor: Actor, eventX: number, eventY: number, modifiers: ModifierType) => void)): number
-    connect_after(sigName: "drag-end", callback: (($obj: DragAction, actor: Actor, eventX: number, eventY: number, modifiers: ModifierType) => void)): number
+    on(sigName: "drag-end", callback: (actor: Actor, eventX: number, eventY: number, modifiers: ModifierType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-end", callback: (actor: Actor, eventX: number, eventY: number, modifiers: ModifierType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-end", callback: (actor: Actor, eventX: number, eventY: number, modifiers: ModifierType) => void): NodeJS.EventEmitter
     emit(sigName: "drag-end", actor: Actor, eventX: number, eventY: number, modifiers: ModifierType): void
-    on(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-motion", callback: (($obj: DragAction, actor: Actor, deltaX: number, deltaY: number) => void)): number
-    connect_after(sigName: "drag-motion", callback: (($obj: DragAction, actor: Actor, deltaX: number, deltaY: number) => void)): number
+    on(sigName: "drag-motion", callback: (actor: Actor, deltaX: number, deltaY: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-motion", callback: (actor: Actor, deltaX: number, deltaY: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-motion", callback: (actor: Actor, deltaX: number, deltaY: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-motion", actor: Actor, deltaX: number, deltaY: number): void
-    on(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-motion", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drag-progress", callback: (($obj: DragAction, actor: Actor, deltaX: number, deltaY: number) => boolean)): number
-    connect_after(sigName: "drag-progress", callback: (($obj: DragAction, actor: Actor, deltaX: number, deltaY: number) => boolean)): number
+    on(sigName: "drag-progress", callback: (actor: Actor, deltaX: number, deltaY: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-progress", callback: (actor: Actor, deltaX: number, deltaY: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-progress", callback: (actor: Actor, deltaX: number, deltaY: number) => void): NodeJS.EventEmitter
     emit(sigName: "drag-progress", actor: Actor, deltaX: number, deltaY: number): void
-    on(sigName: "drag-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drag-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drag-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DragAction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DragAction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::drag-area", callback: (($obj: DragAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::drag-area", callback: (($obj: DragAction, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::drag-area", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13151,19 +12224,19 @@ export class DragAction {
 export interface DropAction_ConstructProps extends Action_ConstructProps {
 }
 export class DropAction {
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13185,59 +12258,38 @@ export class DropAction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.DropAction */
-    vfuncCanDrop(actor: Actor, eventX: number, eventY: number): boolean
-    vfuncDrop(actor: Actor, eventX: number, eventY: number): void
-    vfuncOverIn(actor: Actor): void
-    vfuncOverOut(actor: Actor): void
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.DropAction */
+    /* Signals of Clutter-1.0.Clutter.DropAction */
     connect(sigName: "can-drop", callback: (($obj: DropAction, actor: Actor, eventX: number, eventY: number) => boolean)): number
-    connect_after(sigName: "can-drop", callback: (($obj: DropAction, actor: Actor, eventX: number, eventY: number) => boolean)): number
+    on(sigName: "can-drop", callback: (actor: Actor, eventX: number, eventY: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "can-drop", callback: (actor: Actor, eventX: number, eventY: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "can-drop", callback: (actor: Actor, eventX: number, eventY: number) => void): NodeJS.EventEmitter
     emit(sigName: "can-drop", actor: Actor, eventX: number, eventY: number): void
-    on(sigName: "can-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "can-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "can-drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drop", callback: (($obj: DropAction, actor: Actor, eventX: number, eventY: number) => void)): number
-    connect_after(sigName: "drop", callback: (($obj: DropAction, actor: Actor, eventX: number, eventY: number) => void)): number
+    on(sigName: "drop", callback: (actor: Actor, eventX: number, eventY: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drop", callback: (actor: Actor, eventX: number, eventY: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drop", callback: (actor: Actor, eventX: number, eventY: number) => void): NodeJS.EventEmitter
     emit(sigName: "drop", actor: Actor, eventX: number, eventY: number): void
-    on(sigName: "drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drop", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "drop-cancel", callback: (($obj: DropAction, actor: Actor, eventX: number, eventY: number) => void)): number
-    connect_after(sigName: "drop-cancel", callback: (($obj: DropAction, actor: Actor, eventX: number, eventY: number) => void)): number
+    on(sigName: "drop-cancel", callback: (actor: Actor, eventX: number, eventY: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drop-cancel", callback: (actor: Actor, eventX: number, eventY: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drop-cancel", callback: (actor: Actor, eventX: number, eventY: number) => void): NodeJS.EventEmitter
     emit(sigName: "drop-cancel", actor: Actor, eventX: number, eventY: number): void
-    on(sigName: "drop-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "drop-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "drop-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "over-in", callback: (($obj: DropAction, actor: Actor) => void)): number
-    connect_after(sigName: "over-in", callback: (($obj: DropAction, actor: Actor) => void)): number
+    on(sigName: "over-in", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "over-in", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "over-in", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "over-in", actor: Actor): void
-    on(sigName: "over-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "over-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "over-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "over-out", callback: (($obj: DropAction, actor: Actor) => void)): number
-    connect_after(sigName: "over-out", callback: (($obj: DropAction, actor: Actor) => void)): number
+    on(sigName: "over-out", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "over-out", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "over-out", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "over-out", actor: Actor): void
-    on(sigName: "over-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "over-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "over-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DropAction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: DropAction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::actor", callback: (($obj: DropAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::actor", callback: (($obj: DropAction, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::actor", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13270,21 +12322,21 @@ export class DropAction {
 export interface Effect_ConstructProps extends ActorMeta_ConstructProps {
 }
 export class Effect {
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Effect */
+    /* Methods of Clutter-1.0.Clutter.Effect */
     queueRepaint(): void
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13306,29 +12358,12 @@ export class Effect {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.Effect */
-    vfuncGetPaintVolume(volume: PaintVolume): boolean
-    vfuncPaint(flags: EffectPaintFlags): void
-    vfuncPick(flags: EffectPaintFlags): void
-    vfuncPostPaint(): void
-    vfuncPrePaint(): boolean
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Effect, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Effect, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::actor", callback: (($obj: Effect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::actor", callback: (($obj: Effect, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::actor", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13359,9 +12394,9 @@ export class Effect {
 export interface FixedLayout_ConstructProps extends LayoutManager_ConstructProps {
 }
 export class FixedLayout {
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.LayoutManager */
+    /* Methods of Clutter-1.0.Clutter.LayoutManager */
     allocate(container: Container, allocation: ActorBox, flags: AllocationFlags): void
     beginAnimation(duration: number, mode: number): Alpha
     childGetProperty(container: Container, actor: Actor, propertyName: string, value: any): void
@@ -13370,12 +12405,12 @@ export class FixedLayout {
     findChildProperty(name: string): GObject.ParamSpec
     getAnimationProgress(): number
     getChildMeta(container: Container, actor: Actor): LayoutMeta
-    getPreferredHeight(container: Container, forWidth: number): [ /* minHeightP */ number | null, /* natHeightP */ number | null ]
-    getPreferredWidth(container: Container, forHeight: number): [ /* minWidthP */ number | null, /* natWidthP */ number | null ]
+    getPreferredHeight(container: Container, forWidth: number): { minHeightP: number | null, natHeightP: number | null }
+    getPreferredWidth(container: Container, forHeight: number): { minWidthP: number | null, natWidthP: number | null }
     layoutChanged(): void
     listChildProperties(): GObject.ParamSpec[]
     setContainer(container?: Container | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13397,38 +12432,18 @@ export class FixedLayout {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.LayoutManager */
-    vfuncAllocate(container: Container, allocation: ActorBox, flags: AllocationFlags): void
-    vfuncBeginAnimation(duration: number, mode: number): Alpha
-    vfuncEndAnimation(): void
-    vfuncGetAnimationProgress(): number
-    vfuncGetChildMetaType(): GObject.Type
-    vfuncGetPreferredHeight(container: Container, forWidth: number): [ /* minHeightP */ number | null, /* natHeightP */ number | null ]
-    vfuncGetPreferredWidth(container: Container, forHeight: number): [ /* minWidthP */ number | null, /* natWidthP */ number | null ]
-    vfuncLayoutChanged(): void
-    vfuncSetContainer(container?: Container | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.LayoutManager */
+    /* Signals of Clutter-1.0.Clutter.LayoutManager */
     connect(sigName: "layout-changed", callback: (($obj: FixedLayout) => void)): number
-    connect_after(sigName: "layout-changed", callback: (($obj: FixedLayout) => void)): number
+    on(sigName: "layout-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "layout-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "layout-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "layout-changed"): void
-    on(sigName: "layout-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "layout-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "layout-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FixedLayout, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FixedLayout, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -13455,7 +12470,7 @@ export interface FlowLayout_ConstructProps extends LayoutManager_ConstructProps 
     snapToGrid?: boolean
 }
 export class FlowLayout {
-    /* Properties of Clutter.FlowLayout */
+    /* Properties of Clutter-1.0.Clutter.FlowLayout */
     columnSpacing: number
     homogeneous: boolean
     maxColumnWidth: number
@@ -13465,14 +12480,14 @@ export class FlowLayout {
     orientation: FlowOrientation
     rowSpacing: number
     snapToGrid: boolean
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.FlowLayout */
+    /* Methods of Clutter-1.0.Clutter.FlowLayout */
     getColumnSpacing(): number
-    getColumnWidth(): [ /* minWidth */ number, /* maxWidth */ number ]
+    getColumnWidth(): { minWidth: number, maxWidth: number }
     getHomogeneous(): boolean
     getOrientation(): FlowOrientation
-    getRowHeight(): [ /* minHeight */ number, /* maxHeight */ number ]
+    getRowHeight(): { minHeight: number, maxHeight: number }
     getRowSpacing(): number
     getSnapToGrid(): boolean
     setColumnSpacing(spacing: number): void
@@ -13482,7 +12497,7 @@ export class FlowLayout {
     setRowHeight(minHeight: number, maxHeight: number): void
     setRowSpacing(spacing: number): void
     setSnapToGrid(snapToGrid: boolean): void
-    /* Methods of Clutter.LayoutManager */
+    /* Methods of Clutter-1.0.Clutter.LayoutManager */
     allocate(container: Container, allocation: ActorBox, flags: AllocationFlags): void
     beginAnimation(duration: number, mode: number): Alpha
     childGetProperty(container: Container, actor: Actor, propertyName: string, value: any): void
@@ -13491,12 +12506,12 @@ export class FlowLayout {
     findChildProperty(name: string): GObject.ParamSpec
     getAnimationProgress(): number
     getChildMeta(container: Container, actor: Actor): LayoutMeta
-    getPreferredHeight(container: Container, forWidth: number): [ /* minHeightP */ number | null, /* natHeightP */ number | null ]
-    getPreferredWidth(container: Container, forHeight: number): [ /* minWidthP */ number | null, /* natWidthP */ number | null ]
+    getPreferredHeight(container: Container, forWidth: number): { minHeightP: number | null, natHeightP: number | null }
+    getPreferredWidth(container: Container, forHeight: number): { minWidthP: number | null, natWidthP: number | null }
     layoutChanged(): void
     listChildProperties(): GObject.ParamSpec[]
     setContainer(container?: Container | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13518,38 +12533,18 @@ export class FlowLayout {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.LayoutManager */
-    vfuncAllocate(container: Container, allocation: ActorBox, flags: AllocationFlags): void
-    vfuncBeginAnimation(duration: number, mode: number): Alpha
-    vfuncEndAnimation(): void
-    vfuncGetAnimationProgress(): number
-    vfuncGetChildMetaType(): GObject.Type
-    vfuncGetPreferredHeight(container: Container, forWidth: number): [ /* minHeightP */ number | null, /* natHeightP */ number | null ]
-    vfuncGetPreferredWidth(container: Container, forHeight: number): [ /* minWidthP */ number | null, /* natWidthP */ number | null ]
-    vfuncLayoutChanged(): void
-    vfuncSetContainer(container?: Container | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.LayoutManager */
+    /* Signals of Clutter-1.0.Clutter.LayoutManager */
     connect(sigName: "layout-changed", callback: (($obj: FlowLayout) => void)): number
-    connect_after(sigName: "layout-changed", callback: (($obj: FlowLayout) => void)): number
+    on(sigName: "layout-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "layout-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "layout-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "layout-changed"): void
-    on(sigName: "layout-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "layout-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "layout-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FlowLayout, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FlowLayout, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::column-spacing", callback: (($obj: FlowLayout, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::column-spacing", callback: (($obj: FlowLayout, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::column-spacing", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13616,39 +12611,39 @@ export interface GestureAction_ConstructProps extends Action_ConstructProps {
     thresholdTriggerEdge?: GestureTriggerEdge
 }
 export class GestureAction {
-    /* Properties of Clutter.GestureAction */
+    /* Properties of Clutter-1.0.Clutter.GestureAction */
     nTouchPoints: number
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.GestureAction */
+    /* Methods of Clutter-1.0.Clutter.GestureAction */
     cancel(): void
     getDevice(point: number): InputDevice
     getLastEvent(point: number): Event
-    getMotionCoords(point: number): [ /* motionX */ number | null, /* motionY */ number | null ]
-    getMotionDelta(point: number): [ /* returnType */ number, /* deltaX */ number | null, /* deltaY */ number | null ]
+    getMotionCoords(point: number): { motionX: number | null, motionY: number | null }
+    getMotionDelta(point: number): { returnType: number, deltaX: number | null, deltaY: number | null }
     getNCurrentPoints(): number
     getNTouchPoints(): number
-    getPressCoords(point: number): [ /* pressX */ number | null, /* pressY */ number | null ]
-    getReleaseCoords(point: number): [ /* releaseX */ number | null, /* releaseY */ number | null ]
+    getPressCoords(point: number): { pressX: number | null, pressY: number | null }
+    getReleaseCoords(point: number): { releaseX: number | null, releaseY: number | null }
     getSequence(point: number): EventSequence
-    getThresholdTriggerDistance(): [ /* x */ number | null, /* y */ number | null ]
+    getThresholdTriggerDistance(): { x: number | null, y: number | null }
     getThresholdTriggerEdge(): GestureTriggerEdge
     getThresholdTriggerEgde(): GestureTriggerEdge
-    getVelocity(point: number): [ /* returnType */ number, /* velocityX */ number | null, /* velocityY */ number | null ]
+    getVelocity(point: number): { returnType: number, velocityX: number | null, velocityY: number | null }
     setNTouchPoints(nbPoints: number): void
     setThresholdTriggerDistance(x: number, y: number): void
     setThresholdTriggerEdge(edge: GestureTriggerEdge): void
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13670,54 +12665,33 @@ export class GestureAction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.GestureAction */
-    vfuncGestureBegin(actor: Actor): boolean
-    vfuncGestureCancel(actor: Actor): void
-    vfuncGestureEnd(actor: Actor): void
-    vfuncGesturePrepare(actor: Actor): boolean
-    vfuncGestureProgress(actor: Actor): boolean
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.GestureAction */
+    /* Signals of Clutter-1.0.Clutter.GestureAction */
     connect(sigName: "gesture-begin", callback: (($obj: GestureAction, actor: Actor) => boolean)): number
-    connect_after(sigName: "gesture-begin", callback: (($obj: GestureAction, actor: Actor) => boolean)): number
+    on(sigName: "gesture-begin", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gesture-begin", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gesture-begin", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "gesture-begin", actor: Actor): void
-    on(sigName: "gesture-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gesture-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gesture-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "gesture-cancel", callback: (($obj: GestureAction, actor: Actor) => void)): number
-    connect_after(sigName: "gesture-cancel", callback: (($obj: GestureAction, actor: Actor) => void)): number
+    on(sigName: "gesture-cancel", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gesture-cancel", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gesture-cancel", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "gesture-cancel", actor: Actor): void
-    on(sigName: "gesture-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gesture-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gesture-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "gesture-end", callback: (($obj: GestureAction, actor: Actor) => void)): number
-    connect_after(sigName: "gesture-end", callback: (($obj: GestureAction, actor: Actor) => void)): number
+    on(sigName: "gesture-end", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gesture-end", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gesture-end", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "gesture-end", actor: Actor): void
-    on(sigName: "gesture-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gesture-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gesture-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "gesture-progress", callback: (($obj: GestureAction, actor: Actor) => boolean)): number
-    connect_after(sigName: "gesture-progress", callback: (($obj: GestureAction, actor: Actor) => boolean)): number
+    on(sigName: "gesture-progress", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gesture-progress", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gesture-progress", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "gesture-progress", actor: Actor): void
-    on(sigName: "gesture-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gesture-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gesture-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GestureAction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GestureAction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::n-touch-points", callback: (($obj: GestureAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::n-touch-points", callback: (($obj: GestureAction, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::n-touch-points", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13760,15 +12734,15 @@ export interface GridLayout_ConstructProps extends LayoutManager_ConstructProps 
     rowSpacing?: number
 }
 export class GridLayout {
-    /* Properties of Clutter.GridLayout */
+    /* Properties of Clutter-1.0.Clutter.GridLayout */
     columnHomogeneous: boolean
     columnSpacing: number
     orientation: Orientation
     rowHomogeneous: boolean
     rowSpacing: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.GridLayout */
+    /* Methods of Clutter-1.0.Clutter.GridLayout */
     attach(child: Actor, left: number, top: number, width: number, height: number): void
     attachNextTo(child: Actor, sibling: Actor | null, side: GridPosition, width: number, height: number): void
     getChildAt(left: number, top: number): Actor
@@ -13785,7 +12759,7 @@ export class GridLayout {
     setOrientation(orientation: Orientation): void
     setRowHomogeneous(homogeneous: boolean): void
     setRowSpacing(spacing: number): void
-    /* Methods of Clutter.LayoutManager */
+    /* Methods of Clutter-1.0.Clutter.LayoutManager */
     allocate(container: Container, allocation: ActorBox, flags: AllocationFlags): void
     beginAnimation(duration: number, mode: number): Alpha
     childGetProperty(container: Container, actor: Actor, propertyName: string, value: any): void
@@ -13794,12 +12768,12 @@ export class GridLayout {
     findChildProperty(name: string): GObject.ParamSpec
     getAnimationProgress(): number
     getChildMeta(container: Container, actor: Actor): LayoutMeta
-    getPreferredHeight(container: Container, forWidth: number): [ /* minHeightP */ number | null, /* natHeightP */ number | null ]
-    getPreferredWidth(container: Container, forHeight: number): [ /* minWidthP */ number | null, /* natWidthP */ number | null ]
+    getPreferredHeight(container: Container, forWidth: number): { minHeightP: number | null, natHeightP: number | null }
+    getPreferredWidth(container: Container, forHeight: number): { minWidthP: number | null, natWidthP: number | null }
     layoutChanged(): void
     listChildProperties(): GObject.ParamSpec[]
     setContainer(container?: Container | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -13821,38 +12795,18 @@ export class GridLayout {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.LayoutManager */
-    vfuncAllocate(container: Container, allocation: ActorBox, flags: AllocationFlags): void
-    vfuncBeginAnimation(duration: number, mode: number): Alpha
-    vfuncEndAnimation(): void
-    vfuncGetAnimationProgress(): number
-    vfuncGetChildMetaType(): GObject.Type
-    vfuncGetPreferredHeight(container: Container, forWidth: number): [ /* minHeightP */ number | null, /* natHeightP */ number | null ]
-    vfuncGetPreferredWidth(container: Container, forHeight: number): [ /* minWidthP */ number | null, /* natWidthP */ number | null ]
-    vfuncLayoutChanged(): void
-    vfuncSetContainer(container?: Container | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.LayoutManager */
+    /* Signals of Clutter-1.0.Clutter.LayoutManager */
     connect(sigName: "layout-changed", callback: (($obj: GridLayout) => void)): number
-    connect_after(sigName: "layout-changed", callback: (($obj: GridLayout) => void)): number
+    on(sigName: "layout-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "layout-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "layout-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "layout-changed"): void
-    on(sigName: "layout-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "layout-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "layout-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GridLayout, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: GridLayout, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::column-homogeneous", callback: (($obj: GridLayout, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::column-homogeneous", callback: (($obj: GridLayout, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::column-homogeneous", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13895,7 +12849,7 @@ export class GridLayout {
 export interface Group_ConstructProps extends Actor_ConstructProps {
 }
 export class Group {
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Action
     readonly allocation: ActorBox
     anchorGravity: Gravity
@@ -13978,15 +12932,15 @@ export class Group {
     yAlign: ActorAlign
     yExpand: boolean
     zPosition: number
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Group */
+    /* Methods of Clutter-1.0.Clutter.Group */
     getNChildren(): number
     getNthChild(index: number): Actor
     removeAll(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     addAction(action: Action): void
     addActionWithName(name: string, action: Action): void
     addChild(child: Actor): void
@@ -14002,8 +12956,8 @@ export class Group {
     animateWithAlphav(alpha: Alpha, properties: string[], values: any[]): Animation
     animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any[]): Animation
     animatev(mode: number, duration: number, properties: string[], values: any[]): Animation
-    applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): /* vertex */ Vertex
-    applyTransformToPoint(point: Vertex): /* vertex */ Vertex
+    applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): { vertex: Vertex }
+    applyTransformToPoint(point: Vertex): { vertex: Vertex }
     bindModel(model: Gio.ListModel | null, createChildFunc: ActorCreateChildFunc): void
     clearActions(): void
     clearConstraints(): void
@@ -14016,29 +12970,29 @@ export class Group {
     destroyAllChildren(): void
     detachAnimation(): void
     event(event: Event, capture: boolean): boolean
-    getAbsAllocationVertices(): /* verts */ Vertex[]
+    getAbsAllocationVertices(): { verts: Vertex[] }
     getAccessible(): Atk.Object
     getAction(name: string): Action
     getActions(): Action[]
-    getAllocationBox(): /* box */ ActorBox
-    getAllocationGeometry(): /* geom */ Geometry
-    getAllocationVertices(ancestor?: Actor | null): /* verts */ Vertex[]
-    getAnchorPoint(): [ /* anchorX */ number, /* anchorY */ number ]
+    getAllocationBox(): { box: ActorBox }
+    getAllocationGeometry(): { geom: Geometry }
+    getAllocationVertices(ancestor?: Actor | null): { verts: Vertex[] }
+    getAnchorPoint(): { anchorX: number, anchorY: number }
     getAnchorPointGravity(): Gravity
     getAnimation(): Animation
-    getBackgroundColor(): /* color */ Color
+    getBackgroundColor(): { color: Color }
     getChildAtIndex(index: number): Actor
-    getChildTransform(): /* transform */ Matrix
+    getChildTransform(): { transform: Matrix }
     getChildren(): Actor[]
-    getClip(): [ /* xoff */ number | null, /* yoff */ number | null, /* width */ number | null, /* height */ number | null ]
+    getClip(): { xoff: number | null, yoff: number | null, width: number | null, height: number | null }
     getClipToAllocation(): boolean
     getConstraint(name: string): Constraint
     getConstraints(): Constraint[]
     getContent(): Content
-    getContentBox(): /* box */ ActorBox
+    getContentBox(): { box: ActorBox }
     getContentGravity(): ContentGravity
     getContentRepeat(): ContentRepeat
-    getContentScalingFilters(): [ /* minFilter */ ScalingFilter | null, /* magFilter */ ScalingFilter | null ]
+    getContentScalingFilters(): { minFilter: ScalingFilter | null, magFilter: ScalingFilter | null }
     getDefaultPaintVolume(): PaintVolume
     getDepth(): number
     getEasingDelay(): number
@@ -14049,12 +13003,12 @@ export class Group {
     getFirstChild(): Actor
     getFixedPositionSet(): boolean
     getFlags(): ActorFlags
-    getGeometry(): /* geometry */ Geometry
+    getGeometry(): { geometry: Geometry }
     getGid(): number
     getHeight(): number
     getLastChild(): Actor
     getLayoutManager(): LayoutManager
-    getMargin(): /* margin */ Margin
+    getMargin(): { margin: Margin }
     getMarginBottom(): number
     getMarginLeft(): number
     getMarginRight(): number
@@ -14063,38 +13017,38 @@ export class Group {
     getNextSibling(): Actor
     getOffscreenRedirect(): OffscreenRedirect
     getOpacity(): number
-    getPaintBox(): [ /* returnType */ boolean, /* box */ ActorBox ]
+    getPaintBox(): { returnType: boolean, box: ActorBox }
     getPaintOpacity(): number
     getPaintVisibility(): boolean
     getPaintVolume(): PaintVolume
     getPangoContext(): Pango.Context
     getParent(): Actor
-    getPivotPoint(): [ /* pivotX */ number | null, /* pivotY */ number | null ]
+    getPivotPoint(): { pivotX: number | null, pivotY: number | null }
     getPivotPointZ(): number
-    getPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredSize(): [ /* minWidthP */ number | null, /* minHeightP */ number | null, /* naturalWidthP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
+    getPosition(): { x: number | null, y: number | null }
+    getPreferredHeight(forWidth: number): { minHeightP: number | null, naturalHeightP: number | null }
+    getPreferredSize(): { minWidthP: number | null, minHeightP: number | null, naturalWidthP: number | null, naturalHeightP: number | null }
+    getPreferredWidth(forHeight: number): { minWidthP: number | null, naturalWidthP: number | null }
     getPreviousSibling(): Actor
     getReactive(): boolean
     getRequestMode(): RequestMode
-    getRotation(axis: RotateAxis): [ /* returnType */ number, /* x */ number, /* y */ number, /* z */ number ]
+    getRotation(axis: RotateAxis): { returnType: number, x: number, y: number, z: number }
     getRotationAngle(axis: RotateAxis): number
-    getScale(): [ /* scaleX */ number | null, /* scaleY */ number | null ]
-    getScaleCenter(): [ /* centerX */ number | null, /* centerY */ number | null ]
+    getScale(): { scaleX: number | null, scaleY: number | null }
+    getScaleCenter(): { centerX: number | null, centerY: number | null }
     getScaleGravity(): Gravity
     getScaleZ(): number
     getShader(): Shader
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getSize(): { width: number | null, height: number | null }
     getStage(): Stage
     getTextDirection(): TextDirection
-    getTransform(): /* transform */ Matrix
-    getTransformationMatrix(): /* matrix */ Matrix
+    getTransform(): { transform: Matrix }
+    getTransformationMatrix(): { matrix: Matrix }
     getTransformedPaintVolume(relativeToAncestor: Actor): PaintVolume
-    getTransformedPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getTransformedSize(): [ /* width */ number | null, /* height */ number | null ]
+    getTransformedPosition(): { x: number | null, y: number | null }
+    getTransformedSize(): { width: number | null, height: number | null }
     getTransition(name: string): Transition
-    getTranslation(): [ /* translateX */ number | null, /* translateY */ number | null, /* translateZ */ number | null ]
+    getTranslation(): { translateX: number | null, translateY: number | null, translateZ: number | null }
     getWidth(): number
     getX(): number
     getXAlign(): ActorAlign
@@ -14216,12 +13170,12 @@ export class Group {
     shouldPickPaint(): boolean
     show(): void
     showAll(): void
-    transformStagePoint(x: number, y: number): [ /* returnType */ boolean, /* xOut */ number, /* yOut */ number ]
+    transformStagePoint(x: number, y: number): { returnType: boolean, xOut: number, yOut: number }
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetFlags(flags: ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -14243,13 +13197,13 @@ export class Group {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animateProperty(animation: Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     findProperty(propertyName: string): GObject.ParamSpec
     getInitialState(propertyName: string, value: any): void
-    interpolateValue(propertyName: string, interval: Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
+    interpolateValue(propertyName: string, interval: Interval, progress: number): { returnType: boolean, value: any }
     setFinalState(propertyName: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     addActor(actor: Actor): void
     childGetProperty(child: Actor, property: string, value: any): void
     childNotify(child: Actor, pspec: GObject.ParamSpec): void
@@ -14264,260 +13218,164 @@ export class Group {
     raiseChild(actor: Actor, sibling?: Actor | null): void
     removeActor(actor: Actor): void
     sortDepthOrder(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Actor */
-    vfuncAllocate(box: ActorBox, flags: AllocationFlags): void
-    vfuncApplyTransform(matrix: Matrix): void
-    vfuncButtonPressEvent(event: ButtonEvent): boolean
-    vfuncButtonReleaseEvent(event: ButtonEvent): boolean
-    vfuncCapturedEvent(event: Event): boolean
-    vfuncDestroy(): void
-    vfuncEnterEvent(event: CrossingEvent): boolean
-    vfuncEvent(event: Event): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPaintVolume(volume: PaintVolume): boolean
-    vfuncGetPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    vfuncGetPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
-    vfuncHasOverlaps(): boolean
-    vfuncHide(): void
-    vfuncHideAll(): void
-    vfuncKeyFocusIn(): void
-    vfuncKeyFocusOut(): void
-    vfuncKeyPressEvent(event: KeyEvent): boolean
-    vfuncKeyReleaseEvent(event: KeyEvent): boolean
-    vfuncLeaveEvent(event: CrossingEvent): boolean
-    vfuncMap(): void
-    vfuncMotionEvent(event: MotionEvent): boolean
-    vfuncPaint(): void
-    vfuncPaintNode(root: PaintNode): void
-    vfuncParentSet(oldParent: Actor): void
-    vfuncPick(color: Color): void
-    vfuncQueueRedraw(leafThatQueued: Actor): void
-    vfuncQueueRelayout(): void
-    vfuncRealize(): void
-    vfuncScrollEvent(event: ScrollEvent): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncTouchEvent(event: TouchEvent): boolean
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    vfuncAnimateProperty(animation: Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
-    vfuncFindProperty(propertyName: string): GObject.ParamSpec
-    vfuncGetInitialState(propertyName: string, value: any): void
-    vfuncInterpolateValue(propertyName: string, interval: Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
-    vfuncSetFinalState(propertyName: string, value: any): void
-    vfuncActorAdded(actor: Actor): void
-    vfuncActorRemoved(actor: Actor): void
-    vfuncAdd(actor: Actor): void
-    vfuncChildNotify(child: Actor, pspec: GObject.ParamSpec): void
-    vfuncCreateChildMeta(actor: Actor): void
-    vfuncDestroyChildMeta(actor: Actor): void
-    vfuncForeach(callback: Callback): void
-    vfuncForeachWithInternals(callback: Callback): void
-    vfuncGetChildMeta(actor: Actor): ChildMeta
-    vfuncLower(actor: Actor, sibling?: Actor | null): void
-    vfuncRaise(actor: Actor, sibling?: Actor | null): void
-    vfuncRemove(actor: Actor): void
-    vfuncSortDepthOrder(): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Group, box: ActorBox, flags: AllocationFlags) => void)): number
-    connect_after(sigName: "allocation-changed", callback: (($obj: Group, box: ActorBox, flags: AllocationFlags) => void)): number
+    on(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void): NodeJS.EventEmitter
     emit(sigName: "allocation-changed", box: ActorBox, flags: AllocationFlags): void
-    on(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: Group, event: ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: Group, event: ButtonEvent) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: ButtonEvent): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: Group, event: ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: Group, event: ButtonEvent) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: ButtonEvent): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "captured-event", callback: (($obj: Group, event: Event) => boolean)): number
-    connect_after(sigName: "captured-event", callback: (($obj: Group, event: Event) => boolean)): number
+    on(sigName: "captured-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "captured-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "captured-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "captured-event", event: Event): void
-    on(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: Group) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Group) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-event", callback: (($obj: Group, event: CrossingEvent) => boolean)): number
-    connect_after(sigName: "enter-event", callback: (($obj: Group, event: CrossingEvent) => boolean)): number
+    on(sigName: "enter-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-event", callback: (event: CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "enter-event", event: CrossingEvent): void
-    on(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: Group, event: Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: Group, event: Event) => boolean)): number
+    on(sigName: "event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: Group) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: Group) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-in", callback: (($obj: Group) => void)): number
-    connect_after(sigName: "key-focus-in", callback: (($obj: Group) => void)): number
+    on(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-in", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-in"): void
-    on(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-out", callback: (($obj: Group) => void)): number
-    connect_after(sigName: "key-focus-out", callback: (($obj: Group) => void)): number
+    on(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-out", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-out"): void
-    on(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: Group, event: KeyEvent) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: Group, event: KeyEvent) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: KeyEvent): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: Group, event: KeyEvent) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: Group, event: KeyEvent) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: KeyEvent): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-event", callback: (($obj: Group, event: CrossingEvent) => boolean)): number
-    connect_after(sigName: "leave-event", callback: (($obj: Group, event: CrossingEvent) => boolean)): number
+    on(sigName: "leave-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-event", callback: (event: CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "leave-event", event: CrossingEvent): void
-    on(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-event", callback: (($obj: Group, event: MotionEvent) => boolean)): number
-    connect_after(sigName: "motion-event", callback: (($obj: Group, event: MotionEvent) => boolean)): number
+    on(sigName: "motion-event", callback: (event: MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-event", callback: (event: MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-event", callback: (event: MotionEvent) => void): NodeJS.EventEmitter
     emit(sigName: "motion-event", event: MotionEvent): void
-    on(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paint", callback: (($obj: Group) => void)): number
-    connect_after(sigName: "paint", callback: (($obj: Group) => void)): number
+    on(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paint", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paint"): void
-    on(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: Group, oldParent?: Actor | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: Group, oldParent?: Actor | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Actor | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Actor | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pick", callback: (($obj: Group, color: Color) => void)): number
-    connect_after(sigName: "pick", callback: (($obj: Group, color: Color) => void)): number
+    on(sigName: "pick", callback: (color: Color) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pick", callback: (color: Color) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pick", callback: (color: Color) => void): NodeJS.EventEmitter
     emit(sigName: "pick", color: Color): void
-    on(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-redraw", callback: (($obj: Group, origin: Actor) => void)): number
-    connect_after(sigName: "queue-redraw", callback: (($obj: Group, origin: Actor) => void)): number
+    on(sigName: "queue-redraw", callback: (origin: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-redraw", callback: (origin: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-redraw", callback: (origin: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "queue-redraw", origin: Actor): void
-    on(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-relayout", callback: (($obj: Group) => void)): number
-    connect_after(sigName: "queue-relayout", callback: (($obj: Group) => void)): number
+    on(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-relayout", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "queue-relayout"): void
-    on(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: Group) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: Group) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: Group, event: ScrollEvent) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: Group, event: ScrollEvent) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: ScrollEvent) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: ScrollEvent): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: Group) => void)): number
-    connect_after(sigName: "show", callback: (($obj: Group) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: Group, event: Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: Group, event: Event) => boolean)): number
+    on(sigName: "touch-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", event: Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transition-stopped", callback: (($obj: Group, name: string, isFinished: boolean) => void)): number
-    connect_after(sigName: "transition-stopped", callback: (($obj: Group, name: string, isFinished: boolean) => void)): number
+    on(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "transition-stopped", name: string, isFinished: boolean): void
-    on(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transitions-completed", callback: (($obj: Group) => void)): number
-    connect_after(sigName: "transitions-completed", callback: (($obj: Group) => void)): number
+    on(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transitions-completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "transitions-completed"): void
-    on(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: Group) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: Group) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Group, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Group, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Group, actor: Actor) => void)): number
-    connect_after(sigName: "actor-added", callback: (($obj: Group, actor: Actor) => void)): number
+    on(sigName: "actor-added", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-added", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-added", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-added", actor: Actor): void
-    on(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "actor-removed", callback: (($obj: Group, actor: Actor) => void)): number
-    connect_after(sigName: "actor-removed", callback: (($obj: Group, actor: Actor) => void)): number
+    on(sigName: "actor-removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-removed", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-removed", actor: Actor): void
-    on(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: Group, actor: Actor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: Group, actor: Actor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", actor: Actor, pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::actions", callback: (($obj: Group, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::actions", callback: (($obj: Group, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::actions", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -14945,13 +13803,13 @@ export class Group {
 export interface Image_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Image {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Image */
+    /* Methods of Clutter-1.0.Clutter.Image */
     setArea(data: any[], pixelFormat: Cogl.PixelFormat, rect: cairo.RectangleInt, rowStride: number): boolean
     setBytes(data: any, pixelFormat: Cogl.PixelFormat, width: number, height: number, rowStride: number): boolean
     setData(data: any[], pixelFormat: Cogl.PixelFormat, width: number, height: number, rowStride: number): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -14973,43 +13831,26 @@ export class Image {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Content */
-    getPreferredSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
+    /* Methods of Clutter-1.0.Clutter.Content */
+    getPreferredSize(): { returnType: boolean, width: number, height: number }
     invalidate(): void
-    /* Virtual methods of Clutter.Image */
-    vfuncAttached(actor: Actor): void
-    vfuncDetached(actor: Actor): void
-    vfuncGetPreferredSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
-    vfuncInvalidate(): void
-    vfuncPaintContent(actor: Actor, node: PaintNode): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Image, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Image, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Content */
+    /* Signals of Clutter-1.0.Clutter.Content */
     connect(sigName: "attached", callback: (($obj: Image, actor: Actor) => void)): number
-    connect_after(sigName: "attached", callback: (($obj: Image, actor: Actor) => void)): number
+    on(sigName: "attached", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "attached", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "attached", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "attached", actor: Actor): void
-    on(sigName: "attached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "attached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "attached", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "detached", callback: (($obj: Image, actor: Actor) => void)): number
-    connect_after(sigName: "detached", callback: (($obj: Image, actor: Actor) => void)): number
+    on(sigName: "detached", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "detached", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "detached", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "detached", actor: Actor): void
-    on(sigName: "detached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "detached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "detached", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -15035,17 +13876,17 @@ export interface InputDevice_ConstructProps extends GObject.Object_ConstructProp
     vendorId?: string
 }
 export class InputDevice {
-    /* Properties of Clutter.InputDevice */
+    /* Properties of Clutter-1.0.Clutter.InputDevice */
     enabled: boolean
     readonly nAxes: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.InputDevice */
+    /* Methods of Clutter-1.0.Clutter.InputDevice */
     getAssociatedDevice(): InputDevice
     getAxis(index: number): InputAxis
-    getAxisValue(axes: number[], axis: InputAxis): [ /* returnType */ boolean, /* value */ number ]
-    getCoords(sequence?: EventSequence | null): [ /* returnType */ boolean, /* point */ Point ]
-    getDeviceCoords(): [ /* x */ number, /* y */ number ]
+    getAxisValue(axes: number[], axis: InputAxis): { returnType: boolean, value: number }
+    getCoords(sequence?: EventSequence | null): { returnType: boolean, point: Point }
+    getDeviceCoords(): { x: number, y: number }
     getDeviceId(): number
     getDeviceMode(): InputMode
     getDeviceName(): string
@@ -15053,7 +13894,7 @@ export class InputDevice {
     getEnabled(): boolean
     getGrabbedActor(): Actor
     getHasCursor(): boolean
-    getKey(index: number): [ /* returnType */ boolean, /* keyval */ number, /* modifiers */ ModifierType ]
+    getKey(index: number): { returnType: boolean, keyval: number, modifiers: ModifierType }
     getModifierState(): ModifierType
     getNAxes(): number
     getNKeys(): number
@@ -15071,7 +13912,7 @@ export class InputDevice {
     setKey(index: number, keyval: number, modifiers: ModifierType): void
     ungrab(): void
     updateFromEvent(event: Event, updateStage: boolean): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -15093,21 +13934,12 @@ export class InputDevice {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: InputDevice, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: InputDevice, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::enabled", callback: (($obj: InputDevice, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::enabled", callback: (($obj: InputDevice, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -15136,17 +13968,17 @@ export interface Interval_ConstructProps extends GObject.InitiallyUnowned_Constr
     valueType?: GObject.Type
 }
 export class Interval {
-    /* Properties of Clutter.Interval */
+    /* Properties of Clutter-1.0.Clutter.Interval */
     final: any
     initial: any
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Interval */
+    /* Methods of Clutter-1.0.Clutter.Interval */
     clone(): Interval
     compute(factor: number): any
-    computeValue(factor: number): [ /* returnType */ boolean, /* value */ any ]
-    getFinalValue(): /* value */ any
-    getInitialValue(): /* value */ any
+    computeValue(factor: number): { returnType: boolean, value: any }
+    getFinalValue(): { value: any }
+    getInitialValue(): { value: any }
     getValueType(): GObject.Type
     isValid(): boolean
     peekFinalValue(): any
@@ -15154,7 +13986,7 @@ export class Interval {
     setFinal(value: any): void
     setInitial(value: any): void
     validate(pspec: GObject.ParamSpec): boolean
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -15176,33 +14008,17 @@ export class Interval {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Interval */
-    vfuncComputeValue(factor: number): [ /* returnType */ boolean, /* value */ any ]
-    vfuncValidate(pspec: GObject.ParamSpec): boolean
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Interval, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Interval, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::final", callback: (($obj: Interval, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::final", callback: (($obj: Interval, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::final", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -15230,13 +14046,13 @@ export class Interval {
 export interface KeyframeTransition_ConstructProps extends PropertyTransition_ConstructProps {
 }
 export class KeyframeTransition {
-    /* Properties of Clutter.PropertyTransition */
+    /* Properties of Clutter-1.0.Clutter.PropertyTransition */
     propertyName: string
-    /* Properties of Clutter.Transition */
+    /* Properties of Clutter-1.0.Clutter.Transition */
     animatable: Animatable
     interval: Interval
     removeOnComplete: boolean
-    /* Properties of Clutter.Timeline */
+    /* Properties of Clutter-1.0.Clutter.Timeline */
     autoReverse: boolean
     delay: number
     direction: TimelineDirection
@@ -15244,20 +14060,20 @@ export class KeyframeTransition {
     loop: boolean
     progressMode: AnimationMode
     repeatCount: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.KeyframeTransition */
+    /* Methods of Clutter-1.0.Clutter.KeyframeTransition */
     clear(): void
-    getKeyFrame(index: number): [ /* key */ number | null, /* mode */ AnimationMode | null, /* value */ any ]
+    getKeyFrame(index: number): { key: number | null, mode: AnimationMode | null, value: any }
     getNKeyFrames(): number
     setKeyFrame(index: number, key: number, mode: AnimationMode, value: any): void
     setKeyFrames(keyFrames: number[]): void
     setModes(modes: AnimationMode[]): void
     setValues(values: any[]): void
-    /* Methods of Clutter.PropertyTransition */
+    /* Methods of Clutter-1.0.Clutter.PropertyTransition */
     getPropertyName(): string
     setPropertyName(propertyName?: string | null): void
-    /* Methods of Clutter.Transition */
+    /* Methods of Clutter-1.0.Clutter.Transition */
     getAnimatable(): Animatable
     getInterval(): Interval
     getRemoveOnComplete(): boolean
@@ -15266,14 +14082,14 @@ export class KeyframeTransition {
     setInterval(interval?: Interval | null): void
     setRemoveOnComplete(removeComplete: boolean): void
     setTo(value: any): void
-    /* Methods of Clutter.Timeline */
+    /* Methods of Clutter-1.0.Clutter.Timeline */
     addMarker(markerName: string, progress: number): void
     addMarkerAtTime(markerName: string, msecs: number): void
     advance(msecs: number): void
     advanceToMarker(markerName: string): void
     clone(): Timeline
     getAutoReverse(): boolean
-    getCubicBezierProgress(): [ /* returnType */ boolean, /* c1 */ Point, /* c2 */ Point ]
+    getCubicBezierProgress(): { returnType: boolean, c1: Point, c2: Point }
     getCurrentRepeat(): number
     getDelay(): number
     getDelta(): number
@@ -15285,7 +14101,7 @@ export class KeyframeTransition {
     getProgress(): number
     getProgressMode(): AnimationMode
     getRepeatCount(): number
-    getStepProgress(): [ /* returnType */ boolean, /* nSteps */ number, /* stepMode */ StepMode ]
+    getStepProgress(): { returnType: boolean, nSteps: number, stepMode: StepMode }
     hasMarker(markerName: string): boolean
     isPlaying(): boolean
     listMarkers(msecs: number): string[]
@@ -15305,7 +14121,7 @@ export class KeyframeTransition {
     skip(msecs: number): void
     start(): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -15327,78 +14143,48 @@ export class KeyframeTransition {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Transition */
-    vfuncAttached(animatable: Animatable): void
-    vfuncComputeValue(animatable: Animatable, interval: Interval, progress: number): void
-    vfuncDetached(animatable: Animatable): void
-    /* Virtual methods of Clutter.Timeline */
-    vfuncCompleted(): void
-    vfuncMarkerReached(markerName: string, msecs: number): void
-    vfuncNewFrame(msecs: number): void
-    vfuncPaused(): void
-    vfuncStarted(): void
-    vfuncStopped(isFinished: boolean): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Timeline */
+    /* Signals of Clutter-1.0.Clutter.Timeline */
     connect(sigName: "completed", callback: (($obj: KeyframeTransition) => void)): number
-    connect_after(sigName: "completed", callback: (($obj: KeyframeTransition) => void)): number
+    on(sigName: "completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "completed"): void
-    on(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "marker-reached", callback: (($obj: KeyframeTransition, markerName: string, msecs: number) => void)): number
-    connect_after(sigName: "marker-reached", callback: (($obj: KeyframeTransition, markerName: string, msecs: number) => void)): number
+    on(sigName: "marker-reached", callback: (markerName: string, msecs: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "marker-reached", callback: (markerName: string, msecs: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "marker-reached", callback: (markerName: string, msecs: number) => void): NodeJS.EventEmitter
     emit(sigName: "marker-reached", markerName: string, msecs: number): void
-    on(sigName: "marker-reached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "marker-reached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "marker-reached", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "new-frame", callback: (($obj: KeyframeTransition, msecs: number) => void)): number
-    connect_after(sigName: "new-frame", callback: (($obj: KeyframeTransition, msecs: number) => void)): number
+    on(sigName: "new-frame", callback: (msecs: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-frame", callback: (msecs: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-frame", callback: (msecs: number) => void): NodeJS.EventEmitter
     emit(sigName: "new-frame", msecs: number): void
-    on(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paused", callback: (($obj: KeyframeTransition) => void)): number
-    connect_after(sigName: "paused", callback: (($obj: KeyframeTransition) => void)): number
+    on(sigName: "paused", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paused", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paused", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paused"): void
-    on(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "started", callback: (($obj: KeyframeTransition) => void)): number
-    connect_after(sigName: "started", callback: (($obj: KeyframeTransition) => void)): number
+    on(sigName: "started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "started", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "started"): void
-    on(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "stopped", callback: (($obj: KeyframeTransition, isFinished: boolean) => void)): number
-    connect_after(sigName: "stopped", callback: (($obj: KeyframeTransition, isFinished: boolean) => void)): number
+    on(sigName: "stopped", callback: (isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "stopped", callback: (isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "stopped", callback: (isFinished: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "stopped", isFinished: boolean): void
-    on(sigName: "stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: KeyframeTransition, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: KeyframeTransition, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::property-name", callback: (($obj: KeyframeTransition, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::property-name", callback: (($obj: KeyframeTransition, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::property-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -15473,9 +14259,9 @@ export class KeyframeTransition {
 export interface LayoutManager_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
 export class LayoutManager {
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.LayoutManager */
+    /* Methods of Clutter-1.0.Clutter.LayoutManager */
     allocate(container: Container, allocation: ActorBox, flags: AllocationFlags): void
     beginAnimation(duration: number, mode: number): Alpha
     childGetProperty(container: Container, actor: Actor, propertyName: string, value: any): void
@@ -15484,12 +14270,12 @@ export class LayoutManager {
     findChildProperty(name: string): GObject.ParamSpec
     getAnimationProgress(): number
     getChildMeta(container: Container, actor: Actor): LayoutMeta
-    getPreferredHeight(container: Container, forWidth: number): [ /* minHeightP */ number | null, /* natHeightP */ number | null ]
-    getPreferredWidth(container: Container, forHeight: number): [ /* minWidthP */ number | null, /* natWidthP */ number | null ]
+    getPreferredHeight(container: Container, forWidth: number): { minHeightP: number | null, natHeightP: number | null }
+    getPreferredWidth(container: Container, forHeight: number): { minWidthP: number | null, natWidthP: number | null }
     layoutChanged(): void
     listChildProperties(): GObject.ParamSpec[]
     setContainer(container?: Container | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -15511,38 +14297,18 @@ export class LayoutManager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.LayoutManager */
-    vfuncAllocate(container: Container, allocation: ActorBox, flags: AllocationFlags): void
-    vfuncBeginAnimation(duration: number, mode: number): Alpha
-    vfuncEndAnimation(): void
-    vfuncGetAnimationProgress(): number
-    vfuncGetChildMetaType(): GObject.Type
-    vfuncGetPreferredHeight(container: Container, forWidth: number): [ /* minHeightP */ number | null, /* natHeightP */ number | null ]
-    vfuncGetPreferredWidth(container: Container, forHeight: number): [ /* minWidthP */ number | null, /* natWidthP */ number | null ]
-    vfuncLayoutChanged(): void
-    vfuncSetContainer(container?: Container | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.LayoutManager */
+    /* Signals of Clutter-1.0.Clutter.LayoutManager */
     connect(sigName: "layout-changed", callback: (($obj: LayoutManager) => void)): number
-    connect_after(sigName: "layout-changed", callback: (($obj: LayoutManager) => void)): number
+    on(sigName: "layout-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "layout-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "layout-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "layout-changed"): void
-    on(sigName: "layout-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "layout-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "layout-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LayoutManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: LayoutManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -15559,19 +14325,19 @@ export interface LayoutMeta_ConstructProps extends ChildMeta_ConstructProps {
     manager?: LayoutManager
 }
 export class LayoutMeta {
-    /* Fields of Clutter.LayoutMeta */
+    /* Fields of Clutter-1.0.Clutter.LayoutMeta */
     manager: LayoutManager
-    /* Fields of Clutter.ChildMeta */
+    /* Fields of Clutter-1.0.Clutter.ChildMeta */
     container: Container
     actor: Actor
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.LayoutMeta */
+    /* Methods of Clutter-1.0.Clutter.LayoutMeta */
     getManager(): LayoutManager
-    /* Methods of Clutter.ChildMeta */
+    /* Methods of Clutter-1.0.Clutter.ChildMeta */
     getActor(): Actor
     getContainer(): Container
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -15593,21 +14359,12 @@ export class LayoutMeta {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: LayoutMeta, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: LayoutMeta, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -15623,11 +14380,11 @@ export class LayoutMeta {
 export interface ListModel_ConstructProps extends Model_ConstructProps {
 }
 export class ListModel {
-    /* Properties of Clutter.Model */
+    /* Properties of Clutter-1.0.Clutter.Model */
     readonly filterSet: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Model */
+    /* Methods of Clutter-1.0.Clutter.Model */
     appendv(columns: number[], values: any[]): void
     filterIter(iter: ModelIter): boolean
     filterRow(row: number): boolean
@@ -15651,7 +14408,7 @@ export class ListModel {
     setSort(column: number, func: ModelSortFunc | null): void
     setSortingColumn(column: number): void
     setTypes(types: GObject.Type[]): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -15673,73 +14430,43 @@ export class ListModel {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Model */
-    vfuncFilterChanged(): void
-    vfuncGetColumnName(column: number): string
-    vfuncGetColumnType(column: number): GObject.Type
-    vfuncGetIterAtRow(row: number): ModelIter
-    vfuncGetNColumns(): number
-    vfuncGetNRows(): number
-    vfuncRemoveRow(row: number): void
-    vfuncRowAdded(iter: ModelIter): void
-    vfuncRowChanged(iter: ModelIter): void
-    vfuncRowRemoved(iter: ModelIter): void
-    vfuncSortChanged(): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Model */
+    /* Signals of Clutter-1.0.Clutter.Model */
     connect(sigName: "filter-changed", callback: (($obj: ListModel) => void)): number
-    connect_after(sigName: "filter-changed", callback: (($obj: ListModel) => void)): number
+    on(sigName: "filter-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "filter-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "filter-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "filter-changed"): void
-    on(sigName: "filter-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "filter-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "filter-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-added", callback: (($obj: ListModel, iter: ModelIter) => void)): number
-    connect_after(sigName: "row-added", callback: (($obj: ListModel, iter: ModelIter) => void)): number
+    on(sigName: "row-added", callback: (iter: ModelIter) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-added", callback: (iter: ModelIter) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-added", callback: (iter: ModelIter) => void): NodeJS.EventEmitter
     emit(sigName: "row-added", iter: ModelIter): void
-    on(sigName: "row-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-changed", callback: (($obj: ListModel, iter: ModelIter) => void)): number
-    connect_after(sigName: "row-changed", callback: (($obj: ListModel, iter: ModelIter) => void)): number
+    on(sigName: "row-changed", callback: (iter: ModelIter) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-changed", callback: (iter: ModelIter) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-changed", callback: (iter: ModelIter) => void): NodeJS.EventEmitter
     emit(sigName: "row-changed", iter: ModelIter): void
-    on(sigName: "row-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-removed", callback: (($obj: ListModel, iter: ModelIter) => void)): number
-    connect_after(sigName: "row-removed", callback: (($obj: ListModel, iter: ModelIter) => void)): number
+    on(sigName: "row-removed", callback: (iter: ModelIter) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-removed", callback: (iter: ModelIter) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-removed", callback: (iter: ModelIter) => void): NodeJS.EventEmitter
     emit(sigName: "row-removed", iter: ModelIter): void
-    on(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "sort-changed", callback: (($obj: ListModel) => void)): number
-    connect_after(sigName: "sort-changed", callback: (($obj: ListModel) => void)): number
+    on(sigName: "sort-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "sort-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "sort-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "sort-changed"): void
-    on(sigName: "sort-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "sort-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "sort-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ListModel, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ListModel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::filter-set", callback: (($obj: ListModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::filter-set", callback: (($obj: ListModel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::filter-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -15763,11 +14490,11 @@ export class ListModel {
 export interface Model_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Model {
-    /* Properties of Clutter.Model */
+    /* Properties of Clutter-1.0.Clutter.Model */
     readonly filterSet: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Model */
+    /* Methods of Clutter-1.0.Clutter.Model */
     appendv(columns: number[], values: any[]): void
     filterIter(iter: ModelIter): boolean
     filterRow(row: number): boolean
@@ -15791,7 +14518,7 @@ export class Model {
     setSort(column: number, func: ModelSortFunc | null): void
     setSortingColumn(column: number): void
     setTypes(types: GObject.Type[]): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -15813,73 +14540,43 @@ export class Model {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Model */
-    vfuncFilterChanged(): void
-    vfuncGetColumnName(column: number): string
-    vfuncGetColumnType(column: number): GObject.Type
-    vfuncGetIterAtRow(row: number): ModelIter
-    vfuncGetNColumns(): number
-    vfuncGetNRows(): number
-    vfuncRemoveRow(row: number): void
-    vfuncRowAdded(iter: ModelIter): void
-    vfuncRowChanged(iter: ModelIter): void
-    vfuncRowRemoved(iter: ModelIter): void
-    vfuncSortChanged(): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Model */
+    /* Signals of Clutter-1.0.Clutter.Model */
     connect(sigName: "filter-changed", callback: (($obj: Model) => void)): number
-    connect_after(sigName: "filter-changed", callback: (($obj: Model) => void)): number
+    on(sigName: "filter-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "filter-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "filter-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "filter-changed"): void
-    on(sigName: "filter-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "filter-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "filter-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-added", callback: (($obj: Model, iter: ModelIter) => void)): number
-    connect_after(sigName: "row-added", callback: (($obj: Model, iter: ModelIter) => void)): number
+    on(sigName: "row-added", callback: (iter: ModelIter) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-added", callback: (iter: ModelIter) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-added", callback: (iter: ModelIter) => void): NodeJS.EventEmitter
     emit(sigName: "row-added", iter: ModelIter): void
-    on(sigName: "row-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-changed", callback: (($obj: Model, iter: ModelIter) => void)): number
-    connect_after(sigName: "row-changed", callback: (($obj: Model, iter: ModelIter) => void)): number
+    on(sigName: "row-changed", callback: (iter: ModelIter) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-changed", callback: (iter: ModelIter) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-changed", callback: (iter: ModelIter) => void): NodeJS.EventEmitter
     emit(sigName: "row-changed", iter: ModelIter): void
-    on(sigName: "row-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "row-removed", callback: (($obj: Model, iter: ModelIter) => void)): number
-    connect_after(sigName: "row-removed", callback: (($obj: Model, iter: ModelIter) => void)): number
+    on(sigName: "row-removed", callback: (iter: ModelIter) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "row-removed", callback: (iter: ModelIter) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "row-removed", callback: (iter: ModelIter) => void): NodeJS.EventEmitter
     emit(sigName: "row-removed", iter: ModelIter): void
-    on(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "row-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "sort-changed", callback: (($obj: Model) => void)): number
-    connect_after(sigName: "sort-changed", callback: (($obj: Model) => void)): number
+    on(sigName: "sort-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "sort-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "sort-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "sort-changed"): void
-    on(sigName: "sort-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "sort-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "sort-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Model, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Model, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::filter-set", callback: (($obj: Model, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::filter-set", callback: (($obj: Model, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::filter-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -15902,22 +14599,22 @@ export interface ModelIter_ConstructProps extends GObject.Object_ConstructProps 
     row?: number
 }
 export class ModelIter {
-    /* Properties of Clutter.ModelIter */
+    /* Properties of Clutter-1.0.Clutter.ModelIter */
     model: Model
     row: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.ModelIter */
+    /* Methods of Clutter-1.0.Clutter.ModelIter */
     copy(): ModelIter
     getModel(): Model
     getRow(): number
-    getValue(column: number): /* value */ any
+    getValue(column: number): { value: any }
     isFirst(): boolean
     isLast(): boolean
     next(): ModelIter
     prev(): ModelIter
     setValue(column: number, value: any): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -15939,31 +14636,12 @@ export class ModelIter {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.ModelIter */
-    vfuncCopy(): ModelIter
-    vfuncGetModel(): Model
-    vfuncGetRow(): number
-    vfuncGetValue(column: number): /* value */ any
-    vfuncIsFirst(): boolean
-    vfuncIsLast(): boolean
-    vfuncNext(): ModelIter
-    vfuncPrev(): ModelIter
-    vfuncSetValue(column: number, value: any): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ModelIter, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ModelIter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::model", callback: (($obj: ModelIter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::model", callback: (($obj: ModelIter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::model", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -15989,28 +14667,28 @@ export class ModelIter {
 export interface OffscreenEffect_ConstructProps extends Effect_ConstructProps {
 }
 export class OffscreenEffect {
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.OffscreenEffect */
+    /* Methods of Clutter-1.0.Clutter.OffscreenEffect */
     createTexture(width: number, height: number): Cogl.Handle
     getTarget(): Cogl.Material
-    getTargetRect(): [ /* returnType */ boolean, /* rect */ Rect ]
-    getTargetSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
+    getTargetRect(): { returnType: boolean, rect: Rect }
+    getTargetSize(): { returnType: boolean, width: number, height: number }
     getTexture(): Cogl.Handle
     paintTarget(): void
-    /* Methods of Clutter.Effect */
+    /* Methods of Clutter-1.0.Clutter.Effect */
     queueRepaint(): void
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -16032,32 +14710,12 @@ export class OffscreenEffect {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.OffscreenEffect */
-    vfuncCreateTexture(width: number, height: number): Cogl.Handle
-    vfuncPaintTarget(): void
-    /* Virtual methods of Clutter.Effect */
-    vfuncGetPaintVolume(volume: PaintVolume): boolean
-    vfuncPaint(flags: EffectPaintFlags): void
-    vfuncPick(flags: EffectPaintFlags): void
-    vfuncPostPaint(): void
-    vfuncPrePaint(): boolean
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: OffscreenEffect, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OffscreenEffect, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::actor", callback: (($obj: OffscreenEffect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::actor", callback: (($obj: OffscreenEffect, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::actor", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -16091,48 +14749,48 @@ export interface PageTurnEffect_ConstructProps extends DeformEffect_ConstructPro
     radius?: number
 }
 export class PageTurnEffect {
-    /* Properties of Clutter.PageTurnEffect */
+    /* Properties of Clutter-1.0.Clutter.PageTurnEffect */
     angle: number
     period: number
     radius: number
-    /* Properties of Clutter.DeformEffect */
+    /* Properties of Clutter-1.0.Clutter.DeformEffect */
     xTiles: number
     yTiles: number
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.PageTurnEffect */
+    /* Methods of Clutter-1.0.Clutter.PageTurnEffect */
     getAngle(): number
     getPeriod(): number
     getRadius(): number
     setAngle(angle: number): void
     setPeriod(period: number): void
     setRadius(radius: number): void
-    /* Methods of Clutter.DeformEffect */
+    /* Methods of Clutter-1.0.Clutter.DeformEffect */
     getBackMaterial(): Cogl.Handle
-    getNTiles(): [ /* xTiles */ number, /* yTiles */ number ]
+    getNTiles(): { xTiles: number, yTiles: number }
     invalidate(): void
     setBackMaterial(material?: Cogl.Handle | null): void
     setNTiles(xTiles: number, yTiles: number): void
-    /* Methods of Clutter.OffscreenEffect */
+    /* Methods of Clutter-1.0.Clutter.OffscreenEffect */
     createTexture(width: number, height: number): Cogl.Handle
     getTarget(): Cogl.Material
-    getTargetRect(): [ /* returnType */ boolean, /* rect */ Rect ]
-    getTargetSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
+    getTargetRect(): { returnType: boolean, rect: Rect }
+    getTargetSize(): { returnType: boolean, width: number, height: number }
     getTexture(): Cogl.Handle
     paintTarget(): void
-    /* Methods of Clutter.Effect */
+    /* Methods of Clutter-1.0.Clutter.Effect */
     queueRepaint(): void
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -16154,34 +14812,12 @@ export class PageTurnEffect {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.DeformEffect */
-    vfuncDeformVertex(width: number, height: number, vertex: Cogl.TextureVertex): void
-    /* Virtual methods of Clutter.OffscreenEffect */
-    vfuncCreateTexture(width: number, height: number): Cogl.Handle
-    vfuncPaintTarget(): void
-    /* Virtual methods of Clutter.Effect */
-    vfuncGetPaintVolume(volume: PaintVolume): boolean
-    vfuncPaint(flags: EffectPaintFlags): void
-    vfuncPick(flags: EffectPaintFlags): void
-    vfuncPostPaint(): void
-    vfuncPrePaint(): boolean
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PageTurnEffect, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PageTurnEffect, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::angle", callback: (($obj: PageTurnEffect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::angle", callback: (($obj: PageTurnEffect, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::angle", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -16237,7 +14873,7 @@ export class PageTurnEffect {
     static $gtype: GObject.Type
 }
 export class PaintNode {
-    /* Methods of Clutter.PaintNode */
+    /* Methods of Clutter-1.0.Clutter.PaintNode */
     addChild(child: PaintNode): void
     addRectangle(rect: ActorBox): void
     addTextureRectangle(rect: ActorBox, x1: number, y1: number, x2: number, y2: number): void
@@ -16253,56 +14889,56 @@ export interface PanAction_ConstructProps extends GestureAction_ConstructProps {
     panAxis?: PanAxis
 }
 export class PanAction {
-    /* Properties of Clutter.PanAction */
+    /* Properties of Clutter-1.0.Clutter.PanAction */
     accelerationFactor: number
     deceleration: number
     interpolate: boolean
     panAxis: PanAxis
-    /* Properties of Clutter.GestureAction */
+    /* Properties of Clutter-1.0.Clutter.GestureAction */
     nTouchPoints: number
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.PanAction */
+    /* Methods of Clutter-1.0.Clutter.PanAction */
     getAccelerationFactor(): number
-    getConstrainedMotionDelta(point: number): [ /* returnType */ number, /* deltaX */ number | null, /* deltaY */ number | null ]
+    getConstrainedMotionDelta(point: number): { returnType: number, deltaX: number | null, deltaY: number | null }
     getDeceleration(): number
     getInterpolate(): boolean
-    getInterpolatedCoords(): [ /* interpolatedX */ number | null, /* interpolatedY */ number | null ]
-    getInterpolatedDelta(): [ /* returnType */ number, /* deltaX */ number | null, /* deltaY */ number | null ]
-    getMotionCoords(point: number): [ /* motionX */ number | null, /* motionY */ number | null ]
-    getMotionDelta(point: number): [ /* returnType */ number, /* deltaX */ number | null, /* deltaY */ number | null ]
+    getInterpolatedCoords(): { interpolatedX: number | null, interpolatedY: number | null }
+    getInterpolatedDelta(): { returnType: number, deltaX: number | null, deltaY: number | null }
+    getMotionCoords(point: number): { motionX: number | null, motionY: number | null }
+    getMotionDelta(point: number): { returnType: number, deltaX: number | null, deltaY: number | null }
     getPanAxis(): PanAxis
     setAccelerationFactor(factor: number): void
     setDeceleration(rate: number): void
     setInterpolate(shouldInterpolate: boolean): void
     setPanAxis(axis: PanAxis): void
-    /* Methods of Clutter.GestureAction */
+    /* Methods of Clutter-1.0.Clutter.GestureAction */
     cancel(): void
     getDevice(point: number): InputDevice
     getLastEvent(point: number): Event
     getNCurrentPoints(): number
     getNTouchPoints(): number
-    getPressCoords(point: number): [ /* pressX */ number | null, /* pressY */ number | null ]
-    getReleaseCoords(point: number): [ /* releaseX */ number | null, /* releaseY */ number | null ]
+    getPressCoords(point: number): { pressX: number | null, pressY: number | null }
+    getReleaseCoords(point: number): { releaseX: number | null, releaseY: number | null }
     getSequence(point: number): EventSequence
-    getThresholdTriggerDistance(): [ /* x */ number | null, /* y */ number | null ]
+    getThresholdTriggerDistance(): { x: number | null, y: number | null }
     getThresholdTriggerEdge(): GestureTriggerEdge
     getThresholdTriggerEgde(): GestureTriggerEdge
-    getVelocity(point: number): [ /* returnType */ number, /* velocityX */ number | null, /* velocityY */ number | null ]
+    getVelocity(point: number): { returnType: number, velocityX: number | null, velocityY: number | null }
     setNTouchPoints(nbPoints: number): void
     setThresholdTriggerDistance(x: number, y: number): void
     setThresholdTriggerEdge(edge: GestureTriggerEdge): void
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -16324,70 +14960,44 @@ export class PanAction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.PanAction */
-    vfuncPan(actor: Actor, isInterpolated: boolean): boolean
-    vfuncPanStopped(actor: Actor): void
-    /* Virtual methods of Clutter.GestureAction */
-    vfuncGestureBegin(actor: Actor): boolean
-    vfuncGestureCancel(actor: Actor): void
-    vfuncGestureEnd(actor: Actor): void
-    vfuncGesturePrepare(actor: Actor): boolean
-    vfuncGestureProgress(actor: Actor): boolean
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.PanAction */
+    /* Signals of Clutter-1.0.Clutter.PanAction */
     connect(sigName: "pan", callback: (($obj: PanAction, actor: Actor, isInterpolated: boolean) => boolean)): number
-    connect_after(sigName: "pan", callback: (($obj: PanAction, actor: Actor, isInterpolated: boolean) => boolean)): number
+    on(sigName: "pan", callback: (actor: Actor, isInterpolated: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pan", callback: (actor: Actor, isInterpolated: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pan", callback: (actor: Actor, isInterpolated: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "pan", actor: Actor, isInterpolated: boolean): void
-    on(sigName: "pan", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pan", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pan", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pan-stopped", callback: (($obj: PanAction, actor: Actor) => void)): number
-    connect_after(sigName: "pan-stopped", callback: (($obj: PanAction, actor: Actor) => void)): number
+    on(sigName: "pan-stopped", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pan-stopped", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pan-stopped", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "pan-stopped", actor: Actor): void
-    on(sigName: "pan-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pan-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pan-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.GestureAction */
+    /* Signals of Clutter-1.0.Clutter.GestureAction */
     connect(sigName: "gesture-begin", callback: (($obj: PanAction, actor: Actor) => boolean)): number
-    connect_after(sigName: "gesture-begin", callback: (($obj: PanAction, actor: Actor) => boolean)): number
+    on(sigName: "gesture-begin", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gesture-begin", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gesture-begin", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "gesture-begin", actor: Actor): void
-    on(sigName: "gesture-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gesture-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gesture-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "gesture-cancel", callback: (($obj: PanAction, actor: Actor) => void)): number
-    connect_after(sigName: "gesture-cancel", callback: (($obj: PanAction, actor: Actor) => void)): number
+    on(sigName: "gesture-cancel", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gesture-cancel", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gesture-cancel", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "gesture-cancel", actor: Actor): void
-    on(sigName: "gesture-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gesture-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gesture-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "gesture-end", callback: (($obj: PanAction, actor: Actor) => void)): number
-    connect_after(sigName: "gesture-end", callback: (($obj: PanAction, actor: Actor) => void)): number
+    on(sigName: "gesture-end", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gesture-end", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gesture-end", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "gesture-end", actor: Actor): void
-    on(sigName: "gesture-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gesture-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gesture-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "gesture-progress", callback: (($obj: PanAction, actor: Actor) => boolean)): number
-    connect_after(sigName: "gesture-progress", callback: (($obj: PanAction, actor: Actor) => boolean)): number
+    on(sigName: "gesture-progress", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gesture-progress", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gesture-progress", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "gesture-progress", actor: Actor): void
-    on(sigName: "gesture-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gesture-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gesture-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PanAction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PanAction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::acceleration-factor", callback: (($obj: PanAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::acceleration-factor", callback: (($obj: PanAction, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::acceleration-factor", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -16443,15 +15053,15 @@ export class PanAction {
     static $gtype: GObject.Type
 }
 export class ParamSpecColor {
-    /* Fields of Clutter.ParamSpecColor */
+    /* Fields of Clutter-1.0.Clutter.ParamSpecColor */
     defaultValue: Color
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     gTypeInstance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     valueType: GObject.Type
     ownerType: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     getBlurb(): string | null
     getDefaultValue(): GObject.Value
     getName(): string
@@ -16462,25 +15072,20 @@ export class ParamSpecColor {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: GObject.Value): void
-    vfuncValueValidate(value: GObject.Value): boolean
-    vfuncValuesCmp(value1: GObject.Value, value2: GObject.Value): number
     static name: string
 }
 export class ParamSpecFixed {
-    /* Fields of Clutter.ParamSpecFixed */
+    /* Fields of Clutter-1.0.Clutter.ParamSpecFixed */
     minimum: Cogl.Fixed
     maximum: Cogl.Fixed
     defaultValue: Cogl.Fixed
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     gTypeInstance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     valueType: GObject.Type
     ownerType: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     getBlurb(): string | null
     getDefaultValue(): GObject.Value
     getName(): string
@@ -16491,21 +15096,16 @@ export class ParamSpecFixed {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: GObject.Value): void
-    vfuncValueValidate(value: GObject.Value): boolean
-    vfuncValuesCmp(value1: GObject.Value, value2: GObject.Value): number
     static name: string
 }
 export class ParamSpecUnit {
-    /* Fields of GObject.ParamSpec */
+    /* Fields of GObject-2.0.GObject.ParamSpec */
     gTypeInstance: GObject.TypeInstance
     name: string
     flags: GObject.ParamFlags
     valueType: GObject.Type
     ownerType: GObject.Type
-    /* Methods of GObject.ParamSpec */
+    /* Methods of GObject-2.0.GObject.ParamSpec */
     getBlurb(): string | null
     getDefaultValue(): GObject.Value
     getName(): string
@@ -16516,23 +15116,18 @@ export class ParamSpecUnit {
     setQdata(quark: GLib.Quark, data?: object | null): void
     sink(): void
     stealQdata(quark: GLib.Quark): object | null
-    /* Virtual methods of GObject.ParamSpec */
-    vfuncFinalize(): void
-    vfuncValueSetDefault(value: GObject.Value): void
-    vfuncValueValidate(value: GObject.Value): boolean
-    vfuncValuesCmp(value1: GObject.Value, value2: GObject.Value): number
     static name: string
 }
 export interface Path_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
     description?: string
 }
 export class Path {
-    /* Properties of Clutter.Path */
+    /* Properties of Clutter-1.0.Clutter.Path */
     description: string
     readonly length: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Path */
+    /* Methods of Clutter-1.0.Clutter.Path */
     addCairoPath(cpath: cairo.Path): void
     addClose(): void
     addCurveTo(x1: number, y1: number, x2: number, y2: number, x3: number, y3: number): void
@@ -16548,15 +15143,15 @@ export class Path {
     getDescription(): string
     getLength(): number
     getNNodes(): number
-    getNode(index: number): /* node */ PathNode
+    getNode(index: number): { node: PathNode }
     getNodes(): PathNode[]
-    getPosition(progress: number): [ /* returnType */ number, /* position */ Knot ]
+    getPosition(progress: number): { returnType: number, position: Knot }
     insertNode(index: number, node: PathNode): void
     removeNode(index: number): void
     replaceNode(index: number, node: PathNode): void
     setDescription(str: string): boolean
     toCairoPath(cr: cairo.Context): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -16578,21 +15173,12 @@ export class Path {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Path, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Path, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::description", callback: (($obj: Path, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::description", callback: (($obj: Path, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -16623,27 +15209,27 @@ export interface PathConstraint_ConstructProps extends Constraint_ConstructProps
     path?: Path
 }
 export class PathConstraint {
-    /* Properties of Clutter.PathConstraint */
+    /* Properties of Clutter-1.0.Clutter.PathConstraint */
     offset: number
     path: Path
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.PathConstraint */
+    /* Methods of Clutter-1.0.Clutter.PathConstraint */
     getOffset(): number
     getPath(): Path
     setOffset(offset: number): void
     setPath(path?: Path | null): void
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -16665,33 +15251,18 @@ export class PathConstraint {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.Constraint */
-    vfuncUpdateAllocation(actor: Actor, allocation: ActorBox): void
-    vfuncUpdatePreferredSize(actor: Actor, direction: Orientation, forSize: number, minimumSize: number, naturalSize: number): void
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.PathConstraint */
+    /* Signals of Clutter-1.0.Clutter.PathConstraint */
     connect(sigName: "node-reached", callback: (($obj: PathConstraint, actor: Actor, index: number) => void)): number
-    connect_after(sigName: "node-reached", callback: (($obj: PathConstraint, actor: Actor, index: number) => void)): number
+    on(sigName: "node-reached", callback: (actor: Actor, index: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "node-reached", callback: (actor: Actor, index: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "node-reached", callback: (actor: Actor, index: number) => void): NodeJS.EventEmitter
     emit(sigName: "node-reached", actor: Actor, index: number): void
-    on(sigName: "node-reached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "node-reached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "node-reached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PathConstraint, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PathConstraint, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::offset", callback: (($obj: PathConstraint, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::offset", callback: (($obj: PathConstraint, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::offset", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -16732,7 +15303,7 @@ export class PathConstraint {
     static $gtype: GObject.Type
 }
 export class PipelineNode {
-    /* Methods of Clutter.PaintNode */
+    /* Methods of Clutter-1.0.Clutter.PaintNode */
     addChild(child: PaintNode): void
     addRectangle(rect: ActorBox): void
     addTextureRectangle(rect: ActorBox, x1: number, y1: number, x2: number, y2: number): void
@@ -16745,13 +15316,13 @@ export interface PropertyTransition_ConstructProps extends Transition_ConstructP
     propertyName?: string
 }
 export class PropertyTransition {
-    /* Properties of Clutter.PropertyTransition */
+    /* Properties of Clutter-1.0.Clutter.PropertyTransition */
     propertyName: string
-    /* Properties of Clutter.Transition */
+    /* Properties of Clutter-1.0.Clutter.Transition */
     animatable: Animatable
     interval: Interval
     removeOnComplete: boolean
-    /* Properties of Clutter.Timeline */
+    /* Properties of Clutter-1.0.Clutter.Timeline */
     autoReverse: boolean
     delay: number
     direction: TimelineDirection
@@ -16759,12 +15330,12 @@ export class PropertyTransition {
     loop: boolean
     progressMode: AnimationMode
     repeatCount: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.PropertyTransition */
+    /* Methods of Clutter-1.0.Clutter.PropertyTransition */
     getPropertyName(): string
     setPropertyName(propertyName?: string | null): void
-    /* Methods of Clutter.Transition */
+    /* Methods of Clutter-1.0.Clutter.Transition */
     getAnimatable(): Animatable
     getInterval(): Interval
     getRemoveOnComplete(): boolean
@@ -16773,14 +15344,14 @@ export class PropertyTransition {
     setInterval(interval?: Interval | null): void
     setRemoveOnComplete(removeComplete: boolean): void
     setTo(value: any): void
-    /* Methods of Clutter.Timeline */
+    /* Methods of Clutter-1.0.Clutter.Timeline */
     addMarker(markerName: string, progress: number): void
     addMarkerAtTime(markerName: string, msecs: number): void
     advance(msecs: number): void
     advanceToMarker(markerName: string): void
     clone(): Timeline
     getAutoReverse(): boolean
-    getCubicBezierProgress(): [ /* returnType */ boolean, /* c1 */ Point, /* c2 */ Point ]
+    getCubicBezierProgress(): { returnType: boolean, c1: Point, c2: Point }
     getCurrentRepeat(): number
     getDelay(): number
     getDelta(): number
@@ -16792,7 +15363,7 @@ export class PropertyTransition {
     getProgress(): number
     getProgressMode(): AnimationMode
     getRepeatCount(): number
-    getStepProgress(): [ /* returnType */ boolean, /* nSteps */ number, /* stepMode */ StepMode ]
+    getStepProgress(): { returnType: boolean, nSteps: number, stepMode: StepMode }
     hasMarker(markerName: string): boolean
     isPlaying(): boolean
     listMarkers(msecs: number): string[]
@@ -16812,7 +15383,7 @@ export class PropertyTransition {
     skip(msecs: number): void
     start(): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -16834,78 +15405,48 @@ export class PropertyTransition {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Transition */
-    vfuncAttached(animatable: Animatable): void
-    vfuncComputeValue(animatable: Animatable, interval: Interval, progress: number): void
-    vfuncDetached(animatable: Animatable): void
-    /* Virtual methods of Clutter.Timeline */
-    vfuncCompleted(): void
-    vfuncMarkerReached(markerName: string, msecs: number): void
-    vfuncNewFrame(msecs: number): void
-    vfuncPaused(): void
-    vfuncStarted(): void
-    vfuncStopped(isFinished: boolean): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Timeline */
+    /* Signals of Clutter-1.0.Clutter.Timeline */
     connect(sigName: "completed", callback: (($obj: PropertyTransition) => void)): number
-    connect_after(sigName: "completed", callback: (($obj: PropertyTransition) => void)): number
+    on(sigName: "completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "completed"): void
-    on(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "marker-reached", callback: (($obj: PropertyTransition, markerName: string, msecs: number) => void)): number
-    connect_after(sigName: "marker-reached", callback: (($obj: PropertyTransition, markerName: string, msecs: number) => void)): number
+    on(sigName: "marker-reached", callback: (markerName: string, msecs: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "marker-reached", callback: (markerName: string, msecs: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "marker-reached", callback: (markerName: string, msecs: number) => void): NodeJS.EventEmitter
     emit(sigName: "marker-reached", markerName: string, msecs: number): void
-    on(sigName: "marker-reached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "marker-reached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "marker-reached", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "new-frame", callback: (($obj: PropertyTransition, msecs: number) => void)): number
-    connect_after(sigName: "new-frame", callback: (($obj: PropertyTransition, msecs: number) => void)): number
+    on(sigName: "new-frame", callback: (msecs: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-frame", callback: (msecs: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-frame", callback: (msecs: number) => void): NodeJS.EventEmitter
     emit(sigName: "new-frame", msecs: number): void
-    on(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paused", callback: (($obj: PropertyTransition) => void)): number
-    connect_after(sigName: "paused", callback: (($obj: PropertyTransition) => void)): number
+    on(sigName: "paused", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paused", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paused", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paused"): void
-    on(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "started", callback: (($obj: PropertyTransition) => void)): number
-    connect_after(sigName: "started", callback: (($obj: PropertyTransition) => void)): number
+    on(sigName: "started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "started", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "started"): void
-    on(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "stopped", callback: (($obj: PropertyTransition, isFinished: boolean) => void)): number
-    connect_after(sigName: "stopped", callback: (($obj: PropertyTransition, isFinished: boolean) => void)): number
+    on(sigName: "stopped", callback: (isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "stopped", callback: (isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "stopped", callback: (isFinished: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "stopped", isFinished: boolean): void
-    on(sigName: "stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PropertyTransition, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PropertyTransition, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::property-name", callback: (($obj: PropertyTransition, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::property-name", callback: (($obj: PropertyTransition, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::property-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -16983,12 +15524,12 @@ export interface Rectangle_ConstructProps extends Actor_ConstructProps {
     hasBorder?: boolean
 }
 export class Rectangle {
-    /* Properties of Clutter.Rectangle */
+    /* Properties of Clutter-1.0.Clutter.Rectangle */
     borderColor: Color
     borderWidth: number
     color: Color
     hasBorder: boolean
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Action
     readonly allocation: ActorBox
     anchorGravity: Gravity
@@ -17071,18 +15612,18 @@ export class Rectangle {
     yAlign: ActorAlign
     yExpand: boolean
     zPosition: number
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Rectangle */
-    getBorderColor(): /* color */ Color
+    /* Methods of Clutter-1.0.Clutter.Rectangle */
+    getBorderColor(): { color: Color }
     getBorderWidth(): number
-    getColor(): /* color */ Color
+    getColor(): { color: Color }
     setBorderColor(color: Color): void
     setBorderWidth(width: number): void
     setColor(color: Color): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     addAction(action: Action): void
     addActionWithName(name: string, action: Action): void
     addChild(child: Actor): void
@@ -17098,8 +15639,8 @@ export class Rectangle {
     animateWithAlphav(alpha: Alpha, properties: string[], values: any[]): Animation
     animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any[]): Animation
     animatev(mode: number, duration: number, properties: string[], values: any[]): Animation
-    applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): /* vertex */ Vertex
-    applyTransformToPoint(point: Vertex): /* vertex */ Vertex
+    applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): { vertex: Vertex }
+    applyTransformToPoint(point: Vertex): { vertex: Vertex }
     bindModel(model: Gio.ListModel | null, createChildFunc: ActorCreateChildFunc): void
     clearActions(): void
     clearConstraints(): void
@@ -17112,29 +15653,29 @@ export class Rectangle {
     destroyAllChildren(): void
     detachAnimation(): void
     event(event: Event, capture: boolean): boolean
-    getAbsAllocationVertices(): /* verts */ Vertex[]
+    getAbsAllocationVertices(): { verts: Vertex[] }
     getAccessible(): Atk.Object
     getAction(name: string): Action
     getActions(): Action[]
-    getAllocationBox(): /* box */ ActorBox
-    getAllocationGeometry(): /* geom */ Geometry
-    getAllocationVertices(ancestor?: Actor | null): /* verts */ Vertex[]
-    getAnchorPoint(): [ /* anchorX */ number, /* anchorY */ number ]
+    getAllocationBox(): { box: ActorBox }
+    getAllocationGeometry(): { geom: Geometry }
+    getAllocationVertices(ancestor?: Actor | null): { verts: Vertex[] }
+    getAnchorPoint(): { anchorX: number, anchorY: number }
     getAnchorPointGravity(): Gravity
     getAnimation(): Animation
-    getBackgroundColor(): /* color */ Color
+    getBackgroundColor(): { color: Color }
     getChildAtIndex(index: number): Actor
-    getChildTransform(): /* transform */ Matrix
+    getChildTransform(): { transform: Matrix }
     getChildren(): Actor[]
-    getClip(): [ /* xoff */ number | null, /* yoff */ number | null, /* width */ number | null, /* height */ number | null ]
+    getClip(): { xoff: number | null, yoff: number | null, width: number | null, height: number | null }
     getClipToAllocation(): boolean
     getConstraint(name: string): Constraint
     getConstraints(): Constraint[]
     getContent(): Content
-    getContentBox(): /* box */ ActorBox
+    getContentBox(): { box: ActorBox }
     getContentGravity(): ContentGravity
     getContentRepeat(): ContentRepeat
-    getContentScalingFilters(): [ /* minFilter */ ScalingFilter | null, /* magFilter */ ScalingFilter | null ]
+    getContentScalingFilters(): { minFilter: ScalingFilter | null, magFilter: ScalingFilter | null }
     getDefaultPaintVolume(): PaintVolume
     getDepth(): number
     getEasingDelay(): number
@@ -17145,12 +15686,12 @@ export class Rectangle {
     getFirstChild(): Actor
     getFixedPositionSet(): boolean
     getFlags(): ActorFlags
-    getGeometry(): /* geometry */ Geometry
+    getGeometry(): { geometry: Geometry }
     getGid(): number
     getHeight(): number
     getLastChild(): Actor
     getLayoutManager(): LayoutManager
-    getMargin(): /* margin */ Margin
+    getMargin(): { margin: Margin }
     getMarginBottom(): number
     getMarginLeft(): number
     getMarginRight(): number
@@ -17160,38 +15701,38 @@ export class Rectangle {
     getNextSibling(): Actor
     getOffscreenRedirect(): OffscreenRedirect
     getOpacity(): number
-    getPaintBox(): [ /* returnType */ boolean, /* box */ ActorBox ]
+    getPaintBox(): { returnType: boolean, box: ActorBox }
     getPaintOpacity(): number
     getPaintVisibility(): boolean
     getPaintVolume(): PaintVolume
     getPangoContext(): Pango.Context
     getParent(): Actor
-    getPivotPoint(): [ /* pivotX */ number | null, /* pivotY */ number | null ]
+    getPivotPoint(): { pivotX: number | null, pivotY: number | null }
     getPivotPointZ(): number
-    getPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredSize(): [ /* minWidthP */ number | null, /* minHeightP */ number | null, /* naturalWidthP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
+    getPosition(): { x: number | null, y: number | null }
+    getPreferredHeight(forWidth: number): { minHeightP: number | null, naturalHeightP: number | null }
+    getPreferredSize(): { minWidthP: number | null, minHeightP: number | null, naturalWidthP: number | null, naturalHeightP: number | null }
+    getPreferredWidth(forHeight: number): { minWidthP: number | null, naturalWidthP: number | null }
     getPreviousSibling(): Actor
     getReactive(): boolean
     getRequestMode(): RequestMode
-    getRotation(axis: RotateAxis): [ /* returnType */ number, /* x */ number, /* y */ number, /* z */ number ]
+    getRotation(axis: RotateAxis): { returnType: number, x: number, y: number, z: number }
     getRotationAngle(axis: RotateAxis): number
-    getScale(): [ /* scaleX */ number | null, /* scaleY */ number | null ]
-    getScaleCenter(): [ /* centerX */ number | null, /* centerY */ number | null ]
+    getScale(): { scaleX: number | null, scaleY: number | null }
+    getScaleCenter(): { centerX: number | null, centerY: number | null }
     getScaleGravity(): Gravity
     getScaleZ(): number
     getShader(): Shader
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getSize(): { width: number | null, height: number | null }
     getStage(): Stage
     getTextDirection(): TextDirection
-    getTransform(): /* transform */ Matrix
-    getTransformationMatrix(): /* matrix */ Matrix
+    getTransform(): { transform: Matrix }
+    getTransformationMatrix(): { matrix: Matrix }
     getTransformedPaintVolume(relativeToAncestor: Actor): PaintVolume
-    getTransformedPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getTransformedSize(): [ /* width */ number | null, /* height */ number | null ]
+    getTransformedPosition(): { x: number | null, y: number | null }
+    getTransformedSize(): { width: number | null, height: number | null }
     getTransition(name: string): Transition
-    getTranslation(): [ /* translateX */ number | null, /* translateY */ number | null, /* translateZ */ number | null ]
+    getTranslation(): { translateX: number | null, translateY: number | null, translateZ: number | null }
     getWidth(): number
     getX(): number
     getXAlign(): ActorAlign
@@ -17313,12 +15854,12 @@ export class Rectangle {
     shouldPickPaint(): boolean
     show(): void
     showAll(): void
-    transformStagePoint(x: number, y: number): [ /* returnType */ boolean, /* xOut */ number, /* yOut */ number ]
+    transformStagePoint(x: number, y: number): { returnType: boolean, xOut: number, yOut: number }
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetFlags(flags: ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -17340,13 +15881,13 @@ export class Rectangle {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animateProperty(animation: Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     findProperty(propertyName: string): GObject.ParamSpec
     getInitialState(propertyName: string, value: any): void
-    interpolateValue(propertyName: string, interval: Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
+    interpolateValue(propertyName: string, interval: Interval, progress: number): { returnType: boolean, value: any }
     setFinalState(propertyName: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     addActor(actor: Actor): void
     childGetProperty(child: Actor, property: string, value: any): void
     childNotify(child: Actor, pspec: GObject.ParamSpec): void
@@ -17361,260 +15902,164 @@ export class Rectangle {
     raiseChild(actor: Actor, sibling?: Actor | null): void
     removeActor(actor: Actor): void
     sortDepthOrder(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Actor */
-    vfuncAllocate(box: ActorBox, flags: AllocationFlags): void
-    vfuncApplyTransform(matrix: Matrix): void
-    vfuncButtonPressEvent(event: ButtonEvent): boolean
-    vfuncButtonReleaseEvent(event: ButtonEvent): boolean
-    vfuncCapturedEvent(event: Event): boolean
-    vfuncDestroy(): void
-    vfuncEnterEvent(event: CrossingEvent): boolean
-    vfuncEvent(event: Event): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPaintVolume(volume: PaintVolume): boolean
-    vfuncGetPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    vfuncGetPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
-    vfuncHasOverlaps(): boolean
-    vfuncHide(): void
-    vfuncHideAll(): void
-    vfuncKeyFocusIn(): void
-    vfuncKeyFocusOut(): void
-    vfuncKeyPressEvent(event: KeyEvent): boolean
-    vfuncKeyReleaseEvent(event: KeyEvent): boolean
-    vfuncLeaveEvent(event: CrossingEvent): boolean
-    vfuncMap(): void
-    vfuncMotionEvent(event: MotionEvent): boolean
-    vfuncPaint(): void
-    vfuncPaintNode(root: PaintNode): void
-    vfuncParentSet(oldParent: Actor): void
-    vfuncPick(color: Color): void
-    vfuncQueueRedraw(leafThatQueued: Actor): void
-    vfuncQueueRelayout(): void
-    vfuncRealize(): void
-    vfuncScrollEvent(event: ScrollEvent): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncTouchEvent(event: TouchEvent): boolean
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    vfuncAnimateProperty(animation: Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
-    vfuncFindProperty(propertyName: string): GObject.ParamSpec
-    vfuncGetInitialState(propertyName: string, value: any): void
-    vfuncInterpolateValue(propertyName: string, interval: Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
-    vfuncSetFinalState(propertyName: string, value: any): void
-    vfuncActorAdded(actor: Actor): void
-    vfuncActorRemoved(actor: Actor): void
-    vfuncAdd(actor: Actor): void
-    vfuncChildNotify(child: Actor, pspec: GObject.ParamSpec): void
-    vfuncCreateChildMeta(actor: Actor): void
-    vfuncDestroyChildMeta(actor: Actor): void
-    vfuncForeach(callback: Callback): void
-    vfuncForeachWithInternals(callback: Callback): void
-    vfuncGetChildMeta(actor: Actor): ChildMeta
-    vfuncLower(actor: Actor, sibling?: Actor | null): void
-    vfuncRaise(actor: Actor, sibling?: Actor | null): void
-    vfuncRemove(actor: Actor): void
-    vfuncSortDepthOrder(): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Rectangle, box: ActorBox, flags: AllocationFlags) => void)): number
-    connect_after(sigName: "allocation-changed", callback: (($obj: Rectangle, box: ActorBox, flags: AllocationFlags) => void)): number
+    on(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void): NodeJS.EventEmitter
     emit(sigName: "allocation-changed", box: ActorBox, flags: AllocationFlags): void
-    on(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: Rectangle, event: ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: Rectangle, event: ButtonEvent) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: ButtonEvent): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: Rectangle, event: ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: Rectangle, event: ButtonEvent) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: ButtonEvent): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "captured-event", callback: (($obj: Rectangle, event: Event) => boolean)): number
-    connect_after(sigName: "captured-event", callback: (($obj: Rectangle, event: Event) => boolean)): number
+    on(sigName: "captured-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "captured-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "captured-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "captured-event", event: Event): void
-    on(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: Rectangle) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Rectangle) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-event", callback: (($obj: Rectangle, event: CrossingEvent) => boolean)): number
-    connect_after(sigName: "enter-event", callback: (($obj: Rectangle, event: CrossingEvent) => boolean)): number
+    on(sigName: "enter-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-event", callback: (event: CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "enter-event", event: CrossingEvent): void
-    on(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: Rectangle, event: Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: Rectangle, event: Event) => boolean)): number
+    on(sigName: "event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: Rectangle) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: Rectangle) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-in", callback: (($obj: Rectangle) => void)): number
-    connect_after(sigName: "key-focus-in", callback: (($obj: Rectangle) => void)): number
+    on(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-in", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-in"): void
-    on(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-out", callback: (($obj: Rectangle) => void)): number
-    connect_after(sigName: "key-focus-out", callback: (($obj: Rectangle) => void)): number
+    on(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-out", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-out"): void
-    on(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: Rectangle, event: KeyEvent) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: Rectangle, event: KeyEvent) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: KeyEvent): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: Rectangle, event: KeyEvent) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: Rectangle, event: KeyEvent) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: KeyEvent): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-event", callback: (($obj: Rectangle, event: CrossingEvent) => boolean)): number
-    connect_after(sigName: "leave-event", callback: (($obj: Rectangle, event: CrossingEvent) => boolean)): number
+    on(sigName: "leave-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-event", callback: (event: CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "leave-event", event: CrossingEvent): void
-    on(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-event", callback: (($obj: Rectangle, event: MotionEvent) => boolean)): number
-    connect_after(sigName: "motion-event", callback: (($obj: Rectangle, event: MotionEvent) => boolean)): number
+    on(sigName: "motion-event", callback: (event: MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-event", callback: (event: MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-event", callback: (event: MotionEvent) => void): NodeJS.EventEmitter
     emit(sigName: "motion-event", event: MotionEvent): void
-    on(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paint", callback: (($obj: Rectangle) => void)): number
-    connect_after(sigName: "paint", callback: (($obj: Rectangle) => void)): number
+    on(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paint", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paint"): void
-    on(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: Rectangle, oldParent?: Actor | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: Rectangle, oldParent?: Actor | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Actor | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Actor | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pick", callback: (($obj: Rectangle, color: Color) => void)): number
-    connect_after(sigName: "pick", callback: (($obj: Rectangle, color: Color) => void)): number
+    on(sigName: "pick", callback: (color: Color) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pick", callback: (color: Color) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pick", callback: (color: Color) => void): NodeJS.EventEmitter
     emit(sigName: "pick", color: Color): void
-    on(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-redraw", callback: (($obj: Rectangle, origin: Actor) => void)): number
-    connect_after(sigName: "queue-redraw", callback: (($obj: Rectangle, origin: Actor) => void)): number
+    on(sigName: "queue-redraw", callback: (origin: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-redraw", callback: (origin: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-redraw", callback: (origin: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "queue-redraw", origin: Actor): void
-    on(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-relayout", callback: (($obj: Rectangle) => void)): number
-    connect_after(sigName: "queue-relayout", callback: (($obj: Rectangle) => void)): number
+    on(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-relayout", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "queue-relayout"): void
-    on(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: Rectangle) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: Rectangle) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: Rectangle, event: ScrollEvent) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: Rectangle, event: ScrollEvent) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: ScrollEvent) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: ScrollEvent): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: Rectangle) => void)): number
-    connect_after(sigName: "show", callback: (($obj: Rectangle) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: Rectangle, event: Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: Rectangle, event: Event) => boolean)): number
+    on(sigName: "touch-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", event: Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transition-stopped", callback: (($obj: Rectangle, name: string, isFinished: boolean) => void)): number
-    connect_after(sigName: "transition-stopped", callback: (($obj: Rectangle, name: string, isFinished: boolean) => void)): number
+    on(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "transition-stopped", name: string, isFinished: boolean): void
-    on(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transitions-completed", callback: (($obj: Rectangle) => void)): number
-    connect_after(sigName: "transitions-completed", callback: (($obj: Rectangle) => void)): number
+    on(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transitions-completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "transitions-completed"): void
-    on(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: Rectangle) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: Rectangle) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Rectangle, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Rectangle, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Rectangle, actor: Actor) => void)): number
-    connect_after(sigName: "actor-added", callback: (($obj: Rectangle, actor: Actor) => void)): number
+    on(sigName: "actor-added", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-added", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-added", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-added", actor: Actor): void
-    on(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "actor-removed", callback: (($obj: Rectangle, actor: Actor) => void)): number
-    connect_after(sigName: "actor-removed", callback: (($obj: Rectangle, actor: Actor) => void)): number
+    on(sigName: "actor-removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-removed", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-removed", actor: Actor): void
-    on(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: Rectangle, actor: Actor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: Rectangle, actor: Actor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", actor: Actor, pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::border-color", callback: (($obj: Rectangle, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::border-color", callback: (($obj: Rectangle, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::border-color", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -18063,39 +16508,39 @@ export class Rectangle {
 export interface RotateAction_ConstructProps extends GestureAction_ConstructProps {
 }
 export class RotateAction {
-    /* Properties of Clutter.GestureAction */
+    /* Properties of Clutter-1.0.Clutter.GestureAction */
     nTouchPoints: number
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.GestureAction */
+    /* Methods of Clutter-1.0.Clutter.GestureAction */
     cancel(): void
     getDevice(point: number): InputDevice
     getLastEvent(point: number): Event
-    getMotionCoords(point: number): [ /* motionX */ number | null, /* motionY */ number | null ]
-    getMotionDelta(point: number): [ /* returnType */ number, /* deltaX */ number | null, /* deltaY */ number | null ]
+    getMotionCoords(point: number): { motionX: number | null, motionY: number | null }
+    getMotionDelta(point: number): { returnType: number, deltaX: number | null, deltaY: number | null }
     getNCurrentPoints(): number
     getNTouchPoints(): number
-    getPressCoords(point: number): [ /* pressX */ number | null, /* pressY */ number | null ]
-    getReleaseCoords(point: number): [ /* releaseX */ number | null, /* releaseY */ number | null ]
+    getPressCoords(point: number): { pressX: number | null, pressY: number | null }
+    getReleaseCoords(point: number): { releaseX: number | null, releaseY: number | null }
     getSequence(point: number): EventSequence
-    getThresholdTriggerDistance(): [ /* x */ number | null, /* y */ number | null ]
+    getThresholdTriggerDistance(): { x: number | null, y: number | null }
     getThresholdTriggerEdge(): GestureTriggerEdge
     getThresholdTriggerEgde(): GestureTriggerEdge
-    getVelocity(point: number): [ /* returnType */ number, /* velocityX */ number | null, /* velocityY */ number | null ]
+    getVelocity(point: number): { returnType: number, velocityX: number | null, velocityY: number | null }
     setNTouchPoints(nbPoints: number): void
     setThresholdTriggerDistance(x: number, y: number): void
     setThresholdTriggerEdge(edge: GestureTriggerEdge): void
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -18117,63 +16562,39 @@ export class RotateAction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.RotateAction */
-    vfuncRotate(actor: Actor, angle: number): boolean
-    /* Virtual methods of Clutter.GestureAction */
-    vfuncGestureBegin(actor: Actor): boolean
-    vfuncGestureCancel(actor: Actor): void
-    vfuncGestureEnd(actor: Actor): void
-    vfuncGesturePrepare(actor: Actor): boolean
-    vfuncGestureProgress(actor: Actor): boolean
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.RotateAction */
+    /* Signals of Clutter-1.0.Clutter.RotateAction */
     connect(sigName: "rotate", callback: (($obj: RotateAction, actor: Actor, angle: number) => boolean)): number
-    connect_after(sigName: "rotate", callback: (($obj: RotateAction, actor: Actor, angle: number) => boolean)): number
+    on(sigName: "rotate", callback: (actor: Actor, angle: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "rotate", callback: (actor: Actor, angle: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "rotate", callback: (actor: Actor, angle: number) => void): NodeJS.EventEmitter
     emit(sigName: "rotate", actor: Actor, angle: number): void
-    on(sigName: "rotate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "rotate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "rotate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.GestureAction */
+    /* Signals of Clutter-1.0.Clutter.GestureAction */
     connect(sigName: "gesture-begin", callback: (($obj: RotateAction, actor: Actor) => boolean)): number
-    connect_after(sigName: "gesture-begin", callback: (($obj: RotateAction, actor: Actor) => boolean)): number
+    on(sigName: "gesture-begin", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gesture-begin", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gesture-begin", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "gesture-begin", actor: Actor): void
-    on(sigName: "gesture-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gesture-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gesture-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "gesture-cancel", callback: (($obj: RotateAction, actor: Actor) => void)): number
-    connect_after(sigName: "gesture-cancel", callback: (($obj: RotateAction, actor: Actor) => void)): number
+    on(sigName: "gesture-cancel", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gesture-cancel", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gesture-cancel", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "gesture-cancel", actor: Actor): void
-    on(sigName: "gesture-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gesture-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gesture-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "gesture-end", callback: (($obj: RotateAction, actor: Actor) => void)): number
-    connect_after(sigName: "gesture-end", callback: (($obj: RotateAction, actor: Actor) => void)): number
+    on(sigName: "gesture-end", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gesture-end", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gesture-end", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "gesture-end", actor: Actor): void
-    on(sigName: "gesture-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gesture-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gesture-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "gesture-progress", callback: (($obj: RotateAction, actor: Actor) => boolean)): number
-    connect_after(sigName: "gesture-progress", callback: (($obj: RotateAction, actor: Actor) => boolean)): number
+    on(sigName: "gesture-progress", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gesture-progress", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gesture-progress", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "gesture-progress", actor: Actor): void
-    on(sigName: "gesture-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gesture-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gesture-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: RotateAction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: RotateAction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::n-touch-points", callback: (($obj: RotateAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::n-touch-points", callback: (($obj: RotateAction, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::n-touch-points", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -18212,11 +16633,11 @@ export interface Score_ConstructProps extends GObject.Object_ConstructProps {
     loop?: boolean
 }
 export class Score {
-    /* Properties of Clutter.Score */
+    /* Properties of Clutter-1.0.Clutter.Score */
     loop: boolean
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Score */
+    /* Methods of Clutter-1.0.Clutter.Score */
     append(parent: Timeline | null, timeline: Timeline): number
     appendAtMarker(parent: Timeline, markerName: string, timeline: Timeline): number
     getLoop(): boolean
@@ -18230,7 +16651,7 @@ export class Score {
     setLoop(loop: boolean): void
     start(): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -18252,58 +16673,38 @@ export class Score {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.Score */
-    vfuncCompleted(): void
-    vfuncPaused(): void
-    vfuncStarted(): void
-    vfuncTimelineCompleted(timeline: Timeline): void
-    vfuncTimelineStarted(timeline: Timeline): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Score */
+    /* Signals of Clutter-1.0.Clutter.Score */
     connect(sigName: "completed", callback: (($obj: Score) => void)): number
-    connect_after(sigName: "completed", callback: (($obj: Score) => void)): number
+    on(sigName: "completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "completed"): void
-    on(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paused", callback: (($obj: Score) => void)): number
-    connect_after(sigName: "paused", callback: (($obj: Score) => void)): number
+    on(sigName: "paused", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paused", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paused", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paused"): void
-    on(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "started", callback: (($obj: Score) => void)): number
-    connect_after(sigName: "started", callback: (($obj: Score) => void)): number
+    on(sigName: "started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "started", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "started"): void
-    on(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "timeline-completed", callback: (($obj: Score, timeline: Timeline) => void)): number
-    connect_after(sigName: "timeline-completed", callback: (($obj: Score, timeline: Timeline) => void)): number
+    on(sigName: "timeline-completed", callback: (timeline: Timeline) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "timeline-completed", callback: (timeline: Timeline) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "timeline-completed", callback: (timeline: Timeline) => void): NodeJS.EventEmitter
     emit(sigName: "timeline-completed", timeline: Timeline): void
-    on(sigName: "timeline-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "timeline-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "timeline-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "timeline-started", callback: (($obj: Score, timeline: Timeline) => void)): number
-    connect_after(sigName: "timeline-started", callback: (($obj: Score, timeline: Timeline) => void)): number
+    on(sigName: "timeline-started", callback: (timeline: Timeline) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "timeline-started", callback: (timeline: Timeline) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "timeline-started", callback: (timeline: Timeline) => void): NodeJS.EventEmitter
     emit(sigName: "timeline-started", timeline: Timeline): void
-    on(sigName: "timeline-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "timeline-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "timeline-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Score, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Score, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::loop", callback: (($obj: Score, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::loop", callback: (($obj: Score, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::loop", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -18327,13 +16728,13 @@ export interface Script_ConstructProps extends GObject.Object_ConstructProps {
     translationDomain?: string
 }
 export class Script {
-    /* Properties of Clutter.Script */
+    /* Properties of Clutter-1.0.Clutter.Script */
     readonly filename: string
     readonly filenameSet: boolean
     translationDomain: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Script */
+    /* Methods of Clutter-1.0.Clutter.Script */
     addSearchPaths(paths: string[]): void
     addStates(name: string | null, state: State): void
     connectSignals(userData?: object | null): void
@@ -18350,7 +16751,7 @@ export class Script {
     lookupFilename(filename: string): string
     setTranslationDomain(domain?: string | null): void
     unmergeObjects(mergeId: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -18372,23 +16773,12 @@ export class Script {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.Script */
-    vfuncGetTypeFromName(typeName: string): GObject.Type
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Script, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Script, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::filename", callback: (($obj: Script, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::filename", callback: (($obj: Script, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::filename", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -18422,9 +16812,9 @@ export interface ScrollActor_ConstructProps extends Actor_ConstructProps {
     scrollMode?: ScrollMode
 }
 export class ScrollActor {
-    /* Properties of Clutter.ScrollActor */
+    /* Properties of Clutter-1.0.Clutter.ScrollActor */
     scrollMode: ScrollMode
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Action
     readonly allocation: ActorBox
     anchorGravity: Gravity
@@ -18507,16 +16897,16 @@ export class ScrollActor {
     yAlign: ActorAlign
     yExpand: boolean
     zPosition: number
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.ScrollActor */
+    /* Methods of Clutter-1.0.Clutter.ScrollActor */
     getScrollMode(): ScrollMode
     scrollToPoint(point: Point): void
     scrollToRect(rect: Rect): void
     setScrollMode(mode: ScrollMode): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     addAction(action: Action): void
     addActionWithName(name: string, action: Action): void
     addChild(child: Actor): void
@@ -18532,8 +16922,8 @@ export class ScrollActor {
     animateWithAlphav(alpha: Alpha, properties: string[], values: any[]): Animation
     animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any[]): Animation
     animatev(mode: number, duration: number, properties: string[], values: any[]): Animation
-    applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): /* vertex */ Vertex
-    applyTransformToPoint(point: Vertex): /* vertex */ Vertex
+    applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): { vertex: Vertex }
+    applyTransformToPoint(point: Vertex): { vertex: Vertex }
     bindModel(model: Gio.ListModel | null, createChildFunc: ActorCreateChildFunc): void
     clearActions(): void
     clearConstraints(): void
@@ -18546,29 +16936,29 @@ export class ScrollActor {
     destroyAllChildren(): void
     detachAnimation(): void
     event(event: Event, capture: boolean): boolean
-    getAbsAllocationVertices(): /* verts */ Vertex[]
+    getAbsAllocationVertices(): { verts: Vertex[] }
     getAccessible(): Atk.Object
     getAction(name: string): Action
     getActions(): Action[]
-    getAllocationBox(): /* box */ ActorBox
-    getAllocationGeometry(): /* geom */ Geometry
-    getAllocationVertices(ancestor?: Actor | null): /* verts */ Vertex[]
-    getAnchorPoint(): [ /* anchorX */ number, /* anchorY */ number ]
+    getAllocationBox(): { box: ActorBox }
+    getAllocationGeometry(): { geom: Geometry }
+    getAllocationVertices(ancestor?: Actor | null): { verts: Vertex[] }
+    getAnchorPoint(): { anchorX: number, anchorY: number }
     getAnchorPointGravity(): Gravity
     getAnimation(): Animation
-    getBackgroundColor(): /* color */ Color
+    getBackgroundColor(): { color: Color }
     getChildAtIndex(index: number): Actor
-    getChildTransform(): /* transform */ Matrix
+    getChildTransform(): { transform: Matrix }
     getChildren(): Actor[]
-    getClip(): [ /* xoff */ number | null, /* yoff */ number | null, /* width */ number | null, /* height */ number | null ]
+    getClip(): { xoff: number | null, yoff: number | null, width: number | null, height: number | null }
     getClipToAllocation(): boolean
     getConstraint(name: string): Constraint
     getConstraints(): Constraint[]
     getContent(): Content
-    getContentBox(): /* box */ ActorBox
+    getContentBox(): { box: ActorBox }
     getContentGravity(): ContentGravity
     getContentRepeat(): ContentRepeat
-    getContentScalingFilters(): [ /* minFilter */ ScalingFilter | null, /* magFilter */ ScalingFilter | null ]
+    getContentScalingFilters(): { minFilter: ScalingFilter | null, magFilter: ScalingFilter | null }
     getDefaultPaintVolume(): PaintVolume
     getDepth(): number
     getEasingDelay(): number
@@ -18579,12 +16969,12 @@ export class ScrollActor {
     getFirstChild(): Actor
     getFixedPositionSet(): boolean
     getFlags(): ActorFlags
-    getGeometry(): /* geometry */ Geometry
+    getGeometry(): { geometry: Geometry }
     getGid(): number
     getHeight(): number
     getLastChild(): Actor
     getLayoutManager(): LayoutManager
-    getMargin(): /* margin */ Margin
+    getMargin(): { margin: Margin }
     getMarginBottom(): number
     getMarginLeft(): number
     getMarginRight(): number
@@ -18594,38 +16984,38 @@ export class ScrollActor {
     getNextSibling(): Actor
     getOffscreenRedirect(): OffscreenRedirect
     getOpacity(): number
-    getPaintBox(): [ /* returnType */ boolean, /* box */ ActorBox ]
+    getPaintBox(): { returnType: boolean, box: ActorBox }
     getPaintOpacity(): number
     getPaintVisibility(): boolean
     getPaintVolume(): PaintVolume
     getPangoContext(): Pango.Context
     getParent(): Actor
-    getPivotPoint(): [ /* pivotX */ number | null, /* pivotY */ number | null ]
+    getPivotPoint(): { pivotX: number | null, pivotY: number | null }
     getPivotPointZ(): number
-    getPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredSize(): [ /* minWidthP */ number | null, /* minHeightP */ number | null, /* naturalWidthP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
+    getPosition(): { x: number | null, y: number | null }
+    getPreferredHeight(forWidth: number): { minHeightP: number | null, naturalHeightP: number | null }
+    getPreferredSize(): { minWidthP: number | null, minHeightP: number | null, naturalWidthP: number | null, naturalHeightP: number | null }
+    getPreferredWidth(forHeight: number): { minWidthP: number | null, naturalWidthP: number | null }
     getPreviousSibling(): Actor
     getReactive(): boolean
     getRequestMode(): RequestMode
-    getRotation(axis: RotateAxis): [ /* returnType */ number, /* x */ number, /* y */ number, /* z */ number ]
+    getRotation(axis: RotateAxis): { returnType: number, x: number, y: number, z: number }
     getRotationAngle(axis: RotateAxis): number
-    getScale(): [ /* scaleX */ number | null, /* scaleY */ number | null ]
-    getScaleCenter(): [ /* centerX */ number | null, /* centerY */ number | null ]
+    getScale(): { scaleX: number | null, scaleY: number | null }
+    getScaleCenter(): { centerX: number | null, centerY: number | null }
     getScaleGravity(): Gravity
     getScaleZ(): number
     getShader(): Shader
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getSize(): { width: number | null, height: number | null }
     getStage(): Stage
     getTextDirection(): TextDirection
-    getTransform(): /* transform */ Matrix
-    getTransformationMatrix(): /* matrix */ Matrix
+    getTransform(): { transform: Matrix }
+    getTransformationMatrix(): { matrix: Matrix }
     getTransformedPaintVolume(relativeToAncestor: Actor): PaintVolume
-    getTransformedPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getTransformedSize(): [ /* width */ number | null, /* height */ number | null ]
+    getTransformedPosition(): { x: number | null, y: number | null }
+    getTransformedSize(): { width: number | null, height: number | null }
     getTransition(name: string): Transition
-    getTranslation(): [ /* translateX */ number | null, /* translateY */ number | null, /* translateZ */ number | null ]
+    getTranslation(): { translateX: number | null, translateY: number | null, translateZ: number | null }
     getWidth(): number
     getX(): number
     getXAlign(): ActorAlign
@@ -18747,12 +17137,12 @@ export class ScrollActor {
     shouldPickPaint(): boolean
     show(): void
     showAll(): void
-    transformStagePoint(x: number, y: number): [ /* returnType */ boolean, /* xOut */ number, /* yOut */ number ]
+    transformStagePoint(x: number, y: number): { returnType: boolean, xOut: number, yOut: number }
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetFlags(flags: ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -18774,13 +17164,13 @@ export class ScrollActor {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animateProperty(animation: Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     findProperty(propertyName: string): GObject.ParamSpec
     getInitialState(propertyName: string, value: any): void
-    interpolateValue(propertyName: string, interval: Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
+    interpolateValue(propertyName: string, interval: Interval, progress: number): { returnType: boolean, value: any }
     setFinalState(propertyName: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     addActor(actor: Actor): void
     childGetProperty(child: Actor, property: string, value: any): void
     childNotify(child: Actor, pspec: GObject.ParamSpec): void
@@ -18795,260 +17185,164 @@ export class ScrollActor {
     raiseChild(actor: Actor, sibling?: Actor | null): void
     removeActor(actor: Actor): void
     sortDepthOrder(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Actor */
-    vfuncAllocate(box: ActorBox, flags: AllocationFlags): void
-    vfuncApplyTransform(matrix: Matrix): void
-    vfuncButtonPressEvent(event: ButtonEvent): boolean
-    vfuncButtonReleaseEvent(event: ButtonEvent): boolean
-    vfuncCapturedEvent(event: Event): boolean
-    vfuncDestroy(): void
-    vfuncEnterEvent(event: CrossingEvent): boolean
-    vfuncEvent(event: Event): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPaintVolume(volume: PaintVolume): boolean
-    vfuncGetPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    vfuncGetPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
-    vfuncHasOverlaps(): boolean
-    vfuncHide(): void
-    vfuncHideAll(): void
-    vfuncKeyFocusIn(): void
-    vfuncKeyFocusOut(): void
-    vfuncKeyPressEvent(event: KeyEvent): boolean
-    vfuncKeyReleaseEvent(event: KeyEvent): boolean
-    vfuncLeaveEvent(event: CrossingEvent): boolean
-    vfuncMap(): void
-    vfuncMotionEvent(event: MotionEvent): boolean
-    vfuncPaint(): void
-    vfuncPaintNode(root: PaintNode): void
-    vfuncParentSet(oldParent: Actor): void
-    vfuncPick(color: Color): void
-    vfuncQueueRedraw(leafThatQueued: Actor): void
-    vfuncQueueRelayout(): void
-    vfuncRealize(): void
-    vfuncScrollEvent(event: ScrollEvent): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncTouchEvent(event: TouchEvent): boolean
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    vfuncAnimateProperty(animation: Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
-    vfuncFindProperty(propertyName: string): GObject.ParamSpec
-    vfuncGetInitialState(propertyName: string, value: any): void
-    vfuncInterpolateValue(propertyName: string, interval: Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
-    vfuncSetFinalState(propertyName: string, value: any): void
-    vfuncActorAdded(actor: Actor): void
-    vfuncActorRemoved(actor: Actor): void
-    vfuncAdd(actor: Actor): void
-    vfuncChildNotify(child: Actor, pspec: GObject.ParamSpec): void
-    vfuncCreateChildMeta(actor: Actor): void
-    vfuncDestroyChildMeta(actor: Actor): void
-    vfuncForeach(callback: Callback): void
-    vfuncForeachWithInternals(callback: Callback): void
-    vfuncGetChildMeta(actor: Actor): ChildMeta
-    vfuncLower(actor: Actor, sibling?: Actor | null): void
-    vfuncRaise(actor: Actor, sibling?: Actor | null): void
-    vfuncRemove(actor: Actor): void
-    vfuncSortDepthOrder(): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: ScrollActor, box: ActorBox, flags: AllocationFlags) => void)): number
-    connect_after(sigName: "allocation-changed", callback: (($obj: ScrollActor, box: ActorBox, flags: AllocationFlags) => void)): number
+    on(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void): NodeJS.EventEmitter
     emit(sigName: "allocation-changed", box: ActorBox, flags: AllocationFlags): void
-    on(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: ScrollActor, event: ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: ScrollActor, event: ButtonEvent) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: ButtonEvent): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: ScrollActor, event: ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: ScrollActor, event: ButtonEvent) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: ButtonEvent): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "captured-event", callback: (($obj: ScrollActor, event: Event) => boolean)): number
-    connect_after(sigName: "captured-event", callback: (($obj: ScrollActor, event: Event) => boolean)): number
+    on(sigName: "captured-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "captured-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "captured-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "captured-event", event: Event): void
-    on(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: ScrollActor) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: ScrollActor) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-event", callback: (($obj: ScrollActor, event: CrossingEvent) => boolean)): number
-    connect_after(sigName: "enter-event", callback: (($obj: ScrollActor, event: CrossingEvent) => boolean)): number
+    on(sigName: "enter-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-event", callback: (event: CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "enter-event", event: CrossingEvent): void
-    on(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: ScrollActor, event: Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: ScrollActor, event: Event) => boolean)): number
+    on(sigName: "event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: ScrollActor) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: ScrollActor) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-in", callback: (($obj: ScrollActor) => void)): number
-    connect_after(sigName: "key-focus-in", callback: (($obj: ScrollActor) => void)): number
+    on(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-in", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-in"): void
-    on(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-out", callback: (($obj: ScrollActor) => void)): number
-    connect_after(sigName: "key-focus-out", callback: (($obj: ScrollActor) => void)): number
+    on(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-out", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-out"): void
-    on(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: ScrollActor, event: KeyEvent) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: ScrollActor, event: KeyEvent) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: KeyEvent): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: ScrollActor, event: KeyEvent) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: ScrollActor, event: KeyEvent) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: KeyEvent): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-event", callback: (($obj: ScrollActor, event: CrossingEvent) => boolean)): number
-    connect_after(sigName: "leave-event", callback: (($obj: ScrollActor, event: CrossingEvent) => boolean)): number
+    on(sigName: "leave-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-event", callback: (event: CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "leave-event", event: CrossingEvent): void
-    on(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-event", callback: (($obj: ScrollActor, event: MotionEvent) => boolean)): number
-    connect_after(sigName: "motion-event", callback: (($obj: ScrollActor, event: MotionEvent) => boolean)): number
+    on(sigName: "motion-event", callback: (event: MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-event", callback: (event: MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-event", callback: (event: MotionEvent) => void): NodeJS.EventEmitter
     emit(sigName: "motion-event", event: MotionEvent): void
-    on(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paint", callback: (($obj: ScrollActor) => void)): number
-    connect_after(sigName: "paint", callback: (($obj: ScrollActor) => void)): number
+    on(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paint", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paint"): void
-    on(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: ScrollActor, oldParent?: Actor | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: ScrollActor, oldParent?: Actor | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Actor | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Actor | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pick", callback: (($obj: ScrollActor, color: Color) => void)): number
-    connect_after(sigName: "pick", callback: (($obj: ScrollActor, color: Color) => void)): number
+    on(sigName: "pick", callback: (color: Color) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pick", callback: (color: Color) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pick", callback: (color: Color) => void): NodeJS.EventEmitter
     emit(sigName: "pick", color: Color): void
-    on(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-redraw", callback: (($obj: ScrollActor, origin: Actor) => void)): number
-    connect_after(sigName: "queue-redraw", callback: (($obj: ScrollActor, origin: Actor) => void)): number
+    on(sigName: "queue-redraw", callback: (origin: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-redraw", callback: (origin: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-redraw", callback: (origin: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "queue-redraw", origin: Actor): void
-    on(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-relayout", callback: (($obj: ScrollActor) => void)): number
-    connect_after(sigName: "queue-relayout", callback: (($obj: ScrollActor) => void)): number
+    on(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-relayout", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "queue-relayout"): void
-    on(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: ScrollActor) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: ScrollActor) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: ScrollActor, event: ScrollEvent) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: ScrollActor, event: ScrollEvent) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: ScrollEvent) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: ScrollEvent): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: ScrollActor) => void)): number
-    connect_after(sigName: "show", callback: (($obj: ScrollActor) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: ScrollActor, event: Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: ScrollActor, event: Event) => boolean)): number
+    on(sigName: "touch-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", event: Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transition-stopped", callback: (($obj: ScrollActor, name: string, isFinished: boolean) => void)): number
-    connect_after(sigName: "transition-stopped", callback: (($obj: ScrollActor, name: string, isFinished: boolean) => void)): number
+    on(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "transition-stopped", name: string, isFinished: boolean): void
-    on(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transitions-completed", callback: (($obj: ScrollActor) => void)): number
-    connect_after(sigName: "transitions-completed", callback: (($obj: ScrollActor) => void)): number
+    on(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transitions-completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "transitions-completed"): void
-    on(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: ScrollActor) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: ScrollActor) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ScrollActor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ScrollActor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: ScrollActor, actor: Actor) => void)): number
-    connect_after(sigName: "actor-added", callback: (($obj: ScrollActor, actor: Actor) => void)): number
+    on(sigName: "actor-added", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-added", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-added", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-added", actor: Actor): void
-    on(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "actor-removed", callback: (($obj: ScrollActor, actor: Actor) => void)): number
-    connect_after(sigName: "actor-removed", callback: (($obj: ScrollActor, actor: Actor) => void)): number
+    on(sigName: "actor-removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-removed", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-removed", actor: Actor): void
-    on(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: ScrollActor, actor: Actor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: ScrollActor, actor: Actor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", actor: Actor, pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::scroll-mode", callback: (($obj: ScrollActor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::scroll-mode", callback: (($obj: ScrollActor, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::scroll-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -19496,7 +17790,7 @@ export interface Settings_ConstructProps extends GObject.Object_ConstructProps {
     windowScalingFactor?: number
 }
 export class Settings {
-    /* Properties of Clutter.Settings */
+    /* Properties of Clutter-1.0.Clutter.Settings */
     dndDragThreshold: number
     doubleClickDistance: number
     doubleClickTime: number
@@ -19511,9 +17805,9 @@ export class Settings {
     passwordHintTime: number
     unscaledFontDpi: number
     windowScalingFactor: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -19535,21 +17829,12 @@ export class Settings {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::dnd-drag-threshold", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::dnd-drag-threshold", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::dnd-drag-threshold", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -19640,14 +17925,14 @@ export interface Shader_ConstructProps extends GObject.Object_ConstructProps {
     vertexSource?: string
 }
 export class Shader {
-    /* Properties of Clutter.Shader */
+    /* Properties of Clutter-1.0.Clutter.Shader */
     readonly compiled: boolean
     enabled: boolean
     fragmentSource: string
     vertexSource: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Shader */
+    /* Methods of Clutter-1.0.Clutter.Shader */
     compile(): boolean
     getCoglFragmentShader(): Cogl.Handle
     getCoglProgram(): Cogl.Handle
@@ -19661,7 +17946,7 @@ export class Shader {
     setIsEnabled(enabled: boolean): void
     setUniform(name: string, value: any): void
     setVertexSource(data: string, length: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -19683,21 +17968,12 @@ export class Shader {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Shader, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Shader, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::compiled", callback: (($obj: Shader, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::compiled", callback: (($obj: Shader, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::compiled", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -19736,33 +18012,33 @@ export interface ShaderEffect_ConstructProps extends OffscreenEffect_ConstructPr
     shaderType?: ShaderType
 }
 export class ShaderEffect {
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.ShaderEffect */
+    /* Methods of Clutter-1.0.Clutter.ShaderEffect */
     getProgram(): Cogl.Handle
     getShader(): Cogl.Handle
     setShaderSource(source: string): boolean
     setUniformValue(name: string, value: any): void
-    /* Methods of Clutter.OffscreenEffect */
+    /* Methods of Clutter-1.0.Clutter.OffscreenEffect */
     createTexture(width: number, height: number): Cogl.Handle
     getTarget(): Cogl.Material
-    getTargetRect(): [ /* returnType */ boolean, /* rect */ Rect ]
-    getTargetSize(): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
+    getTargetRect(): { returnType: boolean, rect: Rect }
+    getTargetSize(): { returnType: boolean, width: number, height: number }
     getTexture(): Cogl.Handle
     paintTarget(): void
-    /* Methods of Clutter.Effect */
+    /* Methods of Clutter-1.0.Clutter.Effect */
     queueRepaint(): void
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -19784,34 +18060,12 @@ export class ShaderEffect {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.ShaderEffect */
-    vfuncGetStaticShaderSource(): string
-    /* Virtual methods of Clutter.OffscreenEffect */
-    vfuncCreateTexture(width: number, height: number): Cogl.Handle
-    vfuncPaintTarget(): void
-    /* Virtual methods of Clutter.Effect */
-    vfuncGetPaintVolume(volume: PaintVolume): boolean
-    vfuncPaint(flags: EffectPaintFlags): void
-    vfuncPick(flags: EffectPaintFlags): void
-    vfuncPostPaint(): void
-    vfuncPrePaint(): boolean
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ShaderEffect, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ShaderEffect, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::actor", callback: (($obj: ShaderEffect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::actor", callback: (($obj: ShaderEffect, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::actor", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -19857,31 +18111,31 @@ export interface SnapConstraint_ConstructProps extends Constraint_ConstructProps
     toEdge?: SnapEdge
 }
 export class SnapConstraint {
-    /* Properties of Clutter.SnapConstraint */
+    /* Properties of Clutter-1.0.Clutter.SnapConstraint */
     fromEdge: SnapEdge
     offset: number
     source: Actor
     toEdge: SnapEdge
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.SnapConstraint */
-    getEdges(): [ /* fromEdge */ SnapEdge, /* toEdge */ SnapEdge ]
+    /* Methods of Clutter-1.0.Clutter.SnapConstraint */
+    getEdges(): { fromEdge: SnapEdge, toEdge: SnapEdge }
     getOffset(): number
     getSource(): Actor
     setEdges(fromEdge: SnapEdge, toEdge: SnapEdge): void
     setOffset(offset: number): void
     setSource(source?: Actor | null): void
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -19903,26 +18157,12 @@ export class SnapConstraint {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.Constraint */
-    vfuncUpdateAllocation(actor: Actor, allocation: ActorBox): void
-    vfuncUpdatePreferredSize(actor: Actor, direction: Orientation, forSize: number, minimumSize: number, naturalSize: number): void
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SnapConstraint, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SnapConstraint, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::from-edge", callback: (($obj: SnapConstraint, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::from-edge", callback: (($obj: SnapConstraint, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::from-edge", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -19987,7 +18227,7 @@ export interface Stage_ConstructProps extends Group_ConstructProps {
     userResizable?: boolean
 }
 export class Stage {
-    /* Properties of Clutter.Stage */
+    /* Properties of Clutter-1.0.Clutter.Stage */
     acceptFocus: boolean
     color: Color
     cursorVisible: boolean
@@ -20001,7 +18241,7 @@ export class Stage {
     useAlpha: boolean
     useFog: boolean
     userResizable: boolean
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Action
     readonly allocation: ActorBox
     anchorGravity: Gravity
@@ -20084,26 +18324,26 @@ export class Stage {
     yAlign: ActorAlign
     yExpand: boolean
     zPosition: number
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Stage */
+    /* Methods of Clutter-1.0.Clutter.Stage */
     ensureCurrent(): void
     ensureRedraw(): void
     ensureViewport(): void
     event(event: Event): boolean
     getAcceptFocus(): boolean
     getActorAtPos(pickMode: PickMode, x: number, y: number): Actor
-    getColor(): /* color */ Color
-    getFog(): /* fog */ Fog
+    getColor(): { color: Color }
+    getFog(): { fog: Fog }
     getFullscreen(): boolean
     getKeyFocus(): Actor
-    getMinimumSize(): [ /* width */ number, /* height */ number ]
+    getMinimumSize(): { width: number, height: number }
     getMotionEventsEnabled(): boolean
     getNoClearHint(): boolean
-    getPerspective(): /* perspective */ Perspective | null
-    getRedrawClipBounds(): /* clip */ cairo.RectangleInt
+    getPerspective(): { perspective: Perspective | null }
+    getRedrawClipBounds(): { clip: cairo.RectangleInt }
     getThrottleMotionEvents(): boolean
     getTitle(): string
     getUseAlpha(): boolean
@@ -20128,11 +18368,11 @@ export class Stage {
     setUseFog(fog: boolean): void
     setUserResizable(resizable: boolean): void
     showCursor(): void
-    /* Methods of Clutter.Group */
+    /* Methods of Clutter-1.0.Clutter.Group */
     getNChildren(): number
     getNthChild(index: number): Actor
     removeAll(): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     addAction(action: Action): void
     addActionWithName(name: string, action: Action): void
     addChild(child: Actor): void
@@ -20148,8 +18388,8 @@ export class Stage {
     animateWithAlphav(alpha: Alpha, properties: string[], values: any[]): Animation
     animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any[]): Animation
     animatev(mode: number, duration: number, properties: string[], values: any[]): Animation
-    applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): /* vertex */ Vertex
-    applyTransformToPoint(point: Vertex): /* vertex */ Vertex
+    applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): { vertex: Vertex }
+    applyTransformToPoint(point: Vertex): { vertex: Vertex }
     bindModel(model: Gio.ListModel | null, createChildFunc: ActorCreateChildFunc): void
     clearActions(): void
     clearConstraints(): void
@@ -20162,29 +18402,29 @@ export class Stage {
     destroyAllChildren(): void
     detachAnimation(): void
     event(event: Event, capture: boolean): boolean
-    getAbsAllocationVertices(): /* verts */ Vertex[]
+    getAbsAllocationVertices(): { verts: Vertex[] }
     getAccessible(): Atk.Object
     getAction(name: string): Action
     getActions(): Action[]
-    getAllocationBox(): /* box */ ActorBox
-    getAllocationGeometry(): /* geom */ Geometry
-    getAllocationVertices(ancestor?: Actor | null): /* verts */ Vertex[]
-    getAnchorPoint(): [ /* anchorX */ number, /* anchorY */ number ]
+    getAllocationBox(): { box: ActorBox }
+    getAllocationGeometry(): { geom: Geometry }
+    getAllocationVertices(ancestor?: Actor | null): { verts: Vertex[] }
+    getAnchorPoint(): { anchorX: number, anchorY: number }
     getAnchorPointGravity(): Gravity
     getAnimation(): Animation
-    getBackgroundColor(): /* color */ Color
+    getBackgroundColor(): { color: Color }
     getChildAtIndex(index: number): Actor
-    getChildTransform(): /* transform */ Matrix
+    getChildTransform(): { transform: Matrix }
     getChildren(): Actor[]
-    getClip(): [ /* xoff */ number | null, /* yoff */ number | null, /* width */ number | null, /* height */ number | null ]
+    getClip(): { xoff: number | null, yoff: number | null, width: number | null, height: number | null }
     getClipToAllocation(): boolean
     getConstraint(name: string): Constraint
     getConstraints(): Constraint[]
     getContent(): Content
-    getContentBox(): /* box */ ActorBox
+    getContentBox(): { box: ActorBox }
     getContentGravity(): ContentGravity
     getContentRepeat(): ContentRepeat
-    getContentScalingFilters(): [ /* minFilter */ ScalingFilter | null, /* magFilter */ ScalingFilter | null ]
+    getContentScalingFilters(): { minFilter: ScalingFilter | null, magFilter: ScalingFilter | null }
     getDefaultPaintVolume(): PaintVolume
     getDepth(): number
     getEasingDelay(): number
@@ -20195,12 +18435,12 @@ export class Stage {
     getFirstChild(): Actor
     getFixedPositionSet(): boolean
     getFlags(): ActorFlags
-    getGeometry(): /* geometry */ Geometry
+    getGeometry(): { geometry: Geometry }
     getGid(): number
     getHeight(): number
     getLastChild(): Actor
     getLayoutManager(): LayoutManager
-    getMargin(): /* margin */ Margin
+    getMargin(): { margin: Margin }
     getMarginBottom(): number
     getMarginLeft(): number
     getMarginRight(): number
@@ -20209,38 +18449,38 @@ export class Stage {
     getNextSibling(): Actor
     getOffscreenRedirect(): OffscreenRedirect
     getOpacity(): number
-    getPaintBox(): [ /* returnType */ boolean, /* box */ ActorBox ]
+    getPaintBox(): { returnType: boolean, box: ActorBox }
     getPaintOpacity(): number
     getPaintVisibility(): boolean
     getPaintVolume(): PaintVolume
     getPangoContext(): Pango.Context
     getParent(): Actor
-    getPivotPoint(): [ /* pivotX */ number | null, /* pivotY */ number | null ]
+    getPivotPoint(): { pivotX: number | null, pivotY: number | null }
     getPivotPointZ(): number
-    getPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredSize(): [ /* minWidthP */ number | null, /* minHeightP */ number | null, /* naturalWidthP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
+    getPosition(): { x: number | null, y: number | null }
+    getPreferredHeight(forWidth: number): { minHeightP: number | null, naturalHeightP: number | null }
+    getPreferredSize(): { minWidthP: number | null, minHeightP: number | null, naturalWidthP: number | null, naturalHeightP: number | null }
+    getPreferredWidth(forHeight: number): { minWidthP: number | null, naturalWidthP: number | null }
     getPreviousSibling(): Actor
     getReactive(): boolean
     getRequestMode(): RequestMode
-    getRotation(axis: RotateAxis): [ /* returnType */ number, /* x */ number, /* y */ number, /* z */ number ]
+    getRotation(axis: RotateAxis): { returnType: number, x: number, y: number, z: number }
     getRotationAngle(axis: RotateAxis): number
-    getScale(): [ /* scaleX */ number | null, /* scaleY */ number | null ]
-    getScaleCenter(): [ /* centerX */ number | null, /* centerY */ number | null ]
+    getScale(): { scaleX: number | null, scaleY: number | null }
+    getScaleCenter(): { centerX: number | null, centerY: number | null }
     getScaleGravity(): Gravity
     getScaleZ(): number
     getShader(): Shader
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getSize(): { width: number | null, height: number | null }
     getStage(): Stage
     getTextDirection(): TextDirection
-    getTransform(): /* transform */ Matrix
-    getTransformationMatrix(): /* matrix */ Matrix
+    getTransform(): { transform: Matrix }
+    getTransformationMatrix(): { matrix: Matrix }
     getTransformedPaintVolume(relativeToAncestor: Actor): PaintVolume
-    getTransformedPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getTransformedSize(): [ /* width */ number | null, /* height */ number | null ]
+    getTransformedPosition(): { x: number | null, y: number | null }
+    getTransformedSize(): { width: number | null, height: number | null }
     getTransition(name: string): Transition
-    getTranslation(): [ /* translateX */ number | null, /* translateY */ number | null, /* translateZ */ number | null ]
+    getTranslation(): { translateX: number | null, translateY: number | null, translateZ: number | null }
     getWidth(): number
     getX(): number
     getXAlign(): ActorAlign
@@ -20361,12 +18601,12 @@ export class Stage {
     shouldPickPaint(): boolean
     show(): void
     showAll(): void
-    transformStagePoint(x: number, y: number): [ /* returnType */ boolean, /* xOut */ number, /* yOut */ number ]
+    transformStagePoint(x: number, y: number): { returnType: boolean, xOut: number, yOut: number }
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetFlags(flags: ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -20388,13 +18628,13 @@ export class Stage {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animateProperty(animation: Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     findProperty(propertyName: string): GObject.ParamSpec
     getInitialState(propertyName: string, value: any): void
-    interpolateValue(propertyName: string, interval: Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
+    interpolateValue(propertyName: string, interval: Interval, progress: number): { returnType: boolean, value: any }
     setFinalState(propertyName: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     addActor(actor: Actor): void
     childGetProperty(child: Actor, property: string, value: any): void
     childNotify(child: Actor, pspec: GObject.ParamSpec): void
@@ -20409,303 +18649,195 @@ export class Stage {
     raiseChild(actor: Actor, sibling?: Actor | null): void
     removeActor(actor: Actor): void
     sortDepthOrder(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Stage */
-    vfuncActivate(): void
-    vfuncDeactivate(): void
-    vfuncDeleteEvent(event: Event): boolean
-    vfuncFullscreen(): void
-    vfuncUnfullscreen(): void
-    /* Virtual methods of Clutter.Actor */
-    vfuncAllocate(box: ActorBox, flags: AllocationFlags): void
-    vfuncApplyTransform(matrix: Matrix): void
-    vfuncButtonPressEvent(event: ButtonEvent): boolean
-    vfuncButtonReleaseEvent(event: ButtonEvent): boolean
-    vfuncCapturedEvent(event: Event): boolean
-    vfuncDestroy(): void
-    vfuncEnterEvent(event: CrossingEvent): boolean
-    vfuncEvent(event: Event): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPaintVolume(volume: PaintVolume): boolean
-    vfuncGetPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    vfuncGetPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
-    vfuncHasOverlaps(): boolean
-    vfuncHide(): void
-    vfuncHideAll(): void
-    vfuncKeyFocusIn(): void
-    vfuncKeyFocusOut(): void
-    vfuncKeyPressEvent(event: KeyEvent): boolean
-    vfuncKeyReleaseEvent(event: KeyEvent): boolean
-    vfuncLeaveEvent(event: CrossingEvent): boolean
-    vfuncMap(): void
-    vfuncMotionEvent(event: MotionEvent): boolean
-    vfuncPaint(): void
-    vfuncPaintNode(root: PaintNode): void
-    vfuncParentSet(oldParent: Actor): void
-    vfuncPick(color: Color): void
-    vfuncQueueRedraw(leafThatQueued: Actor): void
-    vfuncQueueRelayout(): void
-    vfuncRealize(): void
-    vfuncScrollEvent(event: ScrollEvent): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncTouchEvent(event: TouchEvent): boolean
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    vfuncAnimateProperty(animation: Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
-    vfuncFindProperty(propertyName: string): GObject.ParamSpec
-    vfuncGetInitialState(propertyName: string, value: any): void
-    vfuncInterpolateValue(propertyName: string, interval: Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
-    vfuncSetFinalState(propertyName: string, value: any): void
-    vfuncActorAdded(actor: Actor): void
-    vfuncActorRemoved(actor: Actor): void
-    vfuncAdd(actor: Actor): void
-    vfuncChildNotify(child: Actor, pspec: GObject.ParamSpec): void
-    vfuncCreateChildMeta(actor: Actor): void
-    vfuncDestroyChildMeta(actor: Actor): void
-    vfuncForeach(callback: Callback): void
-    vfuncForeachWithInternals(callback: Callback): void
-    vfuncGetChildMeta(actor: Actor): ChildMeta
-    vfuncLower(actor: Actor, sibling?: Actor | null): void
-    vfuncRaise(actor: Actor, sibling?: Actor | null): void
-    vfuncRemove(actor: Actor): void
-    vfuncSortDepthOrder(): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Stage */
+    /* Signals of Clutter-1.0.Clutter.Stage */
     connect(sigName: "activate", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "activate", callback: (($obj: Stage) => void)): number
+    on(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "activate"): void
-    on(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "after-paint", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "after-paint", callback: (($obj: Stage) => void)): number
+    on(sigName: "after-paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "after-paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "after-paint", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "after-paint"): void
-    on(sigName: "after-paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "after-paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "after-paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "deactivate", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "deactivate", callback: (($obj: Stage) => void)): number
+    on(sigName: "deactivate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deactivate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deactivate", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "deactivate"): void
-    on(sigName: "deactivate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deactivate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deactivate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "delete-event", callback: (($obj: Stage, event: Event) => boolean)): number
-    connect_after(sigName: "delete-event", callback: (($obj: Stage, event: Event) => boolean)): number
+    on(sigName: "delete-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "delete-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "delete-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "delete-event", event: Event): void
-    on(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "delete-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "fullscreen", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "fullscreen", callback: (($obj: Stage) => void)): number
+    on(sigName: "fullscreen", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "fullscreen", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "fullscreen", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "fullscreen"): void
-    on(sigName: "fullscreen", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "fullscreen", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "fullscreen", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unfullscreen", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "unfullscreen", callback: (($obj: Stage) => void)): number
+    on(sigName: "unfullscreen", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unfullscreen", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unfullscreen", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unfullscreen"): void
-    on(sigName: "unfullscreen", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unfullscreen", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unfullscreen", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Stage, box: ActorBox, flags: AllocationFlags) => void)): number
-    connect_after(sigName: "allocation-changed", callback: (($obj: Stage, box: ActorBox, flags: AllocationFlags) => void)): number
+    on(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void): NodeJS.EventEmitter
     emit(sigName: "allocation-changed", box: ActorBox, flags: AllocationFlags): void
-    on(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: Stage, event: ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: Stage, event: ButtonEvent) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: ButtonEvent): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: Stage, event: ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: Stage, event: ButtonEvent) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: ButtonEvent): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "captured-event", callback: (($obj: Stage, event: Event) => boolean)): number
-    connect_after(sigName: "captured-event", callback: (($obj: Stage, event: Event) => boolean)): number
+    on(sigName: "captured-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "captured-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "captured-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "captured-event", event: Event): void
-    on(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Stage) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-event", callback: (($obj: Stage, event: CrossingEvent) => boolean)): number
-    connect_after(sigName: "enter-event", callback: (($obj: Stage, event: CrossingEvent) => boolean)): number
+    on(sigName: "enter-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-event", callback: (event: CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "enter-event", event: CrossingEvent): void
-    on(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: Stage, event: Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: Stage, event: Event) => boolean)): number
+    on(sigName: "event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: Stage) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-in", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "key-focus-in", callback: (($obj: Stage) => void)): number
+    on(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-in", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-in"): void
-    on(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-out", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "key-focus-out", callback: (($obj: Stage) => void)): number
+    on(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-out", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-out"): void
-    on(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: Stage, event: KeyEvent) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: Stage, event: KeyEvent) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: KeyEvent): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: Stage, event: KeyEvent) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: Stage, event: KeyEvent) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: KeyEvent): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-event", callback: (($obj: Stage, event: CrossingEvent) => boolean)): number
-    connect_after(sigName: "leave-event", callback: (($obj: Stage, event: CrossingEvent) => boolean)): number
+    on(sigName: "leave-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-event", callback: (event: CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "leave-event", event: CrossingEvent): void
-    on(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-event", callback: (($obj: Stage, event: MotionEvent) => boolean)): number
-    connect_after(sigName: "motion-event", callback: (($obj: Stage, event: MotionEvent) => boolean)): number
+    on(sigName: "motion-event", callback: (event: MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-event", callback: (event: MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-event", callback: (event: MotionEvent) => void): NodeJS.EventEmitter
     emit(sigName: "motion-event", event: MotionEvent): void
-    on(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paint", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "paint", callback: (($obj: Stage) => void)): number
+    on(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paint", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paint"): void
-    on(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: Stage, oldParent?: Actor | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: Stage, oldParent?: Actor | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Actor | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Actor | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pick", callback: (($obj: Stage, color: Color) => void)): number
-    connect_after(sigName: "pick", callback: (($obj: Stage, color: Color) => void)): number
+    on(sigName: "pick", callback: (color: Color) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pick", callback: (color: Color) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pick", callback: (color: Color) => void): NodeJS.EventEmitter
     emit(sigName: "pick", color: Color): void
-    on(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-redraw", callback: (($obj: Stage, origin: Actor) => void)): number
-    connect_after(sigName: "queue-redraw", callback: (($obj: Stage, origin: Actor) => void)): number
+    on(sigName: "queue-redraw", callback: (origin: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-redraw", callback: (origin: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-redraw", callback: (origin: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "queue-redraw", origin: Actor): void
-    on(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-relayout", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "queue-relayout", callback: (($obj: Stage) => void)): number
+    on(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-relayout", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "queue-relayout"): void
-    on(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: Stage) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: Stage, event: ScrollEvent) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: Stage, event: ScrollEvent) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: ScrollEvent) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: ScrollEvent): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "show", callback: (($obj: Stage) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: Stage, event: Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: Stage, event: Event) => boolean)): number
+    on(sigName: "touch-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", event: Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transition-stopped", callback: (($obj: Stage, name: string, isFinished: boolean) => void)): number
-    connect_after(sigName: "transition-stopped", callback: (($obj: Stage, name: string, isFinished: boolean) => void)): number
+    on(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "transition-stopped", name: string, isFinished: boolean): void
-    on(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transitions-completed", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "transitions-completed", callback: (($obj: Stage) => void)): number
+    on(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transitions-completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "transitions-completed"): void
-    on(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: Stage) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: Stage) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Stage, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Stage, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Stage, actor: Actor) => void)): number
-    connect_after(sigName: "actor-added", callback: (($obj: Stage, actor: Actor) => void)): number
+    on(sigName: "actor-added", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-added", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-added", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-added", actor: Actor): void
-    on(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "actor-removed", callback: (($obj: Stage, actor: Actor) => void)): number
-    connect_after(sigName: "actor-removed", callback: (($obj: Stage, actor: Actor) => void)): number
+    on(sigName: "actor-removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-removed", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-removed", actor: Actor): void
-    on(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: Stage, actor: Actor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: Stage, actor: Actor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", actor: Actor, pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::accept-focus", callback: (($obj: Stage, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::accept-focus", callback: (($obj: Stage, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::accept-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -21199,16 +19331,16 @@ export class Stage {
 export interface StageManager_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class StageManager {
-    /* Properties of Clutter.StageManager */
+    /* Properties of Clutter-1.0.Clutter.StageManager */
     readonly defaultStage: Stage
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.StageManager */
+    /* Methods of Clutter-1.0.Clutter.StageManager */
     getDefaultStage(): Stage
     listStages(): Stage[]
     peekStages(): Stage[]
     setDefaultStage(stage: Stage): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -21230,37 +19362,23 @@ export class StageManager {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.StageManager */
-    vfuncStageAdded(stage: Stage): void
-    vfuncStageRemoved(stage: Stage): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.StageManager */
+    /* Signals of Clutter-1.0.Clutter.StageManager */
     connect(sigName: "stage-added", callback: (($obj: StageManager, stage: Stage) => void)): number
-    connect_after(sigName: "stage-added", callback: (($obj: StageManager, stage: Stage) => void)): number
+    on(sigName: "stage-added", callback: (stage: Stage) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "stage-added", callback: (stage: Stage) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "stage-added", callback: (stage: Stage) => void): NodeJS.EventEmitter
     emit(sigName: "stage-added", stage: Stage): void
-    on(sigName: "stage-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "stage-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "stage-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "stage-removed", callback: (($obj: StageManager, stage: Stage) => void)): number
-    connect_after(sigName: "stage-removed", callback: (($obj: StageManager, stage: Stage) => void)): number
+    on(sigName: "stage-removed", callback: (stage: Stage) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "stage-removed", callback: (stage: Stage) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "stage-removed", callback: (stage: Stage) => void): NodeJS.EventEmitter
     emit(sigName: "stage-removed", stage: Stage): void
-    on(sigName: "stage-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "stage-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "stage-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: StageManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: StageManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::default-stage", callback: (($obj: StageManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::default-stage", callback: (($obj: StageManager, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::default-stage", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -21285,12 +19403,12 @@ export interface State_ConstructProps extends GObject.Object_ConstructProps {
     state?: string
 }
 export class State {
-    /* Properties of Clutter.State */
+    /* Properties of Clutter-1.0.Clutter.State */
     duration: number
     state: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.State */
+    /* Methods of Clutter-1.0.Clutter.State */
     getAnimator(sourceStateName: string, targetStateName: string): Animator
     getDuration(sourceStateName?: string | null, targetStateName?: string | null): number
     getKeys(sourceStateName?: string | null, targetStateName?: string | null, object?: GObject.Object | null, propertyName?: string | null): StateKey[]
@@ -21303,7 +19421,7 @@ export class State {
     setKey(sourceStateName: string | null, targetStateName: string, object: GObject.Object, propertyName: string, mode: number, value: any, preDelay: number, postDelay: number): State
     setState(targetStateName: string): Timeline
     warpToState(targetStateName: string): Timeline
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -21325,39 +19443,23 @@ export class State {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.State */
-    vfuncCompleted(): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.State */
+    /* Signals of Clutter-1.0.Clutter.State */
     connect(sigName: "completed", callback: (($obj: State) => void)): number
-    connect_after(sigName: "completed", callback: (($obj: State) => void)): number
+    on(sigName: "completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "completed"): void
-    on(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: State, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: State, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::duration", callback: (($obj: State, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration", callback: (($obj: State, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::duration", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -21385,39 +19487,39 @@ export class State {
 export interface SwipeAction_ConstructProps extends GestureAction_ConstructProps {
 }
 export class SwipeAction {
-    /* Properties of Clutter.GestureAction */
+    /* Properties of Clutter-1.0.Clutter.GestureAction */
     nTouchPoints: number
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.GestureAction */
+    /* Methods of Clutter-1.0.Clutter.GestureAction */
     cancel(): void
     getDevice(point: number): InputDevice
     getLastEvent(point: number): Event
-    getMotionCoords(point: number): [ /* motionX */ number | null, /* motionY */ number | null ]
-    getMotionDelta(point: number): [ /* returnType */ number, /* deltaX */ number | null, /* deltaY */ number | null ]
+    getMotionCoords(point: number): { motionX: number | null, motionY: number | null }
+    getMotionDelta(point: number): { returnType: number, deltaX: number | null, deltaY: number | null }
     getNCurrentPoints(): number
     getNTouchPoints(): number
-    getPressCoords(point: number): [ /* pressX */ number | null, /* pressY */ number | null ]
-    getReleaseCoords(point: number): [ /* releaseX */ number | null, /* releaseY */ number | null ]
+    getPressCoords(point: number): { pressX: number | null, pressY: number | null }
+    getReleaseCoords(point: number): { releaseX: number | null, releaseY: number | null }
     getSequence(point: number): EventSequence
-    getThresholdTriggerDistance(): [ /* x */ number | null, /* y */ number | null ]
+    getThresholdTriggerDistance(): { x: number | null, y: number | null }
     getThresholdTriggerEdge(): GestureTriggerEdge
     getThresholdTriggerEgde(): GestureTriggerEdge
-    getVelocity(point: number): [ /* returnType */ number, /* velocityX */ number | null, /* velocityY */ number | null ]
+    getVelocity(point: number): { returnType: number, velocityX: number | null, velocityY: number | null }
     setNTouchPoints(nbPoints: number): void
     setThresholdTriggerDistance(x: number, y: number): void
     setThresholdTriggerEdge(edge: GestureTriggerEdge): void
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -21439,70 +19541,44 @@ export class SwipeAction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.SwipeAction */
-    vfuncSwept(actor: Actor, direction: SwipeDirection): void
-    vfuncSwipe(actor: Actor, direction: SwipeDirection): boolean
-    /* Virtual methods of Clutter.GestureAction */
-    vfuncGestureBegin(actor: Actor): boolean
-    vfuncGestureCancel(actor: Actor): void
-    vfuncGestureEnd(actor: Actor): void
-    vfuncGesturePrepare(actor: Actor): boolean
-    vfuncGestureProgress(actor: Actor): boolean
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.SwipeAction */
+    /* Signals of Clutter-1.0.Clutter.SwipeAction */
     connect(sigName: "swept", callback: (($obj: SwipeAction, actor: Actor, direction: SwipeDirection) => void)): number
-    connect_after(sigName: "swept", callback: (($obj: SwipeAction, actor: Actor, direction: SwipeDirection) => void)): number
+    on(sigName: "swept", callback: (actor: Actor, direction: SwipeDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "swept", callback: (actor: Actor, direction: SwipeDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "swept", callback: (actor: Actor, direction: SwipeDirection) => void): NodeJS.EventEmitter
     emit(sigName: "swept", actor: Actor, direction: SwipeDirection): void
-    on(sigName: "swept", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "swept", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "swept", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "swipe", callback: (($obj: SwipeAction, actor: Actor, direction: SwipeDirection) => boolean)): number
-    connect_after(sigName: "swipe", callback: (($obj: SwipeAction, actor: Actor, direction: SwipeDirection) => boolean)): number
+    on(sigName: "swipe", callback: (actor: Actor, direction: SwipeDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "swipe", callback: (actor: Actor, direction: SwipeDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "swipe", callback: (actor: Actor, direction: SwipeDirection) => void): NodeJS.EventEmitter
     emit(sigName: "swipe", actor: Actor, direction: SwipeDirection): void
-    on(sigName: "swipe", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "swipe", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "swipe", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.GestureAction */
+    /* Signals of Clutter-1.0.Clutter.GestureAction */
     connect(sigName: "gesture-begin", callback: (($obj: SwipeAction, actor: Actor) => boolean)): number
-    connect_after(sigName: "gesture-begin", callback: (($obj: SwipeAction, actor: Actor) => boolean)): number
+    on(sigName: "gesture-begin", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gesture-begin", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gesture-begin", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "gesture-begin", actor: Actor): void
-    on(sigName: "gesture-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gesture-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gesture-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "gesture-cancel", callback: (($obj: SwipeAction, actor: Actor) => void)): number
-    connect_after(sigName: "gesture-cancel", callback: (($obj: SwipeAction, actor: Actor) => void)): number
+    on(sigName: "gesture-cancel", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gesture-cancel", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gesture-cancel", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "gesture-cancel", actor: Actor): void
-    on(sigName: "gesture-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gesture-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gesture-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "gesture-end", callback: (($obj: SwipeAction, actor: Actor) => void)): number
-    connect_after(sigName: "gesture-end", callback: (($obj: SwipeAction, actor: Actor) => void)): number
+    on(sigName: "gesture-end", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gesture-end", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gesture-end", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "gesture-end", actor: Actor): void
-    on(sigName: "gesture-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gesture-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gesture-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "gesture-progress", callback: (($obj: SwipeAction, actor: Actor) => boolean)): number
-    connect_after(sigName: "gesture-progress", callback: (($obj: SwipeAction, actor: Actor) => boolean)): number
+    on(sigName: "gesture-progress", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gesture-progress", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gesture-progress", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "gesture-progress", actor: Actor): void
-    on(sigName: "gesture-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gesture-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gesture-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SwipeAction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: SwipeAction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::n-touch-points", callback: (($obj: SwipeAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::n-touch-points", callback: (($obj: SwipeAction, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::n-touch-points", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -21545,25 +19621,25 @@ export interface TableLayout_ConstructProps extends LayoutManager_ConstructProps
     useAnimations?: boolean
 }
 export class TableLayout {
-    /* Properties of Clutter.TableLayout */
+    /* Properties of Clutter-1.0.Clutter.TableLayout */
     columnSpacing: number
     easingDuration: number
     easingMode: number
     rowSpacing: number
     useAnimations: boolean
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.TableLayout */
-    getAlignment(actor: Actor): [ /* xAlign */ TableAlignment, /* yAlign */ TableAlignment ]
+    /* Methods of Clutter-1.0.Clutter.TableLayout */
+    getAlignment(actor: Actor): { xAlign: TableAlignment, yAlign: TableAlignment }
     getColumnCount(): number
     getColumnSpacing(): number
     getEasingDuration(): number
     getEasingMode(): number
-    getExpand(actor: Actor): [ /* xExpand */ boolean, /* yExpand */ boolean ]
-    getFill(actor: Actor): [ /* xFill */ boolean, /* yFill */ boolean ]
+    getExpand(actor: Actor): { xExpand: boolean, yExpand: boolean }
+    getFill(actor: Actor): { xFill: boolean, yFill: boolean }
     getRowCount(): number
     getRowSpacing(): number
-    getSpan(actor: Actor): [ /* columnSpan */ number, /* rowSpan */ number ]
+    getSpan(actor: Actor): { columnSpan: number, rowSpan: number }
     getUseAnimations(): boolean
     pack(actor: Actor, column: number, row: number): void
     setAlignment(actor: Actor, xAlign: TableAlignment, yAlign: TableAlignment): void
@@ -21575,7 +19651,7 @@ export class TableLayout {
     setRowSpacing(spacing: number): void
     setSpan(actor: Actor, columnSpan: number, rowSpan: number): void
     setUseAnimations(animate: boolean): void
-    /* Methods of Clutter.LayoutManager */
+    /* Methods of Clutter-1.0.Clutter.LayoutManager */
     allocate(container: Container, allocation: ActorBox, flags: AllocationFlags): void
     beginAnimation(duration: number, mode: number): Alpha
     childGetProperty(container: Container, actor: Actor, propertyName: string, value: any): void
@@ -21584,12 +19660,12 @@ export class TableLayout {
     findChildProperty(name: string): GObject.ParamSpec
     getAnimationProgress(): number
     getChildMeta(container: Container, actor: Actor): LayoutMeta
-    getPreferredHeight(container: Container, forWidth: number): [ /* minHeightP */ number | null, /* natHeightP */ number | null ]
-    getPreferredWidth(container: Container, forHeight: number): [ /* minWidthP */ number | null, /* natWidthP */ number | null ]
+    getPreferredHeight(container: Container, forWidth: number): { minHeightP: number | null, natHeightP: number | null }
+    getPreferredWidth(container: Container, forHeight: number): { minWidthP: number | null, natWidthP: number | null }
     layoutChanged(): void
     listChildProperties(): GObject.ParamSpec[]
     setContainer(container?: Container | null): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -21611,38 +19687,18 @@ export class TableLayout {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.LayoutManager */
-    vfuncAllocate(container: Container, allocation: ActorBox, flags: AllocationFlags): void
-    vfuncBeginAnimation(duration: number, mode: number): Alpha
-    vfuncEndAnimation(): void
-    vfuncGetAnimationProgress(): number
-    vfuncGetChildMetaType(): GObject.Type
-    vfuncGetPreferredHeight(container: Container, forWidth: number): [ /* minHeightP */ number | null, /* natHeightP */ number | null ]
-    vfuncGetPreferredWidth(container: Container, forHeight: number): [ /* minWidthP */ number | null, /* natWidthP */ number | null ]
-    vfuncLayoutChanged(): void
-    vfuncSetContainer(container?: Container | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.LayoutManager */
+    /* Signals of Clutter-1.0.Clutter.LayoutManager */
     connect(sigName: "layout-changed", callback: (($obj: TableLayout) => void)): number
-    connect_after(sigName: "layout-changed", callback: (($obj: TableLayout) => void)): number
+    on(sigName: "layout-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "layout-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "layout-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "layout-changed"): void
-    on(sigName: "layout-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "layout-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "layout-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TableLayout, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TableLayout, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::column-spacing", callback: (($obj: TableLayout, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::column-spacing", callback: (($obj: TableLayout, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::column-spacing", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -21685,39 +19741,39 @@ export class TableLayout {
 export interface TapAction_ConstructProps extends GestureAction_ConstructProps {
 }
 export class TapAction {
-    /* Properties of Clutter.GestureAction */
+    /* Properties of Clutter-1.0.Clutter.GestureAction */
     nTouchPoints: number
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.GestureAction */
+    /* Methods of Clutter-1.0.Clutter.GestureAction */
     cancel(): void
     getDevice(point: number): InputDevice
     getLastEvent(point: number): Event
-    getMotionCoords(point: number): [ /* motionX */ number | null, /* motionY */ number | null ]
-    getMotionDelta(point: number): [ /* returnType */ number, /* deltaX */ number | null, /* deltaY */ number | null ]
+    getMotionCoords(point: number): { motionX: number | null, motionY: number | null }
+    getMotionDelta(point: number): { returnType: number, deltaX: number | null, deltaY: number | null }
     getNCurrentPoints(): number
     getNTouchPoints(): number
-    getPressCoords(point: number): [ /* pressX */ number | null, /* pressY */ number | null ]
-    getReleaseCoords(point: number): [ /* releaseX */ number | null, /* releaseY */ number | null ]
+    getPressCoords(point: number): { pressX: number | null, pressY: number | null }
+    getReleaseCoords(point: number): { releaseX: number | null, releaseY: number | null }
     getSequence(point: number): EventSequence
-    getThresholdTriggerDistance(): [ /* x */ number | null, /* y */ number | null ]
+    getThresholdTriggerDistance(): { x: number | null, y: number | null }
     getThresholdTriggerEdge(): GestureTriggerEdge
     getThresholdTriggerEgde(): GestureTriggerEdge
-    getVelocity(point: number): [ /* returnType */ number, /* velocityX */ number | null, /* velocityY */ number | null ]
+    getVelocity(point: number): { returnType: number, velocityX: number | null, velocityY: number | null }
     setNTouchPoints(nbPoints: number): void
     setThresholdTriggerDistance(x: number, y: number): void
     setThresholdTriggerEdge(edge: GestureTriggerEdge): void
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -21739,63 +19795,39 @@ export class TapAction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.TapAction */
-    vfuncTap(actor: Actor): boolean
-    /* Virtual methods of Clutter.GestureAction */
-    vfuncGestureBegin(actor: Actor): boolean
-    vfuncGestureCancel(actor: Actor): void
-    vfuncGestureEnd(actor: Actor): void
-    vfuncGesturePrepare(actor: Actor): boolean
-    vfuncGestureProgress(actor: Actor): boolean
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.TapAction */
+    /* Signals of Clutter-1.0.Clutter.TapAction */
     connect(sigName: "tap", callback: (($obj: TapAction, actor: Actor) => void)): number
-    connect_after(sigName: "tap", callback: (($obj: TapAction, actor: Actor) => void)): number
+    on(sigName: "tap", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "tap", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "tap", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "tap", actor: Actor): void
-    on(sigName: "tap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "tap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "tap", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.GestureAction */
+    /* Signals of Clutter-1.0.Clutter.GestureAction */
     connect(sigName: "gesture-begin", callback: (($obj: TapAction, actor: Actor) => boolean)): number
-    connect_after(sigName: "gesture-begin", callback: (($obj: TapAction, actor: Actor) => boolean)): number
+    on(sigName: "gesture-begin", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gesture-begin", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gesture-begin", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "gesture-begin", actor: Actor): void
-    on(sigName: "gesture-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gesture-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gesture-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "gesture-cancel", callback: (($obj: TapAction, actor: Actor) => void)): number
-    connect_after(sigName: "gesture-cancel", callback: (($obj: TapAction, actor: Actor) => void)): number
+    on(sigName: "gesture-cancel", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gesture-cancel", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gesture-cancel", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "gesture-cancel", actor: Actor): void
-    on(sigName: "gesture-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gesture-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gesture-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "gesture-end", callback: (($obj: TapAction, actor: Actor) => void)): number
-    connect_after(sigName: "gesture-end", callback: (($obj: TapAction, actor: Actor) => void)): number
+    on(sigName: "gesture-end", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gesture-end", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gesture-end", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "gesture-end", actor: Actor): void
-    on(sigName: "gesture-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gesture-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gesture-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "gesture-progress", callback: (($obj: TapAction, actor: Actor) => boolean)): number
-    connect_after(sigName: "gesture-progress", callback: (($obj: TapAction, actor: Actor) => boolean)): number
+    on(sigName: "gesture-progress", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gesture-progress", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gesture-progress", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "gesture-progress", actor: Actor): void
-    on(sigName: "gesture-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gesture-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gesture-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TapAction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TapAction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::n-touch-points", callback: (($obj: TapAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::n-touch-points", callback: (($obj: TapAction, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::n-touch-points", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -21859,7 +19891,7 @@ export interface Text_ConstructProps extends Actor_ConstructProps {
     useMarkup?: boolean
 }
 export class Text {
-    /* Properties of Clutter.Text */
+    /* Properties of Clutter-1.0.Clutter.Text */
     activatable: boolean
     attributes: Pango.AttrList
     buffer: TextBuffer
@@ -21889,7 +19921,7 @@ export class Text {
     singleLineMode: boolean
     text: string
     useMarkup: boolean
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Action
     readonly allocation: ActorBox
     anchorGravity: Gravity
@@ -21971,11 +20003,11 @@ export class Text {
     yAlign: ActorAlign
     yExpand: boolean
     zPosition: number
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Text */
+    /* Methods of Clutter-1.0.Clutter.Text */
     activate(): boolean
     coordsToPosition(x: number, y: number): number
     deleteChars(nChars: number): void
@@ -21985,10 +20017,10 @@ export class Text {
     getAttributes(): Pango.AttrList
     getBuffer(): TextBuffer
     getChars(startPos: number, endPos: number): string
-    getColor(): /* color */ Color
-    getCursorColor(): /* color */ Color
+    getColor(): { color: Color }
+    getCursorColor(): { color: Color }
     getCursorPosition(): number
-    getCursorRect(): /* rect */ Rect
+    getCursorRect(): { rect: Rect }
     getCursorSize(): number
     getCursorVisible(): boolean
     getEditable(): boolean
@@ -21997,23 +20029,23 @@ export class Text {
     getFontName(): string
     getJustify(): boolean
     getLayout(): Pango.Layout
-    getLayoutOffsets(): [ /* x */ number, /* y */ number ]
+    getLayoutOffsets(): { x: number, y: number }
     getLineAlignment(): Pango.Alignment
     getLineWrap(): boolean
     getLineWrapMode(): Pango.WrapMode
     getMaxLength(): number
     getPasswordChar(): number
     getSelectable(): boolean
-    getSelectedTextColor(): /* color */ Color
+    getSelectedTextColor(): { color: Color }
     getSelection(): string
     getSelectionBound(): number
-    getSelectionColor(): /* color */ Color
+    getSelectionColor(): { color: Color }
     getSingleLineMode(): boolean
     getText(): string
     getUseMarkup(): boolean
     insertText(text: string, position: number): void
     insertUnichar(wc: number): void
-    positionToCoords(position: number): [ /* returnType */ boolean, /* x */ number, /* y */ number, /* lineHeight */ number ]
+    positionToCoords(position: number): { returnType: boolean, x: number, y: number, lineHeight: number }
     setActivatable(activatable: boolean): void
     setAttributes(attrs?: Pango.AttrList | null): void
     setBuffer(buffer: TextBuffer): void
@@ -22042,7 +20074,7 @@ export class Text {
     setSingleLineMode(singleLine: boolean): void
     setText(text?: string | null): void
     setUseMarkup(setting: boolean): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     addAction(action: Action): void
     addActionWithName(name: string, action: Action): void
     addChild(child: Actor): void
@@ -22058,8 +20090,8 @@ export class Text {
     animateWithAlphav(alpha: Alpha, properties: string[], values: any[]): Animation
     animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any[]): Animation
     animatev(mode: number, duration: number, properties: string[], values: any[]): Animation
-    applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): /* vertex */ Vertex
-    applyTransformToPoint(point: Vertex): /* vertex */ Vertex
+    applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): { vertex: Vertex }
+    applyTransformToPoint(point: Vertex): { vertex: Vertex }
     bindModel(model: Gio.ListModel | null, createChildFunc: ActorCreateChildFunc): void
     clearActions(): void
     clearConstraints(): void
@@ -22072,29 +20104,29 @@ export class Text {
     destroyAllChildren(): void
     detachAnimation(): void
     event(event: Event, capture: boolean): boolean
-    getAbsAllocationVertices(): /* verts */ Vertex[]
+    getAbsAllocationVertices(): { verts: Vertex[] }
     getAccessible(): Atk.Object
     getAction(name: string): Action
     getActions(): Action[]
-    getAllocationBox(): /* box */ ActorBox
-    getAllocationGeometry(): /* geom */ Geometry
-    getAllocationVertices(ancestor?: Actor | null): /* verts */ Vertex[]
-    getAnchorPoint(): [ /* anchorX */ number, /* anchorY */ number ]
+    getAllocationBox(): { box: ActorBox }
+    getAllocationGeometry(): { geom: Geometry }
+    getAllocationVertices(ancestor?: Actor | null): { verts: Vertex[] }
+    getAnchorPoint(): { anchorX: number, anchorY: number }
     getAnchorPointGravity(): Gravity
     getAnimation(): Animation
-    getBackgroundColor(): /* color */ Color
+    getBackgroundColor(): { color: Color }
     getChildAtIndex(index: number): Actor
-    getChildTransform(): /* transform */ Matrix
+    getChildTransform(): { transform: Matrix }
     getChildren(): Actor[]
-    getClip(): [ /* xoff */ number | null, /* yoff */ number | null, /* width */ number | null, /* height */ number | null ]
+    getClip(): { xoff: number | null, yoff: number | null, width: number | null, height: number | null }
     getClipToAllocation(): boolean
     getConstraint(name: string): Constraint
     getConstraints(): Constraint[]
     getContent(): Content
-    getContentBox(): /* box */ ActorBox
+    getContentBox(): { box: ActorBox }
     getContentGravity(): ContentGravity
     getContentRepeat(): ContentRepeat
-    getContentScalingFilters(): [ /* minFilter */ ScalingFilter | null, /* magFilter */ ScalingFilter | null ]
+    getContentScalingFilters(): { minFilter: ScalingFilter | null, magFilter: ScalingFilter | null }
     getDefaultPaintVolume(): PaintVolume
     getDepth(): number
     getEasingDelay(): number
@@ -22105,12 +20137,12 @@ export class Text {
     getFirstChild(): Actor
     getFixedPositionSet(): boolean
     getFlags(): ActorFlags
-    getGeometry(): /* geometry */ Geometry
+    getGeometry(): { geometry: Geometry }
     getGid(): number
     getHeight(): number
     getLastChild(): Actor
     getLayoutManager(): LayoutManager
-    getMargin(): /* margin */ Margin
+    getMargin(): { margin: Margin }
     getMarginBottom(): number
     getMarginLeft(): number
     getMarginRight(): number
@@ -22120,38 +20152,38 @@ export class Text {
     getNextSibling(): Actor
     getOffscreenRedirect(): OffscreenRedirect
     getOpacity(): number
-    getPaintBox(): [ /* returnType */ boolean, /* box */ ActorBox ]
+    getPaintBox(): { returnType: boolean, box: ActorBox }
     getPaintOpacity(): number
     getPaintVisibility(): boolean
     getPaintVolume(): PaintVolume
     getPangoContext(): Pango.Context
     getParent(): Actor
-    getPivotPoint(): [ /* pivotX */ number | null, /* pivotY */ number | null ]
+    getPivotPoint(): { pivotX: number | null, pivotY: number | null }
     getPivotPointZ(): number
-    getPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredSize(): [ /* minWidthP */ number | null, /* minHeightP */ number | null, /* naturalWidthP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
+    getPosition(): { x: number | null, y: number | null }
+    getPreferredHeight(forWidth: number): { minHeightP: number | null, naturalHeightP: number | null }
+    getPreferredSize(): { minWidthP: number | null, minHeightP: number | null, naturalWidthP: number | null, naturalHeightP: number | null }
+    getPreferredWidth(forHeight: number): { minWidthP: number | null, naturalWidthP: number | null }
     getPreviousSibling(): Actor
     getReactive(): boolean
     getRequestMode(): RequestMode
-    getRotation(axis: RotateAxis): [ /* returnType */ number, /* x */ number, /* y */ number, /* z */ number ]
+    getRotation(axis: RotateAxis): { returnType: number, x: number, y: number, z: number }
     getRotationAngle(axis: RotateAxis): number
-    getScale(): [ /* scaleX */ number | null, /* scaleY */ number | null ]
-    getScaleCenter(): [ /* centerX */ number | null, /* centerY */ number | null ]
+    getScale(): { scaleX: number | null, scaleY: number | null }
+    getScaleCenter(): { centerX: number | null, centerY: number | null }
     getScaleGravity(): Gravity
     getScaleZ(): number
     getShader(): Shader
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getSize(): { width: number | null, height: number | null }
     getStage(): Stage
     getTextDirection(): TextDirection
-    getTransform(): /* transform */ Matrix
-    getTransformationMatrix(): /* matrix */ Matrix
+    getTransform(): { transform: Matrix }
+    getTransformationMatrix(): { matrix: Matrix }
     getTransformedPaintVolume(relativeToAncestor: Actor): PaintVolume
-    getTransformedPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getTransformedSize(): [ /* width */ number | null, /* height */ number | null ]
+    getTransformedPosition(): { x: number | null, y: number | null }
+    getTransformedSize(): { width: number | null, height: number | null }
     getTransition(name: string): Transition
-    getTranslation(): [ /* translateX */ number | null, /* translateY */ number | null, /* translateZ */ number | null ]
+    getTranslation(): { translateX: number | null, translateY: number | null, translateZ: number | null }
     getWidth(): number
     getX(): number
     getXAlign(): ActorAlign
@@ -22273,12 +20305,12 @@ export class Text {
     shouldPickPaint(): boolean
     show(): void
     showAll(): void
-    transformStagePoint(x: number, y: number): [ /* returnType */ boolean, /* xOut */ number, /* yOut */ number ]
+    transformStagePoint(x: number, y: number): { returnType: boolean, xOut: number, yOut: number }
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetFlags(flags: ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -22300,13 +20332,13 @@ export class Text {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animateProperty(animation: Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     findProperty(propertyName: string): GObject.ParamSpec
     getInitialState(propertyName: string, value: any): void
-    interpolateValue(propertyName: string, interval: Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
+    interpolateValue(propertyName: string, interval: Interval, progress: number): { returnType: boolean, value: any }
     setFinalState(propertyName: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     addActor(actor: Actor): void
     childGetProperty(child: Actor, property: string, value: any): void
     childNotify(child: Actor, pspec: GObject.ParamSpec): void
@@ -22321,302 +20353,195 @@ export class Text {
     raiseChild(actor: Actor, sibling?: Actor | null): void
     removeActor(actor: Actor): void
     sortDepthOrder(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Text */
-    vfuncActivate(): void
-    vfuncCursorChanged(): void
-    vfuncCursorEvent(geometry: Geometry): void
-    vfuncTextChanged(): void
-    /* Virtual methods of Clutter.Actor */
-    vfuncAllocate(box: ActorBox, flags: AllocationFlags): void
-    vfuncApplyTransform(matrix: Matrix): void
-    vfuncButtonPressEvent(event: ButtonEvent): boolean
-    vfuncButtonReleaseEvent(event: ButtonEvent): boolean
-    vfuncCapturedEvent(event: Event): boolean
-    vfuncDestroy(): void
-    vfuncEnterEvent(event: CrossingEvent): boolean
-    vfuncEvent(event: Event): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPaintVolume(volume: PaintVolume): boolean
-    vfuncGetPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    vfuncGetPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
-    vfuncHasOverlaps(): boolean
-    vfuncHide(): void
-    vfuncHideAll(): void
-    vfuncKeyFocusIn(): void
-    vfuncKeyFocusOut(): void
-    vfuncKeyPressEvent(event: KeyEvent): boolean
-    vfuncKeyReleaseEvent(event: KeyEvent): boolean
-    vfuncLeaveEvent(event: CrossingEvent): boolean
-    vfuncMap(): void
-    vfuncMotionEvent(event: MotionEvent): boolean
-    vfuncPaint(): void
-    vfuncPaintNode(root: PaintNode): void
-    vfuncParentSet(oldParent: Actor): void
-    vfuncPick(color: Color): void
-    vfuncQueueRedraw(leafThatQueued: Actor): void
-    vfuncQueueRelayout(): void
-    vfuncRealize(): void
-    vfuncScrollEvent(event: ScrollEvent): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncTouchEvent(event: TouchEvent): boolean
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    vfuncAnimateProperty(animation: Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
-    vfuncFindProperty(propertyName: string): GObject.ParamSpec
-    vfuncGetInitialState(propertyName: string, value: any): void
-    vfuncInterpolateValue(propertyName: string, interval: Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
-    vfuncSetFinalState(propertyName: string, value: any): void
-    vfuncActorAdded(actor: Actor): void
-    vfuncActorRemoved(actor: Actor): void
-    vfuncAdd(actor: Actor): void
-    vfuncChildNotify(child: Actor, pspec: GObject.ParamSpec): void
-    vfuncCreateChildMeta(actor: Actor): void
-    vfuncDestroyChildMeta(actor: Actor): void
-    vfuncForeach(callback: Callback): void
-    vfuncForeachWithInternals(callback: Callback): void
-    vfuncGetChildMeta(actor: Actor): ChildMeta
-    vfuncLower(actor: Actor, sibling?: Actor | null): void
-    vfuncRaise(actor: Actor, sibling?: Actor | null): void
-    vfuncRemove(actor: Actor): void
-    vfuncSortDepthOrder(): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Text */
+    /* Signals of Clutter-1.0.Clutter.Text */
     connect(sigName: "activate", callback: (($obj: Text) => void)): number
-    connect_after(sigName: "activate", callback: (($obj: Text) => void)): number
+    on(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "activate"): void
-    on(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-changed", callback: (($obj: Text) => void)): number
-    connect_after(sigName: "cursor-changed", callback: (($obj: Text) => void)): number
+    on(sigName: "cursor-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "cursor-changed"): void
-    on(sigName: "cursor-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "cursor-event", callback: (($obj: Text, geometry: Geometry) => void)): number
-    connect_after(sigName: "cursor-event", callback: (($obj: Text, geometry: Geometry) => void)): number
+    on(sigName: "cursor-event", callback: (geometry: Geometry) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cursor-event", callback: (geometry: Geometry) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cursor-event", callback: (geometry: Geometry) => void): NodeJS.EventEmitter
     emit(sigName: "cursor-event", geometry: Geometry): void
-    on(sigName: "cursor-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "cursor-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "cursor-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "delete-text", callback: (($obj: Text, startPos: number, endPos: number) => void)): number
-    connect_after(sigName: "delete-text", callback: (($obj: Text, startPos: number, endPos: number) => void)): number
+    on(sigName: "delete-text", callback: (startPos: number, endPos: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "delete-text", callback: (startPos: number, endPos: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "delete-text", callback: (startPos: number, endPos: number) => void): NodeJS.EventEmitter
     emit(sigName: "delete-text", startPos: number, endPos: number): void
-    on(sigName: "delete-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "delete-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "delete-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "insert-text", callback: (($obj: Text, newText: string, newTextLength: number, position?: object | null) => void)): number
-    connect_after(sigName: "insert-text", callback: (($obj: Text, newText: string, newTextLength: number, position?: object | null) => void)): number
+    on(sigName: "insert-text", callback: (newText: string, newTextLength: number, position?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "insert-text", callback: (newText: string, newTextLength: number, position?: object | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "insert-text", callback: (newText: string, newTextLength: number, position?: object | null) => void): NodeJS.EventEmitter
     emit(sigName: "insert-text", newText: string, newTextLength: number, position?: object | null): void
-    on(sigName: "insert-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "insert-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "insert-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "text-changed", callback: (($obj: Text) => void)): number
-    connect_after(sigName: "text-changed", callback: (($obj: Text) => void)): number
+    on(sigName: "text-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "text-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "text-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "text-changed"): void
-    on(sigName: "text-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "text-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "text-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Text, box: ActorBox, flags: AllocationFlags) => void)): number
-    connect_after(sigName: "allocation-changed", callback: (($obj: Text, box: ActorBox, flags: AllocationFlags) => void)): number
+    on(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void): NodeJS.EventEmitter
     emit(sigName: "allocation-changed", box: ActorBox, flags: AllocationFlags): void
-    on(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: Text, event: ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: Text, event: ButtonEvent) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: ButtonEvent): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: Text, event: ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: Text, event: ButtonEvent) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: ButtonEvent): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "captured-event", callback: (($obj: Text, event: Event) => boolean)): number
-    connect_after(sigName: "captured-event", callback: (($obj: Text, event: Event) => boolean)): number
+    on(sigName: "captured-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "captured-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "captured-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "captured-event", event: Event): void
-    on(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: Text) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Text) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-event", callback: (($obj: Text, event: CrossingEvent) => boolean)): number
-    connect_after(sigName: "enter-event", callback: (($obj: Text, event: CrossingEvent) => boolean)): number
+    on(sigName: "enter-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-event", callback: (event: CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "enter-event", event: CrossingEvent): void
-    on(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: Text, event: Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: Text, event: Event) => boolean)): number
+    on(sigName: "event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: Text) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: Text) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-in", callback: (($obj: Text) => void)): number
-    connect_after(sigName: "key-focus-in", callback: (($obj: Text) => void)): number
+    on(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-in", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-in"): void
-    on(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-out", callback: (($obj: Text) => void)): number
-    connect_after(sigName: "key-focus-out", callback: (($obj: Text) => void)): number
+    on(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-out", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-out"): void
-    on(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: Text, event: KeyEvent) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: Text, event: KeyEvent) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: KeyEvent): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: Text, event: KeyEvent) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: Text, event: KeyEvent) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: KeyEvent): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-event", callback: (($obj: Text, event: CrossingEvent) => boolean)): number
-    connect_after(sigName: "leave-event", callback: (($obj: Text, event: CrossingEvent) => boolean)): number
+    on(sigName: "leave-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-event", callback: (event: CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "leave-event", event: CrossingEvent): void
-    on(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-event", callback: (($obj: Text, event: MotionEvent) => boolean)): number
-    connect_after(sigName: "motion-event", callback: (($obj: Text, event: MotionEvent) => boolean)): number
+    on(sigName: "motion-event", callback: (event: MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-event", callback: (event: MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-event", callback: (event: MotionEvent) => void): NodeJS.EventEmitter
     emit(sigName: "motion-event", event: MotionEvent): void
-    on(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paint", callback: (($obj: Text) => void)): number
-    connect_after(sigName: "paint", callback: (($obj: Text) => void)): number
+    on(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paint", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paint"): void
-    on(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: Text, oldParent?: Actor | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: Text, oldParent?: Actor | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Actor | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Actor | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pick", callback: (($obj: Text, color: Color) => void)): number
-    connect_after(sigName: "pick", callback: (($obj: Text, color: Color) => void)): number
+    on(sigName: "pick", callback: (color: Color) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pick", callback: (color: Color) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pick", callback: (color: Color) => void): NodeJS.EventEmitter
     emit(sigName: "pick", color: Color): void
-    on(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-redraw", callback: (($obj: Text, origin: Actor) => void)): number
-    connect_after(sigName: "queue-redraw", callback: (($obj: Text, origin: Actor) => void)): number
+    on(sigName: "queue-redraw", callback: (origin: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-redraw", callback: (origin: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-redraw", callback: (origin: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "queue-redraw", origin: Actor): void
-    on(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-relayout", callback: (($obj: Text) => void)): number
-    connect_after(sigName: "queue-relayout", callback: (($obj: Text) => void)): number
+    on(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-relayout", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "queue-relayout"): void
-    on(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: Text) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: Text) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: Text, event: ScrollEvent) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: Text, event: ScrollEvent) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: ScrollEvent) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: ScrollEvent): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: Text) => void)): number
-    connect_after(sigName: "show", callback: (($obj: Text) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: Text, event: Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: Text, event: Event) => boolean)): number
+    on(sigName: "touch-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", event: Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transition-stopped", callback: (($obj: Text, name: string, isFinished: boolean) => void)): number
-    connect_after(sigName: "transition-stopped", callback: (($obj: Text, name: string, isFinished: boolean) => void)): number
+    on(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "transition-stopped", name: string, isFinished: boolean): void
-    on(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transitions-completed", callback: (($obj: Text) => void)): number
-    connect_after(sigName: "transitions-completed", callback: (($obj: Text) => void)): number
+    on(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transitions-completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "transitions-completed"): void
-    on(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: Text) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: Text) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Text, actor: Actor) => void)): number
-    connect_after(sigName: "actor-added", callback: (($obj: Text, actor: Actor) => void)): number
+    on(sigName: "actor-added", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-added", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-added", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-added", actor: Actor): void
-    on(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "actor-removed", callback: (($obj: Text, actor: Actor) => void)): number
-    connect_after(sigName: "actor-removed", callback: (($obj: Text, actor: Actor) => void)): number
+    on(sigName: "actor-removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-removed", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-removed", actor: Actor): void
-    on(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: Text, actor: Actor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: Text, actor: Actor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", actor: Actor, pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::activatable", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::activatable", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::activatable", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -23188,13 +21113,13 @@ export interface TextBuffer_ConstructProps extends GObject.Object_ConstructProps
     maxLength?: number
 }
 export class TextBuffer {
-    /* Properties of Clutter.TextBuffer */
+    /* Properties of Clutter-1.0.Clutter.TextBuffer */
     readonly length: number
     maxLength: number
     readonly text: string
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.TextBuffer */
+    /* Methods of Clutter-1.0.Clutter.TextBuffer */
     deleteText(position: number, nChars: number): number
     emitDeletedText(position: number, nChars: number): void
     emitInsertedText(position: number, chars: string, nChars: number): void
@@ -23205,7 +21130,7 @@ export class TextBuffer {
     insertText(position: number, chars: string, nChars: number): number
     setMaxLength(maxLength: number): void
     setText(chars: string, nChars: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -23227,41 +21152,23 @@ export class TextBuffer {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.TextBuffer */
-    vfuncDeleteText(position: number, nChars: number): number
-    vfuncDeletedText(position: number, nChars: number): void
-    vfuncGetLength(): number
-    vfuncGetText(nBytes: number): string
-    vfuncInsertText(position: number, chars: string, nChars: number): number
-    vfuncInsertedText(position: number, chars: string, nChars: number): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.TextBuffer */
+    /* Signals of Clutter-1.0.Clutter.TextBuffer */
     connect(sigName: "deleted-text", callback: (($obj: TextBuffer, position: number, nChars: number) => void)): number
-    connect_after(sigName: "deleted-text", callback: (($obj: TextBuffer, position: number, nChars: number) => void)): number
+    on(sigName: "deleted-text", callback: (position: number, nChars: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deleted-text", callback: (position: number, nChars: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deleted-text", callback: (position: number, nChars: number) => void): NodeJS.EventEmitter
     emit(sigName: "deleted-text", position: number, nChars: number): void
-    on(sigName: "deleted-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "deleted-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "deleted-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "inserted-text", callback: (($obj: TextBuffer, position: number, chars: string, nChars: number) => void)): number
-    connect_after(sigName: "inserted-text", callback: (($obj: TextBuffer, position: number, chars: string, nChars: number) => void)): number
+    on(sigName: "inserted-text", callback: (position: number, chars: string, nChars: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "inserted-text", callback: (position: number, chars: string, nChars: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "inserted-text", callback: (position: number, chars: string, nChars: number) => void): NodeJS.EventEmitter
     emit(sigName: "inserted-text", position: number, chars: string, nChars: number): void
-    on(sigName: "inserted-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "inserted-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "inserted-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TextBuffer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TextBuffer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::length", callback: (($obj: TextBuffer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: TextBuffer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::length", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -23293,7 +21200,7 @@ export class TextBuffer {
     static $gtype: GObject.Type
 }
 export class TextNode {
-    /* Methods of Clutter.PaintNode */
+    /* Methods of Clutter-1.0.Clutter.PaintNode */
     addChild(child: PaintNode): void
     addRectangle(rect: ActorBox): void
     addTextureRectangle(rect: ActorBox, x1: number, y1: number, x2: number, y2: number): void
@@ -23319,7 +21226,7 @@ export interface Texture_ConstructProps extends Actor_ConstructProps {
     syncSize?: boolean
 }
 export class Texture {
-    /* Properties of Clutter.Texture */
+    /* Properties of Clutter-1.0.Clutter.Texture */
     filename: string
     filterQuality: TextureQuality
     keepAspectRatio: boolean
@@ -23331,7 +21238,7 @@ export class Texture {
     repeatY: boolean
     syncSize: boolean
     readonly tileWaste: number
-    /* Properties of Clutter.Actor */
+    /* Properties of Clutter-1.0.Clutter.Actor */
     actions: Action
     readonly allocation: ActorBox
     anchorGravity: Gravity
@@ -23414,12 +21321,12 @@ export class Texture {
     yAlign: ActorAlign
     yExpand: boolean
     zPosition: number
-    /* Fields of Clutter.Actor */
+    /* Fields of Clutter-1.0.Clutter.Actor */
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Texture */
-    getBaseSize(): [ /* width */ number, /* height */ number ]
+    /* Methods of Clutter-1.0.Clutter.Texture */
+    getBaseSize(): { width: number, height: number }
     getCoglMaterial(): Cogl.Handle
     getCoglTexture(): Cogl.Handle
     getFilterQuality(): TextureQuality
@@ -23429,7 +21336,7 @@ export class Texture {
     getMaxTileWaste(): number
     getPickWithAlpha(): boolean
     getPixelFormat(): Cogl.PixelFormat
-    getRepeat(): [ /* repeatX */ boolean, /* repeatY */ boolean ]
+    getRepeat(): { repeatX: boolean, repeatY: boolean }
     getSyncSize(): boolean
     setAreaFromRgbData(data: any[], hasAlpha: boolean, x: number, y: number, width: number, height: number, rowstride: number, bpp: number, flags: TextureFlags): boolean
     setCoglMaterial(coglMaterial: Cogl.Handle): void
@@ -23444,7 +21351,7 @@ export class Texture {
     setPickWithAlpha(pickWithAlpha: boolean): void
     setRepeat(repeatX: boolean, repeatY: boolean): void
     setSyncSize(syncSize: boolean): void
-    /* Methods of Clutter.Actor */
+    /* Methods of Clutter-1.0.Clutter.Actor */
     addAction(action: Action): void
     addActionWithName(name: string, action: Action): void
     addChild(child: Actor): void
@@ -23460,8 +21367,8 @@ export class Texture {
     animateWithAlphav(alpha: Alpha, properties: string[], values: any[]): Animation
     animateWithTimelinev(mode: number, timeline: Timeline, properties: string[], values: any[]): Animation
     animatev(mode: number, duration: number, properties: string[], values: any[]): Animation
-    applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): /* vertex */ Vertex
-    applyTransformToPoint(point: Vertex): /* vertex */ Vertex
+    applyRelativeTransformToPoint(ancestor: Actor | null, point: Vertex): { vertex: Vertex }
+    applyTransformToPoint(point: Vertex): { vertex: Vertex }
     bindModel(model: Gio.ListModel | null, createChildFunc: ActorCreateChildFunc): void
     clearActions(): void
     clearConstraints(): void
@@ -23474,29 +21381,29 @@ export class Texture {
     destroyAllChildren(): void
     detachAnimation(): void
     event(event: Event, capture: boolean): boolean
-    getAbsAllocationVertices(): /* verts */ Vertex[]
+    getAbsAllocationVertices(): { verts: Vertex[] }
     getAccessible(): Atk.Object
     getAction(name: string): Action
     getActions(): Action[]
-    getAllocationBox(): /* box */ ActorBox
-    getAllocationGeometry(): /* geom */ Geometry
-    getAllocationVertices(ancestor?: Actor | null): /* verts */ Vertex[]
-    getAnchorPoint(): [ /* anchorX */ number, /* anchorY */ number ]
+    getAllocationBox(): { box: ActorBox }
+    getAllocationGeometry(): { geom: Geometry }
+    getAllocationVertices(ancestor?: Actor | null): { verts: Vertex[] }
+    getAnchorPoint(): { anchorX: number, anchorY: number }
     getAnchorPointGravity(): Gravity
     getAnimation(): Animation
-    getBackgroundColor(): /* color */ Color
+    getBackgroundColor(): { color: Color }
     getChildAtIndex(index: number): Actor
-    getChildTransform(): /* transform */ Matrix
+    getChildTransform(): { transform: Matrix }
     getChildren(): Actor[]
-    getClip(): [ /* xoff */ number | null, /* yoff */ number | null, /* width */ number | null, /* height */ number | null ]
+    getClip(): { xoff: number | null, yoff: number | null, width: number | null, height: number | null }
     getClipToAllocation(): boolean
     getConstraint(name: string): Constraint
     getConstraints(): Constraint[]
     getContent(): Content
-    getContentBox(): /* box */ ActorBox
+    getContentBox(): { box: ActorBox }
     getContentGravity(): ContentGravity
     getContentRepeat(): ContentRepeat
-    getContentScalingFilters(): [ /* minFilter */ ScalingFilter | null, /* magFilter */ ScalingFilter | null ]
+    getContentScalingFilters(): { minFilter: ScalingFilter | null, magFilter: ScalingFilter | null }
     getDefaultPaintVolume(): PaintVolume
     getDepth(): number
     getEasingDelay(): number
@@ -23507,12 +21414,12 @@ export class Texture {
     getFirstChild(): Actor
     getFixedPositionSet(): boolean
     getFlags(): ActorFlags
-    getGeometry(): /* geometry */ Geometry
+    getGeometry(): { geometry: Geometry }
     getGid(): number
     getHeight(): number
     getLastChild(): Actor
     getLayoutManager(): LayoutManager
-    getMargin(): /* margin */ Margin
+    getMargin(): { margin: Margin }
     getMarginBottom(): number
     getMarginLeft(): number
     getMarginRight(): number
@@ -23522,38 +21429,38 @@ export class Texture {
     getNextSibling(): Actor
     getOffscreenRedirect(): OffscreenRedirect
     getOpacity(): number
-    getPaintBox(): [ /* returnType */ boolean, /* box */ ActorBox ]
+    getPaintBox(): { returnType: boolean, box: ActorBox }
     getPaintOpacity(): number
     getPaintVisibility(): boolean
     getPaintVolume(): PaintVolume
     getPangoContext(): Pango.Context
     getParent(): Actor
-    getPivotPoint(): [ /* pivotX */ number | null, /* pivotY */ number | null ]
+    getPivotPoint(): { pivotX: number | null, pivotY: number | null }
     getPivotPointZ(): number
-    getPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredSize(): [ /* minWidthP */ number | null, /* minHeightP */ number | null, /* naturalWidthP */ number | null, /* naturalHeightP */ number | null ]
-    getPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
+    getPosition(): { x: number | null, y: number | null }
+    getPreferredHeight(forWidth: number): { minHeightP: number | null, naturalHeightP: number | null }
+    getPreferredSize(): { minWidthP: number | null, minHeightP: number | null, naturalWidthP: number | null, naturalHeightP: number | null }
+    getPreferredWidth(forHeight: number): { minWidthP: number | null, naturalWidthP: number | null }
     getPreviousSibling(): Actor
     getReactive(): boolean
     getRequestMode(): RequestMode
-    getRotation(axis: RotateAxis): [ /* returnType */ number, /* x */ number, /* y */ number, /* z */ number ]
+    getRotation(axis: RotateAxis): { returnType: number, x: number, y: number, z: number }
     getRotationAngle(axis: RotateAxis): number
-    getScale(): [ /* scaleX */ number | null, /* scaleY */ number | null ]
-    getScaleCenter(): [ /* centerX */ number | null, /* centerY */ number | null ]
+    getScale(): { scaleX: number | null, scaleY: number | null }
+    getScaleCenter(): { centerX: number | null, centerY: number | null }
     getScaleGravity(): Gravity
     getScaleZ(): number
     getShader(): Shader
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getSize(): { width: number | null, height: number | null }
     getStage(): Stage
     getTextDirection(): TextDirection
-    getTransform(): /* transform */ Matrix
-    getTransformationMatrix(): /* matrix */ Matrix
+    getTransform(): { transform: Matrix }
+    getTransformationMatrix(): { matrix: Matrix }
     getTransformedPaintVolume(relativeToAncestor: Actor): PaintVolume
-    getTransformedPosition(): [ /* x */ number | null, /* y */ number | null ]
-    getTransformedSize(): [ /* width */ number | null, /* height */ number | null ]
+    getTransformedPosition(): { x: number | null, y: number | null }
+    getTransformedSize(): { width: number | null, height: number | null }
     getTransition(name: string): Transition
-    getTranslation(): [ /* translateX */ number | null, /* translateY */ number | null, /* translateZ */ number | null ]
+    getTranslation(): { translateX: number | null, translateY: number | null, translateZ: number | null }
     getWidth(): number
     getX(): number
     getXAlign(): ActorAlign
@@ -23675,12 +21582,12 @@ export class Texture {
     shouldPickPaint(): boolean
     show(): void
     showAll(): void
-    transformStagePoint(x: number, y: number): [ /* returnType */ boolean, /* xOut */ number, /* yOut */ number ]
+    transformStagePoint(x: number, y: number): { returnType: boolean, xOut: number, yOut: number }
     unmap(): void
     unparent(): void
     unrealize(): void
     unsetFlags(flags: ActorFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -23702,13 +21609,13 @@ export class Texture {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Animatable */
+    /* Methods of Clutter-1.0.Clutter.Animatable */
     animateProperty(animation: Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
     findProperty(propertyName: string): GObject.ParamSpec
     getInitialState(propertyName: string, value: any): void
-    interpolateValue(propertyName: string, interval: Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
+    interpolateValue(propertyName: string, interval: Interval, progress: number): { returnType: boolean, value: any }
     setFinalState(propertyName: string, value: any): void
-    /* Methods of Clutter.Container */
+    /* Methods of Clutter-1.0.Clutter.Container */
     addActor(actor: Actor): void
     childGetProperty(child: Actor, property: string, value: any): void
     childNotify(child: Actor, pspec: GObject.ParamSpec): void
@@ -23723,283 +21630,180 @@ export class Texture {
     raiseChild(actor: Actor, sibling?: Actor | null): void
     removeActor(actor: Actor): void
     sortDepthOrder(): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Texture */
-    vfuncLoadFinished(error: GLib.Error): void
-    vfuncPixbufChange(): void
-    vfuncSizeChange(width: number, height: number): void
-    /* Virtual methods of Clutter.Actor */
-    vfuncAllocate(box: ActorBox, flags: AllocationFlags): void
-    vfuncApplyTransform(matrix: Matrix): void
-    vfuncButtonPressEvent(event: ButtonEvent): boolean
-    vfuncButtonReleaseEvent(event: ButtonEvent): boolean
-    vfuncCapturedEvent(event: Event): boolean
-    vfuncDestroy(): void
-    vfuncEnterEvent(event: CrossingEvent): boolean
-    vfuncEvent(event: Event): boolean
-    vfuncGetAccessible(): Atk.Object
-    vfuncGetPaintVolume(volume: PaintVolume): boolean
-    vfuncGetPreferredHeight(forWidth: number): [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
-    vfuncGetPreferredWidth(forHeight: number): [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
-    vfuncHasOverlaps(): boolean
-    vfuncHide(): void
-    vfuncHideAll(): void
-    vfuncKeyFocusIn(): void
-    vfuncKeyFocusOut(): void
-    vfuncKeyPressEvent(event: KeyEvent): boolean
-    vfuncKeyReleaseEvent(event: KeyEvent): boolean
-    vfuncLeaveEvent(event: CrossingEvent): boolean
-    vfuncMap(): void
-    vfuncMotionEvent(event: MotionEvent): boolean
-    vfuncPaint(): void
-    vfuncPaintNode(root: PaintNode): void
-    vfuncParentSet(oldParent: Actor): void
-    vfuncPick(color: Color): void
-    vfuncQueueRedraw(leafThatQueued: Actor): void
-    vfuncQueueRelayout(): void
-    vfuncRealize(): void
-    vfuncScrollEvent(event: ScrollEvent): boolean
-    vfuncShow(): void
-    vfuncShowAll(): void
-    vfuncTouchEvent(event: TouchEvent): boolean
-    vfuncUnmap(): void
-    vfuncUnrealize(): void
-    vfuncAnimateProperty(animation: Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any): boolean
-    vfuncFindProperty(propertyName: string): GObject.ParamSpec
-    vfuncGetInitialState(propertyName: string, value: any): void
-    vfuncInterpolateValue(propertyName: string, interval: Interval, progress: number): [ /* returnType */ boolean, /* value */ any ]
-    vfuncSetFinalState(propertyName: string, value: any): void
-    vfuncActorAdded(actor: Actor): void
-    vfuncActorRemoved(actor: Actor): void
-    vfuncAdd(actor: Actor): void
-    vfuncChildNotify(child: Actor, pspec: GObject.ParamSpec): void
-    vfuncCreateChildMeta(actor: Actor): void
-    vfuncDestroyChildMeta(actor: Actor): void
-    vfuncForeach(callback: Callback): void
-    vfuncForeachWithInternals(callback: Callback): void
-    vfuncGetChildMeta(actor: Actor): ChildMeta
-    vfuncLower(actor: Actor, sibling?: Actor | null): void
-    vfuncRaise(actor: Actor, sibling?: Actor | null): void
-    vfuncRemove(actor: Actor): void
-    vfuncSortDepthOrder(): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Texture */
+    /* Signals of Clutter-1.0.Clutter.Texture */
     connect(sigName: "load-finished", callback: (($obj: Texture, error: GLib.Error) => void)): number
-    connect_after(sigName: "load-finished", callback: (($obj: Texture, error: GLib.Error) => void)): number
+    on(sigName: "load-finished", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "load-finished", callback: (error: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "load-finished", callback: (error: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "load-finished", error: GLib.Error): void
-    on(sigName: "load-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "load-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "load-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pixbuf-change", callback: (($obj: Texture) => void)): number
-    connect_after(sigName: "pixbuf-change", callback: (($obj: Texture) => void)): number
+    on(sigName: "pixbuf-change", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pixbuf-change", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pixbuf-change", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "pixbuf-change"): void
-    on(sigName: "pixbuf-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pixbuf-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pixbuf-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "size-change", callback: (($obj: Texture, width: number, height: number) => void)): number
-    connect_after(sigName: "size-change", callback: (($obj: Texture, width: number, height: number) => void)): number
+    on(sigName: "size-change", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-change", callback: (width: number, height: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-change", callback: (width: number, height: number) => void): NodeJS.EventEmitter
     emit(sigName: "size-change", width: number, height: number): void
-    on(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "size-change", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Actor */
+    /* Signals of Clutter-1.0.Clutter.Actor */
     connect(sigName: "allocation-changed", callback: (($obj: Texture, box: ActorBox, flags: AllocationFlags) => void)): number
-    connect_after(sigName: "allocation-changed", callback: (($obj: Texture, box: ActorBox, flags: AllocationFlags) => void)): number
+    on(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "allocation-changed", callback: (box: ActorBox, flags: AllocationFlags) => void): NodeJS.EventEmitter
     emit(sigName: "allocation-changed", box: ActorBox, flags: AllocationFlags): void
-    on(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "allocation-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-press-event", callback: (($obj: Texture, event: ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-press-event", callback: (($obj: Texture, event: ButtonEvent) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-press-event", event: ButtonEvent): void
-    on(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "button-release-event", callback: (($obj: Texture, event: ButtonEvent) => boolean)): number
-    connect_after(sigName: "button-release-event", callback: (($obj: Texture, event: ButtonEvent) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: ButtonEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: ButtonEvent) => void): NodeJS.EventEmitter
     emit(sigName: "button-release-event", event: ButtonEvent): void
-    on(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "button-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "captured-event", callback: (($obj: Texture, event: Event) => boolean)): number
-    connect_after(sigName: "captured-event", callback: (($obj: Texture, event: Event) => boolean)): number
+    on(sigName: "captured-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "captured-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "captured-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "captured-event", event: Event): void
-    on(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "captured-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "destroy", callback: (($obj: Texture) => void)): number
-    connect_after(sigName: "destroy", callback: (($obj: Texture) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "destroy"): void
-    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "enter-event", callback: (($obj: Texture, event: CrossingEvent) => boolean)): number
-    connect_after(sigName: "enter-event", callback: (($obj: Texture, event: CrossingEvent) => boolean)): number
+    on(sigName: "enter-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-event", callback: (event: CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "enter-event", event: CrossingEvent): void
-    on(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "enter-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "event", callback: (($obj: Texture, event: Event) => boolean)): number
-    connect_after(sigName: "event", callback: (($obj: Texture, event: Event) => boolean)): number
+    on(sigName: "event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "event", event: Event): void
-    on(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "hide", callback: (($obj: Texture) => void)): number
-    connect_after(sigName: "hide", callback: (($obj: Texture) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "hide"): void
-    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-in", callback: (($obj: Texture) => void)): number
-    connect_after(sigName: "key-focus-in", callback: (($obj: Texture) => void)): number
+    on(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-in", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-in", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-in"): void
-    on(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-in", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-focus-out", callback: (($obj: Texture) => void)): number
-    connect_after(sigName: "key-focus-out", callback: (($obj: Texture) => void)): number
+    on(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-focus-out", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-focus-out", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "key-focus-out"): void
-    on(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-focus-out", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-press-event", callback: (($obj: Texture, event: KeyEvent) => boolean)): number
-    connect_after(sigName: "key-press-event", callback: (($obj: Texture, event: KeyEvent) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-press-event", event: KeyEvent): void
-    on(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-press-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "key-release-event", callback: (($obj: Texture, event: KeyEvent) => boolean)): number
-    connect_after(sigName: "key-release-event", callback: (($obj: Texture, event: KeyEvent) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: KeyEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: KeyEvent) => void): NodeJS.EventEmitter
     emit(sigName: "key-release-event", event: KeyEvent): void
-    on(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "key-release-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "leave-event", callback: (($obj: Texture, event: CrossingEvent) => boolean)): number
-    connect_after(sigName: "leave-event", callback: (($obj: Texture, event: CrossingEvent) => boolean)): number
+    on(sigName: "leave-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-event", callback: (event: CrossingEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-event", callback: (event: CrossingEvent) => void): NodeJS.EventEmitter
     emit(sigName: "leave-event", event: CrossingEvent): void
-    on(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "leave-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "motion-event", callback: (($obj: Texture, event: MotionEvent) => boolean)): number
-    connect_after(sigName: "motion-event", callback: (($obj: Texture, event: MotionEvent) => boolean)): number
+    on(sigName: "motion-event", callback: (event: MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-event", callback: (event: MotionEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-event", callback: (event: MotionEvent) => void): NodeJS.EventEmitter
     emit(sigName: "motion-event", event: MotionEvent): void
-    on(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "motion-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paint", callback: (($obj: Texture) => void)): number
-    connect_after(sigName: "paint", callback: (($obj: Texture) => void)): number
+    on(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paint", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paint", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paint"): void
-    on(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paint", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "parent-set", callback: (($obj: Texture, oldParent?: Actor | null) => void)): number
-    connect_after(sigName: "parent-set", callback: (($obj: Texture, oldParent?: Actor | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Actor | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Actor | null) => void): NodeJS.EventEmitter
     emit(sigName: "parent-set", oldParent?: Actor | null): void
-    on(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "parent-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "pick", callback: (($obj: Texture, color: Color) => void)): number
-    connect_after(sigName: "pick", callback: (($obj: Texture, color: Color) => void)): number
+    on(sigName: "pick", callback: (color: Color) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pick", callback: (color: Color) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pick", callback: (color: Color) => void): NodeJS.EventEmitter
     emit(sigName: "pick", color: Color): void
-    on(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "pick", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-redraw", callback: (($obj: Texture, origin: Actor) => void)): number
-    connect_after(sigName: "queue-redraw", callback: (($obj: Texture, origin: Actor) => void)): number
+    on(sigName: "queue-redraw", callback: (origin: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-redraw", callback: (origin: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-redraw", callback: (origin: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "queue-redraw", origin: Actor): void
-    on(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-redraw", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "queue-relayout", callback: (($obj: Texture) => void)): number
-    connect_after(sigName: "queue-relayout", callback: (($obj: Texture) => void)): number
+    on(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "queue-relayout", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "queue-relayout", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "queue-relayout"): void
-    on(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "queue-relayout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "realize", callback: (($obj: Texture) => void)): number
-    connect_after(sigName: "realize", callback: (($obj: Texture) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "realize"): void
-    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "scroll-event", callback: (($obj: Texture, event: ScrollEvent) => boolean)): number
-    connect_after(sigName: "scroll-event", callback: (($obj: Texture, event: ScrollEvent) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: ScrollEvent) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: ScrollEvent) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", event: ScrollEvent): void
-    on(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "scroll-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "show", callback: (($obj: Texture) => void)): number
-    connect_after(sigName: "show", callback: (($obj: Texture) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "show"): void
-    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "touch-event", callback: (($obj: Texture, event: Event) => boolean)): number
-    connect_after(sigName: "touch-event", callback: (($obj: Texture, event: Event) => boolean)): number
+    on(sigName: "touch-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (event: Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (event: Event) => void): NodeJS.EventEmitter
     emit(sigName: "touch-event", event: Event): void
-    on(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "touch-event", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transition-stopped", callback: (($obj: Texture, name: string, isFinished: boolean) => void)): number
-    connect_after(sigName: "transition-stopped", callback: (($obj: Texture, name: string, isFinished: boolean) => void)): number
+    on(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transition-stopped", callback: (name: string, isFinished: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "transition-stopped", name: string, isFinished: boolean): void
-    on(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transition-stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "transitions-completed", callback: (($obj: Texture) => void)): number
-    connect_after(sigName: "transitions-completed", callback: (($obj: Texture) => void)): number
+    on(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "transitions-completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "transitions-completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "transitions-completed"): void
-    on(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "transitions-completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "unrealize", callback: (($obj: Texture) => void)): number
-    connect_after(sigName: "unrealize", callback: (($obj: Texture) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "unrealize"): void
-    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Texture, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Texture, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.Container */
+    /* Signals of Clutter-1.0.Clutter.Container */
     connect(sigName: "actor-added", callback: (($obj: Texture, actor: Actor) => void)): number
-    connect_after(sigName: "actor-added", callback: (($obj: Texture, actor: Actor) => void)): number
+    on(sigName: "actor-added", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-added", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-added", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-added", actor: Actor): void
-    on(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-added", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "actor-removed", callback: (($obj: Texture, actor: Actor) => void)): number
-    connect_after(sigName: "actor-removed", callback: (($obj: Texture, actor: Actor) => void)): number
+    on(sigName: "actor-removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "actor-removed", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "actor-removed", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "actor-removed", actor: Actor): void
-    on(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "actor-removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "child-notify", callback: (($obj: Texture, actor: Actor, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "child-notify", callback: (($obj: Texture, actor: Actor, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (actor: Actor, pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "child-notify", actor: Actor, pspec: GObject.ParamSpec): void
-    on(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "child-notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::filename", callback: (($obj: Texture, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::filename", callback: (($obj: Texture, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::filename", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -24482,7 +22286,7 @@ export class Texture {
     static $gtype: GObject.Type
 }
 export class TextureNode {
-    /* Methods of Clutter.PaintNode */
+    /* Methods of Clutter-1.0.Clutter.PaintNode */
     addChild(child: PaintNode): void
     addRectangle(rect: ActorBox): void
     addTextureRectangle(rect: ActorBox, x1: number, y1: number, x2: number, y2: number): void
@@ -24505,7 +22309,7 @@ export interface Timeline_ConstructProps extends GObject.Object_ConstructProps {
     repeatCount?: number
 }
 export class Timeline {
-    /* Properties of Clutter.Timeline */
+    /* Properties of Clutter-1.0.Clutter.Timeline */
     autoReverse: boolean
     delay: number
     direction: TimelineDirection
@@ -24513,16 +22317,16 @@ export class Timeline {
     loop: boolean
     progressMode: AnimationMode
     repeatCount: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Timeline */
+    /* Methods of Clutter-1.0.Clutter.Timeline */
     addMarker(markerName: string, progress: number): void
     addMarkerAtTime(markerName: string, msecs: number): void
     advance(msecs: number): void
     advanceToMarker(markerName: string): void
     clone(): Timeline
     getAutoReverse(): boolean
-    getCubicBezierProgress(): [ /* returnType */ boolean, /* c1 */ Point, /* c2 */ Point ]
+    getCubicBezierProgress(): { returnType: boolean, c1: Point, c2: Point }
     getCurrentRepeat(): number
     getDelay(): number
     getDelta(): number
@@ -24534,7 +22338,7 @@ export class Timeline {
     getProgress(): number
     getProgressMode(): AnimationMode
     getRepeatCount(): number
-    getStepProgress(): [ /* returnType */ boolean, /* nSteps */ number, /* stepMode */ StepMode ]
+    getStepProgress(): { returnType: boolean, nSteps: number, stepMode: StepMode }
     hasMarker(markerName: string): boolean
     isPlaying(): boolean
     listMarkers(msecs: number): string[]
@@ -24554,7 +22358,7 @@ export class Timeline {
     skip(msecs: number): void
     start(): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -24576,74 +22380,48 @@ export class Timeline {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Timeline */
-    vfuncCompleted(): void
-    vfuncMarkerReached(markerName: string, msecs: number): void
-    vfuncNewFrame(msecs: number): void
-    vfuncPaused(): void
-    vfuncStarted(): void
-    vfuncStopped(isFinished: boolean): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Timeline */
+    /* Signals of Clutter-1.0.Clutter.Timeline */
     connect(sigName: "completed", callback: (($obj: Timeline) => void)): number
-    connect_after(sigName: "completed", callback: (($obj: Timeline) => void)): number
+    on(sigName: "completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "completed"): void
-    on(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "marker-reached", callback: (($obj: Timeline, markerName: string, msecs: number) => void)): number
-    connect_after(sigName: "marker-reached", callback: (($obj: Timeline, markerName: string, msecs: number) => void)): number
+    on(sigName: "marker-reached", callback: (markerName: string, msecs: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "marker-reached", callback: (markerName: string, msecs: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "marker-reached", callback: (markerName: string, msecs: number) => void): NodeJS.EventEmitter
     emit(sigName: "marker-reached", markerName: string, msecs: number): void
-    on(sigName: "marker-reached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "marker-reached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "marker-reached", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "new-frame", callback: (($obj: Timeline, msecs: number) => void)): number
-    connect_after(sigName: "new-frame", callback: (($obj: Timeline, msecs: number) => void)): number
+    on(sigName: "new-frame", callback: (msecs: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-frame", callback: (msecs: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-frame", callback: (msecs: number) => void): NodeJS.EventEmitter
     emit(sigName: "new-frame", msecs: number): void
-    on(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paused", callback: (($obj: Timeline) => void)): number
-    connect_after(sigName: "paused", callback: (($obj: Timeline) => void)): number
+    on(sigName: "paused", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paused", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paused", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paused"): void
-    on(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "started", callback: (($obj: Timeline) => void)): number
-    connect_after(sigName: "started", callback: (($obj: Timeline) => void)): number
+    on(sigName: "started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "started", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "started"): void
-    on(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "stopped", callback: (($obj: Timeline, isFinished: boolean) => void)): number
-    connect_after(sigName: "stopped", callback: (($obj: Timeline, isFinished: boolean) => void)): number
+    on(sigName: "stopped", callback: (isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "stopped", callback: (isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "stopped", callback: (isFinished: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "stopped", isFinished: boolean): void
-    on(sigName: "stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Timeline, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Timeline, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::auto-reverse", callback: (($obj: Timeline, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::auto-reverse", callback: (($obj: Timeline, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::auto-reverse", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -24699,11 +22477,11 @@ export interface Transition_ConstructProps extends Timeline_ConstructProps {
     removeOnComplete?: boolean
 }
 export class Transition {
-    /* Properties of Clutter.Transition */
+    /* Properties of Clutter-1.0.Clutter.Transition */
     animatable: Animatable
     interval: Interval
     removeOnComplete: boolean
-    /* Properties of Clutter.Timeline */
+    /* Properties of Clutter-1.0.Clutter.Timeline */
     autoReverse: boolean
     delay: number
     direction: TimelineDirection
@@ -24711,9 +22489,9 @@ export class Transition {
     loop: boolean
     progressMode: AnimationMode
     repeatCount: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.Transition */
+    /* Methods of Clutter-1.0.Clutter.Transition */
     getAnimatable(): Animatable
     getInterval(): Interval
     getRemoveOnComplete(): boolean
@@ -24722,14 +22500,14 @@ export class Transition {
     setInterval(interval?: Interval | null): void
     setRemoveOnComplete(removeComplete: boolean): void
     setTo(value: any): void
-    /* Methods of Clutter.Timeline */
+    /* Methods of Clutter-1.0.Clutter.Timeline */
     addMarker(markerName: string, progress: number): void
     addMarkerAtTime(markerName: string, msecs: number): void
     advance(msecs: number): void
     advanceToMarker(markerName: string): void
     clone(): Timeline
     getAutoReverse(): boolean
-    getCubicBezierProgress(): [ /* returnType */ boolean, /* c1 */ Point, /* c2 */ Point ]
+    getCubicBezierProgress(): { returnType: boolean, c1: Point, c2: Point }
     getCurrentRepeat(): number
     getDelay(): number
     getDelta(): number
@@ -24741,7 +22519,7 @@ export class Transition {
     getProgress(): number
     getProgressMode(): AnimationMode
     getRepeatCount(): number
-    getStepProgress(): [ /* returnType */ boolean, /* nSteps */ number, /* stepMode */ StepMode ]
+    getStepProgress(): { returnType: boolean, nSteps: number, stepMode: StepMode }
     hasMarker(markerName: string): boolean
     isPlaying(): boolean
     listMarkers(msecs: number): string[]
@@ -24761,7 +22539,7 @@ export class Transition {
     skip(msecs: number): void
     start(): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -24783,78 +22561,48 @@ export class Transition {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Transition */
-    vfuncAttached(animatable: Animatable): void
-    vfuncComputeValue(animatable: Animatable, interval: Interval, progress: number): void
-    vfuncDetached(animatable: Animatable): void
-    /* Virtual methods of Clutter.Timeline */
-    vfuncCompleted(): void
-    vfuncMarkerReached(markerName: string, msecs: number): void
-    vfuncNewFrame(msecs: number): void
-    vfuncPaused(): void
-    vfuncStarted(): void
-    vfuncStopped(isFinished: boolean): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Timeline */
+    /* Signals of Clutter-1.0.Clutter.Timeline */
     connect(sigName: "completed", callback: (($obj: Transition) => void)): number
-    connect_after(sigName: "completed", callback: (($obj: Transition) => void)): number
+    on(sigName: "completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "completed"): void
-    on(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "marker-reached", callback: (($obj: Transition, markerName: string, msecs: number) => void)): number
-    connect_after(sigName: "marker-reached", callback: (($obj: Transition, markerName: string, msecs: number) => void)): number
+    on(sigName: "marker-reached", callback: (markerName: string, msecs: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "marker-reached", callback: (markerName: string, msecs: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "marker-reached", callback: (markerName: string, msecs: number) => void): NodeJS.EventEmitter
     emit(sigName: "marker-reached", markerName: string, msecs: number): void
-    on(sigName: "marker-reached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "marker-reached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "marker-reached", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "new-frame", callback: (($obj: Transition, msecs: number) => void)): number
-    connect_after(sigName: "new-frame", callback: (($obj: Transition, msecs: number) => void)): number
+    on(sigName: "new-frame", callback: (msecs: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-frame", callback: (msecs: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-frame", callback: (msecs: number) => void): NodeJS.EventEmitter
     emit(sigName: "new-frame", msecs: number): void
-    on(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paused", callback: (($obj: Transition) => void)): number
-    connect_after(sigName: "paused", callback: (($obj: Transition) => void)): number
+    on(sigName: "paused", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paused", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paused", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paused"): void
-    on(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "started", callback: (($obj: Transition) => void)): number
-    connect_after(sigName: "started", callback: (($obj: Transition) => void)): number
+    on(sigName: "started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "started", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "started"): void
-    on(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "stopped", callback: (($obj: Transition, isFinished: boolean) => void)): number
-    connect_after(sigName: "stopped", callback: (($obj: Transition, isFinished: boolean) => void)): number
+    on(sigName: "stopped", callback: (isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "stopped", callback: (isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "stopped", callback: (isFinished: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "stopped", isFinished: boolean): void
-    on(sigName: "stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Transition, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: Transition, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::animatable", callback: (($obj: Transition, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::animatable", callback: (($obj: Transition, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::animatable", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -24920,11 +22668,11 @@ export class Transition {
 export interface TransitionGroup_ConstructProps extends Transition_ConstructProps {
 }
 export class TransitionGroup {
-    /* Properties of Clutter.Transition */
+    /* Properties of Clutter-1.0.Clutter.Transition */
     animatable: Animatable
     interval: Interval
     removeOnComplete: boolean
-    /* Properties of Clutter.Timeline */
+    /* Properties of Clutter-1.0.Clutter.Timeline */
     autoReverse: boolean
     delay: number
     direction: TimelineDirection
@@ -24932,13 +22680,13 @@ export class TransitionGroup {
     loop: boolean
     progressMode: AnimationMode
     repeatCount: number
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.TransitionGroup */
+    /* Methods of Clutter-1.0.Clutter.TransitionGroup */
     addTransition(transition: Transition): void
     removeAll(): void
     removeTransition(transition: Transition): void
-    /* Methods of Clutter.Transition */
+    /* Methods of Clutter-1.0.Clutter.Transition */
     getAnimatable(): Animatable
     getInterval(): Interval
     getRemoveOnComplete(): boolean
@@ -24947,14 +22695,14 @@ export class TransitionGroup {
     setInterval(interval?: Interval | null): void
     setRemoveOnComplete(removeComplete: boolean): void
     setTo(value: any): void
-    /* Methods of Clutter.Timeline */
+    /* Methods of Clutter-1.0.Clutter.Timeline */
     addMarker(markerName: string, progress: number): void
     addMarkerAtTime(markerName: string, msecs: number): void
     advance(msecs: number): void
     advanceToMarker(markerName: string): void
     clone(): Timeline
     getAutoReverse(): boolean
-    getCubicBezierProgress(): [ /* returnType */ boolean, /* c1 */ Point, /* c2 */ Point ]
+    getCubicBezierProgress(): { returnType: boolean, c1: Point, c2: Point }
     getCurrentRepeat(): number
     getDelay(): number
     getDelta(): number
@@ -24966,7 +22714,7 @@ export class TransitionGroup {
     getProgress(): number
     getProgressMode(): AnimationMode
     getRepeatCount(): number
-    getStepProgress(): [ /* returnType */ boolean, /* nSteps */ number, /* stepMode */ StepMode ]
+    getStepProgress(): { returnType: boolean, nSteps: number, stepMode: StepMode }
     hasMarker(markerName: string): boolean
     isPlaying(): boolean
     listMarkers(msecs: number): string[]
@@ -24986,7 +22734,7 @@ export class TransitionGroup {
     skip(msecs: number): void
     start(): void
     stop(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -25008,78 +22756,48 @@ export class TransitionGroup {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Methods of Clutter.Scriptable */
+    /* Methods of Clutter-1.0.Clutter.Scriptable */
     getId(): string
     parseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
     setCustomProperty(script: Script, name: string, value: any): void
     setId(id: string): void
-    /* Virtual methods of Clutter.Transition */
-    vfuncAttached(animatable: Animatable): void
-    vfuncComputeValue(animatable: Animatable, interval: Interval, progress: number): void
-    vfuncDetached(animatable: Animatable): void
-    /* Virtual methods of Clutter.Timeline */
-    vfuncCompleted(): void
-    vfuncMarkerReached(markerName: string, msecs: number): void
-    vfuncNewFrame(msecs: number): void
-    vfuncPaused(): void
-    vfuncStarted(): void
-    vfuncStopped(isFinished: boolean): void
-    vfuncGetId(): string
-    vfuncParseCustomNode(script: Script, value: any, name: string, node: Json.Node): boolean
-    vfuncSetCustomProperty(script: Script, name: string, value: any): void
-    vfuncSetId(id: string): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.Timeline */
+    /* Signals of Clutter-1.0.Clutter.Timeline */
     connect(sigName: "completed", callback: (($obj: TransitionGroup) => void)): number
-    connect_after(sigName: "completed", callback: (($obj: TransitionGroup) => void)): number
+    on(sigName: "completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "completed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "completed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "completed"): void
-    on(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "completed", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "marker-reached", callback: (($obj: TransitionGroup, markerName: string, msecs: number) => void)): number
-    connect_after(sigName: "marker-reached", callback: (($obj: TransitionGroup, markerName: string, msecs: number) => void)): number
+    on(sigName: "marker-reached", callback: (markerName: string, msecs: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "marker-reached", callback: (markerName: string, msecs: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "marker-reached", callback: (markerName: string, msecs: number) => void): NodeJS.EventEmitter
     emit(sigName: "marker-reached", markerName: string, msecs: number): void
-    on(sigName: "marker-reached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "marker-reached", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "marker-reached", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "new-frame", callback: (($obj: TransitionGroup, msecs: number) => void)): number
-    connect_after(sigName: "new-frame", callback: (($obj: TransitionGroup, msecs: number) => void)): number
+    on(sigName: "new-frame", callback: (msecs: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-frame", callback: (msecs: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-frame", callback: (msecs: number) => void): NodeJS.EventEmitter
     emit(sigName: "new-frame", msecs: number): void
-    on(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "new-frame", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "paused", callback: (($obj: TransitionGroup) => void)): number
-    connect_after(sigName: "paused", callback: (($obj: TransitionGroup) => void)): number
+    on(sigName: "paused", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paused", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paused", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "paused"): void
-    on(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "paused", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "started", callback: (($obj: TransitionGroup) => void)): number
-    connect_after(sigName: "started", callback: (($obj: TransitionGroup) => void)): number
+    on(sigName: "started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "started", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "started", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "started"): void
-    on(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "started", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "stopped", callback: (($obj: TransitionGroup, isFinished: boolean) => void)): number
-    connect_after(sigName: "stopped", callback: (($obj: TransitionGroup, isFinished: boolean) => void)): number
+    on(sigName: "stopped", callback: (isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "stopped", callback: (isFinished: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "stopped", callback: (isFinished: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "stopped", isFinished: boolean): void
-    on(sigName: "stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "stopped", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TransitionGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: TransitionGroup, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::animatable", callback: (($obj: TransitionGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::animatable", callback: (($obj: TransitionGroup, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::animatable", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -25149,46 +22867,46 @@ export interface ZoomAction_ConstructProps extends GestureAction_ConstructProps 
     zoomAxis?: ZoomAxis
 }
 export class ZoomAction {
-    /* Properties of Clutter.ZoomAction */
+    /* Properties of Clutter-1.0.Clutter.ZoomAction */
     zoomAxis: ZoomAxis
-    /* Properties of Clutter.GestureAction */
+    /* Properties of Clutter-1.0.Clutter.GestureAction */
     nTouchPoints: number
-    /* Properties of Clutter.ActorMeta */
+    /* Properties of Clutter-1.0.Clutter.ActorMeta */
     readonly actor: Actor
     enabled: boolean
     name: string
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Clutter.ZoomAction */
-    getFocalPoint(): /* point */ Point
-    getTransformedFocalPoint(): /* point */ Point
+    /* Methods of Clutter-1.0.Clutter.ZoomAction */
+    getFocalPoint(): { point: Point }
+    getTransformedFocalPoint(): { point: Point }
     getZoomAxis(): ZoomAxis
     setZoomAxis(axis: ZoomAxis): void
-    /* Methods of Clutter.GestureAction */
+    /* Methods of Clutter-1.0.Clutter.GestureAction */
     cancel(): void
     getDevice(point: number): InputDevice
     getLastEvent(point: number): Event
-    getMotionCoords(point: number): [ /* motionX */ number | null, /* motionY */ number | null ]
-    getMotionDelta(point: number): [ /* returnType */ number, /* deltaX */ number | null, /* deltaY */ number | null ]
+    getMotionCoords(point: number): { motionX: number | null, motionY: number | null }
+    getMotionDelta(point: number): { returnType: number, deltaX: number | null, deltaY: number | null }
     getNCurrentPoints(): number
     getNTouchPoints(): number
-    getPressCoords(point: number): [ /* pressX */ number | null, /* pressY */ number | null ]
-    getReleaseCoords(point: number): [ /* releaseX */ number | null, /* releaseY */ number | null ]
+    getPressCoords(point: number): { pressX: number | null, pressY: number | null }
+    getReleaseCoords(point: number): { releaseX: number | null, releaseY: number | null }
     getSequence(point: number): EventSequence
-    getThresholdTriggerDistance(): [ /* x */ number | null, /* y */ number | null ]
+    getThresholdTriggerDistance(): { x: number | null, y: number | null }
     getThresholdTriggerEdge(): GestureTriggerEdge
     getThresholdTriggerEgde(): GestureTriggerEdge
-    getVelocity(point: number): [ /* returnType */ number, /* velocityX */ number | null, /* velocityY */ number | null ]
+    getVelocity(point: number): { returnType: number, velocityX: number | null, velocityY: number | null }
     setNTouchPoints(nbPoints: number): void
     setThresholdTriggerDistance(x: number, y: number): void
     setThresholdTriggerEdge(edge: GestureTriggerEdge): void
-    /* Methods of Clutter.ActorMeta */
+    /* Methods of Clutter-1.0.Clutter.ActorMeta */
     getActor(): Actor
     getEnabled(): boolean
     getName(): string
     setEnabled(isEnabled: boolean): void
     setName(name: string): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
     forceFloating(): void
@@ -25210,63 +22928,39 @@ export class ZoomAction {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
-    /* Virtual methods of Clutter.ZoomAction */
-    vfuncZoom(actor: Actor, focalPoint: Point, factor: number): boolean
-    /* Virtual methods of Clutter.GestureAction */
-    vfuncGestureBegin(actor: Actor): boolean
-    vfuncGestureCancel(actor: Actor): void
-    vfuncGestureEnd(actor: Actor): void
-    vfuncGesturePrepare(actor: Actor): boolean
-    vfuncGestureProgress(actor: Actor): boolean
-    /* Virtual methods of Clutter.ActorMeta */
-    vfuncSetActor(actor?: Actor | null): void
-    /* Virtual methods of GObject.Object */
-    vfuncConstructed(): void
-    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
-    vfuncDispose(): void
-    vfuncFinalize(): void
-    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfuncNotify(pspec: GObject.ParamSpec): void
-    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Clutter.ZoomAction */
+    /* Signals of Clutter-1.0.Clutter.ZoomAction */
     connect(sigName: "zoom", callback: (($obj: ZoomAction, actor: Actor, focalPoint: Point, factor: number) => boolean)): number
-    connect_after(sigName: "zoom", callback: (($obj: ZoomAction, actor: Actor, focalPoint: Point, factor: number) => boolean)): number
+    on(sigName: "zoom", callback: (actor: Actor, focalPoint: Point, factor: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "zoom", callback: (actor: Actor, focalPoint: Point, factor: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "zoom", callback: (actor: Actor, focalPoint: Point, factor: number) => void): NodeJS.EventEmitter
     emit(sigName: "zoom", actor: Actor, focalPoint: Point, factor: number): void
-    on(sigName: "zoom", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "zoom", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "zoom", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of Clutter.GestureAction */
+    /* Signals of Clutter-1.0.Clutter.GestureAction */
     connect(sigName: "gesture-begin", callback: (($obj: ZoomAction, actor: Actor) => boolean)): number
-    connect_after(sigName: "gesture-begin", callback: (($obj: ZoomAction, actor: Actor) => boolean)): number
+    on(sigName: "gesture-begin", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gesture-begin", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gesture-begin", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "gesture-begin", actor: Actor): void
-    on(sigName: "gesture-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gesture-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gesture-begin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "gesture-cancel", callback: (($obj: ZoomAction, actor: Actor) => void)): number
-    connect_after(sigName: "gesture-cancel", callback: (($obj: ZoomAction, actor: Actor) => void)): number
+    on(sigName: "gesture-cancel", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gesture-cancel", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gesture-cancel", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "gesture-cancel", actor: Actor): void
-    on(sigName: "gesture-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gesture-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gesture-cancel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "gesture-end", callback: (($obj: ZoomAction, actor: Actor) => void)): number
-    connect_after(sigName: "gesture-end", callback: (($obj: ZoomAction, actor: Actor) => void)): number
+    on(sigName: "gesture-end", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gesture-end", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gesture-end", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "gesture-end", actor: Actor): void
-    on(sigName: "gesture-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gesture-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gesture-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "gesture-progress", callback: (($obj: ZoomAction, actor: Actor) => boolean)): number
-    connect_after(sigName: "gesture-progress", callback: (($obj: ZoomAction, actor: Actor) => boolean)): number
+    on(sigName: "gesture-progress", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "gesture-progress", callback: (actor: Actor) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "gesture-progress", callback: (actor: Actor) => void): NodeJS.EventEmitter
     emit(sigName: "gesture-progress", actor: Actor): void
-    on(sigName: "gesture-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "gesture-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "gesture-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ZoomAction, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ZoomAction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::zoom-axis", callback: (($obj: ZoomAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::zoom-axis", callback: (($obj: ZoomAction, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::zoom-axis", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -25310,12 +23004,12 @@ export abstract class ActionClass {
     static name: string
 }
 export class ActorBox {
-    /* Fields of Clutter.ActorBox */
+    /* Fields of Clutter-1.0.Clutter.ActorBox */
     x1: number
     y1: number
     x2: number
     y2: number
-    /* Methods of Clutter.ActorBox */
+    /* Methods of Clutter-1.0.Clutter.ActorBox */
     clampToPixel(): void
     contains(x: number, y: number): boolean
     copy(): ActorBox
@@ -25324,17 +23018,17 @@ export class ActorBox {
     fromVertices(verts: Vertex[]): void
     getArea(): number
     getHeight(): number
-    getOrigin(): [ /* x */ number | null, /* y */ number | null ]
-    getSize(): [ /* width */ number | null, /* height */ number | null ]
+    getOrigin(): { x: number | null, y: number | null }
+    getSize(): { width: number | null, height: number | null }
     getWidth(): number
     getX(): number
     getY(): number
     init(x1: number, y1: number, x2: number, y2: number): ActorBox
     initRect(x: number, y: number, width: number, height: number): void
-    interpolate(final: ActorBox, progress: number): /* result */ ActorBox
+    interpolate(final: ActorBox, progress: number): { result: ActorBox }
     setOrigin(x: number, y: number): void
     setSize(width: number, height: number): void
-    union(b: ActorBox): /* result */ ActorBox
+    union(b: ActorBox): { result: ActorBox }
     static name: string
     static new(x1: number, y1: number, x2: number, y2: number): ActorBox
     constructor(x1: number, y1: number, x2: number, y2: number)
@@ -25343,7 +23037,7 @@ export class ActorBox {
     static alloc(): ActorBox
 }
 export abstract class ActorClass {
-    /* Fields of Clutter.ActorClass */
+    /* Fields of Clutter-1.0.Clutter.ActorClass */
     show: (self: Actor) => void
     showAll: (self: Actor) => void
     hide: (self: Actor) => void
@@ -25357,8 +23051,8 @@ export abstract class ActorClass {
     destroy: (self: Actor) => void
     pick: (actor: Actor, color: Color) => void
     queueRedraw: (actor: Actor, leafThatQueued: Actor) => void
-    getPreferredWidth: (self: Actor, forHeight: number) => [ /* minWidthP */ number | null, /* naturalWidthP */ number | null ]
-    getPreferredHeight: (self: Actor, forWidth: number) => [ /* minHeightP */ number | null, /* naturalHeightP */ number | null ]
+    getPreferredWidth: (self: Actor, forHeight: number) => { minWidthP: number | null, naturalWidthP: number | null }
+    getPreferredHeight: (self: Actor, forWidth: number) => { minHeightP: number | null, naturalHeightP: number | null }
     allocate: (self: Actor, box: ActorBox, flags: AllocationFlags) => void
     applyTransform: (actor: Actor, matrix: Matrix) => void
     event: (actor: Actor, event: Event) => boolean
@@ -25382,17 +23076,17 @@ export abstract class ActorClass {
     static name: string
 }
 export class ActorIter {
-    /* Methods of Clutter.ActorIter */
+    /* Methods of Clutter-1.0.Clutter.ActorIter */
     destroy(): void
     init(root: Actor): void
     isValid(): boolean
-    next(): [ /* returnType */ boolean, /* child */ Actor ]
-    prev(): [ /* returnType */ boolean, /* child */ Actor ]
+    next(): { returnType: boolean, child: Actor }
+    prev(): { returnType: boolean, child: Actor }
     remove(): void
     static name: string
 }
 export abstract class ActorMetaClass {
-    /* Fields of Clutter.ActorMetaClass */
+    /* Fields of Clutter-1.0.Clutter.ActorMetaClass */
     setActor: (meta: ActorMeta, actor?: Actor | null) => void
     static name: string
 }
@@ -25412,16 +23106,16 @@ export class AlphaPrivate {
     static name: string
 }
 export abstract class AnimatableIface {
-    /* Fields of Clutter.AnimatableIface */
+    /* Fields of Clutter-1.0.Clutter.AnimatableIface */
     animateProperty: (animatable: Animatable, animation: Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any) => boolean
     findProperty: (animatable: Animatable, propertyName: string) => GObject.ParamSpec
     getInitialState: (animatable: Animatable, propertyName: string, value: any) => void
     setFinalState: (animatable: Animatable, propertyName: string, value: any) => void
-    interpolateValue: (animatable: Animatable, propertyName: string, interval: Interval, progress: number) => [ /* returnType */ boolean, /* value */ any ]
+    interpolateValue: (animatable: Animatable, propertyName: string, interval: Interval, progress: number) => { returnType: boolean, value: any }
     static name: string
 }
 export abstract class AnimationClass {
-    /* Fields of Clutter.AnimationClass */
+    /* Fields of Clutter-1.0.Clutter.AnimationClass */
     started: (animation: Animation) => void
     completed: (animation: Animation) => void
     static name: string
@@ -25433,7 +23127,7 @@ export abstract class AnimatorClass {
     static name: string
 }
 export class AnimatorKey {
-    /* Methods of Clutter.AnimatorKey */
+    /* Methods of Clutter-1.0.Clutter.AnimatorKey */
     getMode(): number
     getObject(): GObject.Object
     getProgress(): number
@@ -25446,7 +23140,7 @@ export class AnimatorPrivate {
     static name: string
 }
 export class AnyEvent {
-    /* Fields of Clutter.AnyEvent */
+    /* Fields of Clutter-1.0.Clutter.AnyEvent */
     type: EventType
     time: number
     flags: EventFlags
@@ -25458,7 +23152,7 @@ export abstract class BackendClass {
     static name: string
 }
 export abstract class BehaviourClass {
-    /* Fields of Clutter.BehaviourClass */
+    /* Fields of Clutter-1.0.Clutter.BehaviourClass */
     alphaNotify: (behave: Behaviour, alphaValue: number) => void
     applied: (behave: Behaviour, actor: Actor) => void
     removed: (behave: Behaviour, actor: Actor) => void
@@ -25483,7 +23177,7 @@ export class BehaviourOpacityPrivate {
     static name: string
 }
 export abstract class BehaviourPathClass {
-    /* Fields of Clutter.BehaviourPathClass */
+    /* Fields of Clutter-1.0.Clutter.BehaviourPathClass */
     knotReached: (pathb: BehaviourPath, knotNum: number) => void
     static name: string
 }
@@ -25521,7 +23215,7 @@ export abstract class BlurEffectClass {
     static name: string
 }
 export abstract class BoxClass {
-    /* Fields of Clutter.BoxClass */
+    /* Fields of Clutter-1.0.Clutter.BoxClass */
     clutterPadding1: () => void
     clutterPadding2: () => void
     clutterPadding3: () => void
@@ -25543,7 +23237,7 @@ export abstract class BrightnessContrastEffectClass {
     static name: string
 }
 export class ButtonEvent {
-    /* Fields of Clutter.ButtonEvent */
+    /* Fields of Clutter-1.0.Clutter.ButtonEvent */
     type: EventType
     time: number
     flags: EventFlags
@@ -25559,7 +23253,7 @@ export class ButtonEvent {
     static name: string
 }
 export abstract class CairoTextureClass {
-    /* Fields of Clutter.CairoTextureClass */
+    /* Fields of Clutter-1.0.Clutter.CairoTextureClass */
     createSurface: (texture: CairoTexture, width: number, height: number) => cairo.Surface
     draw: (texture: CairoTexture, cr: cairo.Context) => boolean
     static name: string
@@ -25568,7 +23262,7 @@ export class CairoTexturePrivate {
     static name: string
 }
 export abstract class CanvasClass {
-    /* Fields of Clutter.CanvasClass */
+    /* Fields of Clutter-1.0.Clutter.CanvasClass */
     draw: (canvas: Canvas, cr: cairo.Context, width: number, height: number) => boolean
     static name: string
 }
@@ -25579,7 +23273,7 @@ export abstract class ChildMetaClass {
     static name: string
 }
 export abstract class ClickActionClass {
-    /* Fields of Clutter.ClickActionClass */
+    /* Fields of Clutter-1.0.Clutter.ClickActionClass */
     clicked: (action: ClickAction, actor: Actor) => void
     longPress: (action: ClickAction, actor: Actor, state: LongPressState) => boolean
     static name: string
@@ -25597,24 +23291,24 @@ export class ClonePrivate {
     static name: string
 }
 export class Color {
-    /* Fields of Clutter.Color */
+    /* Fields of Clutter-1.0.Clutter.Color */
     red: number
     green: number
     blue: number
     alpha: number
-    /* Methods of Clutter.Color */
-    add(b: Color): /* result */ Color
+    /* Methods of Clutter-1.0.Clutter.Color */
+    add(b: Color): { result: Color }
     copy(): Color
-    darken(): /* result */ Color
+    darken(): { result: Color }
     equal(v2: Color): boolean
     free(): void
     hash(): number
     init(red: number, green: number, blue: number, alpha: number): Color
-    interpolate(final: Color, progress: number): /* result */ Color
-    lighten(): /* result */ Color
-    shade(factor: number): /* result */ Color
-    subtract(b: Color): /* result */ Color
-    toHls(): [ /* hue */ number, /* luminance */ number, /* saturation */ number ]
+    interpolate(final: Color, progress: number): { result: Color }
+    lighten(): { result: Color }
+    shade(factor: number): { result: Color }
+    subtract(b: Color): { result: Color }
+    toHls(): { hue: number, luminance: number, saturation: number }
     toPixel(): number
     toString(): string
     static name: string
@@ -25623,9 +23317,9 @@ export class Color {
     /* Static methods and pseudo-constructors */
     static alloc(): Color
     static new(red: number, green: number, blue: number, alpha: number): Color
-    static fromHls(hue: number, luminance: number, saturation: number): /* color */ Color
-    static fromPixel(pixel: number): /* color */ Color
-    static fromString(str: string): [ /* returnType */ boolean, /* color */ Color ]
+    static fromHls(hue: number, luminance: number, saturation: number): { color: Color }
+    static fromPixel(pixel: number): { color: Color }
+    static fromString(str: string): { returnType: boolean, color: Color }
     static getStatic(color: StaticColor): Color
 }
 export abstract class ColorNodeClass {
@@ -25635,13 +23329,13 @@ export abstract class ColorizeEffectClass {
     static name: string
 }
 export abstract class ConstraintClass {
-    /* Fields of Clutter.ConstraintClass */
+    /* Fields of Clutter-1.0.Clutter.ConstraintClass */
     updateAllocation: (constraint: Constraint, actor: Actor, allocation: ActorBox) => void
     updatePreferredSize: (constraint: Constraint, actor: Actor, direction: Orientation, forSize: number, minimumSize: number, naturalSize: number) => void
     static name: string
 }
 export abstract class ContainerIface {
-    /* Fields of Clutter.ContainerIface */
+    /* Fields of Clutter-1.0.Clutter.ContainerIface */
     add: (container: Container, actor: Actor) => void
     remove: (container: Container, actor: Actor) => void
     foreach: (container: Container, callback: Callback) => void
@@ -25659,8 +23353,8 @@ export abstract class ContainerIface {
     static name: string
 }
 export abstract class ContentIface {
-    /* Fields of Clutter.ContentIface */
-    getPreferredSize: (content: Content) => [ /* returnType */ boolean, /* width */ number, /* height */ number ]
+    /* Fields of Clutter-1.0.Clutter.ContentIface */
+    getPreferredSize: (content: Content) => { returnType: boolean, width: number, height: number }
     paintContent: (content: Content, actor: Actor, node: PaintNode) => void
     attached: (content: Content, actor: Actor) => void
     detached: (content: Content, actor: Actor) => void
@@ -25668,7 +23362,7 @@ export abstract class ContentIface {
     static name: string
 }
 export class CrossingEvent {
-    /* Fields of Clutter.CrossingEvent */
+    /* Fields of Clutter-1.0.Clutter.CrossingEvent */
     type: EventType
     time: number
     flags: EventFlags
@@ -25681,7 +23375,7 @@ export class CrossingEvent {
     static name: string
 }
 export abstract class DeformEffectClass {
-    /* Fields of Clutter.DeformEffectClass */
+    /* Fields of Clutter-1.0.Clutter.DeformEffectClass */
     deformVertex: (effect: DeformEffect, width: number, height: number, vertex: Cogl.TextureVertex) => void
     static name: string
 }
@@ -25692,7 +23386,7 @@ export abstract class DesaturateEffectClass {
     static name: string
 }
 export abstract class DeviceManagerClass {
-    /* Fields of Clutter.DeviceManagerClass */
+    /* Fields of Clutter-1.0.Clutter.DeviceManagerClass */
     getCoreDevice: (deviceManager: DeviceManager, deviceType: InputDeviceType) => InputDevice
     getDevice: (deviceManager: DeviceManager, deviceId: number) => InputDevice
     addDevice: (manager: DeviceManager, device: InputDevice) => void
@@ -25704,7 +23398,7 @@ export class DeviceManagerPrivate {
     static name: string
 }
 export abstract class DragActionClass {
-    /* Fields of Clutter.DragActionClass */
+    /* Fields of Clutter-1.0.Clutter.DragActionClass */
     dragBegin: (action: DragAction, actor: Actor, eventX: number, eventY: number, modifiers: ModifierType) => void
     dragMotion: (action: DragAction, actor: Actor, deltaX: number, deltaY: number) => void
     dragEnd: (action: DragAction, actor: Actor, eventX: number, eventY: number, modifiers: ModifierType) => void
@@ -25715,7 +23409,7 @@ export class DragActionPrivate {
     static name: string
 }
 export abstract class DropActionClass {
-    /* Fields of Clutter.DropActionClass */
+    /* Fields of Clutter-1.0.Clutter.DropActionClass */
     canDrop: (action: DropAction, actor: Actor, eventX: number, eventY: number) => boolean
     overIn: (action: DropAction, actor: Actor) => void
     overOut: (action: DropAction, actor: Actor) => void
@@ -25726,7 +23420,7 @@ export class DropActionPrivate {
     static name: string
 }
 export abstract class EffectClass {
-    /* Fields of Clutter.EffectClass */
+    /* Fields of Clutter-1.0.Clutter.EffectClass */
     prePaint: (effect: Effect) => boolean
     postPaint: (effect: Effect) => void
     getPaintVolume: (effect: Effect, volume: PaintVolume) => boolean
@@ -25747,24 +23441,24 @@ export class FlowLayoutPrivate {
     static name: string
 }
 export class Fog {
-    /* Fields of Clutter.Fog */
+    /* Fields of Clutter-1.0.Clutter.Fog */
     zNear: number
     zFar: number
     static name: string
 }
 export class Geometry {
-    /* Fields of Clutter.Geometry */
+    /* Fields of Clutter-1.0.Clutter.Geometry */
     x: number
     y: number
     width: number
     height: number
-    /* Methods of Clutter.Geometry */
+    /* Methods of Clutter-1.0.Clutter.Geometry */
     intersects(geometry1: Geometry): boolean
-    union(geometryB: Geometry): /* result */ Geometry
+    union(geometryB: Geometry): { result: Geometry }
     static name: string
 }
 export abstract class GestureActionClass {
-    /* Fields of Clutter.GestureActionClass */
+    /* Fields of Clutter-1.0.Clutter.GestureActionClass */
     gestureBegin: (action: GestureAction, actor: Actor) => boolean
     gestureProgress: (action: GestureAction, actor: Actor) => boolean
     gestureEnd: (action: GestureAction, actor: Actor) => void
@@ -25797,16 +23491,16 @@ export abstract class InputDeviceClass {
     static name: string
 }
 export abstract class IntervalClass {
-    /* Fields of Clutter.IntervalClass */
+    /* Fields of Clutter-1.0.Clutter.IntervalClass */
     validate: (interval: Interval, pspec: GObject.ParamSpec) => boolean
-    computeValue: (interval: Interval, factor: number) => [ /* returnType */ boolean, /* value */ any ]
+    computeValue: (interval: Interval, factor: number) => { returnType: boolean, value: any }
     static name: string
 }
 export class IntervalPrivate {
     static name: string
 }
 export class KeyEvent {
-    /* Fields of Clutter.KeyEvent */
+    /* Fields of Clutter-1.0.Clutter.KeyEvent */
     type: EventType
     time: number
     flags: EventFlags
@@ -25826,19 +23520,19 @@ export class KeyframeTransitionPrivate {
     static name: string
 }
 export class Knot {
-    /* Fields of Clutter.Knot */
+    /* Fields of Clutter-1.0.Clutter.Knot */
     x: number
     y: number
-    /* Methods of Clutter.Knot */
+    /* Methods of Clutter-1.0.Clutter.Knot */
     copy(): Knot
     equal(knotB: Knot): boolean
     free(): void
     static name: string
 }
 export abstract class LayoutManagerClass {
-    /* Fields of Clutter.LayoutManagerClass */
-    getPreferredWidth: (manager: LayoutManager, container: Container, forHeight: number) => [ /* minWidthP */ number | null, /* natWidthP */ number | null ]
-    getPreferredHeight: (manager: LayoutManager, container: Container, forWidth: number) => [ /* minHeightP */ number | null, /* natHeightP */ number | null ]
+    /* Fields of Clutter-1.0.Clutter.LayoutManagerClass */
+    getPreferredWidth: (manager: LayoutManager, container: Container, forHeight: number) => { minWidthP: number | null, natWidthP: number | null }
+    getPreferredHeight: (manager: LayoutManager, container: Container, forWidth: number) => { minHeightP: number | null, natHeightP: number | null }
     allocate: (manager: LayoutManager, container: Container, allocation: ActorBox, flags: AllocationFlags) => void
     setContainer: (manager: LayoutManager, container?: Container | null) => void
     getChildMetaType: (manager: LayoutManager) => GObject.Type
@@ -25858,12 +23552,12 @@ export class ListModelPrivate {
     static name: string
 }
 export class Margin {
-    /* Fields of Clutter.Margin */
+    /* Fields of Clutter-1.0.Clutter.Margin */
     left: number
     right: number
     top: number
     bottom: number
-    /* Methods of Clutter.Margin */
+    /* Methods of Clutter-1.0.Clutter.Margin */
     copy(): Margin
     free(): void
     static name: string
@@ -25873,7 +23567,7 @@ export class Margin {
     static new(): Margin
 }
 export class Matrix {
-    /* Methods of Clutter.Matrix */
+    /* Methods of Clutter-1.0.Clutter.Matrix */
     free(): void
     initFromArray(values: number[]): Matrix
     initFromMatrix(b: Matrix): Matrix
@@ -25883,13 +23577,13 @@ export class Matrix {
     static alloc(): Matrix
 }
 export abstract class MediaIface {
-    /* Fields of Clutter.MediaIface */
+    /* Fields of Clutter-1.0.Clutter.MediaIface */
     eos: (media: Media) => void
     error: (media: Media, error: GLib.Error) => void
     static name: string
 }
 export abstract class ModelClass {
-    /* Fields of Clutter.ModelClass */
+    /* Fields of Clutter-1.0.Clutter.ModelClass */
     getNRows: (model: Model) => number
     getNColumns: (model: Model) => number
     getColumnName: (model: Model, column: number) => string
@@ -25904,8 +23598,8 @@ export abstract class ModelClass {
     static name: string
 }
 export abstract class ModelIterClass {
-    /* Fields of Clutter.ModelIterClass */
-    getValue: (iter: ModelIter, column: number) => /* value */ any
+    /* Fields of Clutter-1.0.Clutter.ModelIterClass */
+    getValue: (iter: ModelIter, column: number) => { value: any }
     setValue: (iter: ModelIter, column: number, value: any) => void
     isFirst: (iter: ModelIter) => boolean
     isLast: (iter: ModelIter) => boolean
@@ -25923,7 +23617,7 @@ export class ModelPrivate {
     static name: string
 }
 export class MotionEvent {
-    /* Fields of Clutter.MotionEvent */
+    /* Fields of Clutter-1.0.Clutter.MotionEvent */
     type: EventType
     time: number
     flags: EventFlags
@@ -25937,7 +23631,7 @@ export class MotionEvent {
     static name: string
 }
 export abstract class OffscreenEffectClass {
-    /* Fields of Clutter.OffscreenEffectClass */
+    /* Fields of Clutter-1.0.Clutter.OffscreenEffectClass */
     createTexture: (effect: OffscreenEffect, width: number, height: number) => Cogl.Handle
     paintTarget: (effect: OffscreenEffect) => void
     static name: string
@@ -25955,12 +23649,12 @@ export class PaintNodePrivate {
     static name: string
 }
 export class PaintVolume {
-    /* Methods of Clutter.PaintVolume */
+    /* Methods of Clutter-1.0.Clutter.PaintVolume */
     copy(): PaintVolume
     free(): void
     getDepth(): number
     getHeight(): number
-    getOrigin(): /* vertex */ Vertex
+    getOrigin(): { vertex: Vertex }
     getWidth(): number
     setDepth(depth: number): void
     setFromAllocation(actor: Actor): boolean
@@ -25972,7 +23666,7 @@ export class PaintVolume {
     static name: string
 }
 export abstract class PanActionClass {
-    /* Fields of Clutter.PanActionClass */
+    /* Fields of Clutter-1.0.Clutter.PanActionClass */
     pan: (action: PanAction, actor: Actor, isInterpolated: boolean) => boolean
     panStopped: (action: PanAction, actor: Actor) => void
     static name: string
@@ -25981,7 +23675,7 @@ export class PanActionPrivate {
     static name: string
 }
 export class ParamSpecUnits {
-    /* Fields of Clutter.ParamSpecUnits */
+    /* Fields of Clutter-1.0.Clutter.ParamSpecUnits */
     defaultType: UnitType
     defaultValue: number
     minimum: number
@@ -25995,10 +23689,10 @@ export abstract class PathConstraintClass {
     static name: string
 }
 export class PathNode {
-    /* Fields of Clutter.PathNode */
+    /* Fields of Clutter-1.0.Clutter.PathNode */
     type: PathNodeType
     points: Knot[]
-    /* Methods of Clutter.PathNode */
+    /* Methods of Clutter-1.0.Clutter.PathNode */
     copy(): PathNode
     equal(nodeB: PathNode): boolean
     free(): void
@@ -26008,7 +23702,7 @@ export class PathPrivate {
     static name: string
 }
 export class Perspective {
-    /* Fields of Clutter.Perspective */
+    /* Fields of Clutter-1.0.Clutter.Perspective */
     fovy: number
     aspect: number
     zNear: number
@@ -26019,12 +23713,12 @@ export abstract class PipelineNodeClass {
     static name: string
 }
 export class Point {
-    /* Fields of Clutter.Point */
+    /* Fields of Clutter-1.0.Clutter.Point */
     x: number
     y: number
-    /* Methods of Clutter.Point */
+    /* Methods of Clutter-1.0.Clutter.Point */
     copy(): Point
-    distance(b: Point): [ /* returnType */ number, /* xDistance */ number | null, /* yDistance */ number | null ]
+    distance(b: Point): { returnType: number, xDistance: number | null, yDistance: number | null }
     equals(b: Point): boolean
     free(): void
     init(x: number, y: number): Point
@@ -26040,27 +23734,27 @@ export class PropertyTransitionPrivate {
     static name: string
 }
 export class Rect {
-    /* Fields of Clutter.Rect */
+    /* Fields of Clutter-1.0.Clutter.Rect */
     origin: Point
     size: Size
-    /* Methods of Clutter.Rect */
+    /* Methods of Clutter-1.0.Clutter.Rect */
     clampToPixel(): void
     containsPoint(point: Point): boolean
     containsRect(b: Rect): boolean
     copy(): Rect
     equals(b: Rect): boolean
     free(): void
-    getCenter(): /* center */ Point
+    getCenter(): { center: Point }
     getHeight(): number
     getWidth(): number
     getX(): number
     getY(): number
     init(x: number, y: number, width: number, height: number): Rect
     inset(dX: number, dY: number): void
-    intersection(b: Rect): [ /* returnType */ boolean, /* res */ Rect | null ]
+    intersection(b: Rect): { returnType: boolean, res: Rect | null }
     normalize(): Rect
     offset(dX: number, dY: number): void
-    union(b: Rect): /* res */ Rect
+    union(b: Rect): { res: Rect }
     static name: string
     /* Static methods and pseudo-constructors */
     static alloc(): Rect
@@ -26073,7 +23767,7 @@ export class RectanglePrivate {
     static name: string
 }
 export abstract class RotateActionClass {
-    /* Fields of Clutter.RotateActionClass */
+    /* Fields of Clutter-1.0.Clutter.RotateActionClass */
     rotate: (action: RotateAction, actor: Actor, angle: number) => boolean
     static name: string
 }
@@ -26081,7 +23775,7 @@ export class RotateActionPrivate {
     static name: string
 }
 export abstract class ScoreClass {
-    /* Fields of Clutter.ScoreClass */
+    /* Fields of Clutter-1.0.Clutter.ScoreClass */
     timelineStarted: (score: Score, timeline: Timeline) => void
     timelineCompleted: (score: Score, timeline: Timeline) => void
     started: (score: Score) => void
@@ -26093,7 +23787,7 @@ export class ScorePrivate {
     static name: string
 }
 export abstract class ScriptClass {
-    /* Fields of Clutter.ScriptClass */
+    /* Fields of Clutter-1.0.Clutter.ScriptClass */
     getTypeFromName: (script: Script, typeName: string) => GObject.Type
     static name: string
 }
@@ -26101,7 +23795,7 @@ export class ScriptPrivate {
     static name: string
 }
 export abstract class ScriptableIface {
-    /* Fields of Clutter.ScriptableIface */
+    /* Fields of Clutter-1.0.Clutter.ScriptableIface */
     setId: (scriptable: Scriptable, id: string) => void
     getId: (scriptable: Scriptable) => string
     parseCustomNode: (scriptable: Scriptable, script: Script, value: any, name: string, node: Json.Node) => boolean
@@ -26115,7 +23809,7 @@ export class ScrollActorPrivate {
     static name: string
 }
 export class ScrollEvent {
-    /* Fields of Clutter.ScrollEvent */
+    /* Fields of Clutter-1.0.Clutter.ScrollEvent */
     type: EventType
     time: number
     flags: EventFlags
@@ -26138,7 +23832,7 @@ export abstract class ShaderClass {
     static name: string
 }
 export abstract class ShaderEffectClass {
-    /* Fields of Clutter.ShaderEffectClass */
+    /* Fields of Clutter-1.0.Clutter.ShaderEffectClass */
     getStaticShaderSource: (effect: ShaderEffect) => string
     static name: string
 }
@@ -26149,10 +23843,10 @@ export class ShaderPrivate {
     static name: string
 }
 export class Size {
-    /* Fields of Clutter.Size */
+    /* Fields of Clutter-1.0.Clutter.Size */
     width: number
     height: number
-    /* Methods of Clutter.Size */
+    /* Methods of Clutter-1.0.Clutter.Size */
     copy(): Size
     equals(b: Size): boolean
     free(): void
@@ -26165,7 +23859,7 @@ export abstract class SnapConstraintClass {
     static name: string
 }
 export abstract class StageClass {
-    /* Fields of Clutter.StageClass */
+    /* Fields of Clutter-1.0.Clutter.StageClass */
     fullscreen: (stage: Stage) => void
     unfullscreen: (stage: Stage) => void
     activate: (stage: Stage) => void
@@ -26174,7 +23868,7 @@ export abstract class StageClass {
     static name: string
 }
 export abstract class StageManagerClass {
-    /* Fields of Clutter.StageManagerClass */
+    /* Fields of Clutter-1.0.Clutter.StageManagerClass */
     stageAdded: (stageManager: StageManager, stage: Stage) => void
     stageRemoved: (stageManager: StageManager, stage: Stage) => void
     static name: string
@@ -26183,7 +23877,7 @@ export class StagePrivate {
     static name: string
 }
 export class StageStateEvent {
-    /* Fields of Clutter.StageStateEvent */
+    /* Fields of Clutter-1.0.Clutter.StageStateEvent */
     type: EventType
     time: number
     flags: EventFlags
@@ -26194,12 +23888,12 @@ export class StageStateEvent {
     static name: string
 }
 export abstract class StateClass {
-    /* Fields of Clutter.StateClass */
+    /* Fields of Clutter-1.0.Clutter.StateClass */
     completed: (state: State) => void
     static name: string
 }
 export class StateKey {
-    /* Methods of Clutter.StateKey */
+    /* Methods of Clutter-1.0.Clutter.StateKey */
     getMode(): number
     getObject(): GObject.Object
     getPostDelay(): number
@@ -26215,7 +23909,7 @@ export class StatePrivate {
     static name: string
 }
 export abstract class SwipeActionClass {
-    /* Fields of Clutter.SwipeActionClass */
+    /* Fields of Clutter-1.0.Clutter.SwipeActionClass */
     swept: (action: SwipeAction, actor: Actor, direction: SwipeDirection) => void
     swipe: (action: SwipeAction, actor: Actor, direction: SwipeDirection) => boolean
     static name: string
@@ -26230,7 +23924,7 @@ export class TableLayoutPrivate {
     static name: string
 }
 export abstract class TapActionClass {
-    /* Fields of Clutter.TapActionClass */
+    /* Fields of Clutter-1.0.Clutter.TapActionClass */
     tap: (action: TapAction, actor: Actor) => boolean
     static name: string
 }
@@ -26238,7 +23932,7 @@ export class TapActionPrivate {
     static name: string
 }
 export abstract class TextBufferClass {
-    /* Fields of Clutter.TextBufferClass */
+    /* Fields of Clutter-1.0.Clutter.TextBufferClass */
     insertedText: (buffer: TextBuffer, position: number, chars: string, nChars: number) => void
     deletedText: (buffer: TextBuffer, position: number, nChars: number) => void
     getText: (buffer: TextBuffer, nBytes: number) => string
@@ -26251,7 +23945,7 @@ export class TextBufferPrivate {
     static name: string
 }
 export abstract class TextClass {
-    /* Fields of Clutter.TextClass */
+    /* Fields of Clutter-1.0.Clutter.TextClass */
     textChanged: (self: Text) => void
     activate: (self: Text) => void
     cursorEvent: (self: Text, geometry: Geometry) => void
@@ -26265,7 +23959,7 @@ export class TextPrivate {
     static name: string
 }
 export abstract class TextureClass {
-    /* Fields of Clutter.TextureClass */
+    /* Fields of Clutter-1.0.Clutter.TextureClass */
     sizeChange: (texture: Texture, width: number, height: number) => void
     pixbufChange: (texture: Texture) => void
     loadFinished: (texture: Texture, error: GLib.Error) => void
@@ -26278,7 +23972,7 @@ export class TexturePrivate {
     static name: string
 }
 export abstract class TimelineClass {
-    /* Fields of Clutter.TimelineClass */
+    /* Fields of Clutter-1.0.Clutter.TimelineClass */
     started: (timeline: Timeline) => void
     completed: (timeline: Timeline) => void
     paused: (timeline: Timeline) => void
@@ -26291,13 +23985,13 @@ export class TimelinePrivate {
     static name: string
 }
 export class TimeoutPool {
-    /* Methods of Clutter.TimeoutPool */
+    /* Methods of Clutter-1.0.Clutter.TimeoutPool */
     add(fps: number, func: GLib.SourceFunc): number
     remove(id: number): void
     static name: string
 }
 export class TouchEvent {
-    /* Fields of Clutter.TouchEvent */
+    /* Fields of Clutter-1.0.Clutter.TouchEvent */
     type: EventType
     time: number
     flags: EventFlags
@@ -26312,7 +24006,7 @@ export class TouchEvent {
     static name: string
 }
 export class TouchpadPinchEvent {
-    /* Fields of Clutter.TouchpadPinchEvent */
+    /* Fields of Clutter-1.0.Clutter.TouchpadPinchEvent */
     type: EventType
     time: number
     flags: EventFlags
@@ -26328,7 +24022,7 @@ export class TouchpadPinchEvent {
     static name: string
 }
 export class TouchpadSwipeEvent {
-    /* Fields of Clutter.TouchpadSwipeEvent */
+    /* Fields of Clutter-1.0.Clutter.TouchpadSwipeEvent */
     type: EventType
     time: number
     flags: EventFlags
@@ -26343,7 +24037,7 @@ export class TouchpadSwipeEvent {
     static name: string
 }
 export abstract class TransitionClass {
-    /* Fields of Clutter.TransitionClass */
+    /* Fields of Clutter-1.0.Clutter.TransitionClass */
     attached: (transition: Transition, animatable: Animatable) => void
     detached: (transition: Transition, animatable: Animatable) => void
     computeValue: (transition: Transition, animatable: Animatable, interval: Interval, progress: number) => void
@@ -26359,7 +24053,7 @@ export class TransitionPrivate {
     static name: string
 }
 export class Units {
-    /* Methods of Clutter.Units */
+    /* Methods of Clutter-1.0.Clutter.Units */
     copy(): Units
     free(): void
     getUnitType(): UnitType
@@ -26368,20 +24062,20 @@ export class Units {
     toString(): string
     static name: string
     /* Static methods and pseudo-constructors */
-    static fromCm(cm: number): /* units */ Units
-    static fromEm(em: number): /* units */ Units
-    static fromEmForFont(fontName: string | null, em: number): /* units */ Units
-    static fromMm(mm: number): /* units */ Units
-    static fromPixels(px: number): /* units */ Units
-    static fromPt(pt: number): /* units */ Units
-    static fromString(str: string): [ /* returnType */ boolean, /* units */ Units ]
+    static fromCm(cm: number): { units: Units }
+    static fromEm(em: number): { units: Units }
+    static fromEmForFont(fontName: string | null, em: number): { units: Units }
+    static fromMm(mm: number): { units: Units }
+    static fromPixels(px: number): { units: Units }
+    static fromPt(pt: number): { units: Units }
+    static fromString(str: string): { returnType: boolean, units: Units }
 }
 export class Vertex {
-    /* Fields of Clutter.Vertex */
+    /* Fields of Clutter-1.0.Clutter.Vertex */
     x: number
     y: number
     z: number
-    /* Methods of Clutter.Vertex */
+    /* Methods of Clutter-1.0.Clutter.Vertex */
     copy(): Vertex
     equal(vertexB: Vertex): boolean
     free(): void
@@ -26394,7 +24088,7 @@ export class Vertex {
     static new(x: number, y: number, z: number): Vertex
 }
 export abstract class ZoomActionClass {
-    /* Fields of Clutter.ZoomActionClass */
+    /* Fields of Clutter-1.0.Clutter.ZoomActionClass */
     zoom: (action: ZoomAction, actor: Actor, focalPoint: Point, factor: number) => boolean
     static name: string
 }
@@ -26402,21 +24096,21 @@ export class ZoomActionPrivate {
     static name: string
 }
 export class Event {
-    /* Methods of Clutter.Event */
+    /* Methods of Clutter-1.0.Clutter.Event */
     copy(): Event
     free(): void
     getAngle(target: Event): number
-    getAxes(): [ /* returnType */ number, /* nAxes */ number ]
+    getAxes(): { returnType: number, nAxes: number }
     getButton(): number
     getClickCount(): number
-    getCoords(): [ /* x */ number, /* y */ number ]
+    getCoords(): { x: number, y: number }
     getDevice(): InputDevice
     getDeviceId(): number
     getDeviceType(): InputDeviceType
     getDistance(target: Event): number
     getEventSequence(): EventSequence
     getFlags(): EventFlags
-    getGestureMotionDelta(): [ /* dx */ number | null, /* dy */ number | null ]
+    getGestureMotionDelta(): { dx: number | null, dy: number | null }
     getGesturePhase(): TouchpadGesturePhase
     getGesturePinchAngleDelta(): number
     getGesturePinchScale(): number
@@ -26426,7 +24120,7 @@ export class Event {
     getKeyUnicode(): number
     getPosition(position: Point): void
     getRelated(): Actor
-    getScrollDelta(): [ /* dx */ number, /* dy */ number ]
+    getScrollDelta(): { dx: number, dy: number }
     getScrollDirection(): ScrollDirection
     getScrollFinishFlags(): ScrollFinishFlags
     getScrollSource(): ScrollSource
@@ -26434,7 +24128,7 @@ export class Event {
     getSourceDevice(): InputDevice
     getStage(): Stage
     getState(): ModifierType
-    getStateFull(): [ /* buttonState */ ModifierType | null, /* baseState */ ModifierType | null, /* latchedState */ ModifierType | null, /* lockedState */ ModifierType | null, /* effectiveState */ ModifierType | null ]
+    getStateFull(): { buttonState: ModifierType | null, baseState: ModifierType | null, latchedState: ModifierType | null, lockedState: ModifierType | null, effectiveState: ModifierType | null }
     getTime(): number
     hasControlModifier(): boolean
     hasShiftModifier(): boolean

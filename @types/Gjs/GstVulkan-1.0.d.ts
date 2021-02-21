@@ -136,10 +136,10 @@ export interface VulkanTrashNotify {
 export interface VulkanBufferMemoryAllocator_ConstructProps extends Gst.Allocator_ConstructProps {
 }
 export class VulkanBufferMemoryAllocator {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Allocator */
+    /* Fields of Gst-1.0.Gst.Allocator */
     object: Gst.Object
     mem_type: string
     mem_map: Gst.MemoryMapFunction
@@ -149,16 +149,16 @@ export class VulkanBufferMemoryAllocator {
     mem_is_span: Gst.MemoryIsSpanFunction
     mem_map_full: Gst.MemoryMapFullFunction
     mem_unmap_full: Gst.MemoryUnmapFullFunction
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gst.Allocator */
+    /* Methods of Gst-1.0.Gst.Allocator */
     alloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
     free(memory: Gst.Memory): void
     set_default(): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -183,7 +183,7 @@ export class VulkanBufferMemoryAllocator {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -204,12 +204,12 @@ export class VulkanBufferMemoryAllocator {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Allocator */
+    /* Virtual methods of Gst-1.0.Gst.Allocator */
     vfunc_alloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
     vfunc_free(memory: Gst.Memory): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -217,11 +217,11 @@ export class VulkanBufferMemoryAllocator {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanBufferMemoryAllocator, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VulkanBufferMemoryAllocator, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanBufferMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VulkanBufferMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -241,21 +241,21 @@ export class VulkanBufferMemoryAllocator {
 export interface VulkanBufferPool_ConstructProps extends Gst.BufferPool_ConstructProps {
 }
 export class VulkanBufferPool {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanBufferPool */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanBufferPool */
     bufferpool: Gst.BufferPool
     device: VulkanDevice
-    /* Fields of Gst.BufferPool */
+    /* Fields of Gst-1.0.Gst.BufferPool */
     object: Gst.Object
     flushing: number
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gst.BufferPool */
+    /* Methods of Gst-1.0.Gst.BufferPool */
     acquire_buffer(params?: Gst.BufferPoolAcquireParams | null): [ /* returnType */ Gst.FlowReturn, /* buffer */ Gst.Buffer ]
     get_config(): Gst.Structure
     get_options(): string[]
@@ -265,7 +265,7 @@ export class VulkanBufferPool {
     set_active(active: boolean): boolean
     set_config(config: Gst.Structure): boolean
     set_flushing(flushing: boolean): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -290,7 +290,7 @@ export class VulkanBufferPool {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -311,7 +311,7 @@ export class VulkanBufferPool {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.BufferPool */
+    /* Virtual methods of Gst-1.0.Gst.BufferPool */
     vfunc_acquire_buffer(params?: Gst.BufferPoolAcquireParams | null): [ /* returnType */ Gst.FlowReturn, /* buffer */ Gst.Buffer ]
     vfunc_alloc_buffer(params?: Gst.BufferPoolAcquireParams | null): [ /* returnType */ Gst.FlowReturn, /* buffer */ Gst.Buffer ]
     vfunc_flush_start(): void
@@ -323,9 +323,9 @@ export class VulkanBufferPool {
     vfunc_set_config(config: Gst.Structure): boolean
     vfunc_start(): boolean
     vfunc_stop(): boolean
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -333,11 +333,11 @@ export class VulkanBufferPool {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanBufferPool, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VulkanBufferPool, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanBufferPool, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VulkanBufferPool, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -360,23 +360,23 @@ export class VulkanBufferPool {
 export interface VulkanCommandPool_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class VulkanCommandPool {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanCommandPool */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanCommandPool */
     queue: VulkanQueue
     pool: Vulkan.CommandPool
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanCommandPool */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanCommandPool */
     create(): VulkanCommandBuffer
     get_queue(): VulkanQueue
     unlock(): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -401,7 +401,7 @@ export class VulkanCommandPool {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -422,9 +422,9 @@ export class VulkanCommandPool {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -432,11 +432,11 @@ export class VulkanCommandPool {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanCommandPool, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VulkanCommandPool, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanCommandPool, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VulkanCommandPool, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -456,28 +456,28 @@ export class VulkanCommandPool {
 export interface VulkanDescriptorCache_ConstructProps extends VulkanHandlePool_ConstructProps {
 }
 export class VulkanDescriptorCache {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanDescriptorCache */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanDescriptorCache */
     pool: VulkanDescriptorPool
-    /* Fields of GstVulkan.VulkanHandlePool */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     device: VulkanDevice
     outstanding: object[]
     available: object[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanDescriptorCache */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanDescriptorCache */
     acquire(): VulkanDescriptorSet
-    /* Methods of GstVulkan.VulkanHandlePool */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     acquire(): object | null
     alloc(): object | null
     release(handle?: object | null): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -502,7 +502,7 @@ export class VulkanDescriptorCache {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -523,14 +523,14 @@ export class VulkanDescriptorCache {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstVulkan.VulkanHandlePool */
+    /* Virtual methods of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     vfunc_acquire(): object | null
     vfunc_alloc(): object | null
     vfunc_free(handle?: object | null): void
     vfunc_release(handle?: object | null): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -538,11 +538,11 @@ export class VulkanDescriptorCache {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanDescriptorCache, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VulkanDescriptorCache, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanDescriptorCache, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VulkanDescriptorCache, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -564,23 +564,23 @@ export class VulkanDescriptorCache {
 export interface VulkanDescriptorPool_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class VulkanDescriptorPool {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanDescriptorPool */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanDescriptorPool */
     device: VulkanDevice
     pool: Vulkan.DescriptorPool
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanDescriptorPool */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanDescriptorPool */
     create(n_layouts: number, layouts: VulkanHandle): VulkanDescriptorSet
     get_device(): VulkanDevice
     get_max_sets(): number
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -605,7 +605,7 @@ export class VulkanDescriptorPool {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -626,9 +626,9 @@ export class VulkanDescriptorPool {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -636,11 +636,11 @@ export class VulkanDescriptorPool {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanDescriptorPool, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VulkanDescriptorPool, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanDescriptorPool, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VulkanDescriptorPool, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -663,28 +663,28 @@ export interface VulkanDevice_ConstructProps extends Gst.Object_ConstructProps {
     physical_device?: VulkanPhysicalDevice
 }
 export class VulkanDevice {
-    /* Properties of GstVulkan.VulkanDevice */
+    /* Properties of GstVulkan-1.0.GstVulkan.VulkanDevice */
     readonly instance: VulkanInstance
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanDevice */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanDevice */
     physical_device: VulkanPhysicalDevice
     device: Vulkan.Device
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanDevice */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanDevice */
     create_fence(): VulkanFence
     foreach_queue(): void
     get_instance(): VulkanInstance
     get_proc_address(name: string): object | null
     get_queue(queue_family: number, queue_i: number): VulkanQueue
     open(): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -709,7 +709,7 @@ export class VulkanDevice {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -730,9 +730,9 @@ export class VulkanDevice {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -740,11 +740,11 @@ export class VulkanDevice {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanDevice, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VulkanDevice, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanDevice, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VulkanDevice, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -771,22 +771,22 @@ export class VulkanDevice {
 export interface VulkanDisplay_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class VulkanDisplay {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanDisplay */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanDisplay */
     create_window(): VulkanWindow
     find_window(data: object | null, compare_func: GLib.CompareFunc): VulkanWindow
     get_handle(): object | null
     get_handle_type(): VulkanDisplayType
     remove_window(window: VulkanWindow): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -811,7 +811,7 @@ export class VulkanDisplay {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -832,12 +832,12 @@ export class VulkanDisplay {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstVulkan.VulkanDisplay */
+    /* Virtual methods of GstVulkan-1.0.GstVulkan.VulkanDisplay */
     vfunc_create_window(): VulkanWindow
     vfunc_get_handle(): object | null
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -845,11 +845,11 @@ export class VulkanDisplay {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanDisplay, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VulkanDisplay, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanDisplay, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VulkanDisplay, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -875,24 +875,24 @@ export class VulkanDisplay {
 export interface VulkanFenceCache_ConstructProps extends VulkanHandlePool_ConstructProps {
 }
 export class VulkanFenceCache {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanHandlePool */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     device: VulkanDevice
     outstanding: object[]
     available: object[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanHandlePool */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     acquire(): object | null
     alloc(): object | null
     release(handle?: object | null): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -917,7 +917,7 @@ export class VulkanFenceCache {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -938,14 +938,14 @@ export class VulkanFenceCache {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstVulkan.VulkanHandlePool */
+    /* Virtual methods of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     vfunc_acquire(): object | null
     vfunc_alloc(): object | null
     vfunc_free(handle?: object | null): void
     vfunc_release(handle?: object | null): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -953,11 +953,11 @@ export class VulkanFenceCache {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanFenceCache, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VulkanFenceCache, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanFenceCache, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VulkanFenceCache, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -979,10 +979,10 @@ export class VulkanFenceCache {
 export interface VulkanFullScreenQuad_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class VulkanFullScreenQuad {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanFullScreenQuad */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanFullScreenQuad */
     out_info: GstVideo.VideoInfo
     in_info: GstVideo.VideoInfo
     queue: VulkanQueue
@@ -997,13 +997,13 @@ export class VulkanFullScreenQuad {
     cmd_pool: VulkanCommandPool
     trash_list: VulkanTrashList
     last_fence: VulkanFence
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanFullScreenQuad */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanFullScreenQuad */
     draw(): boolean
     fill_command_buffer(cmd: VulkanCommandBuffer, fence: VulkanFence): boolean
     get_last_fence(): VulkanFence
@@ -1016,7 +1016,7 @@ export class VulkanFullScreenQuad {
     set_uniform_buffer(uniforms: Gst.Memory): boolean
     set_vertex_buffer(vertices: Gst.Memory): boolean
     submit(cmd: VulkanCommandBuffer, fence: VulkanFence): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -1041,7 +1041,7 @@ export class VulkanFullScreenQuad {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1062,9 +1062,9 @@ export class VulkanFullScreenQuad {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1072,11 +1072,11 @@ export class VulkanFullScreenQuad {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanFullScreenQuad, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VulkanFullScreenQuad, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanFullScreenQuad, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VulkanFullScreenQuad, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1098,24 +1098,24 @@ export class VulkanFullScreenQuad {
 export interface VulkanHandlePool_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class VulkanHandlePool {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanHandlePool */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     device: VulkanDevice
     outstanding: object[]
     available: object[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanHandlePool */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     acquire(): object | null
     alloc(): object | null
     release(handle?: object | null): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -1140,7 +1140,7 @@ export class VulkanHandlePool {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1161,14 +1161,14 @@ export class VulkanHandlePool {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstVulkan.VulkanHandlePool */
+    /* Virtual methods of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     vfunc_acquire(): object | null
     vfunc_alloc(): object | null
     vfunc_free(handle?: object | null): void
     vfunc_release(handle?: object | null): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1176,11 +1176,11 @@ export class VulkanHandlePool {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanHandlePool, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VulkanHandlePool, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanHandlePool, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VulkanHandlePool, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1200,21 +1200,21 @@ export class VulkanHandlePool {
 export interface VulkanImageBufferPool_ConstructProps extends Gst.BufferPool_ConstructProps {
 }
 export class VulkanImageBufferPool {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanImageBufferPool */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanImageBufferPool */
     bufferpool: Gst.BufferPool
     device: VulkanDevice
-    /* Fields of Gst.BufferPool */
+    /* Fields of Gst-1.0.Gst.BufferPool */
     object: Gst.Object
     flushing: number
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gst.BufferPool */
+    /* Methods of Gst-1.0.Gst.BufferPool */
     acquire_buffer(params?: Gst.BufferPoolAcquireParams | null): [ /* returnType */ Gst.FlowReturn, /* buffer */ Gst.Buffer ]
     get_config(): Gst.Structure
     get_options(): string[]
@@ -1224,7 +1224,7 @@ export class VulkanImageBufferPool {
     set_active(active: boolean): boolean
     set_config(config: Gst.Structure): boolean
     set_flushing(flushing: boolean): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -1249,7 +1249,7 @@ export class VulkanImageBufferPool {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1270,7 +1270,7 @@ export class VulkanImageBufferPool {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.BufferPool */
+    /* Virtual methods of Gst-1.0.Gst.BufferPool */
     vfunc_acquire_buffer(params?: Gst.BufferPoolAcquireParams | null): [ /* returnType */ Gst.FlowReturn, /* buffer */ Gst.Buffer ]
     vfunc_alloc_buffer(params?: Gst.BufferPoolAcquireParams | null): [ /* returnType */ Gst.FlowReturn, /* buffer */ Gst.Buffer ]
     vfunc_flush_start(): void
@@ -1282,9 +1282,9 @@ export class VulkanImageBufferPool {
     vfunc_set_config(config: Gst.Structure): boolean
     vfunc_start(): boolean
     vfunc_stop(): boolean
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1292,11 +1292,11 @@ export class VulkanImageBufferPool {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanImageBufferPool, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VulkanImageBufferPool, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanImageBufferPool, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VulkanImageBufferPool, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1319,10 +1319,10 @@ export class VulkanImageBufferPool {
 export interface VulkanImageMemoryAllocator_ConstructProps extends Gst.Allocator_ConstructProps {
 }
 export class VulkanImageMemoryAllocator {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Allocator */
+    /* Fields of Gst-1.0.Gst.Allocator */
     object: Gst.Object
     mem_type: string
     mem_map: Gst.MemoryMapFunction
@@ -1332,16 +1332,16 @@ export class VulkanImageMemoryAllocator {
     mem_is_span: Gst.MemoryIsSpanFunction
     mem_map_full: Gst.MemoryMapFullFunction
     mem_unmap_full: Gst.MemoryUnmapFullFunction
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gst.Allocator */
+    /* Methods of Gst-1.0.Gst.Allocator */
     alloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
     free(memory: Gst.Memory): void
     set_default(): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -1366,7 +1366,7 @@ export class VulkanImageMemoryAllocator {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1387,12 +1387,12 @@ export class VulkanImageMemoryAllocator {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Allocator */
+    /* Virtual methods of Gst-1.0.Gst.Allocator */
     vfunc_alloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
     vfunc_free(memory: Gst.Memory): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1400,11 +1400,11 @@ export class VulkanImageMemoryAllocator {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanImageMemoryAllocator, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VulkanImageMemoryAllocator, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanImageMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VulkanImageMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1424,25 +1424,25 @@ export class VulkanImageMemoryAllocator {
 export interface VulkanInstance_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class VulkanInstance {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanInstance */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanInstance */
     instance: Vulkan.Instance
     physical_devices: Vulkan.PhysicalDevice
     n_physical_devices: number
     msg_callback: Vulkan.DebugReportCallbackEXT
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanInstance */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanInstance */
     create_device(): VulkanDevice
     get_proc_address(name: string): object | null
     open(): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -1467,7 +1467,7 @@ export class VulkanInstance {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1488,9 +1488,9 @@ export class VulkanInstance {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1498,15 +1498,15 @@ export class VulkanInstance {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstVulkan.VulkanInstance */
+    /* Signals of GstVulkan-1.0.GstVulkan.VulkanInstance */
     connect(sigName: "create-device", callback: (($obj: VulkanInstance) => VulkanDevice)): number
     connect_after(sigName: "create-device", callback: (($obj: VulkanInstance) => VulkanDevice)): number
     emit(sigName: "create-device"): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanInstance, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VulkanInstance, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanInstance, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VulkanInstance, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1530,10 +1530,10 @@ export class VulkanInstance {
 export interface VulkanMemoryAllocator_ConstructProps extends Gst.Allocator_ConstructProps {
 }
 export class VulkanMemoryAllocator {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Allocator */
+    /* Fields of Gst-1.0.Gst.Allocator */
     object: Gst.Object
     mem_type: string
     mem_map: Gst.MemoryMapFunction
@@ -1543,16 +1543,16 @@ export class VulkanMemoryAllocator {
     mem_is_span: Gst.MemoryIsSpanFunction
     mem_map_full: Gst.MemoryMapFullFunction
     mem_unmap_full: Gst.MemoryUnmapFullFunction
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of Gst.Allocator */
+    /* Methods of Gst-1.0.Gst.Allocator */
     alloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
     free(memory: Gst.Memory): void
     set_default(): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -1577,7 +1577,7 @@ export class VulkanMemoryAllocator {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1598,12 +1598,12 @@ export class VulkanMemoryAllocator {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Allocator */
+    /* Virtual methods of Gst-1.0.Gst.Allocator */
     vfunc_alloc(size: number, params?: Gst.AllocationParams | null): Gst.Memory | null
     vfunc_free(memory: Gst.Memory): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1611,11 +1611,11 @@ export class VulkanMemoryAllocator {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanMemoryAllocator, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VulkanMemoryAllocator, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VulkanMemoryAllocator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1637,11 +1637,11 @@ export interface VulkanPhysicalDevice_ConstructProps extends Gst.Object_Construc
     instance?: VulkanInstance
 }
 export class VulkanPhysicalDevice {
-    /* Properties of GstVulkan.VulkanPhysicalDevice */
+    /* Properties of GstVulkan-1.0.GstVulkan.VulkanPhysicalDevice */
     readonly name: string
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanPhysicalDevice */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanPhysicalDevice */
     instance: VulkanInstance
     device_index: number
     device: Vulkan.PhysicalDevice
@@ -1654,15 +1654,15 @@ export class VulkanPhysicalDevice {
     memory_properties: Vulkan.PhysicalDeviceMemoryProperties
     queue_family_props: Vulkan.QueueFamilyProperties
     n_queue_families: number
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanPhysicalDevice */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanPhysicalDevice */
     get_instance(): VulkanInstance
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -1687,7 +1687,7 @@ export class VulkanPhysicalDevice {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1708,9 +1708,9 @@ export class VulkanPhysicalDevice {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1718,11 +1718,11 @@ export class VulkanPhysicalDevice {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanPhysicalDevice, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VulkanPhysicalDevice, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanPhysicalDevice, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VulkanPhysicalDevice, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1745,26 +1745,26 @@ export class VulkanPhysicalDevice {
 export interface VulkanQueue_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class VulkanQueue {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanQueue */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanQueue */
     device: VulkanDevice
     queue: Vulkan.Queue
     family: number
     index: number
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanQueue */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanQueue */
     create_command_pool(): VulkanCommandPool
     get_device(): VulkanDevice
     submit_lock(): void
     submit_unlock(): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -1789,7 +1789,7 @@ export class VulkanQueue {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1810,9 +1810,9 @@ export class VulkanQueue {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1820,11 +1820,11 @@ export class VulkanQueue {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanQueue, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VulkanQueue, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanQueue, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VulkanQueue, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1850,30 +1850,30 @@ export interface VulkanSwapper_ConstructProps extends Gst.Object_ConstructProps 
     pixel_aspect_ratio?: Gst.Fraction
 }
 export class VulkanSwapper {
-    /* Properties of GstVulkan.VulkanSwapper */
+    /* Properties of GstVulkan-1.0.GstVulkan.VulkanSwapper */
     force_aspect_ratio: boolean
     pixel_aspect_ratio: Gst.Fraction
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanSwapper */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanSwapper */
     device: VulkanDevice
     window: VulkanWindow
     queue: VulkanQueue
     cmd_pool: VulkanCommandPool
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanSwapper */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanSwapper */
     choose_queue(available_queue: VulkanQueue): boolean
     get_supported_caps(): Gst.Caps
     get_surface_rectangles(): [ /* input_image */ GstVideo.VideoRectangle | null, /* surface_location */ GstVideo.VideoRectangle | null, /* display_rect */ GstVideo.VideoRectangle | null ]
     render_buffer(buffer: Gst.Buffer): boolean
     set_caps(caps: Gst.Caps): boolean
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -1898,7 +1898,7 @@ export class VulkanSwapper {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -1919,9 +1919,9 @@ export class VulkanSwapper {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -1929,11 +1929,11 @@ export class VulkanSwapper {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanSwapper, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VulkanSwapper, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanSwapper, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VulkanSwapper, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1959,29 +1959,29 @@ export class VulkanSwapper {
 export interface VulkanTrashFenceList_ConstructProps extends VulkanTrashList_ConstructProps {
 }
 export class VulkanTrashFenceList {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanHandlePool */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     device: VulkanDevice
     outstanding: object[]
     available: object[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanTrashList */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanTrashList */
     acquire(fence: VulkanFence, notify: VulkanTrashNotify): VulkanTrash
     add(trash: VulkanTrash): boolean
     gc(): void
     wait(timeout: number): boolean
-    /* Methods of GstVulkan.VulkanHandlePool */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     acquire(): object | null
     alloc(): object | null
     release(handle?: object | null): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -2006,7 +2006,7 @@ export class VulkanTrashFenceList {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2027,18 +2027,18 @@ export class VulkanTrashFenceList {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstVulkan.VulkanTrashList */
+    /* Virtual methods of GstVulkan-1.0.GstVulkan.VulkanTrashList */
     vfunc_add_func(trash: VulkanTrash): boolean
     vfunc_gc_func(): void
     vfunc_wait_func(timeout: number): boolean
-    /* Virtual methods of GstVulkan.VulkanHandlePool */
+    /* Virtual methods of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     vfunc_acquire(): object | null
     vfunc_alloc(): object | null
     vfunc_free(handle?: object | null): void
     vfunc_release(handle?: object | null): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2046,11 +2046,11 @@ export class VulkanTrashFenceList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanTrashFenceList, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VulkanTrashFenceList, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanTrashFenceList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VulkanTrashFenceList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2072,29 +2072,29 @@ export class VulkanTrashFenceList {
 export interface VulkanTrashList_ConstructProps extends VulkanHandlePool_ConstructProps {
 }
 export class VulkanTrashList {
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanHandlePool */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     device: VulkanDevice
     outstanding: object[]
     available: object[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanTrashList */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanTrashList */
     acquire(fence: VulkanFence, notify: VulkanTrashNotify): VulkanTrash
     add(trash: VulkanTrash): boolean
     gc(): void
     wait(timeout: number): boolean
-    /* Methods of GstVulkan.VulkanHandlePool */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     acquire(): object | null
     alloc(): object | null
     release(handle?: object | null): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -2119,7 +2119,7 @@ export class VulkanTrashList {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2140,18 +2140,18 @@ export class VulkanTrashList {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstVulkan.VulkanTrashList */
+    /* Virtual methods of GstVulkan-1.0.GstVulkan.VulkanTrashList */
     vfunc_add_func(trash: VulkanTrash): boolean
     vfunc_gc_func(): void
     vfunc_wait_func(timeout: number): boolean
-    /* Virtual methods of GstVulkan.VulkanHandlePool */
+    /* Virtual methods of GstVulkan-1.0.GstVulkan.VulkanHandlePool */
     vfunc_acquire(): object | null
     vfunc_alloc(): object | null
     vfunc_free(handle?: object | null): void
     vfunc_release(handle?: object | null): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2159,11 +2159,11 @@ export class VulkanTrashList {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanTrashList, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VulkanTrashList, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanTrashList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VulkanTrashList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2183,12 +2183,12 @@ export class VulkanTrashList {
 export interface VulkanVideoFilter_ConstructProps extends GstBase.BaseTransform_ConstructProps {
 }
 export class VulkanVideoFilter {
-    /* Properties of GstBase.BaseTransform */
+    /* Properties of GstBase-1.0.GstBase.BaseTransform */
     qos: boolean
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstVulkan.VulkanVideoFilter */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanVideoFilter */
     instance: VulkanInstance
     device: VulkanDevice
     queue: VulkanQueue
@@ -2196,14 +2196,14 @@ export class VulkanVideoFilter {
     in_info: GstVideo.VideoInfo
     out_caps: Gst.Caps
     out_info: GstVideo.VideoInfo
-    /* Fields of GstBase.BaseTransform */
+    /* Fields of GstBase-1.0.GstBase.BaseTransform */
     element: Gst.Element
     sinkpad: Gst.Pad
     srcpad: Gst.Pad
     have_segment: boolean
     segment: Gst.Segment
     queued_buf: Gst.Buffer
-    /* Fields of Gst.Element */
+    /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
     state_cond: GLib.Cond
@@ -2225,12 +2225,12 @@ export class VulkanVideoFilter {
     sinkpads: Gst.Pad[]
     pads_cookie: number
     contexts: Gst.Context[]
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstBase.BaseTransform */
+    /* Methods of GstBase-1.0.GstBase.BaseTransform */
     get_allocator(): [ /* allocator */ Gst.Allocator | null, /* params */ Gst.AllocationParams | null ]
     get_buffer_pool(): Gst.BufferPool | null
     is_in_place(): boolean
@@ -2246,7 +2246,7 @@ export class VulkanVideoFilter {
     set_qos_enabled(enabled: boolean): void
     update_qos(proportion: number, diff: Gst.ClockTimeDiff, timestamp: Gst.ClockTime): void
     update_src_caps(updated_caps: Gst.Caps): boolean
-    /* Methods of Gst.Element */
+    /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
     add_property_deep_notify_watch(property_name: string | null, include_value: boolean): number
@@ -2312,7 +2312,7 @@ export class VulkanVideoFilter {
     sync_state_with_parent(): boolean
     unlink(dest: Gst.Element): void
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -2337,7 +2337,7 @@ export class VulkanVideoFilter {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2358,10 +2358,10 @@ export class VulkanVideoFilter {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstVulkan.VulkanVideoFilter */
+    /* Virtual methods of GstVulkan-1.0.GstVulkan.VulkanVideoFilter */
     vfunc_query(direction: Gst.PadDirection, query: Gst.Query): boolean
     vfunc_query(query: Gst.Query): boolean
-    /* Virtual methods of GstBase.BaseTransform */
+    /* Virtual methods of GstBase-1.0.GstBase.BaseTransform */
     vfunc_accept_caps(direction: Gst.PadDirection, caps: Gst.Caps): boolean
     vfunc_before_transform(buffer: Gst.Buffer): void
     vfunc_copy_metadata(input: Gst.Buffer, outbuf: Gst.Buffer): boolean
@@ -2385,7 +2385,7 @@ export class VulkanVideoFilter {
     vfunc_transform_ip(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_transform_meta(outbuf: Gst.Buffer, meta: Gst.Meta, inbuf: Gst.Buffer): boolean
     vfunc_transform_size(direction: Gst.PadDirection, caps: Gst.Caps, size: number, othercaps: Gst.Caps): [ /* returnType */ boolean, /* othersize */ number ]
-    /* Virtual methods of Gst.Element */
+    /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
     vfunc_no_more_pads(): void
@@ -2402,9 +2402,9 @@ export class VulkanVideoFilter {
     vfunc_set_context(context: Gst.Context): void
     vfunc_set_state(state: Gst.State): Gst.StateChangeReturn
     vfunc_state_changed(oldstate: Gst.State, newstate: Gst.State, pending: Gst.State): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2412,7 +2412,7 @@ export class VulkanVideoFilter {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gst.Element */
+    /* Signals of Gst-1.0.Gst.Element */
     connect(sigName: "no-more-pads", callback: (($obj: VulkanVideoFilter) => void)): number
     connect_after(sigName: "no-more-pads", callback: (($obj: VulkanVideoFilter) => void)): number
     emit(sigName: "no-more-pads"): void
@@ -2422,11 +2422,11 @@ export class VulkanVideoFilter {
     connect(sigName: "pad-removed", callback: (($obj: VulkanVideoFilter, old_pad: Gst.Pad) => void)): number
     connect_after(sigName: "pad-removed", callback: (($obj: VulkanVideoFilter, old_pad: Gst.Pad) => void)): number
     emit(sigName: "pad-removed", old_pad: Gst.Pad): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanVideoFilter, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VulkanVideoFilter, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanVideoFilter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VulkanVideoFilter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2448,18 +2448,18 @@ export class VulkanVideoFilter {
 export interface VulkanWindow_ConstructProps extends Gst.Object_ConstructProps {
 }
 export class VulkanWindow {
-    /* Properties of GstVulkan.VulkanWindow */
+    /* Properties of GstVulkan-1.0.GstVulkan.VulkanWindow */
     readonly display: VulkanDisplay
-    /* Properties of Gst.Object */
+    /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of Gst.Object */
+    /* Fields of Gst-1.0.Gst.Object */
     object: GObject.InitiallyUnowned
     lock: GLib.Mutex
     flags: number
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GstVulkan.VulkanWindow */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanWindow */
     close(): void
     get_display(): VulkanDisplay
     get_presentation_support(device: VulkanDevice, queue_family_idx: number): boolean
@@ -2471,7 +2471,7 @@ export class VulkanWindow {
     send_key_event(event_type: string, key_str: string): void
     send_mouse_event(event_type: string, button: number, posx: number, posy: number): void
     set_window_handle(handle: number): void
-    /* Methods of Gst.Object */
+    /* Methods of Gst-1.0.Gst.Object */
     add_control_binding(binding: Gst.ControlBinding): boolean
     default_error(error: GLib.Error, debug?: string | null): void
     get_control_binding(property_name: string): Gst.ControlBinding | null
@@ -2496,7 +2496,7 @@ export class VulkanWindow {
     sync_values(timestamp: Gst.ClockTime): boolean
     unparent(): void
     unref(): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -2517,16 +2517,16 @@ export class VulkanWindow {
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GstVulkan.VulkanWindow */
+    /* Virtual methods of GstVulkan-1.0.GstVulkan.VulkanWindow */
     vfunc_close(): void
     vfunc_get_presentation_support(device: VulkanDevice, queue_family_idx: number): boolean
     vfunc_get_surface_dimensions(width: number, height: number): void
     vfunc_handle_events(handle_events: boolean): void
     vfunc_open(): boolean
     vfunc_set_window_handle(handle: number): void
-    /* Virtual methods of Gst.Object */
+    /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -2534,7 +2534,7 @@ export class VulkanWindow {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GstVulkan.VulkanWindow */
+    /* Signals of GstVulkan-1.0.GstVulkan.VulkanWindow */
     connect(sigName: "close", callback: (($obj: VulkanWindow) => boolean)): number
     connect_after(sigName: "close", callback: (($obj: VulkanWindow) => boolean)): number
     emit(sigName: "close"): void
@@ -2550,11 +2550,11 @@ export class VulkanWindow {
     connect(sigName: "resize", callback: (($obj: VulkanWindow, object: number, p0: number) => void)): number
     connect_after(sigName: "resize", callback: (($obj: VulkanWindow, object: number, p0: number) => void)): number
     emit(sigName: "resize", object: number, p0: number): void
-    /* Signals of Gst.Object */
+    /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: VulkanWindow, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: VulkanWindow, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", prop_object: Gst.Object, prop: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VulkanWindow, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VulkanWindow, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2576,21 +2576,21 @@ export class VulkanWindow {
     static $gtype: GObject.Type
 }
 export class VulkanBarrierBufferInfo {
-    /* Fields of GstVulkan.VulkanBarrierBufferInfo */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanBarrierBufferInfo */
     parent: VulkanBarrierMemoryInfo
     offset: Vulkan.DeviceSize
     size: Vulkan.DeviceSize
     static name: string
 }
 export class VulkanBarrierImageInfo {
-    /* Fields of GstVulkan.VulkanBarrierImageInfo */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanBarrierImageInfo */
     parent: VulkanBarrierMemoryInfo
     image_layout: Vulkan.ImageLayout
     subresource_range: Vulkan.ImageSubresourceRange
     static name: string
 }
 export class VulkanBarrierMemoryInfo {
-    /* Fields of GstVulkan.VulkanBarrierMemoryInfo */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanBarrierMemoryInfo */
     type: VulkanBarrierType
     flags: VulkanBarrierFlags
     queue: VulkanQueue
@@ -2599,7 +2599,7 @@ export class VulkanBarrierMemoryInfo {
     static name: string
 }
 export class VulkanBufferMemory {
-    /* Fields of GstVulkan.VulkanBufferMemory */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanBufferMemory */
     parent: Gst.Memory
     device: VulkanDevice
     buffer: Vulkan.Buffer
@@ -2618,12 +2618,12 @@ export class VulkanBufferMemory {
     static wrapped(device: VulkanDevice, buffer: Vulkan.Buffer, usage: Vulkan.BufferUsageFlags, user_data?: object | null, notify?: GLib.DestroyNotify | null): Gst.Memory
 }
 export abstract class VulkanBufferMemoryAllocatorClass {
-    /* Fields of GstVulkan.VulkanBufferMemoryAllocatorClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanBufferMemoryAllocatorClass */
     parent_class: Gst.AllocatorClass
     static name: string
 }
 export abstract class VulkanBufferPoolClass {
-    /* Fields of GstVulkan.VulkanBufferPoolClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanBufferPoolClass */
     parent_class: Gst.BufferPoolClass
     static name: string
 }
@@ -2631,7 +2631,7 @@ export class VulkanBufferPoolPrivate {
     static name: string
 }
 export class VulkanCommandBuffer {
-    /* Fields of GstVulkan.VulkanCommandBuffer */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanCommandBuffer */
     parent: Gst.MiniObject
     cmd: Vulkan.CommandBuffer
     pool: VulkanCommandPool
@@ -2642,7 +2642,7 @@ export class VulkanCommandBuffer {
     static new_wrapped(cmd: Vulkan.CommandBuffer, level: Vulkan.CommandBufferLevel): VulkanCommandBuffer
 }
 export abstract class VulkanCommandPoolClass {
-    /* Fields of GstVulkan.VulkanCommandPoolClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanCommandPoolClass */
     parent_class: Gst.ObjectClass
     static name: string
 }
@@ -2650,7 +2650,7 @@ export class VulkanCommandPoolPrivate {
     static name: string
 }
 export abstract class VulkanDescriptorCacheClass {
-    /* Fields of GstVulkan.VulkanDescriptorCacheClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanDescriptorCacheClass */
     parent_class: VulkanHandlePoolClass
     static name: string
 }
@@ -2658,7 +2658,7 @@ export class VulkanDescriptorCachePrivate {
     static name: string
 }
 export abstract class VulkanDescriptorPoolClass {
-    /* Fields of GstVulkan.VulkanDescriptorPoolClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanDescriptorPoolClass */
     parent_class: Gst.ObjectClass
     static name: string
 }
@@ -2666,7 +2666,7 @@ export class VulkanDescriptorPoolPrivate {
     static name: string
 }
 export class VulkanDescriptorSet {
-    /* Fields of GstVulkan.VulkanDescriptorSet */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanDescriptorSet */
     parent: Gst.MiniObject
     set: Vulkan.DescriptorSet
     pool: VulkanDescriptorPool
@@ -2685,7 +2685,7 @@ export class VulkanDescriptorSetPrivate {
     static name: string
 }
 export abstract class VulkanDeviceClass {
-    /* Fields of GstVulkan.VulkanDeviceClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanDeviceClass */
     parent_class: Gst.ObjectClass
     static name: string
 }
@@ -2693,7 +2693,7 @@ export class VulkanDevicePrivate {
     static name: string
 }
 export abstract class VulkanDisplayClass {
-    /* Fields of GstVulkan.VulkanDisplayClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanDisplayClass */
     object_class: Gst.ObjectClass
     get_handle: (display: VulkanDisplay) => object | null
     create_window: (display: VulkanDisplay) => VulkanWindow
@@ -2703,12 +2703,12 @@ export class VulkanDisplayPrivate {
     static name: string
 }
 export class VulkanFence {
-    /* Fields of GstVulkan.VulkanFence */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanFence */
     parent: Gst.MiniObject
     device: VulkanDevice
     cache: VulkanFenceCache
     fence: Vulkan.Fence
-    /* Methods of GstVulkan.VulkanFence */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanFence */
     is_signaled(): boolean
     reset(): void
     static name: string
@@ -2719,12 +2719,12 @@ export class VulkanFence {
     static new_always_signalled(device: VulkanDevice): VulkanFence
 }
 export abstract class VulkanFenceCacheClass {
-    /* Fields of GstVulkan.VulkanFenceCacheClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanFenceCacheClass */
     parent_class: VulkanHandlePoolClass
     static name: string
 }
 export class VulkanFormatInfo {
-    /* Fields of GstVulkan.VulkanFormatInfo */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanFormatInfo */
     format: Vulkan.Format
     name: string
     scaling: VulkanFormatScaling
@@ -2742,7 +2742,7 @@ export class VulkanFormatInfo {
     static name: string
 }
 export abstract class VulkanFullScreenQuadClass {
-    /* Fields of GstVulkan.VulkanFullScreenQuadClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanFullScreenQuadClass */
     parent_class: Gst.ObjectClass
     static name: string
 }
@@ -2750,14 +2750,14 @@ export class VulkanFullScreenQuadPrivate {
     static name: string
 }
 export class VulkanHandle {
-    /* Fields of GstVulkan.VulkanHandle */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanHandle */
     parent: Gst.MiniObject
     device: VulkanDevice
     type: VulkanHandleType
     handle: VulkanHandleTypedef
     notify: VulkanHandleDestroyNotify
     user_data: object
-    /* Methods of GstVulkan.VulkanHandle */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanHandle */
     free_descriptor_set_layout(user_data?: object | null): void
     free_framebuffer(user_data?: object | null): void
     free_pipeline(user_data?: object | null): void
@@ -2772,7 +2772,7 @@ export class VulkanHandle {
     static set_context(element: Gst.Element, context: Gst.Context, display: VulkanDisplay | null, instance: VulkanInstance): [ /* returnType */ boolean, /* display */ VulkanDisplay | null, /* instance */ VulkanInstance ]
 }
 export abstract class VulkanHandlePoolClass {
-    /* Fields of GstVulkan.VulkanHandlePoolClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanHandlePoolClass */
     parent: Gst.ObjectClass
     alloc: (pool: VulkanHandlePool) => object | null
     acquire: (pool: VulkanHandlePool) => object | null
@@ -2784,7 +2784,7 @@ export class VulkanHandleTypedef {
     static name: string
 }
 export abstract class VulkanImageBufferPoolClass {
-    /* Fields of GstVulkan.VulkanImageBufferPoolClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanImageBufferPoolClass */
     parent_class: Gst.BufferPoolClass
     static name: string
 }
@@ -2792,7 +2792,7 @@ export class VulkanImageBufferPoolPrivate {
     static name: string
 }
 export class VulkanImageMemory {
-    /* Fields of GstVulkan.VulkanImageMemory */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanImageMemory */
     parent: Gst.Memory
     device: VulkanDevice
     image: Vulkan.Image
@@ -2809,7 +2809,7 @@ export class VulkanImageMemory {
     views: object[]
     outstanding_views: object[]
     _padding: object[]
-    /* Methods of GstVulkan.VulkanImageMemory */
+    /* Methods of GstVulkan-1.0.GstVulkan.VulkanImageMemory */
     add_view(view: VulkanImageView): void
     find_view(find_func: VulkanImageMemoryFindViewFunc): VulkanImageView
     get_height(): number
@@ -2822,12 +2822,12 @@ export class VulkanImageMemory {
     static wrapped(device: VulkanDevice, image: Vulkan.Image, format: Vulkan.Format, width: number, height: number, tiling: Vulkan.ImageTiling, usage: Vulkan.ImageUsageFlags, user_data: object | null, notify: GLib.DestroyNotify): Gst.Memory
 }
 export abstract class VulkanImageMemoryAllocatorClass {
-    /* Fields of GstVulkan.VulkanImageMemoryAllocatorClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanImageMemoryAllocatorClass */
     parent_class: Gst.AllocatorClass
     static name: string
 }
 export class VulkanImageView {
-    /* Fields of GstVulkan.VulkanImageView */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanImageView */
     parent: Gst.MiniObject
     device: VulkanDevice
     image: VulkanImageMemory
@@ -2840,7 +2840,7 @@ export class VulkanImageView {
     static new(image: VulkanImageMemory, create_info: Vulkan.ImageViewCreateInfo): VulkanImageView
 }
 export abstract class VulkanInstanceClass {
-    /* Fields of GstVulkan.VulkanInstanceClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanInstanceClass */
     parent_class: Gst.ObjectClass
     static name: string
 }
@@ -2848,7 +2848,7 @@ export class VulkanInstancePrivate {
     static name: string
 }
 export class VulkanMemory {
-    /* Fields of GstVulkan.VulkanMemory */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanMemory */
     mem: Gst.Memory
     device: VulkanDevice
     mem_ptr: Vulkan.DeviceMemory
@@ -2863,12 +2863,12 @@ export class VulkanMemory {
     static property_flags_to_string(prop_bits: Vulkan.MemoryPropertyFlags): string
 }
 export abstract class VulkanMemoryAllocatorClass {
-    /* Fields of GstVulkan.VulkanMemoryAllocatorClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanMemoryAllocatorClass */
     parent_class: Gst.AllocatorClass
     static name: string
 }
 export abstract class VulkanPhysicalDeviceClass {
-    /* Fields of GstVulkan.VulkanPhysicalDeviceClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanPhysicalDeviceClass */
     parent_class: Gst.ObjectClass
     static name: string
 }
@@ -2876,7 +2876,7 @@ export class VulkanPhysicalDevicePrivate {
     static name: string
 }
 export abstract class VulkanQueueClass {
-    /* Fields of GstVulkan.VulkanQueueClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanQueueClass */
     parent_class: Gst.ObjectClass
     static name: string
 }
@@ -2884,7 +2884,7 @@ export class VulkanQueuePrivate {
     static name: string
 }
 export abstract class VulkanSwapperClass {
-    /* Fields of GstVulkan.VulkanSwapperClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanSwapperClass */
     parent_class: Gst.ObjectClass
     static name: string
 }
@@ -2892,7 +2892,7 @@ export class VulkanSwapperPrivate {
     static name: string
 }
 export class VulkanTrash {
-    /* Fields of GstVulkan.VulkanTrash */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanTrash */
     parent: Gst.MiniObject
     cache: VulkanTrashList
     fence: VulkanFence
@@ -2908,12 +2908,12 @@ export class VulkanTrash {
     static object_unref(device: VulkanDevice, user_data?: object | null): void
 }
 export abstract class VulkanTrashFenceListClass {
-    /* Fields of GstVulkan.VulkanTrashFenceListClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanTrashFenceListClass */
     parent_class: VulkanTrashListClass
     static name: string
 }
 export abstract class VulkanTrashListClass {
-    /* Fields of GstVulkan.VulkanTrashListClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanTrashListClass */
     parent_class: VulkanHandlePoolClass
     add_func: VulkanTrashListAdd
     gc_func: VulkanTrashListGC
@@ -2922,12 +2922,12 @@ export abstract class VulkanTrashListClass {
     static name: string
 }
 export abstract class VulkanVideoFilterClass {
-    /* Fields of GstVulkan.VulkanVideoFilterClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanVideoFilterClass */
     video_sink_class: GstBase.BaseTransformClass
     static name: string
 }
 export abstract class VulkanWindowClass {
-    /* Fields of GstVulkan.VulkanWindowClass */
+    /* Fields of GstVulkan-1.0.GstVulkan.VulkanWindowClass */
     parent_class: Gst.ObjectClass
     open: (window: VulkanWindow) => boolean
     close: (window: VulkanWindow) => void

@@ -17,7 +17,7 @@ export enum FFTWindow {
 }
 export function fft_next_fast_length(n: number): number
 export class FFTF32 {
-    /* Methods of GstFft.FFTF32 */
+    /* Methods of GstFft-1.0.GstFft.FFTF32 */
     fft(timedata: number, freqdata: FFTF32Complex): void
     free(): void
     inverse_fft(freqdata: FFTF32Complex, timedata: number): void
@@ -25,13 +25,13 @@ export class FFTF32 {
     static name: string
 }
 export class FFTF32Complex {
-    /* Fields of GstFft.FFTF32Complex */
+    /* Fields of GstFft-1.0.GstFft.FFTF32Complex */
     r: number
     i: number
     static name: string
 }
 export class FFTF64 {
-    /* Methods of GstFft.FFTF64 */
+    /* Methods of GstFft-1.0.GstFft.FFTF64 */
     fft(timedata: number, freqdata: FFTF64Complex): void
     free(): void
     inverse_fft(freqdata: FFTF64Complex, timedata: number): void
@@ -39,13 +39,13 @@ export class FFTF64 {
     static name: string
 }
 export class FFTF64Complex {
-    /* Fields of GstFft.FFTF64Complex */
+    /* Fields of GstFft-1.0.GstFft.FFTF64Complex */
     r: number
     i: number
     static name: string
 }
 export class FFTS16 {
-    /* Methods of GstFft.FFTS16 */
+    /* Methods of GstFft-1.0.GstFft.FFTS16 */
     fft(timedata: number, freqdata: FFTS16Complex): void
     free(): void
     inverse_fft(freqdata: FFTS16Complex, timedata: number): void
@@ -53,13 +53,13 @@ export class FFTS16 {
     static name: string
 }
 export class FFTS16Complex {
-    /* Fields of GstFft.FFTS16Complex */
+    /* Fields of GstFft-1.0.GstFft.FFTS16Complex */
     r: number
     i: number
     static name: string
 }
 export class FFTS32 {
-    /* Methods of GstFft.FFTS32 */
+    /* Methods of GstFft-1.0.GstFft.FFTS32 */
     fft(timedata: number, freqdata: FFTS32Complex): void
     free(): void
     inverse_fft(freqdata: FFTS32Complex, timedata: number): void
@@ -67,7 +67,7 @@ export class FFTS32 {
     static name: string
 }
 export class FFTS32Complex {
-    /* Fields of GstFft.FFTS32Complex */
+    /* Fields of GstFft-1.0.GstFft.FFTS32Complex */
     r: number
     i: number
     static name: string

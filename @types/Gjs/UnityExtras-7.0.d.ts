@@ -18,9 +18,9 @@ export interface CreateScopeCallback {
 export interface PreviewPlayer_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PreviewPlayer {
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of UnityExtras.PreviewPlayer */
+    /* Methods of UnityExtras-7.0.UnityExtras.PreviewPlayer */
     play(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
     play_finish(_res_: Gio.AsyncResult): void
     pause(_callback_?: Gio.AsyncReadyCallback | null): void
@@ -35,7 +35,7 @@ export class PreviewPlayer {
     close_finish(_res_: Gio.AsyncResult): void
     video_properties(uri: string, _callback_?: Gio.AsyncReadyCallback | null): void
     video_properties_finish(_res_: Gio.AsyncResult): GLib.HashTable
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -57,7 +57,7 @@ export class PreviewPlayer {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -65,11 +65,11 @@ export class PreviewPlayer {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of UnityExtras.PreviewPlayer */
+    /* Signals of UnityExtras-7.0.UnityExtras.PreviewPlayer */
     connect(sigName: "progress", callback: (($obj: PreviewPlayer, uri: string, state: Unity.MusicPreviewTrackState, progress: number) => void)): number
     connect_after(sigName: "progress", callback: (($obj: PreviewPlayer, uri: string, state: Unity.MusicPreviewTrackState, progress: number) => void)): number
     emit(sigName: "progress", uri: string, state: Unity.MusicPreviewTrackState, progress: number): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PreviewPlayer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PreviewPlayer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void

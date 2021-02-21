@@ -27,7 +27,7 @@ export const TIMEZONE_COMPLETION_ZONE: number
 export interface TimezoneCompletion_ConstructProps extends Gtk.EntryCompletion_ConstructProps {
 }
 export class TimezoneCompletion {
-    /* Properties of Gtk.EntryCompletion */
+    /* Properties of Gtk-3.0.Gtk.EntryCompletion */
     inline_completion: boolean
     inline_selection: boolean
     minimum_key_length: number
@@ -36,16 +36,16 @@ export class TimezoneCompletion {
     popup_set_width: boolean
     popup_single_match: boolean
     text_column: number
-    /* Fields of TimezoneMap.TimezoneCompletion */
+    /* Fields of TimezoneMap-1.0.TimezoneMap.TimezoneCompletion */
     parent: Gtk.EntryCompletion
     priv: TimezoneCompletionPrivate
-    /* Fields of Gtk.EntryCompletion */
+    /* Fields of Gtk-3.0.Gtk.EntryCompletion */
     parent_instance: GObject.Object
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of TimezoneMap.TimezoneCompletion */
+    /* Methods of TimezoneMap-1.0.TimezoneMap.TimezoneCompletion */
     watch_entry(entry: Gtk.Entry): void
-    /* Methods of Gtk.EntryCompletion */
+    /* Methods of Gtk-3.0.Gtk.EntryCompletion */
     complete(): void
     compute_prefix(key: string): string | null
     delete_action(index_: number): void
@@ -71,7 +71,7 @@ export class TimezoneCompletion {
     set_popup_set_width(popup_set_width: boolean): void
     set_popup_single_match(popup_single_match: boolean): void
     set_text_column(column: number): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -93,7 +93,7 @@ export class TimezoneCompletion {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -104,7 +104,7 @@ export class TimezoneCompletion {
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     set_name(name: string): void
-    /* Methods of Gtk.CellLayout */
+    /* Methods of Gtk-3.0.Gtk.CellLayout */
     add_attribute(cell: Gtk.CellRenderer, attribute: string, column: number): void
     clear(): void
     clear_attributes(cell: Gtk.CellRenderer): void
@@ -114,7 +114,7 @@ export class TimezoneCompletion {
     pack_start(cell: Gtk.CellRenderer, expand: boolean): void
     reorder(cell: Gtk.CellRenderer, position: number): void
     set_cell_data_func(cell: Gtk.CellRenderer, func: Gtk.CellLayoutDataFunc | null): void
-    /* Virtual methods of TimezoneMap.TimezoneCompletion */
+    /* Virtual methods of TimezoneMap-1.0.TimezoneMap.TimezoneCompletion */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -134,13 +134,13 @@ export class TimezoneCompletion {
     vfunc_pack_start(cell: Gtk.CellRenderer, expand: boolean): void
     vfunc_reorder(cell: Gtk.CellRenderer, position: number): void
     vfunc_set_cell_data_func(cell: Gtk.CellRenderer, func: Gtk.CellLayoutDataFunc | null): void
-    /* Virtual methods of Gtk.EntryCompletion */
+    /* Virtual methods of Gtk-3.0.Gtk.EntryCompletion */
     vfunc_action_activated(index_: number): void
     vfunc_cursor_on_match(model: Gtk.TreeModel, iter: Gtk.TreeIter): boolean
     vfunc_insert_prefix(prefix: string): boolean
     vfunc_match_selected(model: Gtk.TreeModel, iter: Gtk.TreeIter): boolean
     vfunc_no_matches(): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -148,7 +148,7 @@ export class TimezoneCompletion {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of Gtk.EntryCompletion */
+    /* Signals of Gtk-3.0.Gtk.EntryCompletion */
     connect(sigName: "action-activated", callback: (($obj: TimezoneCompletion, index: number) => void)): number
     connect_after(sigName: "action-activated", callback: (($obj: TimezoneCompletion, index: number) => void)): number
     emit(sigName: "action-activated", index: number): void
@@ -164,7 +164,7 @@ export class TimezoneCompletion {
     connect(sigName: "no-matches", callback: (($obj: TimezoneCompletion) => void)): number
     connect_after(sigName: "no-matches", callback: (($obj: TimezoneCompletion) => void)): number
     emit(sigName: "no-matches"): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TimezoneCompletion, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TimezoneCompletion, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -204,19 +204,19 @@ export interface TimezoneLocation_ConstructProps extends GObject.Object_Construc
     zone?: string
 }
 export class TimezoneLocation {
-    /* Properties of TimezoneMap.TimezoneLocation */
+    /* Properties of TimezoneMap-1.0.TimezoneMap.TimezoneLocation */
     Comment: string
     country: string
     dist: number
     latitude: number
     longitude: number
     zone: string
-    /* Fields of TimezoneMap.TimezoneLocation */
+    /* Fields of TimezoneMap-1.0.TimezoneMap.TimezoneLocation */
     parent: GObject.Object
     priv: TimezoneLocationPrivate
-    /* Fields of GObject.Object */
+    /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -238,7 +238,7 @@ export class TimezoneLocation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -246,7 +246,7 @@ export class TimezoneLocation {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TimezoneLocation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TimezoneLocation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -276,7 +276,7 @@ export class TimezoneLocation {
 export interface TimezoneMap_ConstructProps extends Gtk.Widget_ConstructProps {
 }
 export class TimezoneMap {
-    /* Properties of Gtk.Widget */
+    /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
     can_focus: boolean
@@ -316,18 +316,18 @@ export class TimezoneMap {
     visible: boolean
     width_request: number
     readonly window: Gdk.Window
-    /* Fields of TimezoneMap.TimezoneMap */
+    /* Fields of TimezoneMap-1.0.TimezoneMap.TimezoneMap */
     priv: TimezoneMapPrivate
-    /* Fields of Gtk.Widget */
+    /* Fields of Gtk-3.0.Gtk.Widget */
     parent_instance: GObject.InitiallyUnowned
-    /* Fields of GObject.InitiallyUnowned */
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
-    /* Methods of TimezoneMap.TimezoneMap */
+    /* Methods of TimezoneMap-1.0.TimezoneMap.TimezoneMap */
     get_timezone_at_coords(lon: number, lat: number): string
     set_coords(lon: number, lat: number): void
     set_timezone(timezone: string): void
     set_watermark(watermark: string): void
-    /* Methods of Gtk.Widget */
+    /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
     add_device_events(device: Gdk.Device, events: Gdk.EventMask): void
@@ -586,7 +586,7 @@ export class TimezoneMap {
     unrealize(): void
     unregister_window(window: Gdk.Window): void
     unset_state_flags(flags: Gtk.StateFlags): void
-    /* Methods of GObject.Object */
+    /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
     force_floating(): void
@@ -608,7 +608,7 @@ export class TimezoneMap {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Methods of Gtk.Buildable */
+    /* Methods of Gtk-3.0.Gtk.Buildable */
     add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     construct_child(builder: Gtk.Builder, name: string): GObject.Object
     custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -617,7 +617,7 @@ export class TimezoneMap {
     get_internal_child(builder: Gtk.Builder, childname: string): GObject.Object
     parser_finished(builder: Gtk.Builder): void
     set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
-    /* Virtual methods of TimezoneMap.TimezoneMap */
+    /* Virtual methods of TimezoneMap-1.0.TimezoneMap.TimezoneMap */
     vfunc_add_child(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     vfunc_construct_child(builder: Gtk.Builder, name: string): GObject.Object
     vfunc_custom_finished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
@@ -628,7 +628,7 @@ export class TimezoneMap {
     vfunc_parser_finished(builder: Gtk.Builder): void
     vfunc_set_buildable_property(builder: Gtk.Builder, name: string, value: any): void
     vfunc_set_name(name: string): void
-    /* Virtual methods of Gtk.Widget */
+    /* Virtual methods of Gtk-3.0.Gtk.Widget */
     vfunc_adjust_baseline_allocation(baseline: number): void
     vfunc_adjust_baseline_request(minimum_baseline: number, natural_baseline: number): void
     vfunc_adjust_size_allocation(orientation: Gtk.Orientation, minimum_size: number, natural_size: number, allocated_pos: number, allocated_size: number): void
@@ -711,7 +711,7 @@ export class TimezoneMap {
     vfunc_unrealize(): void
     vfunc_visibility_notify_event(event: Gdk.EventVisibility): boolean
     vfunc_window_state_event(event: Gdk.EventWindowState): boolean
-    /* Virtual methods of GObject.Object */
+    /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
@@ -719,11 +719,11 @@ export class TimezoneMap {
     vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of TimezoneMap.TimezoneMap */
+    /* Signals of TimezoneMap-1.0.TimezoneMap.TimezoneMap */
     connect(sigName: "location-changed", callback: (($obj: TimezoneMap, object: TimezoneLocation) => void)): number
     connect_after(sigName: "location-changed", callback: (($obj: TimezoneMap, object: TimezoneLocation) => void)): number
     emit(sigName: "location-changed", object: TimezoneLocation): void
-    /* Signals of Gtk.Widget */
+    /* Signals of Gtk-3.0.Gtk.Widget */
     connect(sigName: "accel-closures-changed", callback: (($obj: TimezoneMap) => void)): number
     connect_after(sigName: "accel-closures-changed", callback: (($obj: TimezoneMap) => void)): number
     emit(sigName: "accel-closures-changed"): void
@@ -931,7 +931,7 @@ export class TimezoneMap {
     connect(sigName: "window-state-event", callback: (($obj: TimezoneMap, event: Gdk.EventWindowState) => boolean)): number
     connect_after(sigName: "window-state-event", callback: (($obj: TimezoneMap, event: Gdk.EventWindowState) => boolean)): number
     emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
-    /* Signals of GObject.Object */
+    /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TimezoneMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TimezoneMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1025,7 +1025,7 @@ export class TimezoneMap {
     static $gtype: GObject.Type
 }
 export abstract class TimezoneCompletionClass {
-    /* Fields of TimezoneMap.TimezoneCompletionClass */
+    /* Fields of TimezoneMap-1.0.TimezoneMap.TimezoneCompletionClass */
     parent_class: Gtk.EntryCompletionClass
     static name: string
 }
@@ -1033,7 +1033,7 @@ export class TimezoneCompletionPrivate {
     static name: string
 }
 export abstract class TimezoneLocationClass {
-    /* Fields of TimezoneMap.TimezoneLocationClass */
+    /* Fields of TimezoneMap-1.0.TimezoneMap.TimezoneLocationClass */
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1041,7 +1041,7 @@ export class TimezoneLocationPrivate {
     static name: string
 }
 export abstract class TimezoneMapClass {
-    /* Fields of TimezoneMap.TimezoneMapClass */
+    /* Fields of TimezoneMap-1.0.TimezoneMap.TimezoneMapClass */
     parent_class: Gtk.WidgetClass
     static name: string
 }

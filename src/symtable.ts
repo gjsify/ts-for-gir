@@ -1,7 +1,13 @@
 import { SymTableItems, GenerateConfig, GirConstruct } from './types'
 import { Logger } from './logger'
 
+/**
+ * The SymTable is used to check get any Type von any dependency to compare or to get information from
+ */
 export class SymTable {
+    /**
+     * The items are static because any GirModule has the same items to be able to access the types of dependencies as well
+     */
     private static items: SymTableItems = {}
     private log: Logger
 
@@ -14,10 +20,11 @@ export class SymTable {
     }
 
     /**
-     * Get symTable key, we use this method to prepend the package version to each key to prevent version conflicts e.g. in Gtk-3 and Gtk-4
+     * Get symTable key, we use this method to prepend the package version to each key to prevent version conflicts e.g. in 'Gtk-3.0' and 'Gtk-4.0'
      * @param implementation E.g. Gtk.Window
+     * @returns E.g. 'Gtk-3.0.Gtk.Window'
      */
-    public getKey(dependencies: string[], implementation: string): string {
+    public getKey(dependencies: string[], implementation: string): string | null {
         if (implementation.startsWith(this.modPackageName + '.')) {
             return implementation
         }
@@ -35,14 +42,17 @@ export class SymTable {
         const packageName = dependencies.find((dependency) => dependency.startsWith(namespace + '-'))
         if (!packageName) {
             this.log.warn(`Package name for namespace ${namespace} not found! (${implementation})`)
-            return implementation // TODO return null?
+            return null
         }
         return packageName + '.' + implementation
     }
 
-    public get(dependencies: string[], fullTypeName: string): GirConstruct | undefined {
+    public get(dependencies: string[], fullTypeName: string): GirConstruct | null {
         const key = this.getKey(dependencies, fullTypeName)
-        return SymTable.items[key]
+        if (!key) {
+            return null
+        }
+        return SymTable.items[key] || null
     }
 
     public getByHand(versionTypeName: string): GirConstruct | undefined {
@@ -51,6 +61,8 @@ export class SymTable {
 
     public set(dependencies: string[], fullTypeName: string, girConstruct: GirConstruct): void {
         const key = this.getKey(dependencies, fullTypeName)
-        SymTable.items[key] = girConstruct
+        if (key) {
+            SymTable.items[key] = girConstruct
+        }
     }
 }

@@ -773,8 +773,11 @@ export class GirModule {
                 continue
             }
             const key = this.symTable.getKey(this.allDependencies, name)
-            dups[key] = true
-            const iface = this.symTable.get(this.allDependencies, name) as GirClass | undefined
+            let iface: GirClass | null = null
+            if (key) {
+                dups[key] = true
+                iface = this.symTable.get(this.allDependencies, name) as GirClass | null
+            }
 
             if (iface) {
                 callback(iface)

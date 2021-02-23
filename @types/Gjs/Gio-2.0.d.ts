@@ -12073,10 +12073,10 @@ export class ZlibDecompressor {
 export class ActionEntry {
     /* Fields of Gio-2.0.Gio.ActionEntry */
     name: string
-    activate: any
+    activate: (action: SimpleAction, parameter: GLib.Variant) => void
     parameter_type: string
     state: string
-    change_state: any
+    change_state: (action: SimpleAction, value: GLib.Variant) => void
     static name: string
 }
 export abstract class ActionGroupInterface {
@@ -12085,30 +12085,30 @@ export abstract class ActionGroupInterface {
     has_action: (action_group: ActionGroup, action_name: string) => boolean
     list_actions: (action_group: ActionGroup) => string[]
     get_action_enabled: (action_group: ActionGroup, action_name: string) => boolean
-    get_action_parameter_type: any
-    get_action_state_type: any
-    get_action_state_hint: any
-    get_action_state: any
-    change_action_state: any
-    activate_action: any
+    get_action_parameter_type: (action_group: ActionGroup, action_name: string) => GLib.VariantType | null
+    get_action_state_type: (action_group: ActionGroup, action_name: string) => GLib.VariantType | null
+    get_action_state_hint: (action_group: ActionGroup, action_name: string) => GLib.Variant | null
+    get_action_state: (action_group: ActionGroup, action_name: string) => GLib.Variant | null
+    change_action_state: (action_group: ActionGroup, action_name: string, value: GLib.Variant) => void
+    activate_action: (action_group: ActionGroup, action_name: string, parameter?: GLib.Variant | null) => void
     action_added: (action_group: ActionGroup, action_name: string) => void
     action_removed: (action_group: ActionGroup, action_name: string) => void
     action_enabled_changed: (action_group: ActionGroup, action_name: string, enabled: boolean) => void
-    action_state_changed: any
-    query_action: any
+    action_state_changed: (action_group: ActionGroup, action_name: string, state: GLib.Variant) => void
+    query_action: (action_group: ActionGroup, action_name: string) => [ /* returnType */ boolean, /* enabled */ boolean, /* parameter_type */ GLib.VariantType | null, /* state_type */ GLib.VariantType | null, /* state_hint */ GLib.Variant | null, /* state */ GLib.Variant | null ]
     static name: string
 }
 export abstract class ActionInterface {
     /* Fields of Gio-2.0.Gio.ActionInterface */
     g_iface: GObject.TypeInterface
     get_name: (action: Action) => string
-    get_parameter_type: any
-    get_state_type: any
-    get_state_hint: any
+    get_parameter_type: (action: Action) => GLib.VariantType | null
+    get_state_type: (action: Action) => GLib.VariantType | null
+    get_state_hint: (action: Action) => GLib.Variant | null
     get_enabled: (action: Action) => boolean
-    get_state: any
-    change_state: any
-    activate: any
+    get_state: (action: Action) => GLib.Variant | null
+    change_state: (action: Action, value: GLib.Variant) => void
+    activate: (action: Action, parameter?: GLib.Variant | null) => void
     static name: string
 }
 export abstract class ActionMapInterface {
@@ -12155,7 +12155,7 @@ export abstract class AppLaunchContextClass {
     get_display: (context: AppLaunchContext, info: AppInfo, files: File[]) => string | null
     get_startup_notify_id: (context: AppLaunchContext, info: AppInfo, files: File[]) => string | null
     launch_failed: (context: AppLaunchContext, startup_notify_id: string) => void
-    launched: any
+    launched: (context: AppLaunchContext, info: AppInfo, platform_data: GLib.Variant) => void
     static name: string
 }
 export class AppLaunchContextPrivate {
@@ -12168,15 +12168,15 @@ export abstract class ApplicationClass {
     open: (application: Application, files: File[], hint: string) => void
     command_line: (application: Application, command_line: ApplicationCommandLine) => number
     local_command_line: (application: Application, arguments_: string[]) => [ /* returnType */ boolean, /* arguments_ */ string[], /* exit_status */ number ]
-    before_emit: any
-    after_emit: any
-    add_platform_data: any
+    before_emit: (application: Application, platform_data: GLib.Variant) => void
+    after_emit: (application: Application, platform_data: GLib.Variant) => void
+    add_platform_data: (application: Application, builder: GLib.VariantBuilder) => void
     quit_mainloop: (application: Application) => void
     run_mainloop: (application: Application) => void
     shutdown: (application: Application) => void
     dbus_register: (application: Application, connection: DBusConnection, object_path: string) => boolean
     dbus_unregister: (application: Application, connection: DBusConnection, object_path: string) => void
-    handle_local_options: any
+    handle_local_options: (application: Application, options: GLib.VariantDict) => number
     name_lost: (application: Application) => boolean
     static name: string
 }
@@ -12204,7 +12204,7 @@ export abstract class AsyncResultIface {
     /* Fields of Gio-2.0.Gio.AsyncResultIface */
     g_iface: GObject.TypeInterface
     get_user_data: (res: AsyncResult) => object | null
-    get_source_object: any
+    get_source_object: (res: AsyncResult) => GObject.Object | null
     is_tagged: (res: AsyncResult, source_tag?: object | null) => boolean
     static name: string
 }
@@ -12329,7 +12329,7 @@ export abstract class DBusInterfaceSkeletonClass {
     /* Fields of Gio-2.0.Gio.DBusInterfaceSkeletonClass */
     parent_class: GObject.ObjectClass
     get_info: (interface_: DBusInterfaceSkeleton) => DBusInterfaceInfo
-    get_properties: any
+    get_properties: (interface_: DBusInterfaceSkeleton) => GLib.Variant
     flush: (interface_: DBusInterfaceSkeleton) => void
     g_authorize_method: (interface_: DBusInterfaceSkeleton, invocation: DBusMethodInvocation) => boolean
     static name: string
@@ -12385,8 +12385,8 @@ export abstract class DBusObjectIface {
 export abstract class DBusObjectManagerClientClass {
     /* Fields of Gio-2.0.Gio.DBusObjectManagerClientClass */
     parent_class: GObject.ObjectClass
-    interface_proxy_signal: any
-    interface_proxy_properties_changed: any
+    interface_proxy_signal: (manager: DBusObjectManagerClient, object_proxy: DBusObjectProxy, interface_proxy: DBusProxy, sender_name: string, signal_name: string, parameters: GLib.Variant) => void
+    interface_proxy_properties_changed: (manager: DBusObjectManagerClient, object_proxy: DBusObjectProxy, interface_proxy: DBusProxy, changed_properties: GLib.Variant, invalidated_properties: string) => void
     static name: string
 }
 export class DBusObjectManagerClientPrivate {
@@ -12444,8 +12444,8 @@ export class DBusPropertyInfo {
 }
 export abstract class DBusProxyClass {
     /* Fields of Gio-2.0.Gio.DBusProxyClass */
-    g_properties_changed: any
-    g_signal: any
+    g_properties_changed: (proxy: DBusProxy, changed_properties: GLib.Variant, invalidated_properties: string) => void
+    g_signal: (proxy: DBusProxy, sender_name: string, signal_name: string, parameters: GLib.Variant) => void
     static name: string
 }
 export class DBusProxyPrivate {
@@ -12490,9 +12490,9 @@ export abstract class DatagramBasedInterface {
     g_iface: GObject.TypeInterface
     receive_messages: (datagram_based: DatagramBased, messages: InputMessage[], flags: number, timeout: number, cancellable?: Cancellable | null) => number
     send_messages: (datagram_based: DatagramBased, messages: OutputMessage[], flags: number, timeout: number, cancellable?: Cancellable | null) => number
-    create_source: any
-    condition_check: any
-    condition_wait: any
+    create_source: (datagram_based: DatagramBased, condition: GLib.IOCondition, cancellable?: Cancellable | null) => GLib.Source
+    condition_check: (datagram_based: DatagramBased, condition: GLib.IOCondition) => GLib.IOCondition
+    condition_wait: (datagram_based: DatagramBased, condition: GLib.IOCondition, timeout: number, cancellable?: Cancellable | null) => boolean
     static name: string
 }
 export abstract class DesktopAppInfoClass {
@@ -12643,7 +12643,7 @@ export abstract class FileIOStreamClass {
     parent_class: IOStreamClass
     tell: (stream: FileIOStream) => number
     can_seek: (stream: FileIOStream) => boolean
-    seek: any
+    seek: (stream: FileIOStream, offset: number, type: GLib.SeekType, cancellable?: Cancellable | null) => boolean
     can_truncate: (stream: FileIOStream) => boolean
     truncate_fn: (stream: FileIOStream, size: number, cancellable?: Cancellable | null) => boolean
     query_info: (stream: FileIOStream, attributes: string, cancellable?: Cancellable | null) => FileInfo
@@ -12764,7 +12764,7 @@ export abstract class FileInputStreamClass {
     parent_class: InputStreamClass
     tell: (stream: FileInputStream) => number
     can_seek: (stream: FileInputStream) => boolean
-    seek: any
+    seek: (stream: FileInputStream, offset: number, type: GLib.SeekType, cancellable?: Cancellable | null) => boolean
     query_info: (stream: FileInputStream, attributes: string, cancellable?: Cancellable | null) => FileInfo
     query_info_async: (stream: FileInputStream, attributes: string, io_priority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     query_info_finish: (stream: FileInputStream, result: AsyncResult) => FileInfo
@@ -12788,7 +12788,7 @@ export abstract class FileOutputStreamClass {
     parent_class: OutputStreamClass
     tell: (stream: FileOutputStream) => number
     can_seek: (stream: FileOutputStream) => boolean
-    seek: any
+    seek: (stream: FileOutputStream, offset: number, type: GLib.SeekType, cancellable?: Cancellable | null) => boolean
     can_truncate: (stream: FileOutputStream) => boolean
     truncate_fn: (stream: FileOutputStream, size: number, cancellable?: Cancellable | null) => boolean
     query_info: (stream: FileOutputStream, attributes: string, cancellable?: Cancellable | null) => FileInfo
@@ -12871,7 +12871,7 @@ export abstract class IconIface {
     g_iface: GObject.TypeInterface
     hash: (icon: Icon) => number
     equal: (icon1?: Icon | null, icon2?: Icon | null) => boolean
-    serialize: any
+    serialize: (icon: Icon) => GLib.Variant | null
     static name: string
 }
 export abstract class InetAddressClass {
@@ -12943,9 +12943,9 @@ export class InputVector {
 export abstract class ListModelInterface {
     /* Fields of Gio-2.0.Gio.ListModelInterface */
     g_iface: GObject.TypeInterface
-    get_item_type: any
+    get_item_type: (list: ListModel) => GObject.Type
     get_n_items: (list: ListModel) => number
-    get_item: any
+    get_item: (list: ListModel, position: number) => GObject.Object | null
     static name: string
 }
 export abstract class ListStoreClass {
@@ -12985,7 +12985,7 @@ export class MemoryOutputStreamPrivate {
 export abstract class MenuAttributeIterClass {
     /* Fields of Gio-2.0.Gio.MenuAttributeIterClass */
     parent_class: GObject.ObjectClass
-    get_next: any
+    get_next: (iter: MenuAttributeIter) => [ /* returnType */ boolean, /* out_name */ string | null, /* value */ GLib.Variant | null ]
     static name: string
 }
 export class MenuAttributeIterPrivate {
@@ -13005,10 +13005,10 @@ export abstract class MenuModelClass {
     parent_class: GObject.ObjectClass
     is_mutable: (model: MenuModel) => boolean
     get_n_items: (model: MenuModel) => number
-    get_item_attributes: any
+    get_item_attributes: (model: MenuModel, item_index: number) => /* attributes */ GLib.HashTable
     iterate_item_attributes: (model: MenuModel, item_index: number) => MenuAttributeIter
-    get_item_attribute_value: any
-    get_item_links: any
+    get_item_attribute_value: (model: MenuModel, item_index: number, attribute: string, expected_type?: GLib.VariantType | null) => GLib.Variant | null
+    get_item_links: (model: MenuModel, item_index: number) => /* links */ GLib.HashTable
     iterate_item_links: (model: MenuModel, item_index: number) => MenuLinkIter
     get_item_link: (model: MenuModel, item_index: number, link: string) => MenuModel | null
     static name: string
@@ -13055,7 +13055,7 @@ export abstract class MountOperationClass {
     ask_question: (op: MountOperation, message: string, choices: string[]) => void
     reply: (op: MountOperation, result: MountOperationResult) => void
     aborted: (op: MountOperation) => void
-    show_processes: any
+    show_processes: (op: MountOperation, message: string, processes: GLib.Pid[], choices: string[]) => void
     show_unmount_progress: (op: MountOperation, message: string, time_left: number, bytes_left: number) => void
     static name: string
 }
@@ -13159,7 +13159,7 @@ export abstract class PollableInputStreamInterface {
     g_iface: GObject.TypeInterface
     can_poll: (stream: PollableInputStream) => boolean
     is_readable: (stream: PollableInputStream) => boolean
-    create_source: any
+    create_source: (stream: PollableInputStream, cancellable?: Cancellable | null) => GLib.Source
     read_nonblocking: (stream: PollableInputStream, buffer: Uint8Array[] | null) => number
     static name: string
 }
@@ -13168,7 +13168,7 @@ export abstract class PollableOutputStreamInterface {
     g_iface: GObject.TypeInterface
     can_poll: (stream: PollableOutputStream) => boolean
     is_writable: (stream: PollableOutputStream) => boolean
-    create_source: any
+    create_source: (stream: PollableOutputStream, cancellable?: Cancellable | null) => GLib.Source
     write_nonblocking: (stream: PollableOutputStream, buffer: Uint8Array[] | null) => number
     writev_nonblocking: (stream: PollableOutputStream, vectors: OutputVector[]) => [ /* returnType */ PollableReturn, /* bytes_written */ number | null ]
     static name: string
@@ -13208,8 +13208,8 @@ export abstract class ProxyResolverInterface {
 export abstract class RemoteActionGroupInterface {
     /* Fields of Gio-2.0.Gio.RemoteActionGroupInterface */
     g_iface: GObject.TypeInterface
-    activate_action_full: any
-    change_action_state_full: any
+    activate_action_full: (remote: RemoteActionGroup, action_name: string, parameter: GLib.Variant | null, platform_data: GLib.Variant) => void
+    change_action_state_full: (remote: RemoteActionGroup, action_name: string, value: GLib.Variant, platform_data: GLib.Variant) => void
     static name: string
 }
 export abstract class ResolverClass {
@@ -13224,9 +13224,9 @@ export abstract class ResolverClass {
     lookup_by_address_finish: (resolver: Resolver, result: AsyncResult) => string
     lookup_service_async: (resolver: Resolver, rrname: string, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     lookup_service_finish: (resolver: Resolver, result: AsyncResult) => SrvTarget[]
-    lookup_records: any
+    lookup_records: (resolver: Resolver, rrname: string, record_type: ResolverRecordType, cancellable?: Cancellable | null) => GLib.Variant[]
     lookup_records_async: (resolver: Resolver, rrname: string, record_type: ResolverRecordType, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
-    lookup_records_finish: any
+    lookup_records_finish: (resolver: Resolver, result: AsyncResult) => GLib.Variant[]
     lookup_by_name_with_flags_async: (resolver: Resolver, hostname: string, flags: ResolverNameLookupFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     lookup_by_name_with_flags_finish: (resolver: Resolver, result: AsyncResult) => InetAddress[]
     lookup_by_name_with_flags: (resolver: Resolver, hostname: string, flags: ResolverNameLookupFlags, cancellable?: Cancellable | null) => InetAddress[]
@@ -13255,7 +13255,7 @@ export abstract class SeekableIface {
     g_iface: GObject.TypeInterface
     tell: (seekable: Seekable) => number
     can_seek: (seekable: Seekable) => boolean
-    seek: any
+    seek: (seekable: Seekable, offset: number, type: GLib.SeekType, cancellable?: Cancellable | null) => boolean
     can_truncate: (seekable: Seekable) => boolean
     truncate_fn: (seekable: Seekable, offset: number, cancellable?: Cancellable | null) => boolean
     static name: string
@@ -13263,15 +13263,15 @@ export abstract class SeekableIface {
 export abstract class SettingsBackendClass {
     /* Fields of Gio-2.0.Gio.SettingsBackendClass */
     parent_class: GObject.ObjectClass
-    read: any
+    read: (backend: SettingsBackend, key: string, expected_type: GLib.VariantType, default_value: boolean) => GLib.Variant
     get_writable: (backend: SettingsBackend, key: string) => boolean
-    write: any
-    write_tree: any
+    write: (backend: SettingsBackend, key: string, value: GLib.Variant, origin_tag?: object | null) => boolean
+    write_tree: (backend: SettingsBackend, tree: GLib.Tree, origin_tag?: object | null) => boolean
     reset: (backend: SettingsBackend, key: string, origin_tag?: object | null) => void
     subscribe: (backend: SettingsBackend, name: string) => void
     unsubscribe: (backend: SettingsBackend, name: string) => void
     sync: (backend: SettingsBackend) => void
-    read_user_value: any
+    read_user_value: (backend: SettingsBackend, key: string, expected_type: GLib.VariantType) => GLib.Variant
     static name: string
 }
 export class SettingsBackendPrivate {
@@ -13282,8 +13282,8 @@ export abstract class SettingsClass {
     parent_class: GObject.ObjectClass
     writable_changed: (settings: Settings, key: string) => void
     changed: (settings: Settings, key: string) => void
-    writable_change_event: any
-    change_event: any
+    writable_change_event: (settings: Settings, key: GLib.Quark) => boolean
+    change_event: (settings: Settings, keys: GLib.Quark, n_keys: number) => boolean
     padding: object[]
     static name: string
 }
@@ -13416,7 +13416,7 @@ export class SocketPrivate {
 export abstract class SocketServiceClass {
     /* Fields of Gio-2.0.Gio.SocketServiceClass */
     parent_class: SocketListenerClass
-    incoming: any
+    incoming: (service: SocketService, connection: SocketConnection, source_object: GObject.Object) => boolean
     static name: string
 }
 export class SocketServicePrivate {
@@ -13468,7 +13468,7 @@ export abstract class ThemedIconClass {
 export abstract class ThreadedSocketServiceClass {
     /* Fields of Gio-2.0.Gio.ThreadedSocketServiceClass */
     parent_class: SocketServiceClass
-    run: any
+    run: (service: ThreadedSocketService, connection: SocketConnection, source_object: GObject.Object) => boolean
     static name: string
 }
 export class ThreadedSocketServicePrivate {
@@ -13478,14 +13478,14 @@ export abstract class TlsBackendInterface {
     /* Fields of Gio-2.0.Gio.TlsBackendInterface */
     g_iface: GObject.TypeInterface
     supports_tls: (backend: TlsBackend) => boolean
-    get_certificate_type: any
-    get_client_connection_type: any
-    get_server_connection_type: any
-    get_file_database_type: any
+    get_certificate_type: () => GObject.Type
+    get_client_connection_type: () => GObject.Type
+    get_server_connection_type: () => GObject.Type
+    get_file_database_type: () => GObject.Type
     get_default_database: (backend: TlsBackend) => TlsDatabase
     supports_dtls: (backend: TlsBackend) => boolean
-    get_dtls_client_connection_type: any
-    get_dtls_server_connection_type: any
+    get_dtls_client_connection_type: () => GObject.Type
+    get_dtls_server_connection_type: () => GObject.Type
     static name: string
 }
 export abstract class TlsCertificateClass {
@@ -13559,7 +13559,7 @@ export abstract class TlsPasswordClass {
     /* Fields of Gio-2.0.Gio.TlsPasswordClass */
     parent_class: GObject.ObjectClass
     get_value: (password: TlsPassword, length?: number | null) => number
-    set_value: any
+    set_value: (password: TlsPassword, value: Uint8Array[], destroy?: GLib.DestroyNotify | null) => void
     get_default_warning: (password: TlsPassword) => string
     static name: string
 }
@@ -13661,7 +13661,7 @@ export abstract class VfsClass {
     get_file_for_uri: (vfs: Vfs, uri: string) => File
     get_supported_uri_schemes: (vfs: Vfs) => string[]
     parse_name: (vfs: Vfs, parse_name: string) => File
-    local_file_add_info: any
+    local_file_add_info: (vfs: Vfs, filename: string, device: number, attribute_matcher: FileAttributeMatcher, info: FileInfo, cancellable: Cancellable | null, extra_data: object | null, free_extra_data: GLib.DestroyNotify) => void
     add_writable_namespaces: (vfs: Vfs, list: FileAttributeInfoList) => void
     local_file_set_attributes: (vfs: Vfs, filename: string, info: FileInfo, flags: FileQueryInfoFlags, cancellable?: Cancellable | null) => boolean
     local_file_removed: (vfs: Vfs, filename: string) => void

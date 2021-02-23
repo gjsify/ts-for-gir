@@ -3,13 +3,15 @@
  */
 
 import "node"
-// WARN: Dependency not found: 'GstVideo-0.10'
-// WARN: Dependency not found: 'GstInterfaces-0.10'
-// WARN: Dependency not found: 'GstBase-0.10'
-// WARN: Dependency not found: 'GstAudio-0.10'
-// WARN: Dependency not found: 'Gst-0.10'
+import type { GstVideo } from './GstVideo-0.10';
+import type { libxml2 } from './libxml2-2.0';
+import type { GstBase } from './GstBase-0.10';
+import type { Gst } from './Gst-0.10';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
+import type { GModule } from './GModule-2.0';
+import type { GstInterfaces } from './GstInterfaces-0.10';
+// WARN: Dependency not found: 'GstAudio-0.10'
 import type { Clutter } from './Clutter-1.0';
 import type { cairo } from './cairo-1.0';
 import type { Json } from './Json-1.0';
@@ -67,7 +69,7 @@ export class Player {
     getBufferingMode(): BufferingMode
     getIdle(): boolean
     getInSeek(): boolean
-    getPipeline(): any
+    getPipeline(): Gst.Element
     getSeekFlags(): SeekFlags
     getSubtitleTrack(): number
     getSubtitleTracks(): string[]
@@ -120,6 +122,11 @@ export class VideoSink {
     /* Properties of ClutterGst-1.0.ClutterGst.VideoSink */
     texture: Clutter.Texture
     updatePriority: number
+    /* Methods of GstInterfaces-0.10.GstInterfaces.Navigation */
+    sendCommand(command: GstInterfaces.NavigationCommand): void
+    sendEvent(structure: Gst.Structure): void
+    sendKeyEvent(event: string, key: string): void
+    sendMouseEvent(event: string, button: number, x: number, y: number): void
     static name: string
     static new(texture: Clutter.Texture): VideoSink
     constructor(texture: Clutter.Texture)
@@ -262,13 +269,13 @@ export class VideoTexture {
     gTypeInstance: GObject.TypeInstance
     /* Methods of ClutterGst-1.0.ClutterGst.VideoTexture */
     getAudioStream(): number
-    getAudioStreams(): any[]
+    getAudioStreams(): Gst.TagList[]
     getBufferingMode(): BufferingMode
     getIdleMaterial(): Cogl.Handle
-    getPipeline(): any
+    getPipeline(): Gst.Element
     getSeekFlags(): SeekFlags
     getSubtitleTrack(): number
-    getSubtitleTracks(): any[]
+    getSubtitleTracks(): Gst.TagList[]
     getUserAgent(): string
     setAudioStream(index: number): void
     setBufferingMode(mode: BufferingMode): void
@@ -1370,7 +1377,7 @@ export class VideoTexture {
 }
 export abstract class PlayerIface {
     /* Fields of ClutterGst-1.0.ClutterGst.PlayerIface */
-    getPipeline: (player: Player) => any
+    getPipeline: (player: Player) => Gst.Element
     getUserAgent: (player: Player) => string
     setUserAgent: (player: Player, userAgent: string) => void
     getSeekFlags: (player: Player) => SeekFlags

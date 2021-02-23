@@ -2329,7 +2329,7 @@ export class SampleWindowPrivate {
 export abstract class WindowClass {
     /* Fields of ColordGtk-1.0.ColordGtk.WindowClass */
     parentClass: GObject.ObjectClass
-    changed: any
+    changed: (window: Window, profile: Colord.Profile) => void
     static name: string
 }
 export class WindowPrivate {

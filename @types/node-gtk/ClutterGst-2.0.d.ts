@@ -1727,7 +1727,7 @@ export class VideoTexture {
 }
 export abstract class PlayerIface {
     /* Fields of ClutterGst-2.0.ClutterGst.PlayerIface */
-    getPipeline: any
+    getPipeline: (player: Player) => Gst.Element
     getUserAgent: (player: Player) => string
     setUserAgent: (player: Player, userAgent: string) => void
     getSeekFlags: (player: Player) => SeekFlags

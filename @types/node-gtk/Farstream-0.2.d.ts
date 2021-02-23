@@ -1105,10 +1105,10 @@ export abstract class SessionClass {
     setSendCodec: (session: Session, sendCodec: Codec) => boolean
     setCodecPreferences: (session: Session, codecPreferences?: Codec[] | null) => boolean
     listTransmitters: (session: Session) => string[]
-    getStreamTransmitterType: any
+    getStreamTransmitterType: (session: Session, transmitter: string) => GObject.Type
     codecsNeedResend: (session: Session, oldCodecs?: Codec[] | null, newCodecs?: Codec[] | null) => Codec[]
-    setAllowedCaps: any
-    setEncryptionParameters: any
+    setAllowedCaps: (session: Session, sinkCaps?: Gst.Caps | null, srcCaps?: Gst.Caps | null) => boolean
+    setEncryptionParameters: (session: Session, parameters?: Gst.Structure | null) => boolean
     static name: string
 }
 export class SessionPrivate {
@@ -1121,8 +1121,8 @@ export abstract class StreamClass {
     forceRemoteCandidates: (stream: Stream, remoteCandidates: Candidate[]) => boolean
     setRemoteCodecs: (stream: Stream, remoteCodecs: Codec[]) => boolean
     addId: (stream: Stream, id: number) => void
-    setTransmitter: any
-    setDecryptionParameters: any
+    setTransmitter: (stream: Stream, transmitter: string, streamTransmitterParameters: GObject.Parameter[] | null) => boolean
+    setDecryptionParameters: (stream: Stream, parameters: Gst.Structure) => boolean
     static name: string
 }
 export class StreamPrivate {
@@ -1143,8 +1143,8 @@ export class StreamTransmitterPrivate {
 export abstract class TransmitterClass {
     /* Fields of Farstream-0.2.Farstream.TransmitterClass */
     parentClass: GObject.ObjectClass
-    newStreamTransmitter: any
-    getStreamTransmitterType: any
+    newStreamTransmitter: (transmitter: Transmitter, participant: Participant, nParameters: number, parameters: GObject.Parameter) => StreamTransmitter
+    getStreamTransmitterType: (transmitter: Transmitter) => GObject.Type
     static name: string
 }
 export class TransmitterPrivate {

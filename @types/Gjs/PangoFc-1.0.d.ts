@@ -237,8 +237,8 @@ export class FontMap {
 }
 export abstract class DecoderClass {
     /* Fields of PangoFc-1.0.PangoFc.DecoderClass */
-    get_charset: any
-    get_glyph: any
+    get_charset: (decoder: Decoder, fcfont: Font) => fontconfig.CharSet
+    get_glyph: (decoder: Decoder, fcfont: Font, wc: number) => Pango.Glyph
     static name: string
 }
 export abstract class FontClass {

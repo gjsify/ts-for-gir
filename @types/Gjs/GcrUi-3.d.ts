@@ -9803,8 +9803,8 @@ export class FailureRendererPrivate {
 export abstract class ImportButtonClass {
     /* Fields of GcrUi-3.GcrUi.ImportButtonClass */
     parent_class: Gtk.ButtonClass
-    importing: any
-    imported: any
+    importing: (self: ImportButton, importer: Gcr.Importer) => void
+    imported: (self: ImportButton, importer: Gcr.Importer, error: GLib.Error) => void
     static name: string
 }
 export class ImportButtonPrivate {
@@ -9843,7 +9843,7 @@ export abstract class RendererIface {
     parent: GObject.TypeInterface
     data_changed: (self: Renderer) => void
     render_view: (self: Renderer, viewer: Viewer) => void
-    populate_popup: any
+    populate_popup: (self: Renderer, viewer: Viewer, menu: Gtk.Menu) => void
     static name: string
 }
 export abstract class SecureEntryBufferClass {

@@ -1,0 +1,1195 @@
+<?xml version="1.0"?>
+<!-- This file was automatically generated from C sources - DO NOT EDIT!
+To affect the contents of this file, edit the original C definitions,
+and/or use gtk-doc annotations.  -->
+<repository xmlns="http://www.gtk.org/introspection/core/1.0" xmlns:c="http://www.gtk.org/introspection/c/1.0" xmlns:glib="http://www.gtk.org/introspection/glib/1.0" version="1.2">
+  <include name="GLib" version="2.0"/>
+  <include name="Gio" version="2.0"/>
+  <namespace name="SocialWebClient" version="0.25" shared-library="libsocialweb-client.so.2" c:identifier-prefixes="Sw" c:symbol-prefixes="sw">
+    <class name="Client" c:symbol-prefix="client" c:type="SwClient" parent="GObject.Object" glib:type-name="SwClient" glib:get-type="sw_client_get_type" glib:type-struct="ClientClass">
+      <constructor name="new" c:identifier="sw_client_new">
+        <return-value transfer-ownership="full">
+          <type name="Client" c:type="SwClient*"/>
+        </return-value>
+      </constructor>
+      <method name="get_service" c:identifier="sw_client_get_service">
+        <return-value transfer-ownership="full">
+          <type name="ClientService" c:type="SwClientService*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="SwClient*"/>
+          </instance-parameter>
+          <parameter name="service_name" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_services" c:identifier="sw_client_get_services">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="SwClient*"/>
+          </instance-parameter>
+          <parameter name="cb" transfer-ownership="none" scope="async" closure="1">
+            <type name="ClientGetServicesCallback" c:type="SwClientGetServicesCallback"/>
+          </parameter>
+          <parameter name="userdata" transfer-ownership="none" nullable="1" allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_online" c:identifier="sw_client_is_online">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="client" transfer-ownership="none">
+            <type name="Client" c:type="SwClient*"/>
+          </instance-parameter>
+          <parameter name="cb" transfer-ownership="none" scope="async" closure="1">
+            <type name="ClientIsOnlineCallback" c:type="SwClientIsOnlineCallback"/>
+          </parameter>
+          <parameter name="userdata" transfer-ownership="none" nullable="1" allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <glib:signal name="online-changed" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+    </class>
+    <record name="ClientClass" c:type="SwClientClass" glib:is-gtype-struct-for="Client">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="ClientContactView" c:symbol-prefix="client_contact_view" c:type="SwClientContactView" parent="GObject.Object" glib:type-name="SwClientContactView" glib:get-type="sw_client_contact_view_get_type" glib:type-struct="ClientContactViewClass">
+      <virtual-method name="contacts_added" introspectable="0">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="contact_view" transfer-ownership="none">
+            <type name="ClientContactView" c:type="SwClientContactView*"/>
+          </instance-parameter>
+          <parameter name="contacts" transfer-ownership="none">
+            <type name="GLib.List" c:type="GList*">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="contacts_changed" introspectable="0">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="contact_view" transfer-ownership="none">
+            <type name="ClientContactView" c:type="SwClientContactView*"/>
+          </instance-parameter>
+          <parameter name="contacts" transfer-ownership="none">
+            <type name="GLib.List" c:type="GList*">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="contacts_removed" introspectable="0">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="contact_view" transfer-ownership="none">
+            <type name="ClientContactView" c:type="SwClientContactView*"/>
+          </instance-parameter>
+          <parameter name="contacts" transfer-ownership="none">
+            <type name="GLib.List" c:type="GList*">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="close" c:identifier="sw_client_contact_view_close">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="contact_view" transfer-ownership="none">
+            <type name="ClientContactView" c:type="SwClientContactView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="refresh" c:identifier="sw_client_contact_view_refresh">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="contact_view" transfer-ownership="none">
+            <type name="ClientContactView" c:type="SwClientContactView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="start" c:identifier="sw_client_contact_view_start">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="contact_view" transfer-ownership="none">
+            <type name="ClientContactView" c:type="SwClientContactView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="stop" c:identifier="sw_client_contact_view_stop">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="contact_view" transfer-ownership="none">
+            <type name="ClientContactView" c:type="SwClientContactView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="object-path" writable="1" construct-only="1" transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <glib:signal xmlns:gi="http://www.gtk.org/introspection/core/1.0" name="contacts-added"><return-value xmlns="" transfer-ownership="none"><type name="none"/></return-value><parameters xmlns=""><parameter name="contacts" transfer-ownership="none"><type name="GLib.List" c:type="GList*"><type name="SocialWebClient.Contact" c:type="SwContact*"/></type></parameter></parameters></glib:signal>
+      <glib:signal xmlns:gi="http://www.gtk.org/introspection/core/1.0" name="contacts-changed"><return-value xmlns="" transfer-ownership="none"><type name="none"/></return-value><parameters xmlns=""><parameter name="contacts" transfer-ownership="none"><type name="GLib.List" c:type="GList*"><type name="SocialWebClient.Contact" c:type="SwContact*"/></type></parameter></parameters></glib:signal>
+      <glib:signal xmlns:gi="http://www.gtk.org/introspection/core/1.0" name="contacts-removed"><return-value xmlns="" transfer-ownership="none"><type name="none"/></return-value><parameters xmlns=""><parameter name="contacts" transfer-ownership="none"><type name="GLib.List" c:type="GList*"><type name="SocialWebClient.Contact" c:type="SwContact*"/></type></parameter></parameters></glib:signal>
+    </class>
+    <record name="ClientContactViewClass" c:type="SwClientContactViewClass" glib:is-gtype-struct-for="ClientContactView">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="contacts_added" introspectable="0">
+        <callback name="contacts_added" introspectable="0">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="contact_view" transfer-ownership="none">
+              <type name="ClientContactView" c:type="SwClientContactView*"/>
+            </parameter>
+            <parameter name="contacts" transfer-ownership="none">
+              <type name="GLib.List" c:type="GList*">
+                <type name="gpointer" c:type="gpointer"/>
+              </type>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="contacts_removed" introspectable="0">
+        <callback name="contacts_removed" introspectable="0">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="contact_view" transfer-ownership="none">
+              <type name="ClientContactView" c:type="SwClientContactView*"/>
+            </parameter>
+            <parameter name="contacts" transfer-ownership="none">
+              <type name="GLib.List" c:type="GList*">
+                <type name="gpointer" c:type="gpointer"/>
+              </type>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="contacts_changed" introspectable="0">
+        <callback name="contacts_changed" introspectable="0">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="contact_view" transfer-ownership="none">
+              <type name="ClientContactView" c:type="SwClientContactView*"/>
+            </parameter>
+            <parameter name="contacts" transfer-ownership="none">
+              <type name="GLib.List" c:type="GList*">
+                <type name="gpointer" c:type="gpointer"/>
+              </type>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <callback name="ClientGetServicesCallback" c:type="SwClientGetServicesCallback">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="client" transfer-ownership="none">
+          <type name="Client" c:type="SwClient*"/>
+        </parameter>
+        <parameter name="services" transfer-ownership="none">
+          <type name="GLib.List" c:type="const GList*">
+            <type name="utf8"/>
+          </type>
+        </parameter>
+        <parameter name="userdata" transfer-ownership="none" nullable="1" allow-none="1" closure="2">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="ClientIsOnlineCallback" c:type="SwClientIsOnlineCallback">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="client" transfer-ownership="none">
+          <type name="Client" c:type="SwClient*"/>
+        </parameter>
+        <parameter name="online" transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </parameter>
+        <parameter name="userdata" transfer-ownership="none" nullable="1" allow-none="1" closure="2">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <class name="ClientItemView" c:symbol-prefix="client_item_view" c:type="SwClientItemView" parent="GObject.Object" glib:type-name="SwClientItemView" glib:get-type="sw_client_item_view_get_type" glib:type-struct="ClientItemViewClass">
+      <virtual-method name="items_added" introspectable="0">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item_view" transfer-ownership="none">
+            <type name="ClientItemView" c:type="SwClientItemView*"/>
+          </instance-parameter>
+          <parameter name="items" transfer-ownership="none">
+            <type name="GLib.List" c:type="GList*">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="items_changed" introspectable="0">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item_view" transfer-ownership="none">
+            <type name="ClientItemView" c:type="SwClientItemView*"/>
+          </instance-parameter>
+          <parameter name="item" transfer-ownership="none">
+            <type name="GLib.List" c:type="GList*">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="items_removed" introspectable="0">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item_view" transfer-ownership="none">
+            <type name="ClientItemView" c:type="SwClientItemView*"/>
+          </instance-parameter>
+          <parameter name="items" transfer-ownership="none">
+            <type name="GLib.List" c:type="GList*">
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <method name="close" c:identifier="sw_client_item_view_close">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item_view" transfer-ownership="none">
+            <type name="ClientItemView" c:type="SwClientItemView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="refresh" c:identifier="sw_client_item_view_refresh">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item_view" transfer-ownership="none">
+            <type name="ClientItemView" c:type="SwClientItemView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="start" c:identifier="sw_client_item_view_start">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item_view" transfer-ownership="none">
+            <type name="ClientItemView" c:type="SwClientItemView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="stop" c:identifier="sw_client_item_view_stop">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item_view" transfer-ownership="none">
+            <type name="ClientItemView" c:type="SwClientItemView*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <property name="object-path" writable="1" construct-only="1" transfer-ownership="none">
+        <type name="utf8" c:type="gchar*"/>
+      </property>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <glib:signal xmlns:gi="http://www.gtk.org/introspection/core/1.0" name="items-added"><return-value xmlns="" transfer-ownership="none"><type name="none"/></return-value><parameters xmlns=""><parameter name="items" transfer-ownership="none"><type name="GLib.List" c:type="GList*"><type name="SocialWebClient.Item" c:type="SwItem*"/></type></parameter></parameters></glib:signal>
+      <glib:signal xmlns:gi="http://www.gtk.org/introspection/core/1.0" name="items-changed"><return-value xmlns="" transfer-ownership="none"><type name="none"/></return-value><parameters xmlns=""><parameter name="items" transfer-ownership="none"><type name="GLib.List" c:type="GList*"><type name="SocialWebClient.Item" c:type="SwItem*"/></type></parameter></parameters></glib:signal>
+      <glib:signal xmlns:gi="http://www.gtk.org/introspection/core/1.0" name="items-removed"><return-value xmlns="" transfer-ownership="none"><type name="none"/></return-value><parameters xmlns=""><parameter name="items" transfer-ownership="none"><type name="GLib.List" c:type="GList*"><type name="SocialWebClient.Item" c:type="SwItem*"/></type></parameter></parameters></glib:signal>
+    </class>
+    <record name="ClientItemViewClass" c:type="SwClientItemViewClass" glib:is-gtype-struct-for="ClientItemView">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="items_added" introspectable="0">
+        <callback name="items_added" introspectable="0">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="item_view" transfer-ownership="none">
+              <type name="ClientItemView" c:type="SwClientItemView*"/>
+            </parameter>
+            <parameter name="items" transfer-ownership="none">
+              <type name="GLib.List" c:type="GList*">
+                <type name="gpointer" c:type="gpointer"/>
+              </type>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="items_removed" introspectable="0">
+        <callback name="items_removed" introspectable="0">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="item_view" transfer-ownership="none">
+              <type name="ClientItemView" c:type="SwClientItemView*"/>
+            </parameter>
+            <parameter name="items" transfer-ownership="none">
+              <type name="GLib.List" c:type="GList*">
+                <type name="gpointer" c:type="gpointer"/>
+              </type>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="items_changed" introspectable="0">
+        <callback name="items_changed" introspectable="0">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="item_view" transfer-ownership="none">
+              <type name="ClientItemView" c:type="SwClientItemView*"/>
+            </parameter>
+            <parameter name="item" transfer-ownership="none">
+              <type name="GLib.List" c:type="GList*">
+                <type name="gpointer" c:type="gpointer"/>
+              </type>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <class name="ClientLastfm" c:symbol-prefix="client_lastfm" c:type="SwClientLastfm" parent="GObject.Object" glib:type-name="SwClientLastfm" glib:get-type="sw_client_lastfm_get_type" glib:type-struct="ClientLastfmClass">
+      <constructor name="new" c:identifier="sw_client_lastfm_new">
+        <return-value transfer-ownership="full">
+          <type name="ClientLastfm" c:type="SwClientLastfm*"/>
+        </return-value>
+      </constructor>
+      <method name="now_playing" c:identifier="sw_client_lastfm_now_playing">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="lastfm" transfer-ownership="none">
+            <type name="ClientLastfm" c:type="SwClientLastfm*"/>
+          </instance-parameter>
+          <parameter name="artist" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="album" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="track" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="length" transfer-ownership="none">
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="tracknumber" transfer-ownership="none">
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="musicbrainz_id" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="submit_track" c:identifier="sw_client_lastfm_submit_track">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="lastfm" transfer-ownership="none">
+            <type name="ClientLastfm" c:type="SwClientLastfm*"/>
+          </instance-parameter>
+          <parameter name="artist" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="album" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="track" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="time" transfer-ownership="none">
+            <type name="guint64" c:type="guint64"/>
+          </parameter>
+          <parameter name="source" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="rating" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="length" transfer-ownership="none">
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="tracknumber" transfer-ownership="none">
+            <type name="guint32" c:type="guint32"/>
+          </parameter>
+          <parameter name="musicbrainz_id" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+    </class>
+    <record name="ClientLastfmClass" c:type="SwClientLastfmClass" glib:is-gtype-struct-for="ClientLastfm">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+    </record>
+    <class name="ClientService" c:symbol-prefix="client_service" c:type="SwClientService" parent="GObject.Object" glib:type-name="SwClientService" glib:get-type="sw_client_service_get_type" glib:type-struct="ClientServiceClass">
+      <function name="has_cap" c:identifier="sw_client_service_has_cap">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <parameter name="caps" transfer-ownership="none">
+            <array c:type="char**">
+              <type name="utf8"/>
+            </array>
+          </parameter>
+          <parameter name="cap" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+        </parameters>
+      </function>
+      <virtual-method name="avatar_retrieved">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <type name="ClientService" c:type="SwClientService*"/>
+          </instance-parameter>
+          <parameter name="path" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="capabilities_changed">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <type name="ClientService" c:type="SwClientService*"/>
+          </instance-parameter>
+          <parameter name="caps" transfer-ownership="none">
+            <type name="utf8" c:type="const char**"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="status_updated">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <type name="ClientService" c:type="SwClientService*"/>
+          </instance-parameter>
+          <parameter name="success" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </virtual-method>
+      <virtual-method name="user_changed">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <type name="ClientService" c:type="SwClientService*"/>
+          </instance-parameter>
+        </parameters>
+      </virtual-method>
+      <method name="banishable_hide_item" c:identifier="sw_client_service_banishable_hide_item">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <type name="ClientService" c:type="SwClientService*"/>
+          </instance-parameter>
+          <parameter name="uid" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="contacts_query_open_view" c:identifier="sw_client_service_contacts_query_open_view">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <type name="ClientService" c:type="SwClientService*"/>
+          </instance-parameter>
+          <parameter name="query" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="params" transfer-ownership="none">
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="utf8"/>
+              <type name="utf8"/>
+            </type>
+          </parameter>
+          <parameter name="cb" transfer-ownership="none" scope="async" closure="3">
+            <type name="ClientServiceContactsQueryOpenViewCallback" c:type="SwClientServiceContactsQueryOpenViewCallback"/>
+          </parameter>
+          <parameter name="userdata" transfer-ownership="none" nullable="1" allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="credentials_updated" c:identifier="sw_client_service_credentials_updated">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <type name="ClientService" c:type="SwClientService*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_display_name" c:identifier="sw_client_service_get_display_name">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <type name="ClientService" c:type="SwClientService*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_dynamic_capabilities" c:identifier="sw_client_service_get_dynamic_capabilities">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <type name="ClientService" c:type="SwClientService*"/>
+          </instance-parameter>
+          <parameter name="cb" transfer-ownership="none" scope="async" closure="1">
+            <type name="ClientServiceGetCapabilitiesCallback" c:type="SwClientServiceGetCapabilitiesCallback"/>
+          </parameter>
+          <parameter name="userdata" transfer-ownership="none" nullable="1" allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_name" c:identifier="sw_client_service_get_name">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const char*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <type name="ClientService" c:type="SwClientService*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_static_capabilities" c:identifier="sw_client_service_get_static_capabilities">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <type name="ClientService" c:type="SwClientService*"/>
+          </instance-parameter>
+          <parameter name="cb" transfer-ownership="none" scope="async" closure="1">
+            <type name="ClientServiceGetCapabilitiesCallback" c:type="SwClientServiceGetCapabilitiesCallback"/>
+          </parameter>
+          <parameter name="userdata" transfer-ownership="none" nullable="1" allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="query_open_view" c:identifier="sw_client_service_query_open_view">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <type name="ClientService" c:type="SwClientService*"/>
+          </instance-parameter>
+          <parameter name="query" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="params" transfer-ownership="none">
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="utf8"/>
+              <type name="utf8"/>
+            </type>
+          </parameter>
+          <parameter name="cb" transfer-ownership="none" scope="async" closure="3">
+            <type name="ClientServiceQueryOpenViewCallback" c:type="SwClientServiceQueryOpenViewCallback"/>
+          </parameter>
+          <parameter name="userdata" transfer-ownership="none" nullable="1" allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="request_avatar" c:identifier="sw_client_service_request_avatar">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <type name="ClientService" c:type="SwClientService*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="update_status" c:identifier="sw_client_service_update_status">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <type name="ClientService" c:type="SwClientService*"/>
+          </instance-parameter>
+          <parameter name="cb" transfer-ownership="none" scope="async" closure="2">
+            <type name="ClientServiceUpdateStatusCallback" c:type="SwClientServiceUpdateStatusCallback"/>
+          </parameter>
+          <parameter name="status_msg" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="userdata" transfer-ownership="none" nullable="1" allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="update_status_with_fields" c:identifier="sw_client_service_update_status_with_fields">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <type name="ClientService" c:type="SwClientService*"/>
+          </instance-parameter>
+          <parameter name="cb" transfer-ownership="none" scope="async" closure="3">
+            <type name="ClientServiceUpdateStatusCallback" c:type="SwClientServiceUpdateStatusCallback"/>
+          </parameter>
+          <parameter name="status_msg" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+          <parameter name="fields" transfer-ownership="none">
+            <type name="GLib.HashTable" c:type="GHashTable*">
+              <type name="utf8"/>
+              <type name="utf8"/>
+            </type>
+          </parameter>
+          <parameter name="userdata" transfer-ownership="none" nullable="1" allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="upload_photo" c:identifier="sw_client_service_upload_photo" introspectable="0">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <type name="ClientService" c:type="SwClientService*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="fields" transfer-ownership="none">
+            <type name="GLib.HashTable" c:type="const GHashTable*">
+              <type name="gpointer" c:type="gpointer"/>
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" nullable="1" allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="progress_callback" transfer-ownership="none" closure="4">
+            <type name="Gio.FileProgressCallback" c:type="GFileProgressCallback"/>
+          </parameter>
+          <parameter name="progress_callback_data" transfer-ownership="none" nullable="1" allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="callback" transfer-ownership="none" nullable="1" allow-none="1" scope="async" closure="6">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="userdata" transfer-ownership="none" nullable="1" allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="upload_photo_finish" c:identifier="sw_client_service_upload_photo_finish" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <type name="ClientService" c:type="SwClientService*"/>
+          </instance-parameter>
+          <parameter name="res" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="upload_video" c:identifier="sw_client_service_upload_video" introspectable="0">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <type name="ClientService" c:type="SwClientService*"/>
+          </instance-parameter>
+          <parameter name="filename" transfer-ownership="none">
+            <type name="utf8" c:type="const char*"/>
+          </parameter>
+          <parameter name="fields" transfer-ownership="none">
+            <type name="GLib.HashTable" c:type="const GHashTable*">
+              <type name="gpointer" c:type="gpointer"/>
+              <type name="gpointer" c:type="gpointer"/>
+            </type>
+          </parameter>
+          <parameter name="cancellable" transfer-ownership="none" nullable="1" allow-none="1">
+            <type name="Gio.Cancellable" c:type="GCancellable*"/>
+          </parameter>
+          <parameter name="progress_callback" transfer-ownership="none" closure="4">
+            <type name="Gio.FileProgressCallback" c:type="GFileProgressCallback"/>
+          </parameter>
+          <parameter name="progress_callback_data" transfer-ownership="none" nullable="1" allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+          <parameter name="callback" transfer-ownership="none" nullable="1" allow-none="1" scope="async" closure="6">
+            <type name="Gio.AsyncReadyCallback" c:type="GAsyncReadyCallback"/>
+          </parameter>
+          <parameter name="userdata" transfer-ownership="none" nullable="1" allow-none="1">
+            <type name="gpointer" c:type="gpointer"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="upload_video_finish" c:identifier="sw_client_service_upload_video_finish" throws="1">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="service" transfer-ownership="none">
+            <type name="ClientService" c:type="SwClientService*"/>
+          </instance-parameter>
+          <parameter name="res" transfer-ownership="none">
+            <type name="Gio.AsyncResult" c:type="GAsyncResult*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <field name="parent">
+        <type name="GObject.Object" c:type="GObject"/>
+      </field>
+      <glib:signal name="avatar-retrieved" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="utf8" c:type="gchar*"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="capabilities-changed" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <array>
+              <type name="utf8"/>
+            </array>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="status-updated" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <parameter name="object" transfer-ownership="none">
+            <type name="gboolean" c:type="gboolean"/>
+          </parameter>
+        </parameters>
+      </glib:signal>
+      <glib:signal name="user-changed" when="first">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+      </glib:signal>
+    </class>
+    <record name="ClientServiceClass" c:type="SwClientServiceClass" glib:is-gtype-struct-for="ClientService">
+      <field name="parent_class">
+        <type name="GObject.ObjectClass" c:type="GObjectClass"/>
+      </field>
+      <field name="capabilities_changed">
+        <callback name="capabilities_changed">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="service" transfer-ownership="none">
+              <type name="ClientService" c:type="SwClientService*"/>
+            </parameter>
+            <parameter name="caps" transfer-ownership="none">
+              <type name="utf8" c:type="const char**"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="user_changed">
+        <callback name="user_changed">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="service" transfer-ownership="none">
+              <type name="ClientService" c:type="SwClientService*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="avatar_retrieved">
+        <callback name="avatar_retrieved">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="service" transfer-ownership="none">
+              <type name="ClientService" c:type="SwClientService*"/>
+            </parameter>
+            <parameter name="path" transfer-ownership="none">
+              <type name="utf8" c:type="gchar*"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+      <field name="status_updated">
+        <callback name="status_updated">
+          <return-value transfer-ownership="none">
+            <type name="none" c:type="void"/>
+          </return-value>
+          <parameters>
+            <parameter name="service" transfer-ownership="none">
+              <type name="ClientService" c:type="SwClientService*"/>
+            </parameter>
+            <parameter name="success" transfer-ownership="none">
+              <type name="gboolean" c:type="gboolean"/>
+            </parameter>
+          </parameters>
+        </callback>
+      </field>
+    </record>
+    <callback name="ClientServiceContactsQueryOpenViewCallback" c:type="SwClientServiceContactsQueryOpenViewCallback">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="query" transfer-ownership="none">
+          <type name="ClientService" c:type="SwClientService*"/>
+        </parameter>
+        <parameter name="contact_view" transfer-ownership="none" nullable="1" allow-none="1">
+          <type name="ClientContactView" c:type="SwClientContactView*"/>
+        </parameter>
+        <parameter name="userdata" transfer-ownership="none" nullable="1" allow-none="1" closure="2">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="ClientServiceGetCapabilitiesCallback" c:type="SwClientServiceGetCapabilitiesCallback">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="service" transfer-ownership="none">
+          <type name="ClientService" c:type="SwClientService*"/>
+        </parameter>
+        <parameter name="caps" transfer-ownership="none">
+          <array c:type="char**">
+            <type name="utf8"/>
+          </array>
+        </parameter>
+        <parameter name="error" transfer-ownership="none">
+          <type name="GLib.Error" c:type="const GError*"/>
+        </parameter>
+        <parameter name="userdata" transfer-ownership="none" nullable="1" allow-none="1" closure="3">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="ClientServiceQueryOpenViewCallback" c:type="SwClientServiceQueryOpenViewCallback">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="query" transfer-ownership="none">
+          <type name="ClientService" c:type="SwClientService*"/>
+        </parameter>
+        <parameter name="item_view" transfer-ownership="none" nullable="1" allow-none="1">
+          <type name="ClientItemView" c:type="SwClientItemView*"/>
+        </parameter>
+        <parameter name="userdata" transfer-ownership="none" nullable="1" allow-none="1" closure="2">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <callback name="ClientServiceUpdateStatusCallback" c:type="SwClientServiceUpdateStatusCallback">
+      <return-value transfer-ownership="none">
+        <type name="none" c:type="void"/>
+      </return-value>
+      <parameters>
+        <parameter name="service" transfer-ownership="none">
+          <type name="ClientService" c:type="SwClientService*"/>
+        </parameter>
+        <parameter name="error" transfer-ownership="none">
+          <type name="GLib.Error" c:type="const GError*"/>
+        </parameter>
+        <parameter name="userdata" transfer-ownership="none" nullable="1" allow-none="1" closure="2">
+          <type name="gpointer" c:type="gpointer"/>
+        </parameter>
+      </parameters>
+    </callback>
+    <record name="Contact" c:type="SwContact" glib:type-name="SwContact" glib:get-type="sw_contact_get_type" c:symbol-prefix="contact">
+      <field name="refcount" writable="1">
+        <type name="gint" c:type="volatile gint"/>
+      </field>
+      <field name="service" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="uuid" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="date" writable="1">
+        <type name="GLib.TimeVal" c:type="GTimeVal"/>
+      </field>
+      <field xmlns="" xmlns:gi="http://www.gtk.org/introspection/core/1.0" name="props" writable="1"><type name="GLib.HashTable" c:type="GHashTable*"><type name="utf8"/><type name="utf8"/></type></field>
+      <constructor name="new" c:identifier="sw_contact_new">
+        <return-value transfer-ownership="full">
+          <type name="Contact" c:type="SwContact*"/>
+        </return-value>
+      </constructor>
+      <method name="free" c:identifier="sw_contact_free">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="contact" transfer-ownership="none">
+            <type name="Contact" c:type="SwContact*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_value" c:identifier="sw_contact_get_value">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="contact" transfer-ownership="none">
+            <type name="Contact" c:type="SwContact*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="get_value_all" c:identifier="sw_contact_get_value_all">
+        <return-value transfer-ownership="none">
+          <array c:type="GStrv">
+            <type name="utf8"/>
+          </array>
+        </return-value>
+        <parameters>
+          <instance-parameter name="contact" transfer-ownership="none">
+            <type name="Contact" c:type="SwContact*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="has_key" c:identifier="sw_contact_has_key">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="contact" transfer-ownership="none">
+            <type name="Contact" c:type="SwContact*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_from_cache" c:identifier="sw_contact_is_from_cache">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="contact" transfer-ownership="none">
+            <type name="Contact" c:type="SwContact*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="sw_contact_ref">
+        <return-value transfer-ownership="full">
+          <type name="Contact" c:type="SwContact*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="contact" transfer-ownership="none">
+            <type name="Contact" c:type="SwContact*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="sw_contact_unref">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="contact" transfer-ownership="none">
+            <type name="Contact" c:type="SwContact*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+    <record name="Item" c:type="SwItem" glib:type-name="SwItem" glib:get-type="sw_item_get_type" c:symbol-prefix="item">
+      <field name="refcount" writable="1">
+        <type name="gint" c:type="volatile gint"/>
+      </field>
+      <field name="service" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="uuid" writable="1">
+        <type name="utf8" c:type="gchar*"/>
+      </field>
+      <field name="date" writable="1">
+        <type name="GLib.TimeVal" c:type="GTimeVal"/>
+      </field>
+      <field xmlns="" xmlns:gi="http://www.gtk.org/introspection/core/1.0" name="props" writable="1"><type name="GLib.HashTable" c:type="GHashTable*"><type name="utf8"/><type name="utf8"/></type></field>
+      <constructor name="new" c:identifier="sw_item_new">
+        <return-value transfer-ownership="full">
+          <type name="Item" c:type="SwItem*"/>
+        </return-value>
+      </constructor>
+      <method name="free" c:identifier="sw_item_free">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="Item" c:type="SwItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="get_value" c:identifier="sw_item_get_value">
+        <return-value transfer-ownership="none">
+          <type name="utf8" c:type="const gchar*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="Item" c:type="SwItem*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="has_key" c:identifier="sw_item_has_key">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="Item" c:type="SwItem*"/>
+          </instance-parameter>
+          <parameter name="key" transfer-ownership="none">
+            <type name="utf8" c:type="const gchar*"/>
+          </parameter>
+        </parameters>
+      </method>
+      <method name="is_from_cache" c:identifier="sw_item_is_from_cache">
+        <return-value transfer-ownership="none">
+          <type name="gboolean" c:type="gboolean"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="Item" c:type="SwItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="ref" c:identifier="sw_item_ref">
+        <return-value transfer-ownership="full">
+          <type name="Item" c:type="SwItem*"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="Item" c:type="SwItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+      <method name="unref" c:identifier="sw_item_unref">
+        <return-value transfer-ownership="none">
+          <type name="none" c:type="void"/>
+        </return-value>
+        <parameters>
+          <instance-parameter name="item" transfer-ownership="none">
+            <type name="Item" c:type="SwItem*"/>
+          </instance-parameter>
+        </parameters>
+      </method>
+    </record>
+  </namespace>
+</repository>

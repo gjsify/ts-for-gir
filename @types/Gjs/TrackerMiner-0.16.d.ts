@@ -742,9 +742,9 @@ export class MinerWeb {
 export abstract class CrawlerClass {
     /* Fields of TrackerMiner-0.16.TrackerMiner.CrawlerClass */
     parent: GObject.ObjectClass
-    check_directory: any
-    check_file: any
-    directory_crawled: any
+    check_directory: (crawler: Crawler, file: Gio.File) => boolean
+    check_file: (crawler: Crawler, file: Gio.File) => boolean
+    directory_crawled: (crawler: Crawler, directory: Gio.File, tree: GLib.Node, directories_found: number, directories_ignored: number, files_found: number, files_ignored: number) => void
     finished: (crawler: Crawler, interrupted: boolean) => void
     static name: string
 }
@@ -754,9 +754,9 @@ export class CrawlerPrivate {
 export abstract class IndexingTreeClass {
     /* Fields of TrackerMiner-0.16.TrackerMiner.IndexingTreeClass */
     parent_class: GObject.ObjectClass
-    directory_added: any
-    directory_removed: any
-    directory_updated: any
+    directory_added: (indexing_tree: IndexingTree, directory: Gio.File) => void
+    directory_removed: (indexing_tree: IndexingTree, directory: Gio.File) => void
+    directory_updated: (indexing_tree: IndexingTree, directory: Gio.File) => void
     static name: string
 }
 export abstract class MinerClass {
@@ -773,10 +773,10 @@ export abstract class MinerClass {
 export abstract class MinerFSClass {
     /* Fields of TrackerMiner-0.16.TrackerMiner.MinerFSClass */
     parent: MinerClass
-    process_file: any
-    ignore_next_update_file: any
+    process_file: (fs: MinerFS, file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => boolean
+    ignore_next_update_file: (fs: MinerFS, file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => boolean
     finished: (fs: MinerFS) => void
-    process_file_attributes: any
+    process_file_attributes: (fs: MinerFS, file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => boolean
     static name: string
 }
 export class MinerFSPrivate {
@@ -799,8 +799,8 @@ export abstract class MinerWebClass {
     /* Fields of TrackerMiner-0.16.TrackerMiner.MinerWebClass */
     parent_class: MinerClass
     authenticate: (miner: MinerWeb) => void
-    get_association_data: any
-    associate: any
+    get_association_data: (miner: MinerWeb) => GLib.HashTable
+    associate: (miner: MinerWeb, association_data: GLib.HashTable) => void
     dissociate: (miner: MinerWeb) => void
     static name: string
 }

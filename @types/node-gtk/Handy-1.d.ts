@@ -32498,7 +32498,7 @@ export abstract class SwipeableInterface {
     getSnapPoints: (self: Swipeable) => number[]
     getProgress: (self: Swipeable) => number
     getCancelProgress: (self: Swipeable) => number
-    getSwipeArea: any
+    getSwipeArea: (self: Swipeable, navigationDirection: NavigationDirection, isDrag: boolean) => { rect: Gdk.Rectangle }
     static name: string
 }
 export abstract class TabBarClass {

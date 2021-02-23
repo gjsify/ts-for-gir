@@ -1262,7 +1262,7 @@ export abstract class DisplayClass {
     vncConnected: (display: Display) => void
     vncInitialized: (display: Display) => void
     vncDisconnected: (display: Display) => void
-    vncAuthCredential: any
+    vncAuthCredential: (display: Display, credList: GObject.ValueArray) => void
     static name: string
 }
 export class DisplayPrivate {

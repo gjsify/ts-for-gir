@@ -1382,11 +1382,11 @@ export class RTPBaseAudioPayloadPrivate {
 export abstract class RTPBaseDepayloadClass {
     /* Fields of GstRtp-1.0.GstRtp.RTPBaseDepayloadClass */
     parent_class: Gst.ElementClass
-    set_caps: any
-    process: any
-    packet_lost: any
-    handle_event: any
-    process_rtp_packet: any
+    set_caps: (filter: RTPBaseDepayload, caps: Gst.Caps) => boolean
+    process: (base: RTPBaseDepayload, in_: Gst.Buffer) => Gst.Buffer
+    packet_lost: (filter: RTPBaseDepayload, event: Gst.Event) => boolean
+    handle_event: (filter: RTPBaseDepayload, event: Gst.Event) => boolean
+    process_rtp_packet: (base: RTPBaseDepayload, rtp_buffer: RTPBuffer) => Gst.Buffer
     static name: string
 }
 export class RTPBaseDepayloadPrivate {
@@ -1395,12 +1395,12 @@ export class RTPBaseDepayloadPrivate {
 export abstract class RTPBasePayloadClass {
     /* Fields of GstRtp-1.0.GstRtp.RTPBasePayloadClass */
     parent_class: Gst.ElementClass
-    get_caps: any
-    set_caps: any
-    handle_buffer: any
-    sink_event: any
-    src_event: any
-    query: any
+    get_caps: (payload: RTPBasePayload, pad: Gst.Pad, filter: Gst.Caps) => Gst.Caps
+    set_caps: (payload: RTPBasePayload, caps: Gst.Caps) => boolean
+    handle_buffer: (payload: RTPBasePayload, buffer: Gst.Buffer) => Gst.FlowReturn
+    sink_event: (payload: RTPBasePayload, event: Gst.Event) => boolean
+    src_event: (payload: RTPBasePayload, event: Gst.Event) => boolean
+    query: (payload: RTPBasePayload, pad: Gst.Pad, query: Gst.Query) => boolean
     static name: string
 }
 export class RTPBasePayloadPrivate {
@@ -1468,11 +1468,11 @@ export abstract class RTPHeaderExtensionClass {
     /* Fields of GstRtp-1.0.GstRtp.RTPHeaderExtensionClass */
     parent_class: Gst.ElementClass
     get_supported_flags: (ext: RTPHeaderExtension) => RTPHeaderExtensionFlags
-    get_max_size: any
-    write: any
-    read: any
-    set_attributes_from_caps: any
-    set_caps_from_attributes: any
+    get_max_size: (ext: RTPHeaderExtension, input_meta: Gst.Buffer) => number
+    write: (ext: RTPHeaderExtension, input_meta: Gst.Buffer, write_flags: RTPHeaderExtensionFlags, output: Gst.Buffer, data: number, size: number) => number
+    read: (ext: RTPHeaderExtension, read_flags: RTPHeaderExtensionFlags, data: number, size: number, buffer: Gst.Buffer) => boolean
+    set_attributes_from_caps: (ext: RTPHeaderExtension, caps: Gst.Caps) => boolean
+    set_caps_from_attributes: (ext: RTPHeaderExtension, caps: Gst.Caps) => boolean
     /* Methods of GstRtp-1.0.GstRtp.RTPHeaderExtensionClass */
     set_uri(klass: RTPHeaderExtension | Function | GObject.Type, uri: string): void
     static name: string

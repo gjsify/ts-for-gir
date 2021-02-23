@@ -344,6 +344,13 @@ import type * as Gjs from "./Gjs";
 //// import type * as Xft20 from "./xft-2.0";
 //// import type * as Xlib20 from "./xlib-2.0";
 //// import type * as Xrandr13 from "./xrandr-1.3";
+//// import type * as Gst010 from "./Gst-0.10";
+//// import type * as GstBase010 from "./GstBase-0.10";
+//// import type * as GstInterfaces010 from "./GstInterfaces-0.10";
+//// import type * as GstPbutils010 from "./GstPbutils-0.10";
+//// import type * as GstTag010 from "./GstTag-0.10";
+//// import type * as GstVideo010 from "./GstVideo-0.10";
+//// import type * as SocialWebClient025 from "./SocialWebClient-0.25";
 //
 
 declare global {
@@ -710,8 +717,22 @@ declare global {
     //    //       : typeof Xft20
     //    //       : typeof Xlib20
     //    //       : typeof Xrandr13
+    //    //       : typeof Gst010
+    //    //       : typeof GstBase010
+    //    //       : typeof GstInterfaces010
+    //    //       : typeof GstPbutils010
+    //    //       : typeof GstTag010
+    //    //       : typeof GstVideo010
+    //    //       : typeof SocialWebClient025
     //    //     }
     //     versions: {
+    //    //         : string
+    //    //         : string
+    //    //         : string
+    //    //         : string
+    //    //         : string
+    //    //         : string
+    //    //         : string
     //    //         : string
     //    //         : string
     //    //         : string

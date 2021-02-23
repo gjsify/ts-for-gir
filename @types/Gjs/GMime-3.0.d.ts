@@ -5446,7 +5446,7 @@ export abstract class HeaderListClass {
 export abstract class InternetAddressClass {
     /* Fields of GMime-3.0.GMime.InternetAddressClass */
     parent_class: GObject.ObjectClass
-    to_string: any
+    to_string: (ia: InternetAddress, options: FormatOptions, flags: number, linelen: number, str: GLib.String) => void
     static name: string
 }
 export abstract class InternetAddressGroupClass {

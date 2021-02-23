@@ -402,7 +402,7 @@ export class DeviceQueue {
 export abstract class DeviceQueueClass {
     /* Fields of ColorHug-1.0.ColorHug.DeviceQueueClass */
     parent_class: GObject.ObjectClass
-    device_failed: any
+    device_failed: (device_queue: DeviceQueue, device: GUsb.Device, error_message: string) => void
     progress_changed: (device_queue: DeviceQueue, percentage: number) => void
     static name: string
 }

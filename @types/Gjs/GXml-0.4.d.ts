@@ -4843,15 +4843,15 @@ export abstract class SerializableObjectModelClass {
     serialize_use_xml_node_value: (self: SerializableObjectModel) => boolean
     property_use_nick: (self: SerializableObjectModel) => boolean
     node_name: (self: SerializableObjectModel) => string
-    find_property_spec: any
+    find_property_spec: (self: SerializableObjectModel, property_name: string) => GObject.ParamSpec | null
     init_properties: (self: SerializableObjectModel) => void
-    list_serializable_properties: any
-    get_property_value: any
-    set_property_value: any
+    list_serializable_properties: (self: SerializableObjectModel) => GObject.ParamSpec[]
+    get_property_value: (self: SerializableObjectModel, spec: GObject.ParamSpec, val: any) => /* val */ any
+    set_property_value: (self: SerializableObjectModel, spec: GObject.ParamSpec, val: any) => void
     transform_from_string: (self: SerializableObjectModel, str: string, dest: any) => [ /* returnType */ boolean, /* dest */ any ]
     transform_to_string: (self: SerializableObjectModel, val: any, str: string) => [ /* returnType */ boolean, /* str */ string ]
     serialize: (self: SerializableObjectModel, node: Node) => Node | null
-    serialize_property: any
+    serialize_property: (self: SerializableObjectModel, element: Element, prop: GObject.ParamSpec) => Node | null
     deserialize: (self: SerializableObjectModel, node: Node) => Node | null
     deserialize_property: (self: SerializableObjectModel, property_node: Node) => boolean
     to_string: (self: SerializableObjectModel) => string
@@ -4867,14 +4867,14 @@ export abstract class SerializableJsonClass {
     serialize_use_xml_node_value: (self: SerializableJson) => boolean
     node_name: (self: SerializableJson) => string
     property_use_nick: (self: SerializableJson) => boolean
-    find_property_spec: any
+    find_property_spec: (self: SerializableJson, property_name: string) => GObject.ParamSpec | null
     init_properties: (self: SerializableJson) => void
-    list_serializable_properties: any
-    get_property_value: any
-    set_property_value: any
+    list_serializable_properties: (self: SerializableJson) => GObject.ParamSpec[]
+    get_property_value: (self: SerializableJson, spec: GObject.ParamSpec, val: any) => /* val */ any
+    set_property_value: (self: SerializableJson, spec: GObject.ParamSpec, val: any) => void
     transform_from_string: (self: SerializableJson, str: string, dest: any) => [ /* returnType */ boolean, /* dest */ any ]
     transform_to_string: (self: SerializableJson, val: any, str: string) => [ /* returnType */ boolean, /* str */ string ]
-    serialize_property: any
+    serialize_property: (self: SerializableJson, element: Element, prop: GObject.ParamSpec) => Node | null
     deserialize_property: (self: SerializableJson, property_node: Node) => boolean
     static name: string
 }
@@ -4895,15 +4895,15 @@ export abstract class SerializableTreeMapClass {
     serialize_use_xml_node_value: (self: SerializableTreeMap) => boolean
     property_use_nick: (self: SerializableTreeMap) => boolean
     node_name: (self: SerializableTreeMap) => string
-    find_property_spec: any
+    find_property_spec: (self: SerializableTreeMap, property_name: string) => GObject.ParamSpec | null
     init_properties: (self: SerializableTreeMap) => void
-    list_serializable_properties: any
-    get_property_value: any
-    set_property_value: any
+    list_serializable_properties: (self: SerializableTreeMap) => GObject.ParamSpec[]
+    get_property_value: (self: SerializableTreeMap, spec: GObject.ParamSpec, val: any) => /* val */ any
+    set_property_value: (self: SerializableTreeMap, spec: GObject.ParamSpec, val: any) => void
     transform_from_string: (self: SerializableTreeMap, str: string, dest: any) => [ /* returnType */ boolean, /* dest */ any ]
     transform_to_string: (self: SerializableTreeMap, val: any, str: string) => [ /* returnType */ boolean, /* str */ string ]
     serialize: (self: SerializableTreeMap, node: Node) => Node | null
-    serialize_property: any
+    serialize_property: (self: SerializableTreeMap, element: Element, prop: GObject.ParamSpec) => Node | null
     deserialize: (self: SerializableTreeMap, node: Node) => Node | null
     deserialize_property: (self: SerializableTreeMap, property_node: Node) => boolean
     static name: string
@@ -4918,15 +4918,15 @@ export abstract class SerializableHashMapClass {
     serialize_use_xml_node_value: (self: SerializableHashMap) => boolean
     property_use_nick: (self: SerializableHashMap) => boolean
     node_name: (self: SerializableHashMap) => string
-    find_property_spec: any
+    find_property_spec: (self: SerializableHashMap, property_name: string) => GObject.ParamSpec | null
     init_properties: (self: SerializableHashMap) => void
-    list_serializable_properties: any
-    get_property_value: any
-    set_property_value: any
+    list_serializable_properties: (self: SerializableHashMap) => GObject.ParamSpec[]
+    get_property_value: (self: SerializableHashMap, spec: GObject.ParamSpec, val: any) => /* val */ any
+    set_property_value: (self: SerializableHashMap, spec: GObject.ParamSpec, val: any) => void
     transform_from_string: (self: SerializableHashMap, str: string, dest: any) => [ /* returnType */ boolean, /* dest */ any ]
     transform_to_string: (self: SerializableHashMap, val: any, str: string) => [ /* returnType */ boolean, /* str */ string ]
     serialize: (self: SerializableHashMap, node: Node) => Node | null
-    serialize_property: any
+    serialize_property: (self: SerializableHashMap, element: Element, prop: GObject.ParamSpec) => Node | null
     deserialize: (self: SerializableHashMap, node: Node) => Node | null
     deserialize_property: (self: SerializableHashMap, property_node: Node) => boolean
     static name: string
@@ -4941,15 +4941,15 @@ export abstract class SerializableDualKeyMapClass {
     serialize_use_xml_node_value: (self: SerializableDualKeyMap) => boolean
     property_use_nick: (self: SerializableDualKeyMap) => boolean
     node_name: (self: SerializableDualKeyMap) => string
-    find_property_spec: any
+    find_property_spec: (self: SerializableDualKeyMap, property_name: string) => GObject.ParamSpec | null
     init_properties: (self: SerializableDualKeyMap) => void
-    list_serializable_properties: any
-    get_property_value: any
-    set_property_value: any
+    list_serializable_properties: (self: SerializableDualKeyMap) => GObject.ParamSpec[]
+    get_property_value: (self: SerializableDualKeyMap, spec: GObject.ParamSpec, val: any) => /* val */ any
+    set_property_value: (self: SerializableDualKeyMap, spec: GObject.ParamSpec, val: any) => void
     transform_from_string: (self: SerializableDualKeyMap, str: string, dest: any) => [ /* returnType */ boolean, /* dest */ any ]
     transform_to_string: (self: SerializableDualKeyMap, val: any, str: string) => [ /* returnType */ boolean, /* str */ string ]
     serialize: (self: SerializableDualKeyMap, node: Node) => Node | null
-    serialize_property: any
+    serialize_property: (self: SerializableDualKeyMap, element: Element, prop: GObject.ParamSpec) => Node | null
     deserialize: (self: SerializableDualKeyMap, node: Node) => Node | null
     deserialize_property: (self: SerializableDualKeyMap, property_node: Node) => boolean
     static name: string
@@ -4963,15 +4963,15 @@ export abstract class SerializableArrayListClass {
     serialize_use_xml_node_value: (self: SerializableArrayList) => boolean
     property_use_nick: (self: SerializableArrayList) => boolean
     node_name: (self: SerializableArrayList) => string
-    find_property_spec: any
+    find_property_spec: (self: SerializableArrayList, property_name: string) => GObject.ParamSpec | null
     init_properties: (self: SerializableArrayList) => void
-    list_serializable_properties: any
-    get_property_value: any
-    set_property_value: any
+    list_serializable_properties: (self: SerializableArrayList) => GObject.ParamSpec[]
+    get_property_value: (self: SerializableArrayList, spec: GObject.ParamSpec, val: any) => /* val */ any
+    set_property_value: (self: SerializableArrayList, spec: GObject.ParamSpec, val: any) => void
     transform_from_string: (self: SerializableArrayList, str: string, dest: any) => [ /* returnType */ boolean, /* dest */ any ]
     transform_to_string: (self: SerializableArrayList, val: any, str: string) => [ /* returnType */ boolean, /* str */ string ]
     serialize: (self: SerializableArrayList, node: Node) => Node | null
-    serialize_property: any
+    serialize_property: (self: SerializableArrayList, element: Element, prop: GObject.ParamSpec) => Node | null
     deserialize: (self: SerializableArrayList, node: Node) => Node | null
     deserialize_property: (self: SerializableArrayList, property_node: Node) => boolean
     static name: string
@@ -5023,27 +5023,27 @@ export abstract class SerializableIface {
     node_name: (self: Serializable) => string
     property_use_nick: (self: Serializable) => boolean
     serialize: (self: Serializable, node: Node) => Node | null
-    serialize_property: any
+    serialize_property: (self: Serializable, element: Element, prop: GObject.ParamSpec) => Node | null
     deserialize: (self: Serializable, node: Node) => Node | null
     deserialize_property: (self: Serializable, property_node: Node) => boolean
-    find_property_spec: any
-    default_find_property_spec: any
+    find_property_spec: (self: Serializable, property_name: string) => GObject.ParamSpec | null
+    default_find_property_spec: (self: Serializable, property_name: string) => GObject.ParamSpec | null
     init_properties: (self: Serializable) => void
     default_init_properties: (self: Serializable) => void
-    list_serializable_properties: any
-    default_list_serializable_properties: any
-    get_property_value: any
-    default_get_property_value: any
-    set_property_value: any
-    default_set_property_value: any
+    list_serializable_properties: (self: Serializable) => GObject.ParamSpec[]
+    default_list_serializable_properties: (self: Serializable) => GObject.ParamSpec[]
+    get_property_value: (self: Serializable, spec: GObject.ParamSpec, val: any) => /* val */ any
+    default_get_property_value: (self: Serializable, spec: GObject.ParamSpec, val: any) => /* val */ any
+    set_property_value: (self: Serializable, spec: GObject.ParamSpec, val: any) => void
+    default_set_property_value: (self: Serializable, spec: GObject.ParamSpec, val: any) => void
     transform_from_string: (self: Serializable, str: string, dest: any) => [ /* returnType */ boolean, /* dest */ any ]
     transform_to_string: (self: Serializable, val: any, str: string) => [ /* returnType */ boolean, /* str */ string ]
-    get_properties: any
-    set_properties: any
-    get_ignored_serializable_properties: any
-    set_ignored_serializable_properties: any
-    get_unknown_serializable_property: any
-    set_unknown_serializable_property: any
+    get_properties: (self: Serializable) => GObject.ParamSpec[]
+    set_properties: (self: Serializable, value: GObject.ParamSpec[]) => void
+    get_ignored_serializable_properties: (self: Serializable) => GLib.HashTable
+    set_ignored_serializable_properties: (self: Serializable, value: GLib.HashTable) => void
+    get_unknown_serializable_property: (self: Serializable) => GLib.HashTable
+    set_unknown_serializable_property: (self: Serializable, value: GLib.HashTable) => void
     get_serialized_xml_node_value: (self: Serializable) => string | null
     set_serialized_xml_node_value: (self: Serializable, value?: string | null) => void
     static name: string

@@ -2464,7 +2464,7 @@ export abstract class FutureClass {
     /* Fields of Gpseq-1.0.Gpseq.FutureClass */
     wait: (self: Future) => object | null
     wait_until: (self: Future, end_time: number) => [ /* returnType */ boolean, /* value */ object | null ]
-    transform: any
+    transform: (self: Future, a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any) => Result
     static name: string
 }
 export class FuturePrivate {
@@ -2605,12 +2605,12 @@ export abstract class ResultIface {
     /* Fields of Gpseq-1.0.Gpseq.ResultIface */
     future: (self: Result) => Future
     get: (self: Result) => object | null
-    transform: any
-    flat_map: any
-    map: any
+    transform: (self: Result, a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any) => Result
+    flat_map: (self: Result, a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any) => Result
+    map: (self: Result, a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any) => Result
     map_err: (self: Result, func: any) => Result
-    zip: any
-    then: any
+    zip: (self: Result, a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, b_type: GObject.Type, b_dup_func: GObject.BoxedCopyFunc, b_destroy_func: GLib.DestroyNotify, zip_func: any, second: Result) => Result
+    then: (self: Result, func: GLib.Func) => Result
     and_then: (self: Result, func: Func) => Result
     static name: string
 }

@@ -534,7 +534,7 @@ export class BookClientPrivate {
 export abstract class BookClientViewClass {
     /* Fields of EBook-1.2.EBook.BookClientViewClass */
     progress: (clientView: BookClientView, percent: number, message: string) => void
-    complete: any
+    complete: (clientView: BookClientView, error: GLib.Error) => void
     static name: string
 }
 export class BookClientViewPrivate {

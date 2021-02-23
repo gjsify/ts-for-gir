@@ -6500,7 +6500,7 @@ export abstract class InputMethodContextClass {
     deleteSurrounding: (context: InputMethodContext, offset: number, nChars: number) => void
     setEnablePreedit: (context: InputMethodContext, enabled: boolean) => void
     getPreedit: (context: InputMethodContext) => { text: string | null, underlines: InputMethodUnderline[] | null, cursorOffset: number | null }
-    filterKeyEvent: any
+    filterKeyEvent: (context: InputMethodContext, keyEvent: Gdk.EventKey) => boolean
     notifyFocusIn: (context: InputMethodContext) => void
     notifyFocusOut: (context: InputMethodContext) => void
     notifyCursorArea: (context: InputMethodContext, x: number, y: number, width: number, height: number) => void
@@ -6647,8 +6647,8 @@ export class PolicyDecisionPrivate {
 export abstract class PrintCustomWidgetClass {
     /* Fields of WebKit2-4.0.WebKit2.PrintCustomWidgetClass */
     parentClass: GObject.ObjectClass
-    apply: any
-    update: any
+    apply: (printCustomWidget: PrintCustomWidget, widget: Gtk.Widget) => void
+    update: (printCustomWidget: PrintCustomWidget, widget: Gtk.Widget, pageSetup: Gtk.PageSetup, printSettings: Gtk.PrintSettings) => void
     static name: string
 }
 export class PrintCustomWidgetPrivate {
@@ -6840,7 +6840,7 @@ export abstract class WebViewClass {
     /* Fields of WebKit2-4.0.WebKit2.WebViewClass */
     parent: WebViewBaseClass
     loadChanged: (webView: WebView, loadEvent: LoadEvent) => void
-    loadFailed: any
+    loadFailed: (webView: WebView, loadEvent: LoadEvent, failingUri: string, error: GLib.Error) => boolean
     readyToShow: (webView: WebView) => void
     runAsModal: (webView: WebView) => void
     close: (webView: WebView) => void
@@ -6853,16 +6853,16 @@ export abstract class WebViewClass {
     enterFullscreen: (webView: WebView) => boolean
     leaveFullscreen: (webView: WebView) => boolean
     runFileChooser: (webView: WebView, request: FileChooserRequest) => boolean
-    contextMenu: any
+    contextMenu: (webView: WebView, contextMenu: ContextMenu, event: Gdk.Event, hitTestResult: HitTestResult) => boolean
     contextMenuDismissed: (webView: WebView) => void
     submitForm: (webView: WebView, request: FormSubmissionRequest) => void
     insecureContentDetected: (webView: WebView, event: InsecureContentEvent) => void
     webProcessCrashed: (webView: WebView) => boolean
     authenticate: (webView: WebView, request: AuthenticationRequest) => boolean
-    loadFailedWithTlsErrors: any
+    loadFailedWithTlsErrors: (webView: WebView, failingUri: string, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => boolean
     showNotification: (webView: WebView, notification: Notification) => boolean
     runColorChooser: (webView: WebView, request: ColorChooserRequest) => boolean
-    showOptionMenu: any
+    showOptionMenu: (webView: WebView, rectangle: Gdk.Rectangle, menu: OptionMenu) => boolean
     webProcessTerminated: (webView: WebView, reason: WebProcessTerminationReason) => void
     userMessageReceived: (webView: WebView, message: UserMessage) => boolean
     static name: string

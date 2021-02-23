@@ -871,7 +871,7 @@ export abstract class SecretStorageClass {
     load_data: (self: SecretStorage, id: number, method: number) => Dictionary
     update_data: (self: SecretStorage, id: number, method: number, data: Dictionary) => boolean
     remove_data: (self: SecretStorage, id: number, method: number) => boolean
-    get_last_error: any
+    get_last_error: (self: SecretStorage) => GLib.Error
     static name: string
 }
 export class SecretStoragePrivate {

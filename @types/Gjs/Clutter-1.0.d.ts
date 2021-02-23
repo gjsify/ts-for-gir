@@ -20050,7 +20050,7 @@ export abstract class ActorClass {
     key_focus_in: (actor: Actor) => void
     key_focus_out: (actor: Actor) => void
     queue_relayout: (self: Actor) => void
-    get_accessible: any
+    get_accessible: (self: Actor) => Atk.Object
     get_paint_volume: (actor: Actor, volume: PaintVolume) => boolean
     has_overlaps: (self: Actor) => boolean
     paint_node: (self: Actor, root: PaintNode) => void
@@ -20090,7 +20090,7 @@ export class AlphaPrivate {
 export abstract class AnimatableIface {
     /* Fields of Clutter-1.0.Clutter.AnimatableIface */
     animate_property: (animatable: Animatable, animation: Animation, property_name: string, initial_value: any, final_value: any, progress: number, value: any) => boolean
-    find_property: any
+    find_property: (animatable: Animatable, property_name: string) => GObject.ParamSpec
     get_initial_state: (animatable: Animatable, property_name: string, value: any) => void
     set_final_state: (animatable: Animatable, property_name: string, value: any) => void
     interpolate_value: (animatable: Animatable, property_name: string, interval: Interval, progress: number) => [ /* returnType */ boolean, /* value */ any ]
@@ -20236,8 +20236,8 @@ export class ButtonEvent {
 }
 export abstract class CairoTextureClass {
     /* Fields of Clutter-1.0.Clutter.CairoTextureClass */
-    create_surface: any
-    draw: any
+    create_surface: (texture: CairoTexture, width: number, height: number) => cairo.Surface
+    draw: (texture: CairoTexture, cr: cairo.Context) => boolean
     static name: string
 }
 export class CairoTexturePrivate {
@@ -20245,7 +20245,7 @@ export class CairoTexturePrivate {
 }
 export abstract class CanvasClass {
     /* Fields of Clutter-1.0.Clutter.CanvasClass */
-    draw: any
+    draw: (canvas: Canvas, cr: cairo.Context, width: number, height: number) => boolean
     static name: string
 }
 export class CanvasPrivate {
@@ -20331,7 +20331,7 @@ export abstract class ContainerIface {
     get_child_meta: (container: Container, actor: Actor) => ChildMeta
     actor_added: (container: Container, actor: Actor) => void
     actor_removed: (container: Container, actor: Actor) => void
-    child_notify: any
+    child_notify: (container: Container, child: Actor, pspec: GObject.ParamSpec) => void
     static name: string
 }
 export abstract class ContentIface {
@@ -20358,7 +20358,7 @@ export class CrossingEvent {
 }
 export abstract class DeformEffectClass {
     /* Fields of Clutter-1.0.Clutter.DeformEffectClass */
-    deform_vertex: any
+    deform_vertex: (effect: DeformEffect, width: number, height: number, vertex: Cogl.TextureVertex) => void
     static name: string
 }
 export class DeformEffectPrivate {
@@ -20474,7 +20474,7 @@ export abstract class InputDeviceClass {
 }
 export abstract class IntervalClass {
     /* Fields of Clutter-1.0.Clutter.IntervalClass */
-    validate: any
+    validate: (interval: Interval, pspec: GObject.ParamSpec) => boolean
     compute_value: (interval: Interval, factor: number) => [ /* returnType */ boolean, /* value */ any ]
     static name: string
 }
@@ -20517,7 +20517,7 @@ export abstract class LayoutManagerClass {
     get_preferred_height: (manager: LayoutManager, container: Container, for_width: number) => [ /* min_height_p */ number | null, /* nat_height_p */ number | null ]
     allocate: (manager: LayoutManager, container: Container, allocation: ActorBox, flags: AllocationFlags) => void
     set_container: (manager: LayoutManager, container?: Container | null) => void
-    get_child_meta_type: any
+    get_child_meta_type: (manager: LayoutManager) => GObject.Type
     begin_animation: (manager: LayoutManager, duration: number, mode: number) => Alpha
     get_animation_progress: (manager: LayoutManager) => number
     end_animation: (manager: LayoutManager) => void
@@ -20561,7 +20561,7 @@ export class Matrix {
 export abstract class MediaIface {
     /* Fields of Clutter-1.0.Clutter.MediaIface */
     eos: (media: Media) => void
-    error: any
+    error: (media: Media, error: GLib.Error) => void
     static name: string
 }
 export abstract class ModelClass {
@@ -20569,7 +20569,7 @@ export abstract class ModelClass {
     get_n_rows: (model: Model) => number
     get_n_columns: (model: Model) => number
     get_column_name: (model: Model, column: number) => string
-    get_column_type: any
+    get_column_type: (model: Model, column: number) => GObject.Type
     remove_row: (model: Model, row: number) => void
     get_iter_at_row: (model: Model, row: number) => ModelIter
     row_added: (model: Model, iter: ModelIter) => void
@@ -20614,7 +20614,7 @@ export class MotionEvent {
 }
 export abstract class OffscreenEffectClass {
     /* Fields of Clutter-1.0.Clutter.OffscreenEffectClass */
-    create_texture: any
+    create_texture: (effect: OffscreenEffect, width: number, height: number) => Cogl.Handle
     paint_target: (effect: OffscreenEffect) => void
     static name: string
 }
@@ -20770,7 +20770,7 @@ export class ScorePrivate {
 }
 export abstract class ScriptClass {
     /* Fields of Clutter-1.0.Clutter.ScriptClass */
-    get_type_from_name: any
+    get_type_from_name: (script: Script, type_name: string) => GObject.Type
     static name: string
 }
 export class ScriptPrivate {
@@ -20780,7 +20780,7 @@ export abstract class ScriptableIface {
     /* Fields of Clutter-1.0.Clutter.ScriptableIface */
     set_id: (scriptable: Scriptable, id_: string) => void
     get_id: (scriptable: Scriptable) => string
-    parse_custom_node: any
+    parse_custom_node: (scriptable: Scriptable, script: Script, value: any, name: string, node: Json.Node) => boolean
     set_custom_property: (scriptable: Scriptable, script: Script, name: string, value: any) => void
     static name: string
 }
@@ -20944,7 +20944,7 @@ export abstract class TextureClass {
     /* Fields of Clutter-1.0.Clutter.TextureClass */
     size_change: (texture: Texture, width: number, height: number) => void
     pixbuf_change: (texture: Texture) => void
-    load_finished: any
+    load_finished: (texture: Texture, error: GLib.Error) => void
     static name: string
 }
 export abstract class TextureNodeClass {

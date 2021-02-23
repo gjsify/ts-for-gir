@@ -796,9 +796,9 @@ export class MinerWeb {
 export abstract class CrawlerClass {
     /* Fields of TrackerMiner-0.16.TrackerMiner.CrawlerClass */
     parent: GObject.ObjectClass
-    checkDirectory: any
-    checkFile: any
-    directoryCrawled: any
+    checkDirectory: (crawler: Crawler, file: Gio.File) => boolean
+    checkFile: (crawler: Crawler, file: Gio.File) => boolean
+    directoryCrawled: (crawler: Crawler, directory: Gio.File, tree: GLib.Node, directoriesFound: number, directoriesIgnored: number, filesFound: number, filesIgnored: number) => void
     finished: (crawler: Crawler, interrupted: boolean) => void
     static name: string
 }
@@ -808,9 +808,9 @@ export class CrawlerPrivate {
 export abstract class IndexingTreeClass {
     /* Fields of TrackerMiner-0.16.TrackerMiner.IndexingTreeClass */
     parentClass: GObject.ObjectClass
-    directoryAdded: any
-    directoryRemoved: any
-    directoryUpdated: any
+    directoryAdded: (indexingTree: IndexingTree, directory: Gio.File) => void
+    directoryRemoved: (indexingTree: IndexingTree, directory: Gio.File) => void
+    directoryUpdated: (indexingTree: IndexingTree, directory: Gio.File) => void
     static name: string
 }
 export abstract class MinerClass {
@@ -827,10 +827,10 @@ export abstract class MinerClass {
 export abstract class MinerFSClass {
     /* Fields of TrackerMiner-0.16.TrackerMiner.MinerFSClass */
     parent: MinerClass
-    processFile: any
-    ignoreNextUpdateFile: any
+    processFile: (fs: MinerFS, file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => boolean
+    ignoreNextUpdateFile: (fs: MinerFS, file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => boolean
     finished: (fs: MinerFS) => void
-    processFileAttributes: any
+    processFileAttributes: (fs: MinerFS, file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => boolean
     static name: string
 }
 export class MinerFSPrivate {
@@ -853,8 +853,8 @@ export abstract class MinerWebClass {
     /* Fields of TrackerMiner-0.16.TrackerMiner.MinerWebClass */
     parentClass: MinerClass
     authenticate: (miner: MinerWeb) => void
-    getAssociationData: any
-    associate: any
+    getAssociationData: (miner: MinerWeb) => GLib.HashTable
+    associate: (miner: MinerWeb, associationData: GLib.HashTable) => void
     dissociate: (miner: MinerWeb) => void
     static name: string
 }

@@ -1692,19 +1692,19 @@ export abstract class BookBackendClass {
     /* Fields of EDataBook-1.2.EDataBook.BookBackendClass */
     useSerialDispatchQueue: boolean
     implGetBackendProperty: (backend: BookBackend, propName: string) => string
-    implOpen: any
-    implRefresh: any
-    implCreateContacts: any
-    implModifyContacts: any
-    implRemoveContacts: any
-    implGetContact: any
-    implGetContactList: any
-    implGetContactListUids: any
+    implOpen: (backend: BookBackend, book: DataBook, opid: number, cancellable?: Gio.Cancellable | null) => void
+    implRefresh: (backend: BookBackend, book: DataBook, opid: number, cancellable?: Gio.Cancellable | null) => void
+    implCreateContacts: (backend: BookBackend, book: DataBook, opid: number, cancellable: Gio.Cancellable | null, vcards: string, opflags: number) => void
+    implModifyContacts: (backend: BookBackend, book: DataBook, opid: number, cancellable: Gio.Cancellable | null, vcards: string, opflags: number) => void
+    implRemoveContacts: (backend: BookBackend, book: DataBook, opid: number, cancellable: Gio.Cancellable | null, uids: string, opflags: number) => void
+    implGetContact: (backend: BookBackend, book: DataBook, opid: number, cancellable: Gio.Cancellable | null, id: string) => void
+    implGetContactList: (backend: BookBackend, book: DataBook, opid: number, cancellable: Gio.Cancellable | null, query: string) => void
+    implGetContactListUids: (backend: BookBackend, book: DataBook, opid: number, cancellable: Gio.Cancellable | null, query: string) => void
     implStartView: (backend: BookBackend, view: DataBookView) => void
     implStopView: (backend: BookBackend, view: DataBookView) => void
-    implNotifyUpdate: any
+    implNotifyUpdate: (backend: BookBackend, contact: EBookContacts.Contact) => void
     implConfigureDirect: (backend: BookBackend, config: string) => void
-    implSetLocale: any
+    implSetLocale: (backend: BookBackend, locale: string, cancellable?: Gio.Cancellable | null) => boolean
     implDupLocale: (backend: BookBackend) => string
     implDeleteCursor: (backend: BookBackend, cursor: DataBookCursor) => boolean
     closed: (backend: BookBackend, sender: string) => void
@@ -1732,8 +1732,8 @@ export class BookBackendSExpPrivate {
 }
 export abstract class BookBackendSyncClass {
     /* Fields of EDataBook-1.2.EDataBook.BookBackendSyncClass */
-    openSync: any
-    refreshSync: any
+    openSync: (backend: BookBackendSync, cancellable?: Gio.Cancellable | null) => boolean
+    refreshSync: (backend: BookBackendSync, cancellable?: Gio.Cancellable | null) => boolean
     reservedPadding: object[]
     static name: string
 }
@@ -1742,8 +1742,8 @@ export class BookBackendSyncPrivate {
 }
 export abstract class BookCacheClass {
     /* Fields of EDataBook-1.2.EDataBook.BookCacheClass */
-    e164Changed: any
-    dupContactRevision: any
+    e164Changed: (bookCache: BookCache, contact: EBookContacts.Contact, isReplace: boolean) => void
+    dupContactRevision: (bookCache: BookCache, contact: EBookContacts.Contact) => string
     static name: string
 }
 export class BookCacheCursor {
@@ -1772,18 +1772,18 @@ export class BookCacheSearchData {
 }
 export abstract class BookMetaBackendClass {
     /* Fields of EDataBook-1.2.EDataBook.BookMetaBackendClass */
-    connectSync: any
-    disconnectSync: any
-    getChangesSync: any
-    listExistingSync: any
-    loadContactSync: any
-    saveContactSync: any
-    removeContactSync: any
-    searchSync: any
-    searchUidsSync: any
+    connectSync: (metaBackend: BookMetaBackend, credentials?: EDataServer.NamedParameters | null, cancellable?: Gio.Cancellable | null) => { returnType: boolean, outAuthResult: EDataServer.SourceAuthenticationResult, outCertificatePem: string, outCertificateErrors: Gio.TlsCertificateFlags }
+    disconnectSync: (metaBackend: BookMetaBackend, cancellable?: Gio.Cancellable | null) => boolean
+    getChangesSync: (metaBackend: BookMetaBackend, lastSyncTag: string | null, isRepeat: boolean, cancellable?: Gio.Cancellable | null) => { returnType: boolean, outNewSyncTag: string, outRepeat: boolean, outCreatedObjects: BookMetaBackendInfo[], outModifiedObjects: BookMetaBackendInfo[], outRemovedObjects: BookMetaBackendInfo[] }
+    listExistingSync: (metaBackend: BookMetaBackend, cancellable?: Gio.Cancellable | null) => { returnType: boolean, outNewSyncTag: string, outExistingObjects: BookMetaBackendInfo[] }
+    loadContactSync: (metaBackend: BookMetaBackend, uid: string, extra?: string | null, cancellable?: Gio.Cancellable | null) => { returnType: boolean, outContact: EBookContacts.Contact, outExtra: string }
+    saveContactSync: (metaBackend: BookMetaBackend, overwriteExisting: boolean, conflictResolution: EDataServer.ConflictResolution, contact: EBookContacts.Contact, extra: string | null, opflags: number, cancellable?: Gio.Cancellable | null) => { returnType: boolean, outNewUid: string, outNewExtra: string }
+    removeContactSync: (metaBackend: BookMetaBackend, conflictResolution: EDataServer.ConflictResolution, uid: string, extra: string | null, object: string | null, opflags: number, cancellable?: Gio.Cancellable | null) => boolean
+    searchSync: (metaBackend: BookMetaBackend, expr: string | null, metaContact: boolean, cancellable?: Gio.Cancellable | null) => { returnType: boolean, outContacts: EBookContacts.Contact[] }
+    searchUidsSync: (metaBackend: BookMetaBackend, expr?: string | null, cancellable?: Gio.Cancellable | null) => { returnType: boolean, outUids: string[] }
     requiresReconnect: (metaBackend: BookMetaBackend) => boolean
     sourceChanged: (metaBackend: BookMetaBackend) => void
-    getSslErrorDetails: any
+    getSslErrorDetails: (metaBackend: BookMetaBackend) => { returnType: boolean, outCertificatePem: string, outCertificateErrors: Gio.TlsCertificateFlags }
     static name: string
 }
 export class BookMetaBackendInfo {
@@ -1806,8 +1806,8 @@ export class BookMetaBackendPrivate {
 }
 export abstract class BookSqliteClass {
     /* Fields of EDataBook-1.2.EDataBook.BookSqliteClass */
-    beforeInsertContact: any
-    beforeRemoveContact: any
+    beforeInsertContact: (ebsql: BookSqlite, db: object | null, contact: EBookContacts.Contact, extra: string, replace: boolean, cancellable?: Gio.Cancellable | null) => boolean
+    beforeRemoveContact: (ebsql: BookSqlite, db: object | null, contactUid: string, cancellable?: Gio.Cancellable | null) => boolean
     static name: string
 }
 export class BookSqlitePrivate {

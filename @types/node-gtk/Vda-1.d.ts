@@ -15210,8 +15210,8 @@ export abstract class ValueClass {
     parentClass: GObject.ObjectClass
     forceValue: (self: Value, val: any) => boolean
     fromValue: (self: Value, val: any) => boolean
-    cast: any
-    isCompatible: any
+    cast: (self: Value, type: GObject.Type) => SqlValue | null
+    isCompatible: (self: Value, type: GObject.Type) => boolean
     parse: (self: Value, str: string) => boolean
     toGvalue: (self: Value) => { result: any }
     toString: (self: Value) => string
@@ -15436,18 +15436,18 @@ export abstract class ColumnModelIface {
     /* Fields of Vda-1.Vda.ColumnModelIface */
     parentIface: GObject.TypeInterface
     getName: (self: ColumnModel) => string
-    getDataType: any
+    getDataType: (self: ColumnModel) => GObject.Type
     static name: string
 }
 export abstract class ConnectionIface {
     /* Fields of Vda-1.Vda.ConnectionIface */
     parentIface: GObject.TypeInterface
-    close: any
-    closeFinish: any
-    open: any
-    openFinish: any
-    openFromString: any
-    openFromStringFinish: any
+    close: (self: Connection, callback?: Gio.AsyncReadyCallback | null) => void
+    closeFinish: (self: Connection, res: Gio.AsyncResult) => void
+    open: (self: Connection, callback?: Gio.AsyncReadyCallback | null) => void
+    openFinish: (self: Connection, res: Gio.AsyncResult) => ConnectionStatus
+    openFromString: (self: Connection, cncString: string, callback?: Gio.AsyncReadyCallback | null) => void
+    openFromStringFinish: (self: Connection, res: Gio.AsyncResult) => ConnectionStatus
     addSavepoint: (self: Connection, name?: string | null) => boolean
     deleteSavepoint: (self: Connection, name?: string | null) => boolean
     rollbackSavepoint: (self: Connection, name?: string | null) => boolean
@@ -15471,56 +15471,56 @@ export abstract class ConnectionIface {
 export abstract class DataObjectIface {
     /* Fields of Vda-1.Vda.DataObjectIface */
     parentIface: GObject.TypeInterface
-    updateDataFromDb: any
-    updateDataFromDbFinish: any
-    updateDataFromDbPkey: any
-    updateDataFromDbPkeyFinish: any
-    updateDataFromDbFull: any
-    updateDataFromDbFullFinish: any
-    insertDataIntoDb: any
-    insertDataIntoDbFinish: any
-    deleteDataFromDb: any
-    deleteDataFromDbFinish: any
-    deleteDataFromDbPkey: any
-    deleteDataFromDbPkeyFinish: any
-    deleteDataFromDbFull: any
-    deleteDataFromDbFullFinish: any
-    updateDataIntoDb: any
-    updateDataIntoDbFinish: any
-    updateDataIntoDbPkey: any
-    updateDataIntoDbPkeyFinish: any
-    updateDataIntoDbFull: any
-    updateDataIntoDbFullFinish: any
+    updateDataFromDb: (self: DataObject, callback?: Gio.AsyncReadyCallback | null) => void
+    updateDataFromDbFinish: (self: DataObject, res: Gio.AsyncResult) => void
+    updateDataFromDbPkey: (self: DataObject, callback?: Gio.AsyncReadyCallback | null) => void
+    updateDataFromDbPkeyFinish: (self: DataObject, res: Gio.AsyncResult) => void
+    updateDataFromDbFull: (self: DataObject, usePkey: boolean, callback?: Gio.AsyncReadyCallback | null) => void
+    updateDataFromDbFullFinish: (self: DataObject, res: Gio.AsyncResult) => void
+    insertDataIntoDb: (self: DataObject, callback?: Gio.AsyncReadyCallback | null) => void
+    insertDataIntoDbFinish: (self: DataObject, res: Gio.AsyncResult) => void
+    deleteDataFromDb: (self: DataObject, callback?: Gio.AsyncReadyCallback | null) => void
+    deleteDataFromDbFinish: (self: DataObject, res: Gio.AsyncResult) => void
+    deleteDataFromDbPkey: (self: DataObject, callback?: Gio.AsyncReadyCallback | null) => void
+    deleteDataFromDbPkeyFinish: (self: DataObject, res: Gio.AsyncResult) => void
+    deleteDataFromDbFull: (self: DataObject, usePkey: boolean, callback?: Gio.AsyncReadyCallback | null) => void
+    deleteDataFromDbFullFinish: (self: DataObject, res: Gio.AsyncResult) => void
+    updateDataIntoDb: (self: DataObject, callback?: Gio.AsyncReadyCallback | null) => void
+    updateDataIntoDbFinish: (self: DataObject, res: Gio.AsyncResult) => void
+    updateDataIntoDbPkey: (self: DataObject, callback?: Gio.AsyncReadyCallback | null) => void
+    updateDataIntoDbPkeyFinish: (self: DataObject, res: Gio.AsyncResult) => void
+    updateDataIntoDbFull: (self: DataObject, usePkey: boolean, callback?: Gio.AsyncReadyCallback | null) => void
+    updateDataIntoDbFullFinish: (self: DataObject, res: Gio.AsyncResult) => void
     updateFromRow: (self: DataObject, table: TableModel, nrow: number) => void
     getDatabaseConnection: (self: DataObject) => Connection
     setDatabaseConnection: (self: DataObject, value: Connection) => void
     getDatabaseTableName: (self: DataObject) => string
     setDatabaseTableName: (self: DataObject, value: string) => void
-    getCancellable: any
-    setCancellable: any
+    getCancellable: (self: DataObject) => Gio.Cancellable
+    setCancellable: (self: DataObject, value: Gio.Cancellable) => void
     static name: string
 }
 export abstract class DataCollectionIface {
     /* Fields of Vda-1.Vda.DataCollectionIface */
     parentIface: GObject.TypeInterface
-    getObjects: any
-    getObjectsFinish: any
+    getObjects: (self: DataCollection, callback?: Gio.AsyncReadyCallback | null) => void
+    getObjectsFinish: (self: DataCollection, res: Gio.AsyncResult) => TableModel
     getDatabaseConnection: (self: DataCollection) => Connection
     setDatabaseConnection: (self: DataCollection, value: Connection) => void
     getParentProperty: (self: DataCollection) => string
     getParent: (self: DataCollection) => DataObject
-    getObjectType: any
+    getObjectType: (self: DataCollection) => GObject.Type
     getRefField: (self: DataCollection) => string
-    getCancellable: any
-    setCancellable: any
+    getCancellable: (self: DataCollection) => Gio.Cancellable
+    setCancellable: (self: DataCollection, value: Gio.Cancellable) => void
     static name: string
 }
 export abstract class HashModelIface {
     /* Fields of Vda-1.Vda.HashModelIface */
     parentIface: GObject.TypeInterface
-    add: any
-    find: any
-    remove: any
+    add: (self: HashModel, object: GObject.Object) => void
+    find: (self: HashModel, key: GObject.Object) => GObject.Object | null
+    remove: (self: HashModel, object: GObject.Object) => void
     static name: string
 }
 export abstract class InsertedIface {
@@ -15546,10 +15546,10 @@ export abstract class PreparedQueryIface {
 export abstract class QueryIface {
     /* Fields of Vda-1.Vda.QueryIface */
     parentIface: GObject.TypeInterface
-    execute: any
-    executeFinish: any
-    cancel: any
-    cancelFinish: any
+    execute: (self: Query, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    executeFinish: (self: Query, res: Gio.AsyncResult) => Result | null
+    cancel: (self: Query, callback?: Gio.AsyncReadyCallback | null) => void
+    cancelFinish: (self: Query, res: Gio.AsyncResult) => void
     renderSql: (self: Query) => string
     getSql: (self: Query) => string
     getConnection: (self: Query) => Connection
@@ -15563,14 +15563,14 @@ export abstract class ResultIface {
 export abstract class RoleIface {
     /* Fields of Vda-1.Vda.RoleIface */
     parentIface: GObject.TypeInterface
-    name: any
-    nameFinish: any
-    membership: any
-    membershipFinish: any
-    privilages: any
-    privilagesFinish: any
-    changePrivilages: any
-    changePrivilagesFinish: any
+    name: (self: Role, callback?: Gio.AsyncReadyCallback | null) => void
+    nameFinish: (self: Role, res: Gio.AsyncResult) => string
+    membership: (self: Role, callback?: Gio.AsyncReadyCallback | null) => void
+    membershipFinish: (self: Role, res: Gio.AsyncResult) => HashModel
+    privilages: (self: Role, object: MetaObject, callback?: Gio.AsyncReadyCallback | null) => void
+    privilagesFinish: (self: Role, res: Gio.AsyncResult) => RoleGrant
+    changePrivilages: (self: Role, object: MetaObject, grant: RoleGrant, callback?: Gio.AsyncReadyCallback | null) => void
+    changePrivilagesFinish: (self: Role, res: Gio.AsyncResult) => void
     getConnection: (self: Role) => Connection
     static name: string
 }
@@ -15626,8 +15626,8 @@ export abstract class SqlCommandModificationIface {
     addFieldValue: (self: SqlCommandModification, name: string, val?: any | null) => void
     addField: (self: SqlCommandModification, name: string) => void
     addValue: (self: SqlCommandModification, val?: any | null) => void
-    addFieldParameterValue: any
-    addParameter: any
+    addFieldParameterValue: (self: SqlCommandModification, field: string, par: string, gtype: GObject.Type) => void
+    addParameter: (self: SqlCommandModification, par: string, gtype: GObject.Type) => void
     getFields: (self: SqlCommandModification) => HashModel
     getValues: (self: SqlCommandModification) => HashModel
     static name: string
@@ -15694,7 +15694,7 @@ export abstract class SqlExpressionOperatorIface {
     parentIface: GObject.TypeInterface
     createFieldExpression: (self: SqlExpressionOperator, name: string) => SqlExpressionField
     createValueExpression: (self: SqlExpressionOperator, val: any | null, cnc: Connection) => SqlExpressionValue
-    createParameterExpression: any
+    createParameterExpression: (self: SqlExpressionOperator, name: string, gtype: GObject.Type) => SqlExpressionValueParameter
     addAndOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
     addOrOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
     addEqOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
@@ -15978,8 +15978,8 @@ export abstract class SqlExpressionValueParameterIface {
     setParameters: (self: SqlExpressionValueParameter, value: SqlParameters) => void
     getName: (self: SqlExpressionValueParameter) => string
     setName: (self: SqlExpressionValueParameter, value: string) => void
-    getGtype: any
-    setGtype: any
+    getGtype: (self: SqlExpressionValueParameter) => GObject.Type
+    setGtype: (self: SqlExpressionValueParameter, value: GObject.Type) => void
     static name: string
 }
 export abstract class SqlParametersIface {
@@ -16017,8 +16017,8 @@ export abstract class SqlValueIface {
     parentIface: GObject.TypeInterface
     parse: (self: SqlValue, str: string) => boolean
     fromValue: (self: SqlValue, val: any) => boolean
-    cast: any
-    isCompatible: any
+    cast: (self: SqlValue, type: GObject.Type) => SqlValue | null
+    isCompatible: (self: SqlValue, type: GObject.Type) => boolean
     toGvalue: (self: SqlValue) => { result: any }
     toStringQuoted: (self: SqlValue) => string
     toSqlExpression: (self: SqlValue) => string
@@ -16132,8 +16132,8 @@ export abstract class SqlValueMoneyIface {
 export abstract class SqlValueDateIface {
     /* Fields of Vda-1.Vda.SqlValueDateIface */
     parentIface: GObject.TypeInterface
-    getDate: any
-    setDate: any
+    getDate: (self: SqlValueDate) => { result: GLib.Date }
+    setDate: (self: SqlValueDate, ts: GLib.Date) => void
     static name: string
 }
 export abstract class SqlValueTimestampIface {
@@ -16147,8 +16147,8 @@ export abstract class SqlValueTimestampIface {
     formatTime: (self: SqlValueTimestamp) => string
     formatTimeLocal: (self: SqlValueTimestamp) => string
     formatTimeLocalNtz: (self: SqlValueTimestamp) => string
-    getTimestamp: any
-    setTimestamp: any
+    getTimestamp: (self: SqlValueTimestamp) => GLib.DateTime
+    setTimestamp: (self: SqlValueTimestamp, ts: GLib.DateTime) => void
     static name: string
 }
 export abstract class SqlValueTimestampNtzIface {
@@ -16174,8 +16174,8 @@ export abstract class SqlValueBinaryIface {
 export abstract class SqlValueBlobIface {
     /* Fields of Vda-1.Vda.SqlValueBlobIface */
     parentIface: GObject.TypeInterface
-    save: any
-    load: any
+    save: (self: SqlValueBlob, file: Gio.File) => void
+    load: (self: SqlValueBlob, file: Gio.File) => void
     static name: string
 }
 export abstract class SqlValueGeometricPointIface {
@@ -16190,8 +16190,8 @@ export abstract class SqlValueGeometricPointIface {
 export abstract class SqlValueMathExpIface {
     /* Fields of Vda-1.Vda.SqlValueMathExpIface */
     parentIface: GObject.TypeInterface
-    getMath: any
-    setMath: any
+    getMath: (self: SqlValueMathExp) => GCalc.MathEquationManager
+    setMath: (self: SqlValueMathExp, value: GCalc.MathEquationManager) => void
     static name: string
 }
 export abstract class TableModelIface {

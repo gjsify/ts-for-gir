@@ -40027,8 +40027,8 @@ export abstract class WebViewClass {
     cut_clipboard: (web_view: WebView) => void
     copy_clipboard: (web_view: WebView) => void
     paste_clipboard: (web_view: WebView) => void
-    move_cursor: any
-    set_scroll_adjustments: any
+    move_cursor: (web_view: WebView, step: Gtk.MovementStep, count: number) => boolean
+    set_scroll_adjustments: (web_view: WebView, hadjustment: Gtk.Adjustment, vadjustment: Gtk.Adjustment) => void
     undo: (web_view: WebView) => void
     redo: (web_view: WebView) => void
     should_allow_editing_action: (web_view: WebView) => boolean

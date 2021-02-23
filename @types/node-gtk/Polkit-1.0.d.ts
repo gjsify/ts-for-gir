@@ -930,9 +930,9 @@ export abstract class SubjectIface {
     hash: (subject: Subject) => number
     equal: (a: Subject, b: Subject) => boolean
     toString: (subject: Subject) => string
-    exists: any
-    existsFinish: any
-    existsSync: any
+    exists: (subject: Subject, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    existsFinish: (subject: Subject, res: Gio.AsyncResult) => boolean
+    existsSync: (subject: Subject, cancellable?: Gio.Cancellable | null) => boolean
     static name: string
 }
 export abstract class SystemBusNameClass {

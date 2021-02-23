@@ -4,14 +4,32 @@
 
 import "node"
 import type { libxml2 } from './libxml2-2.0';
-// WARN: Dependency not found: 'GstPbutils-0.10'
-// WARN: Dependency not found: 'Gst-0.10'
+import type { GstPbutils } from './GstPbutils-0.10';
+import type { Gst } from './Gst-0.10';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { GModule } from './GModule-2.0';
 
 export declare namespace GUPnP {
 
+// TODO FIXME
+export type Service = any
+export type ServiceClass = any
+export type Service_ConstructProps = any
+export type Context = any
+export type ServiceIntrospectionCallback = any
+export type ServiceIntrospection = any
+export type RootDeviceClass = any
+export type ResourceFactory = any
+export type ResourceFactoryClass = any
+export type ResourceFactory_ConstructProps = any
+export type XMLDoc = any
+export type ServiceInfo = any
+export type DeviceInfo = any
+export type Device = any
+export type RootDevice = any
+export type RootDevice_ConstructProps = any
+export type ServiceAction = any
 export class DLNADiscoverer {
     /* Fields of GUPnP-1.0.GUPnP.DLNADiscoverer */
     parent: any
@@ -29,10 +47,10 @@ export class DLNADiscoverer {
     off(sigName: "done", callback: (dlna: DLNAInformation, err: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "done", dlna: DLNAInformation, err: GLib.Error): void
     static name: string
-    static new(timeout: any, relaxedMode: boolean, extendedMode: boolean): DLNADiscoverer
-    constructor(timeout: any, relaxedMode: boolean, extendedMode: boolean)
+    static new(timeout: Gst.ClockTime, relaxedMode: boolean, extendedMode: boolean): DLNADiscoverer
+    constructor(timeout: Gst.ClockTime, relaxedMode: boolean, extendedMode: boolean)
     /* Static methods and pseudo-constructors */
-    static new(timeout: any, relaxedMode: boolean, extendedMode: boolean): DLNADiscoverer
+    static new(timeout: Gst.ClockTime, relaxedMode: boolean, extendedMode: boolean): DLNADiscoverer
 }
 export interface DLNAInformation_ConstructProps extends GObject.Object_ConstructProps {
     info?: any
@@ -155,7 +173,7 @@ export class DLNAProfile {
 export abstract class DLNADiscovererClass {
     /* Fields of GUPnP-1.0.GUPnP.DLNADiscovererClass */
     parentClass: any
-    done: any
+    done: (discoverer: DLNADiscoverer, dlna: DLNAInformation, err: GLib.Error) => void
     static name: string
 }
 export abstract class DLNAInformationClass {
@@ -168,8 +186,7 @@ export abstract class DLNAProfileClass {
     parentClass: GObject.ObjectClass
     static name: string
 }
-}ct(sigName: "notify::active", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::active", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
+}  connect_after(sigName: "notify::active", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1333,7 +1350,7 @@ export class ServiceProxyAction {
 export abstract class ServiceProxyClass {
     /* Fields of GUPnP-1.0.GUPnP.ServiceProxyClass */
     parentClass: ServiceInfoClass
-    subscriptionLost: any
+    subscriptionLost: (proxy: ServiceProxy, reason: GLib.Error) => void
     static name: string
 }
 export class ServiceProxyPrivate {

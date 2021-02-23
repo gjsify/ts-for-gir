@@ -231,8 +231,8 @@ export class ResolverPrivate {
 }
 export abstract class ServerClass {
     /* Fields of Uhm-0.0.Uhm.ServerClass */
-    handle_message: any
-    compare_messages: any
+    handle_message: (self: Server, message: Soup.Message, client: Soup.ClientContext) => boolean
+    compare_messages: (self: Server, expected_message: Soup.Message, actual_message: Soup.Message, actual_client: Soup.ClientContext) => boolean
     static name: string
 }
 export class ServerPrivate {

@@ -1375,16 +1375,16 @@ export abstract class CalBackendClass {
     /* Fields of EDataCal-2.0.EDataCal.CalBackendClass */
     useSerialDispatchQueue: boolean
     implGetBackendProperty: (backend: CalBackend, propName: string) => string
-    implOpen: any
-    implRefresh: any
-    implGetObject: any
-    implGetObjectList: any
-    implReceiveObjects: any
-    implSendObjects: any
-    implGetAttachmentUris: any
-    implDiscardAlarm: any
-    implGetTimezone: any
-    implAddTimezone: any
+    implOpen: (backend: CalBackend, cal: DataCal, opid: number, cancellable?: Gio.Cancellable | null) => void
+    implRefresh: (backend: CalBackend, cal: DataCal, opid: number, cancellable?: Gio.Cancellable | null) => void
+    implGetObject: (backend: CalBackend, cal: DataCal, opid: number, cancellable: Gio.Cancellable | null, uid: string, rid: string) => void
+    implGetObjectList: (backend: CalBackend, cal: DataCal, opid: number, cancellable: Gio.Cancellable | null, sexp: string) => void
+    implReceiveObjects: (backend: CalBackend, cal: DataCal, opid: number, cancellable: Gio.Cancellable | null, calobj: string, opflags: ECal.OperationFlags) => void
+    implSendObjects: (backend: CalBackend, cal: DataCal, opid: number, cancellable: Gio.Cancellable | null, calobj: string, opflags: ECal.OperationFlags) => void
+    implGetAttachmentUris: (backend: CalBackend, cal: DataCal, opid: number, cancellable: Gio.Cancellable | null, uid: string, rid: string) => void
+    implDiscardAlarm: (backend: CalBackend, cal: DataCal, opid: number, cancellable: Gio.Cancellable | null, uid: string, rid: string, auid: string, opflags: ECal.OperationFlags) => void
+    implGetTimezone: (backend: CalBackend, cal: DataCal, opid: number, cancellable: Gio.Cancellable | null, tzid: string) => void
+    implAddTimezone: (backend: CalBackend, cal: DataCal, opid: number, cancellable: Gio.Cancellable | null, tzobject: string) => void
     implStartView: (backend: CalBackend, view: DataCalView) => void
     implStopView: (backend: CalBackend, view: DataCalView) => void
     closed: (backend: CalBackend, sender: string) => void
@@ -1413,13 +1413,13 @@ export class CalBackendSExpPrivate {
 }
 export abstract class CalBackendSyncClass {
     /* Fields of EDataCal-2.0.EDataCal.CalBackendSyncClass */
-    openSync: any
-    refreshSync: any
-    getObjectSync: any
-    receiveObjectsSync: any
-    discardAlarmSync: any
-    getTimezoneSync: any
-    addTimezoneSync: any
+    openSync: (backend: CalBackendSync, cal: DataCal, cancellable?: Gio.Cancellable | null) => void
+    refreshSync: (backend: CalBackendSync, cal: DataCal, cancellable?: Gio.Cancellable | null) => void
+    getObjectSync: (backend: CalBackendSync, cal: DataCal, cancellable: Gio.Cancellable | null, uid: string, rid: string, calobj: string) => void
+    receiveObjectsSync: (backend: CalBackendSync, cal: DataCal, cancellable: Gio.Cancellable | null, calobj: string, opflags: ECal.OperationFlags) => void
+    discardAlarmSync: (backend: CalBackendSync, cal: DataCal, cancellable: Gio.Cancellable | null, uid: string, rid: string, auid: string, opflags: ECal.OperationFlags) => void
+    getTimezoneSync: (backend: CalBackendSync, cal: DataCal, cancellable: Gio.Cancellable | null, tzid: string, tzobject: string) => void
+    addTimezoneSync: (backend: CalBackendSync, cal: DataCal, cancellable: Gio.Cancellable | null, tzobject: string) => void
     reservedPadding: object[]
     static name: string
 }
@@ -1428,7 +1428,7 @@ export class CalBackendSyncPrivate {
 }
 export abstract class CalCacheClass {
     /* Fields of EDataCal-2.0.EDataCal.CalCacheClass */
-    dupComponentRevision: any
+    dupComponentRevision: (calCache: CalCache, icomp: ICalGLib.Component) => string
     static name: string
 }
 export class CalCacheOfflineChange {
@@ -1467,18 +1467,18 @@ export class CalCacheSearchData {
 }
 export abstract class CalMetaBackendClass {
     /* Fields of EDataCal-2.0.EDataCal.CalMetaBackendClass */
-    connectSync: any
-    disconnectSync: any
-    getChangesSync: any
-    listExistingSync: any
-    loadComponentSync: any
-    saveComponentSync: any
-    removeComponentSync: any
-    searchSync: any
-    searchComponentsSync: any
+    connectSync: (metaBackend: CalMetaBackend, credentials?: EDataServer.NamedParameters | null, cancellable?: Gio.Cancellable | null) => { returnType: boolean, outAuthResult: EDataServer.SourceAuthenticationResult, outCertificatePem: string, outCertificateErrors: Gio.TlsCertificateFlags }
+    disconnectSync: (metaBackend: CalMetaBackend, cancellable?: Gio.Cancellable | null) => boolean
+    getChangesSync: (metaBackend: CalMetaBackend, lastSyncTag: string | null, isRepeat: boolean, cancellable?: Gio.Cancellable | null) => { returnType: boolean, outNewSyncTag: string, outRepeat: boolean, outCreatedObjects: CalMetaBackendInfo[], outModifiedObjects: CalMetaBackendInfo[], outRemovedObjects: CalMetaBackendInfo[] }
+    listExistingSync: (metaBackend: CalMetaBackend, cancellable?: Gio.Cancellable | null) => { returnType: boolean, outNewSyncTag: string, outExistingObjects: CalMetaBackendInfo[] }
+    loadComponentSync: (metaBackend: CalMetaBackend, uid: string, extra?: string | null, cancellable?: Gio.Cancellable | null) => { returnType: boolean, outComponent: ICalGLib.Component, outExtra: string }
+    saveComponentSync: (metaBackend: CalMetaBackend, overwriteExisting: boolean, conflictResolution: EDataServer.ConflictResolution, instances: ECal.Component[], extra: string | null, opflags: ECal.OperationFlags, cancellable?: Gio.Cancellable | null) => { returnType: boolean, outNewUid: string, outNewExtra: string }
+    removeComponentSync: (metaBackend: CalMetaBackend, conflictResolution: EDataServer.ConflictResolution, uid: string, extra: string | null, object: string | null, opflags: ECal.OperationFlags, cancellable?: Gio.Cancellable | null) => boolean
+    searchSync: (metaBackend: CalMetaBackend, expr?: string | null, cancellable?: Gio.Cancellable | null) => { returnType: boolean, outIcalstrings: string[] }
+    searchComponentsSync: (metaBackend: CalMetaBackend, expr?: string | null, cancellable?: Gio.Cancellable | null) => { returnType: boolean, outComponents: ECal.Component[] }
     requiresReconnect: (metaBackend: CalMetaBackend) => boolean
     sourceChanged: (metaBackend: CalMetaBackend) => void
-    getSslErrorDetails: any
+    getSslErrorDetails: (metaBackend: CalMetaBackend) => { returnType: boolean, outCertificatePem: string, outCertificateErrors: Gio.TlsCertificateFlags }
     static name: string
 }
 export class CalMetaBackendInfo {

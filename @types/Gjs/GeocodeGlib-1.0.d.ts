@@ -674,12 +674,12 @@ export class Reverse {
 }
 export abstract class BackendInterface {
     /* Fields of GeocodeGlib-1.0.GeocodeGlib.BackendInterface */
-    forward_search: any
-    forward_search_async: any
-    forward_search_finish: any
-    reverse_resolve: any
-    reverse_resolve_async: any
-    reverse_resolve_finish: any
+    forward_search: (backend: Backend, params: GLib.HashTable, cancellable?: Gio.Cancellable | null) => Place[]
+    forward_search_async: (backend: Backend, params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    forward_search_finish: (backend: Backend, result: Gio.AsyncResult) => Place[]
+    reverse_resolve: (backend: Backend, params: GLib.HashTable, cancellable?: Gio.Cancellable | null) => Place[]
+    reverse_resolve_async: (backend: Backend, params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    reverse_resolve_finish: (backend: Backend, result: Gio.AsyncResult) => Place[]
     static name: string
 }
 export abstract class BoundingBoxClass {
@@ -716,9 +716,9 @@ export class MockBackendQuery {
 export abstract class NominatimClass {
     /* Fields of GeocodeGlib-1.0.GeocodeGlib.NominatimClass */
     parent_class: GObject.ObjectClass
-    query: any
-    query_async: any
-    query_finish: any
+    query: (self: Nominatim, uri: string, cancellable?: Gio.Cancellable | null) => string
+    query_async: (self: Nominatim, uri: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    query_finish: (self: Nominatim, res: Gio.AsyncResult) => string
     static name: string
 }
 export abstract class PlaceClass {

@@ -39725,13 +39725,13 @@ export class ActionPrivate {
 export abstract class ActorManagerClass {
     /* Fields of Mx-2.0.Mx.ActorManagerClass */
     parentClass: GObject.ObjectClass
-    actorCreated: any
-    actorAdded: any
-    actorRemoved: any
-    actorFinished: any
+    actorCreated: (manager: ActorManager, id: number, actor: Clutter.Actor) => void
+    actorAdded: (manager: ActorManager, id: number, container: Clutter.Actor, actor: Clutter.Actor) => void
+    actorRemoved: (manager: ActorManager, id: number, container: Clutter.Actor, actor: Clutter.Actor) => void
+    actorFinished: (manager: ActorManager, actor: Clutter.Actor) => void
     operationCompleted: (manager: ActorManager, id: number) => void
     operationCancelled: (manager: ActorManager, id: number) => void
-    operationFailed: any
+    operationFailed: (manager: ActorManager, id: number, error: GLib.Error) => void
     static name: string
 }
 export class ActorManagerPrivate {
@@ -39835,7 +39835,7 @@ export abstract class DraggableIface {
     /* Fields of Mx-2.0.Mx.DraggableIface */
     enable: (draggable: Draggable) => void
     disable: (draggable: Draggable) => void
-    dragBegin: any
+    dragBegin: (draggable: Draggable, eventX: number, eventY: number, eventButton: number, modifiers: Clutter.ModifierType) => void
     dragMotion: (draggable: Draggable, deltaX: number, deltaY: number) => void
     dragEnd: (draggable: Draggable, eventX: number, eventY: number) => void
     static name: string
@@ -39847,7 +39847,7 @@ export abstract class DroppableIface {
     acceptDrop: (droppable: Droppable, draggable: Draggable) => boolean
     overIn: (droppable: Droppable, draggable: Draggable) => void
     overOut: (droppable: Droppable, draggable: Draggable) => void
-    drop: any
+    drop: (droppable: Droppable, draggable: Draggable, eventX: number, eventY: number, button: number, modifiers: Clutter.ModifierType) => void
     static name: string
 }
 export abstract class EntryClass {
@@ -39880,8 +39880,8 @@ export class FadeEffectPrivate {
 export abstract class FloatingWidgetClass {
     /* Fields of Mx-2.0.Mx.FloatingWidgetClass */
     parentClass: WidgetClass
-    floatingPick: any
-    floatingPaint: any
+    floatingPick: (actor: Clutter.Actor, color: Clutter.Color) => void
+    floatingPaint: (actor: Clutter.Actor) => void
     static name: string
 }
 export class FloatingWidgetPrivate {
@@ -39937,7 +39937,7 @@ export class IconThemePrivate {
 export abstract class ImageClass {
     /* Fields of Mx-2.0.Mx.ImageClass */
     imageLoaded: (image: Image) => void
-    imageLoadError: any
+    imageLoadError: (image: Image, error: GLib.Error) => void
     static name: string
 }
 export class ImagePrivate {
@@ -39945,7 +39945,7 @@ export class ImagePrivate {
 }
 export abstract class ItemFactoryIface {
     /* Fields of Mx-2.0.Mx.ItemFactoryIface */
-    create: any
+    create: (factory: ItemFactory) => Clutter.Actor
     static name: string
 }
 export abstract class ItemViewClass {
@@ -40144,8 +40144,8 @@ export class TextShadow {
 export abstract class TextureCacheClass {
     /* Fields of Mx-2.0.Mx.TextureCacheClass */
     parentClass: GObject.ObjectClass
-    loaded: any
-    errorLoading: any
+    loaded: (self: TextureCache, uri: string, texture: Clutter.Texture) => void
+    errorLoading: (self: TextureCache, error: GLib.Error) => void
     static name: string
 }
 export abstract class TextureFrameClass {

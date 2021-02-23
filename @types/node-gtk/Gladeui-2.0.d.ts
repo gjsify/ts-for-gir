@@ -29583,7 +29583,7 @@ export abstract class BaseEditorClass {
     /* Fields of Gladeui-2.0.Gladeui.BaseEditorClass */
     parentClass: Gtk.BoxClass
     childSelected: (editor: BaseEditor, gchild: Widget) => void
-    changeType: any
+    changeType: (editor: BaseEditor, gchild: Widget, type: GObject.Type) => boolean
     getDisplayName: (editor: BaseEditor, gchild: Widget) => string
     deleteChild: (editor: BaseEditor, parent: Widget, gchild: Widget) => boolean
     moveChild: (editor: BaseEditor, gparent: Widget, gchild: Widget) => boolean
@@ -30037,14 +30037,14 @@ export abstract class WidgetClass {
     parentClass: GObject.InitiallyUnownedClass
     addChild: (parent: Widget, child: Widget, atMouse: boolean) => void
     removeChild: (parent: Widget, child: Widget) => void
-    replaceChild: any
+    replaceChild: (parent: Widget, oldObject: GObject.Object, newObject: GObject.Object) => void
     addSignalHandler: (widget: Widget, signalHandler: Signal) => void
     removeSignalHandler: (widget: Widget, signalHandler: Signal) => void
     changeSignalHandler: (widget: Widget, newSignalHandler: Signal) => void
-    buttonPressEvent: any
-    buttonReleaseEvent: any
-    motionNotifyEvent: any
-    event: any
+    buttonPressEvent: (widget: Widget, event: Gdk.Event) => number
+    buttonReleaseEvent: (widget: Widget, event: Gdk.Event) => number
+    motionNotifyEvent: (widget: Widget, event: Gdk.Event) => number
+    event: (gwidget: Widget, event: Gdk.Event) => boolean
     gladeReserved1: () => void
     gladeReserved2: () => void
     gladeReserved3: () => void

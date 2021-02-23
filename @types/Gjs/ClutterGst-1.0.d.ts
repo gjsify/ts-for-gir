@@ -3,13 +3,15 @@
  */
 
 import type * as Gjs from './Gjs';
-// WARN: Dependency not found: 'GstVideo-0.10'
-// WARN: Dependency not found: 'GstInterfaces-0.10'
-// WARN: Dependency not found: 'GstBase-0.10'
-// WARN: Dependency not found: 'GstAudio-0.10'
-// WARN: Dependency not found: 'Gst-0.10'
+import type * as GstVideo from './GstVideo-0.10';
+import type * as libxml2 from './libxml2-2.0';
+import type * as GstBase from './GstBase-0.10';
+import type * as Gst from './Gst-0.10';
 import type * as GObject from './GObject-2.0';
 import type * as GLib from './GLib-2.0';
+import type * as GModule from './GModule-2.0';
+import type * as GstInterfaces from './GstInterfaces-0.10';
+// WARN: Dependency not found: 'GstAudio-0.10'
 import type * as Clutter from './Clutter-1.0';
 import type * as cairo from './cairo-1.0';
 import type * as Json from './Json-1.0';
@@ -65,7 +67,7 @@ export class Player {
     get_buffering_mode(): BufferingMode
     get_idle(): boolean
     get_in_seek(): boolean
-    get_pipeline(): any
+    get_pipeline(): Gst.Element
     get_seek_flags(): SeekFlags
     get_subtitle_track(): number
     get_subtitle_tracks(): string[]
@@ -100,7 +102,7 @@ export class Player {
     vfunc_get_buffering_mode(): BufferingMode
     vfunc_get_idle(): boolean
     vfunc_get_in_seek(): boolean
-    vfunc_get_pipeline(): any
+    vfunc_get_pipeline(): Gst.Element
     vfunc_get_seek_flags(): SeekFlags
     vfunc_get_subtitle_track(): number
     vfunc_get_subtitle_tracks(): string[]
@@ -132,6 +134,14 @@ export class VideoSink {
     /* Properties of ClutterGst-1.0.ClutterGst.VideoSink */
     texture: Clutter.Texture
     update_priority: number
+    /* Methods of GstInterfaces-0.10.GstInterfaces.Navigation */
+    send_command(command: GstInterfaces.NavigationCommand): void
+    send_event(structure: Gst.Structure): void
+    send_key_event(event: string, key: string): void
+    send_mouse_event(event: string, button: number, x: number, y: number): void
+    /* Virtual methods of ClutterGst-1.0.ClutterGst.VideoSink */
+    vfunc_supported(iface_type: GObject.Type): any
+    vfunc_send_event(structure: Gst.Structure): void
     static name: string
     static new(texture: Clutter.Texture): VideoSink
     constructor(texture: Clutter.Texture)
@@ -274,13 +284,13 @@ export class VideoTexture {
     g_type_instance: GObject.TypeInstance
     /* Methods of ClutterGst-1.0.ClutterGst.VideoTexture */
     get_audio_stream(): number
-    get_audio_streams(): any[]
+    get_audio_streams(): Gst.TagList[]
     get_buffering_mode(): BufferingMode
     get_idle_material(): Cogl.Handle
-    get_pipeline(): any
+    get_pipeline(): Gst.Element
     get_seek_flags(): SeekFlags
     get_subtitle_track(): number
-    get_subtitle_tracks(): any[]
+    get_subtitle_tracks(): Gst.TagList[]
     get_user_agent(): string
     set_audio_stream(index_: number): void
     set_buffering_mode(mode: BufferingMode): void
@@ -653,7 +663,7 @@ export class VideoTexture {
     vfunc_get_buffering_mode(): BufferingMode
     vfunc_get_idle(): boolean
     vfunc_get_in_seek(): boolean
-    vfunc_get_pipeline(): any
+    vfunc_get_pipeline(): Gst.Element
     vfunc_get_seek_flags(): SeekFlags
     vfunc_get_subtitle_track(): number
     vfunc_get_subtitle_tracks(): string[]
@@ -1063,7 +1073,7 @@ export class VideoTexture {
 }
 export abstract class PlayerIface {
     /* Fields of ClutterGst-1.0.ClutterGst.PlayerIface */
-    get_pipeline: (player: Player) => any
+    get_pipeline: (player: Player) => Gst.Element
     get_user_agent: (player: Player) => string
     set_user_agent: (player: Player, user_agent: string) => void
     get_seek_flags: (player: Player) => SeekFlags

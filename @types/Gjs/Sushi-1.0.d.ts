@@ -23,10 +23,10 @@ import type * as Gdk from './Gdk-3.0';
 import type * as GdkPixbuf from './GdkPixbuf-2.0';
 import type * as GModule from './GModule-2.0';
 import type * as Atk from './Atk-1.0';
-// WARN: Dependency not found: 'GstTag-0.10'
-// WARN: Dependency not found: 'GstPbutils-0.10'
-// WARN: Dependency not found: 'GstBase-0.10'
-// WARN: Dependency not found: 'Gst-0.10'
+import type * as GstTag from './GstTag-0.10';
+import type * as Gst from './Gst-0.10';
+import type * as GstPbutils from './GstPbutils-0.10';
+import type * as GstBase from './GstBase-0.10';
 import type * as GL from './GL-1.0';
 import type * as EvinceDocument from './EvinceDocument-3.0';
 import type * as CoglPango from './CoglPango-1.0';
@@ -44,12 +44,12 @@ export function create_foreign_window(xid: number): Gdk.Window
 export function create_rounded_background(): Clutter.Actor
 export function query_supported_document_types(): string[]
 export interface CoverArtFetcher_ConstructProps extends GObject.Object_ConstructProps {
-    taglist?: any
+    taglist?: Gst.TagList
 }
 export class CoverArtFetcher {
     /* Properties of Sushi-1.0.Sushi.CoverArtFetcher */
     readonly cover: GdkPixbuf.Pixbuf
-    taglist: any
+    taglist: Gst.TagList
     /* Fields of Sushi-1.0.Sushi.CoverArtFetcher */
     parent_instance: GObject.Object
     priv: CoverArtFetcherPrivate
@@ -101,7 +101,7 @@ export class CoverArtFetcher {
     constructor (config?: CoverArtFetcher_ConstructProps)
     _init (config?: CoverArtFetcher_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(taglist: any): CoverArtFetcher
+    static new(taglist: Gst.TagList): CoverArtFetcher
     static $gtype: GObject.Type
 }
 export interface FileLoader_ConstructProps extends GObject.Object_ConstructProps {
@@ -1013,7 +1013,7 @@ export class SoundPlayer {
     playing: boolean
     progress: number
     readonly state: SoundPlayerState
-    readonly taglist: any
+    readonly taglist: Gst.TagList
     uri: string
     /* Fields of Sushi-1.0.Sushi.SoundPlayer */
     parent_instance: GObject.Object

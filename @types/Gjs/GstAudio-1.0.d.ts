@@ -3879,8 +3879,8 @@ export class AudioSrc {
 export abstract class AudioAggregatorClass {
     /* Fields of GstAudio-1.0.GstAudio.AudioAggregatorClass */
     parent_class: GstBase.AggregatorClass
-    create_output_buffer: any
-    aggregate_one_buffer: any
+    create_output_buffer: (aagg: AudioAggregator, num_frames: number) => Gst.Buffer
+    aggregate_one_buffer: (aagg: AudioAggregator, pad: AudioAggregatorPad, inbuf: Gst.Buffer, in_offset: number, outbuf: Gst.Buffer, out_offset: number, num_frames: number) => boolean
     static name: string
 }
 export abstract class AudioAggregatorConvertPadClass {
@@ -3894,7 +3894,7 @@ export class AudioAggregatorConvertPadPrivate {
 export abstract class AudioAggregatorPadClass {
     /* Fields of GstAudio-1.0.GstAudio.AudioAggregatorPadClass */
     parent_class: GstBase.AggregatorPadClass
-    convert_buffer: any
+    convert_buffer: (pad: AudioAggregatorPad, in_info: AudioInfo, out_info: AudioInfo, buffer: Gst.Buffer) => Gst.Buffer
     update_conversion_info: (pad: AudioAggregatorPad) => void
     static name: string
 }
@@ -3908,7 +3908,7 @@ export abstract class AudioBaseSinkClass {
     /* Fields of GstAudio-1.0.GstAudio.AudioBaseSinkClass */
     parent_class: GstBase.BaseSinkClass
     create_ringbuffer: (sink: AudioBaseSink) => AudioRingBuffer
-    payload: any
+    payload: (sink: AudioBaseSink, buffer: Gst.Buffer) => Gst.Buffer
     static name: string
 }
 export class AudioBaseSinkPrivate {
@@ -3944,7 +3944,7 @@ export abstract class AudioCdSrcClass {
     pushsrc_class: GstBase.PushSrcClass
     open: (src: AudioCdSrc, device: string) => boolean
     close: (src: AudioCdSrc) => void
-    read_sector: any
+    read_sector: (src: AudioCdSrc, sector: number) => Gst.Buffer
     static name: string
 }
 export class AudioCdSrcPrivate {
@@ -4005,22 +4005,22 @@ export abstract class AudioDecoderClass {
     element_class: Gst.ElementClass
     start: (dec: AudioDecoder) => boolean
     stop: (dec: AudioDecoder) => boolean
-    set_format: any
-    parse: any
-    handle_frame: any
+    set_format: (dec: AudioDecoder, caps: Gst.Caps) => boolean
+    parse: (dec: AudioDecoder, adapter: GstBase.Adapter, offset: number, length: number) => Gst.FlowReturn
+    handle_frame: (dec: AudioDecoder, buffer: Gst.Buffer) => Gst.FlowReturn
     flush: (dec: AudioDecoder, hard: boolean) => void
-    pre_push: any
-    sink_event: any
-    src_event: any
+    pre_push: (dec: AudioDecoder, buffer: Gst.Buffer) => Gst.FlowReturn
+    sink_event: (dec: AudioDecoder, event: Gst.Event) => boolean
+    src_event: (dec: AudioDecoder, event: Gst.Event) => boolean
     open: (dec: AudioDecoder) => boolean
     close: (dec: AudioDecoder) => boolean
     negotiate: (dec: AudioDecoder) => boolean
-    decide_allocation: any
-    propose_allocation: any
-    sink_query: any
-    src_query: any
-    getcaps: any
-    transform_meta: any
+    decide_allocation: (dec: AudioDecoder, query: Gst.Query) => boolean
+    propose_allocation: (dec: AudioDecoder, query: Gst.Query) => boolean
+    sink_query: (dec: AudioDecoder, query: Gst.Query) => boolean
+    src_query: (dec: AudioDecoder, query: Gst.Query) => boolean
+    getcaps: (dec: AudioDecoder, filter: Gst.Caps) => Gst.Caps
+    transform_meta: (enc: AudioDecoder, outbuf: Gst.Buffer, meta: Gst.Meta, inbuf: Gst.Buffer) => boolean
     static name: string
 }
 export class AudioDecoderPrivate {
@@ -4044,20 +4044,20 @@ export abstract class AudioEncoderClass {
     start: (enc: AudioEncoder) => boolean
     stop: (enc: AudioEncoder) => boolean
     set_format: (enc: AudioEncoder, info: AudioInfo) => boolean
-    handle_frame: any
+    handle_frame: (enc: AudioEncoder, buffer: Gst.Buffer) => Gst.FlowReturn
     flush: (enc: AudioEncoder) => void
-    pre_push: any
-    sink_event: any
-    src_event: any
-    getcaps: any
+    pre_push: (enc: AudioEncoder, buffer: Gst.Buffer) => Gst.FlowReturn
+    sink_event: (enc: AudioEncoder, event: Gst.Event) => boolean
+    src_event: (enc: AudioEncoder, event: Gst.Event) => boolean
+    getcaps: (enc: AudioEncoder, filter: Gst.Caps) => Gst.Caps
     open: (enc: AudioEncoder) => boolean
     close: (enc: AudioEncoder) => boolean
     negotiate: (enc: AudioEncoder) => boolean
-    decide_allocation: any
-    propose_allocation: any
-    transform_meta: any
-    sink_query: any
-    src_query: any
+    decide_allocation: (enc: AudioEncoder, query: Gst.Query) => boolean
+    propose_allocation: (enc: AudioEncoder, query: Gst.Query) => boolean
+    transform_meta: (enc: AudioEncoder, outbuf: Gst.Buffer, meta: Gst.Meta, inbuf: Gst.Buffer) => boolean
+    sink_query: (encoder: AudioEncoder, query: Gst.Query) => boolean
+    src_query: (encoder: AudioEncoder, query: Gst.Query) => boolean
     static name: string
 }
 export class AudioEncoderPrivate {
@@ -4208,7 +4208,7 @@ export abstract class AudioSrcClass {
     prepare: (src: AudioSrc, spec: AudioRingBufferSpec) => boolean
     unprepare: (src: AudioSrc) => boolean
     close: (src: AudioSrc) => boolean
-    read: any
+    read: (src: AudioSrc, data: object | null, length: number, timestamp: Gst.ClockTime) => number
     delay: (src: AudioSrc) => number
     reset: (src: AudioSrc) => void
     static name: string

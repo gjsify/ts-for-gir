@@ -237,8 +237,8 @@ export class Playlist {
 export abstract class ParserClass {
     /* Fields of TotemPlParser-1.0.TotemPlParser.ParserClass */
     parentClass: GObject.ObjectClass
-    entryParsed: any
-    playlistStarted: any
+    entryParsed: (parser: Parser, uri: string, metadata: GLib.HashTable) => void
+    playlistStarted: (parser: Parser, uri: string, metadata: GLib.HashTable) => void
     playlistEnded: (parser: Parser, uri: string) => void
     static name: string
 }

@@ -838,9 +838,9 @@ export class MinerProxy {
 export abstract class DataProviderIface {
     /* Fields of TrackerMiner-2.0.TrackerMiner.DataProviderIface */
     g_iface: GObject.TypeInterface
-    begin: any
-    begin_async: any
-    begin_finish: any
+    begin: (data_provider: DataProvider, url: Gio.File, attributes: string, flags: DirectoryFlags, cancellable?: Gio.Cancellable | null) => Gio.FileEnumerator
+    begin_async: (data_provider: DataProvider, url: Gio.File, attributes: string, flags: DirectoryFlags, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    begin_finish: (data_provider: DataProvider, result: Gio.AsyncResult) => Gio.FileEnumerator
     static name: string
 }
 export abstract class DecoratorClass {
@@ -872,10 +872,10 @@ export class DecoratorInfo {
 export abstract class IndexingTreeClass {
     /* Fields of TrackerMiner-2.0.TrackerMiner.IndexingTreeClass */
     parent_class: GObject.ObjectClass
-    directory_added: any
-    directory_removed: any
-    directory_updated: any
-    child_updated: any
+    directory_added: (indexing_tree: IndexingTree, directory: Gio.File) => void
+    directory_removed: (indexing_tree: IndexingTree, directory: Gio.File) => void
+    directory_updated: (indexing_tree: IndexingTree, directory: Gio.File) => void
+    child_updated: (indexing_tree: IndexingTree, root: Gio.File, child: Gio.File) => void
     padding: object[]
     static name: string
 }
@@ -893,14 +893,14 @@ export abstract class MinerClass {
 export abstract class MinerFSClass {
     /* Fields of TrackerMiner-2.0.TrackerMiner.MinerFSClass */
     parent: MinerClass
-    process_file: any
+    process_file: (fs: MinerFS, file: Gio.File, task: Gio.Task) => boolean
     finished: (fs: MinerFS, elapsed: number, directories_found: number, directories_ignored: number, files_found: number, files_ignored: number) => void
-    process_file_attributes: any
-    finished_root: any
-    remove_file: any
-    remove_children: any
-    move_file: any
-    filter_event: any
+    process_file_attributes: (fs: MinerFS, file: Gio.File, task: Gio.Task) => boolean
+    finished_root: (fs: MinerFS, root: Gio.File, directories_found: number, directories_ignored: number, files_found: number, files_ignored: number) => void
+    remove_file: (fs: MinerFS, file: Gio.File) => string
+    remove_children: (fs: MinerFS, file: Gio.File) => string
+    move_file: (fs: MinerFS, dest: Gio.File, source: Gio.File, recursive: boolean) => string
+    filter_event: (fs: MinerFS, type: MinerFSEventType, file: Gio.File, source_file: Gio.File) => boolean
     padding: object[]
     static name: string
 }

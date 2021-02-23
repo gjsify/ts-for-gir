@@ -11240,10 +11240,10 @@ export class ZlibDecompressor {
 export class ActionEntry {
     /* Fields of Gio-2.0.Gio.ActionEntry */
     name: string
-    activate: any
+    activate: (action: SimpleAction, parameter: GLib.Variant) => void
     parameterType: string
     state: string
-    changeState: any
+    changeState: (action: SimpleAction, value: GLib.Variant) => void
     static name: string
 }
 export abstract class ActionGroupInterface {
@@ -11252,30 +11252,30 @@ export abstract class ActionGroupInterface {
     hasAction: (actionGroup: ActionGroup, actionName: string) => boolean
     listActions: (actionGroup: ActionGroup) => string[]
     getActionEnabled: (actionGroup: ActionGroup, actionName: string) => boolean
-    getActionParameterType: any
-    getActionStateType: any
-    getActionStateHint: any
-    getActionState: any
-    changeActionState: any
-    activateAction: any
+    getActionParameterType: (actionGroup: ActionGroup, actionName: string) => GLib.VariantType | null
+    getActionStateType: (actionGroup: ActionGroup, actionName: string) => GLib.VariantType | null
+    getActionStateHint: (actionGroup: ActionGroup, actionName: string) => GLib.Variant | null
+    getActionState: (actionGroup: ActionGroup, actionName: string) => GLib.Variant | null
+    changeActionState: (actionGroup: ActionGroup, actionName: string, value: GLib.Variant) => void
+    activateAction: (actionGroup: ActionGroup, actionName: string, parameter?: GLib.Variant | null) => void
     actionAdded: (actionGroup: ActionGroup, actionName: string) => void
     actionRemoved: (actionGroup: ActionGroup, actionName: string) => void
     actionEnabledChanged: (actionGroup: ActionGroup, actionName: string, enabled: boolean) => void
-    actionStateChanged: any
-    queryAction: any
+    actionStateChanged: (actionGroup: ActionGroup, actionName: string, state: GLib.Variant) => void
+    queryAction: (actionGroup: ActionGroup, actionName: string) => { returnType: boolean, enabled: boolean, parameterType: GLib.VariantType | null, stateType: GLib.VariantType | null, stateHint: GLib.Variant | null, state: GLib.Variant | null }
     static name: string
 }
 export abstract class ActionInterface {
     /* Fields of Gio-2.0.Gio.ActionInterface */
     gIface: GObject.TypeInterface
     getName: (action: Action) => string
-    getParameterType: any
-    getStateType: any
-    getStateHint: any
+    getParameterType: (action: Action) => GLib.VariantType | null
+    getStateType: (action: Action) => GLib.VariantType | null
+    getStateHint: (action: Action) => GLib.Variant | null
     getEnabled: (action: Action) => boolean
-    getState: any
-    changeState: any
-    activate: any
+    getState: (action: Action) => GLib.Variant | null
+    changeState: (action: Action, value: GLib.Variant) => void
+    activate: (action: Action, parameter?: GLib.Variant | null) => void
     static name: string
 }
 export abstract class ActionMapInterface {
@@ -11322,7 +11322,7 @@ export abstract class AppLaunchContextClass {
     getDisplay: (context: AppLaunchContext, info: AppInfo, files: File[]) => string | null
     getStartupNotifyId: (context: AppLaunchContext, info: AppInfo, files: File[]) => string | null
     launchFailed: (context: AppLaunchContext, startupNotifyId: string) => void
-    launched: any
+    launched: (context: AppLaunchContext, info: AppInfo, platformData: GLib.Variant) => void
     static name: string
 }
 export class AppLaunchContextPrivate {
@@ -11335,15 +11335,15 @@ export abstract class ApplicationClass {
     open: (application: Application, files: File[], hint: string) => void
     commandLine: (application: Application, commandLine: ApplicationCommandLine) => number
     localCommandLine: (application: Application, arguments_: string[]) => { returnType: boolean, arguments_: string[], exitStatus: number }
-    beforeEmit: any
-    afterEmit: any
-    addPlatformData: any
+    beforeEmit: (application: Application, platformData: GLib.Variant) => void
+    afterEmit: (application: Application, platformData: GLib.Variant) => void
+    addPlatformData: (application: Application, builder: GLib.VariantBuilder) => void
     quitMainloop: (application: Application) => void
     runMainloop: (application: Application) => void
     shutdown: (application: Application) => void
     dbusRegister: (application: Application, connection: DBusConnection, objectPath: string) => boolean
     dbusUnregister: (application: Application, connection: DBusConnection, objectPath: string) => void
-    handleLocalOptions: any
+    handleLocalOptions: (application: Application, options: GLib.VariantDict) => number
     nameLost: (application: Application) => boolean
     static name: string
 }
@@ -11371,7 +11371,7 @@ export abstract class AsyncResultIface {
     /* Fields of Gio-2.0.Gio.AsyncResultIface */
     gIface: GObject.TypeInterface
     getUserData: (res: AsyncResult) => object | null
-    getSourceObject: any
+    getSourceObject: (res: AsyncResult) => GObject.Object | null
     isTagged: (res: AsyncResult, sourceTag?: object | null) => boolean
     static name: string
 }
@@ -11496,7 +11496,7 @@ export abstract class DBusInterfaceSkeletonClass {
     /* Fields of Gio-2.0.Gio.DBusInterfaceSkeletonClass */
     parentClass: GObject.ObjectClass
     getInfo: (interface: DBusInterfaceSkeleton) => DBusInterfaceInfo
-    getProperties: any
+    getProperties: (interface: DBusInterfaceSkeleton) => GLib.Variant
     flush: (interface: DBusInterfaceSkeleton) => void
     gAuthorizeMethod: (interface: DBusInterfaceSkeleton, invocation: DBusMethodInvocation) => boolean
     static name: string
@@ -11552,8 +11552,8 @@ export abstract class DBusObjectIface {
 export abstract class DBusObjectManagerClientClass {
     /* Fields of Gio-2.0.Gio.DBusObjectManagerClientClass */
     parentClass: GObject.ObjectClass
-    interfaceProxySignal: any
-    interfaceProxyPropertiesChanged: any
+    interfaceProxySignal: (manager: DBusObjectManagerClient, objectProxy: DBusObjectProxy, interfaceProxy: DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void
+    interfaceProxyPropertiesChanged: (manager: DBusObjectManagerClient, objectProxy: DBusObjectProxy, interfaceProxy: DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string) => void
     static name: string
 }
 export class DBusObjectManagerClientPrivate {
@@ -11611,8 +11611,8 @@ export class DBusPropertyInfo {
 }
 export abstract class DBusProxyClass {
     /* Fields of Gio-2.0.Gio.DBusProxyClass */
-    gPropertiesChanged: any
-    gSignal: any
+    gPropertiesChanged: (proxy: DBusProxy, changedProperties: GLib.Variant, invalidatedProperties: string) => void
+    gSignal: (proxy: DBusProxy, senderName: string, signalName: string, parameters: GLib.Variant) => void
     static name: string
 }
 export class DBusProxyPrivate {
@@ -11657,9 +11657,9 @@ export abstract class DatagramBasedInterface {
     gIface: GObject.TypeInterface
     receiveMessages: (datagramBased: DatagramBased, messages: InputMessage[], flags: number, timeout: number, cancellable?: Cancellable | null) => number
     sendMessages: (datagramBased: DatagramBased, messages: OutputMessage[], flags: number, timeout: number, cancellable?: Cancellable | null) => number
-    createSource: any
-    conditionCheck: any
-    conditionWait: any
+    createSource: (datagramBased: DatagramBased, condition: GLib.IOCondition, cancellable?: Cancellable | null) => GLib.Source
+    conditionCheck: (datagramBased: DatagramBased, condition: GLib.IOCondition) => GLib.IOCondition
+    conditionWait: (datagramBased: DatagramBased, condition: GLib.IOCondition, timeout: number, cancellable?: Cancellable | null) => boolean
     static name: string
 }
 export abstract class DesktopAppInfoClass {
@@ -11810,7 +11810,7 @@ export abstract class FileIOStreamClass {
     parentClass: IOStreamClass
     tell: (stream: FileIOStream) => number
     canSeek: (stream: FileIOStream) => boolean
-    seek: any
+    seek: (stream: FileIOStream, offset: number, type: GLib.SeekType, cancellable?: Cancellable | null) => boolean
     canTruncate: (stream: FileIOStream) => boolean
     truncateFn: (stream: FileIOStream, size: number, cancellable?: Cancellable | null) => boolean
     queryInfo: (stream: FileIOStream, attributes: string, cancellable?: Cancellable | null) => FileInfo
@@ -11931,7 +11931,7 @@ export abstract class FileInputStreamClass {
     parentClass: InputStreamClass
     tell: (stream: FileInputStream) => number
     canSeek: (stream: FileInputStream) => boolean
-    seek: any
+    seek: (stream: FileInputStream, offset: number, type: GLib.SeekType, cancellable?: Cancellable | null) => boolean
     queryInfo: (stream: FileInputStream, attributes: string, cancellable?: Cancellable | null) => FileInfo
     queryInfoAsync: (stream: FileInputStream, attributes: string, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     queryInfoFinish: (stream: FileInputStream, result: AsyncResult) => FileInfo
@@ -11955,7 +11955,7 @@ export abstract class FileOutputStreamClass {
     parentClass: OutputStreamClass
     tell: (stream: FileOutputStream) => number
     canSeek: (stream: FileOutputStream) => boolean
-    seek: any
+    seek: (stream: FileOutputStream, offset: number, type: GLib.SeekType, cancellable?: Cancellable | null) => boolean
     canTruncate: (stream: FileOutputStream) => boolean
     truncateFn: (stream: FileOutputStream, size: number, cancellable?: Cancellable | null) => boolean
     queryInfo: (stream: FileOutputStream, attributes: string, cancellable?: Cancellable | null) => FileInfo
@@ -12038,7 +12038,7 @@ export abstract class IconIface {
     gIface: GObject.TypeInterface
     hash: (icon: Icon) => number
     equal: (icon1?: Icon | null, icon2?: Icon | null) => boolean
-    serialize: any
+    serialize: (icon: Icon) => GLib.Variant | null
     static name: string
 }
 export abstract class InetAddressClass {
@@ -12110,9 +12110,9 @@ export class InputVector {
 export abstract class ListModelInterface {
     /* Fields of Gio-2.0.Gio.ListModelInterface */
     gIface: GObject.TypeInterface
-    getItemType: any
+    getItemType: (list: ListModel) => GObject.Type
     getNItems: (list: ListModel) => number
-    getItem: any
+    getItem: (list: ListModel, position: number) => GObject.Object | null
     static name: string
 }
 export abstract class ListStoreClass {
@@ -12152,7 +12152,7 @@ export class MemoryOutputStreamPrivate {
 export abstract class MenuAttributeIterClass {
     /* Fields of Gio-2.0.Gio.MenuAttributeIterClass */
     parentClass: GObject.ObjectClass
-    getNext: any
+    getNext: (iter: MenuAttributeIter) => { returnType: boolean, outName: string | null, value: GLib.Variant | null }
     static name: string
 }
 export class MenuAttributeIterPrivate {
@@ -12172,10 +12172,10 @@ export abstract class MenuModelClass {
     parentClass: GObject.ObjectClass
     isMutable: (model: MenuModel) => boolean
     getNItems: (model: MenuModel) => number
-    getItemAttributes: any
+    getItemAttributes: (model: MenuModel, itemIndex: number) => { attributes: GLib.HashTable }
     iterateItemAttributes: (model: MenuModel, itemIndex: number) => MenuAttributeIter
-    getItemAttributeValue: any
-    getItemLinks: any
+    getItemAttributeValue: (model: MenuModel, itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null) => GLib.Variant | null
+    getItemLinks: (model: MenuModel, itemIndex: number) => { links: GLib.HashTable }
     iterateItemLinks: (model: MenuModel, itemIndex: number) => MenuLinkIter
     getItemLink: (model: MenuModel, itemIndex: number, link: string) => MenuModel | null
     static name: string
@@ -12222,7 +12222,7 @@ export abstract class MountOperationClass {
     askQuestion: (op: MountOperation, message: string, choices: string[]) => void
     reply: (op: MountOperation, result: MountOperationResult) => void
     aborted: (op: MountOperation) => void
-    showProcesses: any
+    showProcesses: (op: MountOperation, message: string, processes: GLib.Pid[], choices: string[]) => void
     showUnmountProgress: (op: MountOperation, message: string, timeLeft: number, bytesLeft: number) => void
     static name: string
 }
@@ -12326,7 +12326,7 @@ export abstract class PollableInputStreamInterface {
     gIface: GObject.TypeInterface
     canPoll: (stream: PollableInputStream) => boolean
     isReadable: (stream: PollableInputStream) => boolean
-    createSource: any
+    createSource: (stream: PollableInputStream, cancellable?: Cancellable | null) => GLib.Source
     readNonblocking: (stream: PollableInputStream, buffer: any[] | null) => number
     static name: string
 }
@@ -12335,7 +12335,7 @@ export abstract class PollableOutputStreamInterface {
     gIface: GObject.TypeInterface
     canPoll: (stream: PollableOutputStream) => boolean
     isWritable: (stream: PollableOutputStream) => boolean
-    createSource: any
+    createSource: (stream: PollableOutputStream, cancellable?: Cancellable | null) => GLib.Source
     writeNonblocking: (stream: PollableOutputStream, buffer: any[] | null) => number
     writevNonblocking: (stream: PollableOutputStream, vectors: OutputVector[]) => { returnType: PollableReturn, bytesWritten: number | null }
     static name: string
@@ -12375,8 +12375,8 @@ export abstract class ProxyResolverInterface {
 export abstract class RemoteActionGroupInterface {
     /* Fields of Gio-2.0.Gio.RemoteActionGroupInterface */
     gIface: GObject.TypeInterface
-    activateActionFull: any
-    changeActionStateFull: any
+    activateActionFull: (remote: RemoteActionGroup, actionName: string, parameter: GLib.Variant | null, platformData: GLib.Variant) => void
+    changeActionStateFull: (remote: RemoteActionGroup, actionName: string, value: GLib.Variant, platformData: GLib.Variant) => void
     static name: string
 }
 export abstract class ResolverClass {
@@ -12391,9 +12391,9 @@ export abstract class ResolverClass {
     lookupByAddressFinish: (resolver: Resolver, result: AsyncResult) => string
     lookupServiceAsync: (resolver: Resolver, rrname: string, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     lookupServiceFinish: (resolver: Resolver, result: AsyncResult) => SrvTarget[]
-    lookupRecords: any
+    lookupRecords: (resolver: Resolver, rrname: string, recordType: ResolverRecordType, cancellable?: Cancellable | null) => GLib.Variant[]
     lookupRecordsAsync: (resolver: Resolver, rrname: string, recordType: ResolverRecordType, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
-    lookupRecordsFinish: any
+    lookupRecordsFinish: (resolver: Resolver, result: AsyncResult) => GLib.Variant[]
     lookupByNameWithFlagsAsync: (resolver: Resolver, hostname: string, flags: ResolverNameLookupFlags, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     lookupByNameWithFlagsFinish: (resolver: Resolver, result: AsyncResult) => InetAddress[]
     lookupByNameWithFlags: (resolver: Resolver, hostname: string, flags: ResolverNameLookupFlags, cancellable?: Cancellable | null) => InetAddress[]
@@ -12422,7 +12422,7 @@ export abstract class SeekableIface {
     gIface: GObject.TypeInterface
     tell: (seekable: Seekable) => number
     canSeek: (seekable: Seekable) => boolean
-    seek: any
+    seek: (seekable: Seekable, offset: number, type: GLib.SeekType, cancellable?: Cancellable | null) => boolean
     canTruncate: (seekable: Seekable) => boolean
     truncateFn: (seekable: Seekable, offset: number, cancellable?: Cancellable | null) => boolean
     static name: string
@@ -12430,15 +12430,15 @@ export abstract class SeekableIface {
 export abstract class SettingsBackendClass {
     /* Fields of Gio-2.0.Gio.SettingsBackendClass */
     parentClass: GObject.ObjectClass
-    read: any
+    read: (backend: SettingsBackend, key: string, expectedType: GLib.VariantType, defaultValue: boolean) => GLib.Variant
     getWritable: (backend: SettingsBackend, key: string) => boolean
-    write: any
-    writeTree: any
+    write: (backend: SettingsBackend, key: string, value: GLib.Variant, originTag?: object | null) => boolean
+    writeTree: (backend: SettingsBackend, tree: GLib.Tree, originTag?: object | null) => boolean
     reset: (backend: SettingsBackend, key: string, originTag?: object | null) => void
     subscribe: (backend: SettingsBackend, name: string) => void
     unsubscribe: (backend: SettingsBackend, name: string) => void
     sync: (backend: SettingsBackend) => void
-    readUserValue: any
+    readUserValue: (backend: SettingsBackend, key: string, expectedType: GLib.VariantType) => GLib.Variant
     static name: string
 }
 export class SettingsBackendPrivate {
@@ -12449,8 +12449,8 @@ export abstract class SettingsClass {
     parentClass: GObject.ObjectClass
     writableChanged: (settings: Settings, key: string) => void
     changed: (settings: Settings, key: string) => void
-    writableChangeEvent: any
-    changeEvent: any
+    writableChangeEvent: (settings: Settings, key: GLib.Quark) => boolean
+    changeEvent: (settings: Settings, keys: GLib.Quark, nKeys: number) => boolean
     padding: object[]
     static name: string
 }
@@ -12583,7 +12583,7 @@ export class SocketPrivate {
 export abstract class SocketServiceClass {
     /* Fields of Gio-2.0.Gio.SocketServiceClass */
     parentClass: SocketListenerClass
-    incoming: any
+    incoming: (service: SocketService, connection: SocketConnection, sourceObject: GObject.Object) => boolean
     static name: string
 }
 export class SocketServicePrivate {
@@ -12635,7 +12635,7 @@ export abstract class ThemedIconClass {
 export abstract class ThreadedSocketServiceClass {
     /* Fields of Gio-2.0.Gio.ThreadedSocketServiceClass */
     parentClass: SocketServiceClass
-    run: any
+    run: (service: ThreadedSocketService, connection: SocketConnection, sourceObject: GObject.Object) => boolean
     static name: string
 }
 export class ThreadedSocketServicePrivate {
@@ -12645,14 +12645,14 @@ export abstract class TlsBackendInterface {
     /* Fields of Gio-2.0.Gio.TlsBackendInterface */
     gIface: GObject.TypeInterface
     supportsTls: (backend: TlsBackend) => boolean
-    getCertificateType: any
-    getClientConnectionType: any
-    getServerConnectionType: any
-    getFileDatabaseType: any
+    getCertificateType: () => GObject.Type
+    getClientConnectionType: () => GObject.Type
+    getServerConnectionType: () => GObject.Type
+    getFileDatabaseType: () => GObject.Type
     getDefaultDatabase: (backend: TlsBackend) => TlsDatabase
     supportsDtls: (backend: TlsBackend) => boolean
-    getDtlsClientConnectionType: any
-    getDtlsServerConnectionType: any
+    getDtlsClientConnectionType: () => GObject.Type
+    getDtlsServerConnectionType: () => GObject.Type
     static name: string
 }
 export abstract class TlsCertificateClass {
@@ -12726,7 +12726,7 @@ export abstract class TlsPasswordClass {
     /* Fields of Gio-2.0.Gio.TlsPasswordClass */
     parentClass: GObject.ObjectClass
     getValue: (password: TlsPassword, length?: number | null) => number
-    setValue: any
+    setValue: (password: TlsPassword, value: any[], destroy?: GLib.DestroyNotify | null) => void
     getDefaultWarning: (password: TlsPassword) => string
     static name: string
 }
@@ -12828,7 +12828,7 @@ export abstract class VfsClass {
     getFileForUri: (vfs: Vfs, uri: string) => File
     getSupportedUriSchemes: (vfs: Vfs) => string[]
     parseName: (vfs: Vfs, parseName: string) => File
-    localFileAddInfo: any
+    localFileAddInfo: (vfs: Vfs, filename: string, device: number, attributeMatcher: FileAttributeMatcher, info: FileInfo, cancellable: Cancellable | null, extraData: object | null, freeExtraData: GLib.DestroyNotify) => void
     addWritableNamespaces: (vfs: Vfs, list: FileAttributeInfoList) => void
     localFileSetAttributes: (vfs: Vfs, filename: string, info: FileInfo, flags: FileQueryInfoFlags, cancellable?: Cancellable | null) => boolean
     localFileRemoved: (vfs: Vfs, filename: string) => void

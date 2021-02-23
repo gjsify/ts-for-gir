@@ -3211,7 +3211,7 @@ export abstract class ObjectFactoryClass {
     /* Fields of Atk-1.0.Atk.ObjectFactoryClass */
     parent_class: GObject.ObjectClass
     invalidate: (factory: ObjectFactory) => void
-    get_accessible_type: any
+    get_accessible_type: () => GObject.Type
     pad1: Function
     pad2: Function
     static name: string
@@ -3296,7 +3296,7 @@ export abstract class StreamableContentIface {
     parent: GObject.TypeInterface
     get_n_mime_types: (streamable: StreamableContent) => number
     get_mime_type: (streamable: StreamableContent, i: number) => string
-    get_stream: any
+    get_stream: (streamable: StreamableContent, mime_type: string) => GLib.IOChannel
     get_uri: (streamable: StreamableContent, mime_type: string) => string | null
     pad1: Function
     pad2: Function

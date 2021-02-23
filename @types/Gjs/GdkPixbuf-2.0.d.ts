@@ -610,7 +610,7 @@ export abstract class PixbufAnimationClass {
     is_static_image: (animation: PixbufAnimation) => boolean
     get_static_image: (animation: PixbufAnimation) => Pixbuf
     get_size: (animation: PixbufAnimation, width: number, height: number) => void
-    get_iter: any
+    get_iter: (animation: PixbufAnimation, start_time?: GLib.TimeVal | null) => PixbufAnimationIter
     static name: string
 }
 export abstract class PixbufAnimationIterClass {
@@ -619,7 +619,7 @@ export abstract class PixbufAnimationIterClass {
     get_delay_time: (iter: PixbufAnimationIter) => number
     get_pixbuf: (iter: PixbufAnimationIter) => Pixbuf
     on_currently_loading_frame: (iter: PixbufAnimationIter) => boolean
-    advance: any
+    advance: (iter: PixbufAnimationIter, current_time?: GLib.TimeVal | null) => boolean
     static name: string
 }
 export class PixbufFormat {

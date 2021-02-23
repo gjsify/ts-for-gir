@@ -6577,7 +6577,7 @@ export abstract class MapSourceClass {
     getMaxZoomLevel: (mapSource: MapSource) => number
     getTileSize: (mapSource: MapSource) => number
     getProjection: (mapSource: MapSource) => MapProjection
-    fillTile: any
+    fillTile: (mapSource: MapSource, tile: Tile, cancellable?: Gio.Cancellable | null) => void
     static name: string
 }
 export abstract class MapSourceDescClass {

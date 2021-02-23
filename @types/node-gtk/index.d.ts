@@ -343,6 +343,13 @@ import type { xfixes as Xfixes40 } from "./xfixes-4.0";
 import type { xft as Xft20 } from "./xft-2.0";
 import type { xlib as Xlib20 } from "./xlib-2.0";
 import type { xrandr as Xrandr13 } from "./xrandr-1.3";
+import type { Gst as Gst010 } from "./Gst-0.10";
+import type { GstBase as GstBase010 } from "./GstBase-0.10";
+import type { GstInterfaces as GstInterfaces010 } from "./GstInterfaces-0.10";
+import type { GstPbutils as GstPbutils010 } from "./GstPbutils-0.10";
+import type { GstTag as GstTag010 } from "./GstTag-0.10";
+import type { GstVideo as GstVideo010 } from "./GstVideo-0.10";
+import type { SocialWebClient as SocialWebClient025 } from "./SocialWebClient-0.25";
 
 declare module 'node-gtk' {
     export function require(ns: string, ver?: string): any;
@@ -690,5 +697,12 @@ declare module 'node-gtk' {
         export function require(ns: 'Xft20', ver?: '2.0'): typeof Xft20;
         export function require(ns: 'Xlib20', ver?: '2.0'): typeof Xlib20;
         export function require(ns: 'Xrandr13', ver?: '1.3'): typeof Xrandr13;
+        export function require(ns: 'Gst010', ver?: '0.10'): typeof Gst010;
+        export function require(ns: 'GstBase010', ver?: '0.10'): typeof GstBase010;
+        export function require(ns: 'GstInterfaces010', ver?: '0.10'): typeof GstInterfaces010;
+        export function require(ns: 'GstPbutils010', ver?: '0.10'): typeof GstPbutils010;
+        export function require(ns: 'GstTag010', ver?: '0.10'): typeof GstTag010;
+        export function require(ns: 'GstVideo010', ver?: '0.10'): typeof GstVideo010;
+        export function require(ns: 'SocialWebClient025', ver?: '0.25'): typeof SocialWebClient025;
     export function startLoop(): void;
 }

@@ -1627,36 +1627,36 @@ export class SimpleResultSetPrivate {
 }
 export abstract class RemoteRegistryIface {
     /* Fields of Zeitgeist-2.0.Zeitgeist.RemoteRegistryIface */
-    getDataSources: any
-    getDataSourcesFinish: any
-    registerDataSource: any
-    registerDataSourceFinish: any
-    setDataSourceEnabled: any
-    setDataSourceEnabledFinish: any
-    getDataSourceFromId: any
-    getDataSourceFromIdFinish: any
+    getDataSources: (cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    getDataSourcesFinish: (res: Gio.AsyncResult) => GLib.Variant
+    registerDataSource: (uniqueId: string, name: string, description: string, eventTemplates: GLib.Variant, cancellable?: Gio.Cancellable | null, sender?: string | null, callback?: Gio.AsyncReadyCallback | null) => void
+    registerDataSourceFinish: (res: Gio.AsyncResult) => boolean
+    setDataSourceEnabled: (uniqueId: string, enabled: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    setDataSourceEnabledFinish: (res: Gio.AsyncResult) => void
+    getDataSourceFromId: (uniqueId: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    getDataSourceFromIdFinish: (res: Gio.AsyncResult) => GLib.Variant
     static name: string
 }
 export abstract class RemoteLogIface {
     /* Fields of Zeitgeist-2.0.Zeitgeist.RemoteLogIface */
-    deleteEvents: any
-    deleteEventsFinish: any
-    findEventIds: any
-    findEventIdsFinish: any
-    findEvents: any
-    findEventsFinish: any
-    findRelatedUris: any
-    findRelatedUrisFinish: any
-    getEvents: any
-    getEventsFinish: any
-    insertEvents: any
-    insertEventsFinish: any
-    installMonitor: any
-    installMonitorFinish: any
-    removeMonitor: any
-    removeMonitorFinish: any
-    quit: any
-    quitFinish: any
+    deleteEvents: (eventIds: number[], cancellable?: Gio.Cancellable | null, sender?: string | null, callback?: Gio.AsyncReadyCallback | null) => void
+    deleteEventsFinish: (res: Gio.AsyncResult) => GLib.Variant
+    findEventIds: (timeRange: GLib.Variant, eventTemplates: GLib.Variant, storageState: number, numEvents: number, resultType: number, cancellable?: Gio.Cancellable | null, sender?: string | null, callback?: Gio.AsyncReadyCallback | null) => void
+    findEventIdsFinish: (res: Gio.AsyncResult) => number[]
+    findEvents: (timeRange: GLib.Variant, eventTemplates: GLib.Variant, storageState: number, numEvents: number, resultType: number, cancellable?: Gio.Cancellable | null, sender?: string | null, callback?: Gio.AsyncReadyCallback | null) => void
+    findEventsFinish: (res: Gio.AsyncResult) => GLib.Variant
+    findRelatedUris: (timeRange: GLib.Variant, eventTemplates: GLib.Variant, resultEventTemplates: GLib.Variant, storageState: number, numEvents: number, resultType: number, cancellable?: Gio.Cancellable | null, sender?: string | null, callback?: Gio.AsyncReadyCallback | null) => void
+    findRelatedUrisFinish: (res: Gio.AsyncResult) => string[]
+    getEvents: (eventIds: number[], cancellable?: Gio.Cancellable | null, sender?: string | null, callback?: Gio.AsyncReadyCallback | null) => void
+    getEventsFinish: (res: Gio.AsyncResult) => GLib.Variant
+    insertEvents: (events: GLib.Variant, cancellable?: Gio.Cancellable | null, sender?: string | null, callback?: Gio.AsyncReadyCallback | null) => void
+    insertEventsFinish: (res: Gio.AsyncResult) => number[]
+    installMonitor: (monitorPath: string, timeRange: GLib.Variant, eventTemplates: GLib.Variant, owner?: string | null, callback?: Gio.AsyncReadyCallback | null) => void
+    installMonitorFinish: (res: Gio.AsyncResult) => void
+    removeMonitor: (monitorPath: string, owner?: string | null, callback?: Gio.AsyncReadyCallback | null) => void
+    removeMonitorFinish: (res: Gio.AsyncResult) => void
+    quit: (cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    quitFinish: (res: Gio.AsyncResult) => void
     getExtensions: () => string[]
     getVersion: () => { result: VersionStruct }
     getDatapath: () => string
@@ -1664,18 +1664,18 @@ export abstract class RemoteLogIface {
 }
 export abstract class RemoteMonitorIface {
     /* Fields of Zeitgeist-2.0.Zeitgeist.RemoteMonitorIface */
-    notifyInsert: any
-    notifyInsertFinish: any
-    notifyDelete: any
-    notifyDeleteFinish: any
+    notifyInsert: (timeRange: GLib.Variant, events: GLib.Variant, callback?: Gio.AsyncReadyCallback | null) => void
+    notifyInsertFinish: (res: Gio.AsyncResult) => void
+    notifyDelete: (timeRange: GLib.Variant, eventIds: number[], callback?: Gio.AsyncReadyCallback | null) => void
+    notifyDeleteFinish: (res: Gio.AsyncResult) => void
     static name: string
 }
 export abstract class RemoteSimpleIndexerIface {
     /* Fields of Zeitgeist-2.0.Zeitgeist.RemoteSimpleIndexerIface */
-    search: any
-    searchFinish: any
-    searchWithRelevancies: any
-    searchWithRelevanciesFinish: any
+    search: (queryString: string, timeRange: GLib.Variant, filterTemplates: GLib.Variant, offset: number, count: number, resultType: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    searchFinish: (res: Gio.AsyncResult) => { events: GLib.Variant, matches: number }
+    searchWithRelevancies: (queryString: string, timeRange: GLib.Variant, filterTemplates: GLib.Variant, storageState: number, offset: number, count: number, resultType: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    searchWithRelevanciesFinish: (res: Gio.AsyncResult) => { events: GLib.Variant, relevancies: number[], matches: number }
     static name: string
 }
 export abstract class NetworkManagerDBusIface {

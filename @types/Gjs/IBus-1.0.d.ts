@@ -6932,10 +6932,10 @@ export class ConfigPrivate {
 }
 export abstract class ConfigServiceClass {
     /* Fields of IBus-1.0.IBus.ConfigServiceClass */
-    set_value: any
-    get_value: any
+    set_value: (config: ConfigService, section: string, name: string, value: GLib.Variant) => boolean
+    get_value: (config: ConfigService, section: string, name: string) => GLib.Variant
     unset_value: (config: ConfigService, section: string, name: string) => boolean
-    get_values: any
+    get_values: (config: ConfigService, section: string) => GLib.Variant
     static name: string
 }
 export abstract class EngineClass {
@@ -6990,7 +6990,7 @@ export class FactoryPrivate {
 export abstract class HotkeyProfileClass {
     /* Fields of IBus-1.0.IBus.HotkeyProfileClass */
     parent: SerializableClass
-    trigger: any
+    trigger: (profile: HotkeyProfile, event: GLib.Quark) => void
     static name: string
 }
 export abstract class InputContextClass {
@@ -7087,8 +7087,8 @@ export class RegistryPrivate {
 }
 export abstract class SerializableClass {
     /* Fields of IBus-1.0.IBus.SerializableClass */
-    serialize: any
-    deserialize: any
+    serialize: (object: Serializable, builder: GLib.VariantBuilder) => boolean
+    deserialize: (object: Serializable, variant: GLib.Variant) => number
     copy: (dest: Serializable, src: Serializable) => boolean
     static name: string
 }
@@ -7097,9 +7097,9 @@ export class SerializablePrivate {
 }
 export abstract class ServiceClass {
     /* Fields of IBus-1.0.IBus.ServiceClass */
-    service_method_call: any
-    service_get_property: any
-    service_set_property: any
+    service_method_call: (service: Service, connection: Gio.DBusConnection, sender: string, object_path: string, interface_name: string, method_name: string, parameters: GLib.Variant, invocation: Gio.DBusMethodInvocation) => void
+    service_get_property: (service: Service, connection: Gio.DBusConnection, sender: string, object_path: string, interface_name: string, property_name: string) => GLib.Variant | null
+    service_set_property: (service: Service, connection: Gio.DBusConnection, sender: string, object_path: string, interface_name: string, property_name: string, value: GLib.Variant) => boolean
     /* Methods of IBus-1.0.IBus.ServiceClass */
     add_interfaces(klass: Service | Function | GObject.Type, xml_data: string): boolean
     static name: string

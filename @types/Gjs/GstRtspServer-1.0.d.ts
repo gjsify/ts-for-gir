@@ -2433,7 +2433,7 @@ export abstract class RTSPAuthClass {
     authenticate: (auth: RTSPAuth, ctx: RTSPContext) => boolean
     check: (auth: RTSPAuth, ctx: RTSPContext, check: string) => boolean
     generate_authenticate_header: (auth: RTSPAuth, ctx: RTSPContext) => void
-    accept_certificate: any
+    accept_certificate: (auth: RTSPAuth, connection: Gio.TlsConnection, peer_cert: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => boolean
     static name: string
 }
 export class RTSPAuthPrivate {
@@ -2442,14 +2442,14 @@ export class RTSPAuthPrivate {
 export abstract class RTSPClientClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPClientClass */
     parent_class: GObject.ObjectClass
-    create_sdp: any
+    create_sdp: (client: RTSPClient, media: RTSPMedia) => GstSdp.SDPMessage
     configure_client_media: (client: RTSPClient, media: RTSPMedia, stream: RTSPStream, ctx: RTSPContext) => boolean
-    configure_client_transport: any
-    params_set: any
-    params_get: any
-    make_path_from_uri: any
-    adjust_play_mode: any
-    adjust_play_response: any
+    configure_client_transport: (client: RTSPClient, ctx: RTSPContext, ct: GstRtsp.RTSPTransport) => boolean
+    params_set: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPResult
+    params_get: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPResult
+    make_path_from_uri: (client: RTSPClient, uri: GstRtsp.RTSPUrl) => string
+    adjust_play_mode: (client: RTSPClient, context: RTSPContext, range: GstRtsp.RTSPTimeRange, flags: Gst.SeekFlags, rate: number, trickmode_interval: Gst.ClockTime, enable_rate_control: boolean) => GstRtsp.RTSPStatusCode
+    adjust_play_response: (client: RTSPClient, context: RTSPContext) => GstRtsp.RTSPStatusCode
     closed: (client: RTSPClient) => void
     new_session: (client: RTSPClient, session: RTSPSession) => void
     options_request: (client: RTSPClient, ctx: RTSPContext) => void
@@ -2461,22 +2461,22 @@ export abstract class RTSPClientClass {
     set_parameter_request: (client: RTSPClient, ctx: RTSPContext) => void
     get_parameter_request: (client: RTSPClient, ctx: RTSPContext) => void
     handle_response: (client: RTSPClient, ctx: RTSPContext) => void
-    tunnel_http_response: any
-    send_message: any
-    handle_sdp: any
+    tunnel_http_response: (client: RTSPClient, request: GstRtsp.RTSPMessage, response: GstRtsp.RTSPMessage) => void
+    send_message: (client: RTSPClient, ctx: RTSPContext, response: GstRtsp.RTSPMessage) => void
+    handle_sdp: (client: RTSPClient, ctx: RTSPContext, media: RTSPMedia, sdp: GstSdp.SDPMessage) => boolean
     announce_request: (client: RTSPClient, ctx: RTSPContext) => void
     record_request: (client: RTSPClient, ctx: RTSPContext) => void
     check_requirements: (client: RTSPClient, ctx: RTSPContext, arr: string) => string
-    pre_options_request: any
-    pre_describe_request: any
-    pre_setup_request: any
-    pre_play_request: any
-    pre_pause_request: any
-    pre_teardown_request: any
-    pre_set_parameter_request: any
-    pre_get_parameter_request: any
-    pre_announce_request: any
-    pre_record_request: any
+    pre_options_request: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPStatusCode
+    pre_describe_request: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPStatusCode
+    pre_setup_request: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPStatusCode
+    pre_play_request: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPStatusCode
+    pre_pause_request: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPStatusCode
+    pre_teardown_request: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPStatusCode
+    pre_set_parameter_request: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPStatusCode
+    pre_get_parameter_request: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPStatusCode
+    pre_announce_request: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPStatusCode
+    pre_record_request: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPStatusCode
     static name: string
 }
 export class RTSPClientPrivate {
@@ -2507,31 +2507,31 @@ export class RTSPContext {
 export abstract class RTSPMediaClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPMediaClass */
     parent_class: GObject.ObjectClass
-    handle_message: any
+    handle_message: (media: RTSPMedia, message: Gst.Message) => boolean
     prepare: (media: RTSPMedia, thread?: RTSPThread | null) => boolean
     unprepare: (media: RTSPMedia) => boolean
     suspend: (media: RTSPMedia) => boolean
     unsuspend: (media: RTSPMedia) => boolean
-    convert_range: any
+    convert_range: (media: RTSPMedia, range: GstRtsp.RTSPTimeRange, unit: GstRtsp.RTSPRangeUnit) => boolean
     query_position: (media: RTSPMedia, position: number) => boolean
     query_stop: (media: RTSPMedia, stop: number) => boolean
-    setup_rtpbin: any
-    setup_sdp: any
+    setup_rtpbin: (media: RTSPMedia, rtpbin: Gst.Element) => boolean
+    setup_sdp: (media: RTSPMedia, sdp: GstSdp.SDPMessage, info: SDPInfo) => boolean
     new_stream: (media: RTSPMedia, stream: RTSPStream) => void
     removed_stream: (media: RTSPMedia, stream: RTSPStream) => void
     prepared: (media: RTSPMedia) => void
     unprepared: (media: RTSPMedia) => void
-    target_state: any
-    new_state: any
-    handle_sdp: any
+    target_state: (media: RTSPMedia, state: Gst.State) => void
+    new_state: (media: RTSPMedia, state: Gst.State) => void
+    handle_sdp: (media: RTSPMedia, sdp: GstSdp.SDPMessage) => boolean
     static name: string
 }
 export abstract class RTSPMediaFactoryClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPMediaFactoryClass */
     parent_class: GObject.ObjectClass
-    gen_key: any
-    create_element: any
-    construct: any
+    gen_key: (factory: RTSPMediaFactory, url: GstRtsp.RTSPUrl) => string
+    create_element: (factory: RTSPMediaFactory, url: GstRtsp.RTSPUrl) => Gst.Element
+    construct: (factory: RTSPMediaFactory, url: GstRtsp.RTSPUrl) => RTSPMedia
     configure: (factory: RTSPMediaFactory, media: RTSPMedia) => void
     media_constructed: (factory: RTSPMediaFactory, media: RTSPMedia) => void
     media_configure: (factory: RTSPMediaFactory, media: RTSPMedia) => void
@@ -2554,7 +2554,7 @@ export class RTSPMediaPrivate {
 export abstract class RTSPMountPointsClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPMountPointsClass */
     parent_class: GObject.ObjectClass
-    make_path: any
+    make_path: (mounts: RTSPMountPoints, url: GstRtsp.RTSPUrl) => string | null
     static name: string
 }
 export class RTSPMountPointsPrivate {

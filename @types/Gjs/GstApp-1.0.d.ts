@@ -799,20 +799,20 @@ export class AppSrc {
 export class AppSinkCallbacks {
     /* Fields of GstApp-1.0.GstApp.AppSinkCallbacks */
     eos: (appsink: AppSink) => void
-    new_preroll: any
-    new_sample: any
+    new_preroll: (appsink: AppSink) => Gst.FlowReturn
+    new_sample: (appsink: AppSink) => Gst.FlowReturn
     static name: string
 }
 export abstract class AppSinkClass {
     /* Fields of GstApp-1.0.GstApp.AppSinkClass */
     basesink_class: GstBase.BaseSinkClass
     eos: (appsink: AppSink) => void
-    new_preroll: any
-    new_sample: any
-    pull_preroll: any
-    pull_sample: any
-    try_pull_preroll: any
-    try_pull_sample: any
+    new_preroll: (appsink: AppSink) => Gst.FlowReturn
+    new_sample: (appsink: AppSink) => Gst.FlowReturn
+    pull_preroll: (appsink: AppSink) => Gst.Sample
+    pull_sample: (appsink: AppSink) => Gst.Sample
+    try_pull_preroll: (appsink: AppSink, timeout: Gst.ClockTime) => Gst.Sample
+    try_pull_sample: (appsink: AppSink, timeout: Gst.ClockTime) => Gst.Sample
     static name: string
 }
 export class AppSinkPrivate {
@@ -831,10 +831,10 @@ export abstract class AppSrcClass {
     need_data: (appsrc: AppSrc, length: number) => void
     enough_data: (appsrc: AppSrc) => void
     seek_data: (appsrc: AppSrc, offset: number) => boolean
-    push_buffer: any
-    end_of_stream: any
-    push_sample: any
-    push_buffer_list: any
+    push_buffer: (appsrc: AppSrc, buffer: Gst.Buffer) => Gst.FlowReturn
+    end_of_stream: (appsrc: AppSrc) => Gst.FlowReturn
+    push_sample: (appsrc: AppSrc, sample: Gst.Sample) => Gst.FlowReturn
+    push_buffer_list: (appsrc: AppSrc, buffer_list: Gst.BufferList) => Gst.FlowReturn
     static name: string
 }
 export class AppSrcPrivate {

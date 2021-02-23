@@ -1824,22 +1824,22 @@ export abstract class ModelIface {
     getColumnIndex: (self: Model, columnName: string) => number
     setColumnNamesFull: (self: Model, columnNames: string[]) => void
     getColumnNames: (self: Model) => string[]
-    registerVardictSchema: any
-    getVardictSchema: any
+    registerVardictSchema: (self: Model, numColumn: number, schemas: GLib.HashTable) => void
+    getVardictSchema: (self: Model, numColumn: number) => GLib.HashTable
     getNColumns: (self: Model) => number
     getNRows: (self: Model) => number
-    appendRow: any
-    prependRow: any
-    insertRow: any
-    insertRowBefore: any
-    insertRowSorted: any
-    findRowSorted: any
+    appendRow: (self: Model, rowMembers: GLib.Variant[]) => ModelIter
+    prependRow: (self: Model, rowMembers: GLib.Variant[]) => ModelIter
+    insertRow: (self: Model, pos: number, rowMembers: GLib.Variant[]) => ModelIter
+    insertRowBefore: (self: Model, iter: ModelIter, rowMembers: GLib.Variant[]) => ModelIter
+    insertRowSorted: (self: Model, rowMembers: GLib.Variant[], cmpFunc: CompareRowFunc) => ModelIter
+    findRowSorted: (self: Model, rowSpec: GLib.Variant[], cmpFunc: CompareRowFunc) => { returnType: ModelIter, outWasFound: boolean }
     remove: (self: Model, iter: ModelIter) => void
     clear: (self: Model) => void
-    setValue: any
-    setRow: any
-    getValue: any
-    getValueByName: any
+    setValue: (self: Model, iter: ModelIter, column: number, value: GLib.Variant) => void
+    setRow: (self: Model, iter: ModelIter, rowMembers: GLib.Variant[]) => void
+    getValue: (self: Model, iter: ModelIter, column: number) => GLib.Variant
+    getValueByName: (self: Model, iter: ModelIter, columnName: string) => GLib.Variant
     getFirstIter: (self: Model) => ModelIter
     getLastIter: (self: Model) => ModelIter
     getIterAtRow: (self: Model, row: number) => ModelIter
@@ -1856,10 +1856,10 @@ export abstract class ModelIface {
     isFirst: (self: Model, iter: ModelIter) => boolean
     isLast: (self: Model, iter: ModelIter) => boolean
     getPosition: (self: Model, iter: ModelIter) => number
-    registerTag: any
+    registerTag: (self: Model, tagDestroy: GLib.DestroyNotify) => ModelTag
     getTag: (self: Model, iter: ModelIter, tag: ModelTag) => object | null
     setTag: (self: Model, iter: ModelIter, tag: ModelTag, value?: object | null) => void
-    getRow: any
+    getRow: (self: Model, iter: ModelIter, outRowMembers: GLib.Variant) => GLib.Variant
     beginChangeset: (self: Model) => void
     endChangeset: (self: Model) => void
     changesetStarted: (self: Model) => void
@@ -1889,11 +1889,11 @@ export abstract class PeerClass {
     /* Fields of Dee-1.0.Dee.PeerClass */
     peerFound: (self: Peer, name: string) => void
     peerLost: (self: Peer, name: string) => void
-    connectionAcquired: any
-    connectionClosed: any
+    connectionAcquired: (self: Peer, connection: Gio.DBusConnection) => void
+    connectionClosed: (self: Peer, connection: Gio.DBusConnection) => void
     getSwarmLeader: (self: Peer) => string
     isSwarmLeader: (self: Peer) => boolean
-    getConnections: any
+    getConnections: (self: Peer) => Gio.DBusConnection[]
     listPeers: (self: Peer) => string[]
     static name: string
 }
@@ -1910,7 +1910,7 @@ export abstract class ResourceManagerIface {
     /* Fields of Dee-1.0.Dee.ResourceManagerIface */
     gIface: GObject.TypeInterface
     store: (self: ResourceManager, resource: Serializable, resourceName: string) => boolean
-    load: any
+    load: (self: ResourceManager, resourceName: string) => GObject.Object
     static name: string
 }
 export abstract class ResultSetIface {
@@ -1934,7 +1934,7 @@ export class SequenceModelPrivate {
 export abstract class SerializableIface {
     /* Fields of Dee-1.0.Dee.SerializableIface */
     gIface: GObject.TypeInterface
-    serialize: any
+    serialize: (self: Serializable) => GLib.Variant
     static name: string
 }
 export abstract class SerializableModelClass {

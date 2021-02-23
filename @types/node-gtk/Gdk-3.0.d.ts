@@ -5080,7 +5080,7 @@ export abstract class WindowClass {
     parentClass: GObject.ObjectClass
     toEmbedder: (window: Window, offscreenX: number, offscreenY: number, embedderX: number, embedderY: number) => void
     fromEmbedder: (window: Window, embedderX: number, embedderY: number, offscreenX: number, offscreenY: number) => void
-    createSurface: any
+    createSurface: (window: Window, width: number, height: number) => cairo.Surface
     static name: string
 }
 export class WindowRedirect {

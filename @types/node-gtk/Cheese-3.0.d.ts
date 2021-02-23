@@ -402,9 +402,9 @@ export class FileUtil {
 export abstract class CameraClass {
     /* Fields of Cheese-3.0.Cheese.CameraClass */
     photoSaved: (camera: Camera) => void
-    photoTaken: any
+    photoTaken: (camera: Camera, pixbuf: GdkPixbuf.Pixbuf) => void
     videoSaved: (camera: Camera) => void
-    stateFlagsChanged: any
+    stateFlagsChanged: (camera: Camera, newState: Gst.State) => void
     static name: string
 }
 export abstract class CameraDeviceClass {

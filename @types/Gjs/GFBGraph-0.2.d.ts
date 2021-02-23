@@ -661,16 +661,16 @@ export class AlbumPrivate {
 export abstract class AuthorizerInterface {
     /* Fields of GFBGraph-0.2.GFBGraph.AuthorizerInterface */
     parent: GObject.TypeInterface
-    process_call: any
-    process_message: any
-    refresh_authorization: any
+    process_call: (iface: Authorizer, call: Rest.ProxyCall) => void
+    process_message: (iface: Authorizer, message: Soup.Message) => void
+    refresh_authorization: (iface: Authorizer, cancellable?: Gio.Cancellable | null) => boolean
     static name: string
 }
 export abstract class ConnectableInterface {
     /* Fields of GFBGraph-0.2.GFBGraph.ConnectableInterface */
     parent: GObject.TypeInterface
     connections: GLib.HashTable
-    get_connection_post_params: any
+    get_connection_post_params: (self: Connectable, node_type: GObject.Type) => GLib.HashTable
     parse_connected_data: (self: Connectable, payload: string) => Node[]
     static name: string
 }

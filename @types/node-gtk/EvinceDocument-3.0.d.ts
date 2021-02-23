@@ -2232,7 +2232,7 @@ export abstract class AnnotationTextMarkupClass {
 export abstract class AsyncRendererInterface {
     /* Fields of EvinceDocument-3.0.EvinceDocument.AsyncRendererInterface */
     baseIface: GObject.TypeInterface
-    renderFinished: any
+    renderFinished: (renderer: AsyncRenderer, pixbuf: GdkPixbuf.Pixbuf) => void
     renderPixbuf: (renderer: AsyncRenderer, page: number, scale: number, rotation: number) => void
     static name: string
 }
@@ -2274,14 +2274,14 @@ export abstract class DocumentClass {
     getPage: (document: Document, index: number) => Page
     getPageSize: (document: Document, page: Page) => { width: number | null, height: number | null }
     getPageLabel: (document: Document, page: Page) => string
-    render: any
-    getThumbnail: any
+    render: (document: Document, rc: RenderContext) => cairo.Surface
+    getThumbnail: (document: Document, rc: RenderContext) => GdkPixbuf.Pixbuf
     getInfo: (document: Document) => DocumentInfo
     getBackendInfo: (document: Document, info: DocumentBackendInfo) => boolean
     supportSynctex: (document: Document) => boolean
-    loadStream: any
-    loadGfile: any
-    getThumbnailSurface: any
+    loadStream: (document: Document, stream: Gio.InputStream, flags: DocumentLoadFlags, cancellable?: Gio.Cancellable | null) => boolean
+    loadGfile: (document: Document, file: Gio.File, flags: DocumentLoadFlags, cancellable?: Gio.Cancellable | null) => boolean
+    getThumbnailSurface: (document: Document, rc: RenderContext) => cairo.Surface
     static name: string
 }
 export abstract class DocumentFindInterface {
@@ -2297,7 +2297,7 @@ export abstract class DocumentFontsInterface {
     baseIface: GObject.TypeInterface
     scan: (documentFonts: DocumentFonts, nPages: number) => boolean
     getProgress: (documentFonts: DocumentFonts) => number
-    fillModel: any
+    fillModel: (documentFonts: DocumentFonts, model: Gtk.TreeModel) => void
     getFontsSummary: (documentFonts: DocumentFonts) => string
     static name: string
 }
@@ -2325,7 +2325,7 @@ export abstract class DocumentImagesInterface {
     /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentImagesInterface */
     baseIface: GObject.TypeInterface
     getImageMapping: (documentImages: DocumentImages, page: Page) => MappingList
-    getImage: any
+    getImage: (documentImages: DocumentImages, image: Image) => GdkPixbuf.Pixbuf
     static name: string
 }
 export class DocumentInfo {
@@ -2360,7 +2360,7 @@ export abstract class DocumentLayersInterface {
     /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentLayersInterface */
     baseIface: GObject.TypeInterface
     hasLayers: (documentLayers: DocumentLayers) => boolean
-    getLayers: any
+    getLayers: (documentLayers: DocumentLayers) => Gtk.TreeModel
     showLayer: (documentLayers: DocumentLayers, layer: Layer) => void
     hideLayer: (documentLayers: DocumentLayers, layer: Layer) => void
     layerIsVisible: (documentLayers: DocumentLayers, layer: Layer) => boolean
@@ -2387,7 +2387,7 @@ export abstract class DocumentLinksInterface {
     /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentLinksInterface */
     baseIface: GObject.TypeInterface
     hasDocumentLinks: (documentLinks: DocumentLinks) => boolean
-    getLinksModel: any
+    getLinksModel: (documentLinks: DocumentLinks) => Gtk.TreeModel
     getLinks: (documentLinks: DocumentLinks, page: Page) => MappingList
     findLinkDest: (documentLinks: DocumentLinks, linkName: string) => LinkDest
     findLinkPage: (documentLinks: DocumentLinks, linkName: string) => number
@@ -2402,7 +2402,7 @@ export abstract class DocumentMediaInterface {
 export abstract class DocumentPrintInterface {
     /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentPrintInterface */
     baseIface: GObject.TypeInterface
-    printPage: any
+    printPage: (documentPrint: DocumentPrint, page: Page, cr: cairo.Context) => void
     static name: string
 }
 export class DocumentPrivate {
@@ -2418,10 +2418,10 @@ export abstract class DocumentSecurityInterface {
 export abstract class DocumentTextInterface {
     /* Fields of EvinceDocument-3.0.EvinceDocument.DocumentTextInterface */
     baseIface: GObject.TypeInterface
-    getTextMapping: any
+    getTextMapping: (documentText: DocumentText, page: Page) => cairo.Region
     getText: (documentText: DocumentText, page: Page) => string
     getTextLayout: (documentText: DocumentText, page: Page, areas: Rectangle, nAreas: number) => boolean
-    getTextAttrs: any
+    getTextAttrs: (documentText: DocumentText, page: Page) => Pango.AttrList
     static name: string
 }
 export abstract class DocumentTransitionInterface {
@@ -2580,9 +2580,9 @@ export abstract class RenderContextClass {
 export abstract class SelectionInterface {
     /* Fields of EvinceDocument-3.0.EvinceDocument.SelectionInterface */
     baseIface: GObject.TypeInterface
-    renderSelection: any
+    renderSelection: (selection: Selection, rc: RenderContext, surface: cairo.Surface, points: Rectangle, oldPoints: Rectangle, style: SelectionStyle, text: Gdk.Color, base: Gdk.Color) => void
     getSelectedText: (selection: Selection, page: Page, style: SelectionStyle, points: Rectangle) => string
-    getSelectionRegion: any
+    getSelectionRegion: (selection: Selection, rc: RenderContext, style: SelectionStyle, points: Rectangle) => cairo.Region
     static name: string
 }
 export class SourceLink {

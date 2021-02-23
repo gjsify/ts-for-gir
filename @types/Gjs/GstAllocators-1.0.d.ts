@@ -360,6 +360,6 @@ export abstract class FdAllocatorClass {
 }
 export abstract class PhysMemoryAllocatorInterface {
     /* Fields of GstAllocators-1.0.GstAllocators.PhysMemoryAllocatorInterface */
-    get_phys_addr: any
+    get_phys_addr: (allocator: PhysMemoryAllocator, mem: Gst.Memory) => number
     static name: string
 }

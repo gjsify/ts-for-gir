@@ -13999,6 +13999,8 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gst.Bin': [
     'Gst.Element',
     'Gst.ChildProxy',
+    'Gst.Element',
+    'Gst.ChildProxy',
     'Gst.Object',
     'GObject.InitiallyUnowned',
     'GObject.Object',
@@ -14010,10 +14012,12 @@ const inheritanceTable: { [key: string]: string[] } = {
 ],
     'Gst.Bus': [
     'Gst.Object',
+    'Gst.Object',
     'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
     'Gst.Clock': [
+    'Gst.Object',
     'Gst.Object',
     'GObject.InitiallyUnowned',
     'GObject.Object',
@@ -14057,16 +14061,19 @@ const inheritanceTable: { [key: string]: string[] } = {
 ],
     'Gst.Element': [
     'Gst.Object',
+    'Gst.Object',
     'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
     'Gst.ElementFactory': [
+    'Gst.PluginFeature',
     'Gst.PluginFeature',
     'Gst.Object',
     'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
     'Gst.GhostPad': [
+    'Gst.ProxyPad',
     'Gst.ProxyPad',
     'Gst.Pad',
     'Gst.Object',
@@ -14076,13 +14083,16 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gst.Object': [
     'GObject.InitiallyUnowned',
     'GObject.Object',
+    'GObject.Object',
 ],
     'Gst.Pad': [
+    'Gst.Object',
     'Gst.Object',
     'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
     'Gst.PadTemplate': [
+    'Gst.Object',
     'Gst.Object',
     'GObject.InitiallyUnowned',
     'GObject.Object',
@@ -14092,8 +14102,11 @@ const inheritanceTable: { [key: string]: string[] } = {
 ],
     'Gst.ParamFraction': [
     'GObject.ParamSpec',
+    'GObject.Object',
 ],
     'Gst.Pipeline': [
+    'Gst.Bin',
+    'Gst.ChildProxy',
     'Gst.Bin',
     'Gst.ChildProxy',
     'Gst.Element',
@@ -14103,21 +14116,25 @@ const inheritanceTable: { [key: string]: string[] } = {
 ],
     'Gst.Plugin': [
     'Gst.Object',
+    'Gst.Object',
     'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
     'Gst.PluginFeature': [
+    'Gst.Object',
     'Gst.Object',
     'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
     'Gst.ProxyPad': [
     'Gst.Pad',
+    'Gst.Pad',
     'Gst.Object',
     'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
     'Gst.Registry': [
+    'Gst.Object',
     'Gst.Object',
     'GObject.InitiallyUnowned',
     'GObject.Object',
@@ -14140,16 +14157,19 @@ const inheritanceTable: { [key: string]: string[] } = {
 ],
     'Gst.SystemClock': [
     'Gst.Clock',
+    'Gst.Clock',
     'Gst.Object',
     'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
     'Gst.Task': [
     'Gst.Object',
+    'Gst.Object',
     'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
     'Gst.TaskPool': [
+    'Gst.Object',
     'Gst.Object',
     'GObject.InitiallyUnowned',
     'GObject.Object',
@@ -14171,6 +14191,7 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
 ],
     'Gst.TypeFindFactory': [
+    'Gst.PluginFeature',
     'Gst.PluginFeature',
     'Gst.Object',
     'GObject.InitiallyUnowned',
@@ -30168,6 +30189,163 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
 ],
     'gSignon.Identity': [
+    'GObject.Object',
+],
+    'Gst.Adapter': [
+    'GObject.Object',
+],
+    'Gst.BaseSink': [
+    'Gst.Element',
+    'Gst.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'Gst.BaseSrc': [
+    'Gst.Element',
+    'Gst.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'Gst.BaseTransform': [
+    'Gst.Element',
+    'Gst.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'Gst.Buffer': [
+    'Gst.MiniObject',
+],
+    'Gst.BufferList': [
+    'Gst.MiniObject',
+],
+    'Gst.CollectPads': [
+    'Gst.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'Gst.DataQueue': [
+    'GObject.Object',
+],
+    'Gst.Event': [
+    'Gst.MiniObject',
+],
+    'Gst.GParamSpecMiniObject': [
+    'GObject.Object',
+],
+    'Gst.Index': [
+    'Gst.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'Gst.IndexFactory': [
+    'Gst.PluginFeature',
+    'Gst.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'Gst.Message': [
+    'Gst.MiniObject',
+],
+    'Gst.PushSrc': [
+    'Gst.BaseSrc',
+    'Gst.Element',
+    'Gst.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'Gst.Query': [
+    'Gst.MiniObject',
+],
+    'Gst.XML': [
+    'Gst.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'GstBase.GstAdapter': [
+    'GObject.Object',
+],
+    'GstBase.GstCollectPads': [
+    'Gst.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'GstBase.GstDataQueue': [
+    'GObject.Object',
+],
+    'GstBase.GstPushSrc': [
+    'GstBase.Src',
+    'Gst.Element',
+    'Gst.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'GstBase.Sink': [
+    'Gst.Element',
+    'Gst.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'GstBase.Src': [
+    'Gst.Element',
+    'Gst.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'GstBase.Transform': [
+    'Gst.Element',
+    'Gst.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'GstInterfaces.ColorBalanceChannel': [
+    'GObject.Object',
+],
+    'GstInterfaces.MixerOptions': [
+    'GstInterfaces.MixerTrack',
+    'GObject.Object',
+],
+    'GstInterfaces.MixerTrack': [
+    'GObject.Object',
+],
+    'GstInterfaces.TunerChannel': [
+    'GObject.Object',
+],
+    'GstInterfaces.TunerNorm': [
+    'GObject.Object',
+],
+    'GstTag.Demux': [
+    'Gst.Element',
+    'Gst.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'GstVideo.Filter': [
+    'GstBase.Transform',
+    'Gst.Element',
+    'Gst.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'GstVideo.Sink': [
+    'GstBase.Sink',
+    'Gst.Element',
+    'Gst.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'SocialWebClient.Client': [
+    'GObject.Object',
+],
+    'SocialWebClient.ClientContactView': [
+    'GObject.Object',
+],
+    'SocialWebClient.ClientItemView': [
+    'GObject.Object',
+],
+    'SocialWebClient.ClientLastfm': [
+    'GObject.Object',
+],
+    'SocialWebClient.ClientService': [
     'GObject.Object',
 ],
 }

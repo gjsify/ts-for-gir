@@ -11298,7 +11298,7 @@ export class SerializableIntPrivate {
 export abstract class SerializableValueListClass {
     /* Fields of GXml-0.10.GXml.SerializableValueListClass */
     parent_class: GObject.ObjectClass
-    get_values: any
+    get_values: (self: SerializableValueList) => Gee.List
     add_values: (self: SerializableValueList, vals: string[]) => void
     get_value_at: (self: SerializableValueList, index: number) => string | null
     select_value_at: (self: SerializableValueList, index: number) => void
@@ -11331,10 +11331,10 @@ export abstract class SerializableObjectModelClass {
     property_use_nick: (self: SerializableObjectModel) => boolean
     set_default_namespace: (self: SerializableObjectModel, node: Node) => boolean
     node_name: (self: SerializableObjectModel) => string
-    find_property_spec: any
-    list_serializable_properties: any
+    find_property_spec: (self: SerializableObjectModel, property_name: string) => GObject.ParamSpec | null
+    list_serializable_properties: (self: SerializableObjectModel) => GObject.ParamSpec[]
     serialize: (self: SerializableObjectModel, node: Node) => Node | null
-    serialize_property: any
+    serialize_property: (self: SerializableObjectModel, element: Node, prop: GObject.ParamSpec) => Node | null
     deserialize: (self: SerializableObjectModel, node: Node) => boolean
     deserialize_property: (self: SerializableObjectModel, property_node: Node) => boolean
     to_string: (self: SerializableObjectModel) => string
@@ -11354,10 +11354,10 @@ export abstract class SerializableTreeMapClass {
     serialize_use_xml_node_value: (self: SerializableTreeMap) => boolean
     property_use_nick: (self: SerializableTreeMap) => boolean
     node_name: (self: SerializableTreeMap) => string
-    find_property_spec: any
-    list_serializable_properties: any
+    find_property_spec: (self: SerializableTreeMap, property_name: string) => GObject.ParamSpec | null
+    list_serializable_properties: (self: SerializableTreeMap) => GObject.ParamSpec[]
     serialize: (self: SerializableTreeMap, node: Node) => Node | null
-    serialize_property: any
+    serialize_property: (self: SerializableTreeMap, element: Node, prop: GObject.ParamSpec) => Node | null
     deserialize: (self: SerializableTreeMap, node: Node) => boolean
     deserialize_property: (self: SerializableTreeMap, property_node: Node) => boolean
     static name: string
@@ -11377,10 +11377,10 @@ export abstract class SerializableHashMapClass {
     serialize_use_xml_node_value: (self: SerializableHashMap) => boolean
     property_use_nick: (self: SerializableHashMap) => boolean
     node_name: (self: SerializableHashMap) => string
-    find_property_spec: any
-    list_serializable_properties: any
+    find_property_spec: (self: SerializableHashMap, property_name: string) => GObject.ParamSpec | null
+    list_serializable_properties: (self: SerializableHashMap) => GObject.ParamSpec[]
     serialize: (self: SerializableHashMap, node: Node) => Node | null
-    serialize_property: any
+    serialize_property: (self: SerializableHashMap, element: Node, prop: GObject.ParamSpec) => Node | null
     deserialize: (self: SerializableHashMap, node: Node) => boolean
     deserialize_property: (self: SerializableHashMap, property_node: Node) => boolean
     static name: string
@@ -11400,10 +11400,10 @@ export abstract class SerializableDualKeyMapClass {
     serialize_use_xml_node_value: (self: SerializableDualKeyMap) => boolean
     property_use_nick: (self: SerializableDualKeyMap) => boolean
     node_name: (self: SerializableDualKeyMap) => string
-    find_property_spec: any
-    list_serializable_properties: any
+    find_property_spec: (self: SerializableDualKeyMap, property_name: string) => GObject.ParamSpec | null
+    list_serializable_properties: (self: SerializableDualKeyMap) => GObject.ParamSpec[]
     serialize: (self: SerializableDualKeyMap, node: Node) => Node | null
-    serialize_property: any
+    serialize_property: (self: SerializableDualKeyMap, element: Node, prop: GObject.ParamSpec) => Node | null
     deserialize: (self: SerializableDualKeyMap, node: Node) => boolean
     deserialize_property: (self: SerializableDualKeyMap, property_node: Node) => boolean
     static name: string
@@ -11422,10 +11422,10 @@ export abstract class SerializableArrayListClass {
     serialize_use_xml_node_value: (self: SerializableArrayList) => boolean
     property_use_nick: (self: SerializableArrayList) => boolean
     node_name: (self: SerializableArrayList) => string
-    find_property_spec: any
-    list_serializable_properties: any
+    find_property_spec: (self: SerializableArrayList, property_name: string) => GObject.ParamSpec | null
+    list_serializable_properties: (self: SerializableArrayList) => GObject.ParamSpec[]
     serialize: (self: SerializableArrayList, node: Node) => Node | null
-    serialize_property: any
+    serialize_property: (self: SerializableArrayList, element: Node, prop: GObject.ParamSpec) => Node | null
     deserialize: (self: SerializableArrayList, node: Node) => boolean
     deserialize_property: (self: SerializableArrayList, property_node: Node) => boolean
     static name: string
@@ -11560,8 +11560,8 @@ export class GCDATAPrivate {
 export abstract class GDocumentClass {
     /* Fields of GXml-0.10.GXml.GDocumentClass */
     parent_class: GNodeClass
-    save: any
-    save_as: any
+    save: (self: GDocument, cancellable?: Gio.Cancellable | null) => boolean
+    save_as: (self: GDocument, f: Gio.File, cancellable?: Gio.Cancellable | null) => boolean
     static name: string
 }
 export class GDocumentPrivate {
@@ -11693,8 +11693,8 @@ export abstract class DocumentIface {
     create_comment: (self: Document, text: string) => Node
     create_cdata: (self: Document, text: string) => Node
     create_pi: (self: Document, target: string, data: string) => Node
-    save: any
-    save_as: any
+    save: (self: Document, cancellable?: Gio.Cancellable | null) => boolean
+    save_as: (self: Document, f: Gio.File, cancellable?: Gio.Cancellable | null) => boolean
     get_indent: (self: Document) => boolean
     set_indent: (self: Document, value: boolean) => void
     get_ns_top: (self: Document) => boolean
@@ -11704,8 +11704,8 @@ export abstract class DocumentIface {
     get_backup: (self: Document) => boolean
     set_backup: (self: Document, value: boolean) => void
     get_root: (self: Document) => Node
-    get_file: any
-    set_file: any
+    get_file: (self: Document) => Gio.File
+    set_file: (self: Document, value: Gio.File) => void
     static name: string
 }
 export abstract class DocumentTypeIface {
@@ -11743,10 +11743,10 @@ export abstract class NodeIface {
     set_namespace: (self: Node, uri: string, prefix?: string | null) => boolean
     ns_prefix: (self: Node) => string
     ns_uri: (self: Node) => string
-    get_namespaces: any
-    get_childs: any
-    get_children: any
-    get_attrs: any
+    get_namespaces: (self: Node) => Gee.List
+    get_childs: (self: Node) => Gee.BidirList
+    get_children: (self: Node) => Gee.BidirList
+    get_attrs: (self: Node) => Gee.Map
     get_name: (self: Node) => string
     get_value: (self: Node) => string
     set_value: (self: Node, value: string) => void
@@ -11810,15 +11810,15 @@ export abstract class SerializableIface {
     node_name: (self: Serializable) => string
     property_use_nick: (self: Serializable) => boolean
     serialize: (self: Serializable, node: Node) => Node | null
-    serialize_property: any
+    serialize_property: (self: Serializable, element: Node, prop: GObject.ParamSpec) => Node | null
     deserialize: (self: Serializable, node: Node) => boolean
     deserialize_property: (self: Serializable, property_node: Node) => boolean
-    find_property_spec: any
-    default_find_property_spec: any
-    list_serializable_properties: any
-    default_list_serializable_properties: any
-    get_unknown_serializable_properties: any
-    get_unknown_serializable_nodes: any
+    find_property_spec: (self: Serializable, property_name: string) => GObject.ParamSpec | null
+    default_find_property_spec: (self: Serializable, property_name: string) => GObject.ParamSpec | null
+    list_serializable_properties: (self: Serializable) => GObject.ParamSpec[]
+    default_list_serializable_properties: (self: Serializable) => GObject.ParamSpec[]
+    get_unknown_serializable_properties: (self: Serializable) => Gee.Map
+    get_unknown_serializable_nodes: (self: Serializable) => Gee.Collection
     get_serialized_xml_node_value: (self: Serializable) => string | null
     set_serialized_xml_node_value: (self: Serializable, value?: string | null) => void
     static name: string
@@ -11828,8 +11828,8 @@ export abstract class SerializablePropertyIface {
     parent_iface: GObject.TypeInterface
     get_serializable_property_value: (self: SerializableProperty) => string
     set_serializable_property_value: (self: SerializableProperty, val?: string | null) => void
-    deserialize_property: any
-    serialize_property: any
+    deserialize_property: (self: SerializableProperty, property_node: Node, prop: GObject.ParamSpec, nick: boolean) => boolean
+    serialize_property: (self: SerializableProperty, property_node: Node, prop: GObject.ParamSpec, nick: boolean) => Node | null
     static name: string
 }
 export abstract class SerializableMapKeyIface {

@@ -10,8 +10,8 @@ import type { GObject } from './GObject-2.0';
 import type { Gee } from './Gee-0.8';
 import type { GUPnP } from './GUPnP-1.0';
 import type { libxml2 } from './libxml2-2.0';
-// WARN: Dependency not found: 'GstPbutils-0.10'
-// WARN: Dependency not found: 'Gst-0.10'
+import type { GstPbutils } from './GstPbutils-0.10';
+import type { Gst } from './Gst-0.10';
 import type { GModule } from './GModule-2.0';
 import type { Soup } from './Soup-2.4';
 import type { GUPnPAV } from './GUPnPAV-1.0';
@@ -4885,10 +4885,10 @@ export class VideoItemPrivate {
 export abstract class MediaContainerClass {
     /* Fields of RygelServer-2.4.RygelServer.MediaContainerClass */
     parentClass: MediaObjectClass
-    getChildren: any
-    getChildrenFinish: any
-    findObject: any
-    findObjectFinish: any
+    getChildren: (self: MediaContainer, offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    getChildrenFinish: (self: MediaContainer, res: Gio.AsyncResult) => MediaObjects | null
+    findObject: (self: MediaContainer, id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    findObjectFinish: (self: MediaContainer, res: Gio.AsyncResult) => MediaObject | null
     static name: string
 }
 export class MediaContainerPrivate {
@@ -4899,9 +4899,9 @@ export abstract class MediaItemClass {
     parentClass: MediaObjectClass
     createStreamSource: (self: MediaItem, hostIp?: string | null) => DataSource | null
     streamable: (self: MediaItem) => boolean
-    addProxyResources: any
-    getProtocolInfo: any
-    addResources: any
+    addProxyResources: (self: MediaItem, server: HTTPServer, didlItem: GUPnPAV.DIDLLiteItem) => void
+    getProtocolInfo: (self: MediaItem, uri: string | null, protocol: string) => GUPnPAV.ProtocolInfo
+    addResources: (self: MediaItem, didlItem: GUPnPAV.DIDLLiteItem, allowInternal: boolean) => void
     static name: string
 }
 export class MediaItemPrivate {
@@ -4911,10 +4911,10 @@ export abstract class MediaObjectClass {
     /* Fields of RygelServer-2.4.RygelServer.MediaObjectClass */
     parentClass: GObject.ObjectClass
     addUri: (self: MediaObject, uri: string) => void
-    serialize: any
-    applyDidlLite: any
+    serialize: (self: MediaObject, serializer: Serializer, httpServer: HTTPServer) => GUPnPAV.DIDLLiteObject | null
+    applyDidlLite: (self: MediaObject, didlObject: GUPnPAV.DIDLLiteObject) => void
     compareByProperty: (self: MediaObject, mediaObject: MediaObject, property: string) => number
-    addResource: any
+    addResource: (self: MediaObject, object: GUPnPAV.DIDLLiteObject, uri: string | null, protocol: string, importUri?: string | null) => GUPnPAV.DIDLLiteResource
     static name: string
 }
 export class MediaObjectPrivate {
@@ -4943,7 +4943,7 @@ export abstract class TranscodeManagerClass {
     parentClass: GObject.ObjectClass
     createUriForItem: (self: TranscodeManager, item: MediaItem, thumbnailIndex: number, subtitleIndex: number, transcodeTarget?: string | null, playlistTarget?: string | null) => string
     getProtocol: (self: TranscodeManager) => string
-    getProtocolInfo: any
+    getProtocolInfo: (self: TranscodeManager) => Gee.ArrayList
     static name: string
 }
 export class TranscodeManagerPrivate {
@@ -4953,7 +4953,7 @@ export abstract class TranscoderClass {
     /* Fields of RygelServer-2.4.RygelServer.TranscoderClass */
     parentClass: GObject.ObjectClass
     createSource: (self: Transcoder, item: MediaItem, src: DataSource) => DataSource
-    addResource: any
+    addResource: (self: Transcoder, didlItem: GUPnPAV.DIDLLiteItem, item: MediaItem, manager: TranscodeManager) => GUPnPAV.DIDLLiteResource | null
     getDistance: (self: Transcoder, item: MediaItem) => number
     static name: string
 }
@@ -5023,19 +5023,19 @@ export class SerializerPrivate {
 export abstract class SearchableContainerIface {
     /* Fields of RygelServer-2.4.RygelServer.SearchableContainerIface */
     parentIface: GObject.TypeInterface
-    search: any
-    searchFinish: any
-    getSearchClasses: any
-    setSearchClasses: any
+    search: (self: SearchableContainer, expression: SearchExpression | null, offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    searchFinish: (self: SearchableContainer, res: Gio.AsyncResult) => { returnType: MediaObjects | null, totalMatches: number }
+    getSearchClasses: (self: SearchableContainer) => Gee.ArrayList
+    setSearchClasses: (self: SearchableContainer, value: Gee.ArrayList) => void
     static name: string
 }
 export abstract class TrackableContainerIface {
     /* Fields of RygelServer-2.4.RygelServer.TrackableContainerIface */
     parentIface: GObject.TypeInterface
-    addChild: any
-    addChildFinish: any
-    removeChild: any
-    removeChildFinish: any
+    addChild: (self: TrackableContainer, object: MediaObject, callback?: Gio.AsyncReadyCallback | null) => void
+    addChildFinish: (self: TrackableContainer, res: Gio.AsyncResult) => void
+    removeChild: (self: TrackableContainer, object: MediaObject, callback?: Gio.AsyncReadyCallback | null) => void
+    removeChildFinish: (self: TrackableContainer, res: Gio.AsyncResult) => void
     getServiceResetToken: (self: TrackableContainer) => string
     setServiceResetToken: (self: TrackableContainer, token: string) => void
     getSystemUpdateId: (self: TrackableContainer) => number
@@ -5055,25 +5055,25 @@ export abstract class VisualItemIface {
     setHeight: (self: VisualItem, value: number) => void
     getColorDepth: (self: VisualItem) => number
     setColorDepth: (self: VisualItem, value: number) => void
-    getThumbnails: any
-    setThumbnails: any
+    getThumbnails: (self: VisualItem) => Gee.ArrayList
+    setThumbnails: (self: VisualItem, value: Gee.ArrayList) => void
     static name: string
 }
 export abstract class WritableContainerIface {
     /* Fields of RygelServer-2.4.RygelServer.WritableContainerIface */
     parentIface: GObject.TypeInterface
-    addItem: any
-    addItemFinish: any
-    addContainer: any
-    addContainerFinish: any
-    addReference: any
-    addReferenceFinish: any
-    removeItem: any
-    removeItemFinish: any
-    removeContainer: any
-    removeContainerFinish: any
-    getCreateClasses: any
-    setCreateClasses: any
+    addItem: (self: WritableContainer, item: MediaItem, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    addItemFinish: (self: WritableContainer, res: Gio.AsyncResult) => void
+    addContainer: (self: WritableContainer, container: MediaContainer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    addContainerFinish: (self: WritableContainer, res: Gio.AsyncResult) => void
+    addReference: (self: WritableContainer, object: MediaObject, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    addReferenceFinish: (self: WritableContainer, res: Gio.AsyncResult) => string
+    removeItem: (self: WritableContainer, id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    removeItemFinish: (self: WritableContainer, res: Gio.AsyncResult) => void
+    removeContainer: (self: WritableContainer, id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    removeContainerFinish: (self: WritableContainer, res: Gio.AsyncResult) => void
+    getCreateClasses: (self: WritableContainer) => Gee.ArrayList
+    setCreateClasses: (self: WritableContainer, value: Gee.ArrayList) => void
     static name: string
 }
 export abstract class DataSourceIface {
@@ -5088,8 +5088,8 @@ export abstract class DataSourceIface {
 export abstract class UpdatableObjectIface {
     /* Fields of RygelServer-2.4.RygelServer.UpdatableObjectIface */
     parentIface: GObject.TypeInterface
-    commit: any
-    commitFinish: any
+    commit: (self: UpdatableObject, callback?: Gio.AsyncReadyCallback | null) => void
+    commitFinish: (self: UpdatableObject, res: Gio.AsyncResult) => void
     static name: string
 }
 }

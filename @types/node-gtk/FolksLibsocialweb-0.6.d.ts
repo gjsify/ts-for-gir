@@ -3,17 +3,17 @@
  */
 
 import "node"
-// WARN: Dependency not found: 'SocialWebClient-0.25'
-import type { Folks } from './Folks-0.6';
-import type { GLib } from './GLib-2.0';
+import type { SocialWebClient } from './SocialWebClient-0.25';
 import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
+import type { GLib } from './GLib-2.0';
+import type { Folks } from './Folks-0.6';
 import type { Gee } from './Gee-0.8';
 
 export declare namespace FolksLibsocialweb {
 
 export interface Persona_ConstructProps extends Folks.Persona_ConstructProps {
-    lswContact?: any
+    lswContact?: SocialWebClient.Contact
     avatar?: Gio.LoadableIcon
     gender?: Folks.Gender
     imAddresses?: Gee.MultiMap
@@ -48,8 +48,8 @@ export class Persona {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of FolksLibsocialweb-0.6.FolksLibsocialweb.Persona */
-    update(contact: any): void
-    getLswContact(): any
+    update(contact: SocialWebClient.Contact): void
+    getLswContact(): SocialWebClient.Contact
     /* Methods of Folks-0.6.Folks.Persona */
     linkablePropertyToLinks(propName: string, callback: any): void
     getIid(): string
@@ -192,13 +192,13 @@ export class Persona {
     constructor (config?: Persona_ConstructProps)
     _init (config?: Persona_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(store: PersonaStore, contact: any): Persona
-    static getContactId(contact: any): string | null
+    static new(store: PersonaStore, contact: SocialWebClient.Contact): Persona
+    static getContactId(contact: SocialWebClient.Contact): string | null
     static normaliseImAddress(imAddress: string, protocol: string): string
     static $gtype: GObject.Type
 }
 export interface PersonaStore_ConstructProps extends Folks.PersonaStore_ConstructProps {
-    service?: any
+    service?: SocialWebClient.ClientService
 }
 export class PersonaStore {
     /* Properties of Folks-0.6.Folks.PersonaStore */
@@ -221,7 +221,7 @@ export class PersonaStore {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of FolksLibsocialweb-0.6.FolksLibsocialweb.PersonaStore */
-    getService(): any
+    getService(): SocialWebClient.ClientService
     /* Methods of Folks-0.6.Folks.PersonaStore */
     emitPersonasChanged(added: Gee.Set | null, removed: Gee.Set | null, message: string | null, actor: Folks.Persona | null, reason: Folks.GroupDetailsChangeReason): void
     prepare(callback?: Gio.AsyncReadyCallback | null): void
@@ -364,7 +364,7 @@ export class PersonaStore {
     constructor (config?: PersonaStore_ConstructProps)
     _init (config?: PersonaStore_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(service: any): PersonaStore
+    static new(service: SocialWebClient.ClientService): PersonaStore
     static $gtype: GObject.Type
 }
 export abstract class PersonaClass {

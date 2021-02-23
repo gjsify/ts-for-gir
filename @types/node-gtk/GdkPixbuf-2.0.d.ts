@@ -565,7 +565,7 @@ export abstract class PixbufAnimationClass {
     isStaticImage: (animation: PixbufAnimation) => boolean
     getStaticImage: (animation: PixbufAnimation) => Pixbuf
     getSize: (animation: PixbufAnimation, width: number, height: number) => void
-    getIter: any
+    getIter: (animation: PixbufAnimation, startTime?: GLib.TimeVal | null) => PixbufAnimationIter
     static name: string
 }
 export abstract class PixbufAnimationIterClass {
@@ -574,7 +574,7 @@ export abstract class PixbufAnimationIterClass {
     getDelayTime: (iter: PixbufAnimationIter) => number
     getPixbuf: (iter: PixbufAnimationIter) => Pixbuf
     onCurrentlyLoadingFrame: (iter: PixbufAnimationIter) => boolean
-    advance: any
+    advance: (iter: PixbufAnimationIter, currentTime?: GLib.TimeVal | null) => boolean
     static name: string
 }
 export class PixbufFormat {

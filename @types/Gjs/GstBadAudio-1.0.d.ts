@@ -348,25 +348,25 @@ export abstract class NonstreamAudioDecoderClass {
     /* Fields of GstBadAudio-1.0.GstBadAudio.NonstreamAudioDecoderClass */
     element_class: Gst.ElementClass
     loads_from_sinkpad: boolean
-    seek: any
-    tell: any
-    load_from_buffer: any
-    load_from_custom: any
-    get_main_tags: any
-    set_current_subsong: any
+    seek: (dec: NonstreamAudioDecoder, new_position: Gst.ClockTime) => boolean
+    tell: (dec: NonstreamAudioDecoder) => Gst.ClockTime
+    load_from_buffer: (dec: NonstreamAudioDecoder, source_data: Gst.Buffer, initial_subsong: number, initial_subsong_mode: NonstreamAudioSubsongMode, initial_position: Gst.ClockTime, initial_output_mode: NonstreamAudioOutputMode, initial_num_loops: number) => boolean
+    load_from_custom: (dec: NonstreamAudioDecoder, initial_subsong: number, initial_subsong_mode: NonstreamAudioSubsongMode, initial_position: Gst.ClockTime, initial_output_mode: NonstreamAudioOutputMode, initial_num_loops: number) => boolean
+    get_main_tags: (dec: NonstreamAudioDecoder) => Gst.TagList
+    set_current_subsong: (dec: NonstreamAudioDecoder, subsong: number, initial_position: Gst.ClockTime) => boolean
     get_current_subsong: (dec: NonstreamAudioDecoder) => number
     get_num_subsongs: (dec: NonstreamAudioDecoder) => number
-    get_subsong_duration: any
-    get_subsong_tags: any
-    set_subsong_mode: any
+    get_subsong_duration: (dec: NonstreamAudioDecoder, subsong: number) => Gst.ClockTime
+    get_subsong_tags: (dec: NonstreamAudioDecoder, subsong: number) => Gst.TagList
+    set_subsong_mode: (dec: NonstreamAudioDecoder, mode: NonstreamAudioSubsongMode, initial_position: Gst.ClockTime) => boolean
     set_num_loops: (dec: NonstreamAudioDecoder, num_loops: number) => boolean
     get_num_loops: (dec: NonstreamAudioDecoder) => number
     get_supported_output_modes: (dec: NonstreamAudioDecoder) => number
-    set_output_mode: any
-    decode: any
+    set_output_mode: (dec: NonstreamAudioDecoder, mode: NonstreamAudioOutputMode, current_position: Gst.ClockTime) => boolean
+    decode: (dec: NonstreamAudioDecoder, buffer: Gst.Buffer, num_samples: number) => boolean
     negotiate: (dec: NonstreamAudioDecoder) => boolean
-    decide_allocation: any
-    propose_allocation: any
+    decide_allocation: (dec: NonstreamAudioDecoder, query: Gst.Query) => boolean
+    propose_allocation: (dec: NonstreamAudioDecoder, query: Gst.Query) => boolean
     static name: string
 }
 export abstract class PlanarAudioAdapterClass {

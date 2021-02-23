@@ -149,7 +149,7 @@ export class GProvider {
 export abstract class GProviderClass {
     /* Fields of Vgda-1.Vgda.GProviderClass */
     parentClass: GObject.ObjectClass
-    currentUser: any
+    currentUser: (self: GProvider) => Vda.Role | null
     static name: string
 }
 export class GProviderPrivate {

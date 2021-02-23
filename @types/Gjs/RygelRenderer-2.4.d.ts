@@ -10,8 +10,8 @@ import type * as GObject from './GObject-2.0';
 import type * as Gee from './Gee-0.8';
 import type * as GUPnP from './GUPnP-1.0';
 import type * as libxml2 from './libxml2-2.0';
-// WARN: Dependency not found: 'GstPbutils-0.10'
-// WARN: Dependency not found: 'Gst-0.10'
+import type * as GstPbutils from './GstPbutils-0.10';
+import type * as Gst from './Gst-0.10';
 import type * as GModule from './GModule-2.0';
 import type * as GUPnPAV from './GUPnPAV-1.0';
 
@@ -550,9 +550,9 @@ export abstract class PlayerControllerIface {
     next: (self: PlayerController) => boolean
     previous: (self: PlayerController) => boolean
     set_single_play_uri: (self: PlayerController, uri: string, metadata: string, mime?: string | null, features?: string | null) => void
-    set_playlist_uri: any
+    set_playlist_uri: (self: PlayerController, uri: string, metadata: string, collection: GUPnPAV.MediaCollection) => void
     set_next_single_play_uri: (self: PlayerController, uri: string, metadata: string, mime?: string | null, features?: string | null) => void
-    set_next_playlist_uri: any
+    set_next_playlist_uri: (self: PlayerController, uri: string, metadata: string, collection: GUPnPAV.MediaCollection) => void
     get_playback_state: (self: PlayerController) => string
     set_playback_state: (self: PlayerController, value: string) => void
     get_n_tracks: (self: PlayerController) => number

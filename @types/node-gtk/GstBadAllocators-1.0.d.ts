@@ -120,7 +120,7 @@ export class PhysMemoryAllocator {
 export abstract class PhysMemoryAllocatorInterface {
     /* Fields of GstBadAllocators-1.0.GstBadAllocators.PhysMemoryAllocatorInterface */
     parentIface: GObject.TypeInterface
-    getPhysAddr: any
+    getPhysAddr: (allocator: PhysMemoryAllocator, mem: Gst.Memory) => number
     static name: string
 }
 }

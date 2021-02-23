@@ -854,7 +854,7 @@ export class ClientTzlookupICalCompData {
 export abstract class ClientViewClass {
     /* Fields of ECal-2.0.ECal.ClientViewClass */
     progress: (clientView: ClientView, percent: number, message: string) => void
-    complete: any
+    complete: (clientView: ClientView, error: GLib.Error) => void
     static name: string
 }
 export class ClientViewPrivate {
@@ -1169,9 +1169,9 @@ export abstract class ReminderWatcherClass {
     /* Fields of ECal-2.0.ECal.ReminderWatcherClass */
     parentClass: GObject.ObjectClass
     scheduleTimer: (watcher: ReminderWatcher, atTime: number) => void
-    formatTime: any
+    formatTime: (watcher: ReminderWatcher, rd: ReminderData, itt: ICalGLib.Time, inoutBuffer: string, bufferSize: number) => void
     changed: (watcher: ReminderWatcher) => void
-    calClientConnect: any
+    calClientConnect: (watcher: ReminderWatcher, source: EDataServer.Source, sourceType: ClientSourceType, waitForConnectedSeconds: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     reserved: object[]
     static name: string
 }
@@ -1180,8 +1180,8 @@ export class ReminderWatcherPrivate {
 }
 export abstract class TimezoneCacheInterface {
     /* Fields of ECal-2.0.ECal.TimezoneCacheInterface */
-    tzcacheAddTimezone: any
-    timezoneAdded: any
+    tzcacheAddTimezone: (cache: TimezoneCache, zone: ICalGLib.Timezone) => void
+    timezoneAdded: (cache: TimezoneCache, zone: ICalGLib.Timezone) => void
     reservedSignals: object[]
     static name: string
 }

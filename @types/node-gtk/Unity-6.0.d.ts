@@ -3077,8 +3077,8 @@ export class CategoryPrivate {
 export abstract class FilterClass {
     /* Fields of Unity-6.0.Unity.FilterClass */
     parentClass: GObject.ObjectClass
-    getHints: any
-    update: any
+    getHints: (self: Filter) => GLib.HashTable
+    update: (self: Filter, properties: GLib.Variant) => void
     static name: string
 }
 export class FilterPrivate {
@@ -3167,9 +3167,9 @@ export class LensPrivate {
 export abstract class PreviewClass {
     /* Fields of Unity-6.0.Unity.PreviewClass */
     parentClass: GObject.ObjectClass
-    createRaw: any
-    updateProperty: any
-    updatePropertyFinish: any
+    createRaw: (self: Preview) => GObject.Object
+    updateProperty: (self: Preview, values: GLib.HashTable, callback?: Gio.AsyncReadyCallback | null) => void
+    updatePropertyFinish: (self: Preview, res: Gio.AsyncResult) => GLib.HashTable
     dummy1: (self: Preview) => void
     dummy2: (self: Preview) => void
     dummy3: (self: Preview) => void
@@ -3290,7 +3290,7 @@ export class MusicPlayerPrivate {
 export abstract class MergeStrategyIface {
     /* Fields of Unity-6.0.Unity.MergeStrategyIface */
     parentIface: GObject.TypeInterface
-    mergeResult: any
+    mergeResult: (self: MergeStrategy, target: Dee.Model, row: GLib.Variant[]) => Dee.ModelIter | null
     static name: string
 }
 export class PlaylistDetails {

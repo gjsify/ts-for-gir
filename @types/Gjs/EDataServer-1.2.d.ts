@@ -5342,27 +5342,27 @@ export class AsyncClosure {
 }
 export abstract class ClientClass {
     /* Fields of EDataServer-1.2.EDataServer.ClientClass */
-    unwrap_dbus_error: any
-    retrieve_capabilities: any
-    retrieve_capabilities_finish: any
-    retrieve_capabilities_sync: any
-    get_backend_property: any
-    get_backend_property_finish: any
-    get_backend_property_sync: any
-    set_backend_property: any
-    set_backend_property_finish: any
-    set_backend_property_sync: any
-    open: any
-    open_finish: any
-    open_sync: any
-    remove: any
-    remove_finish: any
-    remove_sync: any
-    refresh: any
-    refresh_finish: any
-    refresh_sync: any
-    retrieve_properties_sync: any
-    opened: any
+    unwrap_dbus_error: (client: Client, dbus_error: GLib.Error) => void
+    retrieve_capabilities: (client: Client, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    retrieve_capabilities_finish: (client: Client, result: Gio.AsyncResult) => [ /* returnType */ boolean, /* capabilities */ string ]
+    retrieve_capabilities_sync: (client: Client, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* capabilities */ string ]
+    get_backend_property: (client: Client, prop_name: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    get_backend_property_finish: (client: Client, result: Gio.AsyncResult) => [ /* returnType */ boolean, /* prop_value */ string ]
+    get_backend_property_sync: (client: Client, prop_name: string, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* prop_value */ string ]
+    set_backend_property: (client: Client, prop_name: string, prop_value: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    set_backend_property_finish: (client: Client, result: Gio.AsyncResult) => boolean
+    set_backend_property_sync: (client: Client, prop_name: string, prop_value: string, cancellable?: Gio.Cancellable | null) => boolean
+    open: (client: Client, only_if_exists: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    open_finish: (client: Client, result: Gio.AsyncResult) => boolean
+    open_sync: (client: Client, only_if_exists: boolean, cancellable?: Gio.Cancellable | null) => boolean
+    remove: (client: Client, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    remove_finish: (client: Client, result: Gio.AsyncResult) => boolean
+    remove_sync: (client: Client, cancellable?: Gio.Cancellable | null) => boolean
+    refresh: (client: Client, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    refresh_finish: (client: Client, result: Gio.AsyncResult) => boolean
+    refresh_sync: (client: Client, cancellable?: Gio.Cancellable | null) => boolean
+    retrieve_properties_sync: (client: Client, cancellable?: Gio.Cancellable | null) => boolean
+    opened: (client: Client, error: GLib.Error) => void
     backend_error: (client: Client, error_msg: string) => void
     backend_died: (client: Client) => void
     backend_property_changed: (client: Client, prop_name: string, prop_value: string) => void
@@ -5487,13 +5487,13 @@ export abstract class OAuth2ServiceInterface {
     get_authentication_uri: (service: OAuth2Service, source: Source) => string
     get_refresh_uri: (service: OAuth2Service, source: Source) => string
     get_redirect_uri: (service: OAuth2Service, source: Source) => string | null
-    prepare_authentication_uri_query: any
+    prepare_authentication_uri_query: (service: OAuth2Service, source: Source, uri_query: GLib.HashTable) => void
     get_authentication_policy: (service: OAuth2Service, source: Source, uri: string) => OAuth2ServiceNavigationPolicy
     extract_authorization_code: (service: OAuth2Service, source: Source, page_title: string, page_uri: string, page_content?: string | null) => [ /* returnType */ boolean, /* out_authorization_code */ string ]
-    prepare_get_token_form: any
-    prepare_get_token_message: any
-    prepare_refresh_token_form: any
-    prepare_refresh_token_message: any
+    prepare_get_token_form: (service: OAuth2Service, source: Source, authorization_code: string, form: GLib.HashTable) => void
+    prepare_get_token_message: (service: OAuth2Service, source: Source, message: Soup.Message) => void
+    prepare_refresh_token_form: (service: OAuth2Service, source: Source, refresh_token: string, form: GLib.HashTable) => void
+    prepare_refresh_token_message: (service: OAuth2Service, source: Source, message: Soup.Message) => void
     reserved: object[]
     static name: string
 }
@@ -5605,26 +5605,26 @@ export abstract class SourceClass {
     /* Fields of EDataServer-1.2.EDataServer.SourceClass */
     parent_class: GObject.ObjectClass
     changed: (source: Source) => void
-    credentials_required: any
+    credentials_required: (source: Source, reason: SourceCredentialsReason, certificate_pem: string, certificate_errors: Gio.TlsCertificateFlags, op_error: GLib.Error) => void
     authenticate: (source: Source, credentials: NamedParameters) => void
-    remove_sync: any
-    remove: any
-    remove_finish: any
-    write_sync: any
-    write: any
-    write_finish: any
-    remote_create_sync: any
-    remote_create: any
-    remote_create_finish: any
-    remote_delete_sync: any
-    remote_delete: any
-    remote_delete_finish: any
-    get_oauth2_access_token_sync: any
-    get_oauth2_access_token: any
-    get_oauth2_access_token_finish: any
-    invoke_credentials_required_impl: any
-    invoke_authenticate_impl: any
-    unset_last_credentials_required_arguments_impl: any
+    remove_sync: (source: Source, cancellable?: Gio.Cancellable | null) => boolean
+    remove: (source: Source, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    remove_finish: (source: Source, result: Gio.AsyncResult) => boolean
+    write_sync: (source: Source, cancellable?: Gio.Cancellable | null) => boolean
+    write: (source: Source, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    write_finish: (source: Source, result: Gio.AsyncResult) => boolean
+    remote_create_sync: (source: Source, scratch_source: Source, cancellable?: Gio.Cancellable | null) => boolean
+    remote_create: (source: Source, scratch_source: Source, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    remote_create_finish: (source: Source, result: Gio.AsyncResult) => boolean
+    remote_delete_sync: (source: Source, cancellable?: Gio.Cancellable | null) => boolean
+    remote_delete: (source: Source, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    remote_delete_finish: (source: Source, result: Gio.AsyncResult) => boolean
+    get_oauth2_access_token_sync: (source: Source, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* out_access_token */ string | null, /* out_expires_in */ number | null ]
+    get_oauth2_access_token: (source: Source, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    get_oauth2_access_token_finish: (source: Source, result: Gio.AsyncResult) => [ /* returnType */ boolean, /* out_access_token */ string | null, /* out_expires_in */ number | null ]
+    invoke_credentials_required_impl: (source: Source, dbus_source: object | null, arg_reason: string, arg_certificate_pem: string, arg_certificate_errors: string, arg_dbus_error_name: string, arg_dbus_error_message: string, cancellable?: Gio.Cancellable | null) => boolean
+    invoke_authenticate_impl: (source: Source, dbus_source: object | null, arg_credentials: string, cancellable?: Gio.Cancellable | null) => boolean
+    unset_last_credentials_required_arguments_impl: (source: Source, cancellable?: Gio.Cancellable | null) => boolean
     reserved: object[]
     static name: string
 }
@@ -5656,9 +5656,9 @@ export abstract class SourceCredentialsProviderImplClass {
     can_process: (provider_impl: SourceCredentialsProviderImpl, source: Source) => boolean
     can_store: (provider_impl: SourceCredentialsProviderImpl) => boolean
     can_prompt: (provider_impl: SourceCredentialsProviderImpl) => boolean
-    lookup_sync: any
-    store_sync: any
-    delete_sync: any
+    lookup_sync: (provider_impl: SourceCredentialsProviderImpl, source: Source, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* out_credentials */ NamedParameters ]
+    store_sync: (provider_impl: SourceCredentialsProviderImpl, source: Source, credentials: NamedParameters, permanently: boolean, cancellable?: Gio.Cancellable | null) => boolean
+    delete_sync: (provider_impl: SourceCredentialsProviderImpl, source: Source, cancellable?: Gio.Cancellable | null) => boolean
     static name: string
 }
 export abstract class SourceCredentialsProviderImplOAuth2Class {
@@ -5823,7 +5823,7 @@ export abstract class SourceRegistryClass {
     source_removed: (registry: SourceRegistry, source: Source) => void
     source_enabled: (registry: SourceRegistry, source: Source) => void
     source_disabled: (registry: SourceRegistry, source: Source) => void
-    credentials_required: any
+    credentials_required: (registry: SourceRegistry, source: Source, reason: SourceCredentialsReason, certificate_pem: string, certificate_errors: Gio.TlsCertificateFlags, op_error: GLib.Error) => void
     static name: string
 }
 export class SourceRegistryPrivate {

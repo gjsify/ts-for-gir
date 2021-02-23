@@ -489,8 +489,8 @@ export class Server {
 export abstract class ClientClass {
     /* Fields of Jsonrpc-1.0.Jsonrpc.ClientClass */
     parent_class: GObject.ObjectClass
-    notification: any
-    handle_call: any
+    notification: (self: Client, method_name: string, params: GLib.Variant) => void
+    handle_call: (self: Client, method: string, id: GLib.Variant, params: GLib.Variant) => boolean
     failed: (self: Client) => void
     _reserved2: object
     _reserved3: object
@@ -633,8 +633,8 @@ export abstract class OutputStreamClass {
 export abstract class ServerClass {
     /* Fields of Jsonrpc-1.0.Jsonrpc.ServerClass */
     parent_class: GObject.ObjectClass
-    handle_call: any
-    notification: any
+    handle_call: (self: Server, client: Client, method: string, id: GLib.Variant, params: GLib.Variant) => boolean
+    notification: (self: Server, client: Client, method: string, params: GLib.Variant) => void
     client_accepted: (self: Server, client: Client) => void
     client_closed: (self: Server, client: Client) => void
     static name: string

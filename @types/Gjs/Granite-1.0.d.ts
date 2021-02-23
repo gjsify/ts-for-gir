@@ -25815,9 +25815,9 @@ export abstract class ServicesContractIface {
     /* Fields of Granite-1.0.Granite.ServicesContractIface */
     get_display_name: () => string
     get_description: () => string
-    get_icon: any
-    execute_with_file: any
-    execute_with_files: any
+    get_icon: () => Gio.Icon
+    execute_with_file: (file: Gio.File) => void
+    execute_with_files: (files: Gio.File[]) => void
     static name: string
 }
 export abstract class ServicesSettingsSerializableIface {
@@ -25846,7 +25846,7 @@ export class WidgetsCellRendererBadgePrivate {
 }
 export abstract class WidgetsCellRendererExpanderClass {
     /* Fields of Granite-1.0.Granite.WidgetsCellRendererExpanderClass */
-    get_arrow_size: any
+    get_arrow_size: (widget: Gtk.Widget) => number
     static name: string
 }
 export class WidgetsCellRendererExpanderPrivate {
@@ -25866,7 +25866,7 @@ export class WidgetsCompositedWindowPrivate {
 }
 export abstract class WidgetsDatePickerClass {
     /* Fields of Granite-1.0.Granite.WidgetsDatePickerClass */
-    position_dropdown: any
+    position_dropdown: () => /* rect */ Gdk.Rectangle
     static name: string
 }
 export class WidgetsDatePickerPrivate {
@@ -25906,7 +25906,7 @@ export class WidgetsSourceListPrivate {
 }
 export abstract class WidgetsSourceListItemClass {
     /* Fields of Granite-1.0.Granite.WidgetsSourceListItemClass */
-    get_context_menu: any
+    get_context_menu: () => Gtk.Menu | null
     edited: (new_name: string) => void
     action_activated: () => void
     activated: () => void
@@ -25964,13 +25964,13 @@ export abstract class WidgetsSourceListSortableIface {
 export abstract class WidgetsSourceListDragSourceIface {
     /* Fields of Granite-1.0.Granite.WidgetsSourceListDragSourceIface */
     draggable: () => boolean
-    prepare_selection_data: any
+    prepare_selection_data: (selection_data: Gtk.SelectionData) => void
     static name: string
 }
 export abstract class WidgetsSourceListDragDestIface {
     /* Fields of Granite-1.0.Granite.WidgetsSourceListDragDestIface */
-    data_drop_possible: any
-    data_received: any
+    data_drop_possible: (context: Gdk.DragContext, data: Gtk.SelectionData) => boolean
+    data_received: (context: Gdk.DragContext, data: Gtk.SelectionData) => Gdk.DragAction
     static name: string
 }
 export abstract class ApplicationClass {

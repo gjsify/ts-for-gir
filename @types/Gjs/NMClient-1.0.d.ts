@@ -395,16 +395,16 @@ export class AccessPoint {
     connection_valid(connection: NetworkManager.Connection): boolean
     filter_connections(connections: NetworkManager.Connection[]): NetworkManager.Connection[]
     get_bssid(): string
-    get_flags(): any
+    get_flags(): NetworkManager.TODO_80211ApFlags
     get_frequency(): number
     get_hw_address(): string
     get_last_seen(): number
     get_max_bitrate(): number
-    get_mode(): any
-    get_rsn_flags(): any
+    get_mode(): NetworkManager.TODO_80211Mode
+    get_rsn_flags(): NetworkManager.TODO_80211ApSecurityFlags
     get_ssid(): Uint8Array[]
     get_strength(): number
-    get_wpa_flags(): any
+    get_wpa_flags(): NetworkManager.TODO_80211ApSecurityFlags
     /* Methods of NMClient-1.0.NMClient.Object */
     get_connection(): DBusGLib.Connection
     get_path(): string
@@ -3378,7 +3378,7 @@ export class DeviceWifi {
     get_bitrate(): number
     get_capabilities(): NetworkManager.DeviceWifiCapabilities
     get_hw_address(): string
-    get_mode(): any
+    get_mode(): NetworkManager.TODO_80211Mode
     get_permanent_hw_address(): string
     request_scan_simple(callback?: DeviceWifiRequestScanFn | null): void
     /* Methods of NMClient-1.0.NMClient.Device */
@@ -4679,11 +4679,11 @@ export abstract class DeviceBtClass {
 export abstract class DeviceClass {
     /* Fields of NMClient-1.0.NMClient.DeviceClass */
     parent: ObjectClass
-    state_changed: any
-    connection_compatible: any
+    state_changed: (device: Device, new_state: NetworkManager.DeviceState, old_state: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason) => void
+    connection_compatible: (device: Device, connection: NetworkManager.Connection) => boolean
     get_type_description: (device: Device) => string
     get_hw_address: (device: Device) => string
-    get_setting_type: any
+    get_setting_type: (device: Device) => GObject.Type
     static name: string
 }
 export abstract class DeviceEthernetClass {
@@ -4748,13 +4748,13 @@ export abstract class IP6ConfigClass {
 export abstract class ObjectClass {
     /* Fields of NMClient-1.0.NMClient.ObjectClass */
     parent: GObject.ObjectClass
-    object_creation_failed: any
+    object_creation_failed: (master_object: Object, error: GLib.Error, failed_path: string) => void
     static name: string
 }
 export abstract class RemoteConnectionClass {
     /* Fields of NMClient-1.0.NMClient.RemoteConnectionClass */
     parent_class: NetworkManager.ConnectionClass
-    updated: any
+    updated: (connection: RemoteConnection, new_settings: GLib.HashTable) => void
     removed: (connection: RemoteConnection) => void
     static name: string
 }
@@ -4768,17 +4768,17 @@ export abstract class RemoteSettingsClass {
 export abstract class SecretAgentClass {
     /* Fields of NMClient-1.0.NMClient.SecretAgentClass */
     parent: GObject.ObjectClass
-    get_secrets: any
+    get_secrets: (self: SecretAgent, connection: NetworkManager.Connection, connection_path: string, setting_name: string, hints: string[], flags: SecretAgentGetSecretsFlags, callback: SecretAgentGetSecretsFunc) => void
     cancel_get_secrets: (self: SecretAgent, connection_path: string, setting_name: string) => void
-    save_secrets: any
-    delete_secrets: any
-    registration_result: any
+    save_secrets: (self: SecretAgent, connection: NetworkManager.Connection, connection_path: string, callback: SecretAgentSaveSecretsFunc) => void
+    delete_secrets: (self: SecretAgent, connection: NetworkManager.Connection, connection_path: string, callback: SecretAgentDeleteSecretsFunc) => void
+    registration_result: (agent: SecretAgent, error: GLib.Error) => void
     static name: string
 }
 export abstract class VPNConnectionClass {
     /* Fields of NMClient-1.0.NMClient.VPNConnectionClass */
     parent: ActiveConnectionClass
-    vpn_state_changed: any
+    vpn_state_changed: (connection: VPNConnection, state: NetworkManager.VPNConnectionState, reason: NetworkManager.VPNConnectionStateReason) => void
     static name: string
 }
 export abstract class WimaxNspClass {

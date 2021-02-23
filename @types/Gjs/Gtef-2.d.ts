@@ -4227,8 +4227,8 @@ export abstract class InfoBarClass {
 export abstract class MenuShellClass {
     /* Fields of Gtef-2.Gtef.MenuShellClass */
     parent_class: GObject.ObjectClass
-    menu_item_selected: any
-    menu_item_deselected: any
+    menu_item_selected: (gtef_menu_shell: MenuShell, menu_item: Gtk.MenuItem) => void
+    menu_item_deselected: (gtef_menu_shell: MenuShell, menu_item: Gtk.MenuItem) => void
     padding: object[]
     static name: string
 }

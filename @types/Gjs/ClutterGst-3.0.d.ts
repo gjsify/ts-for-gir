@@ -1282,7 +1282,7 @@ export abstract class CameraClass {
     /* Fields of ClutterGst-3.0.ClutterGst.CameraClass */
     ready_for_capture: (self: Camera, ready: boolean) => void
     photo_saved: (self: Camera) => void
-    photo_taken: any
+    photo_taken: (self: Camera, pixbuf: GdkPixbuf.Pixbuf) => void
     video_saved: (self: Camera) => void
     static name: string
 }
@@ -1334,7 +1334,7 @@ export class Overlays {
 }
 export abstract class PlaybackClass {
     /* Fields of ClutterGst-3.0.ClutterGst.PlaybackClass */
-    should_buffer: any
+    should_buffer: (self: Playback, query: Gst.Query) => boolean
     static name: string
 }
 export class PlaybackPrivate {
@@ -1343,7 +1343,7 @@ export class PlaybackPrivate {
 export abstract class PlayerIface {
     /* Fields of ClutterGst-3.0.ClutterGst.PlayerIface */
     get_frame: (self: Player) => Frame
-    get_pipeline: any
+    get_pipeline: (self: Player) => Gst.Element
     get_video_sink: (self: Player) => VideoSink
     get_idle: (self: Player) => boolean
     get_audio_volume: (self: Player) => number
@@ -1353,7 +1353,7 @@ export abstract class PlayerIface {
     new_frame: (self: Player, frame: Frame) => void
     ready: (self: Player) => void
     eos: (self: Player) => void
-    error: any
+    error: (self: Player, error: GLib.Error) => void
     size_change: (self: Player, width: number, height: number) => void
     static name: string
 }

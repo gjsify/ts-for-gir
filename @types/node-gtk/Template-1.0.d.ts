@@ -257,7 +257,7 @@ export abstract class TemplateClass {
 export abstract class TemplateLocatorClass {
     /* Fields of Template-1.0.Template.TemplateLocatorClass */
     parentInstance: GObject.ObjectClass
-    locate: any
+    locate: (self: TemplateLocator, path: string) => Gio.InputStream
     static name: string
 }
 export class Expr {

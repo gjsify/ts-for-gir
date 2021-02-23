@@ -10740,42 +10740,42 @@ export abstract class CanvasItemIface {
     addChild: (item: CanvasItem, child: CanvasItem, position: number) => void
     moveChild: (item: CanvasItem, oldPosition: number, newPosition: number) => void
     removeChild: (item: CanvasItem, childNum: number) => void
-    getChildProperty: any
-    setChildProperty: any
-    getTransformForChild: any
+    getChildProperty: (item: CanvasItem, child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec) => void
+    setChildProperty: (item: CanvasItem, child: CanvasItem, propertyId: number, value: any, pspec: GObject.ParamSpec) => void
+    getTransformForChild: (item: CanvasItem, child: CanvasItem) => { returnType: boolean, transform: cairo.Matrix }
     getParent: (item: CanvasItem) => CanvasItem
     setParent: (item: CanvasItem, parent: CanvasItem) => void
     getBounds: (item: CanvasItem) => { bounds: CanvasBounds }
-    getItemsAt: any
-    update: any
-    paint: any
-    getRequestedArea: any
-    allocateArea: any
-    getTransform: any
-    setTransform: any
+    getItemsAt: (item: CanvasItem, x: number, y: number, cr: cairo.Context, isPointerEvent: boolean, parentIsVisible: boolean, foundItems: CanvasItem[]) => CanvasItem[]
+    update: (item: CanvasItem, entireTree: boolean, cr: cairo.Context, bounds: CanvasBounds) => void
+    paint: (item: CanvasItem, cr: cairo.Context, bounds: CanvasBounds, scale: number) => void
+    getRequestedArea: (item: CanvasItem, cr: cairo.Context, requestedArea: CanvasBounds) => boolean
+    allocateArea: (item: CanvasItem, cr: cairo.Context, requestedArea: CanvasBounds, allocatedArea: CanvasBounds, xOffset: number, yOffset: number) => void
+    getTransform: (item: CanvasItem) => { returnType: boolean, transform: cairo.Matrix }
+    setTransform: (item: CanvasItem, transform?: cairo.Matrix | null) => void
     getStyle: (item: CanvasItem) => CanvasStyle
     setStyle: (item: CanvasItem, style: CanvasStyle) => void
     isVisible: (item: CanvasItem) => boolean
-    getRequestedHeight: any
+    getRequestedHeight: (item: CanvasItem, cr: cairo.Context, width: number) => number
     getModel: (item: CanvasItem) => CanvasItemModel
     setModel: (item: CanvasItem, model: CanvasItemModel) => void
-    enterNotifyEvent: any
-    leaveNotifyEvent: any
-    motionNotifyEvent: any
-    buttonPressEvent: any
-    buttonReleaseEvent: any
-    focusInEvent: any
-    focusOutEvent: any
-    keyPressEvent: any
-    keyReleaseEvent: any
-    grabBrokenEvent: any
-    childNotify: any
-    queryTooltip: any
+    enterNotifyEvent: (item: CanvasItem, target: CanvasItem, event: Gdk.EventCrossing) => boolean
+    leaveNotifyEvent: (item: CanvasItem, target: CanvasItem, event: Gdk.EventCrossing) => boolean
+    motionNotifyEvent: (item: CanvasItem, target: CanvasItem, event: Gdk.EventMotion) => boolean
+    buttonPressEvent: (item: CanvasItem, target: CanvasItem, event: Gdk.EventButton) => boolean
+    buttonReleaseEvent: (item: CanvasItem, target: CanvasItem, event: Gdk.EventButton) => boolean
+    focusInEvent: (item: CanvasItem, target: CanvasItem, event: Gdk.EventFocus) => boolean
+    focusOutEvent: (item: CanvasItem, target: CanvasItem, event: Gdk.EventFocus) => boolean
+    keyPressEvent: (item: CanvasItem, target: CanvasItem, event: Gdk.EventKey) => boolean
+    keyReleaseEvent: (item: CanvasItem, target: CanvasItem, event: Gdk.EventKey) => boolean
+    grabBrokenEvent: (item: CanvasItem, target: CanvasItem, event: Gdk.EventGrabBroken) => boolean
+    childNotify: (item: CanvasItem, pspec: GObject.ParamSpec) => void
+    queryTooltip: (item: CanvasItem, x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip) => boolean
     getIsStatic: (item: CanvasItem) => boolean
     setIsStatic: (item: CanvasItem, isStatic: boolean) => void
     animationFinished: (item: CanvasItem, stopped: boolean) => void
-    scrollEvent: any
-    getRequestedAreaForWidth: any
+    scrollEvent: (item: CanvasItem, target: CanvasItem, event: Gdk.EventScroll) => boolean
+    getRequestedAreaForWidth: (item: CanvasItem, cr: cairo.Context, width: number, requestedArea: CanvasBounds) => boolean
     static name: string
 }
 export abstract class CanvasItemModelIface {
@@ -10785,19 +10785,19 @@ export abstract class CanvasItemModelIface {
     addChild: (model: CanvasItemModel, child: CanvasItemModel, position: number) => void
     moveChild: (model: CanvasItemModel, oldPosition: number, newPosition: number) => void
     removeChild: (model: CanvasItemModel, childNum: number) => void
-    getChildProperty: any
-    setChildProperty: any
+    getChildProperty: (model: CanvasItemModel, child: CanvasItemModel, propertyId: number, value: any, pspec: GObject.ParamSpec) => void
+    setChildProperty: (item: CanvasItemModel, child: CanvasItemModel, propertyId: number, value: any, pspec: GObject.ParamSpec) => void
     getParent: (model: CanvasItemModel) => CanvasItemModel
     setParent: (model: CanvasItemModel, parent: CanvasItemModel) => void
-    getTransform: any
-    setTransform: any
+    getTransform: (model: CanvasItemModel, transform: cairo.Matrix) => boolean
+    setTransform: (model: CanvasItemModel, transform?: cairo.Matrix | null) => void
     getStyle: (model: CanvasItemModel) => CanvasStyle
     setStyle: (model: CanvasItemModel, style: CanvasStyle) => void
     childAdded: (model: CanvasItemModel, childNum: number) => void
     childMoved: (model: CanvasItemModel, oldChildNum: number, newChildNum: number) => void
     childRemoved: (model: CanvasItemModel, childNum: number) => void
     changed: (model: CanvasItemModel, recomputeBounds: boolean) => void
-    childNotify: any
+    childNotify: (model: CanvasItemModel, pspec: GObject.ParamSpec) => void
     animationFinished: (model: CanvasItemModel, stopped: boolean) => void
     static name: string
 }
@@ -10808,10 +10808,10 @@ export abstract class CanvasItemModelSimpleClass {
 }
 export abstract class CanvasItemSimpleClass {
     /* Fields of GooCanvas-3.0.GooCanvas.CanvasItemSimpleClass */
-    simpleCreatePath: any
-    simpleUpdate: any
-    simplePaint: any
-    simpleIsItemAt: any
+    simpleCreatePath: (simple: CanvasItemSimple, cr: cairo.Context) => void
+    simpleUpdate: (simple: CanvasItemSimple, cr: cairo.Context) => void
+    simplePaint: (simple: CanvasItemSimple, cr: cairo.Context, bounds: CanvasBounds) => void
+    simpleIsItemAt: (simple: CanvasItemSimple, x: number, y: number, cr: cairo.Context, isPointerEvent: boolean) => boolean
     static name: string
 }
 export class CanvasItemSimpleData {

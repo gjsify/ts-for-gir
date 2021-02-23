@@ -4806,7 +4806,7 @@ export class LauncherFavoritesPrivate {
 }
 export abstract class MetadataProviderClass {
     /* Fields of Unity-7.0.Unity.MetadataProviderClass */
-    updateHints: any
+    updateHints: (self: MetadataProvider, hints: GLib.HashTable) => void
     static name: string
 }
 export class MetadataProviderPrivate {
@@ -4826,8 +4826,8 @@ export class CategoryPrivate {
 }
 export abstract class FilterClass {
     /* Fields of Unity-7.0.Unity.FilterClass */
-    getHints: any
-    update: any
+    getHints: (self: Filter) => GLib.HashTable
+    update: (self: Filter, properties: GLib.Variant) => void
     static name: string
 }
 export class FilterPrivate {
@@ -4895,7 +4895,7 @@ export class AggregatedScopeSearchPrivate {
 }
 export abstract class PreviewClass {
     /* Fields of Unity-7.0.Unity.PreviewClass */
-    createRaw: any
+    createRaw: (self: Preview) => GObject.Object
     static name: string
 }
 export class PreviewPrivate {
@@ -5006,7 +5006,7 @@ export abstract class CancellableClass {
     /* Fields of Unity-7.0.Unity.CancellableClass */
     cancel: (self: Cancellable) => void
     isCancelled: (self: Cancellable) => boolean
-    getGcancellable: any
+    getGcancellable: (self: Cancellable) => Gio.Cancellable | null
     static name: string
 }
 export class CancellablePrivate {
@@ -5025,7 +5025,7 @@ export class ScopeSearchBasePrivate {
 export abstract class ResultSetClass {
     /* Fields of Unity-7.0.Unity.ResultSetClass */
     addResult: (self: ResultSet, result: ScopeResult) => void
-    addResultFromVariant: any
+    addResultFromVariant: (self: ResultSet, variant: GLib.Variant) => void
     flush: (self: ResultSet) => void
     static name: string
 }
@@ -5086,7 +5086,7 @@ export class ScopeDBusConnectorPrivate {
 }
 export abstract class DeprecatedScopeBaseClass {
     /* Fields of Unity-7.0.Unity.DeprecatedScopeBaseClass */
-    createImpl: any
+    createImpl: (self: DeprecatedScopeBase) => GObject.Object
     static name: string
 }
 export class DeprecatedScopeBasePrivate {
@@ -5094,10 +5094,10 @@ export class DeprecatedScopeBasePrivate {
 }
 export abstract class DeprecatedScopeClass {
     /* Fields of Unity-7.0.Unity.DeprecatedScopeClass */
-    previewResult: any
-    previewResultFinish: any
-    activateResult: any
-    activateResultFinish: any
+    previewResult: (self: DeprecatedScope, result: ScopeResult, callback?: Gio.AsyncReadyCallback | null) => void
+    previewResultFinish: (self: DeprecatedScope, res: Gio.AsyncResult) => Preview | null
+    activateResult: (self: DeprecatedScope, result: ScopeResult, callback?: Gio.AsyncReadyCallback | null) => void
+    activateResultFinish: (self: DeprecatedScope, res: Gio.AsyncResult) => ActivationResponse | null
     static name: string
 }
 export class DeprecatedScopePrivate {
@@ -5106,10 +5106,10 @@ export class DeprecatedScopePrivate {
 export abstract class AggregatorScopeClass {
     /* Fields of Unity-7.0.Unity.AggregatorScopeClass */
     categoryIndexForScopeId: (self: AggregatorScope, scopeId: string) => number
-    search: any
-    searchFinish: any
-    activate: any
-    activateFinish: any
+    search: (self: AggregatorScope, scopeSearch: AggregatedScopeSearch, callback?: Gio.AsyncReadyCallback | null) => void
+    searchFinish: (self: AggregatorScope, res: Gio.AsyncResult) => void
+    activate: (self: AggregatorScope, activation: AggregatorActivation, callback?: Gio.AsyncReadyCallback | null) => void
+    activateFinish: (self: AggregatorScope, res: Gio.AsyncResult) => ActivationResponse | null
     static name: string
 }
 export class AggregatorScopePrivate {

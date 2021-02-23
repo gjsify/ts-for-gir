@@ -3357,7 +3357,7 @@ export abstract class AbstractMultiMapClass {
     parent_class: GObject.ObjectClass
     create_value_storage: (self: AbstractMultiMap) => Collection
     create_multi_key_set: (self: AbstractMultiMap) => MultiSet
-    get_value_equal_func: any
+    get_value_equal_func: (self: AbstractMultiMap) => GLib.EqualFunc
     static name: string
 }
 export class AbstractMultiMapPrivate {
@@ -3549,7 +3549,7 @@ export abstract class ListIface {
     first: (self: List) => object | null
     last: (self: List) => object | null
     insert_all: (self: List, index: number, collection: Collection) => void
-    sort: any
+    sort: (self: List, compare_func?: GLib.CompareFunc | null) => void
     static name: string
 }
 export abstract class ListIteratorIface {

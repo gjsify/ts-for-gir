@@ -6645,11 +6645,11 @@ export class CapsFeatures {
 export abstract class ChildProxyInterface {
     /* Fields of Gst-1.0.Gst.ChildProxyInterface */
     parent: GObject.TypeInterface
-    getChildByName: any
-    getChildByIndex: any
+    getChildByName: (parent: ChildProxy, name: string) => GObject.Object | null
+    getChildByIndex: (parent: ChildProxy, index: number) => GObject.Object | null
     getChildrenCount: (parent: ChildProxy) => number
-    childAdded: any
-    childRemoved: any
+    childAdded: (parent: ChildProxy, child: GObject.Object, name: string) => void
+    childRemoved: (parent: ChildProxy, child: GObject.Object, name: string) => void
     static name: string
 }
 export abstract class ClockClass {
@@ -7159,7 +7159,7 @@ export abstract class ObjectClass {
     /* Fields of Gst-1.0.Gst.ObjectClass */
     parentClass: GObject.InitiallyUnownedClass
     pathStringSeparator: string
-    deepNotify: any
+    deepNotify: (object: Object, orig: Object, pspec: GObject.ParamSpec) => void
     static name: string
 }
 export abstract class PadClass {
@@ -7533,7 +7533,7 @@ export abstract class StreamClass {
 export abstract class StreamCollectionClass {
     /* Fields of Gst-1.0.Gst.StreamCollectionClass */
     parentClass: ObjectClass
-    streamNotify: any
+    streamNotify: (collection: StreamCollection, stream: Stream, pspec: GObject.ParamSpec) => void
     static name: string
 }
 export class StreamCollectionPrivate {
@@ -7770,8 +7770,8 @@ export abstract class TypeFindFactoryClass {
 export abstract class URIHandlerInterface {
     /* Fields of Gst-1.0.Gst.URIHandlerInterface */
     parent: GObject.TypeInterface
-    getType: any
-    getProtocols: any
+    getType: (type: GObject.Type) => URIType
+    getProtocols: (type: GObject.Type) => string[]
     getUri: (handler: URIHandler) => string | null
     setUri: (handler: URIHandler, uri: string) => boolean
     static name: string

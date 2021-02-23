@@ -29373,7 +29373,7 @@ export class TreeStore {
 export abstract class BasicFormClass {
     /* Fields of Gdaui-6.0.Gdaui.BasicFormClass */
     parent_class: Gtk.BoxClass
-    holder_changed: any
+    holder_changed: (form: BasicForm, holder: Gda.Holder, is_user_action: boolean) => void
     activated: (form: BasicForm) => void
     layout_changed: (form: BasicForm) => void
     static name: string
@@ -29411,7 +29411,7 @@ export abstract class DataCellRendererComboClass {
 export abstract class DataCellRendererInfoClass {
     /* Fields of Gdaui-6.0.Gdaui.DataCellRendererInfoClass */
     parent_class: Gtk.CellRendererClass
-    status_changed: any
+    status_changed: (cell_renderer_info: DataCellRendererInfo, path: string, requested_action: Gda.ValueAttribute) => void
     static name: string
 }
 export abstract class DataCellRendererTextualClass {
@@ -29426,16 +29426,16 @@ export abstract class DataEntryInterface {
     contents_modified: (de: DataEntry) => void
     contents_activated: (de: DataEntry) => void
     status_changed: (de: DataEntry) => void
-    set_value_type: any
-    get_value_type: any
+    set_value_type: (de: DataEntry, type: GObject.Type) => void
+    get_value_type: (de: DataEntry) => GObject.Type
     set_value: (de: DataEntry, value?: any | null) => void
     get_value: (de: DataEntry) => any
     set_ref_value: (de: DataEntry, value: any) => void
     get_ref_value: (de: DataEntry) => any
     set_value_default: (de: DataEntry, value: any) => void
-    set_attributes: any
-    get_attributes: any
-    get_handler: any
+    set_attributes: (de: DataEntry, attrs: Gda.ValueAttribute, mask: Gda.ValueAttribute) => void
+    get_attributes: (de: DataEntry) => Gda.ValueAttribute
+    get_handler: (de: DataEntry) => Gda.DataHandler
     can_expand: (de: DataEntry, horiz: boolean) => boolean
     set_editable: (de: DataEntry, editable: boolean) => void
     get_editable: (de: DataEntry) => boolean
@@ -29460,22 +29460,22 @@ export abstract class DataProxyInfoClass {
 export abstract class DataProxyInterface {
     /* Fields of Gdaui-6.0.Gdaui.DataProxyInterface */
     g_iface: GObject.TypeInterface
-    get_proxy: any
+    get_proxy: (iface: DataProxy) => Gda.DataProxy
     set_column_editable: (iface: DataProxy, column: number, editable: boolean) => void
     supports_action: (iface: DataProxy, action: Action) => boolean
     perform_action: (iface: DataProxy, action: Action) => void
     set_write_mode: (iface: DataProxy, mode: DataProxyWriteMode) => boolean
     get_write_mode: (iface: DataProxy) => DataProxyWriteMode
-    proxy_changed: any
+    proxy_changed: (iface: DataProxy, proxy: Gda.DataProxy) => void
     static name: string
 }
 export abstract class DataSelectorInterface {
     /* Fields of Gdaui-6.0.Gdaui.DataSelectorInterface */
     g_iface: GObject.TypeInterface
-    get_model: any
-    set_model: any
+    get_model: (iface: DataSelector) => Gda.DataModel
+    set_model: (iface: DataSelector, model: Gda.DataModel) => void
     get_selected_rows: (iface: DataSelector) => number[]
-    get_data_set: any
+    get_data_set: (iface: DataSelector) => Gda.DataModelIter
     select_row: (iface: DataSelector, row: number) => boolean
     unselect_row: (iface: DataSelector, row: number) => void
     set_column_visible: (iface: DataSelector, column: number, visible: boolean) => void
@@ -29623,7 +29623,7 @@ export abstract class RawGridClass {
     /* Fields of Gdaui-6.0.Gdaui.RawGridClass */
     parent_class: Gtk.TreeViewClass
     double_clicked: (grid: RawGrid, row: number) => void
-    populate_popup: any
+    populate_popup: (grid: RawGrid, menu: Gtk.Menu) => void
     static name: string
 }
 export abstract class RtEditorClass {
@@ -29682,9 +29682,9 @@ export abstract class TreeStoreClass {
     /* Fields of Gdaui-6.0.Gdaui.TreeStoreClass */
     parent_class: GObject.ObjectClass
     drag_can_drag: (store: TreeStore, path: string) => boolean
-    drag_get: any
-    drag_can_drop: any
-    drag_drop: any
+    drag_get: (store: TreeStore, path: string, selection_data: Gtk.SelectionData) => boolean
+    drag_can_drop: (store: TreeStore, path: string, selection_data: Gtk.SelectionData) => boolean
+    drag_drop: (store: TreeStore, path: string, selection_data: Gtk.SelectionData) => boolean
     drag_delete: (store: TreeStore, path: string) => boolean
     padding: object[]
     static name: string

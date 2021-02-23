@@ -1871,7 +1871,7 @@ export class PluginLoaderPrivate {
 }
 export abstract class RecursiveModuleLoaderClass {
     /* Fields of RygelCore-2.6.RygelCore.RecursiveModuleLoaderClass */
-    loadModuleFromFile: any
+    loadModuleFromFile: (file: Gio.File) => boolean
     loadModuleFromInfo: (info: PluginInformation) => boolean
     static name: string
 }
@@ -1916,9 +1916,9 @@ export abstract class BaseConfigurationClass {
     getEnabled: (section: string) => boolean
     getTitle: (section: string) => string
     getString: (section: string, key: string) => string
-    getStringList: any
+    getStringList: (section: string, key: string) => Gee.ArrayList
     getInt: (section: string, key: string, min: number, max: number) => number
-    getIntList: any
+    getIntList: (section: string, key: string) => Gee.ArrayList
     getBool: (section: string, key: string) => boolean
     static name: string
 }
@@ -1986,8 +1986,8 @@ export abstract class DBusInterfaceIface {
 }
 export abstract class DBusAclProviderIface {
     /* Fields of RygelCore-2.6.RygelCore.DBusAclProviderIface */
-    isAllowed: any
-    isAllowedFinish: any
+    isAllowed: (device: GLib.HashTable, service: GLib.HashTable, path: string, address: string, agent?: string | null, callback?: Gio.AsyncReadyCallback | null) => void
+    isAllowedFinish: (res: Gio.AsyncResult) => boolean
     static name: string
 }
 export abstract class ConfigurationIface {
@@ -2008,18 +2008,18 @@ export abstract class ConfigurationIface {
     getEnabled: (section: string) => boolean
     getTitle: (section: string) => string
     getString: (section: string, key: string) => string
-    getStringList: any
+    getStringList: (section: string, key: string) => Gee.ArrayList
     getInt: (section: string, key: string, min: number, max: number) => number
-    getIntList: any
+    getIntList: (section: string, key: string) => Gee.ArrayList
     getBool: (section: string, key: string) => boolean
     static name: string
 }
 export abstract class StateMachineIface {
     /* Fields of RygelCore-2.6.RygelCore.StateMachineIface */
-    run: any
-    runFinish: any
-    getCancellable: any
-    setCancellable: any
+    run: (callback?: Gio.AsyncReadyCallback | null) => void
+    runFinish: (res: Gio.AsyncResult) => void
+    getCancellable: () => Gio.Cancellable
+    setCancellable: (value: Gio.Cancellable) => void
     static name: string
 }
 }

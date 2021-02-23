@@ -228,6 +228,6 @@ export class TranscoderPrivate {
 export abstract class TranscoderSignalDispatcherInterface {
     /* Fields of GstTranscoder-1.0.GstTranscoder.TranscoderSignalDispatcherInterface */
     parent_iface: GObject.TypeInterface
-    dispatch: any
+    dispatch: (self: TranscoderSignalDispatcher, transcoder: Transcoder, emitter: object | null, data: object | null, destroy: GLib.DestroyNotify) => void
     static name: string
 }

@@ -551,8 +551,8 @@ export abstract class ClientClass {
     rootChanged: (newroot: Menuitem) => void
     newMenuitem: (newitem: Menuitem) => void
     itemActivate: (item: Menuitem, timestamp: number) => void
-    eventResult: any
-    iconThemeDirs: any
+    eventResult: (item: Menuitem, event: string, data: GLib.Variant, timestamp: number, error: GLib.Error) => void
+    iconThemeDirs: (item: Menuitem, themeDirs: object, error: GLib.Error) => void
     reserved1: () => void
     reserved2: () => void
     reserved3: () => void
@@ -566,16 +566,16 @@ export class ClientPrivate {
 export abstract class MenuitemClass {
     /* Fields of Dbusmenu-0.4.Dbusmenu.MenuitemClass */
     parentClass: GObject.ObjectClass
-    propertyChanged: any
+    propertyChanged: (property: string, value: GLib.Variant) => void
     itemActivated: (timestamp: number) => void
     childAdded: (child: Menuitem, position: number) => void
     childRemoved: (child: Menuitem) => void
     childMoved: (child: Menuitem, newpos: number, oldpos: number) => void
     realized: () => void
-    handleEvent: any
+    handleEvent: (mi: Menuitem, name: string, variant: GLib.Variant, timestamp: number) => void
     showToUser: (mi: Menuitem, timestamp: number, cbData?: object | null) => void
     aboutToShow: () => boolean
-    event: any
+    event: (name: string, value: GLib.Variant, timestamp: number) => void
     reserved1: () => void
     reserved2: () => void
     reserved3: () => void

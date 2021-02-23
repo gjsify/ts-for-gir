@@ -1064,8 +1064,8 @@ export class Simple {
 export abstract class ClientIface {
     /* Fields of Geoclue-2.0.Geoclue.ClientIface */
     parent_iface: GObject.TypeInterface
-    handle_start: any
-    handle_stop: any
+    handle_start: (object: Client, invocation: Gio.DBusMethodInvocation) => boolean
+    handle_stop: (object: Client, invocation: Gio.DBusMethodInvocation) => boolean
     get_active: (object: Client) => boolean
     get_desktop_id: (object: Client) => string | null
     get_distance_threshold: (object: Client) => number
@@ -1101,7 +1101,7 @@ export abstract class LocationIface {
     get_latitude: (object: Location) => number
     get_longitude: (object: Location) => number
     get_speed: (object: Location) => number
-    get_timestamp: any
+    get_timestamp: (object: Location) => GLib.Variant | null
     static name: string
 }
 export abstract class LocationProxyClass {
@@ -1123,10 +1123,10 @@ export class LocationSkeletonPrivate {
 export abstract class ManagerIface {
     /* Fields of Geoclue-2.0.Geoclue.ManagerIface */
     parent_iface: GObject.TypeInterface
-    handle_add_agent: any
-    handle_create_client: any
-    handle_delete_client: any
-    handle_get_client: any
+    handle_add_agent: (object: Manager, invocation: Gio.DBusMethodInvocation, arg_id: string) => boolean
+    handle_create_client: (object: Manager, invocation: Gio.DBusMethodInvocation) => boolean
+    handle_delete_client: (object: Manager, invocation: Gio.DBusMethodInvocation, arg_client: string) => boolean
+    handle_get_client: (object: Manager, invocation: Gio.DBusMethodInvocation) => boolean
     get_available_accuracy_level: (object: Manager) => number
     get_in_use: (object: Manager) => boolean
     static name: string

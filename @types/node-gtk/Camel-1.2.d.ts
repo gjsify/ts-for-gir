@@ -10180,10 +10180,10 @@ export abstract class CipherContextClass {
     keyProtocol: string
     idToHash: (context: CipherContext, id: string) => CipherHash
     hashToId: (context: CipherContext, hash: CipherHash) => string
-    signSync: any
-    verifySync: any
-    encryptSync: any
-    decryptSync: any
+    signSync: (context: CipherContext, userid: string, hash: CipherHash, ipart: MimePart, opart: MimePart, cancellable?: Gio.Cancellable | null) => boolean
+    verifySync: (context: CipherContext, ipart: MimePart, cancellable?: Gio.Cancellable | null) => CipherValidity
+    encryptSync: (context: CipherContext, userid: string, recipients: string[], ipart: MimePart, opart: MimePart, cancellable?: Gio.Cancellable | null) => boolean
+    decryptSync: (context: CipherContext, ipart: MimePart, opart: MimePart, cancellable?: Gio.Cancellable | null) => CipherValidity
     reserved: object[]
     static name: string
 }
@@ -10278,12 +10278,12 @@ export abstract class DataWrapperClass {
     getMimeTypeField: (dataWrapper: DataWrapper) => ContentType
     setMimeTypeField: (dataWrapper: DataWrapper, mimeType?: ContentType | null) => void
     isOffline: (dataWrapper: DataWrapper) => boolean
-    writeToStreamSync: any
-    decodeToStreamSync: any
-    constructFromStreamSync: any
-    writeToOutputStreamSync: any
-    decodeToOutputStreamSync: any
-    constructFromInputStreamSync: any
+    writeToStreamSync: (dataWrapper: DataWrapper, stream: Stream, cancellable?: Gio.Cancellable | null) => number
+    decodeToStreamSync: (dataWrapper: DataWrapper, stream: Stream, cancellable?: Gio.Cancellable | null) => number
+    constructFromStreamSync: (dataWrapper: DataWrapper, stream: Stream, cancellable?: Gio.Cancellable | null) => boolean
+    writeToOutputStreamSync: (dataWrapper: DataWrapper, outputStream: Gio.OutputStream, cancellable?: Gio.Cancellable | null) => number
+    decodeToOutputStreamSync: (dataWrapper: DataWrapper, outputStream: Gio.OutputStream, cancellable?: Gio.Cancellable | null) => number
+    constructFromInputStreamSync: (dataWrapper: DataWrapper, inputStream: Gio.InputStream, cancellable?: Gio.Cancellable | null) => boolean
     reserved: object[]
     static name: string
 }
@@ -10385,8 +10385,8 @@ export abstract class FolderClass {
     getSummary: (folder: Folder) => string[]
     freeSummary: (folder: Folder, array: MessageInfo[]) => void
     hasSearchCapability: (folder: Folder) => boolean
-    searchByExpression: any
-    searchByUids: any
+    searchByExpression: (folder: Folder, expression: string, cancellable?: Gio.Cancellable | null) => string[]
+    searchByUids: (folder: Folder, expression: string, uids: string[], cancellable?: Gio.Cancellable | null) => string[]
     searchFree: (folder: Folder, result: string[]) => void
     getMessageInfo: (folder: Folder, uid: string) => MessageInfo
     delete_: (folder: Folder) => void
@@ -10394,19 +10394,19 @@ export abstract class FolderClass {
     freeze: (folder: Folder) => void
     thaw: (folder: Folder) => void
     isFrozen: (folder: Folder) => boolean
-    countByExpression: any
+    countByExpression: (folder: Folder, expression: string, cancellable?: Gio.Cancellable | null) => number
     getUncachedUids: (folder: Folder, uids: string[]) => string[]
     getFilename: (folder: Folder, uid: string) => string
-    getMessageCached: any
-    appendMessageSync: any
-    expungeSync: any
-    getMessageSync: any
-    getQuotaInfoSync: any
-    purgeMessageCacheSync: any
-    refreshInfoSync: any
-    synchronizeSync: any
-    synchronizeMessageSync: any
-    transferMessagesToSync: any
+    getMessageCached: (folder: Folder, messageUid: string, cancellable?: Gio.Cancellable | null) => MimeMessage | null
+    appendMessageSync: (folder: Folder, message: MimeMessage, info: MessageInfo, appendedUid: string, cancellable?: Gio.Cancellable | null) => boolean
+    expungeSync: (folder: Folder, cancellable?: Gio.Cancellable | null) => boolean
+    getMessageSync: (folder: Folder, messageUid: string, cancellable?: Gio.Cancellable | null) => MimeMessage
+    getQuotaInfoSync: (folder: Folder, cancellable?: Gio.Cancellable | null) => FolderQuotaInfo
+    purgeMessageCacheSync: (folder: Folder, startUid: string, endUid: string, cancellable?: Gio.Cancellable | null) => boolean
+    refreshInfoSync: (folder: Folder, cancellable?: Gio.Cancellable | null) => boolean
+    synchronizeSync: (folder: Folder, expunge: boolean, cancellable?: Gio.Cancellable | null) => boolean
+    synchronizeMessageSync: (folder: Folder, messageUid: string, cancellable?: Gio.Cancellable | null) => boolean
+    transferMessagesToSync: (source: Folder, messageUids: string[], destination: Folder, deleteOriginals: boolean, cancellable?: Gio.Cancellable | null) => { returnType: boolean, transferredUids: string[] }
     prepareContentRefresh: (folder: Folder) => void
     reservedMethods: object[]
     changed: (folder: Folder, changes: FolderChangeInfo) => void
@@ -10620,10 +10620,10 @@ export class InternetAddressPrivate {
 export abstract class JunkFilterInterface {
     /* Fields of Camel-1.2.Camel.JunkFilterInterface */
     parentInterface: GObject.TypeInterface
-    classify: any
-    learnJunk: any
-    learnNotJunk: any
-    synchronize: any
+    classify: (junkFilter: JunkFilter, message: MimeMessage, cancellable?: Gio.Cancellable | null) => JunkStatus
+    learnJunk: (junkFilter: JunkFilter, message: MimeMessage, cancellable?: Gio.Cancellable | null) => boolean
+    learnNotJunk: (junkFilter: JunkFilter, message: MimeMessage, cancellable?: Gio.Cancellable | null) => boolean
+    synchronize: (junkFilter: JunkFilter, cancellable?: Gio.Cancellable | null) => boolean
     reserved: object[]
     static name: string
 }
@@ -10756,7 +10756,7 @@ export abstract class MessageInfoClass {
     parentClass: GObject.ObjectClass
     clone: (mi: MessageInfo, assignSummary?: FolderSummary | null) => MessageInfo
     load: (mi: MessageInfo, record: MIRecord | null, bdataPtr: string) => boolean
-    save: any
+    save: (mi: MessageInfo, record: MIRecord | null, bdataStr: GLib.String) => boolean
     getFlags: (mi: MessageInfo) => number
     setFlags: (mi: MessageInfo, mask: number, set: number) => boolean
     getUserFlag: (mi: MessageInfo, name: string) => boolean
@@ -10977,7 +10977,7 @@ export class MimeParserPrivate {
 export abstract class MimePartClass {
     /* Fields of Camel-1.2.Camel.MimePartClass */
     parentClass: MediumClass
-    constructFromParserSync: any
+    constructFromParserSync: (mimePart: MimePart, parser: MimeParser, cancellable?: Gio.Cancellable | null) => boolean
     reserved: object[]
     static name: string
 }
@@ -11082,7 +11082,7 @@ export abstract class NetworkServiceInterface {
     parentInterface: GObject.TypeInterface
     getServiceName: (service: NetworkService, method: NetworkSecurityMethod) => string
     getDefaultPort: (service: NetworkService, method: NetworkSecurityMethod) => number
-    connectSync: any
+    connectSync: (service: NetworkService, cancellable?: Gio.Cancellable | null) => Gio.IOStream
     reserved: object[]
     static name: string
 }
@@ -11128,7 +11128,7 @@ export class ObjectPrivate {
 export abstract class OfflineFolderClass {
     /* Fields of Camel-1.2.Camel.OfflineFolderClass */
     parentClass: FolderClass
-    downsyncSync: any
+    downsyncSync: (folder: OfflineFolder, expression: string, cancellable?: Gio.Cancellable | null) => boolean
     reserved: object[]
     static name: string
 }
@@ -11300,8 +11300,8 @@ export abstract class SaslClass {
     /* Fields of Camel-1.2.Camel.SaslClass */
     parentClass: GObject.ObjectClass
     authType: ServiceAuthType
-    tryEmptyPasswordSync: any
-    challengeSync: any
+    tryEmptyPasswordSync: (sasl: Sasl, cancellable?: Gio.Cancellable | null) => boolean
+    challengeSync: (sasl: Sasl, token: any[], cancellable?: Gio.Cancellable | null) => any[]
     reserved: object[]
     static name: string
 }
@@ -11411,10 +11411,10 @@ export abstract class ServiceClass {
     parentClass: ObjectClass
     settingsType: GObject.Type
     getName: (service: Service, brief: boolean) => string
-    connectSync: any
-    disconnectSync: any
-    authenticateSync: any
-    queryAuthTypesSync: any
+    connectSync: (service: Service, cancellable?: Gio.Cancellable | null) => boolean
+    disconnectSync: (service: Service, clean: boolean, cancellable?: Gio.Cancellable | null) => boolean
+    authenticateSync: (service: Service, mechanism?: string | null, cancellable?: Gio.Cancellable | null) => AuthenticationResult
+    queryAuthTypesSync: (service: Service, cancellable?: Gio.Cancellable | null) => ServiceAuthType[]
     reserved: object[]
     static name: string
 }
@@ -11428,16 +11428,16 @@ export abstract class SessionClass {
     removeService: (session: Session, service: Service) => void
     getPassword: (session: Session, service: Service, prompt: string, item: string, flags: number) => string
     forgetPassword: (session: Session, service: Service, item: string) => boolean
-    trustPrompt: any
+    trustPrompt: (session: Session, service: Service, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => CertTrust
     getFilterDriver: (session: Session, type: string, forFolder?: Folder | null) => FilterDriver
     lookupAddressbook: (session: Session, name: string) => boolean
-    authenticateSync: any
-    forwardToSync: any
-    getOauth2AccessTokenSync: any
-    getRecipientCertificatesSync: any
+    authenticateSync: (session: Session, service: Service, mechanism?: string | null, cancellable?: Gio.Cancellable | null) => boolean
+    forwardToSync: (session: Session, folder: Folder, message: MimeMessage, address: string, cancellable?: Gio.Cancellable | null) => boolean
+    getOauth2AccessTokenSync: (session: Session, service: Service, cancellable?: Gio.Cancellable | null) => { returnType: boolean, outAccessToken: string | null, outExpiresIn: number | null }
+    getRecipientCertificatesSync: (session: Session, flags: number, recipients: string[], cancellable?: Gio.Cancellable | null) => { returnType: boolean, outCertificates: string[] }
     reservedMethods: object[]
-    jobStarted: any
-    jobFinished: any
+    jobStarted: (session: Session, cancellable?: Gio.Cancellable | null) => void
+    jobFinished: (session: Session, cancellable: Gio.Cancellable | null, error: GLib.Error) => void
     userAlert: (session: Session, service: Service, type: SessionAlertType, message: string) => void
     reservedSignals: object[]
     static name: string
@@ -11464,16 +11464,16 @@ export abstract class StoreClass {
     hashFolderName: GLib.HashFunc
     equalFolderName: GLib.EqualFunc
     canRefreshFolder: (store: Store, info: FolderInfo) => boolean
-    getFolderSync: any
-    getFolderInfoSync: any
-    getInboxFolderSync: any
-    getJunkFolderSync: any
-    getTrashFolderSync: any
-    createFolderSync: any
-    deleteFolderSync: any
-    renameFolderSync: any
-    synchronizeSync: any
-    initialSetupSync: any
+    getFolderSync: (store: Store, folderName: string, flags: StoreGetFolderFlags, cancellable?: Gio.Cancellable | null) => Folder | null
+    getFolderInfoSync: (store: Store, top: string | null, flags: StoreGetFolderInfoFlags, cancellable?: Gio.Cancellable | null) => FolderInfo | null
+    getInboxFolderSync: (store: Store, cancellable?: Gio.Cancellable | null) => Folder | null
+    getJunkFolderSync: (store: Store, cancellable?: Gio.Cancellable | null) => Folder | null
+    getTrashFolderSync: (store: Store, cancellable?: Gio.Cancellable | null) => Folder | null
+    createFolderSync: (store: Store, parentName: string | null, folderName: string, cancellable?: Gio.Cancellable | null) => FolderInfo | null
+    deleteFolderSync: (store: Store, folderName: string, cancellable?: Gio.Cancellable | null) => boolean
+    renameFolderSync: (store: Store, oldName: string, newName: string, cancellable?: Gio.Cancellable | null) => boolean
+    synchronizeSync: (store: Store, expunge: boolean, cancellable?: Gio.Cancellable | null) => boolean
+    initialSetupSync: (store: Store, cancellable?: Gio.Cancellable | null) => { returnType: boolean, outSaveSetup: GLib.HashTable }
     getCanAutoSaveChanges: (store: Store) => boolean
     reservedMethods: object[]
     folderCreated: (store: Store, folderInfo: FolderInfo) => void
@@ -11537,10 +11537,10 @@ export class StreamBufferPrivate {
 export abstract class StreamClass {
     /* Fields of Camel-1.2.Camel.StreamClass */
     parentClass: GObject.ObjectClass
-    read: any
-    write: any
-    close: any
-    flush: any
+    read: (stream: Stream, buffer: number[], cancellable?: Gio.Cancellable | null) => number
+    write: (stream: Stream, buffer: number[], cancellable?: Gio.Cancellable | null) => number
+    close: (stream: Stream, cancellable?: Gio.Cancellable | null) => number
+    flush: (stream: Stream, cancellable?: Gio.Cancellable | null) => number
     eos: (stream: Stream) => boolean
     reserved: object[]
     static name: string
@@ -11597,8 +11597,8 @@ export abstract class SubscribableInterface {
     /* Fields of Camel-1.2.Camel.SubscribableInterface */
     parentInterface: GObject.TypeInterface
     folderIsSubscribed: (subscribable: Subscribable, folderName: string) => boolean
-    subscribeFolderSync: any
-    unsubscribeFolderSync: any
+    subscribeFolderSync: (subscribable: Subscribable, folderName: string, cancellable?: Gio.Cancellable | null) => boolean
+    unsubscribeFolderSync: (subscribable: Subscribable, folderName: string, cancellable?: Gio.Cancellable | null) => boolean
     reservedMethods: object[]
     folderSubscribed: (subscribable: Subscribable, folderInfo: FolderInfo) => void
     folderUnsubscribed: (subscribable: Subscribable, folderInfo: FolderInfo) => void
@@ -11647,7 +11647,7 @@ export class TextIndexPrivate {
 export abstract class TransportClass {
     /* Fields of Camel-1.2.Camel.TransportClass */
     parentClass: ServiceClass
-    sendToSync: any
+    sendToSync: (transport: Transport, message: MimeMessage, from: Address, recipients: Address, cancellable?: Gio.Cancellable | null) => { returnType: boolean, outSentMessageSaved: boolean }
     reserved: object[]
     static name: string
 }
@@ -11757,9 +11757,9 @@ export class VeeDataCachePrivate {
 export abstract class VeeFolderClass {
     /* Fields of Camel-1.2.Camel.VeeFolderClass */
     parentClass: FolderClass
-    addFolder: any
-    removeFolder: any
-    rebuildFolder: any
+    addFolder: (vfolder: VeeFolder, subfolder: Folder, cancellable?: Gio.Cancellable | null) => void
+    removeFolder: (vfolder: VeeFolder, subfolder: Folder, cancellable?: Gio.Cancellable | null) => void
+    rebuildFolder: (vfolder: VeeFolder, subfolder: Folder, cancellable?: Gio.Cancellable | null) => void
     setExpression: (vfolder: VeeFolder, expression: string) => void
     folderChanged: (vfolder: VeeFolder, subfolder: Folder, changes: FolderChangeInfo) => void
     reserved: object[]

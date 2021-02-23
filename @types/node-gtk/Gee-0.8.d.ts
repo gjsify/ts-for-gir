@@ -5608,7 +5608,7 @@ export abstract class AbstractMapClass {
     mapIterator: () => MapIterator
     clear: () => void
     foreach: (f: ForallFunc) => boolean
-    stream: any
+    stream: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: StreamFunc) => Iterator
     reserved0: () => void
     reserved1: () => void
     reserved2: () => void
@@ -5628,7 +5628,7 @@ export abstract class AbstractMultiMapClass {
     /* Fields of Gee-0.8.Gee.AbstractMultiMapClass */
     createValueStorage: () => Collection
     createMultiKeySet: () => MultiSet
-    getValueEqualFunc: any
+    getValueEqualFunc: () => { returnType: EqualDataFunc, resultTarget: object | null, resultTargetDestroyNotify: GLib.DestroyNotify }
     reserved0: () => void
     reserved1: () => void
     reserved2: () => void
@@ -5964,16 +5964,16 @@ export abstract class FutureIface {
     /* Fields of Gee-0.8.Gee.FutureIface */
     wait: () => object | null
     waitUntil: (endTime: number) => { returnType: boolean, value: object | null }
-    waitAsync: any
-    waitFinish: any
-    map: any
-    lightMap: any
-    lightMapBroken: any
-    zip: any
-    flatMap: any
+    waitAsync: (callback?: Gio.AsyncReadyCallback | null) => void
+    waitFinish: (res: Gio.AsyncResult) => object | null
+    map: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Future
+    lightMap: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Future
+    lightMapBroken: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Future
+    zip: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, bType: GObject.Type, bDupFunc: GObject.BoxedCopyFunc, bDestroyFunc: GLib.DestroyNotify, zipFunc: any, second: Future) => Future
+    flatMap: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Future
     getValue: () => object | null
     getReady: () => boolean
-    getException: any
+    getException: () => GLib.Error | null
     static name: string
 }
 export abstract class HashableIface {
@@ -6009,7 +6009,7 @@ export abstract class ListIface {
     first: () => object | null
     last: () => object | null
     insertAll: (index: number, collection: Collection) => void
-    sort: any
+    sort: (compareFunc: GLib.CompareDataFunc | null) => void
     getReadOnlyView: () => List
     static name: string
 }
@@ -6055,7 +6055,7 @@ export abstract class MapIteratorIface {
     getValue: () => object | null
     setValue: (value?: object | null) => void
     unset: () => void
-    fold: any
+    fold: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: FoldMapFunc, seed?: object | null) => object | null
     foreach: (f: ForallMapFunc) => boolean
     getValid: () => boolean
     getMutable: () => boolean
@@ -6129,21 +6129,21 @@ export abstract class SortedSetIface {
 export abstract class TraversableIface {
     /* Fields of Gee-0.8.Gee.TraversableIface */
     foreach: (f: ForallFunc) => boolean
-    stream: any
-    fold: any
-    map: any
-    scan: any
+    stream: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: StreamFunc) => Iterator
+    fold: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: FoldFunc, seed?: object | null) => object | null
+    map: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: MapFunc) => Iterator
+    scan: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: FoldFunc, seed?: object | null) => Iterator
     filter: (pred: Predicate) => Iterator
     chop: (offset: number, length: number) => Iterator
-    flatMap: any
+    flatMap: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: FlatMapFunc) => Iterator
     tee: (forks: number) => Iterator[]
     firstMatch: (pred: Predicate) => object | null
     anyMatch: (pred: Predicate) => boolean
     allMatch: (pred: Predicate) => boolean
-    max: any
-    min: any
-    orderBy: any
-    getElementType: any
+    max: (compare: GLib.CompareDataFunc) => object | null
+    min: (compare: GLib.CompareDataFunc) => object | null
+    orderBy: (compare: GLib.CompareDataFunc | null) => Iterator
+    getElementType: () => GObject.Type
     static name: string
 }
 }

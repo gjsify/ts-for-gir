@@ -1313,8 +1313,8 @@ export abstract class AclInterface {
     /* Fields of GUPnP-1.2.GUPnP.AclInterface */
     parent: GObject.TypeInterface
     isAllowed: (self: Acl, device: object | null, service: object | null, path: string, address: string, agent?: string | null) => boolean
-    isAllowedAsync: any
-    isAllowedFinish: any
+    isAllowedAsync: (self: Acl, device: object | null, service: object | null, path: string, address: string, agent?: string | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    isAllowedFinish: (self: Acl, res: Gio.AsyncResult) => boolean
     canSync: (self: Acl) => boolean
     static name: string
 }
@@ -1420,7 +1420,7 @@ export class ServiceProxyAction {
 export abstract class ServiceProxyClass {
     /* Fields of GUPnP-1.2.GUPnP.ServiceProxyClass */
     parentClass: ServiceInfoClass
-    subscriptionLost: any
+    subscriptionLost: (proxy: ServiceProxy, reason: GLib.Error) => void
     static name: string
 }
 export class ServiceStateVariableInfo {

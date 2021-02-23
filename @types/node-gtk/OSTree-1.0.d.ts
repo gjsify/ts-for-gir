@@ -1133,9 +1133,9 @@ export class BootloaderGrub2 {
 export class BootloaderInterface {
     /* Fields of OSTree-1.0.OSTree.BootloaderInterface */
     gIface: GObject.TypeInterface
-    query: any
+    query: (bootloader: Bootloader, outIsActive: boolean, cancellable: Gio.Cancellable) => boolean
     getName: (self: Bootloader) => string
-    writeConfig: any
+    writeConfig: (self: Bootloader, bootversion: number, cancellable: Gio.Cancellable) => boolean
     isAtomic: (self: Bootloader) => boolean
     static name: string
 }
@@ -1155,10 +1155,10 @@ export class ChecksumInputStreamPrivate {
 }
 export class CmdPrivateVTable {
     /* Fields of OSTree-1.0.OSTree.CmdPrivateVTable */
-    ostreeGenerateGrub2Config: any
-    ostreeStaticDeltaDump: any
-    ostreeStaticDeltaQueryExists: any
-    ostreeStaticDeltaDelete: any
+    ostreeGenerateGrub2Config: (sysroot: Sysroot, bootversion: number, targetFd: number, cancellable: Gio.Cancellable) => boolean
+    ostreeStaticDeltaDump: (repo: Repo, deltaId: string, cancellable: Gio.Cancellable) => boolean
+    ostreeStaticDeltaQueryExists: (repo: Repo, deltaId: string, outExists: boolean, cancellable: Gio.Cancellable) => boolean
+    ostreeStaticDeltaDelete: (repo: Repo, deltaId: string, cancellable: Gio.Cancellable) => boolean
     static name: string
 }
 export class DiffItem {

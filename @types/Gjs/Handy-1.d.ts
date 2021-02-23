@@ -26782,7 +26782,7 @@ export abstract class SwipeableInterface {
     get_snap_points: (self: Swipeable) => number[]
     get_progress: (self: Swipeable) => number
     get_cancel_progress: (self: Swipeable) => number
-    get_swipe_area: any
+    get_swipe_area: (self: Swipeable, navigation_direction: NavigationDirection, is_drag: boolean) => /* rect */ Gdk.Rectangle
     static name: string
 }
 export abstract class TabBarClass {

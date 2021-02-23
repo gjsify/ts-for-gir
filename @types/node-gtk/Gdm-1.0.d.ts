@@ -2504,8 +2504,8 @@ export class WorkerManagerSkeleton {
 export abstract class ChooserIface {
     /* Fields of Gdm-1.0.Gdm.ChooserIface */
     parentIface: GObject.TypeInterface
-    handleDisconnect: any
-    handleSelectHostname: any
+    handleDisconnect: (object: Chooser, invocation: Gio.DBusMethodInvocation) => boolean
+    handleSelectHostname: (object: Chooser, invocation: Gio.DBusMethodInvocation, argHostname: string) => boolean
     static name: string
 }
 export abstract class ChooserProxyClass {
@@ -2532,11 +2532,11 @@ export abstract class ClientClass {
 export abstract class GreeterIface {
     /* Fields of Gdm-1.0.Gdm.GreeterIface */
     parentIface: GObject.TypeInterface
-    handleBeginAutoLogin: any
-    handleGetTimedLoginDetails: any
-    handleSelectSession: any
-    handleSelectUser: any
-    handleStartSessionWhenReady: any
+    handleBeginAutoLogin: (object: Greeter, invocation: Gio.DBusMethodInvocation, argUsername: string) => boolean
+    handleGetTimedLoginDetails: (object: Greeter, invocation: Gio.DBusMethodInvocation) => boolean
+    handleSelectSession: (object: Greeter, invocation: Gio.DBusMethodInvocation, argSession: string) => boolean
+    handleSelectUser: (object: Greeter, invocation: Gio.DBusMethodInvocation, argUsername: string) => boolean
+    handleStartSessionWhenReady: (object: Greeter, invocation: Gio.DBusMethodInvocation, argServiceName: string, argShouldStartSession: boolean) => boolean
     defaultLanguageNameChanged: (object: Greeter, argLanguageName: string) => void
     defaultSessionNameChanged: (object: Greeter, argSessionName: string) => void
     reauthenticated: (object: Greeter, argServiceName: string) => void
@@ -2564,10 +2564,10 @@ export class GreeterSkeletonPrivate {
 export abstract class ManagerIface {
     /* Fields of Gdm-1.0.Gdm.ManagerIface */
     parentIface: GObject.TypeInterface
-    handleOpenReauthenticationChannel: any
-    handleOpenSession: any
-    handleRegisterDisplay: any
-    handleRegisterSession: any
+    handleOpenReauthenticationChannel: (object: Manager, invocation: Gio.DBusMethodInvocation, argUsername: string) => boolean
+    handleOpenSession: (object: Manager, invocation: Gio.DBusMethodInvocation) => boolean
+    handleRegisterDisplay: (object: Manager, invocation: Gio.DBusMethodInvocation, argDetails: GLib.Variant) => boolean
+    handleRegisterSession: (object: Manager, invocation: Gio.DBusMethodInvocation, argDetails: GLib.Variant) => boolean
     getVersion: (object: Manager) => string
     static name: string
 }
@@ -2590,7 +2590,7 @@ export class ManagerSkeletonPrivate {
 export abstract class RemoteGreeterIface {
     /* Fields of Gdm-1.0.Gdm.RemoteGreeterIface */
     parentIface: GObject.TypeInterface
-    handleDisconnect: any
+    handleDisconnect: (object: RemoteGreeter, invocation: Gio.DBusMethodInvocation) => boolean
     static name: string
 }
 export abstract class RemoteGreeterProxyClass {
@@ -2612,8 +2612,8 @@ export class RemoteGreeterSkeletonPrivate {
 export abstract class UserVerifierChoiceListIface {
     /* Fields of Gdm-1.0.Gdm.UserVerifierChoiceListIface */
     parentIface: GObject.TypeInterface
-    handleSelectChoice: any
-    choiceQuery: any
+    handleSelectChoice: (object: UserVerifierChoiceList, invocation: Gio.DBusMethodInvocation, argServiceName: string, argChoice: string) => boolean
+    choiceQuery: (object: UserVerifierChoiceList, argServiceName: string, argPromptMessage: string, argList: GLib.Variant) => void
     static name: string
 }
 export abstract class UserVerifierChoiceListProxyClass {
@@ -2635,11 +2635,11 @@ export class UserVerifierChoiceListSkeletonPrivate {
 export abstract class UserVerifierIface {
     /* Fields of Gdm-1.0.Gdm.UserVerifierIface */
     parentIface: GObject.TypeInterface
-    handleAnswerQuery: any
-    handleBeginVerification: any
-    handleBeginVerificationForUser: any
-    handleCancel: any
-    handleEnableExtensions: any
+    handleAnswerQuery: (object: UserVerifier, invocation: Gio.DBusMethodInvocation, argServiceName: string, argAnswer: string) => boolean
+    handleBeginVerification: (object: UserVerifier, invocation: Gio.DBusMethodInvocation, argServiceName: string) => boolean
+    handleBeginVerificationForUser: (object: UserVerifier, invocation: Gio.DBusMethodInvocation, argServiceName: string, argUsername: string) => boolean
+    handleCancel: (object: UserVerifier, invocation: Gio.DBusMethodInvocation) => boolean
+    handleEnableExtensions: (object: UserVerifier, invocation: Gio.DBusMethodInvocation, argExtensions: string) => boolean
     conversationStarted: (object: UserVerifier, argServiceName: string) => void
     conversationStopped: (object: UserVerifier, argServiceName: string) => void
     info: (object: UserVerifier, argServiceName: string, argInfo: string) => void
@@ -2672,12 +2672,12 @@ export class UserVerifierSkeletonPrivate {
 export abstract class WorkerManagerIface {
     /* Fields of Gdm-1.0.Gdm.WorkerManagerIface */
     parentIface: GObject.TypeInterface
-    handleChoiceListQuery: any
-    handleHello: any
-    handleInfo: any
-    handleInfoQuery: any
-    handleProblem: any
-    handleSecretInfoQuery: any
+    handleChoiceListQuery: (object: WorkerManager, invocation: Gio.DBusMethodInvocation, argServiceName: string, argPromptMessage: string, argQuery: GLib.Variant) => boolean
+    handleHello: (object: WorkerManager, invocation: Gio.DBusMethodInvocation) => boolean
+    handleInfo: (object: WorkerManager, invocation: Gio.DBusMethodInvocation, argServiceName: string, argInfo: string) => boolean
+    handleInfoQuery: (object: WorkerManager, invocation: Gio.DBusMethodInvocation, argServiceName: string, argQuery: string) => boolean
+    handleProblem: (object: WorkerManager, invocation: Gio.DBusMethodInvocation, argServiceName: string, argProblem: string) => boolean
+    handleSecretInfoQuery: (object: WorkerManager, invocation: Gio.DBusMethodInvocation, argServiceName: string, argQuery: string) => boolean
     static name: string
 }
 export abstract class WorkerManagerProxyClass {

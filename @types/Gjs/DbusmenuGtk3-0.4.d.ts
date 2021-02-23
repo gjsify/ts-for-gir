@@ -1057,7 +1057,7 @@ export class Menu {
 export abstract class ClientClass {
     /* Fields of DbusmenuGtk3-0.4.DbusmenuGtk3.ClientClass */
     parent_class: Dbusmenu.ClientClass
-    root_changed: any
+    root_changed: (newroot: Dbusmenu.Menuitem) => void
     reserved1: () => void
     reserved2: () => void
     reserved3: () => void

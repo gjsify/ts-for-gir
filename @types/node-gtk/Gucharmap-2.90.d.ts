@@ -4929,8 +4929,8 @@ export abstract class ChaptersModelClass {
     /* Fields of Gucharmap-2.90.Gucharmap.ChaptersModelClass */
     parentClass: Gtk.ListStoreClass
     title: string
-    characterToIter: any
-    getCodepointList: any
+    characterToIter: (chapters: ChaptersModel, wc: number) => { returnType: boolean, iter: Gtk.TreeIter }
+    getCodepointList: (chapters: ChaptersModel, iter: Gtk.TreeIter) => CodepointList
     getBookCodepointList: (chapters: ChaptersModel) => CodepointList
     static name: string
 }
@@ -4968,8 +4968,8 @@ export abstract class ChartableCellAccessibleClass {
 export abstract class ChartableClass {
     /* Fields of Gucharmap-2.90.Gucharmap.ChartableClass */
     parentClass: Gtk.DrawingAreaClass
-    setScrollAdjustments: any
-    moveCursor: any
+    setScrollAdjustments: (chartable: Chartable, hadjustment: Gtk.Adjustment, vadjustment: Gtk.Adjustment) => void
+    moveCursor: (chartable: Chartable, step: Gtk.MovementStep, count: number) => boolean
     activate: (chartable: Chartable) => void
     copyClipboard: (chartable: Chartable) => void
     pasteClipboard: (chartable: Chartable) => void

@@ -9,8 +9,8 @@ import type { GObject } from './GObject-2.0';
 import type { Gee } from './Gee-0.8';
 import type { GUPnP } from './GUPnP-1.0';
 import type { libxml2 } from './libxml2-2.0';
-// WARN: Dependency not found: 'GstPbutils-0.10'
-// WARN: Dependency not found: 'Gst-0.10'
+import type { GstPbutils } from './GstPbutils-0.10';
+import type { Gst } from './Gst-0.10';
 import type { GModule } from './GModule-2.0';
 
 export declare namespace RygelCore {
@@ -1417,7 +1417,7 @@ export class PluginLoaderPrivate {
 export abstract class RecursiveModuleLoaderClass {
     /* Fields of RygelCore-2.4.RygelCore.RecursiveModuleLoaderClass */
     parentClass: GObject.ObjectClass
-    loadModuleFromFile: any
+    loadModuleFromFile: (self: RecursiveModuleLoader, file: Gio.File) => boolean
     loadModuleFromInfo: (self: RecursiveModuleLoader, info: PluginInformation) => boolean
     static name: string
 }
@@ -1473,9 +1473,9 @@ export abstract class BaseConfigurationClass {
     getEnabled: (self: BaseConfiguration, section: string) => boolean
     getTitle: (self: BaseConfiguration, section: string) => string
     getString: (self: BaseConfiguration, section: string, key: string) => string
-    getStringList: any
+    getStringList: (self: BaseConfiguration, section: string, key: string) => Gee.ArrayList
     getInt: (self: BaseConfiguration, section: string, key: string, min: number, max: number) => number
-    getIntList: any
+    getIntList: (self: BaseConfiguration, section: string, key: string) => Gee.ArrayList
     getBool: (self: BaseConfiguration, section: string, key: string) => boolean
     static name: string
 }
@@ -1546,19 +1546,19 @@ export abstract class ConfigurationIface {
     getEnabled: (self: Configuration, section: string) => boolean
     getTitle: (self: Configuration, section: string) => string
     getString: (self: Configuration, section: string, key: string) => string
-    getStringList: any
+    getStringList: (self: Configuration, section: string, key: string) => Gee.ArrayList
     getInt: (self: Configuration, section: string, key: string, min: number, max: number) => number
-    getIntList: any
+    getIntList: (self: Configuration, section: string, key: string) => Gee.ArrayList
     getBool: (self: Configuration, section: string, key: string) => boolean
     static name: string
 }
 export abstract class StateMachineIface {
     /* Fields of RygelCore-2.4.RygelCore.StateMachineIface */
     parentIface: GObject.TypeInterface
-    run: any
-    runFinish: any
-    getCancellable: any
-    setCancellable: any
+    run: (self: StateMachine, callback?: Gio.AsyncReadyCallback | null) => void
+    runFinish: (self: StateMachine, res: Gio.AsyncResult) => void
+    getCancellable: (self: StateMachine) => Gio.Cancellable
+    setCancellable: (self: StateMachine, value: Gio.Cancellable) => void
     static name: string
 }
 }

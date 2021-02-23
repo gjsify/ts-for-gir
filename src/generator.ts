@@ -6,7 +6,7 @@ import TemplateProcessor from './template-processor'
 import { Transformation } from './transformation'
 import { Logger } from './logger'
 
-import { InheritanceTable, GenerateConfig, GirModulesGroupedMap } from './types'
+import { InheritanceTable, GenerateConfig, GirModulesGrouped } from './types'
 
 export class Generator {
     log: Logger
@@ -14,7 +14,7 @@ export class Generator {
         this.log = new Logger(config.environment, config.verbose, 'TsForGir')
     }
 
-    private exportGjs(girModules: GirModule[], girModulesGrouped: GirModulesGroupedMap): void {
+    private exportGjs(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[]): void {
         if (!this.config.outdir) return
 
         const templateProcessor = new TemplateProcessor(
@@ -42,7 +42,7 @@ export class Generator {
         templateProcessor.create('cast.ts', this.config.outdir, 'cast.ts')
     }
 
-    private exportNodeGtk(girModules: GirModule[], girModulesGrouped: GirModulesGroupedMap): void {
+    private exportNodeGtk(girModules: GirModule[], girModulesGrouped: GirModulesGrouped[]): void {
         if (!this.config.outdir) return
 
         const templateProcessor = new TemplateProcessor({ girModules, girModulesGrouped }, 'node', this.config)
@@ -66,7 +66,7 @@ export class Generator {
         }
     }
 
-    public async start(girModules: GirModule[], groupedGirModules: GirModulesGroupedMap): Promise<void> {
+    public async start(girModules: GirModule[], groupedGirModules: GirModulesGrouped[]): Promise<void> {
         this.log.info(`Start to generate .d.ts files for '${this.config.environment}' as '${this.config.buildType}'.`)
 
         if (girModules.length == 0) {

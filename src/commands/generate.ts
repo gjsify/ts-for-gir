@@ -81,9 +81,10 @@ export default class Generate extends Command {
                     )
                 }
                 const tsForGir = new Generator(generateConfig)
+
                 await tsForGir.start(
                     Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module),
-                    grouped,
+                    Object.values(grouped),
                 )
             }
         }

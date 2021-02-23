@@ -155,9 +155,9 @@ export class TemplateProcessor {
      * Loads and renders a template and gets the rendered string back
      * @param templateFilename
      */
-    public load(templateFilename: string): string {
+    public async load(templateFilename: string): Promise<string> {
         const fileContent = this.read(templateFilename)
-        return this.render(fileContent)
+        return await this.render(fileContent)
     }
 
     /**
@@ -168,8 +168,8 @@ export class TemplateProcessor {
      * @return The rendered (and if possible prettified) code string
      */
     public async create(templateFilename: string, outputDir: string, outputFilename: string): Promise<string> {
-        const fileContent = this.load(templateFilename)
-        const renderedCode = this.render(fileContent)
+        const fileContent = await this.load(templateFilename)
+        const renderedCode = await this.render(fileContent)
         const destPath = await this.write(renderedCode, outputDir, outputFilename)
         const prettifiedCode = this.config.pretty ? await this.prettify(destPath, true) : null
         return prettifiedCode || renderedCode
@@ -186,9 +186,19 @@ export class TemplateProcessor {
         return destPath
     }
 
-    protected render(templateString: string, additionalData: any = {}): string {
-        const renderedCode = ejs.render(templateString, { ...this.config, ...this.data, ...additionalData })
-        return renderedCode
+    protected async render(templateString: string, additionalData: any = {}): Promise<string> {
+        try {
+            const renderedCode = await ejs.render(templateString, {
+                async: true,
+                ...this.config,
+                ...this.data,
+                ...additionalData,
+            })
+            return renderedCode
+        } catch (error) {
+            this.log.error(error)
+            return ''
+        }
     }
 
     /**

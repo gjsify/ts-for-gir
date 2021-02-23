@@ -1588,7 +1588,7 @@ export class GirModule {
         // E.g. used for GObject-2.0 to help define GObject classes in js;
         // these aren't part of gi.
         if (templateProcessor.exists(`${this.packageName}.d.ts`)) {
-            const patches = templateProcessor.load(`${this.packageName}.d.ts`)
+            const patches = await templateProcessor.load(`${this.packageName}.d.ts`)
             out.push(patches)
         }
 

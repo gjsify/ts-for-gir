@@ -11,33 +11,26 @@ declare global {
     function log(message?: string): void
     function logError(exception: any, message?: string): void
     const ARGV: string[]
+
     const imports: typeof Gjs & {
-      [key: string]: any;
-      gi: {
-        [key: string]: any;
-      }
-      versions: {
-        [key: string]: any;
-      }
-      searchPath: string[];
-    }
-    // TODO add support for multiple versions
-    const imports: typeof Gjs & {
-        [key: string]: any
         gi: {
-          // <%_ for (const girModule of girModules) { _%>
-          // <%= girModule.namespace %>: typeof <%= girModule.importName %>
-          // <%_ } _%>
           <%_ for (const girModuleGroup of girModulesGrouped) { _%>
-          <%= girModuleGroup.namespace %>: <% for (const [i, girModule] of girModuleGroup.modules) {%> typeof <%= girModule.module.importName %> <% if (i !== girModuleGroup.modules.length - 1) { %> | <%}%> <%}%>
+            <%= girModuleGroup.namespace %>: <%_ for (const [i, girModule] of girModuleGroup.modules.entries()) { _%>
+              typeof <%= girModule.module.importName %>
+              <%_ if (i !== girModuleGroup.modules.length - 1) { _%>
+                |
+              <%_ } _%>
+            <%_ } _%>
           <%_ } _%>
         }
         versions: {
-          // <%_ for (const girModule of girModules) { _%>
-          //   <%= girModule.namespace %>: string
-          // <%_ } _%>
           <%_ for (const girModuleGroup of girModulesGrouped) { _%>
-            <%= girModuleGroup.namespace %>: <% for (const [i, girModule] of girModuleGroup.modules) {%> typeof <%= girModule.module.version %> <% if (i !== girModuleGroup.modules.length - 1) { %> | <%}%> <%}%>
+            <%= girModuleGroup.namespace %>: <%_ for (const [i, girModule] of girModuleGroup.modules.entries()) { _%>
+              '<%= girModule.module.version %>'
+              <%_ if (i !== girModuleGroup.modules.length - 1) { _%>
+                |
+              <%_ } _%>
+            <%_ } _%>
           <%_ } _%>
         }
         searchPath: string[];

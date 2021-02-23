@@ -5552,6 +5552,8 @@ export class DiffView {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Gitg-1.0.Gitg.DiffView */
+    vfunc_options_changed(): void
     /* Virtual methods of Gtk-3.0.Gtk.Container */
     vfunc_add(widget: Gtk.Widget): void
     vfunc_check_resize(): void

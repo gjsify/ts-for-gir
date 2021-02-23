@@ -11817,6 +11817,7 @@ export class SimpleConnectProperties {
     get_operator_id(): string
     get_password(): string
     get_pin(): string
+    get_rm_protocol(): ModemCdmaRmProtocol
     get_user(): string
     set_allow_roaming(allow_roaming: boolean): void
     set_allowed_auth(allowed_auth: BearerAllowedAuth): void
@@ -11826,6 +11827,7 @@ export class SimpleConnectProperties {
     set_operator_id(operator_id: string): void
     set_password(password: string): void
     set_pin(pin: string): void
+    set_rm_protocol(protocol: ModemCdmaRmProtocol): void
     set_user(user: string): void
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding

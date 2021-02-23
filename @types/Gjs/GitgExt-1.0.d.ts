@@ -96,6 +96,7 @@ export class Action {
     vfunc_get_shortcut(): number | null
     vfunc_get_available(): boolean
     vfunc_get_enabled(): boolean
+    vfunc_activate(): void
     /* Virtual methods of GitgExt-1.0.GitgExt.UIElement */
     vfunc_negotiate_order(other: UIElement): number
     vfunc_get_application(): Application | null
@@ -108,6 +109,7 @@ export class Action {
     vfunc_get_shortcut(): number | null
     vfunc_get_available(): boolean
     vfunc_get_enabled(): boolean
+    vfunc_activate(): void
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -447,6 +449,7 @@ export class CommitAction {
     vfunc_get_shortcut(): number | null
     vfunc_get_available(): boolean
     vfunc_get_enabled(): boolean
+    vfunc_activate(): void
     /* Virtual methods of GitgExt-1.0.GitgExt.UIElement */
     vfunc_negotiate_order(other: UIElement): number
     vfunc_get_application(): Application | null
@@ -459,6 +462,7 @@ export class CommitAction {
     vfunc_get_shortcut(): number | null
     vfunc_get_available(): boolean
     vfunc_get_enabled(): boolean
+    vfunc_activate(): void
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -952,6 +956,7 @@ export class RefAction {
     vfunc_get_shortcut(): number | null
     vfunc_get_available(): boolean
     vfunc_get_enabled(): boolean
+    vfunc_activate(): void
     /* Virtual methods of GitgExt-1.0.GitgExt.UIElement */
     vfunc_negotiate_order(other: UIElement): number
     vfunc_get_application(): Application | null
@@ -964,6 +969,7 @@ export class RefAction {
     vfunc_get_shortcut(): number | null
     vfunc_get_available(): boolean
     vfunc_get_enabled(): boolean
+    vfunc_activate(): void
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1266,6 +1272,7 @@ export class UIElement {
     vfunc_get_shortcut(): number | null
     vfunc_get_available(): boolean
     vfunc_get_enabled(): boolean
+    vfunc_activate(): void
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -1391,6 +1398,8 @@ export class MessageBus {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GitgExt-1.0.GitgExt.MessageBus */
+    vfunc_dispatch(message: Message): void
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void

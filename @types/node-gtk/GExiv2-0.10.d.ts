@@ -130,10 +130,26 @@ export class Metadata {
     setTagMultiple(tag: string, values: string[]): boolean
     setTagString(tag: string, value: string): boolean
     setXmpTagStruct(tag: string, type: StructureType): boolean
+    tryDeleteGpsInfo(): void
+    tryGenerateXmpPacket(xmpFormatFlags: XmpFormatFlags, padding: number): string | null
+    tryGetExifTagRational(tag: string): { returnType: boolean, nom: number, den: number }
+    tryGetGpsAltitude(): { returnType: boolean, altitude: number }
+    tryGetGpsInfo(): { returnType: boolean, longitude: number, latitude: number, altitude: number }
+    tryGetGpsLatitude(): { returnType: boolean, latitude: number }
+    tryGetGpsLongitude(): { returnType: boolean, longitude: number }
+    tryGetTagInterpretedString(tag: string): string | null
+    tryGetTagLong(tag: string): number
     tryGetTagMultiple(tag: string): string[] | null
+    tryGetTagRaw(tag: string): any | null
     tryGetTagString(tag: string): string | null
+    tryGetXmpPacket(): string | null
+    trySetExifTagRational(tag: string, nom: number, den: number): boolean
+    trySetGpsInfo(longitude: number, latitude: number, altitude: number): boolean
+    trySetTagLong(tag: string, value: number): boolean
     trySetTagMultiple(tag: string, values: string[]): boolean
     trySetTagString(tag: string, value: string): boolean
+    trySetXmpTagStruct(tag: string, type: StructureType): boolean
+    tryUpdateGpsInfo(longitude: number, latitude: number, altitude: number): boolean
     updateGpsInfo(longitude: number, latitude: number, altitude: number): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -183,6 +199,9 @@ export class Metadata {
     static isIptcTag(tag: string): boolean
     static isXmpTag(tag: string): boolean
     static registerXmpNamespace(name: string, prefix: string): boolean
+    static tryGetTagDescription(tag: string): string | null
+    static tryGetTagLabel(tag: string): string | null
+    static tryGetTagType(tag: string): string | null
     static unregisterAllXmpNamespaces(): void
     static unregisterXmpNamespace(name: string): boolean
     static $gtype: GObject.Type

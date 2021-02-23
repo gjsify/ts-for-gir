@@ -994,7 +994,6 @@ export function get_micro_version(): number
 export function get_minor_version(): number
 export function hsv_to_rgb(h: number, s: number, v: number): [ /* r */ number, /* g */ number, /* b */ number ]
 export function icon_theme_error_quark(): GLib.Quark
-export function im_modules_init(): void
 export function init(): void
 export function init_check(): boolean
 export function is_initialized(): boolean

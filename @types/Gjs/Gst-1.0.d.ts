@@ -2533,7 +2533,7 @@ export class Clock {
     vfunc_get_internal_time(): ClockTime
     vfunc_get_resolution(): ClockTime
     vfunc_unschedule(entry: ClockEntry): void
-    vfunc_wait(entry: ClockEntry, jitter: ClockTimeDiff): ClockReturn
+    vfunc_wait(entry: ClockEntry): [ /* returnType */ ClockReturn, /* jitter */ ClockTimeDiff | null ]
     vfunc_wait_async(entry: ClockEntry): ClockReturn
     /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Object, pspec: GObject.ParamSpec): void
@@ -5633,7 +5633,7 @@ export class SystemClock {
     vfunc_get_internal_time(): ClockTime
     vfunc_get_resolution(): ClockTime
     vfunc_unschedule(entry: ClockEntry): void
-    vfunc_wait(entry: ClockEntry, jitter: ClockTimeDiff): ClockReturn
+    vfunc_wait(entry: ClockEntry): [ /* returnType */ ClockReturn, /* jitter */ ClockTimeDiff | null ]
     vfunc_wait_async(entry: ClockEntry): ClockReturn
     /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Object, pspec: GObject.ParamSpec): void
@@ -6573,7 +6573,7 @@ export abstract class ClockClass {
     change_resolution: (clock: Clock, old_resolution: ClockTime, new_resolution: ClockTime) => ClockTime
     get_resolution: (clock: Clock) => ClockTime
     get_internal_time: (clock: Clock) => ClockTime
-    wait: (clock: Clock, entry: ClockEntry, jitter: ClockTimeDiff) => ClockReturn
+    wait: (clock: Clock, entry: ClockEntry) => [ /* returnType */ ClockReturn, /* jitter */ ClockTimeDiff | null ]
     wait_async: (clock: Clock, entry: ClockEntry) => ClockReturn
     unschedule: (clock: Clock, entry: ClockEntry) => void
     static name: string
@@ -6581,16 +6581,6 @@ export abstract class ClockClass {
 export class ClockEntry {
     /* Fields of Gst-1.0.Gst.ClockEntry */
     refcount: number
-    clock: Clock
-    type: ClockEntryType
-    time: ClockTime
-    interval: ClockTime
-    status: ClockReturn
-    func: ClockCallback
-    user_data: object
-    destroy_data: GLib.DestroyNotify
-    unscheduled: boolean
-    woken_up: boolean
     static name: string
 }
 export class ClockPrivate {

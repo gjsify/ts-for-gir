@@ -1290,7 +1290,7 @@ export class X11Window {
     coordsFromParent(parentX: number, parentY: number): { x: number | null, y: number | null }
     coordsToParent(x: number, y: number): { parentX: number | null, parentY: number | null }
     createGlContext(): Gdk.GLContext
-    createSimilarImageSurface(format: number, width: number, height: number, scale: number): cairo.Surface
+    createSimilarImageSurface(format: cairo.Format, width: number, height: number, scale: number): cairo.Surface
     createSimilarSurface(content: cairo.Content, width: number, height: number): cairo.Surface
     deiconify(): void
     destroy(): void

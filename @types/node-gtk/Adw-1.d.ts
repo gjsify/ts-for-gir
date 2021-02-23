@@ -2954,6 +2954,7 @@ export class Bin {
     static $gtype: GObject.Type
 }
 export interface Carousel_ConstructProps extends Gtk.Widget_ConstructProps {
+    allowLongSwipes?: boolean
     allowMouseDrag?: boolean
     animationDuration?: number
     interactive?: boolean
@@ -2964,6 +2965,7 @@ export interface Carousel_ConstructProps extends Gtk.Widget_ConstructProps {
 }
 export class Carousel {
     /* Properties of Adw-1.Adw.Carousel */
+    allowLongSwipes: boolean
     allowMouseDrag: boolean
     animationDuration: number
     interactive: boolean
@@ -3015,6 +3017,7 @@ export class Carousel {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Adw-1.Adw.Carousel */
     append(child: Gtk.Widget): void
+    getAllowLongSwipes(): boolean
     getAllowMouseDrag(): boolean
     getAnimationDuration(): number
     getInteractive(): boolean
@@ -3029,6 +3032,7 @@ export class Carousel {
     reorder(child: Gtk.Widget, position: number): void
     scrollTo(widget: Gtk.Widget): void
     scrollToFull(widget: Gtk.Widget, duration: number): void
+    setAllowLongSwipes(allowLongSwipes: boolean): void
     setAllowMouseDrag(allowMouseDrag: boolean): void
     setAnimationDuration(duration: number): void
     setInteractive(interactive: boolean): void
@@ -3319,6 +3323,11 @@ export class Carousel {
     once(sigName: "child-switched", callback: (index: number, duration: number) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "child-switched", callback: (index: number, duration: number) => void): NodeJS.EventEmitter
     emit(sigName: "child-switched", index: number, duration: number): void
+    connect(sigName: "notify::allow-long-swipes", callback: (($obj: Carousel, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::allow-long-swipes", callback: (($obj: Carousel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::allow-long-swipes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::allow-long-swipes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::allow-long-swipes", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::allow-mouse-drag", callback: (($obj: Carousel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::allow-mouse-drag", callback: (($obj: Carousel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::allow-mouse-drag", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12625,6 +12634,7 @@ export class SwipeGroup {
     static $gtype: GObject.Type
 }
 export interface SwipeTracker_ConstructProps extends GObject.Object_ConstructProps {
+    allowLongSwipes?: boolean
     allowMouseDrag?: boolean
     enabled?: boolean
     reversed?: boolean
@@ -12633,6 +12643,7 @@ export interface SwipeTracker_ConstructProps extends GObject.Object_ConstructPro
 }
 export class SwipeTracker {
     /* Properties of Adw-1.Adw.SwipeTracker */
+    allowLongSwipes: boolean
     allowMouseDrag: boolean
     enabled: boolean
     reversed: boolean
@@ -12641,10 +12652,12 @@ export class SwipeTracker {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Adw-1.Adw.SwipeTracker */
+    getAllowLongSwipes(): boolean
     getAllowMouseDrag(): boolean
     getEnabled(): boolean
     getReversed(): boolean
     getSwipeable(): Swipeable
+    setAllowLongSwipes(allowLongSwipes: boolean): void
     setAllowMouseDrag(allowMouseDrag: boolean): void
     setEnabled(enabled: boolean): void
     setReversed(reversed: boolean): void
@@ -12696,6 +12709,11 @@ export class SwipeTracker {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::allow-long-swipes", callback: (($obj: SwipeTracker, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::allow-long-swipes", callback: (($obj: SwipeTracker, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::allow-long-swipes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::allow-long-swipes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::allow-long-swipes", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::allow-mouse-drag", callback: (($obj: SwipeTracker, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::allow-mouse-drag", callback: (($obj: SwipeTracker, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::allow-mouse-drag", callback: (...args: any[]) => void): NodeJS.EventEmitter

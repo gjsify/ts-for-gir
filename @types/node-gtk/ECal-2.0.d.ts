@@ -180,6 +180,8 @@ export function timeToGdateWithZone(date: GLib.Date, time: number, zone?: ICalGL
 export function timeWeekBeginWithZone(time: number, weekStartDay: number, zone: ICalGLib.Timezone): number
 export function timeYearBeginWithZone(time: number, zone: ICalGLib.Timezone): number
 export function utilAddTimezonesFromComponent(vcalComp: ICalGLib.Component, icalcomp: ICalGLib.Component): void
+export function utilClampVtimezone(vtimezone: ICalGLib.Component, from: ICalGLib.Time, to?: ICalGLib.Time | null): { vtimezone: ICalGLib.Component }
+export function utilClampVtimezoneByComponent(vtimezone: ICalGLib.Component, component: ICalGLib.Component): { vtimezone: ICalGLib.Component }
 export function utilComponentDupXProperty(icalcomp: ICalGLib.Component, xName: string): string | null
 export function utilComponentFindXProperty(icalcomp: ICalGLib.Component, xName: string): ICalGLib.Property | null
 export function utilComponentGetRecuridAsString(icalcomp: ICalGLib.Component): string | null

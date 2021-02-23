@@ -6658,7 +6658,7 @@ export abstract class ClockClass {
     changeResolution: (clock: Clock, oldResolution: ClockTime, newResolution: ClockTime) => ClockTime
     getResolution: (clock: Clock) => ClockTime
     getInternalTime: (clock: Clock) => ClockTime
-    wait: (clock: Clock, entry: ClockEntry, jitter: ClockTimeDiff) => ClockReturn
+    wait: (clock: Clock, entry: ClockEntry) => { returnType: ClockReturn, jitter: ClockTimeDiff | null }
     waitAsync: (clock: Clock, entry: ClockEntry) => ClockReturn
     unschedule: (clock: Clock, entry: ClockEntry) => void
     static name: string
@@ -6666,16 +6666,6 @@ export abstract class ClockClass {
 export class ClockEntry {
     /* Fields of Gst-1.0.Gst.ClockEntry */
     refcount: number
-    clock: Clock
-    type: ClockEntryType
-    time: ClockTime
-    interval: ClockTime
-    status: ClockReturn
-    func: ClockCallback
-    userData: object
-    destroyData: GLib.DestroyNotify
-    unscheduled: boolean
-    wokenUp: boolean
     static name: string
 }
 export class ClockPrivate {

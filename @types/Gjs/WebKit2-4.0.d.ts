@@ -3095,6 +3095,8 @@ export class UserContentManager {
     remove_all_style_sheets(): void
     remove_filter(filter: UserContentFilter): void
     remove_filter_by_id(filter_id: string): void
+    remove_script(script: UserScript): void
+    remove_style_sheet(stylesheet: UserStyleSheet): void
     unregister_script_message_handler(name: string): void
     unregister_script_message_handler_in_world(name: string, world_name: string): void
     /* Methods of GObject-2.0.GObject.Object */
@@ -3221,9 +3223,9 @@ export class UserMessage {
     /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
     /* Methods of WebKit2-4.0.WebKit2.UserMessage */
-    get_fd_list(): Gio.UnixFDList
+    get_fd_list(): Gio.UnixFDList | null
     get_name(): string
-    get_parameters(): GLib.Variant
+    get_parameters(): GLib.Variant | null
     send_reply(reply: UserMessage): void
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -5503,12 +5505,15 @@ export class WebsiteDataManager {
     get_offline_application_cache_directory(): string | null
     get_persistent_credential_storage_enabled(): boolean
     get_service_worker_registrations_directory(): string | null
+    get_tls_errors_policy(): TLSErrorsPolicy
     get_websql_directory(): string | null
     is_ephemeral(): boolean
     remove(types: WebsiteDataTypes, website_data: WebsiteData[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     remove_finish(result: Gio.AsyncResult): boolean
     set_itp_enabled(enabled: boolean): void
+    set_network_proxy_settings(proxy_mode: NetworkProxyMode, proxy_settings?: NetworkProxySettings | null): void
     set_persistent_credential_storage_enabled(enabled: boolean): void
+    set_tls_errors_policy(policy: TLSErrorsPolicy): void
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding

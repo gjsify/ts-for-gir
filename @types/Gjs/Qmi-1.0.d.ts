@@ -2876,6 +2876,8 @@ export const CLIENT_VERSION_MAJOR: string
 export const CLIENT_VERSION_MINOR: string
 export const DBUS_ERROR_PREFIX: string
 export const DEVICE_FILE: string
+export const DEVICE_MUX_ID_MAX: number
+export const DEVICE_MUX_ID_MIN: number
 export const DEVICE_MUX_ID_UNBOUND: number
 export const DEVICE_NODE: string
 export const DEVICE_NO_FILE_CHECK: string
@@ -5350,13 +5352,17 @@ export class Device {
     add_link_finish(res: Gio.AsyncResult, mux_id: number): string
     allocate_client(service: Service, cid: number, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     allocate_client_finish(res: Gio.AsyncResult): Client
+    check_expected_data_format_supported(format: DeviceExpectedDataFormat): boolean
+    check_link_supported(): boolean
     close_async(timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     close_finish(res: Gio.AsyncResult): boolean
     command_abortable_finish(res: Gio.AsyncResult): Message
     command_full(message: Message, message_context: MessageContext, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     command_full_finish(res: Gio.AsyncResult): Message
-    del_link(ifname: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    del_link_finish(res: Gio.AsyncResult): boolean
+    delete_all_links(base_ifname: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    delete_all_links_finish(res: Gio.AsyncResult): boolean
+    delete_link(ifname: string, mux_id: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    delete_link_finish(res: Gio.AsyncResult): boolean
     get_expected_data_format(): DeviceExpectedDataFormat
     get_file(): Gio.File
     get_path(): string
@@ -5365,6 +5371,7 @@ export class Device {
     get_service_version_info_finish(res: Gio.AsyncResult): DeviceServiceVersionInfo[]
     get_wwan_iface(): string
     is_open(): boolean
+    list_links(base_ifname: string): [ /* returnType */ boolean, /* out_links */ string[] ]
     open(flags: DeviceOpenFlags, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     open_finish(res: Gio.AsyncResult): boolean
     peek_file(): Gio.File

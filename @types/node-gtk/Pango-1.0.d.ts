@@ -309,6 +309,7 @@ export const ANALYSIS_FLAG_CENTERED_BASELINE: number
 export const ANALYSIS_FLAG_IS_ELLIPSIS: number
 export const ANALYSIS_FLAG_NEED_HYPHEN: number
 export const ATTR_INDEX_FROM_TEXT_BEGINNING: number
+export const ATTR_INDEX_TO_TEXT_END: number
 export const ENGINE_TYPE_LANG: string
 export const ENGINE_TYPE_SHAPE: string
 export const GLYPH_EMPTY: Glyph
@@ -318,7 +319,10 @@ export const RENDER_TYPE_NONE: string
 export const SCALE: number
 export const UNKNOWN_GLYPH_HEIGHT: number
 export const UNKNOWN_GLYPH_WIDTH: number
-export const VERSION_MIN_REQUIRED: number
+export const VERSION_MAJOR: number
+export const VERSION_MICRO: number
+export const VERSION_MINOR: number
+export const VERSION_STRING: string
 export function attrAllowBreaksNew(allowBreaks: boolean): Attribute
 export function attrBackgroundAlphaNew(alpha: number): Attribute
 export function attrBackgroundNew(red: number, green: number, blue: number): Attribute
@@ -370,6 +374,7 @@ export function itemize(context: Context, text: string, startIndex: number, leng
 export function itemizeWithBaseDir(context: Context, baseDir: Direction, text: string, startIndex: number, length: number, attrs: AttrList, cachedIter?: AttrIterator | null): Item[]
 export function languageFromString(language?: string | null): Language | null
 export function languageGetDefault(): Language
+export function languageGetPreferred(): Language | null
 export function log2visGetEmbeddingLevels(text: string, length: number, pbaseDir: Direction): number
 export function markupParserFinish(context: GLib.MarkupParseContext): { returnType: boolean, attrList: AttrList | null, text: string | null, accelChar: number | null }
 export function markupParserNew(accelMarker: number): GLib.MarkupParseContext
@@ -1566,6 +1571,7 @@ export class Language {
     /* Static methods and pseudo-constructors */
     static fromString(language?: string | null): Language | null
     static getDefault(): Language
+    static getPreferred(): Language | null
 }
 export abstract class LayoutClass {
     static name: string

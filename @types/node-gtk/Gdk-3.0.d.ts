@@ -3105,9 +3105,9 @@ export class AppLaunchContext {
     setScreen(screen: Screen): void
     setTimestamp(timestamp: number): void
     /* Methods of Gio-2.0.Gio.AppLaunchContext */
-    getDisplay(info: Gio.AppInfo, files: Gio.File[]): string
+    getDisplay(info: Gio.AppInfo, files: Gio.File[]): string | null
     getEnvironment(): string[]
-    getStartupNotifyId(info: Gio.AppInfo, files: Gio.File[]): string
+    getStartupNotifyId(info: Gio.AppInfo, files: Gio.File[]): string | null
     launchFailed(startupNotifyId: string): void
     setenv(variable: string, value: string): void
     unsetenv(variable: string): void
@@ -4429,7 +4429,7 @@ export class Window {
     coordsFromParent(parentX: number, parentY: number): { x: number | null, y: number | null }
     coordsToParent(x: number, y: number): { parentX: number | null, parentY: number | null }
     createGlContext(): GLContext
-    createSimilarImageSurface(format: number, width: number, height: number, scale: number): cairo.Surface
+    createSimilarImageSurface(format: cairo.Format, width: number, height: number, scale: number): cairo.Surface
     createSimilarSurface(content: cairo.Content, width: number, height: number): cairo.Surface
     deiconify(): void
     destroy(): void

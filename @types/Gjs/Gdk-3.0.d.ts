@@ -3084,9 +3084,9 @@ export class AppLaunchContext {
     set_screen(screen: Screen): void
     set_timestamp(timestamp: number): void
     /* Methods of Gio-2.0.Gio.AppLaunchContext */
-    get_display(info: Gio.AppInfo, files: Gio.File[]): string
+    get_display(info: Gio.AppInfo, files: Gio.File[]): string | null
     get_environment(): string[]
-    get_startup_notify_id(info: Gio.AppInfo, files: Gio.File[]): string
+    get_startup_notify_id(info: Gio.AppInfo, files: Gio.File[]): string | null
     launch_failed(startup_notify_id: string): void
     setenv(variable: string, value: string): void
     unsetenv(variable: string): void
@@ -3113,8 +3113,8 @@ export class AppLaunchContext {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Gio-2.0.Gio.AppLaunchContext */
-    vfunc_get_display(info: Gio.AppInfo, files: Gio.File[]): string
-    vfunc_get_startup_notify_id(info: Gio.AppInfo, files: Gio.File[]): string
+    vfunc_get_display(info: Gio.AppInfo, files: Gio.File[]): string | null
+    vfunc_get_startup_notify_id(info: Gio.AppInfo, files: Gio.File[]): string | null
     vfunc_launch_failed(startup_notify_id: string): void
     vfunc_launched(info: Gio.AppInfo, platform_data: GLib.Variant): void
     /* Virtual methods of GObject-2.0.GObject.Object */
@@ -4335,7 +4335,7 @@ export class Window {
     coords_from_parent(parent_x: number, parent_y: number): [ /* x */ number | null, /* y */ number | null ]
     coords_to_parent(x: number, y: number): [ /* parent_x */ number | null, /* parent_y */ number | null ]
     create_gl_context(): GLContext
-    create_similar_image_surface(format: number, width: number, height: number, scale: number): cairo.Surface
+    create_similar_image_surface(format: cairo.Format, width: number, height: number, scale: number): cairo.Surface
     create_similar_surface(content: cairo.Content, width: number, height: number): cairo.Surface
     deiconify(): void
     destroy(): void

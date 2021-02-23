@@ -2878,6 +2878,8 @@ export const CLIENT_VERSION_MAJOR: string
 export const CLIENT_VERSION_MINOR: string
 export const DBUS_ERROR_PREFIX: string
 export const DEVICE_FILE: string
+export const DEVICE_MUX_ID_MAX: number
+export const DEVICE_MUX_ID_MIN: number
 export const DEVICE_MUX_ID_UNBOUND: number
 export const DEVICE_NODE: string
 export const DEVICE_NO_FILE_CHECK: string
@@ -5697,13 +5699,17 @@ export class Device {
     addLinkFinish(res: Gio.AsyncResult, muxId: number): string
     allocateClient(service: Service, cid: number, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     allocateClientFinish(res: Gio.AsyncResult): Client
+    checkExpectedDataFormatSupported(format: DeviceExpectedDataFormat): boolean
+    checkLinkSupported(): boolean
     closeAsync(timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     closeFinish(res: Gio.AsyncResult): boolean
     commandAbortableFinish(res: Gio.AsyncResult): Message
     commandFull(message: Message, messageContext: MessageContext, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     commandFullFinish(res: Gio.AsyncResult): Message
-    delLink(ifname: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    delLinkFinish(res: Gio.AsyncResult): boolean
+    deleteAllLinks(baseIfname: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    deleteAllLinksFinish(res: Gio.AsyncResult): boolean
+    deleteLink(ifname: string, muxId: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    deleteLinkFinish(res: Gio.AsyncResult): boolean
     getExpectedDataFormat(): DeviceExpectedDataFormat
     getFile(): Gio.File
     getPath(): string
@@ -5712,6 +5718,7 @@ export class Device {
     getServiceVersionInfoFinish(res: Gio.AsyncResult): DeviceServiceVersionInfo[]
     getWwanIface(): string
     isOpen(): boolean
+    listLinks(baseIfname: string): { returnType: boolean, outLinks: string[] }
     open(flags: DeviceOpenFlags, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     openFinish(res: Gio.AsyncResult): boolean
     peekFile(): Gio.File

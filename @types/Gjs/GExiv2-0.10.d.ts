@@ -128,10 +128,26 @@ export class Metadata {
     set_tag_multiple(tag: string, values: string[]): boolean
     set_tag_string(tag: string, value: string): boolean
     set_xmp_tag_struct(tag: string, type: StructureType): boolean
+    try_delete_gps_info(): void
+    try_generate_xmp_packet(xmp_format_flags: XmpFormatFlags, padding: number): string | null
+    try_get_exif_tag_rational(tag: string): [ /* returnType */ boolean, /* nom */ number, /* den */ number ]
+    try_get_gps_altitude(): [ /* returnType */ boolean, /* altitude */ number ]
+    try_get_gps_info(): [ /* returnType */ boolean, /* longitude */ number, /* latitude */ number, /* altitude */ number ]
+    try_get_gps_latitude(): [ /* returnType */ boolean, /* latitude */ number ]
+    try_get_gps_longitude(): [ /* returnType */ boolean, /* longitude */ number ]
+    try_get_tag_interpreted_string(tag: string): string | null
+    try_get_tag_long(tag: string): number
     try_get_tag_multiple(tag: string): string[] | null
+    try_get_tag_raw(tag: string): GLib.Bytes | null
     try_get_tag_string(tag: string): string | null
+    try_get_xmp_packet(): string | null
+    try_set_exif_tag_rational(tag: string, nom: number, den: number): boolean
+    try_set_gps_info(longitude: number, latitude: number, altitude: number): boolean
+    try_set_tag_long(tag: string, value: number): boolean
     try_set_tag_multiple(tag: string, values: string[]): boolean
     try_set_tag_string(tag: string, value: string): boolean
+    try_set_xmp_tag_struct(tag: string, type: StructureType): boolean
+    try_update_gps_info(longitude: number, latitude: number, altitude: number): boolean
     update_gps_info(longitude: number, latitude: number, altitude: number): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -184,6 +200,9 @@ export class Metadata {
     static is_iptc_tag(tag: string): boolean
     static is_xmp_tag(tag: string): boolean
     static register_xmp_namespace(name: string, prefix: string): boolean
+    static try_get_tag_description(tag: string): string | null
+    static try_get_tag_label(tag: string): string | null
+    static try_get_tag_type(tag: string): string | null
     static unregister_all_xmp_namespaces(): void
     static unregister_xmp_namespace(name: string): boolean
     static $gtype: GObject.Type

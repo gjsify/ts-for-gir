@@ -307,6 +307,7 @@ export const ANALYSIS_FLAG_CENTERED_BASELINE: number
 export const ANALYSIS_FLAG_IS_ELLIPSIS: number
 export const ANALYSIS_FLAG_NEED_HYPHEN: number
 export const ATTR_INDEX_FROM_TEXT_BEGINNING: number
+export const ATTR_INDEX_TO_TEXT_END: number
 export const ENGINE_TYPE_LANG: string
 export const ENGINE_TYPE_SHAPE: string
 export const GLYPH_EMPTY: Glyph
@@ -316,7 +317,10 @@ export const RENDER_TYPE_NONE: string
 export const SCALE: number
 export const UNKNOWN_GLYPH_HEIGHT: number
 export const UNKNOWN_GLYPH_WIDTH: number
-export const VERSION_MIN_REQUIRED: number
+export const VERSION_MAJOR: number
+export const VERSION_MICRO: number
+export const VERSION_MINOR: number
+export const VERSION_STRING: string
 export function attr_allow_breaks_new(allow_breaks: boolean): Attribute
 export function attr_background_alpha_new(alpha: number): Attribute
 export function attr_background_new(red: number, green: number, blue: number): Attribute
@@ -368,6 +372,7 @@ export function itemize(context: Context, text: string, start_index: number, len
 export function itemize_with_base_dir(context: Context, base_dir: Direction, text: string, start_index: number, length: number, attrs: AttrList, cached_iter?: AttrIterator | null): Item[]
 export function language_from_string(language?: string | null): Language | null
 export function language_get_default(): Language
+export function language_get_preferred(): Language | null
 export function log2vis_get_embedding_levels(text: string, length: number, pbase_dir: Direction): number
 export function markup_parser_finish(context: GLib.MarkupParseContext): [ /* returnType */ boolean, /* attr_list */ AttrList | null, /* text */ string | null, /* accel_char */ number | null ]
 export function markup_parser_new(accel_marker: number): GLib.MarkupParseContext
@@ -1658,6 +1663,7 @@ export class Language {
     /* Static methods and pseudo-constructors */
     static from_string(language?: string | null): Language | null
     static get_default(): Language
+    static get_preferred(): Language | null
 }
 export abstract class LayoutClass {
     static name: string

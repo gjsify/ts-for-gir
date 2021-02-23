@@ -178,6 +178,8 @@ export function time_to_gdate_with_zone(date: GLib.Date, time: number, zone?: IC
 export function time_week_begin_with_zone(time: number, week_start_day: number, zone: ICalGLib.Timezone): number
 export function time_year_begin_with_zone(time: number, zone: ICalGLib.Timezone): number
 export function util_add_timezones_from_component(vcal_comp: ICalGLib.Component, icalcomp: ICalGLib.Component): void
+export function util_clamp_vtimezone(vtimezone: ICalGLib.Component, from: ICalGLib.Time, to?: ICalGLib.Time | null): /* vtimezone */ ICalGLib.Component
+export function util_clamp_vtimezone_by_component(vtimezone: ICalGLib.Component, component: ICalGLib.Component): /* vtimezone */ ICalGLib.Component
 export function util_component_dup_x_property(icalcomp: ICalGLib.Component, x_name: string): string | null
 export function util_component_find_x_property(icalcomp: ICalGLib.Component, x_name: string): ICalGLib.Property | null
 export function util_component_get_recurid_as_string(icalcomp: ICalGLib.Component): string | null

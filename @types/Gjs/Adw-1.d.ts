@@ -2398,6 +2398,7 @@ export class Bin {
     static $gtype: GObject.Type
 }
 export interface Carousel_ConstructProps extends Gtk.Widget_ConstructProps {
+    allow_long_swipes?: boolean
     allow_mouse_drag?: boolean
     animation_duration?: number
     interactive?: boolean
@@ -2408,6 +2409,7 @@ export interface Carousel_ConstructProps extends Gtk.Widget_ConstructProps {
 }
 export class Carousel {
     /* Properties of Adw-1.Adw.Carousel */
+    allow_long_swipes: boolean
     allow_mouse_drag: boolean
     animation_duration: number
     interactive: boolean
@@ -2459,6 +2461,7 @@ export class Carousel {
     g_type_instance: GObject.TypeInstance
     /* Methods of Adw-1.Adw.Carousel */
     append(child: Gtk.Widget): void
+    get_allow_long_swipes(): boolean
     get_allow_mouse_drag(): boolean
     get_animation_duration(): number
     get_interactive(): boolean
@@ -2473,6 +2476,7 @@ export class Carousel {
     reorder(child: Gtk.Widget, position: number): void
     scroll_to(widget: Gtk.Widget): void
     scroll_to_full(widget: Gtk.Widget, duration: number): void
+    set_allow_long_swipes(allow_long_swipes: boolean): void
     set_allow_mouse_drag(allow_mouse_drag: boolean): void
     set_animation_duration(duration: number): void
     set_interactive(interactive: boolean): void
@@ -2782,6 +2786,8 @@ export class Carousel {
     connect(sigName: "child-switched", callback: (($obj: Carousel, index: number, duration: number) => void)): number
     connect_after(sigName: "child-switched", callback: (($obj: Carousel, index: number, duration: number) => void)): number
     emit(sigName: "child-switched", index: number, duration: number): void
+    connect(sigName: "notify::allow-long-swipes", callback: (($obj: Carousel, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::allow-long-swipes", callback: (($obj: Carousel, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::allow-mouse-drag", callback: (($obj: Carousel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::allow-mouse-drag", callback: (($obj: Carousel, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::animation-duration", callback: (($obj: Carousel, pspec: GObject.ParamSpec) => void)): number
@@ -10253,6 +10259,7 @@ export class SwipeGroup {
     static $gtype: GObject.Type
 }
 export interface SwipeTracker_ConstructProps extends GObject.Object_ConstructProps {
+    allow_long_swipes?: boolean
     allow_mouse_drag?: boolean
     enabled?: boolean
     reversed?: boolean
@@ -10261,6 +10268,7 @@ export interface SwipeTracker_ConstructProps extends GObject.Object_ConstructPro
 }
 export class SwipeTracker {
     /* Properties of Adw-1.Adw.SwipeTracker */
+    allow_long_swipes: boolean
     allow_mouse_drag: boolean
     enabled: boolean
     reversed: boolean
@@ -10269,10 +10277,12 @@ export class SwipeTracker {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Adw-1.Adw.SwipeTracker */
+    get_allow_long_swipes(): boolean
     get_allow_mouse_drag(): boolean
     get_enabled(): boolean
     get_reversed(): boolean
     get_swipeable(): Swipeable
+    set_allow_long_swipes(allow_long_swipes: boolean): void
     set_allow_mouse_drag(allow_mouse_drag: boolean): void
     set_enabled(enabled: boolean): void
     set_reversed(reversed: boolean): void
@@ -10324,6 +10334,8 @@ export class SwipeTracker {
     connect(sigName: "notify", callback: (($obj: SwipeTracker, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SwipeTracker, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::allow-long-swipes", callback: (($obj: SwipeTracker, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::allow-long-swipes", callback: (($obj: SwipeTracker, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::allow-mouse-drag", callback: (($obj: SwipeTracker, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::allow-mouse-drag", callback: (($obj: SwipeTracker, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::enabled", callback: (($obj: SwipeTracker, pspec: GObject.ParamSpec) => void)): number

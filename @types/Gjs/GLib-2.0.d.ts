@@ -815,6 +815,7 @@ export enum UriFlags {
     ENCODED_QUERY,
     ENCODED_PATH,
     ENCODED_FRAGMENT,
+    SCHEME_NORMALIZE,
 }
 export enum UriHideFlags {
     NONE,
@@ -977,6 +978,7 @@ export function ascii_xdigit_value(c: number): number
 export function assert_warning(log_domain: string, file: string, line: number, pretty_function: string, expression: string): void
 export function assertion_message(domain: string, file: string, line: number, func: string, message: string): void
 export function assertion_message_cmpstr(domain: string, file: string, line: number, func: string, expr: string, arg1: string, cmp: string, arg2: string): void
+export function assertion_message_cmpstrv(domain: string, file: string, line: number, func: string, expr: string, arg1: string, arg2: string, first_wrong_idx: number): void
 export function assertion_message_error(domain: string, file: string, line: number, func: string, expr: string, error: Error, error_domain: Quark, error_code: number): void
 export function atexit(func: VoidFunc): void
 export function atomic_int_add(atomic: number, val: number): number
@@ -1036,9 +1038,9 @@ export function child_watch_add(priority: number, pid: Pid, function_: ChildWatc
 export function child_watch_source_new(pid: Pid): Source
 export function clear_error(): void
 export function close(fd: number): boolean
-export function compute_checksum_for_bytes(checksum_type: ChecksumType, data: Bytes): string
-export function compute_checksum_for_data(checksum_type: ChecksumType, data: Uint8Array[]): string
-export function compute_checksum_for_string(checksum_type: ChecksumType, str: string, length: number): string
+export function compute_checksum_for_bytes(checksum_type: ChecksumType, data: Bytes): string | null
+export function compute_checksum_for_data(checksum_type: ChecksumType, data: Uint8Array[]): string | null
+export function compute_checksum_for_string(checksum_type: ChecksumType, str: string, length: number): string | null
 export function compute_hmac_for_bytes(digest_type: ChecksumType, key: Bytes, data: Bytes): string
 export function compute_hmac_for_data(digest_type: ChecksumType, key: Uint8Array[], data: Uint8Array[]): string
 export function compute_hmac_for_string(digest_type: ChecksumType, key: Uint8Array[], str: string, length: number): string
@@ -1059,9 +1061,6 @@ export function date_get_monday_weeks_in_year(year: DateYear): number
 export function date_get_sunday_weeks_in_year(year: DateYear): number
 export function date_is_leap_year(year: DateYear): boolean
 export function date_strftime(s: string, slen: number, format: string, date: Date): number
-export function date_time_compare(dt1: object, dt2: object): number
-export function date_time_equal(dt1: object, dt2: object): boolean
-export function date_time_hash(datetime: object): number
 export function date_valid_day(day: DateDay): boolean
 export function date_valid_dmy(day: DateDay, month: DateMonth, year: DateYear): boolean
 export function date_valid_julian(julian_date: number): boolean
@@ -1152,8 +1151,8 @@ export function hook_unref(hook_list: HookList, hook: Hook): void
 export function hostname_is_ascii_encoded(hostname: string): boolean
 export function hostname_is_ip_address(hostname: string): boolean
 export function hostname_is_non_ascii(hostname: string): boolean
-export function hostname_to_ascii(hostname: string): string
-export function hostname_to_unicode(hostname: string): string
+export function hostname_to_ascii(hostname: string): string | null
+export function hostname_to_unicode(hostname: string): string | null
 export function idle_add(priority: number, function_: SourceFunc): number
 export function idle_remove_by_data(data?: object | null): boolean
 export function idle_source_new(): Source
@@ -1180,15 +1179,17 @@ export function log_set_writer_func(): void
 export function log_structured_array(log_level: LogLevelFlags, fields: LogField[]): void
 export function log_variant(log_domain: string | null, log_level: LogLevelFlags, fields: Variant): void
 export function log_writer_default(log_level: LogLevelFlags, fields: LogField[], user_data?: object | null): LogWriterOutput
+export function log_writer_default_set_use_stderr(use_stderr: boolean): void
+export function log_writer_default_would_drop(log_level: LogLevelFlags, log_domain?: string | null): boolean
 export function log_writer_format_fields(log_level: LogLevelFlags, fields: LogField[], use_color: boolean): string
 export function log_writer_is_journald(output_fd: number): boolean
 export function log_writer_journald(log_level: LogLevelFlags, fields: LogField[], user_data?: object | null): LogWriterOutput
 export function log_writer_standard_streams(log_level: LogLevelFlags, fields: LogField[], user_data?: object | null): LogWriterOutput
 export function log_writer_supports_color(output_fd: number): boolean
 export function main_context_default(): MainContext
-export function main_context_get_thread_default(): MainContext
+export function main_context_get_thread_default(): MainContext | null
 export function main_context_ref_thread_default(): MainContext
-export function main_current_source(): Source
+export function main_current_source(): Source | null
 export function main_depth(): number
 export function malloc(n_bytes: number): object | null
 export function malloc0(n_bytes: number): object | null
@@ -1200,6 +1201,7 @@ export function mem_is_system_malloc(): boolean
 export function mem_profile(): void
 export function mem_set_vtable(vtable: MemVTable): void
 export function memdup(mem: object | null, byte_size: number): object | null
+export function memdup2(mem: object | null, byte_size: number): object | null
 export function mkdir_with_parents(pathname: string, mode: number): number
 export function nullify_pointer(nullify_location: object): void
 export function number_parser_error_quark(): Quark
@@ -1349,6 +1351,7 @@ export function test_expect_message(log_domain: string | null, log_level: LogLev
 export function test_fail(): void
 export function test_failed(): boolean
 export function test_get_dir(file_type: TestFileType): string
+export function test_get_path(): string
 export function test_incomplete(msg?: string | null): void
 export function test_log_type_name(log_type: TestLogType): string
 export function test_queue_destroy(destroy_func: DestroyNotify, destroy_data?: object | null): void
@@ -1462,8 +1465,8 @@ export function uri_split(uri_ref: string, flags: UriFlags): [ /* returnType */ 
 export function uri_split_network(uri_string: string, flags: UriFlags): [ /* returnType */ boolean, /* scheme */ string | null, /* host */ string | null, /* port */ number | null ]
 export function uri_split_with_user(uri_ref: string, flags: UriFlags): [ /* returnType */ boolean, /* scheme */ string | null, /* user */ string | null, /* password */ string | null, /* auth_params */ string | null, /* host */ string | null, /* port */ number | null, /* path */ string | null, /* query */ string | null, /* fragment */ string | null ]
 export function uri_unescape_bytes(escaped_string: string, length: number, illegal_characters?: string | null): Bytes
-export function uri_unescape_segment(escaped_string?: string | null, escaped_string_end?: string | null, illegal_characters?: string | null): string
-export function uri_unescape_string(escaped_string: string, illegal_characters?: string | null): string
+export function uri_unescape_segment(escaped_string?: string | null, escaped_string_end?: string | null, illegal_characters?: string | null): string | null
+export function uri_unescape_string(escaped_string: string, illegal_characters?: string | null): string | null
 export function usleep(microseconds: number): void
 export function utf16_to_ucs4(str: number, len: number): [ /* returnType */ number, /* items_read */ number | null, /* items_written */ number | null ]
 export function utf16_to_utf8(str: number, len: number): [ /* returnType */ string, /* items_read */ number | null, /* items_written */ number | null ]
@@ -1532,6 +1535,15 @@ export interface DuplicateFunc {
 }
 export interface EqualFunc {
     (a?: object | null, b?: object | null): boolean
+}
+export interface ErrorClearFunc {
+    (error: Error): void
+}
+export interface ErrorCopyFunc {
+    (src_error: Error, dest_error: Error): void
+}
+export interface ErrorInitFunc {
+    (error: Error): void
 }
 export interface FreeFunc {
     (data?: object | null): void
@@ -1640,6 +1652,9 @@ export interface TranslateFunc {
 }
 export interface TraverseFunc {
     (key?: object | null, value?: object | null, data?: object | null): boolean
+}
+export interface TraverseNodeFunc {
+    (node: TreeNode, data?: object | null): boolean
 }
 export interface UnixFDSourceFunc {
     (fd: number, condition: IOCondition): boolean
@@ -1862,7 +1877,9 @@ export class DateTime {
     add_seconds(seconds: number): DateTime | null
     add_weeks(weeks: number): DateTime | null
     add_years(years: number): DateTime | null
+    compare(dt2: DateTime): number
     difference(begin: DateTime): TimeSpan
+    equal(dt2: DateTime): boolean
     format(format: string): string | null
     format_iso8601(): string | null
     get_day_of_month(): number
@@ -1881,6 +1898,7 @@ export class DateTime {
     get_week_of_year(): number
     get_year(): number
     get_ymd(): [ /* year */ number | null, /* month */ number | null, /* day */ number | null ]
+    hash(): number
     is_daylight_savings(): boolean
     ref(): DateTime
     to_local(): DateTime | null
@@ -1904,9 +1922,6 @@ export class DateTime {
     static new_now_local(): DateTime
     static new_now_utc(): DateTime
     static new_utc(year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
-    static compare(dt1: object, dt2: object): number
-    static equal(dt1: object, dt2: object): boolean
-    static hash(datetime: object): number
 }
 export class DebugKey {
     /* Fields of GLib-2.0.GLib.DebugKey */
@@ -2067,7 +2082,7 @@ export class KeyFile {
     /* Methods of GLib-2.0.GLib.KeyFile */
     get_boolean(group_name: string, key: string): boolean
     get_boolean_list(group_name: string, key: string): boolean[]
-    get_comment(group_name: string | null, key: string): string
+    get_comment(group_name?: string | null, key?: string | null): string
     get_double(group_name: string, key: string): number
     get_double_list(group_name: string, key: string): number[]
     get_groups(): [ /* returnType */ string[], /* length */ number | null ]
@@ -2078,7 +2093,7 @@ export class KeyFile {
     get_locale_for_key(group_name: string, key: string, locale?: string | null): string | null
     get_locale_string(group_name: string, key: string, locale?: string | null): string
     get_locale_string_list(group_name: string, key: string, locale?: string | null): string[]
-    get_start_group(): string
+    get_start_group(): string | null
     get_string(group_name: string, key: string): string
     get_string_list(group_name: string, key: string): string[]
     get_uint64(group_name: string, key: string): number
@@ -2160,7 +2175,7 @@ export class MainContext {
     /* Static methods and pseudo-constructors */
     static new(): MainContext
     static default(): MainContext
-    static get_thread_default(): MainContext
+    static get_thread_default(): MainContext | null
     static ref_thread_default(): MainContext
 }
 export class MainLoop {
@@ -2561,7 +2576,7 @@ export class Source {
     get_context(): MainContext | null
     get_current_time(timeval: TimeVal): void
     get_id(): number
-    get_name(): string
+    get_name(): string | null
     get_priority(): number
     get_ready_time(): number
     get_time(): number
@@ -2639,6 +2654,7 @@ export class String {
     prepend_c(c: number): String
     prepend_len(val: string, len: number): String
     prepend_unichar(wc: number): String
+    replace(find: string, replace: string, limit: number): number
     set_size(len: number): String
     truncate(len: number): String
     up(): String
@@ -2651,6 +2667,13 @@ export class StringChunk {
     insert(string: string): string
     insert_const(string: string): string
     insert_len(string: string, len: number): string
+    static name: string
+}
+export class StrvBuilder {
+    /* Methods of GLib-2.0.GLib.StrvBuilder */
+    add(value: string): void
+    end(): string[]
+    unref(): void
     static name: string
 }
 export class TestCase {
@@ -2752,6 +2775,7 @@ export class TimeZone {
     constructor(identifier?: string | null)
     /* Static methods and pseudo-constructors */
     static new(identifier?: string | null): TimeZone
+    static new_identifier(identifier?: string | null): TimeZone
     static new_local(): TimeZone
     static new_offset(seconds: number): TimeZone
     static new_utc(): TimeZone
@@ -2782,13 +2806,31 @@ export class Tree {
     destroy(): void
     height(): number
     insert(key?: object | null, value?: object | null): void
+    insert_node(key?: object | null, value?: object | null): TreeNode
     lookup(key?: object | null): object | null
     lookup_extended(lookup_key?: object | null): [ /* returnType */ boolean, /* orig_key */ object | null, /* value */ object | null ]
+    lookup_node(key?: object | null): TreeNode | null
+    lower_bound(key?: object | null): TreeNode | null
     nnodes(): number
+    node_first(): TreeNode | null
+    node_last(): TreeNode | null
+    ref(): Tree
     remove(key?: object | null): boolean
     replace(key?: object | null, value?: object | null): void
+    replace_node(key?: object | null, value?: object | null): TreeNode
     steal(key?: object | null): boolean
     unref(): void
+    upper_bound(key?: object | null): TreeNode | null
+    static name: string
+    /* Static methods and pseudo-constructors */
+    static new_full(key_compare_func: CompareDataFunc, key_destroy_func: DestroyNotify): Tree
+}
+export class TreeNode {
+    /* Methods of GLib-2.0.GLib.TreeNode */
+    key(): object | null
+    next(): TreeNode | null
+    previous(): TreeNode | null
+    value(): object | null
     static name: string
 }
 export class Uri {
@@ -2796,7 +2838,7 @@ export class Uri {
     get_auth_params(): string | null
     get_flags(): UriFlags
     get_fragment(): string | null
-    get_host(): string
+    get_host(): string | null
     get_password(): string | null
     get_path(): string
     get_port(): number
@@ -2827,8 +2869,8 @@ export class Uri {
     static split_network(uri_string: string, flags: UriFlags): [ /* returnType */ boolean, /* scheme */ string | null, /* host */ string | null, /* port */ number | null ]
     static split_with_user(uri_ref: string, flags: UriFlags): [ /* returnType */ boolean, /* scheme */ string | null, /* user */ string | null, /* password */ string | null, /* auth_params */ string | null, /* host */ string | null, /* port */ number | null, /* path */ string | null, /* query */ string | null, /* fragment */ string | null ]
     static unescape_bytes(escaped_string: string, length: number, illegal_characters?: string | null): Bytes
-    static unescape_segment(escaped_string?: string | null, escaped_string_end?: string | null, illegal_characters?: string | null): string
-    static unescape_string(escaped_string: string, illegal_characters?: string | null): string
+    static unescape_segment(escaped_string?: string | null, escaped_string_end?: string | null, illegal_characters?: string | null): string | null
+    static unescape_string(escaped_string: string, illegal_characters?: string | null): string | null
 }
 export class UriParamsIter {
     /* Methods of GLib-2.0.GLib.UriParamsIter */

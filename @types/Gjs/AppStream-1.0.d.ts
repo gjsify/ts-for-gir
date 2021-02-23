@@ -321,7 +321,7 @@ export enum ReviewFlags {
 }
 export enum SearchTokenMatch {
     NONE,
-    MIMETYPE,
+    MEDIATYPE,
     PKGNAME,
     ORIGIN,
     DESCRIPTION,

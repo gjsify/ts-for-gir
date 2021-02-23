@@ -166,6 +166,11 @@ export enum HolderError {
     VALUE_TYPE_ERROR,
     VALUE_NULL_ERROR,
 }
+export enum LdapSearchScope {
+    BASE,
+    ONELEVEL,
+    SUBTREE,
+}
 export enum MetaDbObjectType {
     UNKNOWN,
     TABLE,
@@ -1648,7 +1653,6 @@ export class DataModelArray {
     constructor (config?: DataModelArray_ConstructProps)
     _init (config?: DataModelArray_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new_with_g_types(cols: number, types: GObject.Type[]): DataModel
     static error_quark(): GLib.Quark
     static $gtype: GObject.Type
 }
@@ -2111,6 +2115,157 @@ export class DataModelIter {
     constructor (config?: DataModelIter_ConstructProps)
     _init (config?: DataModelIter_ConstructProps): void
     /* Static methods and pseudo-constructors */
+    static error_quark(): GLib.Quark
+    static $gtype: GObject.Type
+}
+export interface DataModelLdap_ConstructProps extends GObject.Object_ConstructProps {
+    attributes?: string
+    base?: string
+    cnc?: Connection
+    filter?: string
+    scope?: number
+}
+export class DataModelLdap {
+    /* Fields of Gda-5.0.Gda.DataModelLdap */
+    object: GObject.Object
+    priv: DataModelLdapPrivate
+    /* Fields of GObject-2.0.GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GObject-2.0.GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of Gda-5.0.Gda.DataModel */
+    add_data_from_xml_node(node: libxml2.NodePtr): boolean
+    append_row(): number
+    append_values(values?: any[] | null): number
+    array_copy_model(): DataModelArray | null
+    array_copy_model_ext(cols: number[]): DataModelArray | null
+    create_iter(): DataModelIter
+    describe_column(col: number): Column | null
+    dump(to_stream?: object | null): void
+    dump_as_string(): string
+    export_to_file(format: DataModelIOFormat, file: string, cols: number[] | null, rows: number[] | null, options: Set): boolean
+    export_to_string(format: DataModelIOFormat, cols: number[] | null, rows: number[] | null, options: Set): string
+    freeze(): void
+    get_access_flags(): DataModelAccessFlags
+    get_attributes_at(col: number, row: number): ValueAttribute
+    get_column_index(name: string): number
+    get_column_name(col: number): string
+    get_column_title(col: number): string
+    get_exceptions(): GLib.Error[]
+    get_n_columns(): number
+    get_n_rows(): number
+    get_notify(): boolean
+    get_row_from_values(values: any[], cols_index: number[]): number
+    get_typed_value_at(col: number, row: number, expected_type: GObject.Type, nullok: boolean): any | null
+    get_value_at(col: number, row: number): any | null
+    import_from_file(file: string, cols_trans: GLib.HashTable | null, options: Set): boolean
+    import_from_model(from: DataModel, overwrite: boolean, cols_trans?: GLib.HashTable | null): boolean
+    import_from_string(string: string, cols_trans: GLib.HashTable | null, options: Set): boolean
+    iter_at_row(iter: DataModelIter, row: number): boolean
+    iter_next(iter: DataModelIter): boolean
+    iter_prev(iter: DataModelIter): boolean
+    iter_set_value(iter: DataModelIter, col: number, value: any): boolean
+    remove_row(row: number): boolean
+    reset(): void
+    row_inserted(row: number): void
+    row_removed(row: number): void
+    row_updated(row: number): void
+    send_hint(hint: DataModelHint, hint_value?: any | null): void
+    set_column_name(col: number, name: string): void
+    set_column_title(col: number, title: string): void
+    set_notify(do_notify_changes: boolean): void
+    set_value_at(col: number, row: number, value: any): boolean
+    set_values(row: number, values?: any[] | null): boolean
+    thaw(): void
+    /* Virtual methods of Gda-5.0.Gda.DataModelLdap */
+    vfunc_access_changed(): void
+    vfunc_changed(): void
+    vfunc_i_append_row(): number
+    vfunc_i_append_values(values?: any[] | null): number
+    vfunc_i_create_iter(): DataModelIter
+    vfunc_i_describe_column(col: number): Column | null
+    vfunc_i_find_row(values: any[], cols_index: number[]): number
+    vfunc_i_get_access_flags(): DataModelAccessFlags
+    vfunc_i_get_attributes_at(col: number, row: number): ValueAttribute
+    vfunc_i_get_exceptions(): GLib.Error[]
+    vfunc_i_get_n_columns(): number
+    vfunc_i_get_n_rows(): number
+    vfunc_i_get_notify(): boolean
+    vfunc_i_get_value_at(col: number, row: number): any | null
+    vfunc_i_iter_at_row(iter: DataModelIter, row: number): boolean
+    vfunc_i_iter_next(iter: DataModelIter): boolean
+    vfunc_i_iter_prev(iter: DataModelIter): boolean
+    vfunc_i_iter_set_value(iter: DataModelIter, col: number, value: any): boolean
+    vfunc_i_remove_row(row: number): boolean
+    vfunc_i_send_hint(hint: DataModelHint, hint_value?: any | null): void
+    vfunc_i_set_notify(do_notify_changes: boolean): void
+    vfunc_i_set_value_at(col: number, row: number, value: any): boolean
+    vfunc_i_set_values(row: number, values?: any[] | null): boolean
+    vfunc_reset(): void
+    vfunc_row_inserted(row: number): void
+    vfunc_row_removed(row: number): void
+    vfunc_row_updated(row: number): void
+    /* Virtual methods of GObject-2.0.GObject.Object */
+    vfunc_constructed(): void
+    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose(): void
+    vfunc_finalize(): void
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: DataModelLdap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: DataModelLdap, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    /* Signals of Gda-5.0.Gda.DataModel */
+    connect(sigName: "access-changed", callback: (($obj: DataModelLdap) => void)): number
+    connect_after(sigName: "access-changed", callback: (($obj: DataModelLdap) => void)): number
+    emit(sigName: "access-changed"): void
+    connect(sigName: "changed", callback: (($obj: DataModelLdap) => void)): number
+    connect_after(sigName: "changed", callback: (($obj: DataModelLdap) => void)): number
+    emit(sigName: "changed"): void
+    connect(sigName: "reset", callback: (($obj: DataModelLdap) => void)): number
+    connect_after(sigName: "reset", callback: (($obj: DataModelLdap) => void)): number
+    emit(sigName: "reset"): void
+    connect(sigName: "row-inserted", callback: (($obj: DataModelLdap, row: number) => void)): number
+    connect_after(sigName: "row-inserted", callback: (($obj: DataModelLdap, row: number) => void)): number
+    emit(sigName: "row-inserted", row: number): void
+    connect(sigName: "row-removed", callback: (($obj: DataModelLdap, row: number) => void)): number
+    connect_after(sigName: "row-removed", callback: (($obj: DataModelLdap, row: number) => void)): number
+    emit(sigName: "row-removed", row: number): void
+    connect(sigName: "row-updated", callback: (($obj: DataModelLdap, row: number) => void)): number
+    connect_after(sigName: "row-updated", callback: (($obj: DataModelLdap, row: number) => void)): number
+    emit(sigName: "row-updated", row: number): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    static name: string
+    constructor (config?: DataModelLdap_ConstructProps)
+    _init (config?: DataModelLdap_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new_with_config(cnc: Connection, base_dn: string | null, filter: string | null, attributes: string | null, scope: LdapSearchScope): DataModelLdap
+    static compute_columns(cnc: Connection, attributes?: string | null): Column[]
     static error_quark(): GLib.Quark
     static $gtype: GObject.Type
 }
@@ -4578,6 +4733,72 @@ export class TreeMgrLabel {
     static new(label: string): TreeMgrLabel
     static $gtype: GObject.Type
 }
+export interface TreeMgrLdap_ConstructProps extends TreeManager_ConstructProps {
+    dn?: string
+}
+export class TreeMgrLdap {
+    /* Properties of Gda-5.0.Gda.TreeManager */
+    func: object
+    recursive: boolean
+    /* Fields of Gda-5.0.Gda.TreeMgrLdap */
+    object: TreeManager
+    priv: TreeMgrLdapPriv
+    /* Fields of GObject-2.0.GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of Gda-5.0.Gda.TreeManager */
+    add_manager(sub: TreeManager): void
+    add_new_node_attribute(attribute: string, value?: any | null): void
+    create_node(parent?: TreeNode | null, name?: string | null): TreeNode
+    get_managers(): TreeManager[]
+    /* Methods of GObject-2.0.GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GObject-2.0.GObject.Object */
+    vfunc_constructed(): void
+    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose(): void
+    vfunc_finalize(): void
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: TreeMgrLdap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: TreeMgrLdap, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::func", callback: (($obj: TreeMgrLdap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::func", callback: (($obj: TreeMgrLdap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::recursive", callback: (($obj: TreeMgrLdap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::recursive", callback: (($obj: TreeMgrLdap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    static name: string
+    constructor (config?: TreeMgrLdap_ConstructProps)
+    _init (config?: TreeMgrLdap_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(cnc: Connection, dn?: string | null): TreeMgrLdap
+    static $gtype: GObject.Type
+}
 export interface TreeMgrSchemas_ConstructProps extends TreeManager_ConstructProps {
     connection?: Connection
     meta_store?: MetaStore
@@ -5122,6 +5343,14 @@ export abstract class DataModelIterClass {
     static name: string
 }
 export class DataModelIterPrivate {
+    static name: string
+}
+export abstract class DataModelLdapClass {
+    /* Fields of Gda-5.0.Gda.DataModelLdapClass */
+    parent_class: GObject.ObjectClass
+    static name: string
+}
+export class DataModelLdapPrivate {
     static name: string
 }
 export abstract class DataPivotClass {
@@ -5954,6 +6183,14 @@ export abstract class TreeMgrLabelClass {
     static name: string
 }
 export class TreeMgrLabelPriv {
+    static name: string
+}
+export abstract class TreeMgrLdapClass {
+    /* Fields of Gda-5.0.Gda.TreeMgrLdapClass */
+    object_class: TreeManagerClass
+    static name: string
+}
+export class TreeMgrLdapPriv {
     static name: string
 }
 export abstract class TreeMgrSchemasClass {

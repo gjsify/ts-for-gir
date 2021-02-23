@@ -934,8 +934,8 @@ export abstract class AppletClass {
     event_box_class: Gtk.EventBoxClass
     change_orient: (applet: Applet, orient: AppletOrient) => void
     change_size: (applet: Applet, size: number) => void
-    change_background: (applet: Applet, pattern: cairo.Pattern) => void
-    move_focus_out_of_applet: (frame: Applet, direction: Gtk.DirectionType) => void
+    change_background: any
+    move_focus_out_of_applet: any
     static name: string
 }
 export class AppletPrivate {

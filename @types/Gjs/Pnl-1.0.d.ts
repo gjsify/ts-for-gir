@@ -13273,8 +13273,8 @@ export abstract class DockWindowClass {
 export abstract class MultiPanedClass {
     /* Fields of Pnl-1.0.Pnl.MultiPanedClass */
     parent: Gtk.ContainerClass
-    resize_drag_begin: (self: MultiPaned, child: Gtk.Widget) => void
-    resize_drag_end: (self: MultiPaned, child: Gtk.Widget) => void
+    resize_drag_begin: any
+    resize_drag_end: any
     padding1: () => void
     padding2: () => void
     padding3: () => void

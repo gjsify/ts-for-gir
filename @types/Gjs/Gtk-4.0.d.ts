@@ -65506,8 +65506,8 @@ export abstract class ActionableInterface {
     /* Fields of Gtk-4.0.Gtk.ActionableInterface */
     get_action_name: (actionable: Actionable) => string | null
     set_action_name: (actionable: Actionable, action_name?: string | null) => void
-    get_action_target_value: (actionable: Actionable) => GLib.Variant | null
-    set_action_target_value: (actionable: Actionable, target_value?: GLib.Variant | null) => void
+    get_action_target_value: any
+    set_action_target_value: any
     static name: string
 }
 export abstract class ActivateActionClass {
@@ -65629,13 +65629,13 @@ export abstract class BuildableIface {
     g_iface: GObject.TypeInterface
     set_id: (buildable: Buildable, id: string) => void
     get_id: (buildable: Buildable) => string
-    add_child: (buildable: Buildable, builder: Builder, child: GObject.Object, type?: string | null) => void
+    add_child: any
     set_buildable_property: (buildable: Buildable, builder: Builder, name: string, value: any) => void
-    custom_tag_start: (buildable: Buildable, builder: Builder, child: GObject.Object | null, tagname: string) => [ /* returnType */ boolean, /* parser */ BuildableParser, /* data */ object | null ]
-    custom_tag_end: (buildable: Buildable, builder: Builder, child: GObject.Object | null, tagname: string, data?: object | null) => void
-    custom_finished: (buildable: Buildable, builder: Builder, child: GObject.Object | null, tagname: string, data?: object | null) => void
+    custom_tag_start: any
+    custom_tag_end: any
+    custom_finished: any
     parser_finished: (buildable: Buildable, builder: Builder) => void
-    get_internal_child: (buildable: Buildable, builder: Builder, childname: string) => GObject.Object
+    get_internal_child: any
     static name: string
 }
 export class BuildableParseContext {
@@ -65652,7 +65652,7 @@ export class BuildableParser {
     start_element: (context: BuildableParseContext, element_name: string, attribute_names: string, attribute_values: string) => void
     end_element: (context: BuildableParseContext, element_name: string) => void
     text: (context: BuildableParseContext, text: string, text_len: number) => void
-    error: (context: BuildableParseContext, error: GLib.Error) => void
+    error: any
     static name: string
 }
 export abstract class BuilderCScopeClass {
@@ -65668,9 +65668,9 @@ export abstract class BuilderListItemFactoryClass {
 }
 export abstract class BuilderScopeInterface {
     /* Fields of Gtk-4.0.Gtk.BuilderScopeInterface */
-    get_type_from_name: (self: BuilderScope, builder: Builder, type_name: string) => GObject.Type
-    get_type_from_function: (self: BuilderScope, builder: Builder, function_name: string) => GObject.Type
-    create_closure: (self: BuilderScope, builder: Builder, function_name: string, flags: BuilderClosureFlags, object: GObject.Object) => Function
+    get_type_from_name: any
+    get_type_from_function: any
+    create_closure: any
     static name: string
 }
 export abstract class ButtonClass {
@@ -65691,9 +65691,9 @@ export abstract class CellAreaClass {
     add: (area: CellArea, renderer: CellRenderer) => void
     remove: (area: CellArea, renderer: CellRenderer) => void
     foreach: (area: CellArea, callback: CellCallback) => void
-    foreach_alloc: (area: CellArea, context: CellAreaContext, widget: Widget, cell_area: Gdk.Rectangle, background_area: Gdk.Rectangle, callback: CellAllocCallback) => void
-    event: (area: CellArea, context: CellAreaContext, widget: Widget, event: Gdk.Event, cell_area: Gdk.Rectangle, flags: CellRendererState) => number
-    snapshot: (area: CellArea, context: CellAreaContext, widget: Widget, snapshot: Snapshot, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: CellRendererState, paint_focus: boolean) => void
+    foreach_alloc: any
+    event: any
+    snapshot: any
     apply_attributes: (area: CellArea, tree_model: TreeModel, iter: TreeIter, is_expander: boolean, is_expanded: boolean) => void
     create_context: (area: CellArea) => CellAreaContext
     copy_context: (area: CellArea, context: CellAreaContext) => CellAreaContext
@@ -65702,11 +65702,11 @@ export abstract class CellAreaClass {
     get_preferred_height_for_width: (area: CellArea, context: CellAreaContext, widget: Widget, width: number) => [ /* minimum_height */ number | null, /* natural_height */ number | null ]
     get_preferred_height: (area: CellArea, context: CellAreaContext, widget: Widget) => [ /* minimum_height */ number | null, /* natural_height */ number | null ]
     get_preferred_width_for_height: (area: CellArea, context: CellAreaContext, widget: Widget, height: number) => [ /* minimum_width */ number | null, /* natural_width */ number | null ]
-    set_cell_property: (area: CellArea, renderer: CellRenderer, property_id: number, value: any, pspec: GObject.ParamSpec) => void
-    get_cell_property: (area: CellArea, renderer: CellRenderer, property_id: number, value: any, pspec: GObject.ParamSpec) => void
+    set_cell_property: any
+    get_cell_property: any
     focus: (area: CellArea, direction: DirectionType) => boolean
     is_activatable: (area: CellArea) => boolean
-    activate: (area: CellArea, context: CellAreaContext, widget: Widget, cell_area: Gdk.Rectangle, flags: CellRendererState, edit_only: boolean) => boolean
+    activate: any
     /* Methods of Gtk-4.0.Gtk.CellAreaClass */
     find_cell_property(aclass: CellArea | Function | GObject.Type, property_name: string): GObject.ParamSpec
     install_cell_property(aclass: CellArea | Function | GObject.Type, property_id: number, pspec: GObject.ParamSpec): void
@@ -65728,7 +65728,7 @@ export abstract class CellEditableIface {
     /* Fields of Gtk-4.0.Gtk.CellEditableIface */
     editing_done: (cell_editable: CellEditable) => void
     remove_widget: (cell_editable: CellEditable) => void
-    start_editing: (cell_editable: CellEditable, event?: Gdk.Event | null) => void
+    start_editing: any
     static name: string
 }
 export abstract class CellLayoutIface {
@@ -65751,10 +65751,10 @@ export abstract class CellRendererClass {
     get_preferred_height_for_width: (cell: CellRenderer, widget: Widget, width: number) => [ /* minimum_height */ number | null, /* natural_height */ number | null ]
     get_preferred_height: (cell: CellRenderer, widget: Widget) => [ /* minimum_size */ number | null, /* natural_size */ number | null ]
     get_preferred_width_for_height: (cell: CellRenderer, widget: Widget, height: number) => [ /* minimum_width */ number | null, /* natural_width */ number | null ]
-    get_aligned_area: (cell: CellRenderer, widget: Widget, flags: CellRendererState, cell_area: Gdk.Rectangle) => /* aligned_area */ Gdk.Rectangle
-    snapshot: (cell: CellRenderer, snapshot: Snapshot, widget: Widget, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: CellRendererState) => void
-    activate: (cell: CellRenderer, event: Gdk.Event, widget: Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: CellRendererState) => boolean
-    start_editing: (cell: CellRenderer, event: Gdk.Event | null, widget: Widget, path: string, background_area: Gdk.Rectangle, cell_area: Gdk.Rectangle, flags: CellRendererState) => CellEditable | null
+    get_aligned_area: any
+    snapshot: any
+    activate: any
+    start_editing: any
     editing_canceled: (cell: CellRenderer) => void
     editing_started: (cell: CellRenderer, editable: CellEditable, path: string) => void
     static name: string
@@ -65789,10 +65789,10 @@ export abstract class CheckButtonClass {
 export abstract class ColorChooserInterface {
     /* Fields of Gtk-4.0.Gtk.ColorChooserInterface */
     base_interface: GObject.TypeInterface
-    get_rgba: (chooser: ColorChooser) => /* color */ Gdk.RGBA
-    set_rgba: (chooser: ColorChooser, color: Gdk.RGBA) => void
-    add_palette: (chooser: ColorChooser, orientation: Orientation, colors_per_line: number, colors?: Gdk.RGBA[] | null) => void
-    color_activated: (chooser: ColorChooser, color: Gdk.RGBA) => void
+    get_rgba: any
+    set_rgba: any
+    add_palette: any
+    color_activated: any
     padding: object[]
     static name: string
 }
@@ -65997,7 +65997,7 @@ export abstract class FileChooserNativeClass {
 export abstract class FilterClass {
     /* Fields of Gtk-4.0.Gtk.FilterClass */
     parent_class: GObject.ObjectClass
-    match: (self: Filter, item?: GObject.Object | null) => boolean
+    match: any
     get_strictness: (self: Filter) => FilterMatch
     static name: string
 }
@@ -66036,13 +66036,13 @@ export abstract class FlowBoxChildClass {
 export abstract class FontChooserIface {
     /* Fields of Gtk-4.0.Gtk.FontChooserIface */
     base_iface: GObject.TypeInterface
-    get_font_family: (fontchooser: FontChooser) => Pango.FontFamily | null
-    get_font_face: (fontchooser: FontChooser) => Pango.FontFace | null
+    get_font_family: any
+    get_font_face: any
     get_font_size: (fontchooser: FontChooser) => number
     set_filter_func: (fontchooser: FontChooser, filter: FontFilterFunc | null) => void
     font_activated: (chooser: FontChooser, fontname: string) => void
-    set_font_map: (fontchooser: FontChooser, fontmap?: Pango.FontMap | null) => void
-    get_font_map: (fontchooser: FontChooser) => Pango.FontMap | null
+    set_font_map: any
+    get_font_map: any
     padding: object[]
     static name: string
 }
@@ -66054,7 +66054,7 @@ export abstract class FrameClass {
 }
 export abstract class GLAreaClass {
     /* Fields of Gtk-4.0.Gtk.GLAreaClass */
-    render: (area: GLArea, context: Gdk.GLContext) => boolean
+    render: any
     resize: (area: GLArea, width: number, height: number) => void
     static name: string
 }
@@ -66115,12 +66115,12 @@ export abstract class IMContextClass {
     retrieve_surrounding: (context: IMContext) => boolean
     delete_surrounding: (context: IMContext, offset: number, n_chars: number) => boolean
     set_client_widget: (context: IMContext, widget?: Widget | null) => void
-    get_preedit_string: (context: IMContext) => [ /* str */ string, /* attrs */ Pango.AttrList, /* cursor_pos */ number ]
-    filter_keypress: (context: IMContext, event: Gdk.Event) => boolean
+    get_preedit_string: any
+    filter_keypress: any
     focus_in: (context: IMContext) => void
     focus_out: (context: IMContext) => void
     reset: (context: IMContext) => void
-    set_cursor_location: (context: IMContext, area: Gdk.Rectangle) => void
+    set_cursor_location: any
     set_use_preedit: (context: IMContext, use_preedit: boolean) => void
     set_surrounding: (context: IMContext, text: string, len: number, cursor_index: number) => void
     get_surrounding: (context: IMContext) => [ /* returnType */ boolean, /* text */ string, /* cursor_index */ number ]
@@ -66209,8 +66209,8 @@ export abstract class MediaStreamClass {
     pause: (self: MediaStream) => void
     seek: (self: MediaStream, timestamp: number) => void
     update_audio: (self: MediaStream, muted: boolean, volume: number) => void
-    realize: (self: MediaStream, surface: Gdk.Surface) => void
-    unrealize: (self: MediaStream, surface: Gdk.Surface) => void
+    realize: any
+    unrealize: any
     static name: string
 }
 export abstract class MessageDialogClass {
@@ -66561,7 +66561,7 @@ export abstract class SortListModelClass {
 export abstract class SorterClass {
     /* Fields of Gtk-4.0.Gtk.SorterClass */
     parent_class: GObject.ObjectClass
-    compare: (self: Sorter, item1?: GObject.Object | null, item2?: GObject.Object | null) => Ordering
+    compare: any
     get_order: (self: Sorter) => SorterOrder
     static name: string
 }
@@ -66598,7 +66598,7 @@ export abstract class TextBufferClass {
     /* Fields of Gtk-4.0.Gtk.TextBufferClass */
     parent_class: GObject.ObjectClass
     insert_text: (buffer: TextBuffer, pos: TextIter, new_text: string, new_text_length: number) => void
-    insert_paintable: (buffer: TextBuffer, iter: TextIter, paintable: Gdk.Paintable) => void
+    insert_paintable: any
     insert_child_anchor: (buffer: TextBuffer, iter: TextIter, anchor: TextChildAnchor) => void
     delete_range: (buffer: TextBuffer, start: TextIter, end: TextIter) => void
     changed: (buffer: TextBuffer) => void
@@ -66609,7 +66609,7 @@ export abstract class TextBufferClass {
     remove_tag: (buffer: TextBuffer, tag: TextTag, start: TextIter, end: TextIter) => void
     begin_user_action: (buffer: TextBuffer) => void
     end_user_action: (buffer: TextBuffer) => void
-    paste_done: (buffer: TextBuffer, clipboard: Gdk.Clipboard) => void
+    paste_done: any
     undo: (buffer: TextBuffer) => void
     redo: (buffer: TextBuffer) => void
     static name: string
@@ -66764,7 +66764,7 @@ export abstract class TreeDragDestIface {
 export abstract class TreeDragSourceIface {
     /* Fields of Gtk-4.0.Gtk.TreeDragSourceIface */
     row_draggable: (drag_source: TreeDragSource, path: TreePath) => boolean
-    drag_data_get: (drag_source: TreeDragSource, path: TreePath) => Gdk.ContentProvider | null
+    drag_data_get: any
     drag_data_delete: (drag_source: TreeDragSource, path: TreePath) => boolean
     static name: string
 }
@@ -66818,7 +66818,7 @@ export abstract class TreeModelIface {
     rows_reordered: (tree_model: TreeModel, path: TreePath, iter: TreeIter, new_order: number) => void
     get_flags: (tree_model: TreeModel) => TreeModelFlags
     get_n_columns: (tree_model: TreeModel) => number
-    get_column_type: (tree_model: TreeModel, index_: number) => GObject.Type
+    get_column_type: any
     get_iter: (tree_model: TreeModel, path: TreePath) => [ /* returnType */ boolean, /* iter */ TreeIter ]
     get_path: (tree_model: TreeModel, iter: TreeIter) => TreePath
     get_value: (tree_model: TreeModel, iter: TreeIter, column: number) => /* value */ any

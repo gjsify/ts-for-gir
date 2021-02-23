@@ -434,11 +434,11 @@ export abstract class FileInfoInterface {
     addStringAttribute: (fileInfo: FileInfo, attributeName: string, value: string) => void
     invalidateExtensionInfo: (fileInfo: FileInfo) => void
     getActivationUri: (fileInfo: FileInfo) => string
-    getFileType: (fileInfo: FileInfo) => Gio.FileType
-    getLocation: (fileInfo: FileInfo) => Gio.File
-    getParentLocation: (fileInfo: FileInfo) => Gio.File | null
+    getFileType: any
+    getLocation: any
+    getParentLocation: any
     getParentInfo: (fileInfo: FileInfo) => FileInfo | null
-    getMount: (fileInfo: FileInfo) => Gio.Mount | null
+    getMount: any
     canWrite: (fileInfo: FileInfo) => boolean
     static name: string
 }

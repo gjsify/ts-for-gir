@@ -763,7 +763,7 @@ export abstract class SessionClass {
     set_send_codec: (session: Session, send_codec: Codec) => boolean
     set_codec_preferences: (session: Session, codec_preferences: Codec[]) => boolean
     list_transmitters: (session: Session) => string[]
-    get_stream_transmitter_type: (session: Session, transmitter: string) => GObject.Type
+    get_stream_transmitter_type: any
     codecs_need_resend: (session: Session, old_codecs: Codec[], new_codecs: Codec[]) => Codec[]
     static name: string
 }
@@ -777,7 +777,7 @@ export abstract class StreamClass {
     force_remote_candidates: (stream: Stream, remote_candidates: Candidate[]) => boolean
     set_remote_codecs: (stream: Stream, remote_codecs: Codec[]) => boolean
     add_id: (stream: Stream, id: number) => void
-    set_transmitter: (stream: Stream, transmitter: string, stream_transmitter_parameters: GObject.Parameter, stream_transmitter_n_parameters: number) => boolean
+    set_transmitter: any
     static name: string
 }
 export class StreamPrivate {
@@ -798,8 +798,8 @@ export class StreamTransmitterPrivate {
 export abstract class TransmitterClass {
     /* Fields of Farstream-0.1.Farstream.TransmitterClass */
     parent_class: any
-    new_stream_transmitter: (transmitter: Transmitter, participant: Participant, n_parameters: number, parameters: GObject.Parameter) => StreamTransmitter
-    get_stream_transmitter_type: (transmitter: Transmitter) => GObject.Type
+    new_stream_transmitter: any
+    get_stream_transmitter_type: any
     static name: string
 }
 export class TransmitterPrivate {

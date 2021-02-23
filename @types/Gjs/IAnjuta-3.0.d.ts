@@ -3493,7 +3493,7 @@ export abstract class DebugManagerIface {
     g_iface: GObject.TypeInterface
     breakpoint_changed: (obj: DebugManager, breakpoint: DebuggerBreakpointItem) => void
     debugger_started: (obj: DebugManager) => void
-    debugger_stopped: (obj: DebugManager, err: GLib.Error) => void
+    debugger_stopped: any
     frame_changed: (obj: DebugManager, frame: number, thread: number) => void
     location_changed: (obj: DebugManager, address: number, uri: string, line: number) => void
     program_exited: (obj: DebugManager) => void
@@ -3549,7 +3549,7 @@ export abstract class DebuggerIface {
     g_iface: GObject.TypeInterface
     debugger_ready: (obj: Debugger, state: DebuggerState) => void
     debugger_started: (obj: Debugger) => void
-    debugger_stopped: (obj: Debugger, err: GLib.Error) => void
+    debugger_stopped: any
     frame_changed: (obj: Debugger, frame: number, thread: number) => void
     program_exited: (obj: Debugger) => void
     program_loaded: (obj: Debugger) => void
@@ -3674,15 +3674,15 @@ export abstract class DocumentManagerIface {
     g_iface: GObject.TypeInterface
     document_added: (obj: DocumentManager, doc: Document) => void
     document_removed: (obj: DocumentManager, doc: Document) => void
-    add_bookmark: (obj: DocumentManager, file: Gio.File, line: number) => void
+    add_bookmark: any
     add_buffer: (obj: DocumentManager, name: string, content: string) => Editor
     add_document: (obj: DocumentManager, document: Document) => void
-    find_document_with_file: (obj: DocumentManager, file: Gio.File) => Document
+    find_document_with_file: any
     get_current_document: (obj: DocumentManager) => Document
-    get_doc_widgets: (obj: DocumentManager) => Gtk.Widget[]
-    get_file: (obj: DocumentManager, filename: string) => Gio.File
-    goto_file_line: (obj: DocumentManager, file: Gio.File, lineno: number) => Editor
-    goto_file_line_mark: (obj: DocumentManager, file: Gio.File, lineno: number, mark: boolean) => Editor
+    get_doc_widgets: any
+    get_file: any
+    goto_file_line: any
+    goto_file_line_mark: any
     remove_document: (obj: DocumentManager, document: Document, save_before: boolean) => boolean
     set_current_document: (obj: DocumentManager, document: Document) => void
     static name: string
@@ -3813,7 +3813,7 @@ export abstract class EditorIface {
     insert: (obj: Editor, position: Iterable, text: string, length: number) => void
     set_auto_indent: (obj: Editor, auto_indent: boolean) => void
     set_indentsize: (obj: Editor, indentsize: number) => void
-    set_popup_menu: (obj: Editor, menu: Gtk.Widget) => void
+    set_popup_menu: any
     set_tabsize: (obj: Editor, tabsize: number) => void
     set_use_spaces: (obj: Editor, use_spaces: boolean) => void
     static name: string
@@ -3890,34 +3890,34 @@ export abstract class FileIface {
     /* Fields of IAnjuta-3.0.IAnjuta.FileIface */
     g_iface: GObject.TypeInterface
     opened: (obj: File) => void
-    get_file: (obj: File) => Gio.File
-    open: (obj: File, file: Gio.File) => void
+    get_file: any
+    open: any
     static name: string
 }
 export abstract class FileLoaderIface {
     /* Fields of IAnjuta-3.0.IAnjuta.FileLoaderIface */
     g_iface: LoaderIface
-    peek_interface: (obj: FileLoader, file: Gio.File) => string
+    peek_interface: any
     static name: string
 }
 export abstract class FileManagerIface {
     /* Fields of IAnjuta-3.0.IAnjuta.FileManagerIface */
     g_iface: GObject.TypeInterface
-    section_changed: (obj: FileManager, file: Gio.File) => void
+    section_changed: any
     set_root: (obj: FileManager, root_uri: string) => void
-    set_selected: (obj: FileManager, file: Gio.File) => void
+    set_selected: any
     static name: string
 }
 export abstract class FileSavableIface {
     /* Fields of IAnjuta-3.0.IAnjuta.FileSavableIface */
     g_iface: FileIface
-    saved: (obj: FileSavable, file: Gio.File) => void
+    saved: any
     update_save_ui: (obj: FileSavable) => void
     is_conflict: (obj: FileSavable) => boolean
     is_dirty: (obj: FileSavable) => boolean
     is_read_only: (obj: FileSavable) => boolean
     save: (obj: FileSavable) => void
-    save_as: (obj: FileSavable, file: Gio.File) => void
+    save_as: any
     set_dirty: (obj: FileSavable, dirty: boolean) => void
     static name: string
 }
@@ -4012,7 +4012,7 @@ export abstract class MessageManagerIface {
     g_iface: GObject.TypeInterface
     remove_view: (obj: MessageManager, view: MessageView) => void
     set_current_view: (obj: MessageManager, view: MessageView) => void
-    set_view_icon: (obj: MessageManager, view: MessageView, icon: GdkPixbuf.PixbufAnimation) => void
+    set_view_icon: any
     set_view_icon_from_stock: (obj: MessageManager, view: MessageView, icon: string) => void
     set_view_title: (obj: MessageManager, view: MessageView, title: string) => void
     static name: string
@@ -4038,8 +4038,8 @@ export abstract class PluginFactoryIface {
 export abstract class PreferencesIface {
     /* Fields of IAnjuta-3.0.IAnjuta.PreferencesIface */
     g_iface: GObject.TypeInterface
-    merge: (obj: Preferences, prefs: Anjuta.Preferences) => void
-    unmerge: (obj: Preferences, prefs: Anjuta.Preferences) => void
+    merge: any
+    unmerge: any
     static name: string
 }
 export abstract class PrintIface {
@@ -4052,59 +4052,59 @@ export abstract class PrintIface {
 export abstract class ProjectBackendIface {
     /* Fields of IAnjuta-3.0.IAnjuta.ProjectBackendIface */
     g_iface: GObject.TypeInterface
-    new_project: (obj: ProjectBackend, file: Gio.File) => Project
-    probe: (obj: ProjectBackend, directory: Gio.File) => number
+    new_project: any
+    probe: any
     static name: string
 }
 export abstract class ProjectChooserIface {
     /* Fields of IAnjuta-3.0.IAnjuta.ProjectChooserIface */
     g_iface: GObject.TypeInterface
     changed: (obj: ProjectChooser) => void
-    get_selected: (obj: ProjectChooser) => Gio.File
-    set_project_model: (obj: ProjectChooser, manager: ProjectManager, child_type: Anjuta.ProjectNodeType) => boolean
+    get_selected: any
+    set_project_model: any
     static name: string
 }
 export abstract class ProjectIface {
     /* Fields of IAnjuta-3.0.IAnjuta.ProjectIface */
     g_iface: GObject.TypeInterface
     file_changed: (obj: Project, node?: object | null) => void
-    node_changed: (obj: Project, node: object | null, error: GLib.Error) => void
-    node_loaded: (obj: Project, node: object | null, error: GLib.Error) => void
-    node_saved: (obj: Project, node: object | null, error: GLib.Error) => void
-    add_node_after: (obj: Project, parent: Anjuta.ProjectNode, sibling: Anjuta.ProjectNode | null, type: Anjuta.ProjectNodeType, file?: Gio.File | null, name?: string | null) => Anjuta.ProjectNode
-    add_node_before: (obj: Project, parent: Anjuta.ProjectNode, sibling: Anjuta.ProjectNode | null, type: Anjuta.ProjectNodeType, file?: Gio.File | null, name?: string | null) => Anjuta.ProjectNode
-    get_node_info: (obj: Project) => Anjuta.ProjectNodeInfo[]
-    get_root: (obj: Project) => Anjuta.ProjectNode
+    node_changed: any
+    node_loaded: any
+    node_saved: any
+    add_node_after: any
+    add_node_before: any
+    get_node_info: any
+    get_root: any
     is_loaded: (obj: Project) => boolean
-    load_node: (obj: Project, node: Anjuta.ProjectNode) => boolean
-    remove_node: (obj: Project, node: Anjuta.ProjectNode) => boolean
-    remove_property: (obj: Project, node: Anjuta.ProjectNode, id: string, name?: string | null) => boolean
-    save_node: (obj: Project, node: Anjuta.ProjectNode) => boolean
-    set_property: (obj: Project, node: Anjuta.ProjectNode, id: string, name: string | null, value: string) => Anjuta.ProjectProperty | null
+    load_node: any
+    remove_node: any
+    remove_property: any
+    save_node: any
+    set_property: any
     static name: string
 }
 export abstract class ProjectManagerIface {
     /* Fields of IAnjuta-3.0.IAnjuta.ProjectManagerIface */
     g_iface: GObject.TypeInterface
-    element_added: (obj: ProjectManager, element: Gio.File) => void
-    element_removed: (obj: ProjectManager, element: Gio.File) => void
-    element_selected: (obj: ProjectManager, element: Gio.File) => void
-    project_loaded: (obj: ProjectManager, error: GLib.Error) => void
-    add_group: (obj: ProjectManager, name: string, default_group?: Gio.File | null) => Gio.File
-    add_source: (obj: ProjectManager, name: string, default_target?: Gio.File | null) => Gio.File
-    add_source_quiet: (obj: ProjectManager, name: string, target: Gio.File) => Gio.File
-    add_sources: (obj: ProjectManager, names: string[], default_target?: Gio.File | null) => Gio.File[]
-    add_target: (obj: ProjectManager, name: string, default_group?: Gio.File | null) => Gio.File
+    element_added: any
+    element_removed: any
+    element_selected: any
+    project_loaded: any
+    add_group: any
+    add_source: any
+    add_source_quiet: any
+    add_sources: any
+    add_target: any
     get_capabilities: (obj: ProjectManager) => number
-    get_children: (obj: ProjectManager, parent: Gio.File, children_type: number) => Gio.File[]
+    get_children: any
     get_current_project: (obj: ProjectManager) => Project
-    get_elements: (obj: ProjectManager, element_type: Anjuta.ProjectNodeType) => Gio.File[]
+    get_elements: any
     get_packages: (obj: ProjectManager) => string[]
-    get_selected: (obj: ProjectManager) => Gio.File
-    get_target_type: (obj: ProjectManager, target: Gio.File) => Anjuta.ProjectNodeType
-    get_targets: (obj: ProjectManager, target_type: Anjuta.ProjectNodeType) => Gio.File[]
+    get_selected: any
+    get_target_type: any
+    get_targets: any
     is_open: (obj: ProjectManager) => boolean
-    remove_file: (obj: ProjectManager, file: Gio.File) => boolean
+    remove_file: any
     static name: string
 }
 export abstract class ProviderIface {
@@ -4144,7 +4144,7 @@ export abstract class SymbolIface {
     /* Fields of IAnjuta-3.0.IAnjuta.SymbolIface */
     g_iface: GObject.TypeInterface
     get_boolean: (obj: Symbol, field: SymbolField) => boolean
-    get_icon: (obj: Symbol) => GdkPixbuf.Pixbuf
+    get_icon: any
     get_int: (obj: Symbol, field: SymbolField) => number
     get_string: (obj: Symbol, field: SymbolField) => string
     get_sym_type: (obj: Symbol) => SymbolType
@@ -4163,7 +4163,7 @@ export abstract class SymbolManagerIface {
 export abstract class SymbolQueryIface {
     /* Fields of IAnjuta-3.0.IAnjuta.SymbolQueryIface */
     g_iface: GObject.TypeInterface
-    async_result: (obj: SymbolQuery, result: GObject.Object) => void
+    async_result: any
     cancel: (obj: SymbolQuery) => void
     set_fields: (obj: SymbolQuery, n_fields: number, fields: SymbolField) => void
     set_file_scope: (obj: SymbolQuery, filescope_search: SymbolQueryFileScope) => void
@@ -4185,16 +4185,16 @@ export abstract class TerminalIface {
 export abstract class TodoIface {
     /* Fields of IAnjuta-3.0.IAnjuta.TodoIface */
     g_iface: GObject.TypeInterface
-    load: (obj: Todo, file: Gio.File) => void
+    load: any
     static name: string
 }
 export abstract class VcsIface {
     /* Fields of IAnjuta-3.0.IAnjuta.VcsIface */
     g_iface: GObject.TypeInterface
     status_changed: (obj: Vcs) => void
-    add: (obj: Vcs, files: Gio.File[], notify: Anjuta.AsyncNotify) => void
-    checkout: (obj: Vcs, repository_location: string, dest: Gio.File, cancel: Gio.Cancellable | null, notify: Anjuta.AsyncNotify) => void
-    remove: (obj: Vcs, files: Gio.File[], notify: Anjuta.AsyncNotify) => void
+    add: any
+    checkout: any
+    remove: any
     static name: string
 }
 export abstract class WizardIface {

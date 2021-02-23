@@ -1452,8 +1452,8 @@ export abstract class FontClass {
     get_metrics: (font?: Font | null, language?: Language | null) => FontMetrics
     get_font_map: (font?: Font | null) => FontMap | null
     describe_absolute: (font: Font) => FontDescription
-    get_features: (font: Font, num_features: number) => [ /* features */ HarfBuzz.feature_t[], /* num_features */ number ]
-    create_hb_font: (font: Font) => HarfBuzz.font_t
+    get_features: any
+    create_hb_font: any
     static name: string
 }
 export class FontDescription {
@@ -1631,7 +1631,7 @@ export class GlyphVisAttr {
 export class IncludedModule {
     /* Fields of Pango-1.0.Pango.IncludedModule */
     list: (engines: EngineInfo, n_engines: number) => void
-    init: (module: GObject.TypeModule) => void
+    init: any
     exit: () => void
     static name: string
 }

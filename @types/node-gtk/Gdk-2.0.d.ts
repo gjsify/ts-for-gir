@@ -4224,17 +4224,17 @@ export abstract class DrawableClass {
     drawPoints: (drawable: Drawable, gc: GC, points: Point, npoints: number) => void
     drawSegments: (drawable: Drawable, gc: GC, segs: Segment, nsegs: number) => void
     drawLines: (drawable: Drawable, gc: GC, points: Point, npoints: number) => void
-    drawGlyphs: (drawable: Drawable, gc: GC, font: Pango.Font, x: number, y: number, glyphs: Pango.GlyphString) => void
+    drawGlyphs: any
     drawImage: (drawable: Drawable, gc: GC, image: Image, xsrc: number, ysrc: number, xdest: number, ydest: number, width: number, height: number) => void
     getDepth: (drawable: Drawable) => number
     getSize: (drawable: Drawable) => { width: number | null, height: number | null }
     setColormap: (drawable: Drawable, cmap: Colormap) => void
-    drawPixbuf: (drawable: Drawable, gc: GC, pixbuf: GdkPixbuf.Pixbuf, srcX: number, srcY: number, destX: number, destY: number, width: number, height: number, dither: RgbDither, xDither: number, yDither: number) => void
-    drawGlyphsTransformed: (drawable: Drawable, gc: GC, matrix: Pango.Matrix, font: Pango.Font, x: number, y: number, glyphs: Pango.GlyphString) => void
+    drawPixbuf: any
+    drawGlyphsTransformed: any
     drawTrapezoids: (drawable: Drawable, gc: GC, trapezoids: Trapezoid, nTrapezoids: number) => void
-    refCairoSurface: (drawable: Drawable) => cairo.Surface
-    setCairoClip: (drawable: Drawable, cr: cairo.Context) => void
-    createCairoSurface: (drawable: Drawable, width: number, height: number) => cairo.Surface
+    refCairoSurface: any
+    setCairoClip: any
+    createCairoSurface: any
     drawDrawableWithSrc: (drawable: Drawable, gc: GC, src: Drawable, xsrc: number, ysrc: number, xdest: number, ydest: number, width: number, height: number, originalSrc: Drawable) => void
     static name: string
 }

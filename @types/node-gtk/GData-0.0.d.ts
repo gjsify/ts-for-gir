@@ -13926,7 +13926,7 @@ export abstract class AccessHandlerIface {
     /* Fields of GData-0.0.GData.AccessHandlerIface */
     parent: GObject.TypeInterface
     isOwnerRule: (rule: AccessRule) => boolean
-    getRules: (self: AccessHandler, service: Service, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null) => Feed
+    getRules: any
     static name: string
 }
 export abstract class AccessRuleClass {
@@ -13950,11 +13950,11 @@ export class AuthorizationDomainPrivate {
 export abstract class AuthorizerInterface {
     /* Fields of GData-0.0.GData.AuthorizerInterface */
     parent: GObject.TypeInterface
-    processRequest: (self: Authorizer, domain: AuthorizationDomain | null, message: Soup.Message) => void
+    processRequest: any
     isAuthorizedForDomain: (self: Authorizer | null, domain: AuthorizationDomain) => boolean
-    refreshAuthorization: (self: Authorizer, cancellable?: Gio.Cancellable | null) => boolean
-    refreshAuthorizationAsync: (self: Authorizer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    refreshAuthorizationFinish: (self: Authorizer, asyncResult: Gio.AsyncResult) => boolean
+    refreshAuthorization: any
+    refreshAuthorizationAsync: any
+    refreshAuthorizationFinish: any
     static name: string
 }
 export abstract class BatchOperationClass {
@@ -14425,15 +14425,15 @@ export class OAuth2AuthorizerPrivate {
 export abstract class ParsableClass {
     /* Fields of GData-0.0.GData.ParsableClass */
     parent: GObject.ObjectClass
-    preParseXml: (parsable: Parsable, doc: libxml2.Doc, rootNode: libxml2.Node) => boolean
-    parseXml: (parsable: Parsable, doc: libxml2.Doc, node: libxml2.Node) => boolean
+    preParseXml: any
+    parseXml: any
     postParseXml: (parsable: Parsable) => boolean
-    preGetXml: (parsable: Parsable, xmlString: GLib.String) => void
-    getXml: (parsable: Parsable, xmlString: GLib.String) => void
-    getNamespaces: (parsable: Parsable, namespaces: GLib.HashTable) => void
-    parseJson: (parsable: Parsable, reader: Json.Reader) => boolean
+    preGetXml: any
+    getXml: any
+    getNamespaces: any
+    parseJson: any
     postParseJson: (parsable: Parsable) => boolean
-    getJson: (parsable: Parsable, builder: Json.Builder) => void
+    getJson: any
     getContentType: () => string
     elementName: string
     elementNamespace: string
@@ -14480,7 +14480,7 @@ export class PicasaWebUserPrivate {
 }
 export abstract class QueryClass {
     /* Fields of GData-0.0.GData.QueryClass */
-    getQueryUri: (self: Query, feedUri: string, queryUri: GLib.String, paramsStarted: boolean) => void
+    getQueryUri: any
     static name: string
 }
 export class QueryPrivate {
@@ -14491,7 +14491,7 @@ export abstract class ServiceClass {
     parent: GObject.ObjectClass
     apiVersion: string
     feedType: GObject.Type
-    appendQueryHeaders: (self: Service, domain: AuthorizationDomain, message: Soup.Message) => void
+    appendQueryHeaders: any
     parseErrorResponse: (self: Service, operationType: OperationType, status: number, reasonPhrase: string, responseBody: string, length: number) => void
     static name: string
 }

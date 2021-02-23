@@ -2356,7 +2356,7 @@ export class PluginManagerView {
 export abstract class ConfigurableInterface {
     /* Fields of PeasGtk-1.0.PeasGtk.ConfigurableInterface */
     gIface: GObject.TypeInterface
-    createConfigureWidget: (configurable: Configurable) => Gtk.Widget
+    createConfigureWidget: any
     static name: string
 }
 export abstract class PluginManagerClass {
@@ -2370,7 +2370,7 @@ export class PluginManagerPrivate {
 export abstract class PluginManagerViewClass {
     /* Fields of PeasGtk-1.0.PeasGtk.PluginManagerViewClass */
     parentClass: Gtk.TreeViewClass
-    populatePopup: (view: PluginManagerView, menu: Gtk.Menu) => void
+    populatePopup: any
     static name: string
 }
 export class PluginManagerViewPrivate {

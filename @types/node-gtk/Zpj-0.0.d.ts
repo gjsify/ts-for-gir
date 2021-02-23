@@ -877,9 +877,9 @@ export abstract class AuthorizerInterface {
     /* Fields of Zpj-0.0.Zpj.AuthorizerInterface */
     parentIface: GObject.TypeInterface
     isAuthorizedForDomain: (iface: Authorizer, domain: AuthorizationDomain) => boolean
-    processCall: (iface: Authorizer, domain: AuthorizationDomain | null, call: Rest.ProxyCall) => void
-    processMessage: (iface: Authorizer, domain: AuthorizationDomain | null, message: Soup.Message) => void
-    refreshAuthorization: (iface: Authorizer, cancellable?: Gio.Cancellable | null) => boolean
+    processCall: any
+    processMessage: any
+    refreshAuthorization: any
     static name: string
 }
 export abstract class GoaAuthorizerClass {
@@ -898,7 +898,7 @@ export abstract class SkydriveClass {
 export abstract class SkydriveEntryClass {
     /* Fields of Zpj-0.0.Zpj.SkydriveEntryClass */
     parentClass: GObject.ObjectClass
-    parseJsonNode: (self: SkydriveEntry, node: Json.Node) => void
+    parseJsonNode: any
     static name: string
 }
 export class SkydriveEntryPrivate {

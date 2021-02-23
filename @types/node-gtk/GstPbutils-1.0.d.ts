@@ -1214,8 +1214,8 @@ export class EncodingVideoProfile {
 export abstract class AudioVisualizerClass {
     /* Fields of GstPbutils-1.0.GstPbutils.AudioVisualizerClass */
     setup: (scope: AudioVisualizer) => boolean
-    render: (scope: AudioVisualizer, audio: Gst.Buffer, video: GstVideo.VideoFrame) => boolean
-    decideAllocation: (scope: AudioVisualizer, query: Gst.Query) => boolean
+    render: any
+    decideAllocation: any
     static name: string
 }
 export class AudioVisualizerPrivate {
@@ -1226,8 +1226,8 @@ export abstract class DiscovererClass {
     parentclass: GObject.ObjectClass
     finished: (discoverer: Discoverer) => void
     starting: (discoverer: Discoverer) => void
-    discovered: (discoverer: Discoverer, info: DiscovererInfo, err: GLib.Error) => void
-    sourceSetup: (discoverer: Discoverer, source: Gst.Element) => void
+    discovered: any
+    sourceSetup: any
     reserved: object[]
     static name: string
 }

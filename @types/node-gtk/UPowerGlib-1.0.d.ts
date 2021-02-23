@@ -2168,9 +2168,9 @@ export abstract class ClientClass {
 export abstract class ClientGlueIface {
     /* Fields of UPowerGlib-1.0.UPowerGlib.ClientGlueIface */
     parentIface: GObject.TypeInterface
-    handleEnumerateDevices: (object: ClientGlue, invocation: Gio.DBusMethodInvocation) => boolean
-    handleGetCriticalAction: (object: ClientGlue, invocation: Gio.DBusMethodInvocation) => boolean
-    handleGetDisplayDevice: (object: ClientGlue, invocation: Gio.DBusMethodInvocation) => boolean
+    handleEnumerateDevices: any
+    handleGetCriticalAction: any
+    handleGetDisplayDevice: any
     getDaemonVersion: (object: ClientGlue) => string
     getLidIsClosed: (object: ClientGlue) => boolean
     getLidIsPresent: (object: ClientGlue) => boolean
@@ -2206,9 +2206,9 @@ export abstract class DeviceClass {
 export abstract class DeviceGlueIface {
     /* Fields of UPowerGlib-1.0.UPowerGlib.DeviceGlueIface */
     parentIface: GObject.TypeInterface
-    handleGetHistory: (object: DeviceGlue, invocation: Gio.DBusMethodInvocation, argType: string, argTimespan: number, argResolution: number) => boolean
-    handleGetStatistics: (object: DeviceGlue, invocation: Gio.DBusMethodInvocation, argType: string) => boolean
-    handleRefresh: (object: DeviceGlue, invocation: Gio.DBusMethodInvocation) => boolean
+    handleGetHistory: any
+    handleGetStatistics: any
+    handleRefresh: any
     getCapacity: (object: DeviceGlue) => number
     getEnergy: (object: DeviceGlue) => number
     getEnergyEmpty: (object: DeviceGlue) => number
@@ -2292,8 +2292,8 @@ export abstract class WakeupsClass {
 export abstract class WakeupsGlueIface {
     /* Fields of UPowerGlib-1.0.UPowerGlib.WakeupsGlueIface */
     parentIface: GObject.TypeInterface
-    handleGetData: (object: WakeupsGlue, invocation: Gio.DBusMethodInvocation) => boolean
-    handleGetTotal: (object: WakeupsGlue, invocation: Gio.DBusMethodInvocation) => boolean
+    handleGetData: any
+    handleGetTotal: any
     getHasCapability: (object: WakeupsGlue) => boolean
     dataChanged: (object: WakeupsGlue) => void
     totalChanged: (object: WakeupsGlue, argValue: number) => void

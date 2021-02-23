@@ -1756,10 +1756,10 @@ export abstract class MetadataSourceClass {
     parent_class: MediaPluginClass
     operation_id: number
     supported_operations: (source: MetadataSource) => SupportedOps
-    supported_keys: (source: MetadataSource) => GObject.ParamSpec[]
-    slow_keys: (source: MetadataSource) => GObject.ParamSpec[]
-    key_depends: (source: MetadataSource, key_id: GObject.ParamSpec) => GObject.ParamSpec[]
-    writable_keys: (source: MetadataSource) => GObject.ParamSpec[]
+    supported_keys: any
+    slow_keys: any
+    key_depends: any
+    writable_keys: any
     resolve: (source: MetadataSource, rs: MetadataSourceResolveSpec) => void
     set_metadata: (source: MetadataSource, sms: MetadataSourceSetMetadataSpec) => void
     may_resolve: (source: MetadataSource, media: Media, key_id: KeyID) => [ /* returnType */ boolean, /* missing_keys */ KeyID[] ]

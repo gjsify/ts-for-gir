@@ -15234,8 +15234,8 @@ export class ErrorTileRendererPrivate {
 }
 export abstract class ExportableIface {
     /* Fields of Champlain-0.12.Champlain.ExportableIface */
-    getSurface: (exportable: Exportable) => cairo.Surface
-    setSurface: (exportable: Exportable, surface: cairo.Surface) => void
+    getSurface: any
+    setSurface: any
     static name: string
 }
 export abstract class FileCacheClass {

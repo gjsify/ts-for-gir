@@ -649,15 +649,15 @@ export abstract class ConnectionClass {
     vncCursorChanged: (conn: Connection, cursor: Cursor) => void
     vncPointerModeChanged: (conn: Connection, absPointer: boolean) => void
     vncBell: (conn: Connection) => void
-    vncServerCutText: (conn: Connection, text: GLib.String) => void
+    vncServerCutText: any
     vncFramebufferUpdate: (conn: Connection, x: number, y: number, width: number, height: number) => void
     vncDesktopResize: (conn: Connection, width: number, height: number) => void
     vncPixelFormatChanged: (conn: Connection, format: PixelFormat) => void
     vncAuthFailure: (conn: Connection, reason: string) => void
     vncAuthUnsupported: (conn: Connection, authType: number) => void
-    vncAuthCredential: (conn: Connection, creds: GObject.ValueArray) => void
-    vncAuthChooseType: (conn: Connection, types: GObject.ValueArray) => void
-    vncAuthChooseSubtype: (conn: Connection, type: number, subtypes: GObject.ValueArray) => void
+    vncAuthCredential: any
+    vncAuthChooseType: any
+    vncAuthChooseSubtype: any
     vncConnected: (conn: Connection) => void
     vncInitialized: (conn: Connection) => void
     vncDisconnected: (conn: Connection) => void

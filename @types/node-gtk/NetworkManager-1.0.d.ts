@@ -4712,7 +4712,7 @@ export abstract class SettingClass {
     updateOneSecret: (setting: Setting, key: string, value: any) => number
     getSecretFlags: (setting: Setting, secretName: string, verifySecret: boolean, outFlags: SettingSecretFlags) => boolean
     setSecretFlags: (setting: Setting, secretName: string, verifySecret: boolean, flags: SettingSecretFlags) => boolean
-    compareProperty: (setting: Setting, other: Setting, propSpec: GObject.ParamSpec, flags: SettingCompareFlags) => boolean
+    compareProperty: any
     getVirtualIfaceName: (setting: Setting) => string
     static name: string
 }

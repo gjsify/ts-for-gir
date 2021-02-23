@@ -4980,7 +4980,7 @@ export abstract class WindowClass {
     parent_class: GObject.ObjectClass
     to_embedder: (window: Window, offscreen_x: number, offscreen_y: number, embedder_x: number, embedder_y: number) => void
     from_embedder: (window: Window, embedder_x: number, embedder_y: number, offscreen_x: number, offscreen_y: number) => void
-    create_surface: (window: Window, width: number, height: number) => cairo.Surface
+    create_surface: any
     static name: string
 }
 export class WindowRedirect {

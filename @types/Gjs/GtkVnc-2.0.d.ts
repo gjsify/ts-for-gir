@@ -1041,7 +1041,7 @@ export abstract class DisplayClass {
     vnc_connected: (display: Display) => void
     vnc_initialized: (display: Display) => void
     vnc_disconnected: (display: Display) => void
-    vnc_auth_credential: (display: Display, credList: GObject.ValueArray) => void
+    vnc_auth_credential: any
     static name: string
 }
 export class DisplayPrivate {

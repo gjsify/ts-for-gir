@@ -2899,7 +2899,7 @@ export abstract class GLBaseFilterClass {
     supportedGlApi: GLAPI
     glStart: (filter: GLBaseFilter) => boolean
     glStop: (filter: GLBaseFilter) => void
-    glSetCaps: (filter: GLBaseFilter, incaps: Gst.Caps, outcaps: Gst.Caps) => boolean
+    glSetCaps: any
     static name: string
 }
 export class GLBaseFilterPrivate {
@@ -3020,11 +3020,11 @@ export class GLDisplayPrivate {
 export abstract class GLFilterClass {
     /* Fields of GstGL-1.0.GstGL.GLFilterClass */
     parentClass: GLBaseFilterClass
-    setCaps: (filter: GLFilter, incaps: Gst.Caps, outcaps: Gst.Caps) => boolean
-    filter: (filter: GLFilter, inbuf: Gst.Buffer, outbuf: Gst.Buffer) => boolean
+    setCaps: any
+    filter: any
     filterTexture: (filter: GLFilter, input: GLMemory, output: GLMemory) => boolean
     initFbo: (filter: GLFilter) => boolean
-    transformInternalCaps: (filter: GLFilter, direction: Gst.PadDirection, caps: Gst.Caps, filterCaps: Gst.Caps) => Gst.Caps
+    transformInternalCaps: any
     static name: string
 }
 export abstract class GLFramebufferClass {
@@ -3159,7 +3159,7 @@ export class GLSyncMeta {
     waitGl: (sync: GLSyncMeta, context: GLContext) => void
     waitCpu: (sync: GLSyncMeta, context: GLContext) => void
     waitCpuGl: (sync: GLSyncMeta, context: GLContext) => void
-    copy: (src: GLSyncMeta, sbuffer: Gst.Buffer, dest: GLSyncMeta, dbuffer: Gst.Buffer) => void
+    copy: any
     free: (sync: GLSyncMeta, context: GLContext) => void
     freeGl: (sync: GLSyncMeta, context: GLContext) => void
     /* Methods of GstGL-1.0.GstGL.GLSyncMeta */

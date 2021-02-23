@@ -1933,7 +1933,7 @@ export class PluginManagerView {
 export abstract class ConfigurableInterface {
     /* Fields of PeasGtk-1.0.PeasGtk.ConfigurableInterface */
     g_iface: GObject.TypeInterface
-    create_configure_widget: (configurable: Configurable) => Gtk.Widget
+    create_configure_widget: any
     static name: string
 }
 export abstract class PluginManagerClass {
@@ -1947,7 +1947,7 @@ export class PluginManagerPrivate {
 export abstract class PluginManagerViewClass {
     /* Fields of PeasGtk-1.0.PeasGtk.PluginManagerViewClass */
     parent_class: Gtk.TreeViewClass
-    populate_popup: (view: PluginManagerView, menu: Gtk.Menu) => void
+    populate_popup: any
     static name: string
 }
 export class PluginManagerViewPrivate {

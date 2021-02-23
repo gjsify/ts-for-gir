@@ -4383,9 +4383,9 @@ export class MusicPlayer {
     connect(sigName: "next", callback: (($obj: MusicPlayer) => void)): number
     connect_after(sigName: "next", callback: (($obj: MusicPlayer) => void)): number
     emit(sigName: "next"): void
-    connect(sigName: "activate-playlist", callback: (($obj: MusicPlayer, playlist_id: any) => void)): number
-    connect_after(sigName: "activate-playlist", callback: (($obj: MusicPlayer, playlist_id: any) => void)): number
-    emit(sigName: "activate-playlist", playlist_id: any): void
+    connect(sigName: "activate-playlist", callback: (($obj: MusicPlayer, playlist_id: string) => void)): number
+    connect_after(sigName: "activate-playlist", callback: (($obj: MusicPlayer, playlist_id: string) => void)): number
+    emit(sigName: "activate-playlist", playlist_id: string): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MusicPlayer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MusicPlayer, pspec: GObject.ParamSpec) => void)): number
@@ -4455,7 +4455,7 @@ export class LauncherFavoritesPrivate {
 }
 export abstract class MetadataProviderClass {
     /* Fields of Unity-7.0.Unity.MetadataProviderClass */
-    update_hints: (self: MetadataProvider, hints: GLib.HashTable) => void
+    update_hints: any
     static name: string
 }
 export class MetadataProviderPrivate {
@@ -4475,8 +4475,8 @@ export class CategoryPrivate {
 }
 export abstract class FilterClass {
     /* Fields of Unity-7.0.Unity.FilterClass */
-    get_hints: (self: Filter) => GLib.HashTable
-    update: (self: Filter, properties: GLib.Variant) => void
+    get_hints: any
+    update: any
     static name: string
 }
 export class FilterPrivate {
@@ -4544,7 +4544,7 @@ export class AggregatedScopeSearchPrivate {
 }
 export abstract class PreviewClass {
     /* Fields of Unity-7.0.Unity.PreviewClass */
-    create_raw: (self: Preview) => GObject.Object
+    create_raw: any
     static name: string
 }
 export class PreviewPrivate {
@@ -4655,7 +4655,7 @@ export abstract class CancellableClass {
     /* Fields of Unity-7.0.Unity.CancellableClass */
     cancel: (self: Cancellable) => void
     is_cancelled: (self: Cancellable) => boolean
-    get_gcancellable: (self: Cancellable) => Gio.Cancellable | null
+    get_gcancellable: any
     static name: string
 }
 export class CancellablePrivate {
@@ -4674,7 +4674,7 @@ export class ScopeSearchBasePrivate {
 export abstract class ResultSetClass {
     /* Fields of Unity-7.0.Unity.ResultSetClass */
     add_result: (self: ResultSet, result: ScopeResult) => void
-    add_result_from_variant: (self: ResultSet, variant: GLib.Variant) => void
+    add_result_from_variant: any
     flush: (self: ResultSet) => void
     static name: string
 }
@@ -4735,7 +4735,7 @@ export class ScopeDBusConnectorPrivate {
 }
 export abstract class DeprecatedScopeBaseClass {
     /* Fields of Unity-7.0.Unity.DeprecatedScopeBaseClass */
-    create_impl: (self: DeprecatedScopeBase) => GObject.Object
+    create_impl: any
     static name: string
 }
 export class DeprecatedScopeBasePrivate {
@@ -4743,10 +4743,10 @@ export class DeprecatedScopeBasePrivate {
 }
 export abstract class DeprecatedScopeClass {
     /* Fields of Unity-7.0.Unity.DeprecatedScopeClass */
-    preview_result: (self: DeprecatedScope, result: ScopeResult, _callback_?: Gio.AsyncReadyCallback | null) => void
-    preview_result_finish: (self: DeprecatedScope, _res_: Gio.AsyncResult) => Preview | null
-    activate_result: (self: DeprecatedScope, result: ScopeResult, _callback_?: Gio.AsyncReadyCallback | null) => void
-    activate_result_finish: (self: DeprecatedScope, _res_: Gio.AsyncResult) => ActivationResponse | null
+    preview_result: any
+    preview_result_finish: any
+    activate_result: any
+    activate_result_finish: any
     static name: string
 }
 export class DeprecatedScopePrivate {
@@ -4755,10 +4755,10 @@ export class DeprecatedScopePrivate {
 export abstract class AggregatorScopeClass {
     /* Fields of Unity-7.0.Unity.AggregatorScopeClass */
     category_index_for_scope_id: (self: AggregatorScope, scope_id: string) => number
-    search: (self: AggregatorScope, scope_search: AggregatedScopeSearch, _callback_?: Gio.AsyncReadyCallback | null) => void
-    search_finish: (self: AggregatorScope, _res_: Gio.AsyncResult) => void
-    activate: (self: AggregatorScope, activation: AggregatorActivation, _callback_?: Gio.AsyncReadyCallback | null) => void
-    activate_finish: (self: AggregatorScope, _res_: Gio.AsyncResult) => ActivationResponse | null
+    search: any
+    search_finish: any
+    activate: any
+    activate_finish: any
     static name: string
 }
 export class AggregatorScopePrivate {

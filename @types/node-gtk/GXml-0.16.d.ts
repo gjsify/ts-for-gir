@@ -23196,8 +23196,8 @@ export class GCommentPrivate {
 export abstract class GDocumentClass {
     /* Fields of GXml-0.16.GXml.GDocumentClass */
     parentClass: GNodeClass
-    save: (self: GDocument, cancellable?: Gio.Cancellable | null) => boolean
-    saveAs: (self: GDocument, f: Gio.File, cancellable?: Gio.Cancellable | null) => boolean
+    save: any
+    saveAs: any
     static name: string
 }
 export class GDocumentPrivate {
@@ -23457,10 +23457,10 @@ export abstract class SerializableArrayListClass {
     serializeUseXmlNodeValue: (self: SerializableArrayList) => boolean
     propertyUseNick: (self: SerializableArrayList) => boolean
     nodeName: (self: SerializableArrayList) => string
-    findPropertySpec: (self: SerializableArrayList, propertyName: string) => GObject.ParamSpec | null
-    listSerializableProperties: (self: SerializableArrayList) => GObject.ParamSpec[]
+    findPropertySpec: any
+    listSerializableProperties: any
     serialize: (self: SerializableArrayList, node: Node) => Node | null
-    serializeProperty: (self: SerializableArrayList, element: Node, prop: GObject.ParamSpec) => Node | null
+    serializeProperty: any
     deserialize: (self: SerializableArrayList, node: Node) => boolean
     deserializeProperty: (self: SerializableArrayList, propertyNode: Node) => boolean
     static name: string
@@ -23480,10 +23480,10 @@ export abstract class SerializableDualKeyMapClass {
     serializeUseXmlNodeValue: (self: SerializableDualKeyMap) => boolean
     propertyUseNick: (self: SerializableDualKeyMap) => boolean
     nodeName: (self: SerializableDualKeyMap) => string
-    findPropertySpec: (self: SerializableDualKeyMap, propertyName: string) => GObject.ParamSpec | null
-    listSerializableProperties: (self: SerializableDualKeyMap) => GObject.ParamSpec[]
+    findPropertySpec: any
+    listSerializableProperties: any
     serialize: (self: SerializableDualKeyMap, node: Node) => Node | null
-    serializeProperty: (self: SerializableDualKeyMap, element: Node, prop: GObject.ParamSpec) => Node | null
+    serializeProperty: any
     deserialize: (self: SerializableDualKeyMap, node: Node) => boolean
     deserializeProperty: (self: SerializableDualKeyMap, propertyNode: Node) => boolean
     static name: string
@@ -23503,10 +23503,10 @@ export abstract class SerializableHashMapClass {
     serializeUseXmlNodeValue: (self: SerializableHashMap) => boolean
     propertyUseNick: (self: SerializableHashMap) => boolean
     nodeName: (self: SerializableHashMap) => string
-    findPropertySpec: (self: SerializableHashMap, propertyName: string) => GObject.ParamSpec | null
-    listSerializableProperties: (self: SerializableHashMap) => GObject.ParamSpec[]
+    findPropertySpec: any
+    listSerializableProperties: any
     serialize: (self: SerializableHashMap, node: Node) => Node | null
-    serializeProperty: (self: SerializableHashMap, element: Node, prop: GObject.ParamSpec) => Node | null
+    serializeProperty: any
     deserialize: (self: SerializableHashMap, node: Node) => boolean
     deserializeProperty: (self: SerializableHashMap, propertyNode: Node) => boolean
     static name: string
@@ -23525,10 +23525,10 @@ export abstract class SerializableTreeMapClass {
     serializeUseXmlNodeValue: (self: SerializableTreeMap) => boolean
     propertyUseNick: (self: SerializableTreeMap) => boolean
     nodeName: (self: SerializableTreeMap) => string
-    findPropertySpec: (self: SerializableTreeMap, propertyName: string) => GObject.ParamSpec | null
-    listSerializableProperties: (self: SerializableTreeMap) => GObject.ParamSpec[]
+    findPropertySpec: any
+    listSerializableProperties: any
     serialize: (self: SerializableTreeMap, node: Node) => Node | null
-    serializeProperty: (self: SerializableTreeMap, element: Node, prop: GObject.ParamSpec) => Node | null
+    serializeProperty: any
     deserialize: (self: SerializableTreeMap, node: Node) => boolean
     deserializeProperty: (self: SerializableTreeMap, propertyNode: Node) => boolean
     static name: string
@@ -23552,10 +23552,10 @@ export abstract class SerializableObjectModelClass {
     propertyUseNick: (self: SerializableObjectModel) => boolean
     setDefaultNamespace: (self: SerializableObjectModel, node: Node) => boolean
     nodeName: (self: SerializableObjectModel) => string
-    findPropertySpec: (self: SerializableObjectModel, propertyName: string) => GObject.ParamSpec | null
-    listSerializableProperties: (self: SerializableObjectModel) => GObject.ParamSpec[]
+    findPropertySpec: any
+    listSerializableProperties: any
     serialize: (self: SerializableObjectModel, node: Node) => Node | null
-    serializeProperty: (self: SerializableObjectModel, element: Node, prop: GObject.ParamSpec) => Node | null
+    serializeProperty: any
     deserialize: (self: SerializableObjectModel, node: Node) => boolean
     deserializeProperty: (self: SerializableObjectModel, propertyNode: Node) => boolean
     toString: (self: SerializableObjectModel) => string
@@ -23567,7 +23567,7 @@ export class SerializableObjectModelPrivate {
 export abstract class SerializableValueListClass {
     /* Fields of GXml-0.16.GXml.SerializableValueListClass */
     parentClass: GObject.ObjectClass
-    getValues: (self: SerializableValueList) => Gee.List
+    getValues: any
     addValues: (self: SerializableValueList, vals: string[]) => void
     getValueAt: (self: SerializableValueList, index: number) => string | null
     selectValueAt: (self: SerializableValueList, index: number) => void
@@ -23705,8 +23705,8 @@ export abstract class DocumentIface {
     createComment: (self: Document, text: string) => Node
     createCdata: (self: Document, text: string) => Node
     createPi: (self: Document, target: string, data: string) => Node
-    save: (self: Document, cancellable?: Gio.Cancellable | null) => boolean
-    saveAs: (self: Document, f: Gio.File, cancellable?: Gio.Cancellable | null) => boolean
+    save: any
+    saveAs: any
     getIndent: (self: Document) => boolean
     setIndent: (self: Document, value: boolean) => void
     getNsTop: (self: Document) => boolean
@@ -23716,8 +23716,8 @@ export abstract class DocumentIface {
     getBackup: (self: Document) => boolean
     setBackup: (self: Document, value: boolean) => void
     getRoot: (self: Document) => Node
-    getFile: (self: Document) => Gio.File
-    setFile: (self: Document, value: Gio.File) => void
+    getFile: any
+    setFile: any
     static name: string
 }
 export abstract class DocumentTypeIface {
@@ -24011,7 +24011,7 @@ export abstract class DomMutationObserverIface {
     parentIface: GObject.TypeInterface
     observe: (self: DomMutationObserver, target: Node, options: DomMutationObserverInit) => void
     disconnect: (self: DomMutationObserver) => void
-    takeRecords: (self: DomMutationObserver) => Gee.List
+    takeRecords: any
     static name: string
 }
 export abstract class DomMutationRecordIface {
@@ -24117,16 +24117,16 @@ export abstract class GomCollectionIface {
     search: (self: GomCollection) => void
     getItem: (self: GomCollection, index: number) => DomElement | null
     append: (self: GomCollection, node: DomElement) => void
-    initialize: (self: GomCollection, t: GObject.Type) => void
+    initialize: any
     createItem: (self: GomCollection) => GomElement | null
     validateAppend: (self: GomCollection, index: number, element: DomElement) => boolean
     clear: (self: GomCollection) => void
-    getNodesIndex: (self: GomCollection) => GLib.Queue
+    getNodesIndex: any
     getElement: (self: GomCollection) => GomElement
     setElement: (self: GomCollection, value: GomElement) => void
     getItemsName: (self: GomCollection) => string
-    getItemsType: (self: GomCollection) => GObject.Type
-    setItemsType: (self: GomCollection, value: GObject.Type) => void
+    getItemsType: any
+    setItemsType: any
     getLength: (self: GomCollection) => number
     static name: string
 }
@@ -24154,11 +24154,11 @@ export abstract class MappeableElementThreeKeyIface {
 export abstract class GomObjectIface {
     /* Fields of GXml-0.16.GXml.GomObjectIface */
     parentIface: GObject.TypeInterface
-    getPropertiesList: (self: GomObject) => GObject.ParamSpec[]
-    findPropertyName: (self: GomObject, pname: string) => GObject.ParamSpec | null
-    findObjectPropertyName: (self: GomObject, pname: string) => GObject.ParamSpec | null
-    getPropertyElementList: (self: GomObject) => GObject.ParamSpec[]
-    getPropertyString: (self: GomObject, prop: GObject.ParamSpec) => string | null
+    getPropertiesList: any
+    findPropertyName: any
+    findObjectPropertyName: any
+    getPropertyElementList: any
+    getPropertyString: any
     getAttribute: (self: GomObject, name: string) => string | null
     setAttribute: (self: GomObject, name: string, val: string) => boolean
     getChild: (self: GomObject, name: string) => DomElement | null
@@ -24194,9 +24194,9 @@ export abstract class NodeIface {
     setNamespace: (self: Node, uri: string, prefix?: string | null) => boolean
     nsPrefix: (self: Node) => string
     nsUri: (self: Node) => string
-    getNamespaces: (self: Node) => Gee.List
-    getChildrenNodes: (self: Node) => Gee.BidirList
-    getAttrs: (self: Node) => Gee.Map
+    getNamespaces: any
+    getChildrenNodes: any
+    getAttrs: any
     getName: (self: Node) => string
     getValue: (self: Node) => string
     setValue: (self: Node, value: string) => void
@@ -24220,36 +24220,36 @@ export abstract class EntityIface {
 export abstract class ParserIface {
     /* Fields of GXml-0.16.GXml.ParserIface */
     parentIface: GObject.TypeInterface
-    writeFile: (self: Parser, file: Gio.File, cancellable?: Gio.Cancellable | null) => void
-    writeFileAsync: (self: Parser, file: Gio.File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    writeFileFinish: (self: Parser, res: Gio.AsyncResult) => void
+    writeFile: any
+    writeFileAsync: any
+    writeFileFinish: any
     writeString: (self: Parser) => string
-    writeStringAsync: (self: Parser, callback?: Gio.AsyncReadyCallback | null) => void
-    writeStringFinish: (self: Parser, res: Gio.AsyncResult) => string
-    writeStream: (self: Parser, stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null) => void
-    writeStreamAsync: (self: Parser, stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    writeStreamFinish: (self: Parser, res: Gio.AsyncResult) => void
-    readFile: (self: Parser, file: Gio.File, cancellable?: Gio.Cancellable | null) => void
-    readFileAsync: (self: Parser, file: Gio.File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    readFileFinish: (self: Parser, res: Gio.AsyncResult) => void
-    readStream: (self: Parser, stream: Gio.InputStream, cancellable?: Gio.Cancellable | null) => void
-    readStreamAsync: (self: Parser, stream: Gio.InputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    readStreamFinish: (self: Parser, res: Gio.AsyncResult) => void
-    readString: (self: Parser, str: string, cancellable?: Gio.Cancellable | null) => void
-    readStringAsync: (self: Parser, str: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    readStringFinish: (self: Parser, res: Gio.AsyncResult) => void
-    createStream: (self: Parser, cancellable?: Gio.Cancellable | null) => Gio.InputStream
-    createStreamAsync: (self: Parser, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    createStreamFinish: (self: Parser, res: Gio.AsyncResult) => Gio.InputStream
+    writeStringAsync: any
+    writeStringFinish: any
+    writeStream: any
+    writeStreamAsync: any
+    writeStreamFinish: any
+    readFile: any
+    readFileAsync: any
+    readFileFinish: any
+    readStream: any
+    readStreamAsync: any
+    readStreamFinish: any
+    readString: any
+    readStringAsync: any
+    readStringFinish: any
+    createStream: any
+    createStreamAsync: any
+    createStreamFinish: any
     readChildNodes: (self: Parser, parent: DomNode) => void
-    readChildNodesAsync: (self: Parser, parent: DomNode, callback?: Gio.AsyncReadyCallback | null) => void
-    readChildNodesFinish: (self: Parser, res: Gio.AsyncResult) => void
+    readChildNodesAsync: any
+    readChildNodesFinish: any
     readChildNode: (self: Parser, parent: DomNode) => boolean
     readChildElement: (self: Parser, parent: DomNode) => boolean
     readElementProperty: (self: Parser, parent: DomNode) => { returnType: boolean, element: DomNode }
     addElementCollection: (self: Parser, parent: DomNode) => { returnType: boolean, element: DomNode }
-    readChildNodesStream: (self: Parser, istream: Gio.InputStream, cancellable?: Gio.Cancellable | null) => void
-    readChildNodesString: (self: Parser, str: string, cancellable?: Gio.Cancellable | null) => void
+    readChildNodesStream: any
+    readChildNodesString: any
     readUnparsed: (self: Parser) => string
     moveNextNode: (self: Parser) => boolean
     currentIsEmptyElement: (self: Parser) => boolean
@@ -24549,10 +24549,10 @@ export abstract class IXsdListIface {
     indexOf: (self: IXsdList, element: DomElement) => number
     getElement: (self: IXsdList) => DomElement
     setElement: (self: IXsdList, value: DomElement) => void
-    getItemsType: (self: IXsdList) => GObject.Type
-    setItemsType: (self: IXsdList, value: GObject.Type) => void
-    getItemsName: (self: IXsdList) => GObject.Type
-    setItemsName: (self: IXsdList, value: GObject.Type) => void
+    getItemsType: any
+    setItemsType: any
+    getItemsName: any
+    setItemsName: any
     getLength: (self: IXsdList) => number
     static name: string
 }
@@ -24600,15 +24600,15 @@ export abstract class SerializableIface {
     nodeName: (self: Serializable) => string
     propertyUseNick: (self: Serializable) => boolean
     serialize: (self: Serializable, node: Node) => Node | null
-    serializeProperty: (self: Serializable, element: Node, prop: GObject.ParamSpec) => Node | null
+    serializeProperty: any
     deserialize: (self: Serializable, node: Node) => boolean
     deserializeProperty: (self: Serializable, propertyNode: Node) => boolean
-    findPropertySpec: (self: Serializable, propertyName: string) => GObject.ParamSpec | null
-    defaultFindPropertySpec: (self: Serializable, propertyName: string) => GObject.ParamSpec | null
-    listSerializableProperties: (self: Serializable) => GObject.ParamSpec[]
-    defaultListSerializableProperties: (self: Serializable) => GObject.ParamSpec[]
-    getUnknownSerializableProperties: (self: Serializable) => Gee.Map
-    getUnknownSerializableNodes: (self: Serializable) => Gee.Collection
+    findPropertySpec: any
+    defaultFindPropertySpec: any
+    listSerializableProperties: any
+    defaultListSerializableProperties: any
+    getUnknownSerializableProperties: any
+    getUnknownSerializableNodes: any
     getSerializedXmlNodeValue: (self: Serializable) => string | null
     setSerializedXmlNodeValue: (self: Serializable, value?: string | null) => void
     static name: string
@@ -24641,8 +24641,8 @@ export abstract class SerializablePropertyIface {
     parentIface: GObject.TypeInterface
     getSerializablePropertyValue: (self: SerializableProperty) => string
     setSerializablePropertyValue: (self: SerializableProperty, val?: string | null) => void
-    deserializeProperty: (self: SerializableProperty, propertyNode: Node, prop: GObject.ParamSpec, nick: boolean) => boolean
-    serializeProperty: (self: SerializableProperty, propertyNode: Node, prop: GObject.ParamSpec, nick: boolean) => Node | null
+    deserializeProperty: any
+    serializeProperty: any
     static name: string
 }
 export abstract class TextIface {
@@ -24655,7 +24655,7 @@ export abstract class TextIface {
 export abstract class XPathContextIface {
     /* Fields of GXml-0.16.GXml.XPathContextIface */
     parentIface: GObject.TypeInterface
-    evaluate: (self: XPathContext, expression: string, resolver?: Gee.List | null) => XPathObject
+    evaluate: any
     static name: string
 }
 export abstract class XPathObjectIface {

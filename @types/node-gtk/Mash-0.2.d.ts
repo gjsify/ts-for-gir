@@ -5262,8 +5262,8 @@ export class DirectionalLightPrivate {
 }
 export abstract class LightClass {
     /* Fields of Mash-0.2.Mash.LightClass */
-    generateShader: (light: Light, uniformSource: GLib.String, mainSource: GLib.String) => void
-    updateUniforms: (light: Light, program: Cogl.Handle) => void
+    generateShader: any
+    updateUniforms: any
     static name: string
 }
 export class LightPrivate {

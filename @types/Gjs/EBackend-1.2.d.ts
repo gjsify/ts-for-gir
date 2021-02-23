@@ -1728,13 +1728,13 @@ export abstract class BackendClass {
     /* Fields of EBackend-1.2.EBackend.BackendClass */
     get_destination_address: (backend: Backend) => [ /* returnType */ boolean, /* host */ string, /* port */ number ]
     prepare_shutdown: (backend: Backend) => void
-    authenticate_sync: (backend: Backend, credentials: EDataServer.NamedParameters, out_certificate_pem: string, out_certificate_errors: Gio.TlsCertificateFlags, cancellable?: Gio.Cancellable | null) => EDataServer.SourceAuthenticationResult
+    authenticate_sync: any
     static name: string
 }
 export abstract class BackendFactoryClass {
     /* Fields of EBackend-1.2.EBackend.BackendFactoryClass */
     get_hash_key: (factory: BackendFactory) => string
-    new_backend: (factory: BackendFactory, source: EDataServer.Source) => Backend
+    new_backend: any
     e_module: object
     share_subprocess: boolean
     static name: string
@@ -1747,12 +1747,12 @@ export class BackendPrivate {
 }
 export abstract class CacheClass {
     /* Fields of EBackend-1.2.EBackend.CacheClass */
-    put_locked: (cache: Cache, uid: string, revision: string, object: string, other_columns: CacheColumnValues, offline_state: OfflineState, is_replace: boolean, cancellable?: Gio.Cancellable | null) => boolean
-    remove_locked: (cache: Cache, uid: string, cancellable?: Gio.Cancellable | null) => boolean
-    clear_offline_changes_locked: (cache: Cache, cancellable?: Gio.Cancellable | null) => boolean
+    put_locked: any
+    remove_locked: any
+    clear_offline_changes_locked: any
     erase: (cache: Cache) => void
-    before_put: (cache: Cache, uid: string, revision: string, object: string, other_columns: CacheColumnValues, is_replace: boolean, cancellable?: Gio.Cancellable | null) => boolean
-    before_remove: (cache: Cache, uid: string, cancellable?: Gio.Cancellable | null) => boolean
+    before_put: any
+    before_remove: any
     revision_changed: (cache: Cache) => void
     static name: string
 }
@@ -1813,20 +1813,20 @@ export abstract class CacheReaperClass {
 export abstract class CollectionBackendClass {
     /* Fields of EBackend-1.2.EBackend.CollectionBackendClass */
     populate: (backend: CollectionBackend) => void
-    dup_resource_id: (backend: CollectionBackend, child_source: EDataServer.Source) => string
-    child_added: (backend: CollectionBackend, child_source: EDataServer.Source) => void
-    child_removed: (backend: CollectionBackend, child_source: EDataServer.Source) => void
-    create_resource_sync: (backend: CollectionBackend, source: EDataServer.Source, cancellable?: Gio.Cancellable | null) => boolean
-    create_resource: (backend: CollectionBackend, source: EDataServer.Source, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    create_resource_finish: (backend: CollectionBackend, result: Gio.AsyncResult) => boolean
-    delete_resource_sync: (backend: CollectionBackend, source: EDataServer.Source, cancellable?: Gio.Cancellable | null) => boolean
-    delete_resource: (backend: CollectionBackend, source: EDataServer.Source, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    delete_resource_finish: (backend: CollectionBackend, result: Gio.AsyncResult) => boolean
+    dup_resource_id: any
+    child_added: any
+    child_removed: any
+    create_resource_sync: any
+    create_resource: any
+    create_resource_finish: any
+    delete_resource_sync: any
+    delete_resource: any
+    delete_resource_finish: any
     static name: string
 }
 export abstract class CollectionBackendFactoryClass {
     /* Fields of EBackend-1.2.EBackend.CollectionBackendFactoryClass */
-    prepare_mail: (factory: CollectionBackendFactory, mail_account_source: EDataServer.Source, mail_identity_source: EDataServer.Source, mail_transport_source: EDataServer.Source) => void
+    prepare_mail: any
     static name: string
 }
 export class CollectionBackendFactoryPrivate {
@@ -1840,9 +1840,9 @@ export abstract class DBusServerClass {
     parent_class: GObject.ObjectClass
     bus_name: string
     module_directory: string
-    bus_acquired: (server: DBusServer, connection: Gio.DBusConnection) => void
-    bus_name_acquired: (server: DBusServer, connection: Gio.DBusConnection) => void
-    bus_name_lost: (server: DBusServer, connection: Gio.DBusConnection) => void
+    bus_acquired: any
+    bus_name_acquired: any
+    bus_name_lost: any
     run_server: (server: DBusServer) => DBusServerExitCode
     quit_server: (server: DBusServer, code: DBusServerExitCode) => void
     reserved: object[]
@@ -1860,9 +1860,9 @@ export abstract class DataFactoryClass {
     subprocess_object_path_prefix: string
     subprocess_bus_name_prefix: string
     get_factory_name: (backend_factory: BackendFactory) => string
-    complete_open: (data_factory: DataFactory, invocation: Gio.DBusMethodInvocation, object_path: string, bus_name: string, extension_name: string) => void
-    create_backend: (data_factory: DataFactory, backend_factory: BackendFactory, source: EDataServer.Source) => Backend
-    open_backend: (data_factory: DataFactory, backend: Backend, connection: Gio.DBusConnection, cancellable?: Gio.Cancellable | null) => string
+    complete_open: any
+    create_backend: any
+    open_backend: any
     reserved: object[]
     static name: string
 }
@@ -1879,9 +1879,9 @@ export class FileCachePrivate {
 }
 export abstract class OAuth2SupportInterface {
     /* Fields of EBackend-1.2.EBackend.OAuth2SupportInterface */
-    get_access_token_sync: (support: OAuth2Support, source: EDataServer.Source, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* out_access_token */ string | null, /* out_expires_in */ number | null ]
-    get_access_token: (support: OAuth2Support, source: EDataServer.Source, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    get_access_token_finish: (support: OAuth2Support, result: Gio.AsyncResult) => [ /* returnType */ boolean, /* out_access_token */ string | null, /* out_expires_in */ number | null ]
+    get_access_token_sync: any
+    get_access_token: any
+    get_access_token_finish: any
     static name: string
 }
 export abstract class ServerSideSourceClass {
@@ -1903,11 +1903,11 @@ export class ServerSideSourcePrivate {
 export abstract class SourceRegistryServerClass {
     /* Fields of EBackend-1.2.EBackend.SourceRegistryServerClass */
     parent_class: DataFactoryClass
-    load_error: (server: SourceRegistryServer, file: Gio.File, error: GLib.Error) => void
+    load_error: any
     files_loaded: (server: SourceRegistryServer) => void
-    source_added: (server: SourceRegistryServer, source: EDataServer.Source) => void
-    source_removed: (server: SourceRegistryServer, source: EDataServer.Source) => void
-    tweak_key_file: (server: SourceRegistryServer, key_file: GLib.KeyFile, uid: string) => boolean
+    source_added: any
+    source_removed: any
+    tweak_key_file: any
     reserved: object[]
     static name: string
 }
@@ -1917,7 +1917,7 @@ export class SourceRegistryServerPrivate {
 export abstract class SubprocessFactoryClass {
     /* Fields of EBackend-1.2.EBackend.SubprocessFactoryClass */
     parent_class: GObject.ObjectClass
-    open_data: (subprocess_factory: SubprocessFactory, backend: Backend, connection: Gio.DBusConnection, data?: object | null, cancellable?: Gio.Cancellable | null) => string
+    open_data: any
     backend_created: (subprocess_factory: SubprocessFactory, backend: Backend) => void
     backend_closed: (subprocess_factory: SubprocessFactory, backend: Backend) => void
     static name: string
@@ -1941,8 +1941,8 @@ export abstract class UserPrompterServerClass {
 export abstract class UserPrompterServerExtensionClass {
     /* Fields of EBackend-1.2.EBackend.UserPrompterServerExtensionClass */
     parent_class: EDataServer.ExtensionClass
-    register_dialogs: (extension: EDataServer.Extension, server: object) => void
-    prompt: (extension: UserPrompterServerExtension, prompt_id: number, dialog_name: string, parameters?: EDataServer.NamedParameters | null) => boolean
+    register_dialogs: any
+    prompt: any
     static name: string
 }
 export class UserPrompterServerExtensionPrivate {
@@ -1954,8 +1954,8 @@ export class UserPrompterServerPrivate {
 export abstract class WebDAVCollectionBackendClass {
     /* Fields of EBackend-1.2.EBackend.WebDAVCollectionBackendClass */
     parent_class: CollectionBackendClass
-    get_resource_id: (webdav_backend: WebDAVCollectionBackend, source: EDataServer.Source) => string | null
-    is_custom_source: (webdav_backend: WebDAVCollectionBackend, source: EDataServer.Source) => boolean
+    get_resource_id: any
+    is_custom_source: any
     static name: string
 }
 export class WebDAVCollectionBackendPrivate {

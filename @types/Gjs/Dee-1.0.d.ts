@@ -2204,22 +2204,22 @@ export abstract class ModelIface {
     get_column_index: (self: Model, column_name: string) => number
     set_column_names_full: (self: Model, column_names: string[]) => void
     get_column_names: (self: Model) => string[]
-    register_vardict_schema: (self: Model, num_column: number, schemas: GLib.HashTable) => void
-    get_vardict_schema: (self: Model, num_column: number) => GLib.HashTable
+    register_vardict_schema: any
+    get_vardict_schema: any
     get_n_columns: (self: Model) => number
     get_n_rows: (self: Model) => number
-    append_row: (self: Model, row_members: GLib.Variant[]) => ModelIter
-    prepend_row: (self: Model, row_members: GLib.Variant[]) => ModelIter
-    insert_row: (self: Model, pos: number, row_members: GLib.Variant[]) => ModelIter
-    insert_row_before: (self: Model, iter: ModelIter, row_members: GLib.Variant[]) => ModelIter
-    insert_row_sorted: (self: Model, row_members: GLib.Variant[], cmp_func: CompareRowFunc) => ModelIter
-    find_row_sorted: (self: Model, row_spec: GLib.Variant[], cmp_func: CompareRowFunc) => [ /* returnType */ ModelIter, /* out_was_found */ boolean ]
+    append_row: any
+    prepend_row: any
+    insert_row: any
+    insert_row_before: any
+    insert_row_sorted: any
+    find_row_sorted: any
     remove: (self: Model, iter: ModelIter) => void
     clear: (self: Model) => void
-    set_value: (self: Model, iter: ModelIter, column: number, value: GLib.Variant) => void
-    set_row: (self: Model, iter: ModelIter, row_members: GLib.Variant[]) => void
-    get_value: (self: Model, iter: ModelIter, column: number) => GLib.Variant
-    get_value_by_name: (self: Model, iter: ModelIter, column_name: string) => GLib.Variant
+    set_value: any
+    set_row: any
+    get_value: any
+    get_value_by_name: any
     get_first_iter: (self: Model) => ModelIter
     get_last_iter: (self: Model) => ModelIter
     get_iter_at_row: (self: Model, row: number) => ModelIter
@@ -2236,10 +2236,10 @@ export abstract class ModelIface {
     is_first: (self: Model, iter: ModelIter) => boolean
     is_last: (self: Model, iter: ModelIter) => boolean
     get_position: (self: Model, iter: ModelIter) => number
-    register_tag: (self: Model, tag_destroy: GLib.DestroyNotify) => ModelTag
+    register_tag: any
     get_tag: (self: Model, iter: ModelIter, tag: ModelTag) => object | null
     set_tag: (self: Model, iter: ModelIter, tag: ModelTag, value?: object | null) => void
-    get_row: (self: Model, iter: ModelIter, out_row_members: GLib.Variant) => GLib.Variant
+    get_row: any
     begin_changeset: (self: Model) => void
     end_changeset: (self: Model) => void
     changeset_started: (self: Model) => void
@@ -2269,11 +2269,11 @@ export abstract class PeerClass {
     /* Fields of Dee-1.0.Dee.PeerClass */
     peer_found: (self: Peer, name: string) => void
     peer_lost: (self: Peer, name: string) => void
-    connection_acquired: (self: Peer, connection: Gio.DBusConnection) => void
-    connection_closed: (self: Peer, connection: Gio.DBusConnection) => void
+    connection_acquired: any
+    connection_closed: any
     get_swarm_leader: (self: Peer) => string
     is_swarm_leader: (self: Peer) => boolean
-    get_connections: (self: Peer) => Gio.DBusConnection[]
+    get_connections: any
     list_peers: (self: Peer) => string[]
     static name: string
 }
@@ -2290,7 +2290,7 @@ export abstract class ResourceManagerIface {
     /* Fields of Dee-1.0.Dee.ResourceManagerIface */
     g_iface: GObject.TypeInterface
     store: (self: ResourceManager, resource: Serializable, resource_name: string) => boolean
-    load: (self: ResourceManager, resource_name: string) => GObject.Object
+    load: any
     static name: string
 }
 export abstract class ResultSetIface {
@@ -2314,7 +2314,7 @@ export class SequenceModelPrivate {
 export abstract class SerializableIface {
     /* Fields of Dee-1.0.Dee.SerializableIface */
     g_iface: GObject.TypeInterface
-    serialize: (self: Serializable) => GLib.Variant
+    serialize: any
     static name: string
 }
 export abstract class SerializableModelClass {

@@ -5874,10 +5874,10 @@ export class VideoItemPrivate {
 }
 export abstract class MediaContainerClass {
     /* Fields of RygelServer-2.6.RygelServer.MediaContainerClass */
-    get_children: (offset: number, max_count: number, sort_criteria: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    get_children_finish: (_res_: Gio.AsyncResult) => MediaObjects | null
-    find_object: (id: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    find_object_finish: (_res_: Gio.AsyncResult) => MediaObject | null
+    get_children: any
+    get_children_finish: any
+    find_object: any
+    find_object_finish: any
     static name: string
 }
 export class MediaContainerPrivate {
@@ -5893,8 +5893,8 @@ export abstract class MediaFileItemClass {
     /* Fields of RygelServer-2.6.RygelServer.MediaFileItemClass */
     get_primary_resource: () => MediaResource
     get_extension: () => string
-    add_engine_resources: (_callback_?: Gio.AsyncReadyCallback | null) => void
-    add_engine_resources_finish: (_res_: Gio.AsyncResult) => void
+    add_engine_resources: any
+    add_engine_resources_finish: any
     add_additional_resources: (server: HTTPServer) => void
     static name: string
 }
@@ -5904,9 +5904,9 @@ export class MediaFileItemPrivate {
 export abstract class MediaObjectClass {
     /* Fields of RygelServer-2.6.RygelServer.MediaObjectClass */
     add_uri: (uri: string) => void
-    serialize: (serializer: Serializer, http_server: HTTPServer) => GUPnPAV.DIDLLiteObject | null
+    serialize: any
     create_stream_source_for_resource: (request: HTTPRequest, resource: MediaResource) => DataSource | null
-    apply_didl_lite: (didl_object: GUPnPAV.DIDLLiteObject) => void
+    apply_didl_lite: any
     compare_by_property: (media_object: MediaObject, property: string) => number
     static name: string
 }
@@ -5942,10 +5942,10 @@ export class MediaServerPrivate {
 }
 export abstract class MediaEngineClass {
     /* Fields of RygelServer-2.6.RygelServer.MediaEngineClass */
-    get_dlna_profiles: () => RygelCore.DLNAProfile[]
-    get_resources_for_item: (item: MediaObject, _callback_?: Gio.AsyncReadyCallback | null) => void
-    get_resources_for_item_finish: (_res_: Gio.AsyncResult) => Gee.List | null
-    create_data_source_for_resource: (item: MediaObject, resource: MediaResource, replacements: GLib.HashTable) => DataSource | null
+    get_dlna_profiles: any
+    get_resources_for_item: any
+    get_resources_for_item_finish: any
+    create_data_source_for_resource: any
     create_data_source_for_uri: (uri: string) => DataSource | null
     get_internal_protocol_schemes: () => string[]
     static name: string
@@ -6013,10 +6013,10 @@ export class HTTPItemURIPrivate {
 }
 export abstract class HTTPRequestClass {
     /* Fields of RygelServer-2.6.RygelServer.HTTPRequestClass */
-    handle: (_callback_?: Gio.AsyncReadyCallback | null) => void
-    handle_finish: (_res_: Gio.AsyncResult) => void
-    find_item: (_callback_?: Gio.AsyncReadyCallback | null) => void
-    find_item_finish: (_res_: Gio.AsyncResult) => void
+    handle: any
+    handle_finish: any
+    find_item: any
+    find_item_finish: any
     static name: string
 }
 export class HTTPRequestPrivate {
@@ -6042,7 +6042,7 @@ export class HTTPResponseElementPrivate {
 export abstract class HTTPServerClass {
     /* Fields of RygelServer-2.6.RygelServer.HTTPServerClass */
     get_protocol: () => string
-    get_protocol_info: () => Gee.ArrayList
+    get_protocol_info: any
     static name: string
 }
 export class HTTPServerPrivate {
@@ -6110,18 +6110,18 @@ export class DLNAAvailableSeekRangeResponsePrivate {
 }
 export abstract class SearchableContainerIface {
     /* Fields of RygelServer-2.6.RygelServer.SearchableContainerIface */
-    search: (expression: SearchExpression | null, offset: number, max_count: number, sort_criteria: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    search_finish: (_res_: Gio.AsyncResult) => [ /* returnType */ MediaObjects | null, /* total_matches */ number ]
-    get_search_classes: () => Gee.ArrayList
-    set_search_classes: (value: Gee.ArrayList) => void
+    search: any
+    search_finish: any
+    get_search_classes: any
+    set_search_classes: any
     static name: string
 }
 export abstract class TrackableContainerIface {
     /* Fields of RygelServer-2.6.RygelServer.TrackableContainerIface */
-    add_child: (object: MediaObject, _callback_?: Gio.AsyncReadyCallback | null) => void
-    add_child_finish: (_res_: Gio.AsyncResult) => void
-    remove_child: (object: MediaObject, _callback_?: Gio.AsyncReadyCallback | null) => void
-    remove_child_finish: (_res_: Gio.AsyncResult) => void
+    add_child: any
+    add_child_finish: any
+    remove_child: any
+    remove_child_finish: any
     get_service_reset_token: () => string
     set_service_reset_token: (token: string) => void
     get_system_update_id: () => number
@@ -6138,29 +6138,29 @@ export abstract class VisualItemIface {
     set_height: (value: number) => void
     get_color_depth: () => number
     set_color_depth: (value: number) => void
-    get_thumbnails: () => Gee.ArrayList
-    set_thumbnails: (value: Gee.ArrayList) => void
+    get_thumbnails: any
+    set_thumbnails: any
     static name: string
 }
 export abstract class WritableContainerIface {
     /* Fields of RygelServer-2.6.RygelServer.WritableContainerIface */
-    add_item: (item: MediaFileItem, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    add_item_finish: (_res_: Gio.AsyncResult) => void
-    add_container: (container: MediaContainer, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    add_container_finish: (_res_: Gio.AsyncResult) => void
-    add_reference: (object: MediaObject, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    add_reference_finish: (_res_: Gio.AsyncResult) => string
-    remove_item: (id: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    remove_item_finish: (_res_: Gio.AsyncResult) => void
-    remove_container: (id: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    remove_container_finish: (_res_: Gio.AsyncResult) => void
-    get_create_classes: () => Gee.ArrayList
-    set_create_classes: (value: Gee.ArrayList) => void
+    add_item: any
+    add_item_finish: any
+    add_container: any
+    add_container_finish: any
+    add_reference: any
+    add_reference_finish: any
+    remove_item: any
+    remove_item_finish: any
+    remove_container: any
+    remove_container_finish: any
+    get_create_classes: any
+    set_create_classes: any
     static name: string
 }
 export abstract class DataSourceIface {
     /* Fields of RygelServer-2.6.RygelServer.DataSourceIface */
-    preroll: (seek?: HTTPSeekRequest | null, playspeed?: PlaySpeedRequest | null) => Gee.List | null
+    preroll: any
     start: () => void
     freeze: () => void
     thaw: () => void
@@ -6169,7 +6169,7 @@ export abstract class DataSourceIface {
 }
 export abstract class UpdatableObjectIface {
     /* Fields of RygelServer-2.6.RygelServer.UpdatableObjectIface */
-    commit: (_callback_?: Gio.AsyncReadyCallback | null) => void
-    commit_finish: (_res_: Gio.AsyncResult) => void
+    commit: any
+    commit_finish: any
     static name: string
 }

@@ -733,17 +733,6 @@ export class GirModule {
             if (!parentPtr && parentName == 'Object') {
                 parentPtr = (this.symTable.getByHand('GObject-2.0.GObject.Object') as GirClass) || null
             }
-
-            // check circular dependency
-            if (typeof parentPtr?.$?.parent === 'string') {
-                let parentName = parentPtr.$.parent
-                if (parentName.indexOf('.') < 0 && parentPtr._module?.namespace)
-                    parentName = parentPtr._module.namespace + '.' + parentName
-                if (parentName === girClass._fullSymName) {
-                    this.log.warn(`Circular dependency found! Ignore next parent "${parentName}".`)
-                    recursive = false
-                }
-            }
         }
 
         callback(girClass)
@@ -818,7 +807,7 @@ export class GirModule {
         return ret
     }
 
-    private checkNameExists(
+    private checkOrSetLocalName(
         desc: VarDesc,
         name: string | null,
         localNames: LocalNames,
@@ -885,7 +874,7 @@ export class GirModule {
             for (const f of cls.field) {
                 const [desc, name] = this.getVariable(f, false, false, 'field')
 
-                const [aDesc, added] = this.checkNameExists(desc, name, localNames, 'field')
+                const [aDesc, added] = this.checkOrSetLocalName(desc, name, localNames, 'field')
                 if (added) {
                     def.push(`    ${aDesc[0]}`)
                 }
@@ -903,7 +892,7 @@ export class GirModule {
         if (cls.property) {
             for (const p of cls.property) {
                 const [desc, name, origName] = this.getProperty(p)
-                const [aDesc, added] = this.checkNameExists(desc, name, localNames, 'property')
+                const [aDesc, added] = this.checkOrSetLocalName(desc, name, localNames, 'property')
                 if (added) {
                     if (origName) propertyNames.push(origName)
                 }
@@ -927,7 +916,7 @@ export class GirModule {
         if (cls.method) {
             for (const func of cls.method) {
                 const [desc, name] = this.getFunction(func, '    ')
-                def.push(...this.checkNameExists(desc, name, localNames, 'method')[0])
+                def.push(...this.checkOrSetLocalName(desc, name, localNames, 'method')[0])
             }
         }
         if (def.length) {
@@ -1126,6 +1115,7 @@ export class GirModule {
             }
             localParentName = parentModName == namespace ? parentName : qualifiedParentName
         }
+
         return { name: className, qualifiedName, parentName, qualifiedParentName, localParentName, namespace, version }
     }
 
@@ -1362,7 +1352,7 @@ export class GirModule {
             if (girClass.property) {
                 for (const p of girClass.property) {
                     const [desc, name] = this.getProperty(p, true, true)
-                    def.push(...this.checkNameExists(desc, name, constructPropNames, 'property')[0])
+                    def.push(...this.checkOrSetLocalName(desc, name, constructPropNames, 'property')[0])
                 }
             }
             // Include props of implemented interfaces
@@ -1371,7 +1361,7 @@ export class GirModule {
                     if (iface.property) {
                         for (const p of iface.property) {
                             const [desc, name] = this.getProperty(p, true, true)
-                            def.push(...this.checkNameExists(desc, name, constructPropNames, 'property')[0])
+                            def.push(...this.checkOrSetLocalName(desc, name, constructPropNames, 'property')[0])
                         }
                     }
                 })

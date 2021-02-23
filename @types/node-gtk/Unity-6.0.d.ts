@@ -2938,11 +2938,11 @@ export class MusicPlayer {
     once(sigName: "next", callback: () => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "next", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "next"): void
-    connect(sigName: "activate_playlist", callback: (($obj: MusicPlayer, playlistId: any) => void)): number
-    on(sigName: "activate_playlist", callback: (playlistId: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "activate_playlist", callback: (playlistId: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "activate_playlist", callback: (playlistId: any) => void): NodeJS.EventEmitter
-    emit(sigName: "activate_playlist", playlistId: any): void
+    connect(sigName: "activate_playlist", callback: (($obj: MusicPlayer, playlistId: string) => void)): number
+    on(sigName: "activate_playlist", callback: (playlistId: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate_playlist", callback: (playlistId: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate_playlist", callback: (playlistId: string) => void): NodeJS.EventEmitter
+    emit(sigName: "activate_playlist", playlistId: string): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MusicPlayer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -3077,8 +3077,8 @@ export class CategoryPrivate {
 export abstract class FilterClass {
     /* Fields of Unity-6.0.Unity.FilterClass */
     parentClass: GObject.ObjectClass
-    getHints: (self: Filter) => GLib.HashTable
-    update: (self: Filter, properties: GLib.Variant) => void
+    getHints: any
+    update: any
     static name: string
 }
 export class FilterPrivate {
@@ -3167,9 +3167,9 @@ export class LensPrivate {
 export abstract class PreviewClass {
     /* Fields of Unity-6.0.Unity.PreviewClass */
     parentClass: GObject.ObjectClass
-    createRaw: (self: Preview) => GObject.Object
-    updateProperty: (self: Preview, values: GLib.HashTable, callback?: Gio.AsyncReadyCallback | null) => void
-    updatePropertyFinish: (self: Preview, res: Gio.AsyncResult) => GLib.HashTable
+    createRaw: any
+    updateProperty: any
+    updatePropertyFinish: any
     dummy1: (self: Preview) => void
     dummy2: (self: Preview) => void
     dummy3: (self: Preview) => void
@@ -3290,7 +3290,7 @@ export class MusicPlayerPrivate {
 export abstract class MergeStrategyIface {
     /* Fields of Unity-6.0.Unity.MergeStrategyIface */
     parentIface: GObject.TypeInterface
-    mergeResult: (self: MergeStrategy, target: Dee.Model, row: GLib.Variant[]) => Dee.ModelIter | null
+    mergeResult: any
     static name: string
 }
 export class PlaylistDetails {

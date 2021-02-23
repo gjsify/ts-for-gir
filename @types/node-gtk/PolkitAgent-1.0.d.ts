@@ -203,8 +203,8 @@ export class TextListener {
 export abstract class ListenerClass {
     /* Fields of PolkitAgent-1.0.PolkitAgent.ListenerClass */
     parentClass: GObject.ObjectClass
-    initiateAuthentication: (listener: Listener, actionId: string, message: string, iconName: string, details: Polkit.Details, cookie: string, identities: Polkit.Identity[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    initiateAuthenticationFinish: (listener: Listener, res: Gio.AsyncResult) => boolean
+    initiateAuthentication: any
+    initiateAuthenticationFinish: any
     static name: string
 }
 export abstract class SessionClass {

@@ -860,19 +860,19 @@ export abstract class ShareClass {
     parent: GObject.ObjectClass
     get_desired_port: (share: Share) => number
     get_type_of_service: (share: Share) => string
-    message_add_standard_headers: (share: Share, msg: Soup.Message) => void
+    message_add_standard_headers: any
     add_entry_to_mlcl: (id: object, record: Record, mb: object) => void
-    databases_browse_xxx: (share: Share, server: Soup.Server, msg: Soup.Message, path: string, query: GLib.HashTable, context: Soup.ClientContext) => void
-    databases_items_xxx: (share: Share, server: Soup.Server, msg: Soup.Message, path: string, query: GLib.HashTable, context: Soup.ClientContext) => void
-    server_info: (share: Share, server: Soup.Server, message: Soup.Message, path: string, query: GLib.HashTable, ctx: Soup.ClientContext) => void
-    content_codes: (share: Share, server: Soup.Server, message: Soup.Message, path: string, query: GLib.HashTable, ctx: Soup.ClientContext) => void
-    login: (share: Share, server: Soup.Server, message: Soup.Message, path: string, query: GLib.HashTable, ctx: Soup.ClientContext) => void
-    logout: (share: Share, server: Soup.Server, message: Soup.Message, path: string, query: GLib.HashTable, ctx: Soup.ClientContext) => void
-    update: (share: Share, server: Soup.Server, message: Soup.Message, path: string, query: GLib.HashTable, ctx: Soup.ClientContext) => void
-    ctrl_int: (share: Share, server: Soup.Server, message: Soup.Message, path: string, query: GLib.HashTable, ctx: Soup.ClientContext) => void
+    databases_browse_xxx: any
+    databases_items_xxx: any
+    server_info: any
+    content_codes: any
+    login: any
+    logout: any
+    update: any
+    ctrl_int: any
     published: (share: Share, publisher: MdnsPublisher, name: string) => void
     name_collision: (share: Share, publisher: MdnsPublisher, name: string) => void
-    databases: (share: Share, server: Soup.Server, message: Soup.Message, path: string, query: GLib.HashTable, context: Soup.ClientContext) => void
+    databases: any
     static name: string
 }
 export class SharePrivate {

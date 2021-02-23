@@ -843,19 +843,19 @@ export abstract class ShareClass {
     parent: GObject.ObjectClass
     getDesiredPort: (share: Share) => number
     getTypeOfService: (share: Share) => string
-    messageAddStandardHeaders: (share: Share, msg: Soup.Message) => void
+    messageAddStandardHeaders: any
     addEntryToMlcl: (id: object, record: Record, mb: object) => void
-    databasesBrowseXxx: (share: Share, server: Soup.Server, msg: Soup.Message, path: string, query: GLib.HashTable, context: Soup.ClientContext) => void
-    databasesItemsXxx: (share: Share, server: Soup.Server, msg: Soup.Message, path: string, query: GLib.HashTable, context: Soup.ClientContext) => void
-    serverInfo: (share: Share, server: Soup.Server, message: Soup.Message, path: string, query: GLib.HashTable, ctx: Soup.ClientContext) => void
-    contentCodes: (share: Share, server: Soup.Server, message: Soup.Message, path: string, query: GLib.HashTable, ctx: Soup.ClientContext) => void
-    login: (share: Share, server: Soup.Server, message: Soup.Message, path: string, query: GLib.HashTable, ctx: Soup.ClientContext) => void
-    logout: (share: Share, server: Soup.Server, message: Soup.Message, path: string, query: GLib.HashTable, ctx: Soup.ClientContext) => void
-    update: (share: Share, server: Soup.Server, message: Soup.Message, path: string, query: GLib.HashTable, ctx: Soup.ClientContext) => void
-    ctrlInt: (share: Share, server: Soup.Server, message: Soup.Message, path: string, query: GLib.HashTable, ctx: Soup.ClientContext) => void
+    databasesBrowseXxx: any
+    databasesItemsXxx: any
+    serverInfo: any
+    contentCodes: any
+    login: any
+    logout: any
+    update: any
+    ctrlInt: any
     published: (share: Share, publisher: MdnsPublisher, name: string) => void
     nameCollision: (share: Share, publisher: MdnsPublisher, name: string) => void
-    databases: (share: Share, server: Soup.Server, message: Soup.Message, path: string, query: GLib.HashTable, context: Soup.ClientContext) => void
+    databases: any
     static name: string
 }
 export class SharePrivate {

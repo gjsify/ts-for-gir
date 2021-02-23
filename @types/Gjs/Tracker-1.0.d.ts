@@ -343,23 +343,23 @@ export class SparqlBuilderPrivate {
 export abstract class SparqlConnectionClass {
     /* Fields of Tracker-1.0.Tracker.SparqlConnectionClass */
     parent_class: GObject.ObjectClass
-    query: (self: SparqlConnection, sparql: string, cancellable?: Gio.Cancellable | null) => SparqlCursor
-    query_async: (self: SparqlConnection, sparql: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    query_finish: (self: SparqlConnection, _res_: Gio.AsyncResult) => SparqlCursor
-    update: (self: SparqlConnection, sparql: string, priority: number, cancellable?: Gio.Cancellable | null) => void
-    update_async: (self: SparqlConnection, sparql: string, priority: number, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    update_finish: (self: SparqlConnection, _res_: Gio.AsyncResult) => void
-    update_array_async: (self: SparqlConnection, sparql: string[], priority: number, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    update_array_finish: (self: SparqlConnection, _res_: Gio.AsyncResult) => any[] | null
-    update_blank: (self: SparqlConnection, sparql: string, priority: number, cancellable?: Gio.Cancellable | null) => GLib.Variant | null
-    update_blank_async: (self: SparqlConnection, sparql: string, priority: number, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    update_blank_finish: (self: SparqlConnection, _res_: Gio.AsyncResult) => GLib.Variant | null
-    load: (self: SparqlConnection, file: Gio.File, cancellable?: Gio.Cancellable | null) => void
-    load_async: (self: SparqlConnection, file: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    load_finish: (self: SparqlConnection, _res_: Gio.AsyncResult) => void
-    statistics: (self: SparqlConnection, cancellable?: Gio.Cancellable | null) => SparqlCursor | null
-    statistics_async: (self: SparqlConnection, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    statistics_finish: (self: SparqlConnection, _res_: Gio.AsyncResult) => SparqlCursor | null
+    query: any
+    query_async: any
+    query_finish: any
+    update: any
+    update_async: any
+    update_finish: any
+    update_array_async: any
+    update_array_finish: any
+    update_blank: any
+    update_blank_async: any
+    update_blank_finish: any
+    load: any
+    load_async: any
+    load_finish: any
+    statistics: any
+    statistics_async: any
+    statistics_finish: any
     static name: string
 }
 export class SparqlConnectionPrivate {
@@ -371,9 +371,9 @@ export abstract class SparqlCursorClass {
     get_value_type: (self: SparqlCursor, column: number) => SparqlValueType
     get_variable_name: (self: SparqlCursor, column: number) => string | null
     get_string: (self: SparqlCursor, column: number) => [ /* returnType */ string | null, /* length */ number ]
-    next: (self: SparqlCursor, cancellable?: Gio.Cancellable | null) => boolean
-    next_async: (self: SparqlCursor, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    next_finish: (self: SparqlCursor, _res_: Gio.AsyncResult) => boolean
+    next: any
+    next_async: any
+    next_finish: any
     rewind: (self: SparqlCursor) => void
     close: (self: SparqlCursor) => void
     get_integer: (self: SparqlCursor, column: number) => number

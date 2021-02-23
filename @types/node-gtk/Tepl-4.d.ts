@@ -7172,16 +7172,16 @@ export class View {
 export abstract class AbstractFactoryClass {
     /* Fields of Tepl-4.Tepl.AbstractFactoryClass */
     parentClass: GObject.ObjectClass
-    createMainWindow: (factory: AbstractFactory, app: Gtk.Application) => Gtk.ApplicationWindow | null
+    createMainWindow: any
     createTab: (factory: AbstractFactory) => Tab
-    createTabLabel: (factory: AbstractFactory, tab: Tab) => Gtk.Widget | null
+    createTabLabel: any
     createFile: (factory: AbstractFactory) => File
     static name: string
 }
 export abstract class AbstractFactoryValaClass {
     /* Fields of Tepl-4.Tepl.AbstractFactoryValaClass */
     parentClass: AbstractFactoryClass
-    createMainWindowVala: (factoryVala: AbstractFactoryVala, app: Gtk.Application) => Gtk.ApplicationWindow | null
+    createMainWindowVala: any
     static name: string
 }
 export abstract class ApplicationClass {
@@ -7295,7 +7295,7 @@ export abstract class TabClass {
     /* Fields of Tepl-4.Tepl.TabClass */
     parentClass: Gtk.GridClass
     packView: (tab: Tab, view: View) => void
-    packInfoBar: (tab: Tab, infoBar: Gtk.InfoBar) => void
+    packInfoBar: any
     closeRequest: (tab: Tab) => void
     static name: string
 }

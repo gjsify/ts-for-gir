@@ -13622,16 +13622,16 @@ export class FirmwareUpdateSettingsPrivate {
 export abstract class GdbusBearerIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusBearerIface */
     parentIface: GObject.TypeInterface
-    handleConnect: (object: GdbusBearer, invocation: Gio.DBusMethodInvocation) => boolean
-    handleDisconnect: (object: GdbusBearer, invocation: Gio.DBusMethodInvocation) => boolean
+    handleConnect: any
+    handleDisconnect: any
     getBearerType: (object: GdbusBearer) => number
     getConnected: (object: GdbusBearer) => boolean
     getInterface: (object: GdbusBearer) => string | null
-    getIp4Config: (object: GdbusBearer) => GLib.Variant | null
-    getIp6Config: (object: GdbusBearer) => GLib.Variant | null
+    getIp4Config: any
+    getIp6Config: any
     getIpTimeout: (object: GdbusBearer) => number
-    getProperties: (object: GdbusBearer) => GLib.Variant | null
-    getStats: (object: GdbusBearer) => GLib.Variant | null
+    getProperties: any
+    getStats: any
     getSuspended: (object: GdbusBearer) => boolean
     static name: string
 }
@@ -13654,18 +13654,18 @@ export class GdbusBearerSkeletonPrivate {
 export abstract class GdbusModem3gppIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModem3gppIface */
     parentIface: GObject.TypeInterface
-    handleRegister: (object: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation, argOperatorId: string) => boolean
-    handleScan: (object: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation) => boolean
-    handleSetEpsUeModeOperation: (object: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation, argMode: number) => boolean
-    handleSetInitialEpsBearerSettings: (object: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation, argSettings: GLib.Variant) => boolean
+    handleRegister: any
+    handleScan: any
+    handleSetEpsUeModeOperation: any
+    handleSetInitialEpsBearerSettings: any
     getEnabledFacilityLocks: (object: GdbusModem3gpp) => number
     getEpsUeModeOperation: (object: GdbusModem3gpp) => number
     getImei: (object: GdbusModem3gpp) => string | null
     getInitialEpsBearer: (object: GdbusModem3gpp) => string | null
-    getInitialEpsBearerSettings: (object: GdbusModem3gpp) => GLib.Variant | null
+    getInitialEpsBearerSettings: any
     getOperatorCode: (object: GdbusModem3gpp) => string | null
     getOperatorName: (object: GdbusModem3gpp) => string | null
-    getPco: (object: GdbusModem3gpp) => GLib.Variant | null
+    getPco: any
     getRegistrationState: (object: GdbusModem3gpp) => number
     getSubscriptionState: (object: GdbusModem3gpp) => number
     static name: string
@@ -13689,9 +13689,9 @@ export class GdbusModem3gppSkeletonPrivate {
 export abstract class GdbusModem3gppUssdIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModem3gppUssdIface */
     parentIface: GObject.TypeInterface
-    handleCancel: (object: GdbusModem3gppUssd, invocation: Gio.DBusMethodInvocation) => boolean
-    handleInitiate: (object: GdbusModem3gppUssd, invocation: Gio.DBusMethodInvocation, argCommand: string) => boolean
-    handleRespond: (object: GdbusModem3gppUssd, invocation: Gio.DBusMethodInvocation, argResponse: string) => boolean
+    handleCancel: any
+    handleInitiate: any
+    handleRespond: any
     getNetworkNotification: (object: GdbusModem3gppUssd) => string | null
     getNetworkRequest: (object: GdbusModem3gppUssd) => string | null
     getState: (object: GdbusModem3gppUssd) => number
@@ -13716,8 +13716,8 @@ export class GdbusModem3gppUssdSkeletonPrivate {
 export abstract class GdbusModemCdmaIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemCdmaIface */
     parentIface: GObject.TypeInterface
-    handleActivate: (object: GdbusModemCdma, invocation: Gio.DBusMethodInvocation, argCarrierCode: string) => boolean
-    handleActivateManual: (object: GdbusModemCdma, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean
+    handleActivate: any
+    handleActivateManual: any
     getActivationState: (object: GdbusModemCdma) => number
     getCdma1xRegistrationState: (object: GdbusModemCdma) => number
     getEsn: (object: GdbusModemCdma) => string | null
@@ -13725,7 +13725,7 @@ export abstract class GdbusModemCdmaIface {
     getMeid: (object: GdbusModemCdma) => string | null
     getNid: (object: GdbusModemCdma) => number
     getSid: (object: GdbusModemCdma) => number
-    activationStateChanged: (object: GdbusModemCdma, argActivationState: number, argActivationError: number, argStatusChanges: GLib.Variant) => void
+    activationStateChanged: any
     static name: string
 }
 export abstract class GdbusModemCdmaProxyClass {
@@ -13747,9 +13747,9 @@ export class GdbusModemCdmaSkeletonPrivate {
 export abstract class GdbusModemFirmwareIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemFirmwareIface */
     parentIface: GObject.TypeInterface
-    handleList: (object: GdbusModemFirmware, invocation: Gio.DBusMethodInvocation) => boolean
-    handleSelect: (object: GdbusModemFirmware, invocation: Gio.DBusMethodInvocation, argUniqueid: string) => boolean
-    getUpdateSettings: (object: GdbusModemFirmware) => GLib.Variant | null
+    handleList: any
+    handleSelect: any
+    getUpdateSettings: any
     static name: string
 }
 export abstract class GdbusModemFirmwareProxyClass {
@@ -13771,25 +13771,25 @@ export class GdbusModemFirmwareSkeletonPrivate {
 export abstract class GdbusModemIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemIface */
     parentIface: GObject.TypeInterface
-    handleCommand: (object: GdbusModem, invocation: Gio.DBusMethodInvocation, argCmd: string, argTimeout: number) => boolean
-    handleCreateBearer: (object: GdbusModem, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean
-    handleDeleteBearer: (object: GdbusModem, invocation: Gio.DBusMethodInvocation, argBearer: string) => boolean
-    handleEnable: (object: GdbusModem, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean
-    handleFactoryReset: (object: GdbusModem, invocation: Gio.DBusMethodInvocation, argCode: string) => boolean
-    handleListBearers: (object: GdbusModem, invocation: Gio.DBusMethodInvocation) => boolean
-    handleReset: (object: GdbusModem, invocation: Gio.DBusMethodInvocation) => boolean
-    handleSetCurrentBands: (object: GdbusModem, invocation: Gio.DBusMethodInvocation, argBands: GLib.Variant) => boolean
-    handleSetCurrentCapabilities: (object: GdbusModem, invocation: Gio.DBusMethodInvocation, argCapabilities: number) => boolean
-    handleSetCurrentModes: (object: GdbusModem, invocation: Gio.DBusMethodInvocation, argModes: GLib.Variant) => boolean
-    handleSetPowerState: (object: GdbusModem, invocation: Gio.DBusMethodInvocation, argState: number) => boolean
-    handleSetPrimarySimSlot: (object: GdbusModem, invocation: Gio.DBusMethodInvocation, argSimSlot: number) => boolean
+    handleCommand: any
+    handleCreateBearer: any
+    handleDeleteBearer: any
+    handleEnable: any
+    handleFactoryReset: any
+    handleListBearers: any
+    handleReset: any
+    handleSetCurrentBands: any
+    handleSetCurrentCapabilities: any
+    handleSetCurrentModes: any
+    handleSetPowerState: any
+    handleSetPrimarySimSlot: any
     getAccessTechnologies: (object: GdbusModem) => number
     getBearers: (object: GdbusModem) => string[] | null
     getCarrierConfiguration: (object: GdbusModem) => string | null
     getCarrierConfigurationRevision: (object: GdbusModem) => string | null
-    getCurrentBands: (object: GdbusModem) => GLib.Variant | null
+    getCurrentBands: any
     getCurrentCapabilities: (object: GdbusModem) => number
-    getCurrentModes: (object: GdbusModem) => GLib.Variant | null
+    getCurrentModes: any
     getDevice: (object: GdbusModem) => string | null
     getDeviceIdentifier: (object: GdbusModem) => string | null
     getDrivers: (object: GdbusModem) => string[] | null
@@ -13801,38 +13801,38 @@ export abstract class GdbusModemIface {
     getModel: (object: GdbusModem) => string | null
     getOwnNumbers: (object: GdbusModem) => string[] | null
     getPlugin: (object: GdbusModem) => string | null
-    getPorts: (object: GdbusModem) => GLib.Variant | null
+    getPorts: any
     getPowerState: (object: GdbusModem) => number
     getPrimaryPort: (object: GdbusModem) => string | null
     getPrimarySimSlot: (object: GdbusModem) => number
     getRevision: (object: GdbusModem) => string | null
-    getSignalQuality: (object: GdbusModem) => GLib.Variant | null
+    getSignalQuality: any
     getSim: (object: GdbusModem) => string | null
     getSimSlots: (object: GdbusModem) => string[] | null
     getState: (object: GdbusModem) => number
     getStateFailedReason: (object: GdbusModem) => number
-    getSupportedBands: (object: GdbusModem) => GLib.Variant | null
-    getSupportedCapabilities: (object: GdbusModem) => GLib.Variant | null
+    getSupportedBands: any
+    getSupportedCapabilities: any
     getSupportedIpFamilies: (object: GdbusModem) => number
-    getSupportedModes: (object: GdbusModem) => GLib.Variant | null
+    getSupportedModes: any
     getUnlockRequired: (object: GdbusModem) => number
-    getUnlockRetries: (object: GdbusModem) => GLib.Variant | null
+    getUnlockRetries: any
     stateChanged: (object: GdbusModem, argOld: number, argNew: number, argReason: number) => void
     static name: string
 }
 export abstract class GdbusModemLocationIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemLocationIface */
     parentIface: GObject.TypeInterface
-    handleGetLocation: (object: GdbusModemLocation, invocation: Gio.DBusMethodInvocation) => boolean
-    handleInjectAssistanceData: (object: GdbusModemLocation, invocation: Gio.DBusMethodInvocation, argData: GLib.Variant) => boolean
-    handleSetGpsRefreshRate: (object: GdbusModemLocation, invocation: Gio.DBusMethodInvocation, argRate: number) => boolean
-    handleSetSuplServer: (object: GdbusModemLocation, invocation: Gio.DBusMethodInvocation, argSupl: string) => boolean
-    handleSetup: (object: GdbusModemLocation, invocation: Gio.DBusMethodInvocation, argSources: number, argSignalLocation: boolean) => boolean
+    handleGetLocation: any
+    handleInjectAssistanceData: any
+    handleSetGpsRefreshRate: any
+    handleSetSuplServer: any
+    handleSetup: any
     getAssistanceDataServers: (object: GdbusModemLocation) => string[] | null
     getCapabilities: (object: GdbusModemLocation) => number
     getEnabled: (object: GdbusModemLocation) => number
     getGpsRefreshRate: (object: GdbusModemLocation) => number
-    getLocation: (object: GdbusModemLocation) => GLib.Variant | null
+    getLocation: any
     getSignalsLocation: (object: GdbusModemLocation) => boolean
     getSuplServer: (object: GdbusModemLocation) => string | null
     getSupportedAssistanceData: (object: GdbusModemLocation) => number
@@ -13857,12 +13857,12 @@ export class GdbusModemLocationSkeletonPrivate {
 export abstract class GdbusModemMessagingIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemMessagingIface */
     parentIface: GObject.TypeInterface
-    handleCreate: (object: GdbusModemMessaging, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean
-    handleDelete: (object: GdbusModemMessaging, invocation: Gio.DBusMethodInvocation, argPath: string) => boolean
-    handleList: (object: GdbusModemMessaging, invocation: Gio.DBusMethodInvocation) => boolean
+    handleCreate: any
+    handleDelete: any
+    handleList: any
     getDefaultStorage: (object: GdbusModemMessaging) => number
     getMessages: (object: GdbusModemMessaging) => string[] | null
-    getSupportedStorages: (object: GdbusModemMessaging) => GLib.Variant | null
+    getSupportedStorages: any
     added: (object: GdbusModemMessaging, argPath: string, argReceived: boolean) => void
     deleted: (object: GdbusModemMessaging, argPath: string) => void
     static name: string
@@ -13886,12 +13886,12 @@ export class GdbusModemMessagingSkeletonPrivate {
 export abstract class GdbusModemOmaIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemOmaIface */
     parentIface: GObject.TypeInterface
-    handleAcceptNetworkInitiatedSession: (object: GdbusModemOma, invocation: Gio.DBusMethodInvocation, argSessionId: number, argAccept: boolean) => boolean
-    handleCancelSession: (object: GdbusModemOma, invocation: Gio.DBusMethodInvocation) => boolean
-    handleSetup: (object: GdbusModemOma, invocation: Gio.DBusMethodInvocation, argFeatures: number) => boolean
-    handleStartClientInitiatedSession: (object: GdbusModemOma, invocation: Gio.DBusMethodInvocation, argSessionType: number) => boolean
+    handleAcceptNetworkInitiatedSession: any
+    handleCancelSession: any
+    handleSetup: any
+    handleStartClientInitiatedSession: any
     getFeatures: (object: GdbusModemOma) => number
-    getPendingNetworkInitiatedSessions: (object: GdbusModemOma) => GLib.Variant | null
+    getPendingNetworkInitiatedSessions: any
     getSessionState: (object: GdbusModemOma) => number
     getSessionType: (object: GdbusModemOma) => number
     sessionStateChanged: (object: GdbusModemOma, argOldSessionState: number, argNewSessionState: number, argSessionStateFailedReason: number) => void
@@ -13924,14 +13924,14 @@ export class GdbusModemProxyPrivate {
 export abstract class GdbusModemSignalIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemSignalIface */
     parentIface: GObject.TypeInterface
-    handleSetup: (object: GdbusModemSignal, invocation: Gio.DBusMethodInvocation, argRate: number) => boolean
-    getCdma: (object: GdbusModemSignal) => GLib.Variant | null
-    getEvdo: (object: GdbusModemSignal) => GLib.Variant | null
-    getGsm: (object: GdbusModemSignal) => GLib.Variant | null
-    getLte: (object: GdbusModemSignal) => GLib.Variant | null
-    getNr5g: (object: GdbusModemSignal) => GLib.Variant | null
+    handleSetup: any
+    getCdma: any
+    getEvdo: any
+    getGsm: any
+    getLte: any
+    getNr5g: any
     getRate: (object: GdbusModemSignal) => number
-    getUmts: (object: GdbusModemSignal) => GLib.Variant | null
+    getUmts: any
     static name: string
 }
 export abstract class GdbusModemSignalProxyClass {
@@ -13953,9 +13953,9 @@ export class GdbusModemSignalSkeletonPrivate {
 export abstract class GdbusModemSimpleIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemSimpleIface */
     parentIface: GObject.TypeInterface
-    handleConnect: (object: GdbusModemSimple, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean
-    handleDisconnect: (object: GdbusModemSimple, invocation: Gio.DBusMethodInvocation, argBearer: string) => boolean
-    handleGetStatus: (object: GdbusModemSimple, invocation: Gio.DBusMethodInvocation) => boolean
+    handleConnect: any
+    handleDisconnect: any
+    handleGetStatus: any
     static name: string
 }
 export abstract class GdbusModemSimpleProxyClass {
@@ -13985,8 +13985,8 @@ export class GdbusModemSkeletonPrivate {
 export abstract class GdbusModemTimeIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemTimeIface */
     parentIface: GObject.TypeInterface
-    handleGetNetworkTime: (object: GdbusModemTime, invocation: Gio.DBusMethodInvocation) => boolean
-    getNetworkTimezone: (object: GdbusModemTime) => GLib.Variant | null
+    handleGetNetworkTime: any
+    getNetworkTimezone: any
     networkTimeChanged: (object: GdbusModemTime, argTime: string) => void
     static name: string
 }
@@ -14009,15 +14009,15 @@ export class GdbusModemTimeSkeletonPrivate {
 export abstract class GdbusModemVoiceIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemVoiceIface */
     parentIface: GObject.TypeInterface
-    handleCallWaitingQuery: (object: GdbusModemVoice, invocation: Gio.DBusMethodInvocation) => boolean
-    handleCallWaitingSetup: (object: GdbusModemVoice, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean
-    handleCreateCall: (object: GdbusModemVoice, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean
-    handleDeleteCall: (object: GdbusModemVoice, invocation: Gio.DBusMethodInvocation, argPath: string) => boolean
-    handleHangupAll: (object: GdbusModemVoice, invocation: Gio.DBusMethodInvocation) => boolean
-    handleHangupAndAccept: (object: GdbusModemVoice, invocation: Gio.DBusMethodInvocation) => boolean
-    handleHoldAndAccept: (object: GdbusModemVoice, invocation: Gio.DBusMethodInvocation) => boolean
-    handleListCalls: (object: GdbusModemVoice, invocation: Gio.DBusMethodInvocation) => boolean
-    handleTransfer: (object: GdbusModemVoice, invocation: Gio.DBusMethodInvocation) => boolean
+    handleCallWaitingQuery: any
+    handleCallWaitingSetup: any
+    handleCreateCall: any
+    handleDeleteCall: any
+    handleHangupAll: any
+    handleHangupAndAccept: any
+    handleHoldAndAccept: any
+    handleListCalls: any
+    handleTransfer: any
     getCalls: (object: GdbusModemVoice) => string[] | null
     getEmergencyOnly: (object: GdbusModemVoice) => boolean
     callAdded: (object: GdbusModemVoice, argPath: string) => void
@@ -14072,10 +14072,10 @@ export class GdbusObjectSkeletonPrivate {
 export abstract class GdbusOrgFreedesktopModemManager1Iface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusOrgFreedesktopModemManager1Iface */
     parentIface: GObject.TypeInterface
-    handleInhibitDevice: (object: GdbusOrgFreedesktopModemManager1, invocation: Gio.DBusMethodInvocation, argUid: string, argInhibit: boolean) => boolean
-    handleReportKernelEvent: (object: GdbusOrgFreedesktopModemManager1, invocation: Gio.DBusMethodInvocation, argProperties: GLib.Variant) => boolean
-    handleScanDevices: (object: GdbusOrgFreedesktopModemManager1, invocation: Gio.DBusMethodInvocation) => boolean
-    handleSetLogging: (object: GdbusOrgFreedesktopModemManager1, invocation: Gio.DBusMethodInvocation, argLevel: string) => boolean
+    handleInhibitDevice: any
+    handleReportKernelEvent: any
+    handleScanDevices: any
+    handleSetLogging: any
     getVersion: (object: GdbusOrgFreedesktopModemManager1) => string | null
     static name: string
 }
@@ -14098,10 +14098,10 @@ export class GdbusOrgFreedesktopModemManager1SkeletonPrivate {
 export abstract class GdbusSimIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusSimIface */
     parentIface: GObject.TypeInterface
-    handleChangePin: (object: GdbusSim, invocation: Gio.DBusMethodInvocation, argOldPin: string, argNewPin: string) => boolean
-    handleEnablePin: (object: GdbusSim, invocation: Gio.DBusMethodInvocation, argPin: string, argEnabled: boolean) => boolean
-    handleSendPin: (object: GdbusSim, invocation: Gio.DBusMethodInvocation, argPin: string) => boolean
-    handleSendPuk: (object: GdbusSim, invocation: Gio.DBusMethodInvocation, argPuk: string, argPin: string) => boolean
+    handleChangePin: any
+    handleEnablePin: any
+    handleSendPin: any
+    handleSendPuk: any
     getActive: (object: GdbusSim) => boolean
     getEid: (object: GdbusSim) => string | null
     getEmergencyNumbers: (object: GdbusSim) => string[] | null
@@ -14130,10 +14130,10 @@ export class GdbusSimSkeletonPrivate {
 export abstract class GdbusSmsIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusSmsIface */
     parentIface: GObject.TypeInterface
-    handleSend: (object: GdbusSms, invocation: Gio.DBusMethodInvocation) => boolean
-    handleStore: (object: GdbusSms, invocation: Gio.DBusMethodInvocation, argStorage: number) => boolean
+    handleSend: any
+    handleStore: any
     getClass: (object: GdbusSms) => number
-    getData: (object: GdbusSms) => GLib.Variant | null
+    getData: any
     getDeliveryReportRequest: (object: GdbusSms) => boolean
     getDeliveryState: (object: GdbusSms) => number
     getDischargeTimestamp: (object: GdbusSms) => string | null
@@ -14147,7 +14147,7 @@ export abstract class GdbusSmsIface {
     getTeleserviceId: (object: GdbusSms) => number
     getText: (object: GdbusSms) => string | null
     getTimestamp: (object: GdbusSms) => string | null
-    getValidity: (object: GdbusSms) => GLib.Variant | null
+    getValidity: any
     static name: string
 }
 export abstract class GdbusSmsProxyClass {

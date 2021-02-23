@@ -1699,13 +1699,13 @@ export abstract class BackendClass {
     /* Fields of EBackend-1.2.EBackend.BackendClass */
     getDestinationAddress: (backend: Backend) => { returnType: boolean, host: string, port: number }
     prepareShutdown: (backend: Backend) => void
-    authenticateSync: (backend: Backend, credentials: EDataServer.NamedParameters, outCertificatePem: string, outCertificateErrors: Gio.TlsCertificateFlags, cancellable?: Gio.Cancellable | null) => EDataServer.SourceAuthenticationResult
+    authenticateSync: any
     static name: string
 }
 export abstract class BackendFactoryClass {
     /* Fields of EBackend-1.2.EBackend.BackendFactoryClass */
     getHashKey: (factory: BackendFactory) => string
-    newBackend: (factory: BackendFactory, source: EDataServer.Source) => Backend
+    newBackend: any
     eModule: object
     shareSubprocess: boolean
     static name: string
@@ -1718,12 +1718,12 @@ export class BackendPrivate {
 }
 export abstract class CacheClass {
     /* Fields of EBackend-1.2.EBackend.CacheClass */
-    putLocked: (cache: Cache, uid: string, revision: string, object: string, otherColumns: CacheColumnValues, offlineState: OfflineState, isReplace: boolean, cancellable?: Gio.Cancellable | null) => boolean
-    removeLocked: (cache: Cache, uid: string, cancellable?: Gio.Cancellable | null) => boolean
-    clearOfflineChangesLocked: (cache: Cache, cancellable?: Gio.Cancellable | null) => boolean
+    putLocked: any
+    removeLocked: any
+    clearOfflineChangesLocked: any
     erase: (cache: Cache) => void
-    beforePut: (cache: Cache, uid: string, revision: string, object: string, otherColumns: CacheColumnValues, isReplace: boolean, cancellable?: Gio.Cancellable | null) => boolean
-    beforeRemove: (cache: Cache, uid: string, cancellable?: Gio.Cancellable | null) => boolean
+    beforePut: any
+    beforeRemove: any
     revisionChanged: (cache: Cache) => void
     static name: string
 }
@@ -1784,20 +1784,20 @@ export abstract class CacheReaperClass {
 export abstract class CollectionBackendClass {
     /* Fields of EBackend-1.2.EBackend.CollectionBackendClass */
     populate: (backend: CollectionBackend) => void
-    dupResourceId: (backend: CollectionBackend, childSource: EDataServer.Source) => string
-    childAdded: (backend: CollectionBackend, childSource: EDataServer.Source) => void
-    childRemoved: (backend: CollectionBackend, childSource: EDataServer.Source) => void
-    createResourceSync: (backend: CollectionBackend, source: EDataServer.Source, cancellable?: Gio.Cancellable | null) => boolean
-    createResource: (backend: CollectionBackend, source: EDataServer.Source, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    createResourceFinish: (backend: CollectionBackend, result: Gio.AsyncResult) => boolean
-    deleteResourceSync: (backend: CollectionBackend, source: EDataServer.Source, cancellable?: Gio.Cancellable | null) => boolean
-    deleteResource: (backend: CollectionBackend, source: EDataServer.Source, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    deleteResourceFinish: (backend: CollectionBackend, result: Gio.AsyncResult) => boolean
+    dupResourceId: any
+    childAdded: any
+    childRemoved: any
+    createResourceSync: any
+    createResource: any
+    createResourceFinish: any
+    deleteResourceSync: any
+    deleteResource: any
+    deleteResourceFinish: any
     static name: string
 }
 export abstract class CollectionBackendFactoryClass {
     /* Fields of EBackend-1.2.EBackend.CollectionBackendFactoryClass */
-    prepareMail: (factory: CollectionBackendFactory, mailAccountSource: EDataServer.Source, mailIdentitySource: EDataServer.Source, mailTransportSource: EDataServer.Source) => void
+    prepareMail: any
     static name: string
 }
 export class CollectionBackendFactoryPrivate {
@@ -1811,9 +1811,9 @@ export abstract class DBusServerClass {
     parentClass: GObject.ObjectClass
     busName: string
     moduleDirectory: string
-    busAcquired: (server: DBusServer, connection: Gio.DBusConnection) => void
-    busNameAcquired: (server: DBusServer, connection: Gio.DBusConnection) => void
-    busNameLost: (server: DBusServer, connection: Gio.DBusConnection) => void
+    busAcquired: any
+    busNameAcquired: any
+    busNameLost: any
     runServer: (server: DBusServer) => DBusServerExitCode
     quitServer: (server: DBusServer, code: DBusServerExitCode) => void
     reserved: object[]
@@ -1831,9 +1831,9 @@ export abstract class DataFactoryClass {
     subprocessObjectPathPrefix: string
     subprocessBusNamePrefix: string
     getFactoryName: (backendFactory: BackendFactory) => string
-    completeOpen: (dataFactory: DataFactory, invocation: Gio.DBusMethodInvocation, objectPath: string, busName: string, extensionName: string) => void
-    createBackend: (dataFactory: DataFactory, backendFactory: BackendFactory, source: EDataServer.Source) => Backend
-    openBackend: (dataFactory: DataFactory, backend: Backend, connection: Gio.DBusConnection, cancellable?: Gio.Cancellable | null) => string
+    completeOpen: any
+    createBackend: any
+    openBackend: any
     reserved: object[]
     static name: string
 }
@@ -1850,9 +1850,9 @@ export class FileCachePrivate {
 }
 export abstract class OAuth2SupportInterface {
     /* Fields of EBackend-1.2.EBackend.OAuth2SupportInterface */
-    getAccessTokenSync: (support: OAuth2Support, source: EDataServer.Source, cancellable?: Gio.Cancellable | null) => { returnType: boolean, outAccessToken: string | null, outExpiresIn: number | null }
-    getAccessToken: (support: OAuth2Support, source: EDataServer.Source, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    getAccessTokenFinish: (support: OAuth2Support, result: Gio.AsyncResult) => { returnType: boolean, outAccessToken: string | null, outExpiresIn: number | null }
+    getAccessTokenSync: any
+    getAccessToken: any
+    getAccessTokenFinish: any
     static name: string
 }
 export abstract class ServerSideSourceClass {
@@ -1874,11 +1874,11 @@ export class ServerSideSourcePrivate {
 export abstract class SourceRegistryServerClass {
     /* Fields of EBackend-1.2.EBackend.SourceRegistryServerClass */
     parentClass: DataFactoryClass
-    loadError: (server: SourceRegistryServer, file: Gio.File, error: GLib.Error) => void
+    loadError: any
     filesLoaded: (server: SourceRegistryServer) => void
-    sourceAdded: (server: SourceRegistryServer, source: EDataServer.Source) => void
-    sourceRemoved: (server: SourceRegistryServer, source: EDataServer.Source) => void
-    tweakKeyFile: (server: SourceRegistryServer, keyFile: GLib.KeyFile, uid: string) => boolean
+    sourceAdded: any
+    sourceRemoved: any
+    tweakKeyFile: any
     reserved: object[]
     static name: string
 }
@@ -1888,7 +1888,7 @@ export class SourceRegistryServerPrivate {
 export abstract class SubprocessFactoryClass {
     /* Fields of EBackend-1.2.EBackend.SubprocessFactoryClass */
     parentClass: GObject.ObjectClass
-    openData: (subprocessFactory: SubprocessFactory, backend: Backend, connection: Gio.DBusConnection, data?: object | null, cancellable?: Gio.Cancellable | null) => string
+    openData: any
     backendCreated: (subprocessFactory: SubprocessFactory, backend: Backend) => void
     backendClosed: (subprocessFactory: SubprocessFactory, backend: Backend) => void
     static name: string
@@ -1912,8 +1912,8 @@ export abstract class UserPrompterServerClass {
 export abstract class UserPrompterServerExtensionClass {
     /* Fields of EBackend-1.2.EBackend.UserPrompterServerExtensionClass */
     parentClass: EDataServer.ExtensionClass
-    registerDialogs: (extension: EDataServer.Extension, server: object) => void
-    prompt: (extension: UserPrompterServerExtension, promptId: number, dialogName: string, parameters?: EDataServer.NamedParameters | null) => boolean
+    registerDialogs: any
+    prompt: any
     static name: string
 }
 export class UserPrompterServerExtensionPrivate {
@@ -1925,8 +1925,8 @@ export class UserPrompterServerPrivate {
 export abstract class WebDAVCollectionBackendClass {
     /* Fields of EBackend-1.2.EBackend.WebDAVCollectionBackendClass */
     parentClass: CollectionBackendClass
-    getResourceId: (webdavBackend: WebDAVCollectionBackend, source: EDataServer.Source) => string | null
-    isCustomSource: (webdavBackend: WebDAVCollectionBackend, source: EDataServer.Source) => boolean
+    getResourceId: any
+    isCustomSource: any
     static name: string
 }
 export class WebDAVCollectionBackendPrivate {

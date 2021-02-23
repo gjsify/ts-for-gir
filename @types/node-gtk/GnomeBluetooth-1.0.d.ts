@@ -5564,7 +5564,7 @@ export class SettingsWidget {
 export abstract class ChooserButtonClass {
     /* Fields of GnomeBluetooth-1.0.GnomeBluetooth.ChooserButtonClass */
     parentClass: Gtk.ButtonClass
-    chooserCreated: (self: ChooserButton, chooser: Gtk.Widget) => void
+    chooserCreated: any
     static name: string
 }
 export abstract class ChooserClass {
@@ -5577,7 +5577,7 @@ export abstract class ChooserClass {
 export abstract class ChooserComboClass {
     /* Fields of GnomeBluetooth-1.0.GnomeBluetooth.ChooserComboClass */
     parentClass: Gtk.BoxClass
-    chooserCreated: (self: ChooserCombo, chooser: Gtk.Widget) => void
+    chooserCreated: any
     static name: string
 }
 export class ChooserComboPrivate {

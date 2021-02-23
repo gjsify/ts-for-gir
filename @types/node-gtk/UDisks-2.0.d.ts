@@ -6430,16 +6430,16 @@ export class SwapspaceSkeleton {
 export abstract class BlockIface {
     /* Fields of UDisks-2.0.UDisks.BlockIface */
     parentIface: GObject.TypeInterface
-    handleAddConfigurationItem: (object: Block, invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => boolean
-    handleFormat: (object: Block, invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => boolean
-    handleGetSecretConfiguration: (object: Block, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
-    handleOpenForBackup: (object: Block, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList, argOptions: GLib.Variant) => boolean
-    handleOpenForBenchmark: (object: Block, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList, argOptions: GLib.Variant) => boolean
-    handleOpenForRestore: (object: Block, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList, argOptions: GLib.Variant) => boolean
-    handleRemoveConfigurationItem: (object: Block, invocation: Gio.DBusMethodInvocation, argItem: GLib.Variant, argOptions: GLib.Variant) => boolean
-    handleRescan: (object: Block, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
-    handleUpdateConfigurationItem: (object: Block, invocation: Gio.DBusMethodInvocation, argOldItem: GLib.Variant, argNewItem: GLib.Variant, argOptions: GLib.Variant) => boolean
-    getConfiguration: (object: Block) => GLib.Variant
+    handleAddConfigurationItem: any
+    handleFormat: any
+    handleGetSecretConfiguration: any
+    handleOpenForBackup: any
+    handleOpenForBenchmark: any
+    handleOpenForRestore: any
+    handleRemoveConfigurationItem: any
+    handleRescan: any
+    handleUpdateConfigurationItem: any
+    getConfiguration: any
     getCryptoBackingDevice: (object: Block) => string
     getDevice: (object: Block) => string
     getDeviceNumber: (object: Block) => number
@@ -6484,14 +6484,14 @@ export class BlockSkeletonPrivate {
 export abstract class DriveAtaIface {
     /* Fields of UDisks-2.0.UDisks.DriveAtaIface */
     parentIface: GObject.TypeInterface
-    handlePmGetState: (object: DriveAta, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
-    handlePmStandby: (object: DriveAta, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
-    handlePmWakeup: (object: DriveAta, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
-    handleSecurityEraseUnit: (object: DriveAta, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
-    handleSmartGetAttributes: (object: DriveAta, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
-    handleSmartSelftestAbort: (object: DriveAta, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
-    handleSmartSelftestStart: (object: DriveAta, invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => boolean
-    handleSmartUpdate: (object: DriveAta, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
+    handlePmGetState: any
+    handlePmStandby: any
+    handlePmWakeup: any
+    handleSecurityEraseUnit: any
+    handleSmartGetAttributes: any
+    handleSmartSelftestAbort: any
+    handleSmartSelftestStart: any
+    handleSmartUpdate: any
     getAamEnabled: (object: DriveAta) => boolean
     getAamSupported: (object: DriveAta) => boolean
     getAamVendorRecommendedValue: (object: DriveAta) => number
@@ -6513,7 +6513,7 @@ export abstract class DriveAtaIface {
     getSmartSupported: (object: DriveAta) => boolean
     getSmartTemperature: (object: DriveAta) => number
     getSmartUpdated: (object: DriveAta) => number
-    handleSmartSetEnabled: (object: DriveAta, invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => boolean
+    handleSmartSetEnabled: any
     getWriteCacheEnabled: (object: DriveAta) => boolean
     getWriteCacheSupported: (object: DriveAta) => boolean
     getReadLookaheadEnabled: (object: DriveAta) => boolean
@@ -6539,9 +6539,9 @@ export class DriveAtaSkeletonPrivate {
 export abstract class DriveIface {
     /* Fields of UDisks-2.0.UDisks.DriveIface */
     parentIface: GObject.TypeInterface
-    handleEject: (object: Drive, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
-    handleSetConfiguration: (object: Drive, invocation: Gio.DBusMethodInvocation, argValue: GLib.Variant, argOptions: GLib.Variant) => boolean
-    getConfiguration: (object: Drive) => GLib.Variant
+    handleEject: any
+    handleSetConfiguration: any
+    getConfiguration: any
     getConnectionBus: (object: Drive) => string
     getEjectable: (object: Drive) => boolean
     getId: (object: Drive) => string
@@ -6568,7 +6568,7 @@ export abstract class DriveIface {
     getTimeMediaDetected: (object: Drive) => number
     getVendor: (object: Drive) => string
     getWwn: (object: Drive) => string
-    handlePowerOff: (object: Drive, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
+    handlePowerOff: any
     getCanPowerOff: (object: Drive) => boolean
     getSiblingId: (object: Drive) => string
     static name: string
@@ -6592,10 +6592,10 @@ export class DriveSkeletonPrivate {
 export abstract class EncryptedIface {
     /* Fields of UDisks-2.0.UDisks.EncryptedIface */
     parentIface: GObject.TypeInterface
-    handleChangePassphrase: (object: Encrypted, invocation: Gio.DBusMethodInvocation, argPassphrase: string, argNewPassphrase: string, argOptions: GLib.Variant) => boolean
-    handleLock: (object: Encrypted, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
-    handleUnlock: (object: Encrypted, invocation: Gio.DBusMethodInvocation, argPassphrase: string, argOptions: GLib.Variant) => boolean
-    getChildConfiguration: (object: Encrypted) => GLib.Variant
+    handleChangePassphrase: any
+    handleLock: any
+    handleUnlock: any
+    getChildConfiguration: any
     static name: string
 }
 export abstract class EncryptedProxyClass {
@@ -6617,9 +6617,9 @@ export class EncryptedSkeletonPrivate {
 export abstract class FilesystemIface {
     /* Fields of UDisks-2.0.UDisks.FilesystemIface */
     parentIface: GObject.TypeInterface
-    handleMount: (object: Filesystem, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
-    handleSetLabel: (object: Filesystem, invocation: Gio.DBusMethodInvocation, argLabel: string, argOptions: GLib.Variant) => boolean
-    handleUnmount: (object: Filesystem, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
+    handleMount: any
+    handleSetLabel: any
+    handleUnmount: any
     getMountPoints: (object: Filesystem) => string[]
     static name: string
 }
@@ -6642,7 +6642,7 @@ export class FilesystemSkeletonPrivate {
 export abstract class JobIface {
     /* Fields of UDisks-2.0.UDisks.JobIface */
     parentIface: GObject.TypeInterface
-    handleCancel: (object: Job, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
+    handleCancel: any
     getCancelable: (object: Job) => boolean
     getExpectedEndTime: (object: Job) => number
     getObjects: (object: Job) => string[]
@@ -6675,8 +6675,8 @@ export class JobSkeletonPrivate {
 export abstract class LoopIface {
     /* Fields of UDisks-2.0.UDisks.LoopIface */
     parentIface: GObject.TypeInterface
-    handleDelete: (object: Loop, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
-    handleSetAutoclear: (object: Loop, invocation: Gio.DBusMethodInvocation, argValue: boolean, argOptions: GLib.Variant) => boolean
+    handleDelete: any
+    handleSetAutoclear: any
     getAutoclear: (object: Loop) => boolean
     getBackingFile: (object: Loop) => string
     getSetupByUid: (object: Loop) => number
@@ -6701,16 +6701,16 @@ export class LoopSkeletonPrivate {
 export abstract class MDRaidIface {
     /* Fields of UDisks-2.0.UDisks.MDRaidIface */
     parentIface: GObject.TypeInterface
-    handleAddDevice: (object: MDRaid, invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => boolean
-    handleDelete: (object: MDRaid, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
-    handleRemoveDevice: (object: MDRaid, invocation: Gio.DBusMethodInvocation, argDevice: string, argOptions: GLib.Variant) => boolean
-    handleRequestSyncAction: (object: MDRaid, invocation: Gio.DBusMethodInvocation, argSyncAction: string, argOptions: GLib.Variant) => boolean
-    handleSetBitmapLocation: (object: MDRaid, invocation: Gio.DBusMethodInvocation, argValue: string, argOptions: GLib.Variant) => boolean
-    handleStart: (object: MDRaid, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
-    handleStop: (object: MDRaid, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
-    getActiveDevices: (object: MDRaid) => GLib.Variant
+    handleAddDevice: any
+    handleDelete: any
+    handleRemoveDevice: any
+    handleRequestSyncAction: any
+    handleSetBitmapLocation: any
+    handleStart: any
+    handleStop: any
+    getActiveDevices: any
     getBitmapLocation: (object: MDRaid) => string
-    getChildConfiguration: (object: MDRaid) => GLib.Variant
+    getChildConfiguration: any
     getChunkSize: (object: MDRaid) => number
     getDegraded: (object: MDRaid) => number
     getLevel: (object: MDRaid) => string
@@ -6744,11 +6744,11 @@ export class MDRaidSkeletonPrivate {
 export abstract class ManagerIface {
     /* Fields of UDisks-2.0.UDisks.ManagerIface */
     parentIface: GObject.TypeInterface
-    handleEnableModules: (object: Manager, invocation: Gio.DBusMethodInvocation, argEnable: boolean) => boolean
-    handleLoopSetup: (object: Manager, invocation: Gio.DBusMethodInvocation, fdList: Gio.UnixFDList, argFd: GLib.Variant, argOptions: GLib.Variant) => boolean
+    handleEnableModules: any
+    handleLoopSetup: any
     getSupportedFilesystems: (object: Manager) => string[]
     getVersion: (object: Manager) => string
-    handleMdraidCreate: (object: Manager, invocation: Gio.DBusMethodInvocation, argBlocks: string, argLevel: string, argName: string, argChunk: number, argOptions: GLib.Variant) => boolean
+    handleMdraidCreate: any
     static name: string
 }
 export abstract class ManagerProxyClass {
@@ -6799,10 +6799,10 @@ export class ObjectSkeletonPrivate {
 export abstract class PartitionIface {
     /* Fields of UDisks-2.0.UDisks.PartitionIface */
     parentIface: GObject.TypeInterface
-    handleDelete: (object: Partition, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
-    handleSetFlags: (object: Partition, invocation: Gio.DBusMethodInvocation, argFlags: number, argOptions: GLib.Variant) => boolean
-    handleSetName: (object: Partition, invocation: Gio.DBusMethodInvocation, argName: string, argOptions: GLib.Variant) => boolean
-    handleSetType: (object: Partition, invocation: Gio.DBusMethodInvocation, argType: string, argOptions: GLib.Variant) => boolean
+    handleDelete: any
+    handleSetFlags: any
+    handleSetName: any
+    handleSetType: any
     getFlags: (object: Partition) => number
     getIsContained: (object: Partition) => boolean
     getIsContainer: (object: Partition) => boolean
@@ -6834,8 +6834,8 @@ export class PartitionSkeletonPrivate {
 export abstract class PartitionTableIface {
     /* Fields of UDisks-2.0.UDisks.PartitionTableIface */
     parentIface: GObject.TypeInterface
-    handleCreatePartition: (object: PartitionTable, invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant) => boolean
-    handleCreatePartitionAndFormat: (object: PartitionTable, invocation: Gio.DBusMethodInvocation, argOffset: number, argSize: number, argType: string, argName: string, argOptions: GLib.Variant, argFormatType: string, argFormatOptions: GLib.Variant) => boolean
+    handleCreatePartition: any
+    handleCreatePartitionAndFormat: any
     getType: (object: PartitionTable) => string
     static name: string
 }
@@ -6868,8 +6868,8 @@ export class PartitionTypeInfo {
 export abstract class SwapspaceIface {
     /* Fields of UDisks-2.0.UDisks.SwapspaceIface */
     parentIface: GObject.TypeInterface
-    handleStart: (object: Swapspace, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
-    handleStop: (object: Swapspace, invocation: Gio.DBusMethodInvocation, argOptions: GLib.Variant) => boolean
+    handleStart: any
+    handleStop: any
     getActive: (object: Swapspace) => boolean
     static name: string
 }

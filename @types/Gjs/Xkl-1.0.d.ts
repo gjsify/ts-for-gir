@@ -393,7 +393,7 @@ export abstract class EngineClass {
     /* Fields of Xkl-1.0.Xkl.EngineClass */
     parent_class: GObject.ObjectClass
     config_notify: (engine: Engine) => void
-    new_window_notify: (engine: Engine, win: xlib.Window, parent: xlib.Window) => number
+    new_window_notify: any
     state_notify: (engine: Engine, change_type: EngineStateChange, group: number, restore: boolean) => void
     new_device_notify: (engine: Engine) => void
     static name: string

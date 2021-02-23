@@ -3954,16 +3954,16 @@ export class CellRendererColorPrivate {
 export abstract class CredentialsPrompterClass {
     /* Fields of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterClass */
     parentClass: GObject.ObjectClass
-    getDialogParent: (prompter: CredentialsPrompter) => Gtk.Window
+    getDialogParent: any
     static name: string
 }
 export abstract class CredentialsPrompterImplClass {
     /* Fields of EDataServerUI-1.2.EDataServerUI.CredentialsPrompterImplClass */
     parentClass: EDataServer.ExtensionClass
     authenticationMethods: string
-    processPrompt: (prompterImpl: CredentialsPrompterImpl, promptId: object | null, authSource: EDataServer.Source, credSource: EDataServer.Source, errorText: string, credentials: EDataServer.NamedParameters) => void
+    processPrompt: any
     cancelPrompt: (prompterImpl: CredentialsPrompterImpl, promptId?: object | null) => void
-    promptFinished: (prompterImpl: CredentialsPrompterImpl, promptId: object | null, credentials: EDataServer.NamedParameters) => void
+    promptFinished: any
     static name: string
 }
 export abstract class CredentialsPrompterImplOAuth2Class {
@@ -3991,7 +3991,7 @@ export class CredentialsPrompterPrivate {
 export abstract class RemindersWidgetClass {
     /* Fields of EDataServerUI-1.2.EDataServerUI.RemindersWidgetClass */
     changed: (reminders: RemindersWidget) => void
-    activated: (reminders: RemindersWidget, rd: ECal.ReminderData) => boolean
+    activated: any
     static name: string
 }
 export class RemindersWidgetPrivate {

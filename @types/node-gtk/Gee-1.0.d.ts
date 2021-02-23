@@ -3104,7 +3104,7 @@ export abstract class AbstractMultiMapClass {
     parentClass: GObject.ObjectClass
     createValueStorage: (self: AbstractMultiMap) => Collection
     createMultiKeySet: (self: AbstractMultiMap) => MultiSet
-    getValueEqualFunc: (self: AbstractMultiMap) => GLib.EqualFunc
+    getValueEqualFunc: any
     static name: string
 }
 export class AbstractMultiMapPrivate {
@@ -3296,7 +3296,7 @@ export abstract class ListIface {
     first: (self: List) => object | null
     last: (self: List) => object | null
     insertAll: (self: List, index: number, collection: Collection) => void
-    sort: (self: List, compareFunc?: GLib.CompareFunc | null) => void
+    sort: any
     static name: string
 }
 export abstract class ListIteratorIface {

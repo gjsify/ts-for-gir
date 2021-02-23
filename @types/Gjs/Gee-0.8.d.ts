@@ -7818,7 +7818,7 @@ export abstract class AbstractMapClass {
     map_iterator: () => MapIterator
     clear: () => void
     foreach: (f: ForallFunc) => boolean
-    stream: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc) => Iterator
+    stream: any
     reserved0: () => void
     reserved1: () => void
     reserved2: () => void
@@ -7838,7 +7838,7 @@ export abstract class AbstractMultiMapClass {
     /* Fields of Gee-0.8.Gee.AbstractMultiMapClass */
     create_value_storage: () => Collection
     create_multi_key_set: () => MultiSet
-    get_value_equal_func: () => [ /* returnType */ EqualDataFunc, /* result_target */ object | null, /* result_target_destroy_notify */ GLib.DestroyNotify ]
+    get_value_equal_func: any
     reserved0: () => void
     reserved1: () => void
     reserved2: () => void
@@ -8174,16 +8174,16 @@ export abstract class FutureIface {
     /* Fields of Gee-0.8.Gee.FutureIface */
     wait: () => object | null
     wait_until: (end_time: number) => [ /* returnType */ boolean, /* value */ object | null ]
-    wait_async: (_callback_?: Gio.AsyncReadyCallback | null) => void
-    wait_finish: (_res_: Gio.AsyncResult) => object | null
-    map: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any) => Future
-    light_map: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any) => Future
-    light_map_broken: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any) => Future
-    zip: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, b_type: GObject.Type, b_dup_func: GObject.BoxedCopyFunc, b_destroy_func: GLib.DestroyNotify, zip_func: any, second: Future) => Future
-    flat_map: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, func: any) => Future
+    wait_async: any
+    wait_finish: any
+    map: any
+    light_map: any
+    light_map_broken: any
+    zip: any
+    flat_map: any
     get_value: () => object | null
     get_ready: () => boolean
-    get_exception: () => GLib.Error | null
+    get_exception: any
     static name: string
 }
 export abstract class HashableIface {
@@ -8219,7 +8219,7 @@ export abstract class ListIface {
     first: () => object | null
     last: () => object | null
     insert_all: (index: number, collection: Collection) => void
-    sort: (compare_func: GLib.CompareDataFunc | null) => void
+    sort: any
     get_read_only_view: () => List
     static name: string
 }
@@ -8265,7 +8265,7 @@ export abstract class MapIteratorIface {
     get_value: () => object | null
     set_value: (value?: object | null) => void
     unset: () => void
-    fold: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldMapFunc, seed?: object | null) => object | null
+    fold: any
     foreach: (f: ForallMapFunc) => boolean
     get_valid: () => boolean
     get_mutable: () => boolean
@@ -8339,20 +8339,20 @@ export abstract class SortedSetIface {
 export abstract class TraversableIface {
     /* Fields of Gee-0.8.Gee.TraversableIface */
     foreach: (f: ForallFunc) => boolean
-    stream: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: StreamFunc) => Iterator
-    fold: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null) => object | null
-    map: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: MapFunc) => Iterator
-    scan: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FoldFunc, seed?: object | null) => Iterator
+    stream: any
+    fold: any
+    map: any
+    scan: any
     filter: (pred: Predicate) => Iterator
     chop: (offset: number, length: number) => Iterator
-    flat_map: (a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: FlatMapFunc) => Iterator
+    flat_map: any
     tee: (forks: number) => Iterator[]
     first_match: (pred: Predicate) => object | null
     any_match: (pred: Predicate) => boolean
     all_match: (pred: Predicate) => boolean
-    max: (compare: GLib.CompareDataFunc) => object | null
-    min: (compare: GLib.CompareDataFunc) => object | null
-    order_by: (compare: GLib.CompareDataFunc | null) => Iterator
-    get_element_type: () => GObject.Type
+    max: any
+    min: any
+    order_by: any
+    get_element_type: any
     static name: string
 }

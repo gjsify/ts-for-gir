@@ -32174,9 +32174,9 @@ export abstract class ServicesContractIface {
     /* Fields of Granite-1.0.Granite.ServicesContractIface */
     getDisplayName: () => string
     getDescription: () => string
-    getIcon: () => Gio.Icon
-    executeWithFile: (file: Gio.File) => void
-    executeWithFiles: (files: Gio.File[]) => void
+    getIcon: any
+    executeWithFile: any
+    executeWithFiles: any
     static name: string
 }
 export abstract class ServicesSettingsSerializableIface {
@@ -32205,7 +32205,7 @@ export class WidgetsCellRendererBadgePrivate {
 }
 export abstract class WidgetsCellRendererExpanderClass {
     /* Fields of Granite-1.0.Granite.WidgetsCellRendererExpanderClass */
-    getArrowSize: (widget: Gtk.Widget) => number
+    getArrowSize: any
     static name: string
 }
 export class WidgetsCellRendererExpanderPrivate {
@@ -32225,7 +32225,7 @@ export class WidgetsCompositedWindowPrivate {
 }
 export abstract class WidgetsDatePickerClass {
     /* Fields of Granite-1.0.Granite.WidgetsDatePickerClass */
-    positionDropdown: () => { rect: Gdk.Rectangle }
+    positionDropdown: any
     static name: string
 }
 export class WidgetsDatePickerPrivate {
@@ -32265,7 +32265,7 @@ export class WidgetsSourceListPrivate {
 }
 export abstract class WidgetsSourceListItemClass {
     /* Fields of Granite-1.0.Granite.WidgetsSourceListItemClass */
-    getContextMenu: () => Gtk.Menu | null
+    getContextMenu: any
     edited: (newName: string) => void
     actionActivated: () => void
     activated: () => void
@@ -32323,13 +32323,13 @@ export abstract class WidgetsSourceListSortableIface {
 export abstract class WidgetsSourceListDragSourceIface {
     /* Fields of Granite-1.0.Granite.WidgetsSourceListDragSourceIface */
     draggable: () => boolean
-    prepareSelectionData: (selectionData: Gtk.SelectionData) => void
+    prepareSelectionData: any
     static name: string
 }
 export abstract class WidgetsSourceListDragDestIface {
     /* Fields of Granite-1.0.Granite.WidgetsSourceListDragDestIface */
-    dataDropPossible: (context: Gdk.DragContext, data: Gtk.SelectionData) => boolean
-    dataReceived: (context: Gdk.DragContext, data: Gtk.SelectionData) => Gdk.DragAction
+    dataDropPossible: any
+    dataReceived: any
     static name: string
 }
 export abstract class ApplicationClass {

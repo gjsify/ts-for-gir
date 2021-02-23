@@ -12719,7 +12719,7 @@ export abstract class AssetClass {
     extract: (self: Asset) => Extractable
     inform_proxy: (self: Asset, proxy_id: string) => void
     proxied: (self: Asset, proxy: Asset) => void
-    request_id_update: (self: Asset, proposed_new_id: string, error: GLib.Error) => boolean
+    request_id_update: any
     _ges_reserved: object[]
     static name: string
 }
@@ -12784,7 +12784,7 @@ export abstract class BaseXmlFormatterClass {
     /* Fields of GES-1.0.GES.BaseXmlFormatterClass */
     parent: FormatterClass
     content_parser: GLib.MarkupParser
-    save: (formatter: Formatter, timeline: Timeline) => GLib.String
+    save: any
     _ges_reserved: object[]
     static name: string
 }
@@ -12863,8 +12863,8 @@ export abstract class ExtractableInterface {
     set_asset: (self: Extractable, asset: Asset) => void
     set_asset_full: (self: Extractable, asset: Asset) => boolean
     get_id: (self: Extractable) => string
-    get_real_extractable_type: (wanted_type: GObject.Type, id: string) => GObject.Type
-    register_metas: (self: ExtractableInterface, klass: GObject.ObjectClass, asset: Asset) => boolean
+    get_real_extractable_type: any
+    register_metas: any
     _ges_reserved: object[]
     static name: string
 }
@@ -12971,8 +12971,8 @@ export abstract class ProjectClass {
     asset_added: (self: Project, asset: Asset) => void
     asset_loading: (self: Project, asset: Asset) => void
     asset_removed: (self: Project, asset: Asset) => void
-    missing_uri: (self: Project, error: GLib.Error, wrong_asset: Asset) => string
-    loading_error: (self: Project, error: GLib.Error, id: string, extractable_type: GObject.Type) => boolean
+    missing_uri: any
+    loading_error: any
     loaded: (self: Project, timeline: Timeline) => boolean
     loading: (self: Project, timeline: Timeline) => void
     _ges_reserved: object[]
@@ -12983,7 +12983,7 @@ export class ProjectPrivate {
 }
 export abstract class SourceClass {
     /* Fields of GES-1.0.GES.SourceClass */
-    select_pad: (source: Source, pad: Gst.Pad) => boolean
+    select_pad: any
     static name: string
 }
 export abstract class SourceClipAssetClass {
@@ -13034,10 +13034,10 @@ export abstract class TimelineElementClass {
     /* Fields of GES-1.0.GES.TimelineElementClass */
     parent_class: GObject.InitiallyUnownedClass
     set_parent: (self: TimelineElement, parent: TimelineElement) => boolean
-    set_start: (self: TimelineElement, start: Gst.ClockTime) => boolean
-    set_inpoint: (self: TimelineElement, inpoint: Gst.ClockTime) => boolean
-    set_duration: (self: TimelineElement, duration: Gst.ClockTime) => boolean
-    set_max_duration: (self: TimelineElement, maxduration: Gst.ClockTime) => boolean
+    set_start: any
+    set_inpoint: any
+    set_duration: any
+    set_max_duration: any
     set_priority: (self: TimelineElement, priority: number) => boolean
     ripple: (self: TimelineElement, start: number) => boolean
     ripple_end: (self: TimelineElement, end: number) => boolean
@@ -13045,12 +13045,12 @@ export abstract class TimelineElementClass {
     roll_end: (self: TimelineElement, end: number) => boolean
     trim: (self: TimelineElement, start: number) => boolean
     deep_copy: (self: TimelineElement, copy: TimelineElement) => void
-    lookup_child: (self: TimelineElement, prop_name: string) => [ /* returnType */ boolean, /* child */ GObject.Object | null, /* pspec */ GObject.ParamSpec | null ]
+    lookup_child: any
     get_track_types: (self: TimelineElement) => TrackType
-    set_child_property: (self: TimelineElement, child: GObject.Object, pspec: GObject.ParamSpec, value: any) => void
+    set_child_property: any
     get_layer_priority: (self: TimelineElement) => number
     get_natural_framerate: (self: TimelineElement) => [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
-    set_child_property_full: (self: TimelineElement, child: GObject.Object, pspec: GObject.ParamSpec, value: any) => boolean
+    set_child_property_full: any
     _ges_reserved: object[]
     static name: string
 }
@@ -13092,7 +13092,7 @@ export abstract class TrackElementClass {
     nleobject_factorytype: string
     active_changed: (object: TrackElement, active: boolean) => void
     changed: (object: TrackElement) => void
-    lookup_child: (object: TrackElement, prop_name: string) => [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
+    lookup_child: any
     static name: string
 }
 export class TrackElementPrivate {
@@ -13116,7 +13116,7 @@ export class TransitionPrivate {
 export abstract class UriClipAssetClass {
     /* Fields of GES-1.0.GES.UriClipAssetClass */
     parent_class: SourceClipAssetClass
-    discovered: (discoverer: GstPbutils.Discoverer, info: GstPbutils.DiscovererInfo, err: GLib.Error) => void
+    discovered: any
     /* Methods of GES-1.0.GES.UriClipAssetClass */
     set_timeout(klass: UriClipAsset | Function | GObject.Type, timeout: Gst.ClockTime): void
     static name: string

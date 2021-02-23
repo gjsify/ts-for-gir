@@ -831,7 +831,7 @@ export abstract class BGClass {
 export abstract class BGCrossfadeClass {
     /* Fields of GnomeDesktop-3.0.GnomeDesktop.BGCrossfadeClass */
     parentClass: GObject.ObjectClass
-    finished: (fade: BGCrossfade, window: Gdk.Window) => void
+    finished: any
     static name: string
 }
 export class BGCrossfadePrivate {

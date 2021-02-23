@@ -1982,7 +1982,7 @@ export class PluginLoaderPrivate {
 }
 export abstract class RecursiveModuleLoaderClass {
     /* Fields of RygelCore-2.6.RygelCore.RecursiveModuleLoaderClass */
-    load_module_from_file: (file: Gio.File) => boolean
+    load_module_from_file: any
     load_module_from_info: (info: PluginInformation) => boolean
     static name: string
 }
@@ -2027,9 +2027,9 @@ export abstract class BaseConfigurationClass {
     get_enabled: (section: string) => boolean
     get_title: (section: string) => string
     get_string: (section: string, key: string) => string
-    get_string_list: (section: string, key: string) => Gee.ArrayList
+    get_string_list: any
     get_int: (section: string, key: string, min: number, max: number) => number
-    get_int_list: (section: string, key: string) => Gee.ArrayList
+    get_int_list: any
     get_bool: (section: string, key: string) => boolean
     static name: string
 }
@@ -2097,8 +2097,8 @@ export abstract class DBusInterfaceIface {
 }
 export abstract class DBusAclProviderIface {
     /* Fields of RygelCore-2.6.RygelCore.DBusAclProviderIface */
-    is_allowed: (device: GLib.HashTable, service: GLib.HashTable, path: string, address: string, agent?: string | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    is_allowed_finish: (_res_: Gio.AsyncResult) => boolean
+    is_allowed: any
+    is_allowed_finish: any
     static name: string
 }
 export abstract class ConfigurationIface {
@@ -2119,17 +2119,17 @@ export abstract class ConfigurationIface {
     get_enabled: (section: string) => boolean
     get_title: (section: string) => string
     get_string: (section: string, key: string) => string
-    get_string_list: (section: string, key: string) => Gee.ArrayList
+    get_string_list: any
     get_int: (section: string, key: string, min: number, max: number) => number
-    get_int_list: (section: string, key: string) => Gee.ArrayList
+    get_int_list: any
     get_bool: (section: string, key: string) => boolean
     static name: string
 }
 export abstract class StateMachineIface {
     /* Fields of RygelCore-2.6.RygelCore.StateMachineIface */
-    run: (_callback_?: Gio.AsyncReadyCallback | null) => void
-    run_finish: (_res_: Gio.AsyncResult) => void
-    get_cancellable: () => Gio.Cancellable
-    set_cancellable: (value: Gio.Cancellable) => void
+    run: any
+    run_finish: any
+    get_cancellable: any
+    set_cancellable: any
     static name: string
 }

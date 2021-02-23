@@ -240,7 +240,7 @@ export class Profile {
 export abstract class DiscovererClass {
     /* Fields of GUPnPDLNA-1.0.GUPnPDLNA.DiscovererClass */
     parentClass: GstPbutils.DiscovererClass
-    done: (discoverer: Discoverer, dlna: Information, err: GLib.Error) => void
+    done: any
     static name: string
 }
 export abstract class InformationClass {

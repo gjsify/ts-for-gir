@@ -397,16 +397,16 @@ export class AccessPoint {
     connectionValid(connection: NetworkManager.Connection): boolean
     filterConnections(connections: NetworkManager.Connection[]): NetworkManager.Connection[]
     getBssid(): string
-    getFlags(): NetworkManager.TODO_80211ApFlags
+    getFlags(): any
     getFrequency(): number
     getHwAddress(): string
     getLastSeen(): number
     getMaxBitrate(): number
-    getMode(): NetworkManager.TODO_80211Mode
-    getRsnFlags(): NetworkManager.TODO_80211ApSecurityFlags
+    getMode(): any
+    getRsnFlags(): any
     getSsid(): any[]
     getStrength(): number
-    getWpaFlags(): NetworkManager.TODO_80211ApSecurityFlags
+    getWpaFlags(): any
     /* Methods of NMClient-1.0.NMClient.Object */
     getConnection(): DBusGLib.Connection
     getPath(): string
@@ -4289,7 +4289,7 @@ export class DeviceWifi {
     getBitrate(): number
     getCapabilities(): NetworkManager.DeviceWifiCapabilities
     getHwAddress(): string
-    getMode(): NetworkManager.TODO_80211Mode
+    getMode(): any
     getPermanentHwAddress(): string
     requestScanSimple(callback?: DeviceWifiRequestScanFn | null): void
     /* Methods of NMClient-1.0.NMClient.Device */
@@ -5837,11 +5837,11 @@ export abstract class DeviceBtClass {
 export abstract class DeviceClass {
     /* Fields of NMClient-1.0.NMClient.DeviceClass */
     parent: ObjectClass
-    stateChanged: (device: Device, newState: NetworkManager.DeviceState, oldState: NetworkManager.DeviceState, reason: NetworkManager.DeviceStateReason) => void
-    connectionCompatible: (device: Device, connection: NetworkManager.Connection) => boolean
+    stateChanged: any
+    connectionCompatible: any
     getTypeDescription: (device: Device) => string
     getHwAddress: (device: Device) => string
-    getSettingType: (device: Device) => GObject.Type
+    getSettingType: any
     static name: string
 }
 export abstract class DeviceEthernetClass {
@@ -5906,13 +5906,13 @@ export abstract class IP6ConfigClass {
 export abstract class ObjectClass {
     /* Fields of NMClient-1.0.NMClient.ObjectClass */
     parent: GObject.ObjectClass
-    objectCreationFailed: (masterObject: Object, error: GLib.Error, failedPath: string) => void
+    objectCreationFailed: any
     static name: string
 }
 export abstract class RemoteConnectionClass {
     /* Fields of NMClient-1.0.NMClient.RemoteConnectionClass */
     parentClass: NetworkManager.ConnectionClass
-    updated: (connection: RemoteConnection, newSettings: GLib.HashTable) => void
+    updated: any
     removed: (connection: RemoteConnection) => void
     static name: string
 }
@@ -5926,17 +5926,17 @@ export abstract class RemoteSettingsClass {
 export abstract class SecretAgentClass {
     /* Fields of NMClient-1.0.NMClient.SecretAgentClass */
     parent: GObject.ObjectClass
-    getSecrets: (self: SecretAgent, connection: NetworkManager.Connection, connectionPath: string, settingName: string, hints: string[], flags: SecretAgentGetSecretsFlags, callback: SecretAgentGetSecretsFunc) => void
+    getSecrets: any
     cancelGetSecrets: (self: SecretAgent, connectionPath: string, settingName: string) => void
-    saveSecrets: (self: SecretAgent, connection: NetworkManager.Connection, connectionPath: string, callback: SecretAgentSaveSecretsFunc) => void
-    deleteSecrets: (self: SecretAgent, connection: NetworkManager.Connection, connectionPath: string, callback: SecretAgentDeleteSecretsFunc) => void
-    registrationResult: (agent: SecretAgent, error: GLib.Error) => void
+    saveSecrets: any
+    deleteSecrets: any
+    registrationResult: any
     static name: string
 }
 export abstract class VPNConnectionClass {
     /* Fields of NMClient-1.0.NMClient.VPNConnectionClass */
     parent: ActiveConnectionClass
-    vpnStateChanged: (connection: VPNConnection, state: NetworkManager.VPNConnectionState, reason: NetworkManager.VPNConnectionStateReason) => void
+    vpnStateChanged: any
     static name: string
 }
 export abstract class WimaxNspClass {

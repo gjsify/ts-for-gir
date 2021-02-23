@@ -391,9 +391,9 @@ export abstract class RTSPExtensionInterface {
     detectServer: (ext: RTSPExtension, resp: RTSPMessage) => boolean
     beforeSend: (ext: RTSPExtension, req: RTSPMessage) => RTSPResult
     afterSend: (ext: RTSPExtension, req: RTSPMessage, resp: RTSPMessage) => RTSPResult
-    parseSdp: (ext: RTSPExtension, sdp: GstSdp.SDPMessage, s: Gst.Structure) => RTSPResult
-    setupMedia: (ext: RTSPExtension, media: GstSdp.SDPMedia) => RTSPResult
-    configureStream: (ext: RTSPExtension, caps: Gst.Caps) => boolean
+    parseSdp: any
+    setupMedia: any
+    configureStream: any
     getTransports: (ext: RTSPExtension, protocols: RTSPLowerTrans, transport: string) => RTSPResult
     streamSelect: (ext: RTSPExtension, url: RTSPUrl) => RTSPResult
     send: (ext: RTSPExtension, req: RTSPMessage, resp: RTSPMessage) => RTSPResult

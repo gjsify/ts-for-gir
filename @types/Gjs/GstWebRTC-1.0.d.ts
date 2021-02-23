@@ -800,7 +800,7 @@ export abstract class WebRTCDTLSTransportClass {
 export abstract class WebRTCDataChannelClass {
     /* Fields of GstWebRTC-1.0.GstWebRTC.WebRTCDataChannelClass */
     parent_class: GObject.ObjectClass
-    send_data: (channel: WebRTCDataChannel, data?: GLib.Bytes | null) => void
+    send_data: any
     send_string: (channel: WebRTCDataChannel, str?: string | null) => void
     close: (channel: WebRTCDataChannel) => void
     _padding: object[]

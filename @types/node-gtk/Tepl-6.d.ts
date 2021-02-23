@@ -15703,11 +15703,11 @@ export class View {
 export abstract class AbstractFactoryClass {
     /* Fields of Tepl-6.Tepl.AbstractFactoryClass */
     parentClass: GObject.ObjectClass
-    createMainWindow: (factory: AbstractFactory, app: Gtk.Application) => Gtk.ApplicationWindow | null
+    createMainWindow: any
     createTab: (factory: AbstractFactory) => Tab
-    createTabLabel: (factory: AbstractFactory, tab: Tab) => Gtk.Widget | null
+    createTabLabel: any
     createFile: (factory: AbstractFactory) => File
-    createMetadataManagerFile: (factory: AbstractFactory) => Gio.File | null
+    createMetadataManagerFile: any
     static name: string
 }
 export abstract class ApplicationClass {
@@ -15804,8 +15804,8 @@ export class LanguageChooserDialogPrivate {
 export abstract class LanguageChooserInterface {
     /* Fields of Tepl-6.Tepl.LanguageChooserInterface */
     parentInterface: GObject.TypeInterface
-    selectLanguage: (chooser: LanguageChooser, language?: GtkSource.Language | null) => void
-    languageActivated: (chooser: LanguageChooser, language: GtkSource.Language) => void
+    selectLanguage: any
+    languageActivated: any
     static name: string
 }
 export abstract class LanguageChooserWidgetClass {
@@ -15896,7 +15896,7 @@ export abstract class TabClass {
     /* Fields of Tepl-6.Tepl.TabClass */
     parentClass: Gtk.GridClass
     packView: (tab: Tab, view: View) => void
-    packInfoBar: (tab: Tab, infoBar: Gtk.InfoBar) => void
+    packInfoBar: any
     packGotoLineBar: (tab: Tab, gotoLineBar: GotoLineBar) => void
     closeRequest: (tab: Tab) => void
     static name: string

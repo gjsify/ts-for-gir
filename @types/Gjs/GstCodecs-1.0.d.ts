@@ -1433,12 +1433,12 @@ export class Vp9Decoder {
 export abstract class H264DecoderClass {
     /* Fields of GstCodecs-1.0.GstCodecs.H264DecoderClass */
     parent_class: GstVideo.VideoDecoderClass
-    new_picture: (decoder: H264Decoder, frame: GstVideo.VideoCodecFrame, picture: H264Picture) => boolean
+    new_picture: any
     new_field_picture: (decoder: H264Decoder, first_field: H264Picture, second_field: H264Picture) => boolean
     start_picture: (decoder: H264Decoder, picture: H264Picture, slice: H264Slice, dpb: H264Dpb) => boolean
     decode_slice: (decoder: H264Decoder, picture: H264Picture, slice: H264Slice, ref_pic_list0: H264Picture[], ref_pic_list1: H264Picture[]) => boolean
     end_picture: (decoder: H264Decoder, picture: H264Picture) => boolean
-    output_picture: (decoder: H264Decoder, frame: GstVideo.VideoCodecFrame, picture: H264Picture) => Gst.FlowReturn
+    output_picture: any
     get_preferred_output_delay: (decoder: H264Decoder, live: boolean) => number
     static name: string
 }
@@ -1486,10 +1486,10 @@ export class H264Slice {
 export abstract class H265DecoderClass {
     /* Fields of GstCodecs-1.0.GstCodecs.H265DecoderClass */
     parent_class: GstVideo.VideoDecoderClass
-    new_picture: (decoder: H265Decoder, frame: GstVideo.VideoCodecFrame, picture: H265Picture) => boolean
+    new_picture: any
     start_picture: (decoder: H265Decoder, picture: H265Picture, slice: H265Slice, dpb: H265Dpb) => boolean
     end_picture: (decoder: H265Decoder, picture: H265Picture) => boolean
-    output_picture: (decoder: H265Decoder, frame: GstVideo.VideoCodecFrame, picture: H265Picture) => Gst.FlowReturn
+    output_picture: any
     static name: string
 }
 export class H265DecoderPrivate {
@@ -1533,12 +1533,12 @@ export class H265Slice {
 export abstract class Mpeg2DecoderClass {
     /* Fields of GstCodecs-1.0.GstCodecs.Mpeg2DecoderClass */
     parent_class: GstVideo.VideoDecoderClass
-    new_picture: (decoder: Mpeg2Decoder, frame: GstVideo.VideoCodecFrame, picture: Mpeg2Picture) => boolean
+    new_picture: any
     new_field_picture: (decoder: Mpeg2Decoder, first_field: Mpeg2Picture, second_field: Mpeg2Picture) => boolean
     start_picture: (decoder: Mpeg2Decoder, picture: Mpeg2Picture, slice: Mpeg2Slice, prev_picture: Mpeg2Picture, next_picture: Mpeg2Picture) => boolean
     decode_slice: (decoder: Mpeg2Decoder, picture: Mpeg2Picture, slice: Mpeg2Slice) => boolean
     end_picture: (decoder: Mpeg2Decoder, picture: Mpeg2Picture) => boolean
-    output_picture: (decoder: Mpeg2Decoder, frame: GstVideo.VideoCodecFrame, picture: Mpeg2Picture) => Gst.FlowReturn
+    output_picture: any
     static name: string
 }
 export class Mpeg2DecoderPrivate {
@@ -1570,10 +1570,10 @@ export class Mpeg2Slice {
 export abstract class Vp8DecoderClass {
     /* Fields of GstCodecs-1.0.GstCodecs.Vp8DecoderClass */
     parent_class: GstVideo.VideoDecoderClass
-    new_picture: (decoder: Vp8Decoder, frame: GstVideo.VideoCodecFrame, picture: Vp8Picture) => boolean
+    new_picture: any
     start_picture: (decoder: Vp8Decoder, picture: Vp8Picture) => boolean
     end_picture: (decoder: Vp8Decoder, picture: Vp8Picture) => boolean
-    output_picture: (decoder: Vp8Decoder, frame: GstVideo.VideoCodecFrame, picture: Vp8Picture) => Gst.FlowReturn
+    output_picture: any
     static name: string
 }
 export class Vp8DecoderPrivate {
@@ -1600,12 +1600,12 @@ export class Vp8Picture {
 export abstract class Vp9DecoderClass {
     /* Fields of GstCodecs-1.0.GstCodecs.Vp9DecoderClass */
     parent_class: GstVideo.VideoDecoderClass
-    new_picture: (decoder: Vp9Decoder, frame: GstVideo.VideoCodecFrame, picture: Vp9Picture) => boolean
+    new_picture: any
     duplicate_picture: (decoder: Vp9Decoder, picture: Vp9Picture) => Vp9Picture
     start_picture: (decoder: Vp9Decoder, picture: Vp9Picture) => boolean
     decode_picture: (decoder: Vp9Decoder, picture: Vp9Picture, dpb: Vp9Dpb) => boolean
     end_picture: (decoder: Vp9Decoder, picture: Vp9Picture) => boolean
-    output_picture: (decoder: Vp9Decoder, frame: GstVideo.VideoCodecFrame, picture: Vp9Picture) => Gst.FlowReturn
+    output_picture: any
     static name: string
 }
 export class Vp9DecoderPrivate {

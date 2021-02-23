@@ -255,3 +255,4 @@ npm run test:girs
 * [vala-girs](https://github.com/nemequ/vala-girs) - Collection of GIRs and VAPIs for the Vala toolchain
 * [gjs-examples](https://github.com/optimisme/gjs-examples) - GJS examples showing how to build Gtk javascript applications
 * [hello-gjs-npm](https://github.com/jo/hello-gjs-npm) - Gjs example using Babel and Rollup
+* [vala-object](https://github.com/antono/vala-object) - Set of examples of how you can build native code with Vala and use it in Gjs, Node.js and other environments

@@ -8888,7 +8888,7 @@ export class View {
 export abstract class BufferClass {
     /* Fields of GtkSource-5.GtkSource.BufferClass */
     parentClass: Gtk.TextBufferClass
-    bracketMatched: (buffer: Buffer, iter: Gtk.TextIter, state: BracketMatchType) => void
+    bracketMatched: any
     static name: string
 }
 export abstract class CompletionCellClass {
@@ -8916,11 +8916,11 @@ export abstract class CompletionProviderInterface {
     parentIface: GObject.TypeInterface
     getTitle: (self: CompletionProvider) => string
     getPriority: (self: CompletionProvider, context: CompletionContext) => number
-    isTrigger: (self: CompletionProvider, iter: Gtk.TextIter, ch: number) => boolean
-    keyActivates: (self: CompletionProvider, context: CompletionContext, proposal: CompletionProposal, keyval: number, state: Gdk.ModifierType) => boolean
-    populateAsync: (self: CompletionProvider, context: CompletionContext, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    populateFinish: (self: CompletionProvider, result: Gio.AsyncResult) => Gio.ListModel
-    refilter: (self: CompletionProvider, context: CompletionContext, model: Gio.ListModel) => void
+    isTrigger: any
+    keyActivates: any
+    populateAsync: any
+    populateFinish: any
+    refilter: any
     display: (self: CompletionProvider, context: CompletionContext, proposal: CompletionProposal, cell: CompletionCell) => void
     activate: (self: CompletionProvider, context: CompletionContext, proposal: CompletionProposal) => void
     listAlternates: (self: CompletionProvider, context: CompletionContext, proposal: CompletionProposal) => CompletionProposal[] | null
@@ -8981,12 +8981,12 @@ export abstract class GutterRendererClass {
     parentClass: Gtk.WidgetClass
     queryData: (renderer: GutterRenderer, lines: GutterLines, line: number) => void
     begin: (renderer: GutterRenderer, lines: GutterLines) => void
-    snapshotLine: (renderer: GutterRenderer, snapshot: Gtk.Snapshot, lines: GutterLines, line: number) => void
+    snapshotLine: any
     end: (renderer: GutterRenderer) => void
     changeView: (renderer: GutterRenderer, oldView?: View | null) => void
     changeBuffer: (renderer: GutterRenderer, oldBuffer?: Buffer | null) => void
-    queryActivatable: (renderer: GutterRenderer, iter: Gtk.TextIter, area: Gdk.Rectangle) => boolean
-    activate: (renderer: GutterRenderer, iter: Gtk.TextIter, area: Gdk.Rectangle, button: number, state: Gdk.ModifierType, nPresses: number) => void
+    queryActivatable: any
+    activate: any
     static name: string
 }
 export abstract class GutterRendererPixbufClass {
@@ -9116,11 +9116,11 @@ export abstract class TagClass {
 export abstract class ViewClass {
     /* Fields of GtkSource-5.GtkSource.ViewClass */
     parentClass: Gtk.TextViewClass
-    lineMarkActivated: (view: View, iter: Gtk.TextIter, button: number, state: Gdk.ModifierType, nPresses: number) => void
+    lineMarkActivated: any
     showCompletion: (view: View) => void
     moveLines: (view: View, down: boolean) => void
     moveWords: (view: View, step: number) => void
-    pushSnippet: (view: View, snippet: Snippet, location?: Gtk.TextIter | null) => void
+    pushSnippet: any
     static name: string
 }
 }

@@ -38,7 +38,7 @@ export default class List extends Command {
         const moduleGroups = Object.values(grouped)
         if (Object.keys(grouped).length === 0) {
             // this.log(chalk.red('No modules found'))
-            return this.error('No modules found')
+            return this.error('No modules found in ' + config.girDirectories)
         }
 
         const conflictModules = moduleGroups.filter((moduleGroup) => moduleGroup.hasConflict)

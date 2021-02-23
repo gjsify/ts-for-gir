@@ -4397,7 +4397,7 @@ export abstract class SettingClass {
     update_one_secret: (setting: Setting, key: string, value: any) => number
     get_secret_flags: (setting: Setting, secret_name: string, verify_secret: boolean, out_flags: SettingSecretFlags) => boolean
     set_secret_flags: (setting: Setting, secret_name: string, verify_secret: boolean, flags: SettingSecretFlags) => boolean
-    compare_property: (setting: Setting, other: Setting, prop_spec: GObject.ParamSpec, flags: SettingCompareFlags) => boolean
+    compare_property: any
     get_virtual_iface_name: (setting: Setting) => string
     static name: string
 }

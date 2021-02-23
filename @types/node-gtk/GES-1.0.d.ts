@@ -13484,7 +13484,7 @@ export abstract class AssetClass {
     extract: (self: Asset) => Extractable
     informProxy: (self: Asset, proxyId: string) => void
     proxied: (self: Asset, proxy: Asset) => void
-    requestIdUpdate: (self: Asset, proposedNewId: string, error: GLib.Error) => boolean
+    requestIdUpdate: any
     gesReserved: object[]
     static name: string
 }
@@ -13549,7 +13549,7 @@ export abstract class BaseXmlFormatterClass {
     /* Fields of GES-1.0.GES.BaseXmlFormatterClass */
     parent: FormatterClass
     contentParser: GLib.MarkupParser
-    save: (formatter: Formatter, timeline: Timeline) => GLib.String
+    save: any
     gesReserved: object[]
     static name: string
 }
@@ -13628,8 +13628,8 @@ export abstract class ExtractableInterface {
     setAsset: (self: Extractable, asset: Asset) => void
     setAssetFull: (self: Extractable, asset: Asset) => boolean
     getId: (self: Extractable) => string
-    getRealExtractableType: (wantedType: GObject.Type, id: string) => GObject.Type
-    registerMetas: (self: ExtractableInterface, klass: GObject.ObjectClass, asset: Asset) => boolean
+    getRealExtractableType: any
+    registerMetas: any
     gesReserved: object[]
     static name: string
 }
@@ -13736,8 +13736,8 @@ export abstract class ProjectClass {
     assetAdded: (self: Project, asset: Asset) => void
     assetLoading: (self: Project, asset: Asset) => void
     assetRemoved: (self: Project, asset: Asset) => void
-    missingUri: (self: Project, error: GLib.Error, wrongAsset: Asset) => string
-    loadingError: (self: Project, error: GLib.Error, id: string, extractableType: GObject.Type) => boolean
+    missingUri: any
+    loadingError: any
     loaded: (self: Project, timeline: Timeline) => boolean
     loading: (self: Project, timeline: Timeline) => void
     gesReserved: object[]
@@ -13748,7 +13748,7 @@ export class ProjectPrivate {
 }
 export abstract class SourceClass {
     /* Fields of GES-1.0.GES.SourceClass */
-    selectPad: (source: Source, pad: Gst.Pad) => boolean
+    selectPad: any
     static name: string
 }
 export abstract class SourceClipAssetClass {
@@ -13799,10 +13799,10 @@ export abstract class TimelineElementClass {
     /* Fields of GES-1.0.GES.TimelineElementClass */
     parentClass: GObject.InitiallyUnownedClass
     setParent: (self: TimelineElement, parent: TimelineElement) => boolean
-    setStart: (self: TimelineElement, start: Gst.ClockTime) => boolean
-    setInpoint: (self: TimelineElement, inpoint: Gst.ClockTime) => boolean
-    setDuration: (self: TimelineElement, duration: Gst.ClockTime) => boolean
-    setMaxDuration: (self: TimelineElement, maxduration: Gst.ClockTime) => boolean
+    setStart: any
+    setInpoint: any
+    setDuration: any
+    setMaxDuration: any
     setPriority: (self: TimelineElement, priority: number) => boolean
     ripple: (self: TimelineElement, start: number) => boolean
     rippleEnd: (self: TimelineElement, end: number) => boolean
@@ -13810,12 +13810,12 @@ export abstract class TimelineElementClass {
     rollEnd: (self: TimelineElement, end: number) => boolean
     trim: (self: TimelineElement, start: number) => boolean
     deepCopy: (self: TimelineElement, copy: TimelineElement) => void
-    lookupChild: (self: TimelineElement, propName: string) => { returnType: boolean, child: GObject.Object | null, pspec: GObject.ParamSpec | null }
+    lookupChild: any
     getTrackTypes: (self: TimelineElement) => TrackType
-    setChildProperty: (self: TimelineElement, child: GObject.Object, pspec: GObject.ParamSpec, value: any) => void
+    setChildProperty: any
     getLayerPriority: (self: TimelineElement) => number
     getNaturalFramerate: (self: TimelineElement) => { returnType: boolean, framerateN: number, framerateD: number }
-    setChildPropertyFull: (self: TimelineElement, child: GObject.Object, pspec: GObject.ParamSpec, value: any) => boolean
+    setChildPropertyFull: any
     gesReserved: object[]
     static name: string
 }
@@ -13857,7 +13857,7 @@ export abstract class TrackElementClass {
     nleobjectFactorytype: string
     activeChanged: (object: TrackElement, active: boolean) => void
     changed: (object: TrackElement) => void
-    lookupChild: (object: TrackElement, propName: string) => { returnType: boolean, element: Gst.Element | null, pspec: GObject.ParamSpec | null }
+    lookupChild: any
     static name: string
 }
 export class TrackElementPrivate {
@@ -13881,7 +13881,7 @@ export class TransitionPrivate {
 export abstract class UriClipAssetClass {
     /* Fields of GES-1.0.GES.UriClipAssetClass */
     parentClass: SourceClipAssetClass
-    discovered: (discoverer: GstPbutils.Discoverer, info: GstPbutils.DiscovererInfo, err: GLib.Error) => void
+    discovered: any
     /* Methods of GES-1.0.GES.UriClipAssetClass */
     setTimeout(klass: UriClipAsset | Function | GObject.Type, timeout: Gst.ClockTime): void
     static name: string

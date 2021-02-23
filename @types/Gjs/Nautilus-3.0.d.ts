@@ -420,11 +420,11 @@ export abstract class FileInfoInterface {
     add_string_attribute: (file_info: FileInfo, attribute_name: string, value: string) => void
     invalidate_extension_info: (file_info: FileInfo) => void
     get_activation_uri: (file_info: FileInfo) => string
-    get_file_type: (file_info: FileInfo) => Gio.FileType
-    get_location: (file_info: FileInfo) => Gio.File
-    get_parent_location: (file_info: FileInfo) => Gio.File | null
+    get_file_type: any
+    get_location: any
+    get_parent_location: any
     get_parent_info: (file_info: FileInfo) => FileInfo | null
-    get_mount: (file_info: FileInfo) => Gio.Mount | null
+    get_mount: any
     can_write: (file_info: FileInfo) => boolean
     static name: string
 }

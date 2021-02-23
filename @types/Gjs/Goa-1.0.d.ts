@@ -5636,8 +5636,8 @@ export class TodoSkeleton {
 export abstract class AccountIface {
     /* Fields of Goa-1.0.Goa.AccountIface */
     parent_iface: GObject.TypeInterface
-    handle_ensure_credentials: (object: Account, invocation: Gio.DBusMethodInvocation) => boolean
-    handle_remove: (object: Account, invocation: Gio.DBusMethodInvocation) => boolean
+    handle_ensure_credentials: any
+    handle_remove: any
     get_attention_needed: (object: Account) => boolean
     get_calendar_disabled: (object: Account) => boolean
     get_chat_disabled: (object: Account) => boolean
@@ -5859,8 +5859,8 @@ export class MailSkeletonPrivate {
 export abstract class ManagerIface {
     /* Fields of Goa-1.0.Goa.ManagerIface */
     parent_iface: GObject.TypeInterface
-    handle_add_account: (object: Manager, invocation: Gio.DBusMethodInvocation, arg_provider: string, arg_identity: string, arg_presentation_identity: string, arg_credentials: GLib.Variant, arg_details: GLib.Variant) => boolean
-    handle_is_supported_provider: (object: Manager, invocation: Gio.DBusMethodInvocation, arg_provider_type: string) => boolean
+    handle_add_account: any
+    handle_is_supported_provider: any
     static name: string
 }
 export abstract class ManagerProxyClass {
@@ -5947,7 +5947,7 @@ export class MusicSkeletonPrivate {
 export abstract class OAuth2BasedIface {
     /* Fields of Goa-1.0.Goa.OAuth2BasedIface */
     parent_iface: GObject.TypeInterface
-    handle_get_access_token: (object: OAuth2Based, invocation: Gio.DBusMethodInvocation) => boolean
+    handle_get_access_token: any
     get_client_id: (object: OAuth2Based) => string | null
     get_client_secret: (object: OAuth2Based) => string | null
     static name: string
@@ -5971,7 +5971,7 @@ export class OAuth2BasedSkeletonPrivate {
 export abstract class OAuthBasedIface {
     /* Fields of Goa-1.0.Goa.OAuthBasedIface */
     parent_iface: GObject.TypeInterface
-    handle_get_access_token: (object: OAuthBased, invocation: Gio.DBusMethodInvocation) => boolean
+    handle_get_access_token: any
     get_consumer_key: (object: OAuthBased) => string | null
     get_consumer_secret: (object: OAuthBased) => string | null
     static name: string
@@ -6024,7 +6024,7 @@ export class ObjectSkeletonPrivate {
 export abstract class PasswordBasedIface {
     /* Fields of Goa-1.0.Goa.PasswordBasedIface */
     parent_iface: GObject.TypeInterface
-    handle_get_password: (object: PasswordBased, invocation: Gio.DBusMethodInvocation, arg_id: string) => boolean
+    handle_get_password: any
     static name: string
 }
 export abstract class PasswordBasedProxyClass {
@@ -6109,8 +6109,8 @@ export class ReadLaterSkeletonPrivate {
 export abstract class TicketingIface {
     /* Fields of Goa-1.0.Goa.TicketingIface */
     parent_iface: GObject.TypeInterface
-    handle_get_ticket: (object: Ticketing, invocation: Gio.DBusMethodInvocation) => boolean
-    get_details: (object: Ticketing) => GLib.Variant | null
+    handle_get_ticket: any
+    get_details: any
     static name: string
 }
 export abstract class TicketingProxyClass {

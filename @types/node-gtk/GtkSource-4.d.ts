@@ -9813,7 +9813,7 @@ export abstract class BufferClass {
     parentClass: Gtk.TextBufferClass
     undo: (buffer: Buffer) => void
     redo: (buffer: Buffer) => void
-    bracketMatched: (buffer: Buffer, iter: Gtk.TextIter, state: BracketMatchType) => void
+    bracketMatched: any
     padding: object[]
     static name: string
 }
@@ -9827,8 +9827,8 @@ export abstract class CompletionClass {
     show: (completion: Completion) => void
     hide: (completion: Completion) => void
     populateContext: (completion: Completion, context: CompletionContext) => void
-    moveCursor: (completion: Completion, step: Gtk.ScrollStep, num: number) => void
-    movePage: (completion: Completion, step: Gtk.ScrollStep, num: number) => void
+    moveCursor: any
+    movePage: any
     activateProposal: (completion: Completion) => void
     padding: object[]
     static name: string
@@ -9870,9 +9870,9 @@ export abstract class CompletionProposalIface {
     getLabel: (proposal: CompletionProposal) => string
     getMarkup: (proposal: CompletionProposal) => string
     getText: (proposal: CompletionProposal) => string
-    getIcon: (proposal: CompletionProposal) => GdkPixbuf.Pixbuf | null
+    getIcon: any
     getIconName: (proposal: CompletionProposal) => string | null
-    getGicon: (proposal: CompletionProposal) => Gio.Icon | null
+    getGicon: any
     getInfo: (proposal: CompletionProposal) => string | null
     hash: (proposal: CompletionProposal) => number
     equal: (proposal: CompletionProposal, other: CompletionProposal) => boolean
@@ -9883,16 +9883,16 @@ export abstract class CompletionProviderIface {
     /* Fields of GtkSource-4.GtkSource.CompletionProviderIface */
     gIface: GObject.TypeInterface
     getName: (provider: CompletionProvider) => string
-    getIcon: (provider: CompletionProvider) => GdkPixbuf.Pixbuf | null
+    getIcon: any
     getIconName: (provider: CompletionProvider) => string | null
-    getGicon: (provider: CompletionProvider) => Gio.Icon | null
+    getGicon: any
     populate: (provider: CompletionProvider, context: CompletionContext) => void
     match: (provider: CompletionProvider, context: CompletionContext) => boolean
     getActivation: (provider: CompletionProvider) => CompletionActivation
-    getInfoWidget: (provider: CompletionProvider, proposal: CompletionProposal) => Gtk.Widget | null
+    getInfoWidget: any
     updateInfo: (provider: CompletionProvider, proposal: CompletionProposal, info: CompletionInfo) => void
-    getStartIter: (provider: CompletionProvider, context: CompletionContext, proposal: CompletionProposal) => { returnType: boolean, iter: Gtk.TextIter }
-    activateProposal: (provider: CompletionProvider, proposal: CompletionProposal, iter: Gtk.TextIter) => boolean
+    getStartIter: any
+    activateProposal: any
     getInteractiveDelay: (provider: CompletionProvider) => number
     getPriority: (provider: CompletionProvider) => number
     static name: string
@@ -9959,16 +9959,16 @@ export class GutterPrivate {
 export abstract class GutterRendererClass {
     /* Fields of GtkSource-4.GtkSource.GutterRendererClass */
     parentClass: GObject.InitiallyUnownedClass
-    begin: (renderer: GutterRenderer, cr: cairo.Context, backgroundArea: Gdk.Rectangle, cellArea: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter) => void
-    draw: (renderer: GutterRenderer, cr: cairo.Context, backgroundArea: Gdk.Rectangle, cellArea: Gdk.Rectangle, start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState) => void
+    begin: any
+    draw: any
     end: (renderer: GutterRenderer) => void
-    changeView: (renderer: GutterRenderer, oldView?: Gtk.TextView | null) => void
-    changeBuffer: (renderer: GutterRenderer, oldBuffer?: Gtk.TextBuffer | null) => void
-    queryActivatable: (renderer: GutterRenderer, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => boolean
-    activate: (renderer: GutterRenderer, iter: Gtk.TextIter, area: Gdk.Rectangle, event: Gdk.Event) => void
+    changeView: any
+    changeBuffer: any
+    queryActivatable: any
+    activate: any
     queueDraw: (renderer: GutterRenderer) => void
-    queryTooltip: (renderer: GutterRenderer, iter: Gtk.TextIter, area: Gdk.Rectangle, x: number, y: number, tooltip: Gtk.Tooltip) => boolean
-    queryData: (renderer: GutterRenderer, start: Gtk.TextIter, end: Gtk.TextIter, state: GutterRendererState) => void
+    queryTooltip: any
+    queryData: any
     padding: object[]
     static name: string
 }
@@ -10140,7 +10140,7 @@ export abstract class ViewClass {
     parentClass: Gtk.TextViewClass
     undo: (view: View) => void
     redo: (view: View) => void
-    lineMarkActivated: (view: View, iter: Gtk.TextIter, event: Gdk.Event) => void
+    lineMarkActivated: any
     showCompletion: (view: View) => void
     moveLines: (view: View, down: boolean) => void
     moveWords: (view: View, step: number) => void

@@ -556,9 +556,9 @@ export abstract class PlayerControllerIface {
     next: () => boolean
     previous: () => boolean
     set_single_play_uri: (uri: string, metadata: string, mime?: string | null, features?: string | null) => void
-    set_playlist_uri: (uri: string, metadata: string, collection: GUPnPAV.MediaCollection) => void
+    set_playlist_uri: any
     set_next_single_play_uri: (uri: string, metadata: string, mime?: string | null, features?: string | null) => void
-    set_next_playlist_uri: (uri: string, metadata: string, collection: GUPnPAV.MediaCollection) => void
+    set_next_playlist_uri: any
     is_play_mode_valid: (play_mode: string) => boolean
     get_playback_state: () => string
     set_playback_state: (value: string) => void

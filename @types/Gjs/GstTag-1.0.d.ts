@@ -770,9 +770,9 @@ export abstract class TagDemuxClass {
     parent_class: Gst.ElementClass
     min_start_size: number
     min_end_size: number
-    identify_tag: (demux: TagDemux, buffer: Gst.Buffer, start_tag: boolean, tag_size: number) => boolean
-    parse_tag: (demux: TagDemux, buffer: Gst.Buffer, start_tag: boolean, tag_size: number, tags: Gst.TagList) => TagDemuxResult
-    merge_tags: (demux: TagDemux, start_tags: Gst.TagList, end_tags: Gst.TagList) => Gst.TagList
+    identify_tag: any
+    parse_tag: any
+    merge_tags: any
     static name: string
 }
 export class TagDemuxPrivate {
@@ -781,8 +781,8 @@ export class TagDemuxPrivate {
 export abstract class TagMuxClass {
     /* Fields of GstTag-1.0.GstTag.TagMuxClass */
     parent_class: Gst.ElementClass
-    render_start_tag: (mux: TagMux, tag_list: Gst.TagList) => Gst.Buffer
-    render_end_tag: (mux: TagMux, tag_list: Gst.TagList) => Gst.Buffer
+    render_start_tag: any
+    render_end_tag: any
     static name: string
 }
 export class TagMuxPrivate {

@@ -10993,11 +10993,11 @@ export abstract class DockItemClass {
     /* Fields of Gdl-3.Gdl.DockItemClass */
     parent_class: DockObjectClass
     priv: DockItemClassPrivate
-    set_orientation: (item: DockItem, orientation: Gtk.Orientation) => void
+    set_orientation: any
     dock_drag_begin: (item: DockItem) => void
-    dock_drag_motion: (item: DockItem, device: Gdk.Device, x: number, y: number) => void
+    dock_drag_motion: any
     dock_drag_end: (item: DockItem, cancelled: boolean) => void
-    move_focus_child: (item: DockItem, direction: Gtk.DirectionType) => void
+    move_focus_child: any
     /* Methods of Gdl-3.Gdl.DockItemClass */
     set_has_grip(item_class: DockItem | Function | GObject.Type, has_grip: boolean): void
     static name: string
@@ -11095,7 +11095,7 @@ export class DockRequest {
 export abstract class DockTablabelClass {
     /* Fields of Gdl-3.Gdl.DockTablabelClass */
     parent_class: Gtk.BinClass
-    button_pressed_handle: (tablabel: DockTablabel, event: Gdk.EventButton) => void
+    button_pressed_handle: any
     static name: string
 }
 export abstract class PreviewWindowClass {

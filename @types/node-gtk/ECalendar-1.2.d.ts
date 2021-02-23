@@ -836,7 +836,7 @@ export abstract class CalClass {
     /* Fields of ECalendar-1.2.ECalendar.CalClass */
     parentClass: GObject.ObjectClass
     calOpened: (ecal: Cal, status: CalendarStatus) => void
-    calOpenedEx: (ecal: Cal, error: GLib.Error) => void
+    calOpenedEx: any
     backendError: (ecal: Cal, message: string) => void
     backendDied: (ecal: Cal) => void
     static name: string
@@ -853,7 +853,7 @@ export abstract class CalClientViewClass {
     /* Fields of ECalendar-1.2.ECalendar.CalClientViewClass */
     parentClass: GObject.ObjectClass
     progress: (view: CalClientView, percent: number, message: string) => void
-    complete: (view: CalClientView, error: GLib.Error) => void
+    complete: any
     static name: string
 }
 export class CalClientViewPrivate {

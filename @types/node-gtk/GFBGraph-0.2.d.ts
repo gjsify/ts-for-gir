@@ -710,16 +710,16 @@ export class AlbumPrivate {
 export abstract class AuthorizerInterface {
     /* Fields of GFBGraph-0.2.GFBGraph.AuthorizerInterface */
     parent: GObject.TypeInterface
-    processCall: (iface: Authorizer, call: Rest.ProxyCall) => void
-    processMessage: (iface: Authorizer, message: Soup.Message) => void
-    refreshAuthorization: (iface: Authorizer, cancellable?: Gio.Cancellable | null) => boolean
+    processCall: any
+    processMessage: any
+    refreshAuthorization: any
     static name: string
 }
 export abstract class ConnectableInterface {
     /* Fields of GFBGraph-0.2.GFBGraph.ConnectableInterface */
     parent: GObject.TypeInterface
     connections: GLib.HashTable
-    getConnectionPostParams: (self: Connectable, nodeType: GObject.Type) => GLib.HashTable
+    getConnectionPostParams: any
     parseConnectedData: (self: Connectable, payload: string) => Node[]
     static name: string
 }

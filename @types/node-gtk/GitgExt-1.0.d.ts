@@ -1726,31 +1726,31 @@ export class UserQueryPrivate {
 }
 export abstract class ActionIface {
     /* Fields of GitgExt-1.0.GitgExt.ActionIface */
-    populateMenu: (menu: Gtk.Menu) => void
+    populateMenu: any
     static name: string
 }
 export abstract class ActivityIface {
     /* Fields of GitgExt-1.0.GitgExt.ActivityIface */
     isDefaultFor: (action: string) => boolean
-    onKeyPressed: (event: Gdk.EventKey) => boolean
+    onKeyPressed: any
     static name: string
 }
 export abstract class ApplicationIface {
     /* Fields of GitgExt-1.0.GitgExt.ApplicationIface */
-    getVerifiedCommitter: () => Ggit.Signature | null
+    getVerifiedCommitter: any
     getActivityById: (id: string) => Activity | null
     setActivityById: (id: string) => Activity | null
     userQuery: (query: UserQuery) => void
-    userQueryAsync: (query: UserQuery, callback?: Gio.AsyncReadyCallback | null) => void
-    userQueryFinish: (res: Gio.AsyncResult) => Gtk.ResponseType
-    showInfobar: (primaryMsg: string, secondaryMsg: string, type: Gtk.MessageType) => void
-    openNew: (repository: Ggit.Repository, hint?: string | null) => Application
-    openRepository: (path: Gio.File) => void
-    getRepository: () => Gitg.Repository | null
-    setRepository: (value?: Gitg.Repository | null) => void
+    userQueryAsync: any
+    userQueryFinish: any
+    showInfobar: any
+    openNew: any
+    openRepository: any
+    getRepository: any
+    setRepository: any
     getMessageBus: () => MessageBus
     getCurrentActivity: () => Activity | null
-    getEnvironment: () => Gee.Map
+    getEnvironment: any
     getNotifications: () => Notifications
     getBusy: () => boolean
     setBusy: (value: boolean) => void
@@ -1759,7 +1759,7 @@ export abstract class ApplicationIface {
 }
 export abstract class CommandLineIface {
     /* Fields of GitgExt-1.0.GitgExt.CommandLineIface */
-    getOptionGroup: () => GLib.OptionGroup
+    getOptionGroup: any
     parseFinished: () => void
     apply: (application: Application) => void
     static name: string
@@ -1768,8 +1768,8 @@ export abstract class CommitActionIface {
     /* Fields of GitgExt-1.0.GitgExt.CommitActionIface */
     getActionInterface: () => RefActionInterface
     setActionInterface: (value: RefActionInterface) => void
-    getCommit: () => Gitg.Commit
-    setCommit: (value: Gitg.Commit) => void
+    getCommit: any
+    setCommit: any
     static name: string
 }
 export abstract class HistoryPanelIface {
@@ -1781,12 +1781,12 @@ export abstract class HistoryPanelIface {
 export abstract class HistoryIface {
     /* Fields of GitgExt-1.0.GitgExt.HistoryIface */
     foreachSelected: (func: ForeachCommitSelectionFunc) => void
-    select: (commit: Gitg.Commit) => void
+    select: any
     static name: string
 }
 export abstract class NotificationIface {
     /* Fields of GitgExt-1.0.GitgExt.NotificationIface */
-    getWidget: () => Gtk.Widget | null
+    getWidget: any
     static name: string
 }
 export abstract class NotificationsIface {
@@ -1799,33 +1799,33 @@ export abstract class PreferencesIface {
     /* Fields of GitgExt-1.0.GitgExt.PreferencesIface */
     getId: () => string
     getDisplayName: () => string
-    getWidget: () => Gtk.Widget
+    getWidget: any
     static name: string
 }
 export abstract class RefActionInterfaceIface {
     /* Fields of GitgExt-1.0.GitgExt.RefActionInterfaceIface */
-    addRef: (reference: Gitg.Ref) => void
-    removeRef: (reference: Gitg.Ref) => void
-    replaceRef: (oldRef: Gitg.Ref, newRef: Gitg.Ref) => void
-    setBusy: (reference: Gitg.Ref, busy: boolean) => void
-    editRefName: (reference: Gitg.Ref, callback: RefNameEditingDone) => void
+    addRef: any
+    removeRef: any
+    replaceRef: any
+    setBusy: any
+    editRefName: any
     refresh: () => void
     getApplication: () => Application
     setApplication: (value: Application) => void
-    getReferences: () => Gee.List
+    getReferences: any
     static name: string
 }
 export abstract class RefActionIface {
     /* Fields of GitgExt-1.0.GitgExt.RefActionIface */
     getActionInterface: () => RefActionInterface
     setActionInterface: (value: RefActionInterface) => void
-    getReference: () => Gitg.Ref
-    setReference: (value: Gitg.Ref) => void
+    getReference: any
+    setReference: any
     static name: string
 }
 export abstract class RemoteLookupIface {
     /* Fields of GitgExt-1.0.GitgExt.RemoteLookupIface */
-    lookup: (name: string) => Gitg.Remote | null
+    lookup: any
     static name: string
 }
 export abstract class SearchableIface {
@@ -1835,7 +1835,7 @@ export abstract class SearchableIface {
     getSearchVisible: () => boolean
     setSearchVisible: (value: boolean) => void
     getSearchAvailable: () => boolean
-    setSearchEntry: (value?: Gtk.Entry | null) => void
+    setSearchEntry: any
     static name: string
 }
 export abstract class SelectableIface {
@@ -1844,7 +1844,7 @@ export abstract class SelectableIface {
     setSelectableMode: (value: SelectionMode) => void
     getSelectableAvailable: () => boolean
     getSelectableModeTooltip: () => string
-    getActionWidget: () => Gtk.Widget | null
+    getActionWidget: any
     static name: string
 }
 export abstract class UIElementIface {
@@ -1856,7 +1856,7 @@ export abstract class UIElementIface {
     getDisplayName: () => string
     getDescription: () => string
     getIcon: () => string | null
-    getWidget: () => Gtk.Widget | null
+    getWidget: any
     getShortcut: () => number | null
     getAvailable: () => boolean
     getEnabled: () => boolean

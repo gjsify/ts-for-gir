@@ -3579,7 +3579,7 @@ export abstract class InputClass {
     g_object_class: GObject.ObjectClass
     Dup: (input: Input) => Input | null
     Read: (input: Input, num_bytes: number, optional_buffer?: Uint8Array[] | null) => Uint8Array[] | null
-    Seek: (input: Input, offset: gsf_off_t, whence: GLib.SeekType) => boolean
+    Seek: any
     OpenSibling: (input: Input, name: string) => Input
     static name: string
 }
@@ -3617,7 +3617,7 @@ export abstract class OutputClass {
     /* Fields of Gsf-1.Gsf.OutputClass */
     g_object_class: GObject.ObjectClass
     Close: (output: Output) => boolean
-    Seek: (output: Output, offset: gsf_off_t, whence: GLib.SeekType) => boolean
+    Seek: any
     Write: (output: Output, data: Uint8Array[]) => boolean
     static name: string
 }
@@ -3693,7 +3693,7 @@ export class XMLInNode {
     ns_id: number
     name: string
     parent_id: string
-    start: (xin: XMLIn, attrs: libxml2.Char) => void
+    start: any
     end: (xin: XMLIn, unknown: XMLBlob) => void
     has_content: XMLContent
     check_children_for_ns: number

@@ -425,8 +425,8 @@ export class FactoryPrivate {
 export abstract class MenuShellClass {
     /* Fields of Amtk-4.Amtk.MenuShellClass */
     parent_class: GObject.ObjectClass
-    menu_item_selected: (amtk_menu_shell: MenuShell, menu_item: Gtk.MenuItem) => void
-    menu_item_deselected: (amtk_menu_shell: MenuShell, menu_item: Gtk.MenuItem) => void
+    menu_item_selected: any
+    menu_item_deselected: any
     padding: object[]
     static name: string
 }

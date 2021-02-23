@@ -224,7 +224,7 @@ export class RemoteRegistry {
     /* Methods of Zeitgeist-2.0.Zeitgeist.RemoteRegistry */
     get_data_sources(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     get_data_sources_finish(_res_: Gio.AsyncResult): GLib.Variant
-    register_data_source(unique_id: string, name: string, description: string, event_templates: GLib.Variant, cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    register_data_source(unique_id: string, name: string, description: string, event_templates: GLib.Variant, cancellable?: Gio.Cancellable | null, sender?: string | null, _callback_?: Gio.AsyncReadyCallback | null): void
     register_data_source_finish(_res_: Gio.AsyncResult): boolean
     set_data_source_enabled(unique_id: string, enabled: boolean, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     set_data_source_enabled_finish(_res_: Gio.AsyncResult): void
@@ -255,7 +255,7 @@ export class RemoteRegistry {
     /* Virtual methods of Zeitgeist-2.0.Zeitgeist.RemoteRegistry */
     vfunc_get_data_sources(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_get_data_sources_finish(_res_: Gio.AsyncResult): GLib.Variant
-    vfunc_register_data_source(unique_id: string, name: string, description: string, event_templates: GLib.Variant, cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_register_data_source(unique_id: string, name: string, description: string, event_templates: GLib.Variant, cancellable?: Gio.Cancellable | null, sender?: string | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_register_data_source_finish(_res_: Gio.AsyncResult): boolean
     vfunc_set_data_source_enabled(unique_id: string, enabled: boolean, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_set_data_source_enabled_finish(_res_: Gio.AsyncResult): void
@@ -298,21 +298,21 @@ export class RemoteLog {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Zeitgeist-2.0.Zeitgeist.RemoteLog */
-    delete_events(event_ids: number[], cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    delete_events(event_ids: number[], cancellable?: Gio.Cancellable | null, sender?: string | null, _callback_?: Gio.AsyncReadyCallback | null): void
     delete_events_finish(_res_: Gio.AsyncResult): GLib.Variant
-    find_event_ids(time_range: GLib.Variant, event_templates: GLib.Variant, storage_state: number, num_events: number, result_type: number, cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    find_event_ids(time_range: GLib.Variant, event_templates: GLib.Variant, storage_state: number, num_events: number, result_type: number, cancellable?: Gio.Cancellable | null, sender?: string | null, _callback_?: Gio.AsyncReadyCallback | null): void
     find_event_ids_finish(_res_: Gio.AsyncResult): number[]
-    find_events(time_range: GLib.Variant, event_templates: GLib.Variant, storage_state: number, num_events: number, result_type: number, cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    find_events(time_range: GLib.Variant, event_templates: GLib.Variant, storage_state: number, num_events: number, result_type: number, cancellable?: Gio.Cancellable | null, sender?: string | null, _callback_?: Gio.AsyncReadyCallback | null): void
     find_events_finish(_res_: Gio.AsyncResult): GLib.Variant
-    find_related_uris(time_range: GLib.Variant, event_templates: GLib.Variant, result_event_templates: GLib.Variant, storage_state: number, num_events: number, result_type: number, cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    find_related_uris(time_range: GLib.Variant, event_templates: GLib.Variant, result_event_templates: GLib.Variant, storage_state: number, num_events: number, result_type: number, cancellable?: Gio.Cancellable | null, sender?: string | null, _callback_?: Gio.AsyncReadyCallback | null): void
     find_related_uris_finish(_res_: Gio.AsyncResult): string[]
-    get_events(event_ids: number[], cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    get_events(event_ids: number[], cancellable?: Gio.Cancellable | null, sender?: string | null, _callback_?: Gio.AsyncReadyCallback | null): void
     get_events_finish(_res_: Gio.AsyncResult): GLib.Variant
-    insert_events(events: GLib.Variant, cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    insert_events(events: GLib.Variant, cancellable?: Gio.Cancellable | null, sender?: string | null, _callback_?: Gio.AsyncReadyCallback | null): void
     insert_events_finish(_res_: Gio.AsyncResult): number[]
-    install_monitor(monitor_path: any, time_range: GLib.Variant, event_templates: GLib.Variant, owner?: any | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    install_monitor(monitor_path: string, time_range: GLib.Variant, event_templates: GLib.Variant, owner?: string | null, _callback_?: Gio.AsyncReadyCallback | null): void
     install_monitor_finish(_res_: Gio.AsyncResult): void
-    remove_monitor(monitor_path: any, owner?: any | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    remove_monitor(monitor_path: string, owner?: string | null, _callback_?: Gio.AsyncReadyCallback | null): void
     remove_monitor_finish(_res_: Gio.AsyncResult): void
     quit(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     quit_finish(_res_: Gio.AsyncResult): void
@@ -342,21 +342,21 @@ export class RemoteLog {
     unref(): void
     watch_closure(closure: GObject.Closure): void
     /* Virtual methods of Zeitgeist-2.0.Zeitgeist.RemoteLog */
-    vfunc_delete_events(event_ids: number[], cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_delete_events(event_ids: number[], cancellable?: Gio.Cancellable | null, sender?: string | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_delete_events_finish(_res_: Gio.AsyncResult): GLib.Variant
-    vfunc_find_event_ids(time_range: GLib.Variant, event_templates: GLib.Variant, storage_state: number, num_events: number, result_type: number, cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_find_event_ids(time_range: GLib.Variant, event_templates: GLib.Variant, storage_state: number, num_events: number, result_type: number, cancellable?: Gio.Cancellable | null, sender?: string | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_find_event_ids_finish(_res_: Gio.AsyncResult): number[]
-    vfunc_find_events(time_range: GLib.Variant, event_templates: GLib.Variant, storage_state: number, num_events: number, result_type: number, cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_find_events(time_range: GLib.Variant, event_templates: GLib.Variant, storage_state: number, num_events: number, result_type: number, cancellable?: Gio.Cancellable | null, sender?: string | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_find_events_finish(_res_: Gio.AsyncResult): GLib.Variant
-    vfunc_find_related_uris(time_range: GLib.Variant, event_templates: GLib.Variant, result_event_templates: GLib.Variant, storage_state: number, num_events: number, result_type: number, cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_find_related_uris(time_range: GLib.Variant, event_templates: GLib.Variant, result_event_templates: GLib.Variant, storage_state: number, num_events: number, result_type: number, cancellable?: Gio.Cancellable | null, sender?: string | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_find_related_uris_finish(_res_: Gio.AsyncResult): string[]
-    vfunc_get_events(event_ids: number[], cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_get_events(event_ids: number[], cancellable?: Gio.Cancellable | null, sender?: string | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_get_events_finish(_res_: Gio.AsyncResult): GLib.Variant
-    vfunc_insert_events(events: GLib.Variant, cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_insert_events(events: GLib.Variant, cancellable?: Gio.Cancellable | null, sender?: string | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_insert_events_finish(_res_: Gio.AsyncResult): number[]
-    vfunc_install_monitor(monitor_path: any, time_range: GLib.Variant, event_templates: GLib.Variant, owner?: any | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_install_monitor(monitor_path: string, time_range: GLib.Variant, event_templates: GLib.Variant, owner?: string | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_install_monitor_finish(_res_: Gio.AsyncResult): void
-    vfunc_remove_monitor(monitor_path: any, owner?: any | null, _callback_?: Gio.AsyncReadyCallback | null): void
+    vfunc_remove_monitor(monitor_path: string, owner?: string | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_remove_monitor_finish(_res_: Gio.AsyncResult): void
     vfunc_quit(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_quit_finish(_res_: Gio.AsyncResult): void
@@ -1624,36 +1624,36 @@ export class SimpleResultSetPrivate {
 }
 export abstract class RemoteRegistryIface {
     /* Fields of Zeitgeist-2.0.Zeitgeist.RemoteRegistryIface */
-    get_data_sources: (cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    get_data_sources_finish: (_res_: Gio.AsyncResult) => GLib.Variant
-    register_data_source: (unique_id: string, name: string, description: string, event_templates: GLib.Variant, cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    register_data_source_finish: (_res_: Gio.AsyncResult) => boolean
-    set_data_source_enabled: (unique_id: string, enabled: boolean, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    set_data_source_enabled_finish: (_res_: Gio.AsyncResult) => void
-    get_data_source_from_id: (unique_id: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    get_data_source_from_id_finish: (_res_: Gio.AsyncResult) => GLib.Variant
+    get_data_sources: any
+    get_data_sources_finish: any
+    register_data_source: any
+    register_data_source_finish: any
+    set_data_source_enabled: any
+    set_data_source_enabled_finish: any
+    get_data_source_from_id: any
+    get_data_source_from_id_finish: any
     static name: string
 }
 export abstract class RemoteLogIface {
     /* Fields of Zeitgeist-2.0.Zeitgeist.RemoteLogIface */
-    delete_events: (event_ids: number[], cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    delete_events_finish: (_res_: Gio.AsyncResult) => GLib.Variant
-    find_event_ids: (time_range: GLib.Variant, event_templates: GLib.Variant, storage_state: number, num_events: number, result_type: number, cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    find_event_ids_finish: (_res_: Gio.AsyncResult) => number[]
-    find_events: (time_range: GLib.Variant, event_templates: GLib.Variant, storage_state: number, num_events: number, result_type: number, cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    find_events_finish: (_res_: Gio.AsyncResult) => GLib.Variant
-    find_related_uris: (time_range: GLib.Variant, event_templates: GLib.Variant, result_event_templates: GLib.Variant, storage_state: number, num_events: number, result_type: number, cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    find_related_uris_finish: (_res_: Gio.AsyncResult) => string[]
-    get_events: (event_ids: number[], cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    get_events_finish: (_res_: Gio.AsyncResult) => GLib.Variant
-    insert_events: (events: GLib.Variant, cancellable?: Gio.Cancellable | null, sender?: any | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    insert_events_finish: (_res_: Gio.AsyncResult) => number[]
-    install_monitor: (monitor_path: any, time_range: GLib.Variant, event_templates: GLib.Variant, owner?: any | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    install_monitor_finish: (_res_: Gio.AsyncResult) => void
-    remove_monitor: (monitor_path: any, owner?: any | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    remove_monitor_finish: (_res_: Gio.AsyncResult) => void
-    quit: (cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    quit_finish: (_res_: Gio.AsyncResult) => void
+    delete_events: any
+    delete_events_finish: any
+    find_event_ids: any
+    find_event_ids_finish: any
+    find_events: any
+    find_events_finish: any
+    find_related_uris: any
+    find_related_uris_finish: any
+    get_events: any
+    get_events_finish: any
+    insert_events: any
+    insert_events_finish: any
+    install_monitor: any
+    install_monitor_finish: any
+    remove_monitor: any
+    remove_monitor_finish: any
+    quit: any
+    quit_finish: any
     get_extensions: () => string[]
     get_version: () => /* result */ VersionStruct
     get_datapath: () => string
@@ -1661,18 +1661,18 @@ export abstract class RemoteLogIface {
 }
 export abstract class RemoteMonitorIface {
     /* Fields of Zeitgeist-2.0.Zeitgeist.RemoteMonitorIface */
-    notify_insert: (time_range: GLib.Variant, events: GLib.Variant, _callback_?: Gio.AsyncReadyCallback | null) => void
-    notify_insert_finish: (_res_: Gio.AsyncResult) => void
-    notify_delete: (time_range: GLib.Variant, event_ids: number[], _callback_?: Gio.AsyncReadyCallback | null) => void
-    notify_delete_finish: (_res_: Gio.AsyncResult) => void
+    notify_insert: any
+    notify_insert_finish: any
+    notify_delete: any
+    notify_delete_finish: any
     static name: string
 }
 export abstract class RemoteSimpleIndexerIface {
     /* Fields of Zeitgeist-2.0.Zeitgeist.RemoteSimpleIndexerIface */
-    search: (query_string: string, time_range: GLib.Variant, filter_templates: GLib.Variant, offset: number, count: number, result_type: number, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    search_finish: (_res_: Gio.AsyncResult) => [ /* events */ GLib.Variant, /* matches */ number ]
-    search_with_relevancies: (query_string: string, time_range: GLib.Variant, filter_templates: GLib.Variant, storage_state: number, offset: number, count: number, result_type: number, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    search_with_relevancies_finish: (_res_: Gio.AsyncResult) => [ /* events */ GLib.Variant, /* relevancies */ number[], /* matches */ number ]
+    search: any
+    search_finish: any
+    search_with_relevancies: any
+    search_with_relevancies_finish: any
     static name: string
 }
 export abstract class NetworkManagerDBusIface {

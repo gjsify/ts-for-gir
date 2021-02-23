@@ -2623,9 +2623,9 @@ export class MusicPlayer {
     connect(sigName: "next", callback: (($obj: MusicPlayer) => void)): number
     connect_after(sigName: "next", callback: (($obj: MusicPlayer) => void)): number
     emit(sigName: "next"): void
-    connect(sigName: "activate_playlist", callback: (($obj: MusicPlayer, playlist_id: any) => void)): number
-    connect_after(sigName: "activate_playlist", callback: (($obj: MusicPlayer, playlist_id: any) => void)): number
-    emit(sigName: "activate_playlist", playlist_id: any): void
+    connect(sigName: "activate_playlist", callback: (($obj: MusicPlayer, playlist_id: string) => void)): number
+    connect_after(sigName: "activate_playlist", callback: (($obj: MusicPlayer, playlist_id: string) => void)): number
+    emit(sigName: "activate_playlist", playlist_id: string): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MusicPlayer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MusicPlayer, pspec: GObject.ParamSpec) => void)): number
@@ -2722,8 +2722,8 @@ export class CategoryPrivate {
 export abstract class FilterClass {
     /* Fields of Unity-6.0.Unity.FilterClass */
     parent_class: GObject.ObjectClass
-    get_hints: (self: Filter) => GLib.HashTable
-    update: (self: Filter, properties: GLib.Variant) => void
+    get_hints: any
+    update: any
     static name: string
 }
 export class FilterPrivate {
@@ -2812,9 +2812,9 @@ export class LensPrivate {
 export abstract class PreviewClass {
     /* Fields of Unity-6.0.Unity.PreviewClass */
     parent_class: GObject.ObjectClass
-    create_raw: (self: Preview) => GObject.Object
-    update_property: (self: Preview, values: GLib.HashTable, _callback_?: Gio.AsyncReadyCallback | null) => void
-    update_property_finish: (self: Preview, _res_: Gio.AsyncResult) => GLib.HashTable
+    create_raw: any
+    update_property: any
+    update_property_finish: any
     dummy1: (self: Preview) => void
     dummy2: (self: Preview) => void
     dummy3: (self: Preview) => void
@@ -2935,7 +2935,7 @@ export class MusicPlayerPrivate {
 export abstract class MergeStrategyIface {
     /* Fields of Unity-6.0.Unity.MergeStrategyIface */
     parent_iface: GObject.TypeInterface
-    merge_result: (self: MergeStrategy, target: Dee.Model, row: GLib.Variant[]) => Dee.ModelIter | null
+    merge_result: any
     static name: string
 }
 export class PlaylistDetails {

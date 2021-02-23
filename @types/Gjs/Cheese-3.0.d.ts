@@ -401,9 +401,9 @@ export class FileUtil {
 export abstract class CameraClass {
     /* Fields of Cheese-3.0.Cheese.CameraClass */
     photo_saved: (camera: Camera) => void
-    photo_taken: (camera: Camera, pixbuf: GdkPixbuf.Pixbuf) => void
+    photo_taken: any
     video_saved: (camera: Camera) => void
-    state_flags_changed: (camera: Camera, new_state: Gst.State) => void
+    state_flags_changed: any
     static name: string
 }
 export abstract class CameraDeviceClass {

@@ -359,7 +359,7 @@ export class ExtensionBasePrivate {
 export abstract class ExtensionSetClass {
     /* Fields of Peas-1.0.Peas.ExtensionSetClass */
     parent_class: GObject.ObjectClass
-    call: (set: ExtensionSet, method_name: string, args: GIRepository.Argument) => boolean
+    call: any
     extension_added: (set: ExtensionSet, info: PluginInfo, exten: Extension) => void
     extension_removed: (set: ExtensionSet, info: PluginInfo, exten: Extension) => void
     static name: string

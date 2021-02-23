@@ -1481,7 +1481,7 @@ export class PluginLoaderPrivate {
 export abstract class RecursiveModuleLoaderClass {
     /* Fields of RygelCore-2.4.RygelCore.RecursiveModuleLoaderClass */
     parent_class: GObject.ObjectClass
-    load_module_from_file: (self: RecursiveModuleLoader, file: Gio.File) => boolean
+    load_module_from_file: any
     load_module_from_info: (self: RecursiveModuleLoader, info: PluginInformation) => boolean
     static name: string
 }
@@ -1537,9 +1537,9 @@ export abstract class BaseConfigurationClass {
     get_enabled: (self: BaseConfiguration, section: string) => boolean
     get_title: (self: BaseConfiguration, section: string) => string
     get_string: (self: BaseConfiguration, section: string, key: string) => string
-    get_string_list: (self: BaseConfiguration, section: string, key: string) => Gee.ArrayList
+    get_string_list: any
     get_int: (self: BaseConfiguration, section: string, key: string, min: number, max: number) => number
-    get_int_list: (self: BaseConfiguration, section: string, key: string) => Gee.ArrayList
+    get_int_list: any
     get_bool: (self: BaseConfiguration, section: string, key: string) => boolean
     static name: string
 }
@@ -1610,18 +1610,18 @@ export abstract class ConfigurationIface {
     get_enabled: (self: Configuration, section: string) => boolean
     get_title: (self: Configuration, section: string) => string
     get_string: (self: Configuration, section: string, key: string) => string
-    get_string_list: (self: Configuration, section: string, key: string) => Gee.ArrayList
+    get_string_list: any
     get_int: (self: Configuration, section: string, key: string, min: number, max: number) => number
-    get_int_list: (self: Configuration, section: string, key: string) => Gee.ArrayList
+    get_int_list: any
     get_bool: (self: Configuration, section: string, key: string) => boolean
     static name: string
 }
 export abstract class StateMachineIface {
     /* Fields of RygelCore-2.4.RygelCore.StateMachineIface */
     parent_iface: GObject.TypeInterface
-    run: (self: StateMachine, _callback_?: Gio.AsyncReadyCallback | null) => void
-    run_finish: (self: StateMachine, _res_: Gio.AsyncResult) => void
-    get_cancellable: (self: StateMachine) => Gio.Cancellable
-    set_cancellable: (self: StateMachine, value: Gio.Cancellable) => void
+    run: any
+    run_finish: any
+    get_cancellable: any
+    set_cancellable: any
     static name: string
 }

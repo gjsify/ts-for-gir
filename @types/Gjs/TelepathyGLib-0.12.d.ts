@@ -6873,9 +6873,9 @@ export class SimpleApproverPrivate {
 export abstract class SimpleClientFactoryClass {
     /* Fields of TelepathyGLib-0.12.TelepathyGLib.SimpleClientFactoryClass */
     parent_class: GObject.ObjectClass
-    dup_account_features: (self: SimpleClientFactory, account: Account) => GLib.Quark[]
-    dup_connection_features: (self: SimpleClientFactory, connection: Connection) => GLib.Quark[]
-    dup_channel_features: (self: SimpleClientFactory, channel: Channel) => GLib.Quark[]
+    dup_account_features: any
+    dup_connection_features: any
+    dup_channel_features: any
     dup_contact_features: (self: SimpleClientFactory, connection: Connection) => ContactFeature[]
     static name: string
 }

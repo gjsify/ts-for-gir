@@ -22107,8 +22107,8 @@ export class PluginHandlePriv {
 export abstract class PluginManagerClass {
     /* Fields of Anjuta-3.0.Anjuta.PluginManagerClass */
     parentClass: GObject.ObjectClass
-    pluginActivated: (self: PluginManager, handle: PluginHandle, plugin: GObject.Object) => void
-    pluginDeactivated: (self: PluginManager, handle: PluginHandle, plugin: GObject.Object) => void
+    pluginActivated: any
+    pluginDeactivated: any
     static name: string
 }
 export class PluginManagerPriv {
@@ -22159,8 +22159,8 @@ export class ProfilePriv {
 export abstract class ProjectNodeClass {
     /* Fields of Anjuta-3.0.Anjuta.ProjectNodeClass */
     parentClass: GObject.InitiallyUnownedClass
-    updated: (error: GLib.Error) => void
-    loaded: (error: GLib.Error) => void
+    updated: any
+    loaded: any
     static name: string
 }
 export class ProjectNodeInfo {
@@ -22252,13 +22252,13 @@ export abstract class ShellIface {
     getPreferences: (shell: Shell) => Preferences
     getPluginManager: (shell: Shell) => PluginManager
     getProfileManager: (shell: Shell) => ProfileManager
-    addWidgetFull: (shell: Shell, widget: Gtk.Widget, name: string, title: string, stockId: string, placement: ShellPlacement, locked: boolean) => void
-    addWidgetCustom: (shell: Shell, widget: Gtk.Widget, name: string, title: string, stockId: string, label: Gtk.Widget, placement: ShellPlacement) => void
-    removeWidget: (shell: Shell, widget: Gtk.Widget) => void
-    presentWidget: (shell: Shell, widget: Gtk.Widget) => void
-    iconifyDockableWidget: (shell: Shell, widget: Gtk.Widget) => void
-    hideDockableWidget: (shell: Shell, widget: Gtk.Widget) => void
-    showDockableWidget: (shell: Shell, widget: Gtk.Widget) => void
+    addWidgetFull: any
+    addWidgetCustom: any
+    removeWidget: any
+    presentWidget: any
+    iconifyDockableWidget: any
+    hideDockableWidget: any
+    showDockableWidget: any
     maximizeWidget: (shell: Shell, widgetName: string) => void
     unmaximize: (shell: Shell) => void
     addValue: (shell: Shell, name: string, value: any) => void
@@ -22266,7 +22266,7 @@ export abstract class ShellIface {
     removeValue: (shell: Shell, name: string) => void
     savingPush: (shell: Shell) => void
     savingPop: (shell: Shell) => void
-    getObject: (shell: Shell, ifaceName: string) => GObject.Object
+    getObject: any
     static name: string
 }
 export abstract class StatusClass {

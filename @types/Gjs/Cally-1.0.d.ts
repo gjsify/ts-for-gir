@@ -2045,10 +2045,10 @@ export class Util {
 }
 export abstract class ActorClass {
     /* Fields of Cally-1.0.Cally.ActorClass */
-    notify_clutter: (object: GObject.Object, pspec: GObject.ParamSpec) => void
-    focus_clutter: (actor: Clutter.Actor, data: object) => boolean
-    add_actor: (container: Clutter.Actor, actor: Clutter.Actor, data: object) => number
-    remove_actor: (container: Clutter.Actor, actor: Clutter.Actor, data: object) => number
+    notify_clutter: any
+    focus_clutter: any
+    add_actor: any
+    remove_actor: any
     static name: string
 }
 export class ActorPrivate {

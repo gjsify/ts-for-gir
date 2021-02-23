@@ -156,7 +156,7 @@ export class DLNAProfile {
 export abstract class DLNADiscovererClass {
     /* Fields of GUPnP-1.0.GUPnP.DLNADiscovererClass */
     parent_class: any
-    done: (discoverer: DLNADiscoverer, dlna: DLNAInformation, err: GLib.Error) => void
+    done: any
     static name: string
 }
 export abstract class DLNAInformationClass {

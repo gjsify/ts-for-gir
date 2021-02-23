@@ -979,9 +979,9 @@ export abstract class SubjectIface {
     hash: (subject: Subject) => number
     equal: (a: Subject, b: Subject) => boolean
     to_string: (subject: Subject) => string
-    exists: (subject: Subject, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    exists_finish: (subject: Subject, res: Gio.AsyncResult) => boolean
-    exists_sync: (subject: Subject, cancellable?: Gio.Cancellable | null) => boolean
+    exists: any
+    exists_finish: any
+    exists_sync: any
     static name: string
 }
 export abstract class SystemBusNameClass {

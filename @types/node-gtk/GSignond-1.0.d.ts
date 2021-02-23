@@ -822,7 +822,7 @@ export abstract class SecretStorageClass {
     loadData: (self: SecretStorage, id: number, method: number) => Dictionary
     updateData: (self: SecretStorage, id: number, method: number, data: Dictionary) => boolean
     removeData: (self: SecretStorage, id: number, method: number) => boolean
-    getLastError: (self: SecretStorage) => GLib.Error
+    getLastError: any
     static name: string
 }
 export class SecretStoragePrivate {

@@ -208,8 +208,8 @@ export abstract class ClientClass {
     /* Fields of GConf-2.0.GConf.ClientClass */
     parent_class: GObject.ObjectClass
     value_changed: (client: Client, key: string, value: Value) => void
-    unreturned_error: (client: Client, error: GLib.Error) => void
-    error: (client: Client, error: GLib.Error) => void
+    unreturned_error: any
+    error: any
     pad1: GLib.Func
     pad2: GLib.Func
     pad3: GLib.Func

@@ -36705,8 +36705,8 @@ export abstract class ApplicationClass {
 export abstract class ApplicationToolInterface {
     /* Fields of Ide-1.0.Ide.ApplicationToolInterface */
     parentInterface: GObject.TypeInterface
-    runAsync: (self: ApplicationTool, arguments_: string[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    runFinish: (self: ApplicationTool, result: Gio.AsyncResult) => number
+    runAsync: any
+    runFinish: any
     static name: string
 }
 export abstract class BackForwardItemClass {
@@ -36723,7 +36723,7 @@ export abstract class BufferChangeMonitorClass {
     /* Fields of Ide-1.0.Ide.BufferChangeMonitorClass */
     parent: ObjectClass
     setBuffer: (self: BufferChangeMonitor, buffer: Buffer) => void
-    getChange: (self: BufferChangeMonitor, iter: Gtk.TextIter) => BufferLineChange
+    getChange: any
     reload: (self: BufferChangeMonitor) => void
     reserved1: object
     reserved2: object
@@ -36738,7 +36738,7 @@ export abstract class BufferChangeMonitorClass {
 export abstract class BufferClass {
     /* Fields of Ide-1.0.Ide.BufferClass */
     parentClass: GtkSource.BufferClass
-    cursorMoved: (self: Buffer, location: Gtk.TextIter) => void
+    cursorMoved: any
     reserved1: object
     reserved2: object
     reserved3: object
@@ -36783,13 +36783,13 @@ export class BuildResult {
 export abstract class BuildStageClass {
     /* Fields of Ide-1.0.Ide.BuildStageClass */
     parentClass: ObjectClass
-    execute: (self: BuildStage, pipeline: BuildPipeline, cancellable?: Gio.Cancellable | null) => boolean
-    executeAsync: (self: BuildStage, pipeline: BuildPipeline, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    executeFinish: (self: BuildStage, result: Gio.AsyncResult) => boolean
-    cleanAsync: (self: BuildStage, pipeline: BuildPipeline, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    cleanFinish: (self: BuildStage, result: Gio.AsyncResult) => boolean
-    query: (self: BuildStage, pipeline: BuildPipeline, cancellable?: Gio.Cancellable | null) => void
-    reap: (self: BuildStage, reaper: Dazzle.DirectoryReaper) => void
+    execute: any
+    executeAsync: any
+    executeFinish: any
+    cleanAsync: any
+    cleanFinish: any
+    query: any
+    reap: any
     chain: (self: BuildStage, next: BuildStage) => boolean
     reserved1: object
     reserved2: object
@@ -36831,17 +36831,17 @@ export abstract class BuildStageTransferClass {
 export abstract class BuildSystemDiscoveryInterface {
     /* Fields of Ide-1.0.Ide.BuildSystemDiscoveryInterface */
     parentIface: GObject.TypeInterface
-    discover: (self: BuildSystemDiscovery, projectFile: Gio.File, cancellable?: Gio.Cancellable | null) => { returnType: string, priority: number }
+    discover: any
     static name: string
 }
 export abstract class BuildSystemInterface {
     /* Fields of Ide-1.0.Ide.BuildSystemInterface */
     parentIface: GObject.TypeInterface
     getPriority: (self: BuildSystem) => number
-    getBuildFlagsAsync: (self: BuildSystem, file: File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    getBuildFlagsFinish: (self: BuildSystem, result: Gio.AsyncResult) => string[]
-    getBuildTargetsAsync: (self: BuildSystem, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    getBuildTargetsFinish: (self: BuildSystem, result: Gio.AsyncResult) => BuildTarget[]
+    getBuildFlagsAsync: any
+    getBuildFlagsFinish: any
+    getBuildTargetsAsync: any
+    getBuildTargetsFinish: any
     getBuilddir: (self: BuildSystem, configuration: Configuration) => string
     getId: (self: BuildSystem) => string
     getDisplayName: (self: BuildSystem) => string
@@ -36850,7 +36850,7 @@ export abstract class BuildSystemInterface {
 export abstract class BuildTargetInterface {
     /* Fields of Ide-1.0.Ide.BuildTargetInterface */
     parentIface: GObject.TypeInterface
-    getInstallDirectory: (self: BuildTarget) => Gio.File | null
+    getInstallDirectory: any
     getName: (self: BuildTarget) => string | null
     reserved2: object
     reserved3: object
@@ -36936,11 +36936,11 @@ export abstract class ConfigurationManagerClass {
 export abstract class ConfigurationProviderInterface {
     /* Fields of Ide-1.0.Ide.ConfigurationProviderInterface */
     parent: GObject.TypeInterface
-    loadAsync: (self: ConfigurationProvider, manager: ConfigurationManager, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    loadFinish: (self: ConfigurationProvider, result: Gio.AsyncResult) => boolean
+    loadAsync: any
+    loadFinish: any
     unload: (self: ConfigurationProvider, manager: ConfigurationManager) => void
-    saveAsync: (self: ConfigurationProvider, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    saveFinish: (self: ConfigurationProvider, result: Gio.AsyncResult) => boolean
+    saveAsync: any
+    saveFinish: any
     static name: string
 }
 export abstract class ContextClass {
@@ -37000,8 +37000,8 @@ export abstract class DiagnosticProviderInterface {
     /* Fields of Ide-1.0.Ide.DiagnosticProviderInterface */
     parentInterface: GObject.TypeInterface
     load: (self: DiagnosticProvider) => void
-    diagnoseAsync: (self: DiagnosticProvider, file: File, buffer: Buffer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    diagnoseFinish: (self: DiagnosticProvider, result: Gio.AsyncResult) => Diagnostics | null
+    diagnoseAsync: any
+    diagnoseFinish: any
     static name: string
 }
 export class Diagnostics {
@@ -37109,10 +37109,10 @@ export abstract class FormatterInterface {
     /* Fields of Ide-1.0.Ide.FormatterInterface */
     parent: GObject.TypeInterface
     load: (self: Formatter) => void
-    formatAsync: (self: Formatter, buffer: Buffer, options: FormatterOptions, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    formatFinish: (self: Formatter, result: Gio.AsyncResult) => boolean
-    formatRangeAsync: (self: Formatter, buffer: Buffer, options: FormatterOptions, begin: Gtk.TextIter, end: Gtk.TextIter, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    formatRangeFinish: (self: Formatter, result: Gio.AsyncResult) => boolean
+    formatAsync: any
+    formatFinish: any
+    formatRangeAsync: any
+    formatRangeFinish: any
     static name: string
 }
 export abstract class FormatterOptionsClass {
@@ -37125,9 +37125,9 @@ export abstract class GenesisAddinInterface {
     parentInterface: GObject.TypeInterface
     getTitle: (self: GenesisAddin) => string
     getIconName: (self: GenesisAddin) => string
-    getWidget: (self: GenesisAddin) => Gtk.Widget
-    runAsync: (self: GenesisAddin, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    runFinish: (self: GenesisAddin, result: Gio.AsyncResult) => boolean
+    getWidget: any
+    runAsync: any
+    runFinish: any
     getLabel: (self: GenesisAddin) => string
     getNextLabel: (self: GenesisAddin) => string
     getPriority: (self: GenesisAddin) => number
@@ -37154,7 +37154,7 @@ export class HighlightIndex {
 export abstract class HighlighterInterface {
     /* Fields of Ide-1.0.Ide.HighlighterInterface */
     parentInterface: GObject.TypeInterface
-    update: (self: Highlighter, callback: HighlightCallback, rangeBegin: Gtk.TextIter, rangeEnd: Gtk.TextIter) => { location: Gtk.TextIter }
+    update: any
     setEngine: (self: Highlighter, engine: HighlightEngine) => void
     load: (self: Highlighter) => void
     static name: string
@@ -37162,16 +37162,16 @@ export abstract class HighlighterInterface {
 export abstract class IndenterInterface {
     /* Fields of Ide-1.0.Ide.IndenterInterface */
     parent: GObject.TypeInterface
-    format: (self: Indenter, textView: Gtk.TextView, begin: Gtk.TextIter, end: Gtk.TextIter, event: Gdk.EventKey) => { returnType: string | null, cursorOffset: number }
-    isTrigger: (self: Indenter, event: Gdk.EventKey) => boolean
+    format: any
+    isTrigger: any
     static name: string
 }
 export abstract class LangservClientClass {
     /* Fields of Ide-1.0.Ide.LangservClientClass */
     parentClass: ObjectClass
-    notification: (self: LangservClient, method: string, params: GLib.Variant) => void
+    notification: any
     supportsLanguage: (self: LangservClient, languageId: string) => boolean
-    publishedDiagnostics: (self: LangservClient, file: Gio.File, diagnostics: Diagnostics) => void
+    publishedDiagnostics: any
     reserved1: object
     reserved2: object
     reserved3: object
@@ -37290,7 +37290,7 @@ export abstract class LayoutViewClass {
     getModified: (self: LayoutView) => boolean
     getTitle: (self: LayoutView) => string
     getSpecialTitle: (self: LayoutView) => string
-    createSplit: (self: LayoutView, file: Gio.File) => LayoutView
+    createSplit: any
     getSplitView: (self: LayoutView) => boolean
     setSplitView: (self: LayoutView, splitView: boolean) => void
     setBackForwardList: (self: LayoutView, backForwardList: BackForwardList) => void
@@ -37370,16 +37370,16 @@ export abstract class PerspectiveInterface {
     /* Fields of Ide-1.0.Ide.PerspectiveInterface */
     parent: GObject.TypeInterface
     agreeToShutdown: (self: Perspective) => boolean
-    getActions: (self: Perspective) => Gio.ActionGroup | null
+    getActions: any
     getIconName: (self: Perspective) => string | null
     getId: (self: Perspective) => string | null
     getNeedsAttention: (self: Perspective) => boolean
     getPriority: (self: Perspective) => number
     getTitle: (self: Perspective) => string
-    getTitlebar: (self: Perspective) => Gtk.Widget | null
+    getTitlebar: any
     isEarly: (self: Perspective) => boolean
     setFullscreen: (self: Perspective, fullscreen: boolean) => void
-    viewsForeach: (self: Perspective, callback: Gtk.Callback) => void
+    viewsForeach: any
     getAccelerator: (self: Perspective) => string | null
     static name: string
 }
@@ -37391,8 +37391,8 @@ export abstract class PkconTransferClass {
 export abstract class PreferencesAddinInterface {
     /* Fields of Ide-1.0.Ide.PreferencesAddinInterface */
     parentInterface: GObject.TypeInterface
-    load: (self: PreferencesAddin, preferences: Dazzle.Preferences) => void
-    unload: (self: PreferencesAddin, preferences: Dazzle.Preferences) => void
+    load: any
+    unload: any
     static name: string
 }
 export abstract class PreferencesPerspectiveClass {
@@ -37443,8 +37443,8 @@ export abstract class ProjectMinerInterface {
     /* Fields of Ide-1.0.Ide.ProjectMinerInterface */
     parentIface: GObject.TypeInterface
     discovered: (self: ProjectMiner, projectInfo: ProjectInfo) => void
-    mineAsync: (self: ProjectMiner, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    mineFinish: (self: ProjectMiner, result: Gio.AsyncResult) => boolean
+    mineAsync: any
+    mineFinish: any
     static name: string
 }
 export abstract class ProjectTemplateInterface {
@@ -37453,11 +37453,11 @@ export abstract class ProjectTemplateInterface {
     getId: (self: ProjectTemplate) => string
     getName: (self: ProjectTemplate) => string
     getDescription: (self: ProjectTemplate) => string
-    getWidget: (self: ProjectTemplate) => Gtk.Widget
+    getWidget: any
     getLanguages: (self: ProjectTemplate) => string[]
     getIconName: (self: ProjectTemplate) => string
-    expandAsync: (self: ProjectTemplate, params: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    expandFinish: (self: ProjectTemplate, result: Gio.AsyncResult) => boolean
+    expandAsync: any
+    expandFinish: any
     static name: string
 }
 export abstract class RecentProjectsClass {
@@ -37468,8 +37468,8 @@ export abstract class RecentProjectsClass {
 export abstract class RenameProviderInterface {
     /* Fields of Ide-1.0.Ide.RenameProviderInterface */
     parentIface: GObject.TypeInterface
-    renameAsync: (self: RenameProvider, location: SourceLocation, newName: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    renameFinish: (self: RenameProvider, result: Gio.AsyncResult) => { returnType: boolean, edits: ProjectEdit[] | null }
+    renameAsync: any
+    renameFinish: any
     load: (self: RenameProvider) => void
     static name: string
 }
@@ -37488,21 +37488,21 @@ export abstract class RunnerAddinInterface {
     parentInterface: GObject.TypeInterface
     load: (self: RunnerAddin, runner: Runner) => void
     unload: (self: RunnerAddin, runner: Runner) => void
-    prehookAsync: (self: RunnerAddin, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    prehookFinish: (self: RunnerAddin, result: Gio.AsyncResult) => boolean
-    posthookAsync: (self: RunnerAddin, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    posthookFinish: (self: RunnerAddin, result: Gio.AsyncResult) => boolean
+    prehookAsync: any
+    prehookFinish: any
+    posthookAsync: any
+    posthookFinish: any
     static name: string
 }
 export abstract class RunnerClass {
     /* Fields of Ide-1.0.Ide.RunnerClass */
     parent: ObjectClass
     forceQuit: (self: Runner) => void
-    getStdin: (self: Runner) => Gio.OutputStream | null
-    getStdout: (self: Runner) => Gio.InputStream | null
-    getStderr: (self: Runner) => Gio.InputStream | null
-    runAsync: (self: Runner, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    runFinish: (self: Runner, result: Gio.AsyncResult) => boolean
+    getStdin: any
+    getStdout: any
+    getStderr: any
+    runAsync: any
+    runFinish: any
     setTty: (self: Runner, ttyFd: number) => void
     fixupLauncher: (self: Runner, launcher: SubprocessLauncher) => void
     getRuntime: (self: Runner) => Runtime | null
@@ -37518,11 +37518,11 @@ export abstract class RunnerClass {
 export abstract class RuntimeClass {
     /* Fields of Ide-1.0.Ide.RuntimeClass */
     parent: ObjectClass
-    containsProgramInPath: (self: Runtime, program: string, cancellable?: Gio.Cancellable | null) => boolean
+    containsProgramInPath: any
     createLauncher: (self: Runtime) => SubprocessLauncher
     prepareConfiguration: (self: Runtime, configuration: Configuration) => void
     createRunner: (self: Runtime, buildTarget: BuildTarget) => Runner | null
-    translateFile: (self: Runtime, file: Gio.File) => Gio.File
+    translateFile: any
     reserved4: object
     reserved5: object
     reserved6: object
@@ -37549,8 +37549,8 @@ export abstract class RuntimeProviderInterface {
     load: (self: RuntimeProvider, manager: RuntimeManager) => void
     unload: (self: RuntimeProvider, manager: RuntimeManager) => void
     canInstall: (self: RuntimeProvider, runtimeId: string) => boolean
-    installAsync: (self: RuntimeProvider, runtimeId: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    installFinish: (self: RuntimeProvider, result: Gio.AsyncResult) => boolean
+    installAsync: any
+    installFinish: any
     static name: string
 }
 export class Script {
@@ -37575,9 +37575,9 @@ export abstract class SearchProviderInterface {
     getPrefix: (provider: SearchProvider) => number
     getPriority: (provider: SearchProvider) => number
     getVerb: (provider: SearchProvider) => string
-    populate: (provider: SearchProvider, context: SearchContext, searchTerms: string, maxResults: number, cancellable?: Gio.Cancellable | null) => void
-    createRow: (provider: SearchProvider, result: SearchResult) => Gtk.Widget
-    activate: (provider: SearchProvider, row: Gtk.Widget, result: SearchResult) => void
+    populate: any
+    createRow: any
+    activate: any
     static name: string
 }
 export class SearchReducer {
@@ -37685,7 +37685,7 @@ export abstract class SourceViewClass {
     clearSearch: (self: SourceView) => void
     clearSelection: (self: SourceView) => void
     clearSnippets: (self: SourceView) => void
-    cycleCompletion: (self: SourceView, direction: Gtk.DirectionType) => void
+    cycleCompletion: any
     deleteSelection: (self: SourceView) => void
     endMacro: (self: SourceView) => void
     focusLocation: (self: SourceView, location: SourceLocation) => void
@@ -37694,10 +37694,10 @@ export abstract class SourceViewClass {
     indentSelection: (self: SourceView, level: number) => void
     insertAtCursorAndIndent: (self: SourceView, str: string) => void
     insertModifier: (self: SourceView, useCount: boolean) => void
-    jump: (self: SourceView, location: Gtk.TextIter) => void
+    jump: any
     movement: (self: SourceView, movement: SourceViewMovement, extendSelection: boolean, exclusive: boolean, applyCount: boolean) => void
-    moveError: (self: SourceView, dir: Gtk.DirectionType) => void
-    moveSearch: (self: SourceView, dir: Gtk.DirectionType, extendSelection: boolean, selectMatch: boolean, exclusive: boolean, applyCount: boolean, atWordBoundaries: number) => void
+    moveError: any
+    moveSearch: any
     pasteClipboardExtended: (self: SourceView, smartLines: boolean, afterCursor: boolean, placeCursorAtOriginal: boolean) => void
     pushSelection: (self: SourceView) => void
     popSelection: (self: SourceView) => void
@@ -37757,12 +37757,12 @@ export abstract class SubprocessInterface {
     /* Fields of Ide-1.0.Ide.SubprocessInterface */
     parentInterface: GObject.TypeInterface
     getIdentifier: (self: Subprocess) => string
-    getStdoutPipe: (self: Subprocess) => Gio.InputStream
-    getStderrPipe: (self: Subprocess) => Gio.InputStream
-    getStdinPipe: (self: Subprocess) => Gio.OutputStream
-    wait: (self: Subprocess, cancellable?: Gio.Cancellable | null) => boolean
-    waitAsync: (self: Subprocess, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    waitFinish: (self: Subprocess, result: Gio.AsyncResult) => boolean
+    getStdoutPipe: any
+    getStderrPipe: any
+    getStdinPipe: any
+    wait: any
+    waitAsync: any
+    waitFinish: any
     getSuccessful: (self: Subprocess) => boolean
     getIfExited: (self: Subprocess) => boolean
     getExitStatus: (self: Subprocess) => number
@@ -37771,18 +37771,18 @@ export abstract class SubprocessInterface {
     getStatus: (self: Subprocess) => number
     sendSignal: (self: Subprocess, signalNum: number) => void
     forceExit: (self: Subprocess) => void
-    communicate: (self: Subprocess, stdinBuf: any, cancellable: Gio.Cancellable | null, stdoutBuf: any, stderrBuf: any) => boolean
-    communicateUtf8: (self: Subprocess, stdinBuf?: string | null, cancellable?: Gio.Cancellable | null) => { returnType: boolean, stdoutBuf: string | null, stderrBuf: string | null }
-    communicateAsync: (self: Subprocess, stdinBuf?: any | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    communicateFinish: (self: Subprocess, result: Gio.AsyncResult) => { returnType: boolean, stdoutBuf: any | null, stderrBuf: any | null }
-    communicateUtf8Async: (self: Subprocess, stdinBuf?: string | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    communicateUtf8Finish: (self: Subprocess, result: Gio.AsyncResult) => { returnType: boolean, stdoutBuf: string | null, stderrBuf: string | null }
+    communicate: any
+    communicateUtf8: any
+    communicateAsync: any
+    communicateFinish: any
+    communicateUtf8Async: any
+    communicateUtf8Finish: any
     static name: string
 }
 export abstract class SubprocessLauncherClass {
     /* Fields of Ide-1.0.Ide.SubprocessLauncherClass */
     parentClass: GObject.ObjectClass
-    spawn: (self: SubprocessLauncher, cancellable?: Gio.Cancellable | null) => Subprocess
+    spawn: any
     reserved1: object
     reserved2: object
     reserved3: object
@@ -37826,8 +37826,8 @@ export class Symbol {
 export abstract class SymbolNodeClass {
     /* Fields of Ide-1.0.Ide.SymbolNodeClass */
     parent: ObjectClass
-    getLocationAsync: (self: SymbolNode, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    getLocationFinish: (self: SymbolNode, result: Gio.AsyncResult) => SourceLocation | null
+    getLocationAsync: any
+    getLocationFinish: any
     reserved1: object
     reserved2: object
     reserved3: object
@@ -37841,13 +37841,13 @@ export abstract class SymbolNodeClass {
 export abstract class SymbolResolverInterface {
     /* Fields of Ide-1.0.Ide.SymbolResolverInterface */
     parentInterface: GObject.TypeInterface
-    lookupSymbolAsync: (self: SymbolResolver, location: SourceLocation, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    lookupSymbolFinish: (self: SymbolResolver, result: Gio.AsyncResult) => Symbol | null
-    getSymbolTreeAsync: (self: SymbolResolver, file: Gio.File, buffer: Buffer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    getSymbolTreeFinish: (self: SymbolResolver, result: Gio.AsyncResult) => SymbolTree | null
+    lookupSymbolAsync: any
+    lookupSymbolFinish: any
+    getSymbolTreeAsync: any
+    getSymbolTreeFinish: any
     load: (self: SymbolResolver) => void
-    findReferencesAsync: (self: SymbolResolver, location: SourceLocation, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    findReferencesFinish: (self: SymbolResolver, result: Gio.AsyncResult) => SourceRange[]
+    findReferencesAsync: any
+    findReferencesFinish: any
     static name: string
 }
 export abstract class SymbolTreeInterface {
@@ -37860,8 +37860,8 @@ export abstract class SymbolTreeInterface {
 export abstract class TagsBuilderInterface {
     /* Fields of Ide-1.0.Ide.TagsBuilderInterface */
     parent: GObject.TypeInterface
-    buildAsync: (self: TagsBuilder, directoryOrFile: Gio.File, recursive: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    buildFinish: (self: TagsBuilder, result: Gio.AsyncResult) => boolean
+    buildAsync: any
+    buildFinish: any
     static name: string
 }
 export abstract class TemplateBaseClass {
@@ -37893,8 +37893,8 @@ export abstract class TransferButtonClass {
 export abstract class TransferClass {
     /* Fields of Ide-1.0.Ide.TransferClass */
     parentClass: GObject.ObjectClass
-    executeAsync: (self: Transfer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    executeFinish: (self: Transfer, result: Gio.AsyncResult) => boolean
+    executeAsync: any
+    executeFinish: any
     reserved1: object
     reserved2: object
     reserved3: object
@@ -37991,16 +37991,16 @@ export abstract class VcsInitializerInterface {
     /* Fields of Ide-1.0.Ide.VcsInitializerInterface */
     parent: GObject.TypeInterface
     getTitle: (self: VcsInitializer) => string
-    initializeAsync: (self: VcsInitializer, file: Gio.File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    initializeFinish: (self: VcsInitializer, result: Gio.AsyncResult) => boolean
+    initializeAsync: any
+    initializeFinish: any
     static name: string
 }
 export abstract class VcsInterface {
     /* Fields of Ide-1.0.Ide.VcsInterface */
     parentInterface: GObject.TypeInterface
-    getWorkingDirectory: (self: Vcs) => Gio.File
+    getWorkingDirectory: any
     getBufferChangeMonitor: (self: Vcs, buffer: Buffer) => BufferChangeMonitor | null
-    isIgnored: (self: Vcs, file: Gio.File) => boolean
+    isIgnored: any
     getPriority: (self: Vcs) => number
     changed: (self: Vcs) => void
     getConfig: (self: Vcs) => VcsConfig | null
@@ -38036,8 +38036,8 @@ export abstract class WorkbenchAddinInterface {
     load: (self: WorkbenchAddin, workbench: Workbench) => void
     unload: (self: WorkbenchAddin, workbench: Workbench) => void
     canOpen: (self: WorkbenchAddin, uri: Uri, contentType?: string | null) => { returnType: boolean, priority: number }
-    openAsync: (self: WorkbenchAddin, uri: Uri, contentType: string, flags: WorkbenchOpenFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    openFinish: (self: WorkbenchAddin, result: Gio.AsyncResult) => boolean
+    openAsync: any
+    openFinish: any
     perspectiveSet: (self: WorkbenchAddin, perspective: Perspective) => void
     static name: string
 }
@@ -38067,8 +38067,8 @@ export abstract class WorkbenchMessageClass {
 export abstract class WorkerInterface {
     /* Fields of Ide-1.0.Ide.WorkerInterface */
     parent: GObject.TypeInterface
-    createProxy: (self: Worker, connection: Gio.DBusConnection) => Gio.DBusProxy
-    registerService: (self: Worker, connection: Gio.DBusConnection) => void
+    createProxy: any
+    registerService: any
     static name: string
 }
 }

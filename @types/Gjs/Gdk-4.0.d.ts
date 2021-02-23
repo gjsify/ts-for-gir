@@ -5376,8 +5376,8 @@ export abstract class ContentProviderClass {
     detach_clipboard: (provider: ContentProvider, clipboard: Clipboard) => void
     ref_formats: (provider: ContentProvider) => ContentFormats
     ref_storable_formats: (provider: ContentProvider) => ContentFormats
-    write_mime_type_async: (provider: ContentProvider, mime_type: string, stream: Gio.OutputStream, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    write_mime_type_finish: (provider: ContentProvider, result: Gio.AsyncResult) => boolean
+    write_mime_type_async: any
+    write_mime_type_finish: any
     get_value: (provider: ContentProvider, value: any) => boolean
     static name: string
 }

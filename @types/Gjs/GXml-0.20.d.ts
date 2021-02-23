@@ -23417,8 +23417,8 @@ export class XCommentPrivate {
 }
 export abstract class XDocumentClass {
     /* Fields of GXml-0.20.GXml.XDocumentClass */
-    save: (cancellable?: Gio.Cancellable | null) => boolean
-    save_as: (f: Gio.File, cancellable?: Gio.Cancellable | null) => boolean
+    save: any
+    save_as: any
     static name: string
 }
 export class XDocumentPrivate {
@@ -23738,16 +23738,16 @@ export abstract class CollectionIface {
     search: () => void
     get_item: (index: number) => DomElement | null
     append: (node: DomElement) => void
-    initialize: (t: GObject.Type) => void
+    initialize: any
     create_item: () => DomElement | null
     validate_append: (index: number, element: DomElement) => boolean
     clear: () => void
-    get_nodes_index: () => GLib.Queue
+    get_nodes_index: any
     get_element: () => DomElement
     set_element: (value: DomElement) => void
     get_items_name: () => string
-    get_items_type: () => GObject.Type
-    set_items_type: (value: GObject.Type) => void
+    get_items_type: any
+    set_items_type: any
     get_length: () => number
     static name: string
 }
@@ -23765,7 +23765,7 @@ export abstract class MapIface {
     has_key: (key: string) => boolean
     get_attribute_key: () => string
     set_attribute_key: (value: string) => void
-    get_keys_set: () => Gee.Set
+    get_keys_set: any
     static name: string
 }
 export abstract class MappeableElementPairKeyIface {
@@ -23779,12 +23779,12 @@ export abstract class PairedMapIface {
     item: (primary_key: string, secondary_key: string) => DomElement | null
     has_primary_key: (key: string) => boolean
     has_secondary_key: (pkey: string, key: string) => boolean
-    secondary_keys_set: (pkey: string) => Gee.Set
+    secondary_keys_set: any
     get_attribute_primary_key: () => string
     set_attribute_primary_key: (value: string) => void
     get_attribute_secondary_key: () => string
     set_attribute_secondary_key: (value: string) => void
-    get_primary_keys_set: () => Gee.Set
+    get_primary_keys_set: any
     static name: string
 }
 export abstract class MappeableElementThreeKeyIface {
@@ -23800,20 +23800,20 @@ export abstract class ThreeMapIface {
     has_primary_key: (key: string) => boolean
     has_secondary_key: (pkey: string, key: string) => boolean
     has_third_key: (pkey: string, skey: string, key: string) => boolean
-    secondary_keys_set: (pkey: string) => Gee.Set
-    third_keys_set: (pkey: string, skey: string) => Gee.Set
+    secondary_keys_set: any
+    third_keys_set: any
     get_attribute_primary_key: () => string
     set_attribute_primary_key: (value: string) => void
     get_attribute_secondary_key: () => string
     set_attribute_secondary_key: (value: string) => void
     get_attribute_third_key: () => string
     set_attribute_third_key: (value: string) => void
-    get_primary_keys_set: () => Gee.Set
+    get_primary_keys_set: any
     static name: string
 }
 export abstract class CollectionParentIface {
     /* Fields of GXml-0.20.GXml.CollectionParentIface */
-    get_types: () => GLib.HashTable
+    get_types: any
     static name: string
 }
 export abstract class DomAttrIface {
@@ -23966,27 +23966,27 @@ export abstract class DomDocumentIface {
     create_range: () => DomRange
     create_node_iterator: (root: DomNode, whatToShow: number) => DomNodeIterator
     create_tree_walker: (root: DomNode, what_to_show: number) => DomTreeWalker
-    write_file: (file: Gio.File, cancellable?: Gio.Cancellable | null) => void
-    write_file_async: (file: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    write_file_finish: (_res_: Gio.AsyncResult) => void
-    write_stream: (stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null) => void
-    write_stream_async: (stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    write_stream_finish: (_res_: Gio.AsyncResult) => void
-    create_stream: () => Gio.InputStream
-    create_stream_async: (cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    create_stream_finish: (_res_: Gio.AsyncResult) => Gio.InputStream
-    write_string: (cancellable?: Gio.Cancellable | null) => string
-    write_string_async: (cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    write_string_finish: (_res_: Gio.AsyncResult) => string
-    read_from_file: (file: Gio.File, cancellable?: Gio.Cancellable | null) => void
-    read_from_file_async: (file: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    read_from_file_finish: (_res_: Gio.AsyncResult) => void
-    read_from_string: (str: string, cancellable?: Gio.Cancellable | null) => void
-    read_from_string_async: (str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    read_from_string_finish: (_res_: Gio.AsyncResult) => void
-    read_from_stream: (stream: Gio.InputStream, cancellable?: Gio.Cancellable | null) => void
-    read_from_stream_async: (stream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    read_from_stream_finish: (_res_: Gio.AsyncResult) => void
+    write_file: any
+    write_file_async: any
+    write_file_finish: any
+    write_stream: any
+    write_stream_async: any
+    write_stream_finish: any
+    create_stream: any
+    create_stream_async: any
+    create_stream_finish: any
+    write_string: any
+    write_string_async: any
+    write_string_finish: any
+    read_from_file: any
+    read_from_file_async: any
+    read_from_file_finish: any
+    read_from_string: any
+    read_from_string_async: any
+    read_from_string_finish: any
+    read_from_stream: any
+    read_from_stream_async: any
+    read_from_stream_finish: any
     get_xml_parser: () => Parser
     set_xml_parser: (parser: Parser) => void
     get_implementation: () => DomImplementation
@@ -24043,29 +24043,29 @@ export abstract class DomElementIface {
     get_elements_by_class_name: (class_names: string) => DomHTMLCollection
     matches: (selectors: string) => boolean
     read_from_uri: (uri: string) => void
-    read_from_uri_async: (uri: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    read_from_uri_finish: (_res_: Gio.AsyncResult) => void
-    read_from_file: (f: Gio.File, cancellable?: Gio.Cancellable | null) => void
-    read_from_file_async: (f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    read_from_file_finish: (_res_: Gio.AsyncResult) => void
-    read_from_stream: (istream: Gio.InputStream, cancellable?: Gio.Cancellable | null) => void
-    read_from_stream_async: (istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    read_from_stream_finish: (_res_: Gio.AsyncResult) => void
-    read_from_string: (str: string, cancellable?: Gio.Cancellable | null) => void
-    read_from_string_async: (str: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    read_from_string_finish: (_res_: Gio.AsyncResult) => void
-    write_string: (cancellable?: Gio.Cancellable | null) => string
-    write_string_async: (cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    write_string_finish: (_res_: Gio.AsyncResult) => string
-    write_file: (f: Gio.File, cancellable?: Gio.Cancellable | null) => void
-    write_file_async: (f: Gio.File, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    write_file_finish: (_res_: Gio.AsyncResult) => void
-    write_stream: (stream: Gio.OutputStream) => void
-    write_stream_async: (stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    write_stream_finish: (_res_: Gio.AsyncResult) => void
-    create_stream: () => Gio.InputStream
-    create_stream_async: (cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    create_stream_finish: (_res_: Gio.AsyncResult) => Gio.InputStream
+    read_from_uri_async: any
+    read_from_uri_finish: any
+    read_from_file: any
+    read_from_file_async: any
+    read_from_file_finish: any
+    read_from_stream: any
+    read_from_stream_async: any
+    read_from_stream_finish: any
+    read_from_string: any
+    read_from_string_async: any
+    read_from_string_finish: any
+    write_string: any
+    write_string_async: any
+    write_string_finish: any
+    write_file: any
+    write_file_async: any
+    write_file_finish: any
+    write_stream: any
+    write_stream_async: any
+    write_stream_finish: any
+    create_stream: any
+    create_stream_async: any
+    create_stream_finish: any
     get_namespace_uri: () => string | null
     get_prefix: () => string | null
     get_local_name: () => string
@@ -24117,7 +24117,7 @@ export abstract class DomMutationObserverIface {
     /* Fields of GXml-0.20.GXml.DomMutationObserverIface */
     observe: (target: Node, options: DomMutationObserverInit) => void
     disconnect: () => void
-    take_records: () => Gee.List
+    take_records: any
     static name: string
 }
 export abstract class DomMutationRecordIface {
@@ -24419,10 +24419,10 @@ export abstract class IXsdListIface {
     index_of: (element: DomElement) => number
     get_element: () => DomElement
     set_element: (value: DomElement) => void
-    get_items_type: () => GObject.Type
-    set_items_type: (value: GObject.Type) => void
-    get_items_name: () => GObject.Type
-    set_items_name: (value: GObject.Type) => void
+    get_items_type: any
+    set_items_type: any
+    get_items_name: any
+    set_items_name: any
     get_length: () => number
     static name: string
 }
@@ -24449,11 +24449,11 @@ export abstract class IXsdListTypeRestrictionWhiteSpacesIface {
 }
 export abstract class ObjectIface {
     /* Fields of GXml-0.20.GXml.ObjectIface */
-    get_properties_list: () => GObject.ParamSpec[]
-    find_property_name: (nick: string) => GObject.ParamSpec | null
-    find_object_property_name: (pname: string) => GObject.ParamSpec | null
-    get_property_element_list: () => GObject.ParamSpec[]
-    get_property_string: (prop: GObject.ParamSpec) => string | null
+    get_properties_list: any
+    find_property_name: any
+    find_object_property_name: any
+    get_property_element_list: any
+    get_property_string: any
     get_attribute: (name: string) => string | null
     find_property: (name: string) => Property | null
     set_attribute: (name: string, val: string) => boolean
@@ -24466,35 +24466,35 @@ export abstract class ObjectIface {
 }
 export abstract class ParserIface {
     /* Fields of GXml-0.20.GXml.ParserIface */
-    write_file: (file: Gio.File) => void
-    write_file_async: (file: Gio.File, _callback_?: Gio.AsyncReadyCallback | null) => void
-    write_file_finish: (_res_: Gio.AsyncResult) => void
+    write_file: any
+    write_file_async: any
+    write_file_finish: any
     write_string: () => string
-    write_string_async: (_callback_?: Gio.AsyncReadyCallback | null) => void
-    write_string_finish: (_res_: Gio.AsyncResult) => string
-    write_stream: (stream: Gio.OutputStream) => void
-    write_stream_async: (stream: Gio.OutputStream, _callback_?: Gio.AsyncReadyCallback | null) => void
-    write_stream_finish: (_res_: Gio.AsyncResult) => void
-    read_file: (file: Gio.File) => void
-    read_file_async: (file: Gio.File, _callback_?: Gio.AsyncReadyCallback | null) => void
-    read_file_finish: (_res_: Gio.AsyncResult) => void
-    read_stream: (stream: Gio.InputStream) => void
-    read_stream_async: (stream: Gio.InputStream, _callback_?: Gio.AsyncReadyCallback | null) => void
-    read_stream_finish: (_res_: Gio.AsyncResult) => void
+    write_string_async: any
+    write_string_finish: any
+    write_stream: any
+    write_stream_async: any
+    write_stream_finish: any
+    read_file: any
+    read_file_async: any
+    read_file_finish: any
+    read_stream: any
+    read_stream_async: any
+    read_stream_finish: any
     read_string: (str: string) => void
-    read_string_async: (str: string, _callback_?: Gio.AsyncReadyCallback | null) => void
-    read_string_finish: (_res_: Gio.AsyncResult) => void
-    create_stream: () => Gio.InputStream
-    create_stream_async: (_callback_?: Gio.AsyncReadyCallback | null) => void
-    create_stream_finish: (_res_: Gio.AsyncResult) => Gio.InputStream
+    read_string_async: any
+    read_string_finish: any
+    create_stream: any
+    create_stream_async: any
+    create_stream_finish: any
     read_child_nodes: (parent: DomNode) => void
-    read_child_nodes_async: (parent: DomNode, _callback_?: Gio.AsyncReadyCallback | null) => void
-    read_child_nodes_finish: (_res_: Gio.AsyncResult) => void
+    read_child_nodes_async: any
+    read_child_nodes_finish: any
     read_child_node: (parent: DomNode) => boolean
     read_child_element: (parent: DomNode) => boolean
     read_element_property: (parent: DomNode) => [ /* returnType */ boolean, /* element */ DomNode ]
     add_element_collection: (parent: DomNode) => [ /* returnType */ boolean, /* element */ DomNode ]
-    read_child_nodes_stream: (istream: Gio.InputStream) => void
+    read_child_nodes_stream: any
     read_child_nodes_string: (str: string) => void
     read_unparsed: () => string
     move_next_node: () => boolean
@@ -24508,10 +24508,10 @@ export abstract class ParserIface {
     set_backup: (value: boolean) => void
     get_indent: () => boolean
     set_indent: (value: boolean) => void
-    get_cancellable: () => Gio.Cancellable | null
-    set_cancellable: (value?: Gio.Cancellable | null) => void
+    get_cancellable: any
+    set_cancellable: any
     get_node: () => DomNode
-    get_types: () => GLib.HashTable
+    get_types: any
     static name: string
 }
 export abstract class PropertyIface {
@@ -24523,7 +24523,7 @@ export abstract class PropertyIface {
 }
 export abstract class XPathContextIface {
     /* Fields of GXml-0.20.GXml.XPathContextIface */
-    evaluate: (expression: string, resolver?: Gee.Map | null) => XPathObject
+    evaluate: any
     static name: string
 }
 export abstract class XPathObjectIface {

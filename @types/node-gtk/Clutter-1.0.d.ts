@@ -23068,7 +23068,7 @@ export abstract class ActorClass {
     keyFocusIn: (actor: Actor) => void
     keyFocusOut: (actor: Actor) => void
     queueRelayout: (self: Actor) => void
-    getAccessible: (self: Actor) => Atk.Object
+    getAccessible: any
     getPaintVolume: (actor: Actor, volume: PaintVolume) => boolean
     hasOverlaps: (self: Actor) => boolean
     paintNode: (self: Actor, root: PaintNode) => void
@@ -23108,7 +23108,7 @@ export class AlphaPrivate {
 export abstract class AnimatableIface {
     /* Fields of Clutter-1.0.Clutter.AnimatableIface */
     animateProperty: (animatable: Animatable, animation: Animation, propertyName: string, initialValue: any, finalValue: any, progress: number, value: any) => boolean
-    findProperty: (animatable: Animatable, propertyName: string) => GObject.ParamSpec
+    findProperty: any
     getInitialState: (animatable: Animatable, propertyName: string, value: any) => void
     setFinalState: (animatable: Animatable, propertyName: string, value: any) => void
     interpolateValue: (animatable: Animatable, propertyName: string, interval: Interval, progress: number) => { returnType: boolean, value: any }
@@ -23254,8 +23254,8 @@ export class ButtonEvent {
 }
 export abstract class CairoTextureClass {
     /* Fields of Clutter-1.0.Clutter.CairoTextureClass */
-    createSurface: (texture: CairoTexture, width: number, height: number) => cairo.Surface
-    draw: (texture: CairoTexture, cr: cairo.Context) => boolean
+    createSurface: any
+    draw: any
     static name: string
 }
 export class CairoTexturePrivate {
@@ -23263,7 +23263,7 @@ export class CairoTexturePrivate {
 }
 export abstract class CanvasClass {
     /* Fields of Clutter-1.0.Clutter.CanvasClass */
-    draw: (canvas: Canvas, cr: cairo.Context, width: number, height: number) => boolean
+    draw: any
     static name: string
 }
 export class CanvasPrivate {
@@ -23349,7 +23349,7 @@ export abstract class ContainerIface {
     getChildMeta: (container: Container, actor: Actor) => ChildMeta
     actorAdded: (container: Container, actor: Actor) => void
     actorRemoved: (container: Container, actor: Actor) => void
-    childNotify: (container: Container, child: Actor, pspec: GObject.ParamSpec) => void
+    childNotify: any
     static name: string
 }
 export abstract class ContentIface {
@@ -23376,7 +23376,7 @@ export class CrossingEvent {
 }
 export abstract class DeformEffectClass {
     /* Fields of Clutter-1.0.Clutter.DeformEffectClass */
-    deformVertex: (effect: DeformEffect, width: number, height: number, vertex: Cogl.TextureVertex) => void
+    deformVertex: any
     static name: string
 }
 export class DeformEffectPrivate {
@@ -23492,7 +23492,7 @@ export abstract class InputDeviceClass {
 }
 export abstract class IntervalClass {
     /* Fields of Clutter-1.0.Clutter.IntervalClass */
-    validate: (interval: Interval, pspec: GObject.ParamSpec) => boolean
+    validate: any
     computeValue: (interval: Interval, factor: number) => { returnType: boolean, value: any }
     static name: string
 }
@@ -23535,7 +23535,7 @@ export abstract class LayoutManagerClass {
     getPreferredHeight: (manager: LayoutManager, container: Container, forWidth: number) => { minHeightP: number | null, natHeightP: number | null }
     allocate: (manager: LayoutManager, container: Container, allocation: ActorBox, flags: AllocationFlags) => void
     setContainer: (manager: LayoutManager, container?: Container | null) => void
-    getChildMetaType: (manager: LayoutManager) => GObject.Type
+    getChildMetaType: any
     beginAnimation: (manager: LayoutManager, duration: number, mode: number) => Alpha
     getAnimationProgress: (manager: LayoutManager) => number
     endAnimation: (manager: LayoutManager) => void
@@ -23579,7 +23579,7 @@ export class Matrix {
 export abstract class MediaIface {
     /* Fields of Clutter-1.0.Clutter.MediaIface */
     eos: (media: Media) => void
-    error: (media: Media, error: GLib.Error) => void
+    error: any
     static name: string
 }
 export abstract class ModelClass {
@@ -23587,7 +23587,7 @@ export abstract class ModelClass {
     getNRows: (model: Model) => number
     getNColumns: (model: Model) => number
     getColumnName: (model: Model, column: number) => string
-    getColumnType: (model: Model, column: number) => GObject.Type
+    getColumnType: any
     removeRow: (model: Model, row: number) => void
     getIterAtRow: (model: Model, row: number) => ModelIter
     rowAdded: (model: Model, iter: ModelIter) => void
@@ -23632,7 +23632,7 @@ export class MotionEvent {
 }
 export abstract class OffscreenEffectClass {
     /* Fields of Clutter-1.0.Clutter.OffscreenEffectClass */
-    createTexture: (effect: OffscreenEffect, width: number, height: number) => Cogl.Handle
+    createTexture: any
     paintTarget: (effect: OffscreenEffect) => void
     static name: string
 }
@@ -23788,7 +23788,7 @@ export class ScorePrivate {
 }
 export abstract class ScriptClass {
     /* Fields of Clutter-1.0.Clutter.ScriptClass */
-    getTypeFromName: (script: Script, typeName: string) => GObject.Type
+    getTypeFromName: any
     static name: string
 }
 export class ScriptPrivate {
@@ -23798,7 +23798,7 @@ export abstract class ScriptableIface {
     /* Fields of Clutter-1.0.Clutter.ScriptableIface */
     setId: (scriptable: Scriptable, id: string) => void
     getId: (scriptable: Scriptable) => string
-    parseCustomNode: (scriptable: Scriptable, script: Script, value: any, name: string, node: Json.Node) => boolean
+    parseCustomNode: any
     setCustomProperty: (scriptable: Scriptable, script: Script, name: string, value: any) => void
     static name: string
 }
@@ -23962,7 +23962,7 @@ export abstract class TextureClass {
     /* Fields of Clutter-1.0.Clutter.TextureClass */
     sizeChange: (texture: Texture, width: number, height: number) => void
     pixbufChange: (texture: Texture) => void
-    loadFinished: (texture: Texture, error: GLib.Error) => void
+    loadFinished: any
     static name: string
 }
 export abstract class TextureNodeClass {

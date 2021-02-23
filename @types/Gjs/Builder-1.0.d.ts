@@ -6214,16 +6214,16 @@ export abstract class ApplicationClass {
 export abstract class DocumentInterface {
     /* Fields of Builder-1.0.Builder.DocumentInterface */
     parent: GObject.TypeInterface
-    create_view: (document: Document) => Gtk.Widget
+    create_view: any
     get_modified: (document: Document) => boolean
-    get_mtime: (document: Document, mtime: GLib.TimeVal) => boolean
+    get_mtime: any
     get_read_only: (document: Document) => boolean
     get_title: (document: Document) => string
     is_untitled: (document: Document) => boolean
-    save_async: (document: Document, toplevel: Gtk.Widget, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    save_finish: (document: Document, result: Gio.AsyncResult) => boolean
-    save_as_async: (document: Document, toplevel: Gtk.Widget, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    save_as_finish: (document: Document, result: Gio.AsyncResult) => boolean
+    save_async: any
+    save_finish: any
+    save_as_async: any
+    save_as_finish: any
     static name: string
 }
 export abstract class EditorViewAddinInterface {
@@ -6247,20 +6247,20 @@ export abstract class MenuExtensionClass {
 export abstract class TreeBuilderClass {
     /* Fields of Builder-1.0.Builder.TreeBuilderClass */
     parent_class: GObject.InitiallyUnownedClass
-    added: (builder: TreeBuilder, tree: Gtk.Widget) => void
-    removed: (builder: TreeBuilder, tree: Gtk.Widget) => void
+    added: any
+    removed: any
     build_node: (builder: TreeBuilder, node: TreeNode) => void
     node_activated: (builder: TreeBuilder, node: TreeNode) => boolean
     node_selected: (builder: TreeBuilder, node: TreeNode) => void
     node_unselected: (builder: TreeBuilder, node: TreeNode) => void
-    node_popup: (builder: TreeBuilder, node: TreeNode, menu: Gio.Menu) => void
+    node_popup: any
     static name: string
 }
 export abstract class TreeClass {
     /* Fields of Builder-1.0.Builder.TreeClass */
     parent_class: Gtk.TreeViewClass
     action: (self: Tree, action_group: string, action_name: string, param: string) => void
-    populate_popup: (self: Tree, widget: Gtk.Widget) => void
+    populate_popup: any
     static name: string
 }
 export abstract class TreeNodeClass {
@@ -6279,8 +6279,8 @@ export abstract class ViewClass {
     get_special_title: (self: View) => string
     create_split: (self: View) => View
     set_split_view: (self: View, split_view: boolean) => void
-    set_back_forward_list: (self: View, back_forward_list: Ide.BackForwardList) => void
-    navigate_to: (self: View, location: Ide.SourceLocation) => void
+    set_back_forward_list: any
+    navigate_to: any
     static name: string
 }
 export abstract class ViewGridClass {

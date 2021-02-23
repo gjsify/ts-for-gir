@@ -550,9 +550,9 @@ export abstract class PlayerControllerIface {
     next: (self: PlayerController) => boolean
     previous: (self: PlayerController) => boolean
     set_single_play_uri: (self: PlayerController, uri: string, metadata: string, mime?: string | null, features?: string | null) => void
-    set_playlist_uri: (self: PlayerController, uri: string, metadata: string, collection: GUPnPAV.MediaCollection) => void
+    set_playlist_uri: any
     set_next_single_play_uri: (self: PlayerController, uri: string, metadata: string, mime?: string | null, features?: string | null) => void
-    set_next_playlist_uri: (self: PlayerController, uri: string, metadata: string, collection: GUPnPAV.MediaCollection) => void
+    set_next_playlist_uri: any
     get_playback_state: (self: PlayerController) => string
     set_playback_state: (self: PlayerController, value: string) => void
     get_n_tracks: (self: PlayerController) => number

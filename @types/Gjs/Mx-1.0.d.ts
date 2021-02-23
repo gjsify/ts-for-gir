@@ -33524,13 +33524,13 @@ export class ActionPrivate {
 export abstract class ActorManagerClass {
     /* Fields of Mx-1.0.Mx.ActorManagerClass */
     parent_class: GObject.ObjectClass
-    actor_created: (manager: ActorManager, id: number, actor: Clutter.Actor) => void
-    actor_added: (manager: ActorManager, id: number, container: Clutter.Container, actor: Clutter.Actor) => void
-    actor_removed: (manager: ActorManager, id: number, container: Clutter.Container, actor: Clutter.Actor) => void
-    actor_finished: (manager: ActorManager, actor: Clutter.Actor) => void
+    actor_created: any
+    actor_added: any
+    actor_removed: any
+    actor_finished: any
     operation_completed: (manager: ActorManager, id: number) => void
     operation_cancelled: (manager: ActorManager, id: number) => void
-    operation_failed: (manager: ActorManager, id: number, error: GLib.Error) => void
+    operation_failed: any
     static name: string
 }
 export class ActorManagerPrivate {
@@ -33641,7 +33641,7 @@ export class DeformPageTurnPrivate {
 export abstract class DeformTextureClass {
     /* Fields of Mx-1.0.Mx.DeformTextureClass */
     parent_class: WidgetClass
-    deform: (texture: DeformTexture, vertex: Cogl.TextureVertex, width: number, height: number) => void
+    deform: any
     static name: string
 }
 export class DeformTexturePrivate {
@@ -33667,7 +33667,7 @@ export abstract class DraggableIface {
     /* Fields of Mx-1.0.Mx.DraggableIface */
     enable: (draggable: Draggable) => void
     disable: (draggable: Draggable) => void
-    drag_begin: (draggable: Draggable, event_x: number, event_y: number, event_button: number, modifiers: Clutter.ModifierType) => void
+    drag_begin: any
     drag_motion: (draggable: Draggable, delta_x: number, delta_y: number) => void
     drag_end: (draggable: Draggable, event_x: number, event_y: number) => void
     static name: string
@@ -33679,7 +33679,7 @@ export abstract class DroppableIface {
     accept_drop: (droppable: Droppable, draggable: Draggable) => boolean
     over_in: (droppable: Droppable, draggable: Draggable) => void
     over_out: (droppable: Droppable, draggable: Draggable) => void
-    drop: (droppable: Droppable, draggable: Draggable, event_x: number, event_y: number, button: number, modifiers: Clutter.ModifierType) => void
+    drop: any
     static name: string
 }
 export abstract class EntryClass {
@@ -33712,8 +33712,8 @@ export class FadeEffectPrivate {
 export abstract class FloatingWidgetClass {
     /* Fields of Mx-1.0.Mx.FloatingWidgetClass */
     parent_class: WidgetClass
-    floating_pick: (actor: Clutter.Actor, color: Clutter.Color) => void
-    floating_paint: (actor: Clutter.Actor) => void
+    floating_pick: any
+    floating_paint: any
     static name: string
 }
 export class FloatingWidgetPrivate {
@@ -33769,7 +33769,7 @@ export class IconThemePrivate {
 export abstract class ImageClass {
     /* Fields of Mx-1.0.Mx.ImageClass */
     image_loaded: (image: Image) => void
-    image_load_error: (image: Image, error: GLib.Error) => void
+    image_load_error: any
     static name: string
 }
 export class ImagePrivate {
@@ -33777,7 +33777,7 @@ export class ImagePrivate {
 }
 export abstract class ItemFactoryIface {
     /* Fields of Mx-1.0.Mx.ItemFactoryIface */
-    create: (factory: ItemFactory) => Clutter.Actor
+    create: any
     static name: string
 }
 export abstract class ItemViewClass {
@@ -33971,8 +33971,8 @@ export class TablePrivate {
 export abstract class TextureCacheClass {
     /* Fields of Mx-1.0.Mx.TextureCacheClass */
     parent_class: GObject.ObjectClass
-    loaded: (self: TextureCache, uri: string, texture: Clutter.Texture) => void
-    error_loading: (self: TextureCache, error: GLib.Error) => void
+    loaded: any
+    error_loading: any
     static name: string
 }
 export abstract class TextureFrameClass {
@@ -34018,7 +34018,7 @@ export class ViewportPrivate {
 }
 export abstract class WidgetClass {
     /* Fields of Mx-1.0.Mx.WidgetClass */
-    paint_background: (self: Widget, background: Clutter.Actor, color: Clutter.Color) => void
+    paint_background: any
     long_press: (widget: Widget, action: LongPressAction, x: number, y: number) => boolean
     apply_style: (widget: Widget, style: Style) => void
     static name: string

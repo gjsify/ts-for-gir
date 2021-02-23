@@ -2890,7 +2890,7 @@ export abstract class ColorBalanceInterface {
 export abstract class NavigationInterface {
     /* Fields of GstVideo-1.0.GstVideo.NavigationInterface */
     iface: GObject.TypeInterface
-    send_event: (navigation: Navigation, structure: Gst.Structure) => void
+    send_event: any
     static name: string
 }
 export class VideoAFDMeta {
@@ -2915,10 +2915,10 @@ export class VideoAffineTransformationMeta {
 }
 export abstract class VideoAggregatorClass {
     /* Fields of GstVideo-1.0.GstVideo.VideoAggregatorClass */
-    update_caps: (videoaggregator: VideoAggregator, caps: Gst.Caps) => Gst.Caps
-    aggregate_frames: (videoaggregator: VideoAggregator, outbuffer: Gst.Buffer) => Gst.FlowReturn
-    create_output_buffer: (videoaggregator: VideoAggregator, outbuffer: Gst.Buffer) => Gst.FlowReturn
-    find_best_format: (vagg: VideoAggregator, downstream_caps: Gst.Caps, best_info: VideoInfo, at_least_one_alpha: boolean) => void
+    update_caps: any
+    aggregate_frames: any
+    create_output_buffer: any
+    find_best_format: any
     static name: string
 }
 export abstract class VideoAggregatorConvertPadClass {
@@ -2934,7 +2934,7 @@ export abstract class VideoAggregatorPadClass {
     /* Fields of GstVideo-1.0.GstVideo.VideoAggregatorPadClass */
     parent_class: GstBase.AggregatorPadClass
     update_conversion_info: (pad: VideoAggregatorPad) => void
-    prepare_frame: (pad: VideoAggregatorPad, videoaggregator: VideoAggregator, buffer: Gst.Buffer, prepared_frame: VideoFrame) => boolean
+    prepare_frame: any
     clean_frame: (pad: VideoAggregatorPad, videoaggregator: VideoAggregator, prepared_frame: VideoFrame) => void
     _gst_reserved: object[]
     static name: string
@@ -3119,22 +3119,22 @@ export abstract class VideoDecoderClass {
     close: (decoder: VideoDecoder) => boolean
     start: (decoder: VideoDecoder) => boolean
     stop: (decoder: VideoDecoder) => boolean
-    parse: (decoder: VideoDecoder, frame: VideoCodecFrame, adapter: GstBase.Adapter, at_eos: boolean) => Gst.FlowReturn
+    parse: any
     set_format: (decoder: VideoDecoder, state: VideoCodecState) => boolean
     reset: (decoder: VideoDecoder, hard: boolean) => boolean
-    finish: (decoder: VideoDecoder) => Gst.FlowReturn
-    handle_frame: (decoder: VideoDecoder, frame: VideoCodecFrame) => Gst.FlowReturn
-    sink_event: (decoder: VideoDecoder, event: Gst.Event) => boolean
-    src_event: (decoder: VideoDecoder, event: Gst.Event) => boolean
+    finish: any
+    handle_frame: any
+    sink_event: any
+    src_event: any
     negotiate: (decoder: VideoDecoder) => boolean
-    decide_allocation: (decoder: VideoDecoder, query: Gst.Query) => boolean
-    propose_allocation: (decoder: VideoDecoder, query: Gst.Query) => boolean
+    decide_allocation: any
+    propose_allocation: any
     flush: (decoder: VideoDecoder) => boolean
-    sink_query: (decoder: VideoDecoder, query: Gst.Query) => boolean
-    src_query: (decoder: VideoDecoder, query: Gst.Query) => boolean
-    getcaps: (decoder: VideoDecoder, filter: Gst.Caps) => Gst.Caps
-    drain: (decoder: VideoDecoder) => Gst.FlowReturn
-    transform_meta: (decoder: VideoDecoder, frame: VideoCodecFrame, meta: Gst.Meta) => boolean
+    sink_query: any
+    src_query: any
+    getcaps: any
+    drain: any
+    transform_meta: any
     static name: string
 }
 export class VideoDecoderPrivate {
@@ -3158,20 +3158,20 @@ export abstract class VideoEncoderClass {
     start: (encoder: VideoEncoder) => boolean
     stop: (encoder: VideoEncoder) => boolean
     set_format: (encoder: VideoEncoder, state: VideoCodecState) => boolean
-    handle_frame: (encoder: VideoEncoder, frame: VideoCodecFrame) => Gst.FlowReturn
+    handle_frame: any
     reset: (encoder: VideoEncoder, hard: boolean) => boolean
-    finish: (encoder: VideoEncoder) => Gst.FlowReturn
-    pre_push: (encoder: VideoEncoder, frame: VideoCodecFrame) => Gst.FlowReturn
-    getcaps: (enc: VideoEncoder, filter: Gst.Caps) => Gst.Caps
-    sink_event: (encoder: VideoEncoder, event: Gst.Event) => boolean
-    src_event: (encoder: VideoEncoder, event: Gst.Event) => boolean
+    finish: any
+    pre_push: any
+    getcaps: any
+    sink_event: any
+    src_event: any
     negotiate: (encoder: VideoEncoder) => boolean
-    decide_allocation: (encoder: VideoEncoder, query: Gst.Query) => boolean
-    propose_allocation: (encoder: VideoEncoder, query: Gst.Query) => boolean
+    decide_allocation: any
+    propose_allocation: any
     flush: (encoder: VideoEncoder) => boolean
-    sink_query: (encoder: VideoEncoder, query: Gst.Query) => boolean
-    src_query: (encoder: VideoEncoder, query: Gst.Query) => boolean
-    transform_meta: (encoder: VideoEncoder, frame: VideoCodecFrame, meta: Gst.Meta) => boolean
+    sink_query: any
+    src_query: any
+    transform_meta: any
     static name: string
 }
 export class VideoEncoderPrivate {
@@ -3180,9 +3180,9 @@ export class VideoEncoderPrivate {
 export abstract class VideoFilterClass {
     /* Fields of GstVideo-1.0.GstVideo.VideoFilterClass */
     parent_class: GstBase.BaseTransformClass
-    set_info: (filter: VideoFilter, incaps: Gst.Caps, in_info: VideoInfo, outcaps: Gst.Caps, out_info: VideoInfo) => boolean
-    transform_frame: (filter: VideoFilter, inframe: VideoFrame, outframe: VideoFrame) => Gst.FlowReturn
-    transform_frame_ip: (trans: VideoFilter, frame: VideoFrame) => Gst.FlowReturn
+    set_info: any
+    transform_frame: any
+    transform_frame_ip: any
     static name: string
 }
 export class VideoFormatInfo {
@@ -3338,8 +3338,8 @@ export class VideoMeta {
     n_planes: number
     offset: number[]
     stride: number[]
-    map: (meta: VideoMeta, plane: number, info: Gst.MapInfo, data: object, stride: number, flags: Gst.MapFlags) => boolean
-    unmap: (meta: VideoMeta, plane: number, info: Gst.MapInfo) => boolean
+    map: any
+    unmap: any
     alignment: VideoAlignment
     /* Methods of GstVideo-1.0.GstVideo.VideoMeta */
     get_plane_height(): [ /* returnType */ boolean, /* plane_height */ number[] ]
@@ -3475,8 +3475,8 @@ export class VideoScaler {
 export abstract class VideoSinkClass {
     /* Fields of GstVideo-1.0.GstVideo.VideoSinkClass */
     parent_class: GstBase.BaseSinkClass
-    show_frame: (video_sink: VideoSink, buf: Gst.Buffer) => Gst.FlowReturn
-    set_info: (video_sink: VideoSink, caps: Gst.Caps, info: VideoInfo) => boolean
+    show_frame: any
+    set_info: any
     static name: string
 }
 export class VideoSinkPrivate {

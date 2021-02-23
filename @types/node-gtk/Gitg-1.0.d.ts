@@ -14276,8 +14276,8 @@ export class SidebarStoreSidebarHeaderPrivate {
 }
 export abstract class SidebarClass {
     /* Fields of Gitg-1.0.Gitg.SidebarClass */
-    selectFunction: (sel: Gtk.TreeSelection, model: Gtk.TreeModel, path: Gtk.TreePath, cursel: boolean) => boolean
-    selectionChanged: (sel: Gtk.TreeSelection) => void
+    selectFunction: any
+    selectionChanged: any
     static name: string
 }
 export class SidebarPrivate {
@@ -14359,7 +14359,7 @@ export abstract class RefIface {
 }
 export abstract class CredentialsProviderIface {
     /* Fields of Gitg-1.0.Gitg.CredentialsProviderIface */
-    credentials: (url: string, usernameFromUrl: string | null, allowedTypes: Ggit.Credtype) => Ggit.Cred | null
+    credentials: any
     static name: string
 }
 export abstract class SidebarItemIface {

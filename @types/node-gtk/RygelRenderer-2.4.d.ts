@@ -589,9 +589,9 @@ export abstract class PlayerControllerIface {
     next: (self: PlayerController) => boolean
     previous: (self: PlayerController) => boolean
     setSinglePlayUri: (self: PlayerController, uri: string, metadata: string, mime?: string | null, features?: string | null) => void
-    setPlaylistUri: (self: PlayerController, uri: string, metadata: string, collection: GUPnPAV.MediaCollection) => void
+    setPlaylistUri: any
     setNextSinglePlayUri: (self: PlayerController, uri: string, metadata: string, mime?: string | null, features?: string | null) => void
-    setNextPlaylistUri: (self: PlayerController, uri: string, metadata: string, collection: GUPnPAV.MediaCollection) => void
+    setNextPlaylistUri: any
     getPlaybackState: (self: PlayerController) => string
     setPlaybackState: (self: PlayerController, value: string) => void
     getNTracks: (self: PlayerController) => number

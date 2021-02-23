@@ -696,11 +696,11 @@ export abstract class ServiceClass {
     parent_class: Gio.DBusProxyClass
     collection_gtype: GObject.Type
     item_gtype: GObject.Type
-    prompt_sync: (self: Service, prompt: Prompt, cancellable: Gio.Cancellable | null, return_type: GLib.VariantType) => GLib.Variant
-    prompt_async: (self: Service, prompt: Prompt, return_type: GLib.VariantType, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null) => void
-    prompt_finish: (self: Service, result: Gio.AsyncResult) => GLib.Variant
-    get_collection_gtype: (self: Service) => GObject.Type
-    get_item_gtype: (self: Service) => GObject.Type
+    prompt_sync: any
+    prompt_async: any
+    prompt_finish: any
+    get_collection_gtype: any
+    get_item_gtype: any
     static name: string
 }
 export class ServicePrivate {

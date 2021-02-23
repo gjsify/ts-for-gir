@@ -4455,7 +4455,7 @@ export abstract class WebViewClass {
     /* Fields of WebKit2-3.0.WebKit2.WebViewClass */
     parent: WebViewBaseClass
     load_changed: (web_view: WebView, load_event: LoadEvent) => void
-    load_failed: (web_view: WebView, load_event: LoadEvent, failing_uri: string, error: GLib.Error) => boolean
+    load_failed: any
     ready_to_show: (web_view: WebView) => void
     run_as_modal: (web_view: WebView) => void
     close: (web_view: WebView) => void
@@ -4468,7 +4468,7 @@ export abstract class WebViewClass {
     enter_fullscreen: (web_view: WebView) => boolean
     leave_fullscreen: (web_view: WebView) => boolean
     run_file_chooser: (web_view: WebView, request: FileChooserRequest) => boolean
-    context_menu: (web_view: WebView, context_menu: ContextMenu, event: Gdk.Event, hit_test_result: HitTestResult) => boolean
+    context_menu: any
     context_menu_dismissed: (web_view: WebView) => void
     submit_form: (web_view: WebView, request: FormSubmissionRequest) => void
     insecure_content_detected: (web_view: WebView, event: InsecureContentEvent) => void

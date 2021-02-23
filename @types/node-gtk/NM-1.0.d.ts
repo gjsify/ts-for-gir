@@ -22250,13 +22250,13 @@ export abstract class SettingClass {
     parent: GObject.ObjectClass
     verify: (setting: Setting, connection: Connection) => number
     verifySecrets: (setting: Setting, connection?: Connection | null) => boolean
-    updateOneSecret: (setting: Setting, key: string, value: GLib.Variant) => number
+    updateOneSecret: any
     getSecretFlags: (setting: Setting, secretName: string, outFlags: SettingSecretFlags) => boolean
     setSecretFlags: (setting: Setting, secretName: string, flags: SettingSecretFlags) => boolean
     compareProperty: (settInfo: object, propertyIdx: number, conA: Connection, setA: Setting, conB: Connection, setB: Setting, flags: SettingCompareFlags) => Ternary
     duplicateCopyProperties: (settInfo: object, src: Setting, dst: Setting) => void
     aggregate: (setting: Setting, typeI: number, arg?: object | null) => boolean
-    initFromDbus: (setting: Setting, keys: GLib.HashTable, settingDict: GLib.Variant, connectionDict: GLib.Variant, parseFlags: number) => boolean
+    initFromDbus: any
     settingInfo: object
     static name: string
 }
@@ -22562,7 +22562,7 @@ export abstract class VpnConnectionClass {
 export abstract class VpnEditorInterface {
     /* Fields of NM-1.0.NM.VpnEditorInterface */
     gIface: GObject.TypeInterface
-    getWidget: (editor: VpnEditor) => GObject.Object
+    getWidget: any
     placeholder: () => void
     updateConnection: (editor: VpnEditor, connection: Connection) => boolean
     changed: (editor: VpnEditor) => void
@@ -22589,34 +22589,34 @@ export abstract class VpnPluginOldClass {
     /* Fields of NM-1.0.NM.VpnPluginOldClass */
     parent: GObject.ObjectClass
     stateChanged: (plugin: VpnPluginOld, state: VpnServiceState) => void
-    ip4Config: (plugin: VpnPluginOld, ip4Config: GLib.Variant) => void
+    ip4Config: any
     loginBanner: (plugin: VpnPluginOld, banner: string) => void
     failure: (plugin: VpnPluginOld, reason: VpnPluginFailure) => void
     quit: (plugin: VpnPluginOld) => void
-    config: (plugin: VpnPluginOld, config: GLib.Variant) => void
-    ip6Config: (plugin: VpnPluginOld, config: GLib.Variant) => void
+    config: any
+    ip6Config: any
     connect: (plugin: VpnPluginOld, connection: Connection) => boolean
     needSecrets: (plugin: VpnPluginOld, connection: Connection, settingName: string) => boolean
     disconnect: (plugin: VpnPluginOld) => boolean
     newSecrets: (plugin: VpnPluginOld, connection: Connection) => boolean
-    connectInteractive: (plugin: VpnPluginOld, connection: Connection, details: GLib.Variant) => boolean
+    connectInteractive: any
     static name: string
 }
 export abstract class VpnServicePluginClass {
     /* Fields of NM-1.0.NM.VpnServicePluginClass */
     parent: GObject.ObjectClass
     stateChanged: (plugin: VpnServicePlugin, state: VpnServiceState) => void
-    ip4Config: (plugin: VpnServicePlugin, ip4Config: GLib.Variant) => void
+    ip4Config: any
     loginBanner: (plugin: VpnServicePlugin, banner: string) => void
     failure: (plugin: VpnServicePlugin, reason: VpnPluginFailure) => void
     quit: (plugin: VpnServicePlugin) => void
-    config: (plugin: VpnServicePlugin, config: GLib.Variant) => void
-    ip6Config: (plugin: VpnServicePlugin, config: GLib.Variant) => void
+    config: any
+    ip6Config: any
     connect: (plugin: VpnServicePlugin, connection: Connection) => boolean
     needSecrets: (plugin: VpnServicePlugin, connection: Connection, settingName: string) => boolean
     disconnect: (plugin: VpnServicePlugin) => boolean
     newSecrets: (plugin: VpnServicePlugin, connection: Connection) => boolean
-    connectInteractive: (plugin: VpnServicePlugin, connection: Connection, details: GLib.Variant) => boolean
+    connectInteractive: any
     static name: string
 }
 export abstract class WifiP2PPeerClass {

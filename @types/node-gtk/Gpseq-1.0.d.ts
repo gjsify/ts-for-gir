@@ -2424,7 +2424,7 @@ export abstract class FutureClass {
     /* Fields of Gpseq-1.0.Gpseq.FutureClass */
     wait: (self: Future) => object | null
     waitUntil: (self: Future, endTime: number) => { returnType: boolean, value: object | null }
-    transform: (self: Future, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Result
+    transform: any
     static name: string
 }
 export class FuturePrivate {
@@ -2565,12 +2565,12 @@ export abstract class ResultIface {
     /* Fields of Gpseq-1.0.Gpseq.ResultIface */
     future: (self: Result) => Future
     get: (self: Result) => object | null
-    transform: (self: Result, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Result
-    flatMap: (self: Result, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Result
-    map: (self: Result, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Result
+    transform: any
+    flatMap: any
+    map: any
     mapErr: (self: Result, func: any) => Result
-    zip: (self: Result, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, bType: GObject.Type, bDupFunc: GObject.BoxedCopyFunc, bDestroyFunc: GLib.DestroyNotify, zipFunc: any, second: Result) => Result
-    then: (self: Result, func: GLib.Func) => Result
+    zip: any
+    then: any
     andThen: (self: Result, func: Func) => Result
     static name: string
 }

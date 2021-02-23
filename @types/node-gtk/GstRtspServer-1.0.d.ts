@@ -2702,7 +2702,7 @@ export abstract class RTSPAuthClass {
     authenticate: (auth: RTSPAuth, ctx: RTSPContext) => boolean
     check: (auth: RTSPAuth, ctx: RTSPContext, check: string) => boolean
     generateAuthenticateHeader: (auth: RTSPAuth, ctx: RTSPContext) => void
-    acceptCertificate: (auth: RTSPAuth, connection: Gio.TlsConnection, peerCert: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags) => boolean
+    acceptCertificate: any
     static name: string
 }
 export class RTSPAuthPrivate {
@@ -2711,14 +2711,14 @@ export class RTSPAuthPrivate {
 export abstract class RTSPClientClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPClientClass */
     parentClass: GObject.ObjectClass
-    createSdp: (client: RTSPClient, media: RTSPMedia) => GstSdp.SDPMessage
+    createSdp: any
     configureClientMedia: (client: RTSPClient, media: RTSPMedia, stream: RTSPStream, ctx: RTSPContext) => boolean
-    configureClientTransport: (client: RTSPClient, ctx: RTSPContext, ct: GstRtsp.RTSPTransport) => boolean
-    paramsSet: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPResult
-    paramsGet: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPResult
-    makePathFromUri: (client: RTSPClient, uri: GstRtsp.RTSPUrl) => string
-    adjustPlayMode: (client: RTSPClient, context: RTSPContext, range: GstRtsp.RTSPTimeRange, flags: Gst.SeekFlags, rate: number, trickmodeInterval: Gst.ClockTime, enableRateControl: boolean) => GstRtsp.RTSPStatusCode
-    adjustPlayResponse: (client: RTSPClient, context: RTSPContext) => GstRtsp.RTSPStatusCode
+    configureClientTransport: any
+    paramsSet: any
+    paramsGet: any
+    makePathFromUri: any
+    adjustPlayMode: any
+    adjustPlayResponse: any
     closed: (client: RTSPClient) => void
     newSession: (client: RTSPClient, session: RTSPSession) => void
     optionsRequest: (client: RTSPClient, ctx: RTSPContext) => void
@@ -2730,22 +2730,22 @@ export abstract class RTSPClientClass {
     setParameterRequest: (client: RTSPClient, ctx: RTSPContext) => void
     getParameterRequest: (client: RTSPClient, ctx: RTSPContext) => void
     handleResponse: (client: RTSPClient, ctx: RTSPContext) => void
-    tunnelHttpResponse: (client: RTSPClient, request: GstRtsp.RTSPMessage, response: GstRtsp.RTSPMessage) => void
-    sendMessage: (client: RTSPClient, ctx: RTSPContext, response: GstRtsp.RTSPMessage) => void
-    handleSdp: (client: RTSPClient, ctx: RTSPContext, media: RTSPMedia, sdp: GstSdp.SDPMessage) => boolean
+    tunnelHttpResponse: any
+    sendMessage: any
+    handleSdp: any
     announceRequest: (client: RTSPClient, ctx: RTSPContext) => void
     recordRequest: (client: RTSPClient, ctx: RTSPContext) => void
     checkRequirements: (client: RTSPClient, ctx: RTSPContext, arr: string) => string
-    preOptionsRequest: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPStatusCode
-    preDescribeRequest: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPStatusCode
-    preSetupRequest: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPStatusCode
-    prePlayRequest: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPStatusCode
-    prePauseRequest: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPStatusCode
-    preTeardownRequest: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPStatusCode
-    preSetParameterRequest: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPStatusCode
-    preGetParameterRequest: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPStatusCode
-    preAnnounceRequest: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPStatusCode
-    preRecordRequest: (client: RTSPClient, ctx: RTSPContext) => GstRtsp.RTSPStatusCode
+    preOptionsRequest: any
+    preDescribeRequest: any
+    preSetupRequest: any
+    prePlayRequest: any
+    prePauseRequest: any
+    preTeardownRequest: any
+    preSetParameterRequest: any
+    preGetParameterRequest: any
+    preAnnounceRequest: any
+    preRecordRequest: any
     static name: string
 }
 export class RTSPClientPrivate {
@@ -2776,31 +2776,31 @@ export class RTSPContext {
 export abstract class RTSPMediaClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPMediaClass */
     parentClass: GObject.ObjectClass
-    handleMessage: (media: RTSPMedia, message: Gst.Message) => boolean
+    handleMessage: any
     prepare: (media: RTSPMedia, thread?: RTSPThread | null) => boolean
     unprepare: (media: RTSPMedia) => boolean
     suspend: (media: RTSPMedia) => boolean
     unsuspend: (media: RTSPMedia) => boolean
-    convertRange: (media: RTSPMedia, range: GstRtsp.RTSPTimeRange, unit: GstRtsp.RTSPRangeUnit) => boolean
+    convertRange: any
     queryPosition: (media: RTSPMedia, position: number) => boolean
     queryStop: (media: RTSPMedia, stop: number) => boolean
-    setupRtpbin: (media: RTSPMedia, rtpbin: Gst.Element) => boolean
-    setupSdp: (media: RTSPMedia, sdp: GstSdp.SDPMessage, info: SDPInfo) => boolean
+    setupRtpbin: any
+    setupSdp: any
     newStream: (media: RTSPMedia, stream: RTSPStream) => void
     removedStream: (media: RTSPMedia, stream: RTSPStream) => void
     prepared: (media: RTSPMedia) => void
     unprepared: (media: RTSPMedia) => void
-    targetState: (media: RTSPMedia, state: Gst.State) => void
-    newState: (media: RTSPMedia, state: Gst.State) => void
-    handleSdp: (media: RTSPMedia, sdp: GstSdp.SDPMessage) => boolean
+    targetState: any
+    newState: any
+    handleSdp: any
     static name: string
 }
 export abstract class RTSPMediaFactoryClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPMediaFactoryClass */
     parentClass: GObject.ObjectClass
-    genKey: (factory: RTSPMediaFactory, url: GstRtsp.RTSPUrl) => string
-    createElement: (factory: RTSPMediaFactory, url: GstRtsp.RTSPUrl) => Gst.Element
-    construct: (factory: RTSPMediaFactory, url: GstRtsp.RTSPUrl) => RTSPMedia
+    genKey: any
+    createElement: any
+    construct: any
     configure: (factory: RTSPMediaFactory, media: RTSPMedia) => void
     mediaConstructed: (factory: RTSPMediaFactory, media: RTSPMedia) => void
     mediaConfigure: (factory: RTSPMediaFactory, media: RTSPMedia) => void
@@ -2823,7 +2823,7 @@ export class RTSPMediaPrivate {
 export abstract class RTSPMountPointsClass {
     /* Fields of GstRtspServer-1.0.GstRtspServer.RTSPMountPointsClass */
     parentClass: GObject.ObjectClass
-    makePath: (mounts: RTSPMountPoints, url: GstRtsp.RTSPUrl) => string | null
+    makePath: any
     static name: string
 }
 export class RTSPMountPointsPrivate {

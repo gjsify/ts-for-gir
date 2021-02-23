@@ -740,15 +740,15 @@ export class Service {
 export abstract class BackendInterface {
     /* Fields of Secret-1.Secret.BackendInterface */
     parentIface: GObject.TypeInterface
-    ensureForFlags: (self: Backend, flags: BackendFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    ensureForFlagsFinish: (self: Backend, result: Gio.AsyncResult) => boolean
-    store: (self: Backend, schema: Schema, attributes: GLib.HashTable, collection: string, label: string, value: Value, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    storeFinish: (self: Backend, result: Gio.AsyncResult) => boolean
-    lookup: (self: Backend, schema: Schema, attributes: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    lookupFinish: (self: Backend, result: Gio.AsyncResult) => Value
-    clear: (self: Backend, schema: Schema, attributes: GLib.HashTable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    clearFinish: (self: Backend, result: Gio.AsyncResult) => boolean
-    search: (self: Backend, schema: Schema, attributes: GLib.HashTable, flags: SearchFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    ensureForFlags: any
+    ensureForFlagsFinish: any
+    store: any
+    storeFinish: any
+    lookup: any
+    lookupFinish: any
+    clear: any
+    clearFinish: any
+    search: any
     static name: string
 }
 export abstract class CollectionClass {
@@ -778,8 +778,8 @@ export class PromptPrivate {
 export abstract class RetrievableInterface {
     /* Fields of Secret-1.Secret.RetrievableInterface */
     parentIface: GObject.TypeInterface
-    retrieveSecret: (self: Retrievable, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    retrieveSecretFinish: (self: Retrievable, result: Gio.AsyncResult) => Value | null
+    retrieveSecret: any
+    retrieveSecretFinish: any
     static name: string
 }
 export class Schema {
@@ -807,11 +807,11 @@ export abstract class ServiceClass {
     parentClass: Gio.DBusProxyClass
     collectionGtype: GObject.Type
     itemGtype: GObject.Type
-    promptSync: (self: Service, prompt: Prompt, cancellable: Gio.Cancellable | null, returnType: GLib.VariantType) => GLib.Variant
-    promptAsync: (self: Service, prompt: Prompt, returnType: GLib.VariantType, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    promptFinish: (self: Service, result: Gio.AsyncResult) => GLib.Variant
-    getCollectionGtype: (self: Service) => GObject.Type
-    getItemGtype: (self: Service) => GObject.Type
+    promptSync: any
+    promptAsync: any
+    promptFinish: any
+    getCollectionGtype: any
+    getItemGtype: any
     static name: string
 }
 export class ServicePrivate {

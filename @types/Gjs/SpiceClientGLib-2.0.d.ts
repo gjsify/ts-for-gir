@@ -1993,10 +1993,10 @@ export abstract class AudioClass {
     /* Fields of SpiceClientGLib-2.0.SpiceClientGLib.AudioClass */
     parent_class: GObject.ObjectClass
     connect_channel: (audio: Audio, channel: Channel) => boolean
-    get_playback_volume_info_async: (audio: Audio, cancellable: Gio.Cancellable | null, main_channel: MainChannel, callback?: Gio.AsyncReadyCallback | null) => void
-    get_playback_volume_info_finish: (audio: Audio, res: Gio.AsyncResult, mute: boolean, nchannels: number, volume: number) => boolean
-    get_record_volume_info_async: (audio: Audio, cancellable: Gio.Cancellable | null, main_channel: MainChannel, callback?: Gio.AsyncReadyCallback | null) => void
-    get_record_volume_info_finish: (audio: Audio, res: Gio.AsyncResult, mute: boolean, nchannels: number, volume: number) => boolean
+    get_playback_volume_info_async: any
+    get_playback_volume_info_finish: any
+    get_record_volume_info_async: any
+    get_record_volume_info_finish: any
     static name: string
 }
 export class AudioPrivate {
@@ -2213,8 +2213,8 @@ export abstract class UsbDeviceManagerClass {
     parent_class: GObject.ObjectClass
     device_added: (manager: UsbDeviceManager, device: UsbDevice) => void
     device_removed: (manager: UsbDeviceManager, device: UsbDevice) => void
-    auto_connect_failed: (manager: UsbDeviceManager, device: UsbDevice, error: GLib.Error) => void
-    device_error: (manager: UsbDeviceManager, device: UsbDevice, error: GLib.Error) => void
+    auto_connect_failed: any
+    device_error: any
     static name: string
 }
 export class UsbDeviceManagerPrivate {

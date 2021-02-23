@@ -1069,16 +1069,16 @@ export abstract class TransactionClass {
     parent_class: GObject.ObjectClass
     new_operation: (transaction: Transaction, operation: TransactionOperation, progress: TransactionProgress) => void
     operation_done: (transaction: Transaction, operation: TransactionOperation, commit: string, details: TransactionResult) => void
-    operation_error: (transaction: Transaction, operation: TransactionOperation, error: GLib.Error, detail: TransactionErrorDetails) => boolean
+    operation_error: any
     choose_remote_for_ref: (transaction: Transaction, for_ref: string, runtime_ref: string, remotes: string) => number
     end_of_lifed: (transaction: Transaction, ref: string, reason: string, rebase: string) => void
     ready: (transaction: Transaction) => boolean
     add_new_remote: (transaction: Transaction, reason: TransactionRemoteReason, from_id: string, remote_name: string, url: string) => boolean
-    run: (transaction: Transaction, cancellable?: Gio.Cancellable | null) => boolean
+    run: any
     end_of_lifed_with_rebase: (transaction: Transaction, remote: string, ref: string, reason: string, rebased_to_ref: string, previous_ids: string) => boolean
-    webflow_start: (transaction: Transaction, remote: string, url: string, options: GLib.Variant, id: number) => boolean
-    webflow_done: (transaction: Transaction, options: GLib.Variant, id: number) => void
-    basic_auth_start: (transaction: Transaction, remote: string, realm: string, options: GLib.Variant, id: number) => boolean
+    webflow_start: any
+    webflow_done: any
+    basic_auth_start: any
     install_authenticator: (transaction: Transaction, remote: string, authenticator_ref: string) => void
     padding: object[]
     static name: string

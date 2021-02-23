@@ -1748,19 +1748,19 @@ export abstract class BookBackendClass {
     /* Fields of EDataBook-1.2.EDataBook.BookBackendClass */
     use_serial_dispatch_queue: boolean
     impl_get_backend_property: (backend: BookBackend, prop_name: string) => string
-    impl_open: (backend: BookBackend, book: DataBook, opid: number, cancellable?: Gio.Cancellable | null) => void
-    impl_refresh: (backend: BookBackend, book: DataBook, opid: number, cancellable?: Gio.Cancellable | null) => void
-    impl_create_contacts: (backend: BookBackend, book: DataBook, opid: number, cancellable: Gio.Cancellable | null, vcards: string, opflags: number) => void
-    impl_modify_contacts: (backend: BookBackend, book: DataBook, opid: number, cancellable: Gio.Cancellable | null, vcards: string, opflags: number) => void
-    impl_remove_contacts: (backend: BookBackend, book: DataBook, opid: number, cancellable: Gio.Cancellable | null, uids: string, opflags: number) => void
-    impl_get_contact: (backend: BookBackend, book: DataBook, opid: number, cancellable: Gio.Cancellable | null, id: string) => void
-    impl_get_contact_list: (backend: BookBackend, book: DataBook, opid: number, cancellable: Gio.Cancellable | null, query: string) => void
-    impl_get_contact_list_uids: (backend: BookBackend, book: DataBook, opid: number, cancellable: Gio.Cancellable | null, query: string) => void
+    impl_open: any
+    impl_refresh: any
+    impl_create_contacts: any
+    impl_modify_contacts: any
+    impl_remove_contacts: any
+    impl_get_contact: any
+    impl_get_contact_list: any
+    impl_get_contact_list_uids: any
     impl_start_view: (backend: BookBackend, view: DataBookView) => void
     impl_stop_view: (backend: BookBackend, view: DataBookView) => void
-    impl_notify_update: (backend: BookBackend, contact: EBookContacts.Contact) => void
+    impl_notify_update: any
     impl_configure_direct: (backend: BookBackend, config: string) => void
-    impl_set_locale: (backend: BookBackend, locale: string, cancellable?: Gio.Cancellable | null) => boolean
+    impl_set_locale: any
     impl_dup_locale: (backend: BookBackend) => string
     impl_delete_cursor: (backend: BookBackend, cursor: DataBookCursor) => boolean
     closed: (backend: BookBackend, sender: string) => void
@@ -1788,8 +1788,8 @@ export class BookBackendSExpPrivate {
 }
 export abstract class BookBackendSyncClass {
     /* Fields of EDataBook-1.2.EDataBook.BookBackendSyncClass */
-    open_sync: (backend: BookBackendSync, cancellable?: Gio.Cancellable | null) => boolean
-    refresh_sync: (backend: BookBackendSync, cancellable?: Gio.Cancellable | null) => boolean
+    open_sync: any
+    refresh_sync: any
     reserved_padding: object[]
     static name: string
 }
@@ -1798,8 +1798,8 @@ export class BookBackendSyncPrivate {
 }
 export abstract class BookCacheClass {
     /* Fields of EDataBook-1.2.EDataBook.BookCacheClass */
-    e164_changed: (book_cache: BookCache, contact: EBookContacts.Contact, is_replace: boolean) => void
-    dup_contact_revision: (book_cache: BookCache, contact: EBookContacts.Contact) => string
+    e164_changed: any
+    dup_contact_revision: any
     static name: string
 }
 export class BookCacheCursor {
@@ -1828,18 +1828,18 @@ export class BookCacheSearchData {
 }
 export abstract class BookMetaBackendClass {
     /* Fields of EDataBook-1.2.EDataBook.BookMetaBackendClass */
-    connect_sync: (meta_backend: BookMetaBackend, credentials?: EDataServer.NamedParameters | null, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* out_auth_result */ EDataServer.SourceAuthenticationResult, /* out_certificate_pem */ string, /* out_certificate_errors */ Gio.TlsCertificateFlags ]
-    disconnect_sync: (meta_backend: BookMetaBackend, cancellable?: Gio.Cancellable | null) => boolean
-    get_changes_sync: (meta_backend: BookMetaBackend, last_sync_tag: string | null, is_repeat: boolean, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* out_new_sync_tag */ string, /* out_repeat */ boolean, /* out_created_objects */ BookMetaBackendInfo[], /* out_modified_objects */ BookMetaBackendInfo[], /* out_removed_objects */ BookMetaBackendInfo[] ]
-    list_existing_sync: (meta_backend: BookMetaBackend, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* out_new_sync_tag */ string, /* out_existing_objects */ BookMetaBackendInfo[] ]
-    load_contact_sync: (meta_backend: BookMetaBackend, uid: string, extra?: string | null, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* out_contact */ EBookContacts.Contact, /* out_extra */ string ]
-    save_contact_sync: (meta_backend: BookMetaBackend, overwrite_existing: boolean, conflict_resolution: EDataServer.ConflictResolution, contact: EBookContacts.Contact, extra: string | null, opflags: number, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* out_new_uid */ string, /* out_new_extra */ string ]
-    remove_contact_sync: (meta_backend: BookMetaBackend, conflict_resolution: EDataServer.ConflictResolution, uid: string, extra: string | null, object: string | null, opflags: number, cancellable?: Gio.Cancellable | null) => boolean
-    search_sync: (meta_backend: BookMetaBackend, expr: string | null, meta_contact: boolean, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* out_contacts */ EBookContacts.Contact[] ]
-    search_uids_sync: (meta_backend: BookMetaBackend, expr?: string | null, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* out_uids */ string[] ]
+    connect_sync: any
+    disconnect_sync: any
+    get_changes_sync: any
+    list_existing_sync: any
+    load_contact_sync: any
+    save_contact_sync: any
+    remove_contact_sync: any
+    search_sync: any
+    search_uids_sync: any
     requires_reconnect: (meta_backend: BookMetaBackend) => boolean
     source_changed: (meta_backend: BookMetaBackend) => void
-    get_ssl_error_details: (meta_backend: BookMetaBackend) => [ /* returnType */ boolean, /* out_certificate_pem */ string, /* out_certificate_errors */ Gio.TlsCertificateFlags ]
+    get_ssl_error_details: any
     static name: string
 }
 export class BookMetaBackendInfo {
@@ -1862,8 +1862,8 @@ export class BookMetaBackendPrivate {
 }
 export abstract class BookSqliteClass {
     /* Fields of EDataBook-1.2.EDataBook.BookSqliteClass */
-    before_insert_contact: (ebsql: BookSqlite, db: object | null, contact: EBookContacts.Contact, extra: string, replace: boolean, cancellable?: Gio.Cancellable | null) => boolean
-    before_remove_contact: (ebsql: BookSqlite, db: object | null, contact_uid: string, cancellable?: Gio.Cancellable | null) => boolean
+    before_insert_contact: any
+    before_remove_contact: any
     static name: string
 }
 export class BookSqlitePrivate {

@@ -6209,7 +6209,7 @@ export abstract class ColumnClass {
     /* Fields of Gda-6.0.Gda.ColumnClass */
     parent_class: GObject.ObjectClass
     name_changed: (column: Column, old_name: string) => void
-    g_type_changed: (column: Column, old_type: GObject.Type, new_type: GObject.Type) => void
+    g_type_changed: any
     static name: string
 }
 export abstract class ConfigClass {
@@ -6254,10 +6254,10 @@ export abstract class DataHandlerInterface {
     g_iface: GObject.TypeInterface
     get_sql_from_value: (dh: DataHandler, value?: any | null) => string
     get_str_from_value: (dh: DataHandler, value?: any | null) => string
-    get_value_from_sql: (dh: DataHandler, sql: string | null, type: GObject.Type) => any
-    get_value_from_str: (dh: DataHandler, str: string | null, type: GObject.Type) => any
-    get_sane_init_value: (dh: DataHandler, type: GObject.Type) => any | null
-    accepts_g_type: (dh: DataHandler, type: GObject.Type) => boolean
+    get_value_from_sql: any
+    get_value_from_str: any
+    get_sane_init_value: any
+    accepts_g_type: any
     get_descr: (dh: DataHandler) => string
     static name: string
 }
@@ -6299,7 +6299,7 @@ export class DataModelInterface {
     thaw: (model: DataModel) => void
     get_notify: (model: DataModel) => boolean
     send_hint: (model: DataModel, hint: DataModelHint, hint_value: any) => void
-    get_exceptions: (model: DataModel) => GLib.Error
+    get_exceptions: any
     row_inserted: (model: DataModel, row: number) => void
     row_updated: (model: DataModel, row: number) => void
     row_removed: (model: DataModel, row: number) => void
@@ -6336,7 +6336,7 @@ export abstract class DataProxyClass {
     row_delete_changed: (proxy: DataProxy, row: number, to_be_deleted: boolean) => void
     sample_size_changed: (proxy: DataProxy, sample_size: number) => void
     sample_changed: (proxy: DataProxy, sample_start: number, sample_end: number) => void
-    validate_row_changes: (proxy: DataProxy, row: number, proxied_row: number) => GLib.Error
+    validate_row_changes: any
     row_changes_applied: (proxy: DataProxy, row: number, proxied_row: number) => void
     filter_changed: (proxy: DataProxy) => void
     static name: string
@@ -6365,8 +6365,8 @@ export abstract class DbBaseClass {
 export abstract class DbBuildableInterface {
     /* Fields of Gda-6.0.Gda.DbBuildableInterface */
     parent_iface: GObject.TypeInterface
-    parse_node: (self: DbBuildable, node: libxml2.NodePtr) => boolean
-    write_node: (self: DbBuildable, node: libxml2.NodePtr) => boolean
+    parse_node: any
+    write_node: any
     static name: string
 }
 export abstract class DbCatalogClass {
@@ -6492,7 +6492,7 @@ export abstract class HolderClass {
     parent_class: GObject.ObjectClass
     changed: (holder: Holder) => void
     source_changed: (holder: Holder) => void
-    validate_change: (holder: Holder, new_value: any) => GLib.Error
+    validate_change: any
     to_default: (holder: Holder) => void
     static name: string
 }
@@ -6558,7 +6558,7 @@ export abstract class MetaStoreClass {
     /* Fields of Gda-6.0.Gda.MetaStoreClass */
     parent_class: GObject.ObjectClass
     meta_reset: (store: MetaStore) => void
-    suggest_update: (store: MetaStore, suggest: MetaContext) => GLib.Error
+    suggest_update: any
     static name: string
 }
 export abstract class MetaStructClass {
@@ -6648,8 +6648,8 @@ export abstract class ProviderInterface {
     supports_feature: (provider: Provider, cnc: Connection, feature: ConnectionFeature) => boolean
     create_connection: (provider: Provider) => Connection
     create_parser: (provider: Provider, cnc: Connection) => SqlParser
-    get_data_handler: (provider: Provider, cnc: Connection, g_type: GObject.Type, dbms_type: string) => DataHandler
-    get_def_dbms_type: (provider: Provider, cnc: Connection, g_type: GObject.Type) => string
+    get_data_handler: any
+    get_def_dbms_type: any
     supports_operation: (provider: Provider, cnc: Connection, type: ServerOperationType, options: Set) => boolean
     create_operation: (provider: Provider, cnc: Connection, type: ServerOperationType, options: Set) => ServerOperation
     render_operation: (provider: Provider, cnc: Connection, op: ServerOperation) => string
@@ -6669,7 +6669,7 @@ export abstract class ProviderInterface {
     rollback_savepoint: (provider: Provider, cnc: Connection, name: string) => boolean
     delete_savepoint: (provider: Provider, cnc: Connection, name: string) => boolean
     statement_prepare: (provider: Provider, cnc: Connection, stmt: Statement) => boolean
-    statement_execute: (provider: Provider, cnc: Connection, stmt: Statement, params: Set, model_usage: StatementModelUsage, col_types: GObject.Type, last_inserted_row: Set) => GObject.Object
+    statement_execute: any
     get_last_inserted: (provider: Provider, cnc: Connection) => Set
     padding: object[]
     static name: string
@@ -6827,7 +6827,7 @@ export class ServerProviderBase {
     get_server_version: (provider: ServerProvider, cnc: Connection) => string
     supports_feature: (provider: ServerProvider, cnc: Connection, feature: ConnectionFeature) => boolean
     create_worker: (provider: ServerProvider, for_cnc: boolean) => Worker
-    get_def_dbms_type: (provider: ServerProvider, cnc: Connection, g_type: GObject.Type) => string
+    get_def_dbms_type: any
     supports_operation: (provider: ServerProvider, cnc: Connection, type: ServerOperationType, options: Set) => boolean
     render_operation: (provider: ServerProvider, cnc: Connection, op: ServerOperation) => string
     identifier_quote: (provider: ServerProvider, cnc: Connection, id: string, for_meta_store: boolean, force_quotes: boolean) => string
@@ -6870,28 +6870,28 @@ export class ServerProviderHandlerInfo {
 }
 export class ServerProviderMeta {
     /* Fields of Gda-6.0.Gda.ServerProviderMeta */
-    udt: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, udt_catalog: any, udt_schema: any) => boolean
-    udt_cols: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, udt_catalog: any, udt_schema: any, udt_name: any) => boolean
-    enums: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, udt_catalog: any, udt_schema: any, udt_name: any) => boolean
-    domains: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, domain_catalog: any, domain_schema: any) => boolean
-    constraints_dom: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, domain_catalog: any, domain_schema: any, domain_name: any) => boolean
-    el_types: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, specific_name: any) => boolean
-    collations: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, collation_catalog: any, collation_schema: any, collation_name_n: any) => boolean
-    character_sets: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, chset_catalog: any, chset_schema: any, chset_name_n: any) => boolean
-    schemata: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, catalog_name: any, schema_name_n: any) => boolean
-    tables_views: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, table_catalog: any, table_schema: any, table_name_n: any) => boolean
-    columns: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, table_catalog: any, table_schema: any, table_name: any) => boolean
-    view_cols: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, view_catalog: any, view_schema: any, view_name: any) => boolean
-    constraints_tab: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, table_catalog: any, table_schema: any, table_name: any, constraint_name_n: any) => boolean
-    constraints_ref: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, table_catalog: any, table_schema: any, table_name: any, constraint_name: any) => boolean
-    key_columns: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, table_catalog: any, table_schema: any, table_name: any, constraint_name: any) => boolean
-    check_columns: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, table_catalog: any, table_schema: any, table_name: any, constraint_name: any) => boolean
-    triggers: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, table_catalog: any, table_schema: any, table_name: any) => boolean
-    routines: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, routine_catalog: any, routine_schema: any, routine_name_n: any) => boolean
-    routine_col: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, rout_catalog: any, rout_schema: any, rout_name: any, col_name: any, ordinal_position: any) => boolean
-    routine_par: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, rout_catalog: any, rout_schema: any, rout_name: any) => boolean
-    indexes_tab: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, table_catalog: any, table_schema: any, table_name: any, index_name_n: any) => boolean
-    index_cols: (prov: ServerProvider, cnc: Connection, meta: MetaStore, ctx: MetaContext, error: GLib.Error, table_catalog: any, table_schema: any, table_name: any, index_name: any) => boolean
+    udt: any
+    udt_cols: any
+    enums: any
+    domains: any
+    constraints_dom: any
+    el_types: any
+    collations: any
+    character_sets: any
+    schemata: any
+    tables_views: any
+    columns: any
+    view_cols: any
+    constraints_tab: any
+    constraints_ref: any
+    key_columns: any
+    check_columns: any
+    triggers: any
+    routines: any
+    routine_col: any
+    routine_par: any
+    indexes_tab: any
+    index_cols: any
     static name: string
 }
 export class ServerProviderXa {
@@ -6906,8 +6906,8 @@ export class ServerProviderXa {
 export abstract class SetClass {
     /* Fields of Gda-6.0.Gda.SetClass */
     parent_class: GObject.ObjectClass
-    validate_holder_change: (set: Set, holder: Holder, new_value: any) => GLib.Error
-    validate_set: (set: Set) => GLib.Error
+    validate_holder_change: any
+    validate_set: any
     holder_changed: (set: Set, holder: Holder) => void
     holder_attr_changed: (set: Set, holder: Holder, attr_name: string, attr_value: any) => void
     public_data_changed: (set: Set) => void
@@ -7460,7 +7460,7 @@ export abstract class TreeNodeClass {
     node_has_child_toggled: (reporting: TreeNode, node: TreeNode) => void
     node_deleted: (reporting: TreeNode, relative_path: string) => void
     dump_header: (node: TreeNode) => string
-    dump_children: (node: TreeNode, prefix: string, in_string: GLib.String) => void
+    dump_children: any
     static name: string
 }
 export class Worker {

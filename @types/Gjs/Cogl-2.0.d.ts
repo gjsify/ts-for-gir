@@ -1226,130 +1226,130 @@ export class FrameClosure {
 }
 export class GLES2Vtable {
     /* Fields of Cogl-2.0.Cogl.GLES2Vtable */
-    glBindTexture: (target: GL.enum_, texture: GL.uint) => void
-    glBlendFunc: (sfactor: GL.enum_, dfactor: GL.enum_) => void
-    glClear: (mask: GL.bitfield) => void
-    glClearColor: (red: GL.clampf, green: GL.clampf, blue: GL.clampf, alpha: GL.clampf) => void
-    glClearStencil: (s: GL.int) => void
-    glColorMask: (red: GL.boolean_, green: GL.boolean_, blue: GL.boolean_, alpha: GL.boolean_) => void
-    glCopyTexSubImage2D: (target: GL.enum_, level: GL.int, xoffset: GL.int, yoffset: GL.int, x: GL.int, y: GL.int, width: GL.sizei, height: GL.sizei) => void
-    glDeleteTextures: (n: GL.sizei, textures: GL.uint) => void
-    glDepthFunc: (func: GL.enum_) => void
-    glDepthMask: (flag: GL.boolean_) => void
-    glDisable: (cap: GL.enum_) => void
-    glDrawArrays: (mode: GL.enum_, first: GL.int, count: GL.sizei) => void
-    glDrawElements: (mode: GL.enum_, count: GL.sizei, type: GL.enum_, indices: GL.void_) => void
-    glEnable: (cap: GL.enum_) => void
+    glBindTexture: any
+    glBlendFunc: (sfactor: any, dfactor: any) => void
+    glClear: any
+    glClearColor: any
+    glClearStencil: any
+    glColorMask: (red: any, green: any, blue: any, alpha: any) => void
+    glCopyTexSubImage2D: any
+    glDeleteTextures: any
+    glDepthFunc: (func: any) => void
+    glDepthMask: (flag: any) => void
+    glDisable: (cap: any) => void
+    glDrawArrays: any
+    glDrawElements: any
+    glEnable: (cap: any) => void
     glFinish: () => void
     glFlush: () => void
-    glFrontFace: (mode: GL.enum_) => void
-    glCullFace: (mode: GL.enum_) => void
-    glGenTextures: (n: GL.sizei, textures: GL.uint) => void
-    glGetIntegerv: (pname: GL.enum_, params: GL.int) => void
-    glGetBooleanv: (pname: GL.enum_, params: GL.boolean_) => void
-    glGetFloatv: (pname: GL.enum_, params: GL.float) => void
-    glHint: (target: GL.enum_, mode: GL.enum_) => void
-    glPixelStorei: (pname: GL.enum_, param: GL.int) => void
-    glReadPixels: (x: GL.int, y: GL.int, width: GL.sizei, height: GL.sizei, format: GL.enum_, type: GL.enum_, pixels: GL.void_) => void
-    glScissor: (x: GL.int, y: GL.int, width: GL.sizei, height: GL.sizei) => void
-    glStencilFunc: (func: GL.enum_, ref: GL.int, mask: GL.uint) => void
-    glStencilMask: (mask: GL.uint) => void
-    glStencilOp: (fail: GL.enum_, zfail: GL.enum_, zpass: GL.enum_) => void
-    glTexImage2D: (target: GL.enum_, level: GL.int, internalformat: GL.int, width: GL.sizei, height: GL.sizei, border: GL.int, format: GL.enum_, type: GL.enum_, pixels: GL.void_) => void
-    glTexParameterf: (target: GL.enum_, pname: GL.enum_, param: GL.float) => void
-    glTexParameterfv: (target: GL.enum_, pname: GL.enum_, params: GL.float) => void
-    glTexParameteri: (target: GL.enum_, pname: GL.enum_, param: GL.int) => void
-    glTexParameteriv: (target: GL.enum_, pname: GL.enum_, params: GL.int) => void
-    glGetTexParameterfv: (target: GL.enum_, pname: GL.enum_, params: GL.float) => void
-    glGetTexParameteriv: (target: GL.enum_, pname: GL.enum_, params: GL.int) => void
-    glTexSubImage2D: (target: GL.enum_, level: GL.int, xoffset: GL.int, yoffset: GL.int, width: GL.sizei, height: GL.sizei, format: GL.enum_, type: GL.enum_, pixels: GL.void_) => void
-    glCopyTexImage2D: (target: GL.enum_, level: GL.int, internalformat: GL.enum_, x: GL.int, y: GL.int, width: GL.sizei, height: GL.sizei, border: GL.int) => void
-    glViewport: (x: GL.int, y: GL.int, width: GL.sizei, height: GL.sizei) => void
-    glLineWidth: (width: GL.float) => void
-    glPolygonOffset: (factor: GL.float, units: GL.float) => void
-    glDepthRangef: (near_val: GL.float, far_val: GL.float) => void
-    glClearDepthf: (depth: GL.clampf) => void
-    glCompressedTexImage2D: (target: GL.enum_, level: GL.int, internalformat: GL.enum_, width: GL.sizei, height: GL.sizei, border: GL.int, imageSize: GL.sizei, data: GL.void_) => void
-    glCompressedTexSubImage2D: (target: GL.enum_, level: GL.int, xoffset: GL.int, yoffset: GL.int, width: GL.sizei, height: GL.sizei, format: GL.enum_, imageSize: GL.sizei, data: GL.void_) => void
-    glSampleCoverage: (value: GL.clampf, invert: GL.boolean_) => void
-    glGetBufferParameteriv: (target: GL.enum_, pname: GL.enum_, params: GL.int) => void
-    glGenBuffers: (n: GL.sizei, buffers: GL.uint) => void
-    glBindBuffer: (target: GL.enum_, buffer: GL.uint) => void
-    glBufferData: (target: GL.enum_, size: GL.sizeiptr, data: GL.void_, usage: GL.enum_) => void
-    glBufferSubData: (target: GL.enum_, offset: GL.intptr, size: GL.sizeiptr, data: GL.void_) => void
-    glDeleteBuffers: (n: GL.sizei, buffers: GL.uint) => void
-    glActiveTexture: (texture: GL.enum_) => void
-    glGenRenderbuffers: (n: GL.sizei, renderbuffers: GL.uint) => void
-    glDeleteRenderbuffers: (n: GL.sizei, renderbuffers: GL.uint) => void
-    glBindRenderbuffer: (target: GL.enum_, renderbuffer: GL.uint) => void
-    glRenderbufferStorage: (target: GL.enum_, internalformat: GL.enum_, width: GL.sizei, height: GL.sizei) => void
-    glGenFramebuffers: (n: GL.sizei, framebuffers: GL.uint) => void
-    glBindFramebuffer: (target: GL.enum_, framebuffer: GL.uint) => void
-    glFramebufferTexture2D: (target: GL.enum_, attachment: GL.enum_, textarget: GL.enum_, texture: GL.uint, level: GL.int) => void
-    glFramebufferRenderbuffer: (target: GL.enum_, attachment: GL.enum_, renderbuffertarget: GL.enum_, renderbuffer: GL.uint) => void
-    glDeleteFramebuffers: (n: GL.sizei, framebuffers: GL.uint) => void
-    glGenerateMipmap: (target: GL.enum_) => void
-    glGetFramebufferAttachmentParameteriv: (target: GL.enum_, attachment: GL.enum_, pname: GL.enum_, params: GL.int) => void
-    glGetRenderbufferParameteriv: (target: GL.enum_, pname: GL.enum_, params: GL.int) => void
-    glBlendEquation: (mode: GL.enum_) => void
-    glBlendColor: (red: GL.clampf, green: GL.clampf, blue: GL.clampf, alpha: GL.clampf) => void
-    glBlendFuncSeparate: (srcRGB: GL.enum_, dstRGB: GL.enum_, srcAlpha: GL.enum_, dstAlpha: GL.enum_) => void
-    glBlendEquationSeparate: (modeRGB: GL.enum_, modeAlpha: GL.enum_) => void
+    glFrontFace: (mode: any) => void
+    glCullFace: (mode: any) => void
+    glGenTextures: any
+    glGetIntegerv: any
+    glGetBooleanv: (pname: any, params: any) => void
+    glGetFloatv: any
+    glHint: (target: any, mode: any) => void
+    glPixelStorei: any
+    glReadPixels: any
+    glScissor: any
+    glStencilFunc: any
+    glStencilMask: any
+    glStencilOp: (fail: any, zfail: any, zpass: any) => void
+    glTexImage2D: any
+    glTexParameterf: any
+    glTexParameterfv: any
+    glTexParameteri: any
+    glTexParameteriv: any
+    glGetTexParameterfv: any
+    glGetTexParameteriv: any
+    glTexSubImage2D: any
+    glCopyTexImage2D: any
+    glViewport: any
+    glLineWidth: any
+    glPolygonOffset: any
+    glDepthRangef: any
+    glClearDepthf: any
+    glCompressedTexImage2D: any
+    glCompressedTexSubImage2D: any
+    glSampleCoverage: any
+    glGetBufferParameteriv: any
+    glGenBuffers: any
+    glBindBuffer: any
+    glBufferData: any
+    glBufferSubData: any
+    glDeleteBuffers: any
+    glActiveTexture: (texture: any) => void
+    glGenRenderbuffers: any
+    glDeleteRenderbuffers: any
+    glBindRenderbuffer: any
+    glRenderbufferStorage: any
+    glGenFramebuffers: any
+    glBindFramebuffer: any
+    glFramebufferTexture2D: any
+    glFramebufferRenderbuffer: any
+    glDeleteFramebuffers: any
+    glGenerateMipmap: (target: any) => void
+    glGetFramebufferAttachmentParameteriv: any
+    glGetRenderbufferParameteriv: any
+    glBlendEquation: (mode: any) => void
+    glBlendColor: any
+    glBlendFuncSeparate: (srcRGB: any, dstRGB: any, srcAlpha: any, dstAlpha: any) => void
+    glBlendEquationSeparate: (modeRGB: any, modeAlpha: any) => void
     glReleaseShaderCompiler: () => void
-    glGetShaderPrecisionFormat: (shadertype: GL.enum_, precisiontype: GL.enum_, range: GL.int, precision: GL.int) => void
-    glShaderBinary: (n: GL.sizei, shaders: GL.uint, binaryformat: GL.enum_, binary: GL.void_, length: GL.sizei) => void
-    glStencilFuncSeparate: (face: GL.enum_, func: GL.enum_, ref: GL.int, mask: GL.uint) => void
-    glStencilMaskSeparate: (face: GL.enum_, mask: GL.uint) => void
-    glStencilOpSeparate: (face: GL.enum_, fail: GL.enum_, zfail: GL.enum_, zpass: GL.enum_) => void
-    glDeleteShader: (shader: GL.uint) => void
-    glAttachShader: (program: GL.uint, shader: GL.uint) => void
-    glUseProgram: (program: GL.uint) => void
-    glDeleteProgram: (program: GL.uint) => void
-    glGetShaderInfoLog: (shader: GL.uint, maxLength: GL.sizei, length: GL.sizei, infoLog: string) => void
-    glGetProgramInfoLog: (program: GL.uint, bufSize: GL.sizei, length: GL.sizei, infoLog: string) => void
-    glGetShaderiv: (shader: GL.uint, pname: GL.enum_, params: GL.int) => void
-    glGetProgramiv: (program: GL.uint, pname: GL.enum_, params: GL.int) => void
-    glDetachShader: (program: GL.uint, shader: GL.uint) => void
-    glGetAttachedShaders: (program: GL.uint, maxcount: GL.sizei, count: GL.sizei, shaders: GL.uint) => void
-    glShaderSource: (shader: GL.uint, count: GL.sizei, string: string, length: GL.int) => void
-    glCompileShader: (shader: GL.uint) => void
-    glLinkProgram: (program: GL.uint) => void
-    glUniform1f: (location: GL.int, v0: GL.float) => void
-    glUniform2f: (location: GL.int, v0: GL.float, v1: GL.float) => void
-    glUniform3f: (location: GL.int, v0: GL.float, v1: GL.float, v2: GL.float) => void
-    glUniform4f: (location: GL.int, v0: GL.float, v1: GL.float, v2: GL.float, v3: GL.float) => void
-    glUniform1fv: (location: GL.int, count: GL.sizei, value: GL.float) => void
-    glUniform2fv: (location: GL.int, count: GL.sizei, value: GL.float) => void
-    glUniform3fv: (location: GL.int, count: GL.sizei, value: GL.float) => void
-    glUniform4fv: (location: GL.int, count: GL.sizei, value: GL.float) => void
-    glUniform1i: (location: GL.int, v0: GL.int) => void
-    glUniform2i: (location: GL.int, v0: GL.int, v1: GL.int) => void
-    glUniform3i: (location: GL.int, v0: GL.int, v1: GL.int, v2: GL.int) => void
-    glUniform4i: (location: GL.int, v0: GL.int, v1: GL.int, v2: GL.int, v3: GL.int) => void
-    glUniform1iv: (location: GL.int, count: GL.sizei, value: GL.int) => void
-    glUniform2iv: (location: GL.int, count: GL.sizei, value: GL.int) => void
-    glUniform3iv: (location: GL.int, count: GL.sizei, value: GL.int) => void
-    glUniform4iv: (location: GL.int, count: GL.sizei, value: GL.int) => void
-    glUniformMatrix2fv: (location: GL.int, count: GL.sizei, transpose: GL.boolean_, value: GL.float) => void
-    glUniformMatrix3fv: (location: GL.int, count: GL.sizei, transpose: GL.boolean_, value: GL.float) => void
-    glUniformMatrix4fv: (location: GL.int, count: GL.sizei, transpose: GL.boolean_, value: GL.float) => void
-    glGetUniformfv: (program: GL.uint, location: GL.int, params: GL.float) => void
-    glGetUniformiv: (program: GL.uint, location: GL.int, params: GL.int) => void
-    glValidateProgram: (program: GL.uint) => void
-    glVertexAttribPointer: (index: GL.uint, size: GL.int, type: GL.enum_, normalized: GL.boolean_, stride: GL.sizei, pointer: GL.void_) => void
-    glEnableVertexAttribArray: (index: GL.uint) => void
-    glDisableVertexAttribArray: (index: GL.uint) => void
-    glVertexAttrib1f: (indx: GL.uint, x: GL.float) => void
-    glVertexAttrib1fv: (indx: GL.uint, values: GL.float) => void
-    glVertexAttrib2f: (indx: GL.uint, x: GL.float, y: GL.float) => void
-    glVertexAttrib2fv: (indx: GL.uint, values: GL.float) => void
-    glVertexAttrib3f: (indx: GL.uint, x: GL.float, y: GL.float, z: GL.float) => void
-    glVertexAttrib3fv: (indx: GL.uint, values: GL.float) => void
-    glVertexAttrib4f: (index: GL.uint, x: GL.float, y: GL.float, z: GL.float, w: GL.float) => void
-    glVertexAttrib4fv: (indx: GL.uint, values: GL.float) => void
-    glGetVertexAttribfv: (index: GL.uint, pname: GL.enum_, params: GL.float) => void
-    glGetVertexAttribiv: (index: GL.uint, pname: GL.enum_, params: GL.int) => void
-    glGetVertexAttribPointerv: (index: GL.uint, pname: GL.enum_, pointer: GL.void_) => void
+    glGetShaderPrecisionFormat: any
+    glShaderBinary: any
+    glStencilFuncSeparate: any
+    glStencilMaskSeparate: any
+    glStencilOpSeparate: (face: any, fail: any, zfail: any, zpass: any) => void
+    glDeleteShader: any
+    glAttachShader: any
+    glUseProgram: any
+    glDeleteProgram: any
+    glGetShaderInfoLog: any
+    glGetProgramInfoLog: any
+    glGetShaderiv: any
+    glGetProgramiv: any
+    glDetachShader: any
+    glGetAttachedShaders: any
+    glShaderSource: any
+    glCompileShader: any
+    glLinkProgram: any
+    glUniform1f: any
+    glUniform2f: any
+    glUniform3f: any
+    glUniform4f: any
+    glUniform1fv: any
+    glUniform2fv: any
+    glUniform3fv: any
+    glUniform4fv: any
+    glUniform1i: any
+    glUniform2i: any
+    glUniform3i: any
+    glUniform4i: any
+    glUniform1iv: any
+    glUniform2iv: any
+    glUniform3iv: any
+    glUniform4iv: any
+    glUniformMatrix2fv: any
+    glUniformMatrix3fv: any
+    glUniformMatrix4fv: any
+    glGetUniformfv: any
+    glGetUniformiv: any
+    glValidateProgram: any
+    glVertexAttribPointer: any
+    glEnableVertexAttribArray: any
+    glDisableVertexAttribArray: any
+    glVertexAttrib1f: any
+    glVertexAttrib1fv: any
+    glVertexAttrib2f: any
+    glVertexAttrib2fv: any
+    glVertexAttrib3f: any
+    glVertexAttrib3fv: any
+    glVertexAttrib4f: any
+    glVertexAttrib4fv: any
+    glGetVertexAttribfv: any
+    glGetVertexAttribiv: any
+    glGetVertexAttribPointerv: any
     static name: string
 }
 export class GtypeClass {

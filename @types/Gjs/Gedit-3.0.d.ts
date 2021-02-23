@@ -5882,10 +5882,10 @@ export abstract class AppActivatableInterface {
 export abstract class AppClass {
     /* Fields of Gedit-3.0.Gedit.AppClass */
     parent_class: Gtk.ApplicationClass
-    show_help: (app: App, parent: Gtk.Window, name: string, link_id: string) => boolean
+    show_help: any
     help_link_id: (app: App, name: string, link_id: string) => string
     set_window_title: (app: App, window: Window, title: string) => void
-    process_window_event: (app: App, window: Window, event: Gdk.Event) => boolean
+    process_window_event: any
     static name: string
 }
 export abstract class DocumentClass {

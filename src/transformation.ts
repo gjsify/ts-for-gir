@@ -61,7 +61,8 @@ export const C_TYPE_MAP = (value: string): string => {
         'char*': 'string',
         'gchar*': 'string',
         'gchar**': 'string', // TODO CHECKME
-        'const gchar*': 'string', // TODO readonly?
+        'const gchar*': 'string', // TODO CHECKME
+        'const char*': 'string', // TODO CHECKME
     }
     return cTypeMap[value]
 }

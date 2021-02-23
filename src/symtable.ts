@@ -42,8 +42,7 @@ export class SymTable {
         const packageName = dependencies.find((dependency) => dependency.startsWith(namespace + '-'))
         if (!packageName) {
             this.log.warn(`Package name for namespace ${namespace} not found! (${implementation})`)
-            // return null
-            return implementation
+            return null
         }
         return packageName + '.' + implementation
     }
@@ -53,7 +52,8 @@ export class SymTable {
         if (!key) {
             return null
         }
-        return SymTable.items[key] || null
+        const result = SymTable.items[key]
+        return result || null
     }
 
     public getByHand(versionTypeName: string): GirConstruct | undefined {
@@ -63,6 +63,9 @@ export class SymTable {
     public set(dependencies: string[], fullTypeName: string, girConstruct: GirConstruct): void {
         const key = this.getKey(dependencies, fullTypeName)
         if (key) {
+            if (key.endsWith('ServiceAction')) {
+                debugger
+            }
             SymTable.items[key] = girConstruct
         }
     }

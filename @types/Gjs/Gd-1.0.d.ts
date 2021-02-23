@@ -14845,10 +14845,10 @@ export abstract class MainViewClass {
 export abstract class MainViewGenericIface {
     /* Fields of Gd-1.0.Gd.MainViewGenericIface */
     base_iface: GObject.TypeInterface
-    set_model: (self: MainViewGeneric, model?: Gtk.TreeModel | null) => void
-    get_model: (self: MainViewGeneric) => Gtk.TreeModel
-    get_path_at_pos: (self: MainViewGeneric, x: number, y: number) => Gtk.TreePath
-    scroll_to_path: (self: MainViewGeneric, path: Gtk.TreePath) => void
+    set_model: any
+    get_model: any
+    get_path_at_pos: any
+    scroll_to_path: any
     set_selection_mode: (self: MainViewGeneric, selection_mode: boolean) => void
     static name: string
 }

@@ -4119,7 +4119,7 @@ export abstract class AuthClass {
     parent_class: GObject.ObjectClass
     scheme_name: string
     strength: number
-    update: (auth: Auth, msg: Message, auth_header: GLib.HashTable) => boolean
+    update: any
     get_protection_space: (auth: Auth, source_uri: URI) => string[]
     authenticate: (auth: Auth, username: string, password: string) => void
     is_authenticated: (auth: Auth) => boolean
@@ -4209,7 +4209,7 @@ export class ContentDecoderPrivate {
 export abstract class ContentSnifferClass {
     /* Fields of Soup-2.4.Soup.ContentSnifferClass */
     parent_class: GObject.ObjectClass
-    sniff: (sniffer: ContentSniffer, msg: Message, buffer: Buffer) => [ /* returnType */ string, /* params */ GLib.HashTable | null ]
+    sniff: any
     get_buffer_size: (sniffer: ContentSniffer) => number
     static name: string
 }
@@ -4472,8 +4472,8 @@ export class MultipartInputStreamPrivate {
 export abstract class PasswordManagerInterface {
     /* Fields of Soup-2.4.Soup.PasswordManagerInterface */
     base: GObject.TypeInterface
-    get_passwords_async: (password_manager: PasswordManager, msg: Message, auth: Auth, retrying: boolean, async_context: GLib.MainContext, cancellable: Gio.Cancellable | null, callback: PasswordManagerCallback) => void
-    get_passwords_sync: (password_manager: PasswordManager, msg: Message, auth: Auth, cancellable?: Gio.Cancellable | null) => void
+    get_passwords_async: any
+    get_passwords_sync: any
     static name: string
 }
 export abstract class ProxyResolverDefaultClass {
@@ -4484,15 +4484,15 @@ export abstract class ProxyResolverDefaultClass {
 export abstract class ProxyResolverInterface {
     /* Fields of Soup-2.4.Soup.ProxyResolverInterface */
     base: GObject.TypeInterface
-    get_proxy_async: (proxy_resolver: ProxyResolver, msg: Message, async_context: GLib.MainContext, cancellable: Gio.Cancellable | null, callback: ProxyResolverCallback) => void
-    get_proxy_sync: (proxy_resolver: ProxyResolver, msg: Message, cancellable?: Gio.Cancellable | null) => [ /* returnType */ number, /* addr */ Address ]
+    get_proxy_async: any
+    get_proxy_sync: any
     static name: string
 }
 export abstract class ProxyURIResolverInterface {
     /* Fields of Soup-2.4.Soup.ProxyURIResolverInterface */
     base: GObject.TypeInterface
-    get_proxy_uri_async: (proxy_uri_resolver: ProxyURIResolver, uri: URI, async_context: GLib.MainContext | null, cancellable: Gio.Cancellable | null, callback: ProxyURIResolverCallback) => void
-    get_proxy_uri_sync: (proxy_uri_resolver: ProxyURIResolver, uri: URI, cancellable?: Gio.Cancellable | null) => [ /* returnType */ number, /* proxy_uri */ URI ]
+    get_proxy_uri_async: any
+    get_proxy_uri_sync: any
     static name: string
 }
 export class Range {
@@ -4506,9 +4506,9 @@ export abstract class RequestClass {
     parent: GObject.ObjectClass
     schemes: string
     check_uri: (req_base: Request, uri: URI) => boolean
-    send: (request: Request, cancellable?: Gio.Cancellable | null) => Gio.InputStream
-    send_async: (request: Request, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    send_finish: (request: Request, result: Gio.AsyncResult) => Gio.InputStream
+    send: any
+    send_async: any
+    send_finish: any
     get_content_length: (request: Request) => number
     get_content_type: (request: Request) => string | null
     static name: string
@@ -4584,9 +4584,9 @@ export abstract class SessionFeatureInterface {
     request_queued: (feature: SessionFeature, session: Session, msg: Message) => void
     request_started: (feature: SessionFeature, session: Session, msg: Message, socket: Socket) => void
     request_unqueued: (feature: SessionFeature, session: Session, msg: Message) => void
-    add_feature: (feature: SessionFeature, type: GObject.Type) => boolean
-    remove_feature: (feature: SessionFeature, type: GObject.Type) => boolean
-    has_feature: (feature: SessionFeature, type: GObject.Type) => boolean
+    add_feature: any
+    remove_feature: any
+    has_feature: any
     static name: string
 }
 export abstract class SessionSyncClass {
@@ -4652,11 +4652,11 @@ export class URI {
 export abstract class WebsocketConnectionClass {
     /* Fields of Soup-2.4.Soup.WebsocketConnectionClass */
     parent: GObject.ObjectClass
-    message: (self: WebsocketConnection, type: WebsocketDataType, message: GLib.Bytes) => void
-    error: (self: WebsocketConnection, error: GLib.Error) => void
+    message: any
+    error: any
     closing: (self: WebsocketConnection) => void
     closed: (self: WebsocketConnection) => void
-    pong: (self: WebsocketConnection, message: GLib.Bytes) => void
+    pong: any
     static name: string
 }
 export class WebsocketConnectionPrivate {
@@ -4666,11 +4666,11 @@ export abstract class WebsocketExtensionClass {
     /* Fields of Soup-2.4.Soup.WebsocketExtensionClass */
     parent_class: GObject.ObjectClass
     name: string
-    configure: (extension: WebsocketExtension, connection_type: WebsocketConnectionType, params?: GLib.HashTable | null) => boolean
+    configure: any
     get_request_params: (extension: WebsocketExtension) => string | null
     get_response_params: (extension: WebsocketExtension) => string | null
-    process_outgoing_message: (extension: WebsocketExtension, header: number, payload: GLib.Bytes) => [ /* returnType */ GLib.Bytes, /* header */ number ]
-    process_incoming_message: (extension: WebsocketExtension, header: number, payload: GLib.Bytes) => [ /* returnType */ GLib.Bytes, /* header */ number ]
+    process_outgoing_message: any
+    process_incoming_message: any
     static name: string
 }
 export abstract class WebsocketExtensionDeflateClass {

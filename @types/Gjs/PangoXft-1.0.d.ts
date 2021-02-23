@@ -282,8 +282,8 @@ export class Renderer {
 }
 export abstract class RendererClass {
     /* Fields of PangoXft-1.0.PangoXft.RendererClass */
-    composite_trapezoids: (xftrenderer: Renderer, part: Pango.RenderPart, trapezoids: xlib.XTrapezoid, n_trapezoids: number) => void
-    composite_glyphs: (xftrenderer: Renderer, xft_font: xft.Font, glyphs: xft.GlyphSpec, n_glyphs: number) => void
+    composite_trapezoids: any
+    composite_glyphs: any
     static name: string
 }
 export class RendererPrivate {

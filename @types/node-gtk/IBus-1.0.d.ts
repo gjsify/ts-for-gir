@@ -6935,10 +6935,10 @@ export class ConfigPrivate {
 }
 export abstract class ConfigServiceClass {
     /* Fields of IBus-1.0.IBus.ConfigServiceClass */
-    setValue: (config: ConfigService, section: string, name: string, value: GLib.Variant) => boolean
-    getValue: (config: ConfigService, section: string, name: string) => GLib.Variant
+    setValue: any
+    getValue: any
     unsetValue: (config: ConfigService, section: string, name: string) => boolean
-    getValues: (config: ConfigService, section: string) => GLib.Variant
+    getValues: any
     static name: string
 }
 export abstract class EngineClass {
@@ -6993,7 +6993,7 @@ export class FactoryPrivate {
 export abstract class HotkeyProfileClass {
     /* Fields of IBus-1.0.IBus.HotkeyProfileClass */
     parent: SerializableClass
-    trigger: (profile: HotkeyProfile, event: GLib.Quark) => void
+    trigger: any
     static name: string
 }
 export abstract class InputContextClass {
@@ -7090,8 +7090,8 @@ export class RegistryPrivate {
 }
 export abstract class SerializableClass {
     /* Fields of IBus-1.0.IBus.SerializableClass */
-    serialize: (object: Serializable, builder: GLib.VariantBuilder) => boolean
-    deserialize: (object: Serializable, variant: GLib.Variant) => number
+    serialize: any
+    deserialize: any
     copy: (dest: Serializable, src: Serializable) => boolean
     static name: string
 }
@@ -7100,9 +7100,9 @@ export class SerializablePrivate {
 }
 export abstract class ServiceClass {
     /* Fields of IBus-1.0.IBus.ServiceClass */
-    serviceMethodCall: (service: Service, connection: Gio.DBusConnection, sender: string, objectPath: string, interfaceName: string, methodName: string, parameters: GLib.Variant, invocation: Gio.DBusMethodInvocation) => void
-    serviceGetProperty: (service: Service, connection: Gio.DBusConnection, sender: string, objectPath: string, interfaceName: string, propertyName: string) => GLib.Variant | null
-    serviceSetProperty: (service: Service, connection: Gio.DBusConnection, sender: string, objectPath: string, interfaceName: string, propertyName: string, value: GLib.Variant) => boolean
+    serviceMethodCall: any
+    serviceGetProperty: any
+    serviceSetProperty: any
     /* Methods of IBus-1.0.IBus.ServiceClass */
     addInterfaces(klass: Service | Function | GObject.Type, xmlData: string): boolean
     static name: string

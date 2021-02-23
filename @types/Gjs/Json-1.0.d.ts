@@ -626,7 +626,7 @@ export abstract class ParserClass {
     array_element: (parser: Parser, array: Array, index_: number) => void
     array_end: (parser: Parser, array: Array) => void
     parse_end: (parser: Parser) => void
-    error: (parser: Parser, error: GLib.Error) => void
+    error: any
     static name: string
 }
 export class ParserPrivate {
@@ -643,10 +643,10 @@ export class ReaderPrivate {
 }
 export abstract class SerializableIface {
     /* Fields of Json-1.0.Json.SerializableIface */
-    serialize_property: (serializable: Serializable, property_name: string, value: any, pspec: GObject.ParamSpec) => Node
-    deserialize_property: (serializable: Serializable, property_name: string, pspec: GObject.ParamSpec, property_node: Node) => [ /* returnType */ boolean, /* value */ any ]
-    find_property: (serializable: Serializable, name: string) => GObject.ParamSpec | null
-    set_property: (serializable: Serializable, pspec: GObject.ParamSpec, value: any) => void
-    get_property: (serializable: Serializable, pspec: GObject.ParamSpec) => /* value */ any
+    serialize_property: any
+    deserialize_property: any
+    find_property: any
+    set_property: any
+    get_property: any
     static name: string
 }

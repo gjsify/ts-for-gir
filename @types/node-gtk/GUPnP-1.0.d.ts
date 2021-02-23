@@ -155,7 +155,7 @@ export class DLNAProfile {
 export abstract class DLNADiscovererClass {
     /* Fields of GUPnP-1.0.GUPnP.DLNADiscovererClass */
     parentClass: any
-    done: (discoverer: DLNADiscoverer, dlna: DLNAInformation, err: GLib.Error) => void
+    done: any
     static name: string
 }
 export abstract class DLNAInformationClass {
@@ -168,7 +168,7 @@ export abstract class DLNAProfileClass {
     parentClass: GObject.ObjectClass
     static name: string
 }
-}aramSpec) => void)): number
+}ct(sigName: "notify::active", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::active", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1333,7 +1333,7 @@ export class ServiceProxyAction {
 export abstract class ServiceProxyClass {
     /* Fields of GUPnP-1.0.GUPnP.ServiceProxyClass */
     parentClass: ServiceInfoClass
-    subscriptionLost: (proxy: ServiceProxy, reason: GLib.Error) => void
+    subscriptionLost: any
     static name: string
 }
 export class ServiceProxyPrivate {

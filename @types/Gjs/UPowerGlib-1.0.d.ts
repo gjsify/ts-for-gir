@@ -1843,9 +1843,9 @@ export abstract class ClientClass {
 export abstract class ClientGlueIface {
     /* Fields of UPowerGlib-1.0.UPowerGlib.ClientGlueIface */
     parent_iface: GObject.TypeInterface
-    handle_enumerate_devices: (object: ClientGlue, invocation: Gio.DBusMethodInvocation) => boolean
-    handle_get_critical_action: (object: ClientGlue, invocation: Gio.DBusMethodInvocation) => boolean
-    handle_get_display_device: (object: ClientGlue, invocation: Gio.DBusMethodInvocation) => boolean
+    handle_enumerate_devices: any
+    handle_get_critical_action: any
+    handle_get_display_device: any
     get_daemon_version: (object: ClientGlue) => string
     get_lid_is_closed: (object: ClientGlue) => boolean
     get_lid_is_present: (object: ClientGlue) => boolean
@@ -1881,9 +1881,9 @@ export abstract class DeviceClass {
 export abstract class DeviceGlueIface {
     /* Fields of UPowerGlib-1.0.UPowerGlib.DeviceGlueIface */
     parent_iface: GObject.TypeInterface
-    handle_get_history: (object: DeviceGlue, invocation: Gio.DBusMethodInvocation, arg_type: string, arg_timespan: number, arg_resolution: number) => boolean
-    handle_get_statistics: (object: DeviceGlue, invocation: Gio.DBusMethodInvocation, arg_type: string) => boolean
-    handle_refresh: (object: DeviceGlue, invocation: Gio.DBusMethodInvocation) => boolean
+    handle_get_history: any
+    handle_get_statistics: any
+    handle_refresh: any
     get_capacity: (object: DeviceGlue) => number
     get_energy: (object: DeviceGlue) => number
     get_energy_empty: (object: DeviceGlue) => number
@@ -1967,8 +1967,8 @@ export abstract class WakeupsClass {
 export abstract class WakeupsGlueIface {
     /* Fields of UPowerGlib-1.0.UPowerGlib.WakeupsGlueIface */
     parent_iface: GObject.TypeInterface
-    handle_get_data: (object: WakeupsGlue, invocation: Gio.DBusMethodInvocation) => boolean
-    handle_get_total: (object: WakeupsGlue, invocation: Gio.DBusMethodInvocation) => boolean
+    handle_get_data: any
+    handle_get_total: any
     get_has_capability: (object: WakeupsGlue) => boolean
     data_changed: (object: WakeupsGlue) => void
     total_changed: (object: WakeupsGlue, arg_value: number) => void

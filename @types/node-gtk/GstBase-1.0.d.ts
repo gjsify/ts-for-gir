@@ -2144,35 +2144,35 @@ export abstract class AdapterClass {
 export abstract class AggregatorClass {
     /* Fields of GstBase-1.0.GstBase.AggregatorClass */
     parentClass: Gst.ElementClass
-    flush: (aggregator: Aggregator) => Gst.FlowReturn
-    clip: (aggregator: Aggregator, aggregatorPad: AggregatorPad, buf: Gst.Buffer) => Gst.Buffer
-    finishBuffer: (aggregator: Aggregator, buffer: Gst.Buffer) => Gst.FlowReturn
-    sinkEvent: (aggregator: Aggregator, aggregatorPad: AggregatorPad, event: Gst.Event) => boolean
-    sinkQuery: (aggregator: Aggregator, aggregatorPad: AggregatorPad, query: Gst.Query) => boolean
-    srcEvent: (aggregator: Aggregator, event: Gst.Event) => boolean
-    srcQuery: (aggregator: Aggregator, query: Gst.Query) => boolean
-    srcActivate: (aggregator: Aggregator, mode: Gst.PadMode, active: boolean) => boolean
-    aggregate: (aggregator: Aggregator, timeout: boolean) => Gst.FlowReturn
+    flush: any
+    clip: any
+    finishBuffer: any
+    sinkEvent: any
+    sinkQuery: any
+    srcEvent: any
+    srcQuery: any
+    srcActivate: any
+    aggregate: any
     stop: (aggregator: Aggregator) => boolean
     start: (aggregator: Aggregator) => boolean
-    getNextTime: (aggregator: Aggregator) => Gst.ClockTime
-    updateSrcCaps: (self: Aggregator, caps: Gst.Caps) => { returnType: Gst.FlowReturn, ret: Gst.Caps | null }
-    fixateSrcCaps: (self: Aggregator, caps: Gst.Caps) => Gst.Caps
-    negotiatedSrcCaps: (self: Aggregator, caps: Gst.Caps) => boolean
-    decideAllocation: (self: Aggregator, query: Gst.Query) => boolean
-    proposeAllocation: (self: Aggregator, pad: AggregatorPad, decideQuery: Gst.Query, query: Gst.Query) => boolean
+    getNextTime: any
+    updateSrcCaps: any
+    fixateSrcCaps: any
+    negotiatedSrcCaps: any
+    decideAllocation: any
+    proposeAllocation: any
     negotiate: (self: Aggregator) => boolean
-    sinkEventPreQueue: (aggregator: Aggregator, aggregatorPad: AggregatorPad, event: Gst.Event) => Gst.FlowReturn
-    sinkQueryPreQueue: (aggregator: Aggregator, aggregatorPad: AggregatorPad, query: Gst.Query) => boolean
-    finishBufferList: (aggregator: Aggregator, bufferlist: Gst.BufferList) => Gst.FlowReturn
-    peekNextSample: (aggregator: Aggregator, aggregatorPad: AggregatorPad) => Gst.Sample | null
+    sinkEventPreQueue: any
+    sinkQueryPreQueue: any
+    finishBufferList: any
+    peekNextSample: any
     static name: string
 }
 export abstract class AggregatorPadClass {
     /* Fields of GstBase-1.0.GstBase.AggregatorPadClass */
     parentClass: Gst.PadClass
-    flush: (aggpad: AggregatorPad, aggregator: Aggregator) => Gst.FlowReturn
-    skipBuffer: (aggpad: AggregatorPad, aggregator: Aggregator, buffer: Gst.Buffer) => boolean
+    flush: any
+    skipBuffer: any
     static name: string
 }
 export class AggregatorPadPrivate {
@@ -2186,16 +2186,16 @@ export abstract class BaseParseClass {
     parentClass: Gst.ElementClass
     start: (parse: BaseParse) => boolean
     stop: (parse: BaseParse) => boolean
-    setSinkCaps: (parse: BaseParse, caps: Gst.Caps) => boolean
-    handleFrame: (parse: BaseParse, frame: BaseParseFrame, skipsize: number) => Gst.FlowReturn
-    prePushFrame: (parse: BaseParse, frame: BaseParseFrame) => Gst.FlowReturn
-    convert: (parse: BaseParse, srcFormat: Gst.Format, srcValue: number, destFormat: Gst.Format, destValue: number) => boolean
-    sinkEvent: (parse: BaseParse, event: Gst.Event) => boolean
-    srcEvent: (parse: BaseParse, event: Gst.Event) => boolean
-    getSinkCaps: (parse: BaseParse, filter: Gst.Caps) => Gst.Caps
-    detect: (parse: BaseParse, buffer: Gst.Buffer) => Gst.FlowReturn
-    sinkQuery: (parse: BaseParse, query: Gst.Query) => boolean
-    srcQuery: (parse: BaseParse, query: Gst.Query) => boolean
+    setSinkCaps: any
+    handleFrame: any
+    prePushFrame: any
+    convert: any
+    sinkEvent: any
+    srcEvent: any
+    getSinkCaps: any
+    detect: any
+    sinkQuery: any
+    srcQuery: any
     static name: string
 }
 export class BaseParseFrame {
@@ -2221,24 +2221,24 @@ export class BaseParsePrivate {
 export abstract class BaseSinkClass {
     /* Fields of GstBase-1.0.GstBase.BaseSinkClass */
     parentClass: Gst.ElementClass
-    getCaps: (sink: BaseSink, filter: Gst.Caps) => Gst.Caps
-    setCaps: (sink: BaseSink, caps: Gst.Caps) => boolean
-    fixate: (sink: BaseSink, caps: Gst.Caps) => Gst.Caps
+    getCaps: any
+    setCaps: any
+    fixate: any
     activatePull: (sink: BaseSink, active: boolean) => boolean
-    getTimes: (sink: BaseSink, buffer: Gst.Buffer, start: Gst.ClockTime, end: Gst.ClockTime) => void
-    proposeAllocation: (sink: BaseSink, query: Gst.Query) => boolean
+    getTimes: any
+    proposeAllocation: any
     start: (sink: BaseSink) => boolean
     stop: (sink: BaseSink) => boolean
     unlock: (sink: BaseSink) => boolean
     unlockStop: (sink: BaseSink) => boolean
-    query: (sink: BaseSink, query: Gst.Query) => boolean
-    event: (sink: BaseSink, event: Gst.Event) => boolean
-    waitEvent: (sink: BaseSink, event: Gst.Event) => Gst.FlowReturn
-    prepare: (sink: BaseSink, buffer: Gst.Buffer) => Gst.FlowReturn
-    prepareList: (sink: BaseSink, bufferList: Gst.BufferList) => Gst.FlowReturn
-    preroll: (sink: BaseSink, buffer: Gst.Buffer) => Gst.FlowReturn
-    render: (sink: BaseSink, buffer: Gst.Buffer) => Gst.FlowReturn
-    renderList: (sink: BaseSink, bufferList: Gst.BufferList) => Gst.FlowReturn
+    query: any
+    event: any
+    waitEvent: any
+    prepare: any
+    prepareList: any
+    preroll: any
+    render: any
+    renderList: any
     static name: string
 }
 export class BaseSinkPrivate {
@@ -2247,25 +2247,25 @@ export class BaseSinkPrivate {
 export abstract class BaseSrcClass {
     /* Fields of GstBase-1.0.GstBase.BaseSrcClass */
     parentClass: Gst.ElementClass
-    getCaps: (src: BaseSrc, filter?: Gst.Caps | null) => Gst.Caps
+    getCaps: any
     negotiate: (src: BaseSrc) => boolean
-    fixate: (src: BaseSrc, caps: Gst.Caps) => Gst.Caps
-    setCaps: (src: BaseSrc, caps: Gst.Caps) => boolean
-    decideAllocation: (src: BaseSrc, query: Gst.Query) => boolean
+    fixate: any
+    setCaps: any
+    decideAllocation: any
     start: (src: BaseSrc) => boolean
     stop: (src: BaseSrc) => boolean
-    getTimes: (src: BaseSrc, buffer: Gst.Buffer) => { start: Gst.ClockTime, end: Gst.ClockTime }
+    getTimes: any
     getSize: (src: BaseSrc, size: number) => boolean
     isSeekable: (src: BaseSrc) => boolean
-    prepareSeekSegment: (src: BaseSrc, seek: Gst.Event, segment: Gst.Segment) => boolean
-    doSeek: (src: BaseSrc, segment: Gst.Segment) => boolean
+    prepareSeekSegment: any
+    doSeek: any
     unlock: (src: BaseSrc) => boolean
     unlockStop: (src: BaseSrc) => boolean
-    query: (src: BaseSrc, query: Gst.Query) => boolean
-    event: (src: BaseSrc, event: Gst.Event) => boolean
-    create: (src: BaseSrc, offset: number, size: number) => { returnType: Gst.FlowReturn, buf: Gst.Buffer }
-    alloc: (src: BaseSrc, offset: number, size: number, buf: Gst.Buffer) => Gst.FlowReturn
-    fill: (src: BaseSrc, offset: number, size: number, buf: Gst.Buffer) => Gst.FlowReturn
+    query: any
+    event: any
+    create: any
+    alloc: any
+    fill: any
     static name: string
 }
 export class BaseSrcPrivate {
@@ -2276,28 +2276,28 @@ export abstract class BaseTransformClass {
     parentClass: Gst.ElementClass
     passthroughOnSameCaps: boolean
     transformIpOnPassthrough: boolean
-    transformCaps: (trans: BaseTransform, direction: Gst.PadDirection, caps: Gst.Caps, filter: Gst.Caps) => Gst.Caps
-    fixateCaps: (trans: BaseTransform, direction: Gst.PadDirection, caps: Gst.Caps, othercaps: Gst.Caps) => Gst.Caps
-    acceptCaps: (trans: BaseTransform, direction: Gst.PadDirection, caps: Gst.Caps) => boolean
-    setCaps: (trans: BaseTransform, incaps: Gst.Caps, outcaps: Gst.Caps) => boolean
-    query: (trans: BaseTransform, direction: Gst.PadDirection, query: Gst.Query) => boolean
-    decideAllocation: (trans: BaseTransform, query: Gst.Query) => boolean
-    filterMeta: (trans: BaseTransform, query: Gst.Query, api: GObject.Type, params: Gst.Structure) => boolean
-    proposeAllocation: (trans: BaseTransform, decideQuery: Gst.Query, query: Gst.Query) => boolean
-    transformSize: (trans: BaseTransform, direction: Gst.PadDirection, caps: Gst.Caps, size: number, othercaps: Gst.Caps) => { returnType: boolean, othersize: number }
-    getUnitSize: (trans: BaseTransform, caps: Gst.Caps) => { returnType: boolean, size: number }
+    transformCaps: any
+    fixateCaps: any
+    acceptCaps: any
+    setCaps: any
+    query: any
+    decideAllocation: any
+    filterMeta: any
+    proposeAllocation: any
+    transformSize: any
+    getUnitSize: any
     start: (trans: BaseTransform) => boolean
     stop: (trans: BaseTransform) => boolean
-    sinkEvent: (trans: BaseTransform, event: Gst.Event) => boolean
-    srcEvent: (trans: BaseTransform, event: Gst.Event) => boolean
-    prepareOutputBuffer: (trans: BaseTransform, input: Gst.Buffer) => { returnType: Gst.FlowReturn, outbuf: Gst.Buffer }
-    copyMetadata: (trans: BaseTransform, input: Gst.Buffer, outbuf: Gst.Buffer) => boolean
-    transformMeta: (trans: BaseTransform, outbuf: Gst.Buffer, meta: Gst.Meta, inbuf: Gst.Buffer) => boolean
-    beforeTransform: (trans: BaseTransform, buffer: Gst.Buffer) => void
-    transform: (trans: BaseTransform, inbuf: Gst.Buffer, outbuf: Gst.Buffer) => Gst.FlowReturn
-    transformIp: (trans: BaseTransform, buf: Gst.Buffer) => Gst.FlowReturn
-    submitInputBuffer: (trans: BaseTransform, isDiscont: boolean, input: Gst.Buffer) => Gst.FlowReturn
-    generateOutput: (trans: BaseTransform) => { returnType: Gst.FlowReturn, outbuf: Gst.Buffer }
+    sinkEvent: any
+    srcEvent: any
+    prepareOutputBuffer: any
+    copyMetadata: any
+    transformMeta: any
+    beforeTransform: any
+    transform: any
+    transformIp: any
+    submitInputBuffer: any
+    generateOutput: any
     static name: string
 }
 export class BaseTransformPrivate {
@@ -2538,9 +2538,9 @@ export class FlowCombiner {
 export abstract class PushSrcClass {
     /* Fields of GstBase-1.0.GstBase.PushSrcClass */
     parentClass: BaseSrcClass
-    create: (src: PushSrc, buf: Gst.Buffer) => Gst.FlowReturn
-    alloc: (src: PushSrc, buf: Gst.Buffer) => Gst.FlowReturn
-    fill: (src: PushSrc, buf: Gst.Buffer) => Gst.FlowReturn
+    create: any
+    alloc: any
+    fill: any
     static name: string
 }
 export class QueueArray {

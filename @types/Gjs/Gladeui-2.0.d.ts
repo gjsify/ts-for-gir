@@ -24665,7 +24665,7 @@ export abstract class BaseEditorClass {
     /* Fields of Gladeui-2.0.Gladeui.BaseEditorClass */
     parent_class: Gtk.BoxClass
     child_selected: (editor: BaseEditor, gchild: Widget) => void
-    change_type: (editor: BaseEditor, gchild: Widget, type: GObject.Type) => boolean
+    change_type: any
     get_display_name: (editor: BaseEditor, gchild: Widget) => string
     delete_child: (editor: BaseEditor, parent: Widget, gchild: Widget) => boolean
     move_child: (editor: BaseEditor, gparent: Widget, gchild: Widget) => boolean
@@ -25119,14 +25119,14 @@ export abstract class WidgetClass {
     parent_class: GObject.InitiallyUnownedClass
     add_child: (parent: Widget, child: Widget, at_mouse: boolean) => void
     remove_child: (parent: Widget, child: Widget) => void
-    replace_child: (parent: Widget, old_object: GObject.Object, new_object: GObject.Object) => void
+    replace_child: any
     add_signal_handler: (widget: Widget, signal_handler: Signal) => void
     remove_signal_handler: (widget: Widget, signal_handler: Signal) => void
     change_signal_handler: (widget: Widget, new_signal_handler: Signal) => void
-    button_press_event: (widget: Widget, event: Gdk.Event) => number
-    button_release_event: (widget: Widget, event: Gdk.Event) => number
-    motion_notify_event: (widget: Widget, event: Gdk.Event) => number
-    event: (gwidget: Widget, event: Gdk.Event) => boolean
+    button_press_event: any
+    button_release_event: any
+    motion_notify_event: any
+    event: any
     glade_reserved1: () => void
     glade_reserved2: () => void
     glade_reserved3: () => void

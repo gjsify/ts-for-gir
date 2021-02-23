@@ -1434,11 +1434,11 @@ export abstract class CertificateRequestClass {
 export abstract class CollectionIface {
     /* Fields of Gcr-3.Gcr.CollectionIface */
     parent: GObject.TypeInterface
-    added: (self: Collection, object: GObject.Object) => void
-    removed: (self: Collection, object: GObject.Object) => void
+    added: any
+    removed: any
     getLength: (self: Collection) => number
-    getObjects: (self: Collection) => GObject.Object[]
-    contains: (self: Collection, object: GObject.Object) => boolean
+    getObjects: any
+    contains: any
     static name: string
 }
 export class Column {
@@ -1469,19 +1469,19 @@ export class FilterCollectionPrivate {
 export abstract class ImportInteractionIface {
     /* Fields of Gcr-3.Gcr.ImportInteractionIface */
     parent: GObject.TypeInterface
-    supplementPrep: (interaction: ImportInteraction, builder: Gck.Builder) => void
-    supplement: (interaction: ImportInteraction, builder: Gck.Builder, cancellable?: Gio.Cancellable | null) => Gio.TlsInteractionResult
-    supplementAsync: (interaction: ImportInteraction, builder: Gck.Builder, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    supplementFinish: (interaction: ImportInteraction, result: Gio.AsyncResult) => Gio.TlsInteractionResult
+    supplementPrep: any
+    supplement: any
+    supplementAsync: any
+    supplementFinish: any
     static name: string
 }
 export abstract class ImporterIface {
     /* Fields of Gcr-3.Gcr.ImporterIface */
     parent: GObject.TypeInterface
     queueForParsed: (importer: Importer, parsed: Parsed) => boolean
-    importSync: (importer: Importer, cancellable?: Gio.Cancellable | null) => boolean
-    importAsync: (importer: Importer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    importFinish: (importer: Importer, result: Gio.AsyncResult) => boolean
+    importSync: any
+    importAsync: any
+    importFinish: any
     static name: string
 }
 export class Parsed {
@@ -1517,10 +1517,10 @@ export class Pkcs11CertificatePrivate {
 export abstract class PromptIface {
     /* Fields of Gcr-3.Gcr.PromptIface */
     parentIface: GObject.TypeInterface
-    promptPasswordAsync: (prompt: Prompt, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    promptPasswordFinish: (prompt: Prompt, result: Gio.AsyncResult) => string
-    promptConfirmAsync: (prompt: Prompt, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    promptConfirmFinish: (prompt: Prompt, result: Gio.AsyncResult) => PromptReply
+    promptPasswordAsync: any
+    promptPasswordFinish: any
+    promptConfirmAsync: any
+    promptConfirmFinish: any
     promptClose: (prompt: Prompt) => void
     static name: string
 }

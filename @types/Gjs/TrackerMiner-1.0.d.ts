@@ -900,12 +900,12 @@ export class MinerOnline {
 export abstract class DataProviderIface {
     /* Fields of TrackerMiner-1.0.TrackerMiner.DataProviderIface */
     g_iface: GObject.TypeInterface
-    begin: (data_provider: DataProvider, url: Gio.File, attributes: string, flags: DirectoryFlags, cancellable?: Gio.Cancellable | null) => Enumerator
-    begin_async: (data_provider: DataProvider, url: Gio.File, attributes: string, flags: DirectoryFlags, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    begin_finish: (data_provider: DataProvider, result: Gio.AsyncResult) => Enumerator
-    end: (data_provider: DataProvider, enumerator: Enumerator, cancellable?: Gio.Cancellable | null) => boolean
-    end_async: (data_provider: DataProvider, enumerator: Enumerator, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    end_finish: (data_provider: DataProvider, result: Gio.AsyncResult) => boolean
+    begin: any
+    begin_async: any
+    begin_finish: any
+    end: any
+    end_async: any
+    end_finish: any
     static name: string
 }
 export abstract class DecoratorClass {
@@ -936,18 +936,18 @@ export class DecoratorInfo {
 export abstract class EnumeratorIface {
     /* Fields of TrackerMiner-1.0.TrackerMiner.EnumeratorIface */
     g_iface: GObject.TypeInterface
-    next: (enumerator: Enumerator, cancellable?: Gio.Cancellable | null) => object | null
-    next_async: (enumerator: Enumerator, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    next_finish: (enumerator: Enumerator, result: Gio.AsyncResult) => object | null
+    next: any
+    next_async: any
+    next_finish: any
     static name: string
 }
 export abstract class IndexingTreeClass {
     /* Fields of TrackerMiner-1.0.TrackerMiner.IndexingTreeClass */
     parent_class: GObject.ObjectClass
-    directory_added: (indexing_tree: IndexingTree, directory: Gio.File) => void
-    directory_removed: (indexing_tree: IndexingTree, directory: Gio.File) => void
-    directory_updated: (indexing_tree: IndexingTree, directory: Gio.File) => void
-    child_updated: (indexing_tree: IndexingTree, root: Gio.File, child: Gio.File) => void
+    directory_added: any
+    directory_removed: any
+    directory_updated: any
+    child_updated: any
     padding: object[]
     static name: string
 }
@@ -966,12 +966,12 @@ export abstract class MinerClass {
 export abstract class MinerFSClass {
     /* Fields of TrackerMiner-1.0.TrackerMiner.MinerFSClass */
     parent: MinerClass
-    process_file: (fs: MinerFS, file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => boolean
-    ignore_next_update_file: (fs: MinerFS, file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => boolean
+    process_file: any
+    ignore_next_update_file: any
     finished: (fs: MinerFS, elapsed: number, directories_found: number, directories_ignored: number, files_found: number, files_ignored: number) => void
-    process_file_attributes: (fs: MinerFS, file: Gio.File, builder: Tracker.SparqlBuilder, cancellable?: Gio.Cancellable | null) => boolean
-    finished_root: (fs: MinerFS, root: Gio.File, directories_found: number, directories_ignored: number, files_found: number, files_ignored: number) => void
-    remove_file: (fs: MinerFS, file: Gio.File, children_only: boolean, builder: Tracker.SparqlBuilder) => boolean
+    process_file_attributes: any
+    finished_root: any
+    remove_file: any
     padding: object[]
     static name: string
 }

@@ -11556,8 +11556,8 @@ export class ScrollViewPrivate {
 export abstract class SidebarClass {
     /* Fields of Eog-3.0.Eog.SidebarClass */
     baseClass: Gtk.BoxClass
-    pageAdded: (eogSidebar: Sidebar, mainWidget: Gtk.Widget) => void
-    pageRemoved: (eogSidebar: Sidebar, mainWidget: Gtk.Widget) => void
+    pageAdded: any
+    pageRemoved: any
     static name: string
 }
 export class SidebarPrivate {

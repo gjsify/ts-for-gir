@@ -176,8 +176,8 @@ export class TemplateProcessor {
     }
 
     protected async write(content: string, outputDir: string, outputFilename: string): Promise<string> {
-        outputDir = Transformation.getEnvironmentDir(this.config.environment, outputDir)
-        const destPath = Path.join(outputDir, outputFilename)
+        const outputEnvDir = Transformation.getEnvironmentDir(this.config.environment, outputDir)
+        const destPath = Path.join(outputEnvDir, outputFilename)
 
         // write template result file
         await fs.promises.mkdir(outputDir, { recursive: true })

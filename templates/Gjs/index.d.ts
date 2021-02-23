@@ -1,8 +1,8 @@
 import type * as Gjs from "./Gjs";
 // TODO add support for multiple versions
-// <%_ for (const girModule of girModules) { _%>
-// import type * as <%= girModule.importName %> from "./<%= girModule.packageName %>";
-// <%_ } _%>
+<%_ for (const girModule of girModules) { _%>
+import type * as <%= girModule.importName %> from "./<%= girModule.packageName %>";
+<%_ } _%>
 
 
 declare global {
@@ -22,20 +22,26 @@ declare global {
       searchPath: string[];
     }
     // TODO add support for multiple versions
-    // const imports: typeof Gjs & {
-    //     [key: string]: any
-    //     gi: {
-    //       <%_ for (const girModule of girModules) { _%>
-    //       <%= girModule.name %>: typeof <%= girModule.importName %>
-    //       <%_ } _%>
-    //     }
-    //     versions: {
-    //       <%_ for (const girModule of girModules) { _%>
-    //         <%= girModule.name %>: string
-    //         <%_ } _%>
-    //     }
-    //     searchPath: string[];
-    // }
+    const imports: typeof Gjs & {
+        [key: string]: any
+        gi: {
+          // <%_ for (const girModule of girModules) { _%>
+          // <%= girModule.namespace %>: typeof <%= girModule.importName %>
+          // <%_ } _%>
+          <%_ for (const girModuleGroup of girModulesGrouped) { _%>
+          <%= girModuleGroup.namespace %>: <% for (const [i, girModule] of girModuleGroup.modules) {%> typeof <%= girModule.module.importName %> <% if (i !== girModuleGroup.modules.length - 1) { %> | <%}%> <%}%>
+          <%_ } _%>
+        }
+        versions: {
+          // <%_ for (const girModule of girModules) { _%>
+          //   <%= girModule.namespace %>: string
+          // <%_ } _%>
+          <%_ for (const girModuleGroup of girModulesGrouped) { _%>
+            <%= girModuleGroup.namespace %>: <% for (const [i, girModule] of girModuleGroup.modules) {%> typeof <%= girModule.module.version %> <% if (i !== girModuleGroup.modules.length - 1) { %> | <%}%> <%}%>
+          <%_ } _%>
+        }
+        searchPath: string[];
+    }
 }
 
 export { imports }

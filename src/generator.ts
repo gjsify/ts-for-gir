@@ -6,7 +6,7 @@ import TemplateProcessor from './template-processor'
 import { Transformation } from './transformation'
 import { Logger } from './logger'
 
-import { InheritanceTable, GenerateConfig } from './types'
+import { InheritanceTable, GenerateConfig, GirModulesGroupedMap } from './types'
 
 export class Generator {
     log: Logger
@@ -14,10 +14,14 @@ export class Generator {
         this.log = new Logger(config.environment, config.verbose, 'TsForGir')
     }
 
-    private exportGjs(girModules: GirModule[]): void {
+    private exportGjs(girModules: GirModule[], girModulesGrouped: GirModulesGroupedMap): void {
         if (!this.config.outdir) return
 
-        const templateProcessor = new TemplateProcessor({ girModules: girModules }, 'gjs', this.config)
+        const templateProcessor = new TemplateProcessor(
+            { girModules: girModules, girModulesGrouped },
+            'gjs',
+            this.config,
+        )
 
         // Types
         templateProcessor.create('Gjs.d.ts', this.config.outdir, 'Gjs.d.ts')
@@ -38,10 +42,10 @@ export class Generator {
         templateProcessor.create('cast.ts', this.config.outdir, 'cast.ts')
     }
 
-    private exportNodeGtk(girModules: GirModule[]): void {
+    private exportNodeGtk(girModules: GirModule[], girModulesGrouped: GirModulesGroupedMap): void {
         if (!this.config.outdir) return
 
-        const templateProcessor = new TemplateProcessor({ girModules }, 'node', this.config)
+        const templateProcessor = new TemplateProcessor({ girModules, girModulesGrouped }, 'node', this.config)
 
         templateProcessor.create('index.d.ts', this.config.outdir, 'index.d.ts')
         if (this.config.buildType === 'lib') {
@@ -62,7 +66,7 @@ export class Generator {
         }
     }
 
-    public async start(girModules: GirModule[]): Promise<void> {
+    public async start(girModules: GirModule[], groupedGirModules: GirModulesGroupedMap): Promise<void> {
         this.log.info(`Start to generate .d.ts files for '${this.config.environment}' as '${this.config.buildType}'.`)
 
         if (girModules.length == 0) {
@@ -119,12 +123,12 @@ export class Generator {
 
         if (this.config.environment === 'node') {
             // node-gtk internal stuff
-            this.exportNodeGtk(girModules)
+            this.exportNodeGtk(girModules, groupedGirModules)
         }
 
         if (this.config.environment === 'gjs') {
             // GJS internal stuff
-            this.exportGjs(girModules)
+            this.exportGjs(girModules, groupedGirModules)
             this.exportGjsCastLib(inheritanceTable)
         }
 

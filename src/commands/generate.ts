@@ -70,7 +70,7 @@ export default class Generate extends Command {
             if (config.environments[i]) {
                 const generateConfig = Config.getGenerateConfig(config, config.environments[i])
                 const moduleLoader = new ModuleLoader(generateConfig)
-                const { keep } = await moduleLoader.getModulesResolved(
+                const { keep, grouped } = await moduleLoader.getModulesResolved(
                     config.modules,
                     config.ignore || [],
                     config.ignoreConflicts,
@@ -81,7 +81,10 @@ export default class Generate extends Command {
                     )
                 }
                 const tsForGir = new Generator(generateConfig)
-                await tsForGir.start(Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module))
+                await tsForGir.start(
+                    Array.from(keep).map((girModuleResolvedBy) => girModuleResolvedBy.module),
+                    grouped,
+                )
             }
         }
     }

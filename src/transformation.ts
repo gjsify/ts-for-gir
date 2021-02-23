@@ -442,10 +442,11 @@ export class Transformation {
     }
 
     static getEnvironmentDir(environment: Environment, baseDir: string): string {
-        if (environment == 'gjs') {
-            return Path.join(baseDir, 'Gjs')
-        }
-        if (environment == 'node') {
+        if (!baseDir.endsWith(environment))
+            if (environment === 'gjs' && !baseDir.endsWith('/Gjs')) {
+                return Path.join(baseDir, 'Gjs')
+            }
+        if (environment === 'node' && !baseDir.endsWith('/node-gtk')) {
             return Path.join(baseDir, 'node-gtk')
         }
         return baseDir

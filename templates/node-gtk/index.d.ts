@@ -13,7 +13,7 @@ declare module 'node-gtk' {
 <%_ } _%>
     export function require(ns: string, ver?: string): any;
     <%_ for (const girModule of girModules) { _%>
-        export function require(ns: '<%= girModule.importName %>', ver?: '<%= girModule.version %>'): typeof <%= girModule.importName %>;
+        export function require(ns: '<%= girModule.namespace %>', ver: '<%= girModule.version %>'): typeof <%= girModule.importName %>;
     <%_ } _%>
     export function startLoop(): void;
 <%_ if (buildType === 'types') { _%>

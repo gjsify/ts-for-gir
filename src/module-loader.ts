@@ -525,7 +525,7 @@ export class ModuleLoader {
         modules: string[],
         ignore: string[] = [],
         doNotAskForVersionOnConflict = true,
-    ): Promise<{ keep: GirModuleResolvedBy[]; ignore: string[]; failed: Set<string> }> {
+    ): Promise<{ keep: GirModuleResolvedBy[]; grouped: GirModulesGroupedMap; ignore: string[]; failed: Set<string> }> {
         const foundGirModules = await this.findModules(modules, ignore)
         const { loaded, failed } = await this.loadGirModules(foundGirModules)
         let keep: GirModuleResolvedBy[] = []
@@ -537,7 +537,9 @@ export class ModuleLoader {
             keep = Array.from(filtered.keep)
         }
 
-        return { keep, ignore, failed }
+        const grouped = this.groupGirFiles(keep)
+
+        return { keep, grouped, ignore, failed }
     }
 
     /**

@@ -368,7 +368,6 @@ export function itemize(context: Context, text: string, start_index: number, len
 export function itemize_with_base_dir(context: Context, base_dir: Direction, text: string, start_index: number, length: number, attrs: AttrList, cached_iter?: AttrIterator | null): Item[]
 export function language_from_string(language?: string | null): Language | null
 export function language_get_default(): Language
-export function language_get_preferred(): Language | null
 export function log2vis_get_embedding_levels(text: string, length: number, pbase_dir: Direction): number
 export function markup_parser_finish(context: GLib.MarkupParseContext): [ /* returnType */ boolean, /* attr_list */ AttrList | null, /* text */ string | null, /* accel_char */ number | null ]
 export function markup_parser_new(accel_marker: number): GLib.MarkupParseContext
@@ -1659,7 +1658,6 @@ export class Language {
     /* Static methods and pseudo-constructors */
     static from_string(language?: string | null): Language | null
     static get_default(): Language
-    static get_preferred(): Language | null
 }
 export abstract class LayoutClass {
     static name: string

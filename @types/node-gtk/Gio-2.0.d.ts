@@ -417,7 +417,6 @@ export enum DBusConnectionFlags {
     AUTHENTICATION_ALLOW_ANONYMOUS,
     MESSAGE_BUS_CONNECTION,
     DELAY_MESSAGE_PROCESSING,
-    AUTHENTICATION_REQUIRE_SAME_USER,
 }
 export enum DBusInterfaceSkeletonFlags {
     NONE,
@@ -454,7 +453,6 @@ export enum DBusServerFlags {
     NONE,
     RUN_IN_THREAD,
     AUTHENTICATION_ALLOW_ANONYMOUS,
-    AUTHENTICATION_REQUIRE_SAME_USER,
 }
 export enum DBusSignalFlags {
     NONE,
@@ -582,8 +580,6 @@ export enum TlsPasswordFlags {
     MANY_TRIES,
     FINAL_TRY,
 }
-export const DBUS_METHOD_INVOCATION_HANDLED: boolean
-export const DBUS_METHOD_INVOCATION_UNHANDLED: boolean
 export const DESKTOP_APP_INFO_LOOKUP_EXTENSION_POINT_NAME: string
 export const DRIVE_IDENTIFIER_KIND_UNIX_DEVICE: string
 export const FILE_ATTRIBUTE_ACCESS_CAN_DELETE: string
@@ -738,9 +734,9 @@ export function dbusAddressGetForBusSync(busType: BusType, cancellable?: Cancell
 export function dbusAddressGetStream(address: string, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
 export function dbusAddressGetStreamFinish(res: AsyncResult): { returnType: IOStream, outGuid: string | null }
 export function dbusAddressGetStreamSync(address: string, cancellable?: Cancellable | null): { returnType: IOStream, outGuid: string | null }
-export function dbusAnnotationInfoLookup(annotations: DBusAnnotationInfo[] | null, name: string): string | null
+export function dbusAnnotationInfoLookup(annotations: DBusAnnotationInfo[] | null, name: string): string
 export function dbusErrorEncodeGerror(error: GLib.Error): string
-export function dbusErrorGetRemoteError(error: GLib.Error): string | null
+export function dbusErrorGetRemoteError(error: GLib.Error): string
 export function dbusErrorIsRemoteError(error: GLib.Error): boolean
 export function dbusErrorNewForDbusError(dbusErrorName: string, dbusErrorMessage: string): GLib.Error
 export function dbusErrorQuark(): GLib.Quark
@@ -748,8 +744,6 @@ export function dbusErrorRegisterError(errorDomain: GLib.Quark, errorCode: numbe
 export function dbusErrorRegisterErrorDomain(errorDomainQuarkName: string, quarkVolatile: number, entries: DBusErrorEntry[]): void
 export function dbusErrorStripRemoteError(error: GLib.Error): boolean
 export function dbusErrorUnregisterError(errorDomain: GLib.Quark, errorCode: number, dbusErrorName: string): boolean
-export function dbusEscapeObjectPath(s: string): string
-export function dbusEscapeObjectPathBytestring(bytes: any[]): string
 export function dbusGenerateGuid(): string
 export function dbusGvalueToGvariant(gvalue: any, type: GLib.VariantType): GLib.Variant
 export function dbusGvariantToGvalue(value: GLib.Variant): { outGvalue: any }
@@ -760,7 +754,6 @@ export function dbusIsMemberName(string: string): boolean
 export function dbusIsName(string: string): boolean
 export function dbusIsSupportedAddress(string: string): boolean
 export function dbusIsUniqueName(string: string): boolean
-export function dbusUnescapeObjectPath(s: string): any[] | null
 export function dtlsClientConnectionNew(baseSocket: DatagramBased, serverIdentity?: SocketConnectable | null): DtlsClientConnection
 export function dtlsServerConnectionNew(baseSocket: DatagramBased, certificate?: TlsCertificate | null): DtlsServerConnection
 export function fileNewForCommandlineArg(arg: string): File
@@ -769,7 +762,7 @@ export function fileNewForPath(path: string): File
 export function fileNewForUri(uri: string): File
 export function fileNewTmp(tmpl?: string | null): { returnType: File, iostream: FileIOStream }
 export function fileParseName(parseName: string): File
-export function iconDeserialize(value: GLib.Variant): Icon | null
+export function iconDeserialize(value: GLib.Variant): Icon
 export function iconHash(icon: object): number
 export function iconNewForString(str: string): Icon
 export function initableNewv(objectType: GObject.Type, parameters: GObject.Parameter[], cancellable?: Cancellable | null): GObject.Object
@@ -795,7 +788,7 @@ export function pollableSourceNewFull(pollableStream: GObject.Object, childSourc
 export function pollableStreamRead(stream: InputStream, buffer: any[], blocking: boolean, cancellable?: Cancellable | null): number
 export function pollableStreamWrite(stream: OutputStream, buffer: any[], blocking: boolean, cancellable?: Cancellable | null): number
 export function pollableStreamWriteAll(stream: OutputStream, buffer: any[], blocking: boolean, cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number }
-export function proxyGetDefaultForProtocol(protocol: string): Proxy | null
+export function proxyGetDefaultForProtocol(protocol: string): Proxy
 export function proxyResolverGetDefault(): ProxyResolver
 export function resolverErrorQuark(): GLib.Quark
 export function resourceErrorQuark(): GLib.Quark
@@ -879,13 +872,10 @@ export interface DBusSignalCallback {
     (connection: DBusConnection, senderName: string | null, objectPath: string, interfaceName: string, signalName: string, parameters: GLib.Variant): void
 }
 export interface DBusSubtreeDispatchFunc {
-    (connection: DBusConnection, sender: string, objectPath: string, interfaceName: string, node: string, outUserData: object): DBusInterfaceVTable | null
-}
-export interface DBusSubtreeEnumerateFunc {
-    (connection: DBusConnection, sender: string, objectPath: string): string[]
+    (connection: DBusConnection, sender: string, objectPath: string, interfaceName: string, node: string, outUserData: object): DBusInterfaceVTable
 }
 export interface DBusSubtreeIntrospectFunc {
-    (connection: DBusConnection, sender: string, objectPath: string, node: string): DBusInterfaceInfo[] | null
+    (connection: DBusConnection, sender: string, objectPath: string, node: string): DBusInterfaceInfo
 }
 export interface DatagramBasedSourceFunc {
     (datagramBased: DatagramBased, condition: GLib.IOCondition): boolean
@@ -945,7 +935,7 @@ export class Action {
     getEnabled(): boolean
     getName(): string
     getParameterType(): GLib.VariantType | null
-    getState(): GLib.Variant | null
+    getState(): GLib.Variant
     getStateHint(): GLib.Variant | null
     getStateType(): GLib.VariantType | null
     static name: string
@@ -997,7 +987,7 @@ export class ActionMap {
     /* Methods of Gio-2.0.Gio.ActionMap */
     addAction(action: Action): void
     addActionEntries(entries: ActionEntry[], userData?: object | null): void
-    lookupAction(actionName: string): Action | null
+    lookupAction(actionName: string): Action
     removeAction(actionName: string): void
     static name: string
 }
@@ -1009,12 +999,12 @@ export class AppInfo {
     delete(): boolean
     dup(): AppInfo
     equal(appinfo2: AppInfo): boolean
-    getCommandline(): string | null
-    getDescription(): string | null
+    getCommandline(): string
+    getDescription(): string
     getDisplayName(): string
     getExecutable(): string
-    getIcon(): Icon | null
-    getId(): string | null
+    getIcon(): Icon
+    getId(): string
     getName(): string
     getSupportedTypes(): string[]
     launch(files?: File[] | null, context?: AppLaunchContext | null): boolean
@@ -1067,14 +1057,14 @@ export class Converter {
 }
 export class DBusInterface {
     /* Methods of Gio-2.0.Gio.DBusInterface */
-    getObject(): DBusObject | null
+    getObject(): DBusObject
     getInfo(): DBusInterfaceInfo
     setObject(object?: DBusObject | null): void
     static name: string
 }
 export class DBusObject {
     /* Methods of Gio-2.0.Gio.DBusObject */
-    getInterface(interfaceName: string): DBusInterface | null
+    getInterface(interfaceName: string): DBusInterface
     getInterfaces(): DBusInterface[]
     getObjectPath(): string
     /* Signals of Gio-2.0.Gio.DBusObject */
@@ -1272,7 +1262,6 @@ export class File {
     appendTo(flags: FileCreateFlags, cancellable?: Cancellable | null): FileOutputStream
     appendToAsync(flags: FileCreateFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     appendToFinish(res: AsyncResult): FileOutputStream
-    buildAttributeListForCopy(flags: FileCopyFlags, cancellable?: Cancellable | null): string
     copy(destination: File, flags: FileCopyFlags, cancellable?: Cancellable | null, progressCallback?: FileProgressCallback | null): boolean
     copyAsync(destination: File, flags: FileCopyFlags, ioPriority: number, cancellable?: Cancellable | null): void
     copyAttributes(destination: File, flags: FileCopyFlags, cancellable?: Cancellable | null): boolean
@@ -1306,7 +1295,7 @@ export class File {
     getPath(): string | null
     getRelativePath(descendant: File): string | null
     getUri(): string
-    getUriScheme(): string | null
+    getUriScheme(): string
     hasParent(parent?: File | null): boolean
     hasPrefix(prefix: File): boolean
     hasUriScheme(uriScheme: string): boolean
@@ -1408,11 +1397,11 @@ export class FileDescriptorBased {
 export class Icon {
     /* Methods of Gio-2.0.Gio.Icon */
     equal(icon2?: Icon | null): boolean
-    serialize(): GLib.Variant | null
+    serialize(): GLib.Variant
     toString(): string | null
     static name: string
     /* Static methods and pseudo-constructors */
-    static deserialize(value: GLib.Variant): Icon | null
+    static deserialize(value: GLib.Variant): Icon
     static hash(icon: object): number
     static newForString(str: string): Icon
 }
@@ -1444,7 +1433,7 @@ export class LoadableIcon {
     loadFinish(res: AsyncResult): { returnType: InputStream, type: string | null }
     /* Methods of Gio-2.0.Gio.Icon */
     equal(icon2?: Icon | null): boolean
-    serialize(): GLib.Variant | null
+    serialize(): GLib.Variant
     toString(): string | null
     static name: string
 }
@@ -1695,7 +1684,7 @@ export class Proxy {
     supportsHostname(): boolean
     static name: string
     /* Static methods and pseudo-constructors */
-    static getDefaultForProtocol(protocol: string): Proxy | null
+    static getDefaultForProtocol(protocol: string): Proxy
 }
 export class ProxyResolver {
     /* Methods of Gio-2.0.Gio.ProxyResolver */
@@ -1815,7 +1804,7 @@ export class TlsClientConnection {
     /* Methods of Gio-2.0.Gio.TlsClientConnection */
     copySessionState(source: TlsClientConnection): void
     getAcceptedCas(): any[]
-    getServerIdentity(): SocketConnectable | null
+    getServerIdentity(): SocketConnectable
     getUseSsl3(): boolean
     getValidationFlags(): TlsCertificateFlags
     setServerIdentity(identity: SocketConnectable): void
@@ -2325,9 +2314,9 @@ export class AppLaunchContext {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.AppLaunchContext */
-    getDisplay(info: AppInfo, files: File[]): string | null
+    getDisplay(info: AppInfo, files: File[]): string
     getEnvironment(): string[]
-    getStartupNotifyId(info: AppInfo, files: File[]): string | null
+    getStartupNotifyId(info: AppInfo, files: File[]): string
     launchFailed(startupNotifyId: string): void
     setenv(variable: string, value: string): void
     unsetenv(variable: string): void
@@ -2409,9 +2398,9 @@ export class Application {
     addMainOptionEntries(entries: GLib.OptionEntry[]): void
     addOptionGroup(group: GLib.OptionGroup): void
     bindBusyProperty(object: GObject.Object, property: string): void
-    getApplicationId(): string | null
-    getDbusConnection(): DBusConnection | null
-    getDbusObjectPath(): string | null
+    getApplicationId(): string
+    getDbusConnection(): DBusConnection
+    getDbusObjectPath(): string
     getFlags(): ApplicationFlags
     getInactivityTimeout(): number
     getIsBusy(): boolean
@@ -2478,7 +2467,7 @@ export class Application {
     /* Methods of Gio-2.0.Gio.ActionMap */
     addAction(action: Action): void
     addActionEntries(entries: ActionEntry[], userData?: object | null): void
-    lookupAction(actionName: string): Action | null
+    lookupAction(actionName: string): Action
     removeAction(actionName: string): void
     /* Signals of Gio-2.0.Gio.Application */
     connect(sigName: "activate", callback: (($obj: Application) => void)): number
@@ -2595,7 +2584,7 @@ export class Application {
     _init (config?: Application_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(applicationId: string | null, flags: ApplicationFlags): Application
-    static getDefault(): Application | null
+    static getDefault(): Application
     static idIsValid(applicationId: string): boolean
     static $gtype: GObject.Type
 }
@@ -2618,8 +2607,8 @@ export class ApplicationCommandLine {
     getIsRemote(): boolean
     getOptionsDict(): GLib.VariantDict
     getPlatformData(): GLib.Variant | null
-    getStdin(): InputStream | null
-    getenv(name: string): string | null
+    getStdin(): InputStream
+    getenv(name: string): string
     setExitStatus(exitStatus: number): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -2918,7 +2907,7 @@ export class BytesIcon {
     watchClosure(closure: GObject.Closure): void
     /* Methods of Gio-2.0.Gio.Icon */
     equal(icon2?: Icon | null): boolean
-    serialize(): GLib.Variant | null
+    serialize(): GLib.Variant
     toString(): string | null
     /* Methods of Gio-2.0.Gio.LoadableIcon */
     load(size: number, cancellable?: Cancellable | null): { returnType: InputStream, type: string | null }
@@ -2942,7 +2931,7 @@ export class BytesIcon {
     _init (config?: BytesIcon_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(bytes: any): BytesIcon
-    static deserialize(value: GLib.Variant): Icon | null
+    static deserialize(value: GLib.Variant): Icon
     static hash(icon: object): number
     static newForString(str: string): Icon
     static $gtype: GObject.Type
@@ -3616,11 +3605,11 @@ export class DBusInterfaceSkeleton {
     /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: DBusConnection, objectPath: string): boolean
     flush(): void
-    getConnection(): DBusConnection | null
+    getConnection(): DBusConnection
     getConnections(): DBusConnection[]
     getFlags(): DBusInterfaceSkeletonFlags
     getInfo(): DBusInterfaceInfo
-    getObjectPath(): string | null
+    getObjectPath(): string
     getProperties(): GLib.Variant
     hasConnection(connection: DBusConnection): boolean
     setFlags(flags: DBusInterfaceSkeletonFlags): void
@@ -3649,7 +3638,7 @@ export class DBusInterfaceSkeleton {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Methods of Gio-2.0.Gio.DBusInterface */
-    getObject(): DBusObject | null
+    getObject(): DBusObject
     setObject(object?: DBusObject | null): void
     /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: DBusInterfaceSkeleton, invocation: DBusMethodInvocation) => boolean)): number
@@ -3689,8 +3678,8 @@ export class DBusMenuModel {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.MenuModel */
-    getItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant | null
-    getItemLink(itemIndex: number, link: string): MenuModel | null
+    getItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant
+    getItemLink(itemIndex: number, link: string): MenuModel
     getNItems(): number
     isMutable(): boolean
     itemsChanged(position: number, removed: number, added: number): void
@@ -3753,44 +3742,44 @@ export class DBusMessage {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.DBusMessage */
     copy(): DBusMessage
-    getArg0(): string | null
-    getBody(): GLib.Variant | null
+    getArg0(): string
+    getBody(): GLib.Variant
     getByteOrder(): DBusMessageByteOrder
-    getDestination(): string | null
-    getErrorName(): string | null
+    getDestination(): string
+    getErrorName(): string
     getFlags(): DBusMessageFlags
     getHeader(headerField: DBusMessageHeaderField): GLib.Variant | null
     getHeaderFields(): any[]
-    getInterface(): string | null
+    getInterface(): string
     getLocked(): boolean
-    getMember(): string | null
+    getMember(): string
     getMessageType(): DBusMessageType
     getNumUnixFds(): number
-    getPath(): string | null
+    getPath(): string
     getReplySerial(): number
-    getSender(): string | null
+    getSender(): string
     getSerial(): number
     getSignature(): string
-    getUnixFdList(): UnixFDList | null
+    getUnixFdList(): UnixFDList
     lock(): void
     newMethodErrorLiteral(errorName: string, errorMessage: string): DBusMessage
     newMethodReply(): DBusMessage
     print(indent: number): string
     setBody(body: GLib.Variant): void
     setByteOrder(byteOrder: DBusMessageByteOrder): void
-    setDestination(value?: string | null): void
+    setDestination(value: string): void
     setErrorName(value: string): void
     setFlags(flags: DBusMessageFlags): void
     setHeader(headerField: DBusMessageHeaderField, value?: GLib.Variant | null): void
-    setInterface(value?: string | null): void
-    setMember(value?: string | null): void
+    setInterface(value: string): void
+    setMember(value: string): void
     setMessageType(type: DBusMessageType): void
     setNumUnixFds(value: number): void
-    setPath(value?: string | null): void
+    setPath(value: string): void
     setReplySerial(value: number): void
-    setSender(value?: string | null): void
+    setSender(value: string): void
     setSerial(serial: number): void
-    setSignature(value?: string | null): void
+    setSignature(value: string): void
     setUnixFdList(fdList?: UnixFDList | null): void
     toBlob(capabilities: DBusCapabilityFlags): any[]
     toGerror(): boolean
@@ -3854,11 +3843,11 @@ export class DBusMethodInvocation {
     getConnection(): DBusConnection
     getInterfaceName(): string
     getMessage(): DBusMessage
-    getMethodInfo(): DBusMethodInfo | null
+    getMethodInfo(): DBusMethodInfo
     getMethodName(): string
     getObjectPath(): string
     getParameters(): GLib.Variant
-    getPropertyInfo(): DBusPropertyInfo | null
+    getPropertyInfo(): DBusPropertyInfo
     getSender(): string
     returnDbusError(errorName: string, errorMessage: string): void
     returnErrorLiteral(domain: GLib.Quark, code: number, message: string): void
@@ -4142,7 +4131,7 @@ export class DBusObjectProxy {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Methods of Gio-2.0.Gio.DBusObject */
-    getInterface(interfaceName: string): DBusInterface | null
+    getInterface(interfaceName: string): DBusInterface
     getInterfaces(): DBusInterface[]
     getObjectPath(): string
     /* Signals of GObject-2.0.GObject.Object */
@@ -4213,7 +4202,7 @@ export class DBusObjectSkeleton {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Methods of Gio-2.0.Gio.DBusObject */
-    getInterface(interfaceName: string): DBusInterface | null
+    getInterface(interfaceName: string): DBusInterface
     getInterfaces(): DBusInterface[]
     getObjectPath(): string
     /* Signals of Gio-2.0.Gio.DBusObjectSkeleton */
@@ -4322,7 +4311,7 @@ export class DBusProxy {
     initFinish(res: AsyncResult): boolean
     newFinish(res: AsyncResult): GObject.Object
     /* Methods of Gio-2.0.Gio.DBusInterface */
-    getObject(): DBusObject | null
+    getObject(): DBusObject
     getInfo(): DBusInterfaceInfo
     setObject(object?: DBusObject | null): void
     /* Methods of Gio-2.0.Gio.Initable */
@@ -4720,16 +4709,16 @@ export class DesktopAppInfo {
     /* Methods of Gio-2.0.Gio.DesktopAppInfo */
     getActionName(actionName: string): string
     getBoolean(key: string): boolean
-    getCategories(): string | null
-    getFilename(): string | null
-    getGenericName(): string | null
+    getCategories(): string
+    getFilename(): string
+    getGenericName(): string
     getIsHidden(): boolean
     getKeywords(): string[]
     getLocaleString(key: string): string | null
     getNodisplay(): boolean
     getShowIn(desktopEnv?: string | null): boolean
-    getStartupWmClass(): string | null
-    getString(key: string): string | null
+    getStartupWmClass(): string
+    getString(key: string): string
     getStringList(key: string): string[]
     hasKey(key: string): boolean
     launchAction(actionName: string, launchContext?: AppLaunchContext | null): void
@@ -4765,12 +4754,12 @@ export class DesktopAppInfo {
     delete(): boolean
     dup(): AppInfo
     equal(appinfo2: AppInfo): boolean
-    getCommandline(): string | null
-    getDescription(): string | null
+    getCommandline(): string
+    getDescription(): string
     getDisplayName(): string
     getExecutable(): string
-    getIcon(): Icon | null
-    getId(): string | null
+    getIcon(): Icon
+    getId(): string
     getName(): string
     getSupportedTypes(): string[]
     launch(files?: File[] | null, context?: AppLaunchContext | null): boolean
@@ -4854,7 +4843,7 @@ export class Emblem {
     watchClosure(closure: GObject.Closure): void
     /* Methods of Gio-2.0.Gio.Icon */
     equal(icon2?: Icon | null): boolean
-    serialize(): GLib.Variant | null
+    serialize(): GLib.Variant
     toString(): string | null
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Emblem, pspec: GObject.ParamSpec) => void)): number
@@ -4875,7 +4864,7 @@ export class Emblem {
     /* Static methods and pseudo-constructors */
     static new(icon: Icon): Emblem
     static newWithOrigin(icon: Icon, origin: EmblemOrigin): Emblem
-    static deserialize(value: GLib.Variant): Icon | null
+    static deserialize(value: GLib.Variant): Icon
     static hash(icon: object): number
     static newForString(str: string): Icon
     static $gtype: GObject.Type
@@ -4917,7 +4906,7 @@ export class EmblemedIcon {
     watchClosure(closure: GObject.Closure): void
     /* Methods of Gio-2.0.Gio.Icon */
     equal(icon2?: Icon | null): boolean
-    serialize(): GLib.Variant | null
+    serialize(): GLib.Variant
     toString(): string | null
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EmblemedIcon, pspec: GObject.ParamSpec) => void)): number
@@ -4937,7 +4926,7 @@ export class EmblemedIcon {
     _init (config?: EmblemedIcon_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(icon: Icon, emblem?: Emblem | null): EmblemedIcon
-    static deserialize(value: GLib.Variant): Icon | null
+    static deserialize(value: GLib.Variant): Icon
     static hash(icon: object): number
     static newForString(str: string): Icon
     static $gtype: GObject.Type
@@ -5015,7 +5004,7 @@ export class FileIOStream {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.FileIOStream */
-    getEtag(): string | null
+    getEtag(): string
     queryInfo(attributes: string, cancellable?: Cancellable | null): FileInfo
     queryInfoAsync(attributes: string, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     queryInfoFinish(result: AsyncResult): FileInfo
@@ -5123,7 +5112,7 @@ export class FileIcon {
     watchClosure(closure: GObject.Closure): void
     /* Methods of Gio-2.0.Gio.Icon */
     equal(icon2?: Icon | null): boolean
-    serialize(): GLib.Variant | null
+    serialize(): GLib.Variant
     toString(): string | null
     /* Methods of Gio-2.0.Gio.LoadableIcon */
     load(size: number, cancellable?: Cancellable | null): { returnType: InputStream, type: string | null }
@@ -5147,7 +5136,7 @@ export class FileIcon {
     _init (config?: FileIcon_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(file: File): FileIcon
-    static deserialize(value: GLib.Variant): Icon | null
+    static deserialize(value: GLib.Variant): Icon
     static hash(icon: object): number
     static newForString(str: string): Icon
     static $gtype: GObject.Type
@@ -5178,9 +5167,9 @@ export class FileInfo {
     getDeletionDate(): GLib.DateTime | null
     getDisplayName(): string
     getEditName(): string
-    getEtag(): string | null
+    getEtag(): string
     getFileType(): FileType
-    getIcon(): Icon | null
+    getIcon(): Icon
     getIsBackup(): boolean
     getIsHidden(): boolean
     getIsSymlink(): boolean
@@ -5189,8 +5178,8 @@ export class FileInfo {
     getName(): string
     getSize(): number
     getSortOrder(): number
-    getSymbolicIcon(): Icon | null
-    getSymlinkTarget(): string | null
+    getSymbolicIcon(): Icon
+    getSymlinkTarget(): string
     hasAttribute(attribute: string): boolean
     hasNamespace(nameSpace: string): boolean
     listAttributes(nameSpace?: string | null): string[] | null
@@ -5421,7 +5410,7 @@ export class FileOutputStream {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.FileOutputStream */
-    getEtag(): string | null
+    getEtag(): string
     queryInfo(attributes: string, cancellable?: Cancellable | null): FileInfo
     queryInfoAsync(attributes: string, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     queryInfoFinish(result: AsyncResult): FileInfo
@@ -5507,7 +5496,7 @@ export class FilenameCompleter {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.FilenameCompleter */
-    getCompletionSuffix(initialText: string): string | null
+    getCompletionSuffix(initialText: string): string
     getCompletions(initialText: string): string[]
     setDirsOnly(dirsOnly: boolean): void
     /* Methods of GObject-2.0.GObject.Object */
@@ -6508,8 +6497,8 @@ export class Menu {
     remove(position: number): void
     removeAll(): void
     /* Methods of Gio-2.0.Gio.MenuModel */
-    getItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant | null
-    getItemLink(itemIndex: number, link: string): MenuModel | null
+    getItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant
+    getItemLink(itemIndex: number, link: string): MenuModel
     getNItems(): number
     isMutable(): boolean
     itemsChanged(position: number, removed: number, added: number): void
@@ -6622,8 +6611,8 @@ export class MenuItem {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.MenuItem */
-    getAttributeValue(attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant | null
-    getLink(link: string): MenuModel | null
+    getAttributeValue(attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant
+    getLink(link: string): MenuModel
     setActionAndTargetValue(action?: string | null, targetValue?: GLib.Variant | null): void
     setAttributeValue(attribute: string, value?: GLib.Variant | null): void
     setDetailedAction(detailedAction: string): void
@@ -6739,8 +6728,8 @@ export class MenuModel {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.MenuModel */
-    getItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant | null
-    getItemLink(itemIndex: number, link: string): MenuModel | null
+    getItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant
+    getItemLink(itemIndex: number, link: string): MenuModel
     getNItems(): number
     isMutable(): boolean
     itemsChanged(position: number, removed: number, added: number): void
@@ -6822,23 +6811,23 @@ export class MountOperation {
     /* Methods of Gio-2.0.Gio.MountOperation */
     getAnonymous(): boolean
     getChoice(): number
-    getDomain(): string | null
+    getDomain(): string
     getIsTcryptHiddenVolume(): boolean
     getIsTcryptSystemVolume(): boolean
-    getPassword(): string | null
+    getPassword(): string
     getPasswordSave(): PasswordSave
     getPim(): number
-    getUsername(): string | null
+    getUsername(): string
     reply(result: MountOperationResult): void
     setAnonymous(anonymous: boolean): void
     setChoice(choice: number): void
-    setDomain(domain?: string | null): void
+    setDomain(domain: string): void
     setIsTcryptHiddenVolume(hiddenVolume: boolean): void
     setIsTcryptSystemVolume(systemVolume: boolean): void
-    setPassword(password?: string | null): void
+    setPassword(password: string): void
     setPasswordSave(save: PasswordSave): void
     setPim(pim: number): void
-    setUsername(username?: string | null): void
+    setUsername(username: string): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -7030,9 +7019,9 @@ export class NativeVolumeMonitor {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.VolumeMonitor */
     getConnectedDrives(): Drive[]
-    getMountForUuid(uuid: string): Mount | null
+    getMountForUuid(uuid: string): Mount
     getMounts(): Mount[]
-    getVolumeForUuid(uuid: string): Volume | null
+    getVolumeForUuid(uuid: string): Volume
     getVolumes(): Volume[]
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -7148,7 +7137,7 @@ export class NetworkAddress {
     /* Methods of Gio-2.0.Gio.NetworkAddress */
     getHostname(): string
     getPort(): number
-    getScheme(): string | null
+    getScheme(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -7523,7 +7512,7 @@ export class PropertyAction {
     getEnabled(): boolean
     getName(): string
     getParameterType(): GLib.VariantType | null
-    getState(): GLib.Variant | null
+    getState(): GLib.Variant
     getStateHint(): GLib.Variant | null
     getStateType(): GLib.VariantType | null
     /* Signals of GObject-2.0.GObject.Object */
@@ -7594,10 +7583,10 @@ export class ProxyAddress {
     getDestinationHostname(): string
     getDestinationPort(): number
     getDestinationProtocol(): string
-    getPassword(): string | null
+    getPassword(): string
     getProtocol(): string
-    getUri(): string | null
-    getUsername(): string | null
+    getUri(): string
+    getUsername(): string
     /* Methods of Gio-2.0.Gio.InetSocketAddress */
     getAddress(): InetAddress
     getFlowinfo(): number
@@ -8034,7 +8023,7 @@ export class SimpleAction {
     getEnabled(): boolean
     getName(): string
     getParameterType(): GLib.VariantType | null
-    getState(): GLib.Variant | null
+    getState(): GLib.Variant
     getStateHint(): GLib.Variant | null
     getStateType(): GLib.VariantType | null
     /* Signals of Gio-2.0.Gio.SimpleAction */
@@ -8147,7 +8136,7 @@ export class SimpleActionGroup {
     /* Methods of Gio-2.0.Gio.ActionMap */
     addAction(action: Action): void
     addActionEntries(entries: ActionEntry[], userData?: object | null): void
-    lookupAction(actionName: string): Action | null
+    lookupAction(actionName: string): Action
     removeAction(actionName: string): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleActionGroup, pspec: GObject.ParamSpec) => void)): number
@@ -8832,7 +8821,7 @@ export class SocketClient {
     connectToUriFinish(result: AsyncResult): SocketConnection
     getEnableProxy(): boolean
     getFamily(): SocketFamily
-    getLocalAddress(): SocketAddress | null
+    getLocalAddress(): SocketAddress
     getProtocol(): SocketProtocol
     getProxyResolver(): ProxyResolver
     getSocketType(): SocketType
@@ -9277,9 +9266,9 @@ export class Subprocess {
     getIfExited(): boolean
     getIfSignaled(): boolean
     getStatus(): number
-    getStderrPipe(): InputStream | null
-    getStdinPipe(): OutputStream | null
-    getStdoutPipe(): InputStream | null
+    getStderrPipe(): InputStream
+    getStdinPipe(): OutputStream
+    getStdoutPipe(): InputStream
     getSuccessful(): boolean
     getTermSig(): number
     sendSignal(signalNum: number): void
@@ -9341,8 +9330,7 @@ export class SubprocessLauncher {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.SubprocessLauncher */
-    close(): void
-    getenv(variable: string): string | null
+    getenv(variable: string): string
     setCwd(cwd: string): void
     setEnviron(env: string[]): void
     setFlags(flags: SubprocessFlags): void
@@ -9778,7 +9766,7 @@ export class ThemedIcon {
     watchClosure(closure: GObject.Closure): void
     /* Methods of Gio-2.0.Gio.Icon */
     equal(icon2?: Icon | null): boolean
-    serialize(): GLib.Variant | null
+    serialize(): GLib.Variant
     toString(): string | null
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ThemedIcon, pspec: GObject.ParamSpec) => void)): number
@@ -9800,7 +9788,7 @@ export class ThemedIcon {
     static new(iconname: string): ThemedIcon
     static newFromNames(iconnames: string[]): ThemedIcon
     static newWithDefaultFallbacks(iconname: string): ThemedIcon
-    static deserialize(value: GLib.Variant): Icon | null
+    static deserialize(value: GLib.Variant): Icon
     static hash(icon: object): number
     static newForString(str: string): Icon
     static $gtype: GObject.Type
@@ -9910,10 +9898,8 @@ export interface TlsCertificate_ConstructProps extends GObject.Object_ConstructP
     certificate?: any[]
     certificatePem?: string
     issuer?: TlsCertificate
-    pkcs11Uri?: string
     privateKey?: any[]
     privateKeyPem?: string
-    privateKeyPkcs11Uri?: string
 }
 export class TlsCertificate {
     /* Fields of Gio-2.0.Gio.TlsCertificate */
@@ -9922,7 +9908,7 @@ export class TlsCertificate {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.TlsCertificate */
-    getIssuer(): TlsCertificate | null
+    getIssuer(): TlsCertificate
     isSame(certTwo: TlsCertificate): boolean
     verify(identity?: SocketConnectable | null, trustedCa?: TlsCertificate | null): TlsCertificateFlags
     /* Methods of GObject-2.0.GObject.Object */
@@ -9967,7 +9953,6 @@ export class TlsCertificate {
     static newFromFile(file: string): TlsCertificate
     static newFromFiles(certFile: string, keyFile: string): TlsCertificate
     static newFromPem(data: string, length: number): TlsCertificate
-    static newFromPkcs11Uris(pkcs11Uri: string, privateKeyPkcs11Uri?: string | null): TlsCertificate
     static listNewFromFile(file: string): TlsCertificate[]
     static $gtype: GObject.Type
 }
@@ -11006,9 +10991,9 @@ export class VolumeMonitor {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.VolumeMonitor */
     getConnectedDrives(): Drive[]
-    getMountForUuid(uuid: string): Mount | null
+    getMountForUuid(uuid: string): Mount
     getMounts(): Mount[]
-    getVolumeForUuid(uuid: string): Volume | null
+    getVolumeForUuid(uuid: string): Volume
     getVolumes(): Volume[]
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -11125,7 +11110,7 @@ export class ZlibCompressor {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.ZlibCompressor */
-    getFileInfo(): FileInfo | null
+    getFileInfo(): FileInfo
     setFileInfo(fileInfo?: FileInfo | null): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -11186,7 +11171,7 @@ export class ZlibDecompressor {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.ZlibDecompressor */
-    getFileInfo(): FileInfo | null
+    getFileInfo(): FileInfo
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -11273,7 +11258,7 @@ export abstract class ActionInterface {
     getStateType: (action: Action) => GLib.VariantType | null
     getStateHint: (action: Action) => GLib.Variant | null
     getEnabled: (action: Action) => boolean
-    getState: (action: Action) => GLib.Variant | null
+    getState: (action: Action) => GLib.Variant
     changeState: (action: Action, value: GLib.Variant) => void
     activate: (action: Action, parameter?: GLib.Variant | null) => void
     static name: string
@@ -11281,7 +11266,7 @@ export abstract class ActionInterface {
 export abstract class ActionMapInterface {
     /* Fields of Gio-2.0.Gio.ActionMapInterface */
     gIface: GObject.TypeInterface
-    lookupAction: (actionMap: ActionMap, actionName: string) => Action | null
+    lookupAction: (actionMap: ActionMap, actionName: string) => Action
     addAction: (actionMap: ActionMap, action: Action) => void
     removeAction: (actionMap: ActionMap, actionName: string) => void
     static name: string
@@ -11291,11 +11276,11 @@ export abstract class AppInfoIface {
     gIface: GObject.TypeInterface
     dup: (appinfo: AppInfo) => AppInfo
     equal: (appinfo1: AppInfo, appinfo2: AppInfo) => boolean
-    getId: (appinfo: AppInfo) => string | null
+    getId: (appinfo: AppInfo) => string
     getName: (appinfo: AppInfo) => string
-    getDescription: (appinfo: AppInfo) => string | null
+    getDescription: (appinfo: AppInfo) => string
     getExecutable: (appinfo: AppInfo) => string
-    getIcon: (appinfo: AppInfo) => Icon | null
+    getIcon: (appinfo: AppInfo) => Icon
     launch: (appinfo: AppInfo, files?: File[] | null, context?: AppLaunchContext | null) => boolean
     supportsUris: (appinfo: AppInfo) => boolean
     supportsFiles: (appinfo: AppInfo) => boolean
@@ -11308,7 +11293,7 @@ export abstract class AppInfoIface {
     removeSupportsType: (appinfo: AppInfo, contentType: string) => boolean
     canDelete: (appinfo: AppInfo) => boolean
     doDelete: (appinfo: AppInfo) => boolean
-    getCommandline: (appinfo: AppInfo) => string | null
+    getCommandline: (appinfo: AppInfo) => string
     getDisplayName: (appinfo: AppInfo) => string
     setAsLastUsedForType: (appinfo: AppInfo, contentType: string) => boolean
     getSupportedTypes: (appinfo: AppInfo) => string[]
@@ -11319,8 +11304,8 @@ export abstract class AppInfoIface {
 export abstract class AppLaunchContextClass {
     /* Fields of Gio-2.0.Gio.AppLaunchContextClass */
     parentClass: GObject.ObjectClass
-    getDisplay: (context: AppLaunchContext, info: AppInfo, files: File[]) => string | null
-    getStartupNotifyId: (context: AppLaunchContext, info: AppInfo, files: File[]) => string | null
+    getDisplay: (context: AppLaunchContext, info: AppInfo, files: File[]) => string
+    getStartupNotifyId: (context: AppLaunchContext, info: AppInfo, files: File[]) => string
     launchFailed: (context: AppLaunchContext, startupNotifyId: string) => void
     launched: (context: AppLaunchContext, info: AppInfo, platformData: GLib.Variant) => void
     static name: string
@@ -11351,7 +11336,7 @@ export abstract class ApplicationCommandLineClass {
     /* Fields of Gio-2.0.Gio.ApplicationCommandLineClass */
     printLiteral: (cmdline: ApplicationCommandLine, message: string) => void
     printerrLiteral: (cmdline: ApplicationCommandLine, message: string) => void
-    getStdin: (cmdline: ApplicationCommandLine) => InputStream | null
+    getStdin: (cmdline: ApplicationCommandLine) => InputStream
     static name: string
 }
 export class ApplicationCommandLinePrivate {
@@ -11445,7 +11430,7 @@ export class DBusAnnotationInfo {
     unref(): void
     static name: string
     /* Static methods and pseudo-constructors */
-    static lookup(annotations: DBusAnnotationInfo[] | null, name: string): string | null
+    static lookup(annotations: DBusAnnotationInfo[] | null, name: string): string
 }
 export class DBusArgInfo {
     /* Fields of Gio-2.0.Gio.DBusArgInfo */
@@ -11468,9 +11453,9 @@ export abstract class DBusInterfaceIface {
     /* Fields of Gio-2.0.Gio.DBusInterfaceIface */
     parentIface: GObject.TypeInterface
     getInfo: (interface: DBusInterface) => DBusInterfaceInfo
-    getObject: (interface: DBusInterface) => DBusObject | null
+    getObject: (interface: DBusInterface) => DBusObject
     setObject: (interface: DBusInterface, object?: DBusObject | null) => void
-    dupObject: (interface: DBusInterface) => DBusObject | null
+    dupObject: (interface: DBusInterface) => DBusObject
     static name: string
 }
 export class DBusInterfaceInfo {
@@ -11485,9 +11470,9 @@ export class DBusInterfaceInfo {
     cacheBuild(): void
     cacheRelease(): void
     generateXml(indent: number, stringBuilder: GLib.String): void
-    lookupMethod(name: string): DBusMethodInfo | null
-    lookupProperty(name: string): DBusPropertyInfo | null
-    lookupSignal(name: string): DBusSignalInfo | null
+    lookupMethod(name: string): DBusMethodInfo
+    lookupProperty(name: string): DBusPropertyInfo
+    lookupSignal(name: string): DBusSignalInfo
     ref(): DBusInterfaceInfo
     unref(): void
     static name: string
@@ -11532,7 +11517,7 @@ export class DBusNodeInfo {
     annotations: DBusAnnotationInfo[]
     /* Methods of Gio-2.0.Gio.DBusNodeInfo */
     generateXml(indent: number, stringBuilder: GLib.String): void
-    lookupInterface(name: string): DBusInterfaceInfo | null
+    lookupInterface(name: string): DBusInterfaceInfo
     ref(): DBusNodeInfo
     unref(): void
     static name: string
@@ -11544,7 +11529,7 @@ export abstract class DBusObjectIface {
     parentIface: GObject.TypeInterface
     getObjectPath: (object: DBusObject) => string
     getInterfaces: (object: DBusObject) => DBusInterface[]
-    getInterface: (object: DBusObject, interfaceName: string) => DBusInterface | null
+    getInterface: (object: DBusObject, interfaceName: string) => DBusInterface
     interfaceAdded: (object: DBusObject, interface: DBusInterface) => void
     interfaceRemoved: (object: DBusObject, interface: DBusInterface) => void
     static name: string
@@ -11631,7 +11616,6 @@ export class DBusSignalInfo {
 }
 export class DBusSubtreeVTable {
     /* Fields of Gio-2.0.Gio.DBusSubtreeVTable */
-    enumerate: DBusSubtreeEnumerateFunc
     introspect: DBusSubtreeIntrospectFunc
     dispatch: DBusSubtreeDispatchFunc
     static name: string
@@ -11776,7 +11760,7 @@ export class FileAttributeMatcher {
     matches(attribute: string): boolean
     matchesOnly(attribute: string): boolean
     ref(): FileAttributeMatcher
-    subtract(subtract?: FileAttributeMatcher | null): FileAttributeMatcher | null
+    subtract(subtract: FileAttributeMatcher): FileAttributeMatcher
     toString(): string
     unref(): void
     static name: string
@@ -11816,7 +11800,7 @@ export abstract class FileIOStreamClass {
     queryInfo: (stream: FileIOStream, attributes: string, cancellable?: Cancellable | null) => FileInfo
     queryInfoAsync: (stream: FileIOStream, attributes: string, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     queryInfoFinish: (stream: FileIOStream, result: AsyncResult) => FileInfo
-    getEtag: (stream: FileIOStream) => string | null
+    getEtag: (stream: FileIOStream) => string
     static name: string
 }
 export class FileIOStreamPrivate {
@@ -11833,14 +11817,14 @@ export abstract class FileIface {
     equal: (file1: File, file2: File) => boolean
     isNative: (file: File) => boolean
     hasUriScheme: (file: File, uriScheme: string) => boolean
-    getUriScheme: (file: File) => string | null
-    getBasename: (file: File) => string | null
-    getPath: (file: File) => string | null
+    getUriScheme: (file: File) => string
+    getBasename: (file: File) => string
+    getPath: (file: File) => string
     getUri: (file: File) => string
     getParseName: (file: File) => string
     getParent: (file: File) => File | null
     prefixMatches: (prefix: File, file: File) => boolean
-    getRelativePath: (parent: File, descendant: File) => string | null
+    getRelativePath: (parent: File, descendant: File) => string
     resolveRelativePath: (file: File, relativePath: string) => File
     getChildForDisplayName: (file: File, displayName: string) => File
     enumerateChildren: (file: File, attributes: string, flags: FileQueryInfoFlags, cancellable?: Cancellable | null) => FileEnumerator
@@ -11961,7 +11945,7 @@ export abstract class FileOutputStreamClass {
     queryInfo: (stream: FileOutputStream, attributes: string, cancellable?: Cancellable | null) => FileInfo
     queryInfoAsync: (stream: FileOutputStream, attributes: string, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     queryInfoFinish: (stream: FileOutputStream, result: AsyncResult) => FileInfo
-    getEtag: (stream: FileOutputStream) => string | null
+    getEtag: (stream: FileOutputStream) => string
     static name: string
 }
 export class FileOutputStreamPrivate {
@@ -12038,7 +12022,7 @@ export abstract class IconIface {
     gIface: GObject.TypeInterface
     hash: (icon: Icon) => number
     equal: (icon1?: Icon | null, icon2?: Icon | null) => boolean
-    serialize: (icon: Icon) => GLib.Variant | null
+    serialize: (icon: Icon) => GLib.Variant
     static name: string
 }
 export abstract class InetAddressClass {
@@ -12174,10 +12158,10 @@ export abstract class MenuModelClass {
     getNItems: (model: MenuModel) => number
     getItemAttributes: (model: MenuModel, itemIndex: number) => { attributes: GLib.HashTable }
     iterateItemAttributes: (model: MenuModel, itemIndex: number) => MenuAttributeIter
-    getItemAttributeValue: (model: MenuModel, itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null) => GLib.Variant | null
+    getItemAttributeValue: (model: MenuModel, itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null) => GLib.Variant
     getItemLinks: (model: MenuModel, itemIndex: number) => { links: GLib.HashTable }
     iterateItemLinks: (model: MenuModel, itemIndex: number) => MenuLinkIter
-    getItemLink: (model: MenuModel, itemIndex: number, link: string) => MenuModel | null
+    getItemLink: (model: MenuModel, itemIndex: number, link: string) => MenuModel
     static name: string
 }
 export class MenuModelPrivate {
@@ -12461,7 +12445,7 @@ export class SettingsSchema {
     /* Methods of Gio-2.0.Gio.SettingsSchema */
     getId(): string
     getKey(name: string): SettingsSchemaKey
-    getPath(): string | null
+    getPath(): string
     hasKey(name: string): boolean
     listChildren(): string[]
     listKeys(): string[]
@@ -12472,10 +12456,10 @@ export class SettingsSchema {
 export class SettingsSchemaKey {
     /* Methods of Gio-2.0.Gio.SettingsSchemaKey */
     getDefaultValue(): GLib.Variant
-    getDescription(): string | null
+    getDescription(): string
     getName(): string
     getRange(): GLib.Variant
-    getSummary(): string | null
+    getSummary(): string
     getValueType(): GLib.VariantType
     rangeCheck(value: GLib.Variant): boolean
     ref(): SettingsSchemaKey
@@ -12792,7 +12776,7 @@ export class UnixMountPoint {
     getDevicePath(): string
     getFsType(): string
     getMountPath(): string
-    getOptions(): string | null
+    getOptions(): string
     guessCanEject(): boolean
     guessIcon(): Icon
     guessName(): string
@@ -12878,8 +12862,8 @@ export abstract class VolumeMonitorClass {
     getConnectedDrives: (volumeMonitor: VolumeMonitor) => Drive[]
     getVolumes: (volumeMonitor: VolumeMonitor) => Volume[]
     getMounts: (volumeMonitor: VolumeMonitor) => Mount[]
-    getVolumeForUuid: (volumeMonitor: VolumeMonitor, uuid: string) => Volume | null
-    getMountForUuid: (volumeMonitor: VolumeMonitor, uuid: string) => Mount | null
+    getVolumeForUuid: (volumeMonitor: VolumeMonitor, uuid: string) => Volume
+    getMountForUuid: (volumeMonitor: VolumeMonitor, uuid: string) => Mount
     driveEjectButton: (volumeMonitor: VolumeMonitor, drive: Drive) => void
     driveStopButton: (volumeMonitor: VolumeMonitor, drive: Drive) => void
     static name: string

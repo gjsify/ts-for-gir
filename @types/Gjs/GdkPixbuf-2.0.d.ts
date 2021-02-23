@@ -36,11 +36,6 @@ export enum PixbufRotation {
     UPSIDEDOWN,
     CLOCKWISE,
 }
-export enum PixbufFormatFlags {
-    WRITABLE,
-    SCALABLE,
-    THREADSAFE,
-}
 export const PIXBUF_FEATURES_H: number
 export const PIXBUF_MAJOR: number
 export const PIXBUF_MICRO: number
@@ -49,21 +44,6 @@ export const PIXBUF_VERSION: string
 export function pixbuf_error_quark(): GLib.Quark
 export interface PixbufDestroyNotify {
     (pixels: Uint8Array[]): void
-}
-export interface PixbufModuleFillInfoFunc {
-    (info: PixbufFormat): void
-}
-export interface PixbufModuleFillVtableFunc {
-    (module: PixbufModule): void
-}
-export interface PixbufModulePreparedFunc {
-    (pixbuf: Pixbuf, anim: PixbufAnimation): void
-}
-export interface PixbufModuleSizeFunc {
-    (width: number, height: number): void
-}
-export interface PixbufModuleUpdatedFunc {
-    (pixbuf: Pixbuf, x: number, y: number, width: number, height: number): void
 }
 export interface PixbufSaveFunc {
     (buf: Uint8Array[]): boolean
@@ -142,7 +122,7 @@ export class Pixbuf {
     watch_closure(closure: GObject.Closure): void
     /* Methods of Gio-2.0.Gio.Icon */
     equal(icon2?: Gio.Icon | null): boolean
-    serialize(): GLib.Variant | null
+    serialize(): GLib.Variant
     to_string(): string | null
     /* Methods of Gio-2.0.Gio.LoadableIcon */
     load(size: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ Gio.InputStream, /* type */ string | null ]
@@ -151,7 +131,7 @@ export class Pixbuf {
     /* Virtual methods of GdkPixbuf-2.0.GdkPixbuf.Pixbuf */
     vfunc_equal(icon2?: Gio.Icon | null): boolean
     vfunc_hash(): number
-    vfunc_serialize(): GLib.Variant | null
+    vfunc_serialize(): GLib.Variant
     vfunc_load(size: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ Gio.InputStream, /* type */ string | null ]
     vfunc_load_async(size: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_load_finish(res: Gio.AsyncResult): [ /* returnType */ Gio.InputStream, /* type */ string | null ]
@@ -197,7 +177,7 @@ export class Pixbuf {
     static new_from_stream_async(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     static new_from_stream_at_scale_async(stream: Gio.InputStream, width: number, height: number, preserve_aspect_ratio: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     static save_to_stream_finish(async_result: Gio.AsyncResult): boolean
-    static deserialize(value: GLib.Variant): Gio.Icon | null
+    static deserialize(value: GLib.Variant): Gio.Icon
     static hash(icon: object): number
     static new_for_string(str: string): Gio.Icon
     static $gtype: GObject.Type
@@ -205,8 +185,6 @@ export class Pixbuf {
 export interface PixbufAnimation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PixbufAnimation {
-    /* Fields of GdkPixbuf-2.0.GdkPixbuf.PixbufAnimation */
-    parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GdkPixbuf-2.0.GdkPixbuf.PixbufAnimation */
@@ -237,11 +215,6 @@ export class PixbufAnimation {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GdkPixbuf-2.0.GdkPixbuf.PixbufAnimation */
-    vfunc_get_iter(start_time?: GLib.TimeVal | null): PixbufAnimationIter
-    vfunc_get_size(width: number, height: number): void
-    vfunc_get_static_image(): Pixbuf
-    vfunc_is_static_image(): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -272,8 +245,6 @@ export class PixbufAnimation {
 export interface PixbufAnimationIter_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PixbufAnimationIter {
-    /* Fields of GdkPixbuf-2.0.GdkPixbuf.PixbufAnimationIter */
-    parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GdkPixbuf-2.0.GdkPixbuf.PixbufAnimationIter */
@@ -303,11 +274,6 @@ export class PixbufAnimationIter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GdkPixbuf-2.0.GdkPixbuf.PixbufAnimationIter */
-    vfunc_advance(current_time?: GLib.TimeVal | null): boolean
-    vfunc_get_delay_time(): number
-    vfunc_get_pixbuf(): Pixbuf
-    vfunc_on_currently_loading_frame(): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -409,77 +375,12 @@ export class PixbufLoader {
     static new_with_type(image_type: string): PixbufLoader
     static $gtype: GObject.Type
 }
-export interface PixbufNonAnim_ConstructProps extends PixbufAnimation_ConstructProps {
-}
-export class PixbufNonAnim {
-    /* Fields of GdkPixbuf-2.0.GdkPixbuf.PixbufAnimation */
-    parent_instance: GObject.Object
-    /* Fields of GObject-2.0.GObject.Object */
-    g_type_instance: GObject.TypeInstance
-    /* Methods of GdkPixbuf-2.0.GdkPixbuf.PixbufAnimation */
-    get_height(): number
-    get_iter(start_time?: GLib.TimeVal | null): PixbufAnimationIter
-    get_static_image(): Pixbuf
-    get_width(): number
-    is_static_image(): boolean
-    /* Methods of GObject-2.0.GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: GObject.Value): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: GObject.Value): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GdkPixbuf-2.0.GdkPixbuf.PixbufAnimation */
-    vfunc_get_iter(start_time?: GLib.TimeVal | null): PixbufAnimationIter
-    vfunc_get_size(width: number, height: number): void
-    vfunc_get_static_image(): Pixbuf
-    vfunc_is_static_image(): boolean
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: PixbufNonAnim, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: PixbufNonAnim, pspec: GObject.ParamSpec) => void)): number
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    static name: string
-    constructor (config?: PixbufNonAnim_ConstructProps)
-    _init (config?: PixbufNonAnim_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(pixbuf: Pixbuf): PixbufNonAnim
-    static $gtype: GObject.Type
-}
 export interface PixbufSimpleAnim_ConstructProps extends PixbufAnimation_ConstructProps {
     loop?: boolean
 }
 export class PixbufSimpleAnim {
     /* Properties of GdkPixbuf-2.0.GdkPixbuf.PixbufSimpleAnim */
     loop: boolean
-    /* Fields of GdkPixbuf-2.0.GdkPixbuf.PixbufAnimation */
-    parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GdkPixbuf-2.0.GdkPixbuf.PixbufSimpleAnim */
@@ -514,11 +415,6 @@ export class PixbufSimpleAnim {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GdkPixbuf-2.0.GdkPixbuf.PixbufAnimation */
-    vfunc_get_iter(start_time?: GLib.TimeVal | null): PixbufAnimationIter
-    vfunc_get_size(width: number, height: number): void
-    vfunc_get_static_image(): Pixbuf
-    vfunc_is_static_image(): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -547,8 +443,6 @@ export class PixbufSimpleAnim {
 export interface PixbufSimpleAnimIter_ConstructProps extends PixbufAnimationIter_ConstructProps {
 }
 export class PixbufSimpleAnimIter {
-    /* Fields of GdkPixbuf-2.0.GdkPixbuf.PixbufAnimationIter */
-    parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GdkPixbuf-2.0.GdkPixbuf.PixbufAnimationIter */
@@ -578,11 +472,6 @@ export class PixbufSimpleAnimIter {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: GObject.Closure): void
-    /* Virtual methods of GdkPixbuf-2.0.GdkPixbuf.PixbufAnimationIter */
-    vfunc_advance(current_time?: GLib.TimeVal | null): boolean
-    vfunc_get_delay_time(): number
-    vfunc_get_pixbuf(): Pixbuf
-    vfunc_on_currently_loading_frame(): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -604,35 +493,7 @@ export class PixbufSimpleAnimIter {
     _init (config?: PixbufSimpleAnimIter_ConstructProps): void
     static $gtype: GObject.Type
 }
-export abstract class PixbufAnimationClass {
-    /* Fields of GdkPixbuf-2.0.GdkPixbuf.PixbufAnimationClass */
-    parent_class: GObject.ObjectClass
-    is_static_image: (animation: PixbufAnimation) => boolean
-    get_static_image: (animation: PixbufAnimation) => Pixbuf
-    get_size: (animation: PixbufAnimation, width: number, height: number) => void
-    get_iter: (animation: PixbufAnimation, start_time?: GLib.TimeVal | null) => PixbufAnimationIter
-    static name: string
-}
-export abstract class PixbufAnimationIterClass {
-    /* Fields of GdkPixbuf-2.0.GdkPixbuf.PixbufAnimationIterClass */
-    parent_class: GObject.ObjectClass
-    get_delay_time: (iter: PixbufAnimationIter) => number
-    get_pixbuf: (iter: PixbufAnimationIter) => Pixbuf
-    on_currently_loading_frame: (iter: PixbufAnimationIter) => boolean
-    advance: (iter: PixbufAnimationIter, current_time?: GLib.TimeVal | null) => boolean
-    static name: string
-}
 export class PixbufFormat {
-    /* Fields of GdkPixbuf-2.0.GdkPixbuf.PixbufFormat */
-    name: string
-    signature: PixbufModulePattern
-    domain: string
-    description: string
-    mime_types: string
-    extensions: string
-    flags: number
-    disabled: boolean
-    license: string
     /* Methods of GdkPixbuf-2.0.GdkPixbuf.PixbufFormat */
     copy(): PixbufFormat
     free(): void
@@ -655,25 +516,6 @@ export abstract class PixbufLoaderClass {
     area_prepared: (loader: PixbufLoader) => void
     area_updated: (loader: PixbufLoader, x: number, y: number, width: number, height: number) => void
     closed: (loader: PixbufLoader) => void
-    static name: string
-}
-export class PixbufModule {
-    /* Fields of GdkPixbuf-2.0.GdkPixbuf.PixbufModule */
-    module_name: string
-    module_path: string
-    module: GModule.Module
-    info: PixbufFormat
-    stop_load: (context: object) => boolean
-    load_increment: (context: object, buf: number, size: number) => boolean
-    save: (f: object, pixbuf: Pixbuf, param_keys: string, param_values: string) => boolean
-    is_save_option_supported: (option_key: string) => boolean
-    static name: string
-}
-export class PixbufModulePattern {
-    /* Fields of GdkPixbuf-2.0.GdkPixbuf.PixbufModulePattern */
-    prefix: string
-    mask: string
-    relevance: number
     static name: string
 }
 export abstract class PixbufSimpleAnimClass {

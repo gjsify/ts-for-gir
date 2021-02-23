@@ -817,7 +817,6 @@ export enum UriFlags {
     ENCODED_QUERY,
     ENCODED_PATH,
     ENCODED_FRAGMENT,
-    SCHEME_NORMALIZE,
 }
 export enum UriHideFlags {
     NONE,
@@ -980,7 +979,6 @@ export function asciiXdigitValue(c: number): number
 export function assertWarning(logDomain: string, file: string, line: number, prettyFunction: string, expression: string): void
 export function assertionMessage(domain: string, file: string, line: number, func: string, message: string): void
 export function assertionMessageCmpstr(domain: string, file: string, line: number, func: string, expr: string, arg1: string, cmp: string, arg2: string): void
-export function assertionMessageCmpstrv(domain: string, file: string, line: number, func: string, expr: string, arg1: string, arg2: string, firstWrongIdx: number): void
 export function assertionMessageError(domain: string, file: string, line: number, func: string, expr: string, error: Error, errorDomain: Quark, errorCode: number): void
 export function atexit(func: VoidFunc): void
 export function atomicIntAdd(atomic: number, val: number): number
@@ -1040,9 +1038,9 @@ export function childWatchAdd(priority: number, pid: Pid, function_: ChildWatchF
 export function childWatchSourceNew(pid: Pid): Source
 export function clearError(): void
 export function close(fd: number): boolean
-export function computeChecksumForBytes(checksumType: ChecksumType, data: Bytes): string | null
-export function computeChecksumForData(checksumType: ChecksumType, data: any[]): string | null
-export function computeChecksumForString(checksumType: ChecksumType, str: string, length: number): string | null
+export function computeChecksumForBytes(checksumType: ChecksumType, data: Bytes): string
+export function computeChecksumForData(checksumType: ChecksumType, data: any[]): string
+export function computeChecksumForString(checksumType: ChecksumType, str: string, length: number): string
 export function computeHmacForBytes(digestType: ChecksumType, key: Bytes, data: Bytes): string
 export function computeHmacForData(digestType: ChecksumType, key: any[], data: any[]): string
 export function computeHmacForString(digestType: ChecksumType, key: any[], str: string, length: number): string
@@ -1063,6 +1061,9 @@ export function dateGetMondayWeeksInYear(year: DateYear): number
 export function dateGetSundayWeeksInYear(year: DateYear): number
 export function dateIsLeapYear(year: DateYear): boolean
 export function dateStrftime(s: string, slen: number, format: string, date: Date): number
+export function dateTimeCompare(dt1: object, dt2: object): number
+export function dateTimeEqual(dt1: object, dt2: object): boolean
+export function dateTimeHash(datetime: object): number
 export function dateValidDay(day: DateDay): boolean
 export function dateValidDmy(day: DateDay, month: DateMonth, year: DateYear): boolean
 export function dateValidJulian(julianDate: number): boolean
@@ -1153,8 +1154,8 @@ export function hookUnref(hookList: HookList, hook: Hook): void
 export function hostnameIsAsciiEncoded(hostname: string): boolean
 export function hostnameIsIpAddress(hostname: string): boolean
 export function hostnameIsNonAscii(hostname: string): boolean
-export function hostnameToAscii(hostname: string): string | null
-export function hostnameToUnicode(hostname: string): string | null
+export function hostnameToAscii(hostname: string): string
+export function hostnameToUnicode(hostname: string): string
 export function idleAdd(priority: number, function_: SourceFunc): number
 export function idleRemoveByData(data?: object | null): boolean
 export function idleSourceNew(): Source
@@ -1181,17 +1182,15 @@ export function logSetWriterFunc(): void
 export function logStructuredArray(logLevel: LogLevelFlags, fields: LogField[]): void
 export function logVariant(logDomain: string | null, logLevel: LogLevelFlags, fields: Variant): void
 export function logWriterDefault(logLevel: LogLevelFlags, fields: LogField[], userData?: object | null): LogWriterOutput
-export function logWriterDefaultSetUseStderr(useStderr: boolean): void
-export function logWriterDefaultWouldDrop(logLevel: LogLevelFlags, logDomain?: string | null): boolean
 export function logWriterFormatFields(logLevel: LogLevelFlags, fields: LogField[], useColor: boolean): string
 export function logWriterIsJournald(outputFd: number): boolean
 export function logWriterJournald(logLevel: LogLevelFlags, fields: LogField[], userData?: object | null): LogWriterOutput
 export function logWriterStandardStreams(logLevel: LogLevelFlags, fields: LogField[], userData?: object | null): LogWriterOutput
 export function logWriterSupportsColor(outputFd: number): boolean
 export function mainContextDefault(): MainContext
-export function mainContextGetThreadDefault(): MainContext | null
+export function mainContextGetThreadDefault(): MainContext
 export function mainContextRefThreadDefault(): MainContext
-export function mainCurrentSource(): Source | null
+export function mainCurrentSource(): Source
 export function mainDepth(): number
 export function malloc(nBytes: number): object | null
 export function malloc0(nBytes: number): object | null
@@ -1203,7 +1202,6 @@ export function memIsSystemMalloc(): boolean
 export function memProfile(): void
 export function memSetVtable(vtable: MemVTable): void
 export function memdup(mem: object | null, byteSize: number): object | null
-export function memdup2(mem: object | null, byteSize: number): object | null
 export function mkdirWithParents(pathname: string, mode: number): number
 export function nullifyPointer(nullifyLocation: object): void
 export function numberParserErrorQuark(): Quark
@@ -1353,7 +1351,6 @@ export function testExpectMessage(logDomain: string | null, logLevel: LogLevelFl
 export function testFail(): void
 export function testFailed(): boolean
 export function testGetDir(fileType: TestFileType): string
-export function testGetPath(): string
 export function testIncomplete(msg?: string | null): void
 export function testLogTypeName(logType: TestLogType): string
 export function testQueueDestroy(destroyFunc: DestroyNotify, destroyData?: object | null): void
@@ -1467,8 +1464,8 @@ export function uriSplit(uriRef: string, flags: UriFlags): { returnType: boolean
 export function uriSplitNetwork(uriString: string, flags: UriFlags): { returnType: boolean, scheme: string | null, host: string | null, port: number | null }
 export function uriSplitWithUser(uriRef: string, flags: UriFlags): { returnType: boolean, scheme: string | null, user: string | null, password: string | null, authParams: string | null, host: string | null, port: number | null, path: string | null, query: string | null, fragment: string | null }
 export function uriUnescapeBytes(escapedString: string, length: number, illegalCharacters?: string | null): Bytes
-export function uriUnescapeSegment(escapedString?: string | null, escapedStringEnd?: string | null, illegalCharacters?: string | null): string | null
-export function uriUnescapeString(escapedString: string, illegalCharacters?: string | null): string | null
+export function uriUnescapeSegment(escapedString?: string | null, escapedStringEnd?: string | null, illegalCharacters?: string | null): string
+export function uriUnescapeString(escapedString: string, illegalCharacters?: string | null): string
 export function usleep(microseconds: number): void
 export function utf16ToUcs4(str: number, len: number): { returnType: number, itemsRead: number | null, itemsWritten: number | null }
 export function utf16ToUtf8(str: number, len: number): { returnType: string, itemsRead: number | null, itemsWritten: number | null }
@@ -1537,15 +1534,6 @@ export interface DuplicateFunc {
 }
 export interface EqualFunc {
     (a?: object | null, b?: object | null): boolean
-}
-export interface ErrorClearFunc {
-    (error: Error): void
-}
-export interface ErrorCopyFunc {
-    (srcError: Error, destError: Error): void
-}
-export interface ErrorInitFunc {
-    (error: Error): void
 }
 export interface FreeFunc {
     (data?: object | null): void
@@ -1654,9 +1642,6 @@ export interface TranslateFunc {
 }
 export interface TraverseFunc {
     (key?: object | null, value?: object | null, data?: object | null): boolean
-}
-export interface TraverseNodeFunc {
-    (node: TreeNode, data?: object | null): boolean
 }
 export interface UnixFDSourceFunc {
     (fd: number, condition: IOCondition): boolean
@@ -1879,9 +1864,7 @@ export class DateTime {
     addSeconds(seconds: number): DateTime | null
     addWeeks(weeks: number): DateTime | null
     addYears(years: number): DateTime | null
-    compare(dt2: DateTime): number
     difference(begin: DateTime): TimeSpan
-    equal(dt2: DateTime): boolean
     format(format: string): string | null
     formatIso8601(): string | null
     getDayOfMonth(): number
@@ -1900,7 +1883,6 @@ export class DateTime {
     getWeekOfYear(): number
     getYear(): number
     getYmd(): { year: number | null, month: number | null, day: number | null }
-    hash(): number
     isDaylightSavings(): boolean
     ref(): DateTime
     toLocal(): DateTime | null
@@ -1924,6 +1906,9 @@ export class DateTime {
     static newNowLocal(): DateTime
     static newNowUtc(): DateTime
     static newUtc(year: number, month: number, day: number, hour: number, minute: number, seconds: number): DateTime
+    static compare(dt1: object, dt2: object): number
+    static equal(dt1: object, dt2: object): boolean
+    static hash(datetime: object): number
 }
 export class DebugKey {
     /* Fields of GLib-2.0.GLib.DebugKey */
@@ -2084,7 +2069,7 @@ export class KeyFile {
     /* Methods of GLib-2.0.GLib.KeyFile */
     getBoolean(groupName: string, key: string): boolean
     getBooleanList(groupName: string, key: string): boolean[]
-    getComment(groupName?: string | null, key?: string | null): string
+    getComment(groupName: string | null, key: string): string
     getDouble(groupName: string, key: string): number
     getDoubleList(groupName: string, key: string): number[]
     getGroups(): { returnType: string[], length: number | null }
@@ -2095,7 +2080,7 @@ export class KeyFile {
     getLocaleForKey(groupName: string, key: string, locale?: string | null): string | null
     getLocaleString(groupName: string, key: string, locale?: string | null): string
     getLocaleStringList(groupName: string, key: string, locale?: string | null): string[]
-    getStartGroup(): string | null
+    getStartGroup(): string
     getString(groupName: string, key: string): string
     getStringList(groupName: string, key: string): string[]
     getUint64(groupName: string, key: string): number
@@ -2177,7 +2162,7 @@ export class MainContext {
     /* Static methods and pseudo-constructors */
     static new(): MainContext
     static default(): MainContext
-    static getThreadDefault(): MainContext | null
+    static getThreadDefault(): MainContext
     static refThreadDefault(): MainContext
 }
 export class MainLoop {
@@ -2578,7 +2563,7 @@ export class Source {
     getContext(): MainContext | null
     getCurrentTime(timeval: TimeVal): void
     getId(): number
-    getName(): string | null
+    getName(): string
     getPriority(): number
     getReadyTime(): number
     getTime(): number
@@ -2656,7 +2641,6 @@ export class String {
     prependC(c: number): String
     prependLen(val: string, len: number): String
     prependUnichar(wc: number): String
-    replace(find: string, replace: string, limit: number): number
     setSize(len: number): String
     truncate(len: number): String
     up(): String
@@ -2669,13 +2653,6 @@ export class StringChunk {
     insert(string: string): string
     insertConst(string: string): string
     insertLen(string: string, len: number): string
-    static name: string
-}
-export class StrvBuilder {
-    /* Methods of GLib-2.0.GLib.StrvBuilder */
-    add(value: string): void
-    end(): string[]
-    unref(): void
     static name: string
 }
 export class TestCase {
@@ -2777,7 +2754,6 @@ export class TimeZone {
     constructor(identifier?: string | null)
     /* Static methods and pseudo-constructors */
     static new(identifier?: string | null): TimeZone
-    static newIdentifier(identifier?: string | null): TimeZone
     static newLocal(): TimeZone
     static newOffset(seconds: number): TimeZone
     static newUtc(): TimeZone
@@ -2808,31 +2784,13 @@ export class Tree {
     destroy(): void
     height(): number
     insert(key?: object | null, value?: object | null): void
-    insertNode(key?: object | null, value?: object | null): TreeNode
     lookup(key?: object | null): object | null
     lookupExtended(lookupKey?: object | null): { returnType: boolean, origKey: object | null, value: object | null }
-    lookupNode(key?: object | null): TreeNode | null
-    lowerBound(key?: object | null): TreeNode | null
     nnodes(): number
-    nodeFirst(): TreeNode | null
-    nodeLast(): TreeNode | null
-    ref(): Tree
     remove(key?: object | null): boolean
     replace(key?: object | null, value?: object | null): void
-    replaceNode(key?: object | null, value?: object | null): TreeNode
     steal(key?: object | null): boolean
     unref(): void
-    upperBound(key?: object | null): TreeNode | null
-    static name: string
-    /* Static methods and pseudo-constructors */
-    static newFull(keyCompareFunc: CompareDataFunc, keyDestroyFunc: DestroyNotify): Tree
-}
-export class TreeNode {
-    /* Methods of GLib-2.0.GLib.TreeNode */
-    key(): object | null
-    next(): TreeNode | null
-    previous(): TreeNode | null
-    value(): object | null
     static name: string
 }
 export class Uri {
@@ -2840,7 +2798,7 @@ export class Uri {
     getAuthParams(): string | null
     getFlags(): UriFlags
     getFragment(): string | null
-    getHost(): string | null
+    getHost(): string
     getPassword(): string | null
     getPath(): string
     getPort(): number
@@ -2871,8 +2829,8 @@ export class Uri {
     static splitNetwork(uriString: string, flags: UriFlags): { returnType: boolean, scheme: string | null, host: string | null, port: number | null }
     static splitWithUser(uriRef: string, flags: UriFlags): { returnType: boolean, scheme: string | null, user: string | null, password: string | null, authParams: string | null, host: string | null, port: number | null, path: string | null, query: string | null, fragment: string | null }
     static unescapeBytes(escapedString: string, length: number, illegalCharacters?: string | null): Bytes
-    static unescapeSegment(escapedString?: string | null, escapedStringEnd?: string | null, illegalCharacters?: string | null): string | null
-    static unescapeString(escapedString: string, illegalCharacters?: string | null): string | null
+    static unescapeSegment(escapedString?: string | null, escapedStringEnd?: string | null, illegalCharacters?: string | null): string
+    static unescapeString(escapedString: string, illegalCharacters?: string | null): string
 }
 export class UriParamsIter {
     /* Methods of GLib-2.0.GLib.UriParamsIter */

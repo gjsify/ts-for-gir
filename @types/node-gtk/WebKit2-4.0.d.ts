@@ -3300,8 +3300,6 @@ export class UserContentManager {
     removeAllStyleSheets(): void
     removeFilter(filter: UserContentFilter): void
     removeFilterById(filterId: string): void
-    removeScript(script: UserScript): void
-    removeStyleSheet(stylesheet: UserStyleSheet): void
     unregisterScriptMessageHandler(name: string): void
     unregisterScriptMessageHandlerInWorld(name: string, worldName: string): void
     /* Methods of GObject-2.0.GObject.Object */
@@ -3427,9 +3425,9 @@ export class UserMessage {
     /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2-4.0.WebKit2.UserMessage */
-    getFdList(): Gio.UnixFDList | null
+    getFdList(): Gio.UnixFDList
     getName(): string
-    getParameters(): GLib.Variant | null
+    getParameters(): GLib.Variant
     sendReply(reply: UserMessage): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -6117,15 +6115,12 @@ export class WebsiteDataManager {
     getOfflineApplicationCacheDirectory(): string | null
     getPersistentCredentialStorageEnabled(): boolean
     getServiceWorkerRegistrationsDirectory(): string | null
-    getTlsErrorsPolicy(): TLSErrorsPolicy
     getWebsqlDirectory(): string | null
     isEphemeral(): boolean
     remove(types: WebsiteDataTypes, websiteData: WebsiteData[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     removeFinish(result: Gio.AsyncResult): boolean
     setItpEnabled(enabled: boolean): void
-    setNetworkProxySettings(proxyMode: NetworkProxyMode, proxySettings?: NetworkProxySettings | null): void
     setPersistentCredentialStorageEnabled(enabled: boolean): void
-    setTlsErrorsPolicy(policy: TLSErrorsPolicy): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding

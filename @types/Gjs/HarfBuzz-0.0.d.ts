@@ -598,10 +598,6 @@ export enum script_t {
     NANDINAGARI,
     NYIAKENG_PUACHUE_HMONG,
     WANCHO,
-    CHORASMIAN,
-    DIVES_AKURU,
-    KHITAN_SMALL_SCRIPT,
-    YEZIDI,
     INVALID,
 }
 export enum unicode_combining_class_t {
@@ -777,7 +773,6 @@ export function buffer_append(buffer: buffer_t, source: buffer_t, start: number,
 export function buffer_clear_contents(buffer: buffer_t): void
 export function buffer_create(): buffer_t
 export function buffer_deserialize_glyphs(buffer: buffer_t, buf: string[], font: font_t, format: buffer_serialize_format_t): [ /* returnType */ bool_t, /* end_ptr */ string ]
-export function buffer_deserialize_unicode(buffer: buffer_t, buf: string[], format: buffer_serialize_format_t): [ /* returnType */ bool_t, /* end_ptr */ string ]
 export function buffer_diff(buffer: buffer_t, reference: buffer_t, dottedcircle_glyph: codepoint_t, position_fuzz: number): buffer_diff_flags_t
 export function buffer_get_cluster_level(buffer: buffer_t): buffer_cluster_level_t
 export function buffer_get_content_type(buffer: buffer_t): buffer_content_type_t
@@ -794,19 +789,16 @@ export function buffer_get_script(buffer: buffer_t): script_t
 export function buffer_get_segment_properties(buffer: buffer_t): /* props */ segment_properties_t
 export function buffer_get_unicode_funcs(buffer: buffer_t): unicode_funcs_t
 export function buffer_guess_segment_properties(buffer: buffer_t): void
-export function buffer_has_positions(buffer: buffer_t): bool_t
 export function buffer_normalize_glyphs(buffer: buffer_t): void
 export function buffer_pre_allocate(buffer: buffer_t, size: number): bool_t
 export function buffer_reset(buffer: buffer_t): void
 export function buffer_reverse(buffer: buffer_t): void
 export function buffer_reverse_clusters(buffer: buffer_t): void
 export function buffer_reverse_range(buffer: buffer_t, start: number, end: number): void
-export function buffer_serialize(buffer: buffer_t, start: number, end: number, font: font_t | null, format: buffer_serialize_format_t, flags: buffer_serialize_flags_t): [ /* returnType */ number, /* buf */ Uint8Array[], /* buf_consumed */ number | null ]
 export function buffer_serialize_format_from_string(str: Uint8Array[]): buffer_serialize_format_t
 export function buffer_serialize_format_to_string(format: buffer_serialize_format_t): string
 export function buffer_serialize_glyphs(buffer: buffer_t, start: number, end: number, font: font_t | null, format: buffer_serialize_format_t, flags: buffer_serialize_flags_t): [ /* returnType */ number, /* buf */ Uint8Array[], /* buf_consumed */ number | null ]
 export function buffer_serialize_list_formats(): string[]
-export function buffer_serialize_unicode(buffer: buffer_t, start: number, end: number, format: buffer_serialize_format_t, flags: buffer_serialize_flags_t): [ /* returnType */ number, /* buf */ Uint8Array[], /* buf_consumed */ number | null ]
 export function buffer_set_cluster_level(buffer: buffer_t, cluster_level: buffer_cluster_level_t): void
 export function buffer_set_content_type(buffer: buffer_t, content_type: buffer_content_type_t): void
 export function buffer_set_direction(buffer: buffer_t, direction: direction_t): void
@@ -836,7 +828,7 @@ export function face_create_for_tables(reference_table_func: reference_table_fun
 export function face_get_empty(): face_t
 export function face_get_glyph_count(face: face_t): number
 export function face_get_index(face: face_t): number
-export function face_get_table_tags(face: face_t, start_offset: number): [ /* returnType */ number, /* table_tags */ tag_t[] ]
+export function face_get_table_tags(face: face_t, start_offset: number, table_count: number, table_tags: tag_t): number
 export function face_get_upem(face: face_t): number
 export function face_is_immutable(face: face_t): bool_t
 export function face_make_immutable(face: face_t): void
@@ -924,7 +916,6 @@ export function ft_font_changed(font: font_t): void
 export function ft_font_get_load_flags(font: font_t): number
 export function ft_font_set_funcs(font: font_t): void
 export function ft_font_set_load_flags(font: font_t, load_flags: number): void
-export function ft_font_unlock_face(font: font_t): void
 export function glib_blob_create(gbytes: GLib.Bytes): blob_t
 export function glib_get_unicode_funcs(): unicode_funcs_t
 export function glib_script_from_script(script: script_t): GLib.UnicodeScript
@@ -974,10 +965,9 @@ export function ot_layout_has_substitution(face: face_t): bool_t
 export function ot_layout_language_find_feature(face: face_t, table_tag: tag_t, script_index: number, language_index: number, feature_tag: tag_t): [ /* returnType */ bool_t, /* feature_index */ number ]
 export function ot_layout_language_get_feature_indexes(face: face_t, table_tag: tag_t, script_index: number, language_index: number, start_offset: number): [ /* returnType */ number, /* feature_indexes */ number[] ]
 export function ot_layout_language_get_feature_tags(face: face_t, table_tag: tag_t, script_index: number, language_index: number, start_offset: number): [ /* returnType */ number, /* feature_tags */ tag_t[] ]
-export function ot_layout_language_get_required_feature(face: face_t, table_tag: tag_t, script_index: number, language_index: number): [ /* returnType */ bool_t, /* feature_index */ number, /* feature_tag */ tag_t ]
+export function ot_layout_language_get_required_feature(face: face_t, table_tag: tag_t, script_index: number, language_index: number, feature_index: number): [ /* returnType */ bool_t, /* feature_tag */ tag_t ]
 export function ot_layout_language_get_required_feature_index(face: face_t, table_tag: tag_t, script_index: number, language_index: number): [ /* returnType */ bool_t, /* feature_index */ number ]
 export function ot_layout_lookup_collect_glyphs(face: face_t, table_tag: tag_t, lookup_index: number): [ /* glyphs_before */ set_t, /* glyphs_input */ set_t, /* glyphs_after */ set_t, /* glyphs_output */ set_t ]
-export function ot_layout_lookup_get_glyph_alternates(face: face_t, lookup_index: number, glyph: codepoint_t, start_offset: number): [ /* returnType */ number, /* alternate_glyphs */ codepoint_t[] ]
 export function ot_layout_lookup_substitute_closure(face: face_t, lookup_index: number): /* glyphs */ set_t
 export function ot_layout_lookup_would_substitute(face: face_t, lookup_index: number, glyphs: codepoint_t, glyphs_length: number, zero_context: bool_t): bool_t
 export function ot_layout_lookups_substitute_closure(face: face_t, lookups: set_t): /* glyphs */ set_t
@@ -1000,7 +990,7 @@ export function ot_math_get_glyph_variants(font: font_t, glyph: codepoint_t, dir
 export function ot_math_get_min_connector_overlap(font: font_t, direction: direction_t): position_t
 export function ot_math_has_data(face: face_t): bool_t
 export function ot_math_is_glyph_extended_shape(face: face_t, glyph: codepoint_t): bool_t
-export function ot_meta_get_entry_tags(face: face_t, start_offset: number): [ /* returnType */ number, /* entries */ ot_meta_tag_t[] ]
+export function ot_meta_get_entry_tags(face: face_t, start_offset: number, entries_count: number, entries: ot_meta_tag_t): number
 export function ot_meta_reference_entry(face: face_t, meta_tag: ot_meta_tag_t): blob_t
 export function ot_metrics_get_position(font: font_t, metrics_tag: ot_metrics_tag_t): [ /* returnType */ bool_t, /* position */ position_t | null ]
 export function ot_metrics_get_variation(font: font_t, metrics_tag: ot_metrics_tag_t): number
@@ -1010,25 +1000,25 @@ export function ot_name_get_utf16(face: face_t, name_id: ot_name_id_t, language:
 export function ot_name_get_utf32(face: face_t, name_id: ot_name_id_t, language: language_t): [ /* returnType */ number, /* text */ number[] ]
 export function ot_name_get_utf8(face: face_t, name_id: ot_name_id_t, language: language_t): [ /* returnType */ number, /* text */ string[] ]
 export function ot_name_list_names(face: face_t): ot_name_entry_t[]
-export function ot_shape_glyphs_closure(font: font_t, buffer: buffer_t, features: feature_t[]): /* glyphs */ set_t
+export function ot_shape_glyphs_closure(font: font_t, buffer: buffer_t, features: feature_t, num_features: number, glyphs: set_t): void
 export function ot_tag_from_language(language: language_t): tag_t
 export function ot_tag_to_language(tag: tag_t): language_t
 export function ot_tag_to_script(tag: tag_t): script_t
 export function ot_tags_from_script(script: script_t, script_tag_1: tag_t, script_tag_2: tag_t): void
 export function ot_tags_from_script_and_language(script: script_t, language: language_t, script_count?: number | null, language_count?: number | null): [ /* script_tags */ tag_t | null, /* language_tags */ tag_t | null ]
 export function ot_tags_to_script_and_language(script_tag: tag_t, language_tag: tag_t, script?: script_t | null, language?: language_t | null): void
-export function ot_var_find_axis(face: face_t, axis_tag: tag_t, axis_index: number): [ /* returnType */ bool_t, /* axis_info */ ot_var_axis_t ]
-export function ot_var_find_axis_info(face: face_t, axis_tag: tag_t): [ /* returnType */ bool_t, /* axis_info */ ot_var_axis_info_t ]
-export function ot_var_get_axes(face: face_t, start_offset: number): [ /* returnType */ number, /* axes_array */ ot_var_axis_t[] ]
+export function ot_var_find_axis(face: face_t, axis_tag: tag_t, axis_index: number, axis_info: ot_var_axis_t): bool_t
+export function ot_var_find_axis_info(face: face_t, axis_tag: tag_t, axis_info: ot_var_axis_info_t): bool_t
+export function ot_var_get_axes(face: face_t, start_offset: number, axes_count: number, axes_array: ot_var_axis_t): number
 export function ot_var_get_axis_count(face: face_t): number
-export function ot_var_get_axis_infos(face: face_t, start_offset: number): [ /* returnType */ number, /* axes_array */ ot_var_axis_info_t[] ]
+export function ot_var_get_axis_infos(face: face_t, start_offset: number, axes_count: number, axes_array: ot_var_axis_info_t): number
 export function ot_var_get_named_instance_count(face: face_t): number
 export function ot_var_has_data(face: face_t): bool_t
-export function ot_var_named_instance_get_design_coords(face: face_t, instance_index: number): [ /* returnType */ number, /* coords */ number[] ]
+export function ot_var_named_instance_get_design_coords(face: face_t, instance_index: number, coords_length: number, coords: number): number
 export function ot_var_named_instance_get_postscript_name_id(face: face_t, instance_index: number): ot_name_id_t
 export function ot_var_named_instance_get_subfamily_name_id(face: face_t, instance_index: number): ot_name_id_t
-export function ot_var_normalize_coords(face: face_t, coords_length: number, design_coords: number): /* normalized_coords */ number
-export function ot_var_normalize_variations(face: face_t, variations: variation_t, variations_length: number): /* coords */ number[]
+export function ot_var_normalize_coords(face: face_t, coords_length: number, design_coords: number, normalized_coords: number): void
+export function ot_var_normalize_variations(face: face_t, variations: variation_t, variations_length: number, coords: number, coords_length: number): void
 export function script_from_iso15924_tag(tag: tag_t): script_t
 export function script_from_string(str: Uint8Array[]): script_t
 export function script_get_horizontal_direction(script: script_t): direction_t
@@ -1064,9 +1054,9 @@ export function shape(font: font_t, buffer: buffer_t, features: feature_t[] | nu
 export function shape_full(font: font_t, buffer: buffer_t, features: feature_t[] | null, shaper_list?: string[] | null): bool_t
 export function shape_list_shapers(): string[]
 export function shape_plan_create(face: face_t, props: segment_properties_t, user_features: feature_t[], shaper_list: string[]): shape_plan_t
-export function shape_plan_create2(face: face_t, props: segment_properties_t, user_features: feature_t[], coords: number[], shaper_list: string[]): shape_plan_t
+export function shape_plan_create2(face: face_t, props: segment_properties_t, user_features: feature_t, num_user_features: number, coords: number, num_coords: number, shaper_list: string): shape_plan_t
 export function shape_plan_create_cached(face: face_t, props: segment_properties_t, user_features: feature_t[], shaper_list: string[]): shape_plan_t
-export function shape_plan_create_cached2(face: face_t, props: segment_properties_t, user_features: feature_t[], coords: number[], shaper_list: string[]): shape_plan_t
+export function shape_plan_create_cached2(face: face_t, props: segment_properties_t, user_features: feature_t, num_user_features: number, coords: number, num_coords: number, shaper_list: string): shape_plan_t
 export function shape_plan_execute(shape_plan: shape_plan_t, font: font_t, buffer: buffer_t, features: feature_t[]): bool_t
 export function shape_plan_get_empty(): shape_plan_t
 export function shape_plan_get_shaper(shape_plan: shape_plan_t): string

@@ -417,7 +417,6 @@ export enum DBusConnectionFlags {
     AUTHENTICATION_ALLOW_ANONYMOUS,
     MESSAGE_BUS_CONNECTION,
     DELAY_MESSAGE_PROCESSING,
-    AUTHENTICATION_REQUIRE_SAME_USER,
 }
 export enum DBusInterfaceSkeletonFlags {
     NONE,
@@ -454,7 +453,6 @@ export enum DBusServerFlags {
     NONE,
     RUN_IN_THREAD,
     AUTHENTICATION_ALLOW_ANONYMOUS,
-    AUTHENTICATION_REQUIRE_SAME_USER,
 }
 export enum DBusSignalFlags {
     NONE,
@@ -582,8 +580,6 @@ export enum TlsPasswordFlags {
     MANY_TRIES,
     FINAL_TRY,
 }
-export const DBUS_METHOD_INVOCATION_HANDLED: boolean
-export const DBUS_METHOD_INVOCATION_UNHANDLED: boolean
 export const DESKTOP_APP_INFO_LOOKUP_EXTENSION_POINT_NAME: string
 export const DRIVE_IDENTIFIER_KIND_UNIX_DEVICE: string
 export const FILE_ATTRIBUTE_ACCESS_CAN_DELETE: string
@@ -738,9 +734,9 @@ export function dbusAddressGetForBusSync(busType: BusType, cancellable?: Cancell
 export function dbusAddressGetStream(address: string, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
 export function dbusAddressGetStreamFinish(res: AsyncResult): { returnType: IOStream, outGuid: string | null }
 export function dbusAddressGetStreamSync(address: string, cancellable?: Cancellable | null): { returnType: IOStream, outGuid: string | null }
-export function dbusAnnotationInfoLookup(annotations: DBusAnnotationInfo[] | null, name: string): string | null
+export function dbusAnnotationInfoLookup(annotations: DBusAnnotationInfo[] | null, name: string): string
 export function dbusErrorEncodeGerror(error: GLib.Error): string
-export function dbusErrorGetRemoteError(error: GLib.Error): string | null
+export function dbusErrorGetRemoteError(error: GLib.Error): string
 export function dbusErrorIsRemoteError(error: GLib.Error): boolean
 export function dbusErrorNewForDbusError(dbusErrorName: string, dbusErrorMessage: string): GLib.Error
 export function dbusErrorQuark(): GLib.Quark
@@ -748,8 +744,6 @@ export function dbusErrorRegisterError(errorDomain: GLib.Quark, errorCode: numbe
 export function dbusErrorRegisterErrorDomain(errorDomainQuarkName: string, quarkVolatile: number, entries: DBusErrorEntry[]): void
 export function dbusErrorStripRemoteError(error: GLib.Error): boolean
 export function dbusErrorUnregisterError(errorDomain: GLib.Quark, errorCode: number, dbusErrorName: string): boolean
-export function dbusEscapeObjectPath(s: string): string
-export function dbusEscapeObjectPathBytestring(bytes: any[]): string
 export function dbusGenerateGuid(): string
 export function dbusGvalueToGvariant(gvalue: any, type: GLib.VariantType): GLib.Variant
 export function dbusGvariantToGvalue(value: GLib.Variant): { outGvalue: any }
@@ -760,7 +754,6 @@ export function dbusIsMemberName(string: string): boolean
 export function dbusIsName(string: string): boolean
 export function dbusIsSupportedAddress(string: string): boolean
 export function dbusIsUniqueName(string: string): boolean
-export function dbusUnescapeObjectPath(s: string): any[] | null
 export function dtlsClientConnectionNew(baseSocket: DatagramBased, serverIdentity?: SocketConnectable | null): DtlsClientConnection
 export function dtlsServerConnectionNew(baseSocket: DatagramBased, certificate?: TlsCertificate | null): DtlsServerConnection
 export function fileNewForCommandlineArg(arg: string): File
@@ -769,7 +762,7 @@ export function fileNewForPath(path: string): File
 export function fileNewForUri(uri: string): File
 export function fileNewTmp(tmpl?: string | null): { returnType: File, iostream: FileIOStream }
 export function fileParseName(parseName: string): File
-export function iconDeserialize(value: GLib.Variant): Icon | null
+export function iconDeserialize(value: GLib.Variant): Icon
 export function iconHash(icon: object): number
 export function iconNewForString(str: string): Icon
 export function initableNewv(objectType: GObject.Type, parameters: GObject.Parameter[], cancellable?: Cancellable | null): GObject.Object
@@ -795,7 +788,7 @@ export function pollableSourceNewFull(pollableStream: GObject.Object, childSourc
 export function pollableStreamRead(stream: InputStream, buffer: any[], blocking: boolean, cancellable?: Cancellable | null): number
 export function pollableStreamWrite(stream: OutputStream, buffer: any[], blocking: boolean, cancellable?: Cancellable | null): number
 export function pollableStreamWriteAll(stream: OutputStream, buffer: any[], blocking: boolean, cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number }
-export function proxyGetDefaultForProtocol(protocol: string): Proxy | null
+export function proxyGetDefaultForProtocol(protocol: string): Proxy
 export function proxyResolverGetDefault(): ProxyResolver
 export function resolverErrorQuark(): GLib.Quark
 export function resourceErrorQuark(): GLib.Quark
@@ -879,13 +872,10 @@ export interface DBusSignalCallback {
     (connection: DBusConnection, senderName: string | null, objectPath: string, interfaceName: string, signalName: string, parameters: GLib.Variant): void
 }
 export interface DBusSubtreeDispatchFunc {
-    (connection: DBusConnection, sender: string, objectPath: string, interfaceName: string, node: string, outUserData: object): DBusInterfaceVTable | null
-}
-export interface DBusSubtreeEnumerateFunc {
-    (connection: DBusConnection, sender: string, objectPath: string): string[]
+    (connection: DBusConnection, sender: string, objectPath: string, interfaceName: string, node: string, outUserData: object): DBusInterfaceVTable
 }
 export interface DBusSubtreeIntrospectFunc {
-    (connection: DBusConnection, sender: string, objectPath: string, node: string): DBusInterfaceInfo[] | null
+    (connection: DBusConnection, sender: string, objectPath: string, node: string): DBusInterfaceInfo
 }
 export interface DatagramBasedSourceFunc {
     (datagramBased: DatagramBased, condition: GLib.IOCondition): boolean
@@ -945,14 +935,10 @@ export class Action {
     getEnabled(): boolean
     getName(): string
     getParameterType(): GLib.VariantType | null
-    getState(): GLib.Variant | null
+    getState(): GLib.Variant
     getStateHint(): GLib.Variant | null
     getStateType(): GLib.VariantType | null
     static name: string
-    /* Static methods and pseudo-constructors */
-    static nameIsValid(actionName: string): boolean
-    static parseDetailedName(detailedName: string): { returnType: boolean, actionName: string, targetValue: GLib.Variant }
-    static printDetailedName(actionName: string, targetValue?: GLib.Variant | null): string
 }
 export class ActionGroup {
     /* Methods of Gio-2.0.Gio.ActionGroup */
@@ -997,7 +983,7 @@ export class ActionMap {
     /* Methods of Gio-2.0.Gio.ActionMap */
     addAction(action: Action): void
     addActionEntries(entries: ActionEntry[], userData?: object | null): void
-    lookupAction(actionName: string): Action | null
+    lookupAction(actionName: string): Action
     removeAction(actionName: string): void
     static name: string
 }
@@ -1009,12 +995,12 @@ export class AppInfo {
     delete(): boolean
     dup(): AppInfo
     equal(appinfo2: AppInfo): boolean
-    getCommandline(): string | null
-    getDescription(): string | null
+    getCommandline(): string
+    getDescription(): string
     getDisplayName(): string
     getExecutable(): string
-    getIcon(): Icon | null
-    getId(): string | null
+    getIcon(): Icon
+    getId(): string
     getName(): string
     getSupportedTypes(): string[]
     launch(files?: File[] | null, context?: AppLaunchContext | null): boolean
@@ -1029,18 +1015,6 @@ export class AppInfo {
     supportsFiles(): boolean
     supportsUris(): boolean
     static name: string
-    /* Static methods and pseudo-constructors */
-    static createFromCommandline(commandline: string, applicationName: string | null, flags: AppInfoCreateFlags): AppInfo
-    static getAll(): AppInfo[]
-    static getAllForType(contentType: string): AppInfo[]
-    static getDefaultForType(contentType: string, mustSupportUris: boolean): AppInfo | null
-    static getDefaultForUriScheme(uriScheme: string): AppInfo | null
-    static getFallbackForType(contentType: string): AppInfo[]
-    static getRecommendedForType(contentType: string): AppInfo[]
-    static launchDefaultForUri(uri: string, context?: AppLaunchContext | null): boolean
-    static launchDefaultForUriAsync(uri: string, context?: AppLaunchContext | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    static launchDefaultForUriFinish(result: AsyncResult): boolean
-    static resetTypeAssociations(contentType: string): void
 }
 export class AsyncInitable {
     /* Methods of Gio-2.0.Gio.AsyncInitable */
@@ -1048,8 +1022,6 @@ export class AsyncInitable {
     initFinish(res: AsyncResult): boolean
     newFinish(res: AsyncResult): GObject.Object
     static name: string
-    /* Static methods and pseudo-constructors */
-    static newvAsync(objectType: GObject.Type, nParameters: number, parameters: GObject.Parameter, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
 }
 export class AsyncResult {
     /* Methods of Gio-2.0.Gio.AsyncResult */
@@ -1067,14 +1039,14 @@ export class Converter {
 }
 export class DBusInterface {
     /* Methods of Gio-2.0.Gio.DBusInterface */
-    getObject(): DBusObject | null
+    getObject(): DBusObject
     getInfo(): DBusInterfaceInfo
     setObject(object?: DBusObject | null): void
     static name: string
 }
 export class DBusObject {
     /* Methods of Gio-2.0.Gio.DBusObject */
-    getInterface(interfaceName: string): DBusInterface | null
+    getInterface(interfaceName: string): DBusInterface
     getInterfaces(): DBusInterface[]
     getObjectPath(): string
     /* Signals of Gio-2.0.Gio.DBusObject */
@@ -1272,7 +1244,6 @@ export class File {
     appendTo(flags: FileCreateFlags, cancellable?: Cancellable | null): FileOutputStream
     appendToAsync(flags: FileCreateFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     appendToFinish(res: AsyncResult): FileOutputStream
-    buildAttributeListForCopy(flags: FileCopyFlags, cancellable?: Cancellable | null): string
     copy(destination: File, flags: FileCopyFlags, cancellable?: Cancellable | null, progressCallback?: FileProgressCallback | null): boolean
     copyAsync(destination: File, flags: FileCopyFlags, ioPriority: number, cancellable?: Cancellable | null): void
     copyAttributes(destination: File, flags: FileCopyFlags, cancellable?: Cancellable | null): boolean
@@ -1306,7 +1277,7 @@ export class File {
     getPath(): string | null
     getRelativePath(descendant: File): string | null
     getUri(): string
-    getUriScheme(): string | null
+    getUriScheme(): string
     hasParent(parent?: File | null): boolean
     hasPrefix(prefix: File): boolean
     hasUriScheme(uriScheme: string): boolean
@@ -1392,13 +1363,6 @@ export class File {
     unmountMountableWithOperation(flags: MountUnmountFlags, mountOperation?: MountOperation | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     unmountMountableWithOperationFinish(result: AsyncResult): boolean
     static name: string
-    /* Static methods and pseudo-constructors */
-    static newForCommandlineArg(arg: string): File
-    static newForCommandlineArgAndCwd(arg: string, cwd: string): File
-    static newForPath(path: string): File
-    static newForUri(uri: string): File
-    static newTmp(tmpl?: string | null): { returnType: File, iostream: FileIOStream }
-    static parseName(parseName: string): File
 }
 export class FileDescriptorBased {
     /* Methods of Gio-2.0.Gio.FileDescriptorBased */
@@ -1408,20 +1372,14 @@ export class FileDescriptorBased {
 export class Icon {
     /* Methods of Gio-2.0.Gio.Icon */
     equal(icon2?: Icon | null): boolean
-    serialize(): GLib.Variant | null
+    serialize(): GLib.Variant
     toString(): string | null
     static name: string
-    /* Static methods and pseudo-constructors */
-    static deserialize(value: GLib.Variant): Icon | null
-    static hash(icon: object): number
-    static newForString(str: string): Icon
 }
 export class Initable {
     /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Cancellable | null): boolean
     static name: string
-    /* Static methods and pseudo-constructors */
-    static newv(objectType: GObject.Type, parameters: GObject.Parameter[], cancellable?: Cancellable | null): GObject.Object
 }
 export class ListModel {
     /* Methods of Gio-2.0.Gio.ListModel */
@@ -1444,7 +1402,7 @@ export class LoadableIcon {
     loadFinish(res: AsyncResult): { returnType: InputStream, type: string | null }
     /* Methods of Gio-2.0.Gio.Icon */
     equal(icon2?: Icon | null): boolean
-    serialize(): GLib.Variant | null
+    serialize(): GLib.Variant
     toString(): string | null
     static name: string
 }
@@ -1458,8 +1416,6 @@ export class MemoryMonitor {
     off(sigName: "low-memory-warning", callback: (level: MemoryMonitorWarningLevel) => void): NodeJS.EventEmitter
     emit(sigName: "low-memory-warning", level: MemoryMonitorWarningLevel): void
     static name: string
-    /* Static methods and pseudo-constructors */
-    static dupDefault(): MemoryMonitor
 }
 export class Mount {
     /* Methods of Gio-2.0.Gio.Mount */
@@ -1529,8 +1485,6 @@ export class NetworkMonitor {
     off(sigName: "network-changed", callback: (networkAvailable: boolean) => void): NodeJS.EventEmitter
     emit(sigName: "network-changed", networkAvailable: boolean): void
     static name: string
-    /* Static methods and pseudo-constructors */
-    static getDefault(): NetworkMonitor
 }
 export interface PollableInputStream_ConstructProps extends InputStream_ConstructProps {
 }
@@ -1694,8 +1648,6 @@ export class Proxy {
     connectFinish(result: AsyncResult): IOStream
     supportsHostname(): boolean
     static name: string
-    /* Static methods and pseudo-constructors */
-    static getDefaultForProtocol(protocol: string): Proxy | null
 }
 export class ProxyResolver {
     /* Methods of Gio-2.0.Gio.ProxyResolver */
@@ -1704,8 +1656,6 @@ export class ProxyResolver {
     lookupAsync(uri: string, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     lookupFinish(result: AsyncResult): string[]
     static name: string
-    /* Static methods and pseudo-constructors */
-    static getDefault(): ProxyResolver
 }
 export class RemoteActionGroup {
     /* Methods of Gio-2.0.Gio.RemoteActionGroup */
@@ -1778,8 +1728,6 @@ export class TlsBackend {
     supportsDtls(): boolean
     supportsTls(): boolean
     static name: string
-    /* Static methods and pseudo-constructors */
-    static getDefault(): TlsBackend
 }
 export interface TlsClientConnection_ConstructProps extends TlsConnection_ConstructProps {
     serverIdentity?: SocketConnectable
@@ -1815,7 +1763,7 @@ export class TlsClientConnection {
     /* Methods of Gio-2.0.Gio.TlsClientConnection */
     copySessionState(source: TlsClientConnection): void
     getAcceptedCas(): any[]
-    getServerIdentity(): SocketConnectable | null
+    getServerIdentity(): SocketConnectable
     getUseSsl3(): boolean
     getValidationFlags(): TlsCertificateFlags
     setServerIdentity(identity: SocketConnectable): void
@@ -2313,8 +2261,6 @@ export class AppInfoMonitor {
     static name: string
     constructor (config?: AppInfoMonitor_ConstructProps)
     _init (config?: AppInfoMonitor_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static get(): AppInfoMonitor
     static $gtype: GObject.Type
 }
 export interface AppLaunchContext_ConstructProps extends GObject.Object_ConstructProps {
@@ -2325,9 +2271,9 @@ export class AppLaunchContext {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.AppLaunchContext */
-    getDisplay(info: AppInfo, files: File[]): string | null
+    getDisplay(info: AppInfo, files: File[]): string
     getEnvironment(): string[]
-    getStartupNotifyId(info: AppInfo, files: File[]): string | null
+    getStartupNotifyId(info: AppInfo, files: File[]): string
     launchFailed(startupNotifyId: string): void
     setenv(variable: string, value: string): void
     unsetenv(variable: string): void
@@ -2380,8 +2326,6 @@ export class AppLaunchContext {
     static name: string
     constructor (config?: AppLaunchContext_ConstructProps)
     _init (config?: AppLaunchContext_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): AppLaunchContext
     static $gtype: GObject.Type
 }
 export interface Application_ConstructProps extends GObject.Object_ConstructProps {
@@ -2409,9 +2353,9 @@ export class Application {
     addMainOptionEntries(entries: GLib.OptionEntry[]): void
     addOptionGroup(group: GLib.OptionGroup): void
     bindBusyProperty(object: GObject.Object, property: string): void
-    getApplicationId(): string | null
-    getDbusConnection(): DBusConnection | null
-    getDbusObjectPath(): string | null
+    getApplicationId(): string
+    getDbusConnection(): DBusConnection
+    getDbusObjectPath(): string
     getFlags(): ApplicationFlags
     getInactivityTimeout(): number
     getIsBusy(): boolean
@@ -2478,7 +2422,7 @@ export class Application {
     /* Methods of Gio-2.0.Gio.ActionMap */
     addAction(action: Action): void
     addActionEntries(entries: ActionEntry[], userData?: object | null): void
-    lookupAction(actionName: string): Action | null
+    lookupAction(actionName: string): Action
     removeAction(actionName: string): void
     /* Signals of Gio-2.0.Gio.Application */
     connect(sigName: "activate", callback: (($obj: Application) => void)): number
@@ -2593,10 +2537,6 @@ export class Application {
     static name: string
     constructor (config?: Application_ConstructProps)
     _init (config?: Application_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(applicationId: string | null, flags: ApplicationFlags): Application
-    static getDefault(): Application | null
-    static idIsValid(applicationId: string): boolean
     static $gtype: GObject.Type
 }
 export interface ApplicationCommandLine_ConstructProps extends GObject.Object_ConstructProps {
@@ -2618,8 +2558,8 @@ export class ApplicationCommandLine {
     getIsRemote(): boolean
     getOptionsDict(): GLib.VariantDict
     getPlatformData(): GLib.Variant | null
-    getStdin(): InputStream | null
-    getenv(name: string): string | null
+    getStdin(): InputStream
+    getenv(name: string): string
     setExitStatus(exitStatus: number): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -2768,9 +2708,6 @@ export class BufferedInputStream {
     static name: string
     constructor (config?: BufferedInputStream_ConstructProps)
     _init (config?: BufferedInputStream_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(baseStream: InputStream): BufferedInputStream
-    static newSized(baseStream: InputStream, size: number): BufferedInputStream
     static $gtype: GObject.Type
 }
 export interface BufferedOutputStream_ConstructProps extends FilterOutputStream_ConstructProps {
@@ -2881,9 +2818,6 @@ export class BufferedOutputStream {
     static name: string
     constructor (config?: BufferedOutputStream_ConstructProps)
     _init (config?: BufferedOutputStream_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(baseStream: OutputStream): BufferedOutputStream
-    static newSized(baseStream: OutputStream, size: number): BufferedOutputStream
     static $gtype: GObject.Type
 }
 export interface BytesIcon_ConstructProps extends GObject.Object_ConstructProps {
@@ -2918,7 +2852,7 @@ export class BytesIcon {
     watchClosure(closure: GObject.Closure): void
     /* Methods of Gio-2.0.Gio.Icon */
     equal(icon2?: Icon | null): boolean
-    serialize(): GLib.Variant | null
+    serialize(): GLib.Variant
     toString(): string | null
     /* Methods of Gio-2.0.Gio.LoadableIcon */
     load(size: number, cancellable?: Cancellable | null): { returnType: InputStream, type: string | null }
@@ -2940,11 +2874,6 @@ export class BytesIcon {
     static name: string
     constructor (config?: BytesIcon_ConstructProps)
     _init (config?: BytesIcon_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(bytes: any): BytesIcon
-    static deserialize(value: GLib.Variant): Icon | null
-    static hash(icon: object): number
-    static newForString(str: string): Icon
     static $gtype: GObject.Type
 }
 export interface Cancellable_ConstructProps extends GObject.Object_ConstructProps {
@@ -3011,9 +2940,6 @@ export class Cancellable {
     static name: string
     constructor (config?: Cancellable_ConstructProps)
     _init (config?: Cancellable_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): Cancellable
-    static getCurrent(): Cancellable | null
     static $gtype: GObject.Type
 }
 export interface CharsetConverter_ConstructProps extends GObject.Object_ConstructProps {
@@ -3078,9 +3004,6 @@ export class CharsetConverter {
     static name: string
     constructor (config?: CharsetConverter_ConstructProps)
     _init (config?: CharsetConverter_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(toCharset: string, fromCharset: string): CharsetConverter
-    static newv(objectType: GObject.Type, parameters: GObject.Parameter[], cancellable?: Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
 export interface ConverterInputStream_ConstructProps extends FilterInputStream_ConstructProps {
@@ -3169,8 +3092,6 @@ export class ConverterInputStream {
     static name: string
     constructor (config?: ConverterInputStream_ConstructProps)
     _init (config?: ConverterInputStream_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(baseStream: InputStream, converter: Converter): ConverterInputStream
     static $gtype: GObject.Type
 }
 export interface ConverterOutputStream_ConstructProps extends FilterOutputStream_ConstructProps {
@@ -3263,8 +3184,6 @@ export class ConverterOutputStream {
     static name: string
     constructor (config?: ConverterOutputStream_ConstructProps)
     _init (config?: ConverterOutputStream_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(baseStream: OutputStream, converter: Converter): ConverterOutputStream
     static $gtype: GObject.Type
 }
 export interface Credentials_ConstructProps extends GObject.Object_ConstructProps {
@@ -3317,8 +3236,6 @@ export class Credentials {
     static name: string
     constructor (config?: Credentials_ConstructProps)
     _init (config?: Credentials_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): Credentials
     static $gtype: GObject.Type
 }
 export interface DBusActionGroup_ConstructProps extends GObject.Object_ConstructProps {
@@ -3403,8 +3320,6 @@ export class DBusActionGroup {
     static name: string
     constructor (config?: DBusActionGroup_ConstructProps)
     _init (config?: DBusActionGroup_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static get(connection: DBusConnection, busName: string | null, objectPath: string): DBusActionGroup
     static $gtype: GObject.Type
 }
 export interface DBusAuthObserver_ConstructProps extends GObject.Object_ConstructProps {
@@ -3464,8 +3379,6 @@ export class DBusAuthObserver {
     static name: string
     constructor (config?: DBusAuthObserver_ConstructProps)
     _init (config?: DBusAuthObserver_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): DBusAuthObserver
     static $gtype: GObject.Type
 }
 export interface DBusConnection_ConstructProps extends GObject.Object_ConstructProps {
@@ -3595,14 +3508,6 @@ export class DBusConnection {
     static name: string
     constructor (config?: DBusConnection_ConstructProps)
     _init (config?: DBusConnection_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static newFinish(res: AsyncResult): DBusConnection
-    static newForAddressFinish(res: AsyncResult): DBusConnection
-    static newForAddressSync(address: string, flags: DBusConnectionFlags, observer?: DBusAuthObserver | null, cancellable?: Cancellable | null): DBusConnection
-    static newSync(stream: IOStream, guid: string | null, flags: DBusConnectionFlags, observer?: DBusAuthObserver | null, cancellable?: Cancellable | null): DBusConnection
-    static newForAddress(address: string, flags: DBusConnectionFlags, observer?: DBusAuthObserver | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    static newvAsync(objectType: GObject.Type, nParameters: number, parameters: GObject.Parameter, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    static newv(objectType: GObject.Type, parameters: GObject.Parameter[], cancellable?: Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
 export interface DBusInterfaceSkeleton_ConstructProps extends GObject.Object_ConstructProps {
@@ -3616,11 +3521,11 @@ export class DBusInterfaceSkeleton {
     /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     export(connection: DBusConnection, objectPath: string): boolean
     flush(): void
-    getConnection(): DBusConnection | null
+    getConnection(): DBusConnection
     getConnections(): DBusConnection[]
     getFlags(): DBusInterfaceSkeletonFlags
     getInfo(): DBusInterfaceInfo
-    getObjectPath(): string | null
+    getObjectPath(): string
     getProperties(): GLib.Variant
     hasConnection(connection: DBusConnection): boolean
     setFlags(flags: DBusInterfaceSkeletonFlags): void
@@ -3649,7 +3554,7 @@ export class DBusInterfaceSkeleton {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Methods of Gio-2.0.Gio.DBusInterface */
-    getObject(): DBusObject | null
+    getObject(): DBusObject
     setObject(object?: DBusObject | null): void
     /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
     connect(sigName: "g-authorize-method", callback: (($obj: DBusInterfaceSkeleton, invocation: DBusMethodInvocation) => boolean)): number
@@ -3689,8 +3594,8 @@ export class DBusMenuModel {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.MenuModel */
-    getItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant | null
-    getItemLink(itemIndex: number, link: string): MenuModel | null
+    getItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant
+    getItemLink(itemIndex: number, link: string): MenuModel
     getNItems(): number
     isMutable(): boolean
     itemsChanged(position: number, removed: number, added: number): void
@@ -3740,8 +3645,6 @@ export class DBusMenuModel {
     static name: string
     constructor (config?: DBusMenuModel_ConstructProps)
     _init (config?: DBusMenuModel_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static get(connection: DBusConnection, busName: string | null, objectPath: string): DBusMenuModel
     static $gtype: GObject.Type
 }
 export interface DBusMessage_ConstructProps extends GObject.Object_ConstructProps {
@@ -3753,44 +3656,44 @@ export class DBusMessage {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.DBusMessage */
     copy(): DBusMessage
-    getArg0(): string | null
-    getBody(): GLib.Variant | null
+    getArg0(): string
+    getBody(): GLib.Variant
     getByteOrder(): DBusMessageByteOrder
-    getDestination(): string | null
-    getErrorName(): string | null
+    getDestination(): string
+    getErrorName(): string
     getFlags(): DBusMessageFlags
     getHeader(headerField: DBusMessageHeaderField): GLib.Variant | null
     getHeaderFields(): any[]
-    getInterface(): string | null
+    getInterface(): string
     getLocked(): boolean
-    getMember(): string | null
+    getMember(): string
     getMessageType(): DBusMessageType
     getNumUnixFds(): number
-    getPath(): string | null
+    getPath(): string
     getReplySerial(): number
-    getSender(): string | null
+    getSender(): string
     getSerial(): number
     getSignature(): string
-    getUnixFdList(): UnixFDList | null
+    getUnixFdList(): UnixFDList
     lock(): void
     newMethodErrorLiteral(errorName: string, errorMessage: string): DBusMessage
     newMethodReply(): DBusMessage
     print(indent: number): string
     setBody(body: GLib.Variant): void
     setByteOrder(byteOrder: DBusMessageByteOrder): void
-    setDestination(value?: string | null): void
+    setDestination(value: string): void
     setErrorName(value: string): void
     setFlags(flags: DBusMessageFlags): void
     setHeader(headerField: DBusMessageHeaderField, value?: GLib.Variant | null): void
-    setInterface(value?: string | null): void
-    setMember(value?: string | null): void
+    setInterface(value: string): void
+    setMember(value: string): void
     setMessageType(type: DBusMessageType): void
     setNumUnixFds(value: number): void
-    setPath(value?: string | null): void
+    setPath(value: string): void
     setReplySerial(value: number): void
-    setSender(value?: string | null): void
+    setSender(value: string): void
     setSerial(serial: number): void
-    setSignature(value?: string | null): void
+    setSignature(value: string): void
     setUnixFdList(fdList?: UnixFDList | null): void
     toBlob(capabilities: DBusCapabilityFlags): any[]
     toGerror(): boolean
@@ -3837,12 +3740,6 @@ export class DBusMessage {
     static name: string
     constructor (config?: DBusMessage_ConstructProps)
     _init (config?: DBusMessage_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): DBusMessage
-    static newFromBlob(blob: any[], capabilities: DBusCapabilityFlags): DBusMessage
-    static newMethodCall(name: string | null, path: string, interface: string | null, method: string): DBusMessage
-    static newSignal(path: string, interface: string, signal: string): DBusMessage
-    static bytesNeeded(blob: any[]): number
     static $gtype: GObject.Type
 }
 export interface DBusMethodInvocation_ConstructProps extends GObject.Object_ConstructProps {
@@ -3854,11 +3751,11 @@ export class DBusMethodInvocation {
     getConnection(): DBusConnection
     getInterfaceName(): string
     getMessage(): DBusMessage
-    getMethodInfo(): DBusMethodInfo | null
+    getMethodInfo(): DBusMethodInfo
     getMethodName(): string
     getObjectPath(): string
     getParameters(): GLib.Variant
-    getPropertyInfo(): DBusPropertyInfo | null
+    getPropertyInfo(): DBusPropertyInfo
     getSender(): string
     returnDbusError(errorName: string, errorMessage: string): void
     returnErrorLiteral(domain: GLib.Quark, code: number, message: string): void
@@ -4011,14 +3908,6 @@ export class DBusObjectManagerClient {
     static name: string
     constructor (config?: DBusObjectManagerClient_ConstructProps)
     _init (config?: DBusObjectManagerClient_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static newFinish(res: AsyncResult): DBusObjectManagerClient
-    static newForBusFinish(res: AsyncResult): DBusObjectManagerClient
-    static newForBusSync(busType: BusType, flags: DBusObjectManagerClientFlags, name: string, objectPath: string, getProxyTypeFunc?: DBusProxyTypeFunc | null, cancellable?: Cancellable | null): DBusObjectManagerClient
-    static newSync(connection: DBusConnection, flags: DBusObjectManagerClientFlags, name: string | null, objectPath: string, getProxyTypeFunc?: DBusProxyTypeFunc | null, cancellable?: Cancellable | null): DBusObjectManagerClient
-    static newForBus(busType: BusType, flags: DBusObjectManagerClientFlags, name: string, objectPath: string, getProxyTypeFunc?: DBusProxyTypeFunc | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    static newvAsync(objectType: GObject.Type, nParameters: number, parameters: GObject.Parameter, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    static newv(objectType: GObject.Type, parameters: GObject.Parameter[], cancellable?: Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
 export interface DBusObjectManagerServer_ConstructProps extends GObject.Object_ConstructProps {
@@ -4106,8 +3995,6 @@ export class DBusObjectManagerServer {
     static name: string
     constructor (config?: DBusObjectManagerServer_ConstructProps)
     _init (config?: DBusObjectManagerServer_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(objectPath: string): DBusObjectManagerServer
     static $gtype: GObject.Type
 }
 export interface DBusObjectProxy_ConstructProps extends GObject.Object_ConstructProps {
@@ -4142,7 +4029,7 @@ export class DBusObjectProxy {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Methods of Gio-2.0.Gio.DBusObject */
-    getInterface(interfaceName: string): DBusInterface | null
+    getInterface(interfaceName: string): DBusInterface
     getInterfaces(): DBusInterface[]
     getObjectPath(): string
     /* Signals of GObject-2.0.GObject.Object */
@@ -4172,8 +4059,6 @@ export class DBusObjectProxy {
     static name: string
     constructor (config?: DBusObjectProxy_ConstructProps)
     _init (config?: DBusObjectProxy_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(connection: DBusConnection, objectPath: string): DBusObjectProxy
     static $gtype: GObject.Type
 }
 export interface DBusObjectSkeleton_ConstructProps extends GObject.Object_ConstructProps {
@@ -4213,7 +4098,7 @@ export class DBusObjectSkeleton {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Methods of Gio-2.0.Gio.DBusObject */
-    getInterface(interfaceName: string): DBusInterface | null
+    getInterface(interfaceName: string): DBusInterface
     getInterfaces(): DBusInterface[]
     getObjectPath(): string
     /* Signals of Gio-2.0.Gio.DBusObjectSkeleton */
@@ -4254,8 +4139,6 @@ export class DBusObjectSkeleton {
     static name: string
     constructor (config?: DBusObjectSkeleton_ConstructProps)
     _init (config?: DBusObjectSkeleton_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(objectPath: string): DBusObjectSkeleton
     static $gtype: GObject.Type
 }
 export interface DBusProxy_ConstructProps extends GObject.Object_ConstructProps {
@@ -4322,7 +4205,7 @@ export class DBusProxy {
     initFinish(res: AsyncResult): boolean
     newFinish(res: AsyncResult): GObject.Object
     /* Methods of Gio-2.0.Gio.DBusInterface */
-    getObject(): DBusObject | null
+    getObject(): DBusObject
     getInfo(): DBusInterfaceInfo
     setObject(object?: DBusObject | null): void
     /* Methods of Gio-2.0.Gio.Initable */
@@ -4369,14 +4252,6 @@ export class DBusProxy {
     static name: string
     constructor (config?: DBusProxy_ConstructProps)
     _init (config?: DBusProxy_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static newFinish(res: AsyncResult): DBusProxy
-    static newForBusFinish(res: AsyncResult): DBusProxy
-    static newForBusSync(busType: BusType, flags: DBusProxyFlags, info: DBusInterfaceInfo | null, name: string, objectPath: string, interfaceName: string, cancellable?: Cancellable | null): DBusProxy
-    static newSync(connection: DBusConnection, flags: DBusProxyFlags, info: DBusInterfaceInfo | null, name: string | null, objectPath: string, interfaceName: string, cancellable?: Cancellable | null): DBusProxy
-    static newForBus(busType: BusType, flags: DBusProxyFlags, info: DBusInterfaceInfo | null, name: string, objectPath: string, interfaceName: string, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    static newvAsync(objectType: GObject.Type, nParameters: number, parameters: GObject.Parameter, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    static newv(objectType: GObject.Type, parameters: GObject.Parameter[], cancellable?: Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
 export interface DBusServer_ConstructProps extends GObject.Object_ConstructProps {
@@ -4454,9 +4329,6 @@ export class DBusServer {
     static name: string
     constructor (config?: DBusServer_ConstructProps)
     _init (config?: DBusServer_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static newSync(address: string, flags: DBusServerFlags, guid: string, observer?: DBusAuthObserver | null, cancellable?: Cancellable | null): DBusServer
-    static newv(objectType: GObject.Type, parameters: GObject.Parameter[], cancellable?: Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
 export interface DataInputStream_ConstructProps extends BufferedInputStream_ConstructProps {
@@ -4597,8 +4469,6 @@ export class DataInputStream {
     static name: string
     constructor (config?: DataInputStream_ConstructProps)
     _init (config?: DataInputStream_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(baseStream: InputStream): DataInputStream
     static $gtype: GObject.Type
 }
 export interface DataOutputStream_ConstructProps extends FilterOutputStream_ConstructProps {
@@ -4707,8 +4577,6 @@ export class DataOutputStream {
     static name: string
     constructor (config?: DataOutputStream_ConstructProps)
     _init (config?: DataOutputStream_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(baseStream: OutputStream): DataOutputStream
     static $gtype: GObject.Type
 }
 export interface DesktopAppInfo_ConstructProps extends GObject.Object_ConstructProps {
@@ -4720,16 +4588,16 @@ export class DesktopAppInfo {
     /* Methods of Gio-2.0.Gio.DesktopAppInfo */
     getActionName(actionName: string): string
     getBoolean(key: string): boolean
-    getCategories(): string | null
-    getFilename(): string | null
-    getGenericName(): string | null
+    getCategories(): string
+    getFilename(): string
+    getGenericName(): string
     getIsHidden(): boolean
     getKeywords(): string[]
     getLocaleString(key: string): string | null
     getNodisplay(): boolean
     getShowIn(desktopEnv?: string | null): boolean
-    getStartupWmClass(): string | null
-    getString(key: string): string | null
+    getStartupWmClass(): string
+    getString(key: string): string
     getStringList(key: string): string[]
     hasKey(key: string): boolean
     launchAction(actionName: string, launchContext?: AppLaunchContext | null): void
@@ -4765,12 +4633,12 @@ export class DesktopAppInfo {
     delete(): boolean
     dup(): AppInfo
     equal(appinfo2: AppInfo): boolean
-    getCommandline(): string | null
-    getDescription(): string | null
+    getCommandline(): string
+    getDescription(): string
     getDisplayName(): string
     getExecutable(): string
-    getIcon(): Icon | null
-    getId(): string | null
+    getIcon(): Icon
+    getId(): string
     getName(): string
     getSupportedTypes(): string[]
     launch(files?: File[] | null, context?: AppLaunchContext | null): boolean
@@ -4800,24 +4668,6 @@ export class DesktopAppInfo {
     static name: string
     constructor (config?: DesktopAppInfo_ConstructProps)
     _init (config?: DesktopAppInfo_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(desktopId: string): DesktopAppInfo
-    static newFromFilename(filename: string): DesktopAppInfo
-    static newFromKeyfile(keyFile: GLib.KeyFile): DesktopAppInfo
-    static getImplementations(interface: string): DesktopAppInfo[]
-    static search(searchString: string): any[]
-    static setDesktopEnv(desktopEnv: string): void
-    static createFromCommandline(commandline: string, applicationName: string | null, flags: AppInfoCreateFlags): AppInfo
-    static getAll(): AppInfo[]
-    static getAllForType(contentType: string): AppInfo[]
-    static getDefaultForType(contentType: string, mustSupportUris: boolean): AppInfo | null
-    static getDefaultForUriScheme(uriScheme: string): AppInfo | null
-    static getFallbackForType(contentType: string): AppInfo[]
-    static getRecommendedForType(contentType: string): AppInfo[]
-    static launchDefaultForUri(uri: string, context?: AppLaunchContext | null): boolean
-    static launchDefaultForUriAsync(uri: string, context?: AppLaunchContext | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
-    static launchDefaultForUriFinish(result: AsyncResult): boolean
-    static resetTypeAssociations(contentType: string): void
     static $gtype: GObject.Type
 }
 export interface Emblem_ConstructProps extends GObject.Object_ConstructProps {
@@ -4854,7 +4704,7 @@ export class Emblem {
     watchClosure(closure: GObject.Closure): void
     /* Methods of Gio-2.0.Gio.Icon */
     equal(icon2?: Icon | null): boolean
-    serialize(): GLib.Variant | null
+    serialize(): GLib.Variant
     toString(): string | null
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Emblem, pspec: GObject.ParamSpec) => void)): number
@@ -4872,12 +4722,6 @@ export class Emblem {
     static name: string
     constructor (config?: Emblem_ConstructProps)
     _init (config?: Emblem_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(icon: Icon): Emblem
-    static newWithOrigin(icon: Icon, origin: EmblemOrigin): Emblem
-    static deserialize(value: GLib.Variant): Icon | null
-    static hash(icon: object): number
-    static newForString(str: string): Icon
     static $gtype: GObject.Type
 }
 export interface EmblemedIcon_ConstructProps extends GObject.Object_ConstructProps {
@@ -4917,7 +4761,7 @@ export class EmblemedIcon {
     watchClosure(closure: GObject.Closure): void
     /* Methods of Gio-2.0.Gio.Icon */
     equal(icon2?: Icon | null): boolean
-    serialize(): GLib.Variant | null
+    serialize(): GLib.Variant
     toString(): string | null
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EmblemedIcon, pspec: GObject.ParamSpec) => void)): number
@@ -4935,11 +4779,6 @@ export class EmblemedIcon {
     static name: string
     constructor (config?: EmblemedIcon_ConstructProps)
     _init (config?: EmblemedIcon_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(icon: Icon, emblem?: Emblem | null): EmblemedIcon
-    static deserialize(value: GLib.Variant): Icon | null
-    static hash(icon: object): number
-    static newForString(str: string): Icon
     static $gtype: GObject.Type
 }
 export interface FileEnumerator_ConstructProps extends GObject.Object_ConstructProps {
@@ -5015,7 +4854,7 @@ export class FileIOStream {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.FileIOStream */
-    getEtag(): string | null
+    getEtag(): string
     queryInfo(attributes: string, cancellable?: Cancellable | null): FileInfo
     queryInfoAsync(attributes: string, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     queryInfoFinish(result: AsyncResult): FileInfo
@@ -5123,7 +4962,7 @@ export class FileIcon {
     watchClosure(closure: GObject.Closure): void
     /* Methods of Gio-2.0.Gio.Icon */
     equal(icon2?: Icon | null): boolean
-    serialize(): GLib.Variant | null
+    serialize(): GLib.Variant
     toString(): string | null
     /* Methods of Gio-2.0.Gio.LoadableIcon */
     load(size: number, cancellable?: Cancellable | null): { returnType: InputStream, type: string | null }
@@ -5145,11 +4984,6 @@ export class FileIcon {
     static name: string
     constructor (config?: FileIcon_ConstructProps)
     _init (config?: FileIcon_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(file: File): FileIcon
-    static deserialize(value: GLib.Variant): Icon | null
-    static hash(icon: object): number
-    static newForString(str: string): Icon
     static $gtype: GObject.Type
 }
 export interface FileInfo_ConstructProps extends GObject.Object_ConstructProps {
@@ -5178,9 +5012,9 @@ export class FileInfo {
     getDeletionDate(): GLib.DateTime | null
     getDisplayName(): string
     getEditName(): string
-    getEtag(): string | null
+    getEtag(): string
     getFileType(): FileType
-    getIcon(): Icon | null
+    getIcon(): Icon
     getIsBackup(): boolean
     getIsHidden(): boolean
     getIsSymlink(): boolean
@@ -5189,8 +5023,8 @@ export class FileInfo {
     getName(): string
     getSize(): number
     getSortOrder(): number
-    getSymbolicIcon(): Icon | null
-    getSymlinkTarget(): string | null
+    getSymbolicIcon(): Icon
+    getSymlinkTarget(): string
     hasAttribute(attribute: string): boolean
     hasNamespace(nameSpace: string): boolean
     listAttributes(nameSpace?: string | null): string[] | null
@@ -5260,8 +5094,6 @@ export class FileInfo {
     static name: string
     constructor (config?: FileInfo_ConstructProps)
     _init (config?: FileInfo_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): FileInfo
     static $gtype: GObject.Type
 }
 export interface FileInputStream_ConstructProps extends InputStream_ConstructProps {
@@ -5421,7 +5253,7 @@ export class FileOutputStream {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.FileOutputStream */
-    getEtag(): string | null
+    getEtag(): string
     queryInfo(attributes: string, cancellable?: Cancellable | null): FileInfo
     queryInfoAsync(attributes: string, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     queryInfoFinish(result: AsyncResult): FileInfo
@@ -5507,7 +5339,7 @@ export class FilenameCompleter {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.FilenameCompleter */
-    getCompletionSuffix(initialText: string): string | null
+    getCompletionSuffix(initialText: string): string
     getCompletions(initialText: string): string[]
     setDirsOnly(dirsOnly: boolean): void
     /* Methods of GObject-2.0.GObject.Object */
@@ -5554,8 +5386,6 @@ export class FilenameCompleter {
     static name: string
     constructor (config?: FilenameCompleter_ConstructProps)
     _init (config?: FilenameCompleter_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): FilenameCompleter
     static $gtype: GObject.Type
 }
 export interface FilterInputStream_ConstructProps extends InputStream_ConstructProps {
@@ -5787,9 +5617,6 @@ export class IOModule {
     static name: string
     constructor (config?: IOModule_ConstructProps)
     _init (config?: IOModule_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(filename: string): IOModule
-    static query(): string[]
     static $gtype: GObject.Type
 }
 export interface IOStream_ConstructProps extends GObject.Object_ConstructProps {
@@ -5867,8 +5694,6 @@ export class IOStream {
     static name: string
     constructor (config?: IOStream_ConstructProps)
     _init (config?: IOStream_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static spliceFinish(result: AsyncResult): boolean
     static $gtype: GObject.Type
 }
 export interface InetAddress_ConstructProps extends GObject.Object_ConstructProps {
@@ -5994,11 +5819,6 @@ export class InetAddress {
     static name: string
     constructor (config?: InetAddress_ConstructProps)
     _init (config?: InetAddress_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static newAny(family: SocketFamily): InetAddress
-    static newFromBytes(bytes: any[], family: SocketFamily): InetAddress
-    static newFromString(string: string): InetAddress
-    static newLoopback(family: SocketFamily): InetAddress
     static $gtype: GObject.Type
 }
 export interface InetAddressMask_ConstructProps extends GObject.Object_ConstructProps {
@@ -6076,10 +5896,6 @@ export class InetAddressMask {
     static name: string
     constructor (config?: InetAddressMask_ConstructProps)
     _init (config?: InetAddressMask_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(addr: InetAddress, length: number): InetAddressMask
-    static newFromString(maskString: string): InetAddressMask
-    static newv(objectType: GObject.Type, parameters: GObject.Parameter[], cancellable?: Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
 export interface InetSocketAddress_ConstructProps extends SocketAddress_ConstructProps {
@@ -6151,9 +5967,6 @@ export class InetSocketAddress {
     static name: string
     constructor (config?: InetSocketAddress_ConstructProps)
     _init (config?: InetSocketAddress_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(address: InetAddress, port: number): InetSocketAddress
-    static newFromString(address: string, port: number): InetSocketAddress
     static $gtype: GObject.Type
 }
 export interface InputStream_ConstructProps extends GObject.Object_ConstructProps {
@@ -6288,8 +6101,6 @@ export class ListStore {
     static name: string
     constructor (config?: ListStore_ConstructProps)
     _init (config?: ListStore_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(itemType: GObject.Type): ListStore
     static $gtype: GObject.Type
 }
 export interface MemoryInputStream_ConstructProps extends InputStream_ConstructProps {
@@ -6371,10 +6182,6 @@ export class MemoryInputStream {
     static name: string
     constructor (config?: MemoryInputStream_ConstructProps)
     _init (config?: MemoryInputStream_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): MemoryInputStream
-    static newFromBytes(bytes: any): MemoryInputStream
-    static newFromData(data: any[], destroy?: GLib.DestroyNotify | null): MemoryInputStream
     static $gtype: GObject.Type
 }
 export interface MemoryOutputStream_ConstructProps extends OutputStream_ConstructProps {
@@ -6479,8 +6286,6 @@ export class MemoryOutputStream {
     static name: string
     constructor (config?: MemoryOutputStream_ConstructProps)
     _init (config?: MemoryOutputStream_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static newResizable(): MemoryOutputStream
     static $gtype: GObject.Type
 }
 export interface Menu_ConstructProps extends MenuModel_ConstructProps {
@@ -6508,8 +6313,8 @@ export class Menu {
     remove(position: number): void
     removeAll(): void
     /* Methods of Gio-2.0.Gio.MenuModel */
-    getItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant | null
-    getItemLink(itemIndex: number, link: string): MenuModel | null
+    getItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant
+    getItemLink(itemIndex: number, link: string): MenuModel
     getNItems(): number
     isMutable(): boolean
     itemsChanged(position: number, removed: number, added: number): void
@@ -6559,8 +6364,6 @@ export class Menu {
     static name: string
     constructor (config?: Menu_ConstructProps)
     _init (config?: Menu_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): Menu
     static $gtype: GObject.Type
 }
 export interface MenuAttributeIter_ConstructProps extends GObject.Object_ConstructProps {
@@ -6622,8 +6425,8 @@ export class MenuItem {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.MenuItem */
-    getAttributeValue(attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant | null
-    getLink(link: string): MenuModel | null
+    getAttributeValue(attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant
+    getLink(link: string): MenuModel
     setActionAndTargetValue(action?: string | null, targetValue?: GLib.Variant | null): void
     setAttributeValue(attribute: string, value?: GLib.Variant | null): void
     setDetailedAction(detailedAction: string): void
@@ -6670,11 +6473,6 @@ export class MenuItem {
     static name: string
     constructor (config?: MenuItem_ConstructProps)
     _init (config?: MenuItem_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(label?: string | null, detailedAction?: string | null): MenuItem
-    static newFromModel(model: MenuModel, itemIndex: number): MenuItem
-    static newSection(label: string | null, section: MenuModel): MenuItem
-    static newSubmenu(label: string | null, submenu: MenuModel): MenuItem
     static $gtype: GObject.Type
 }
 export interface MenuLinkIter_ConstructProps extends GObject.Object_ConstructProps {
@@ -6739,8 +6537,8 @@ export class MenuModel {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.MenuModel */
-    getItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant | null
-    getItemLink(itemIndex: number, link: string): MenuModel | null
+    getItemAttributeValue(itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null): GLib.Variant
+    getItemLink(itemIndex: number, link: string): MenuModel
     getNItems(): number
     isMutable(): boolean
     itemsChanged(position: number, removed: number, added: number): void
@@ -6822,23 +6620,23 @@ export class MountOperation {
     /* Methods of Gio-2.0.Gio.MountOperation */
     getAnonymous(): boolean
     getChoice(): number
-    getDomain(): string | null
+    getDomain(): string
     getIsTcryptHiddenVolume(): boolean
     getIsTcryptSystemVolume(): boolean
-    getPassword(): string | null
+    getPassword(): string
     getPasswordSave(): PasswordSave
     getPim(): number
-    getUsername(): string | null
+    getUsername(): string
     reply(result: MountOperationResult): void
     setAnonymous(anonymous: boolean): void
     setChoice(choice: number): void
-    setDomain(domain?: string | null): void
+    setDomain(domain: string): void
     setIsTcryptHiddenVolume(hiddenVolume: boolean): void
     setIsTcryptSystemVolume(systemVolume: boolean): void
-    setPassword(password?: string | null): void
+    setPassword(password: string): void
     setPasswordSave(save: PasswordSave): void
     setPim(pim: number): void
-    setUsername(username?: string | null): void
+    setUsername(username: string): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -6953,8 +6751,6 @@ export class MountOperation {
     static name: string
     constructor (config?: MountOperation_ConstructProps)
     _init (config?: MountOperation_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): MountOperation
     static $gtype: GObject.Type
 }
 export interface NativeSocketAddress_ConstructProps extends SocketAddress_ConstructProps {
@@ -7017,8 +6813,6 @@ export class NativeSocketAddress {
     static name: string
     constructor (config?: NativeSocketAddress_ConstructProps)
     _init (config?: NativeSocketAddress_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(native: object | null, len: number): NativeSocketAddress
     static $gtype: GObject.Type
 }
 export interface NativeVolumeMonitor_ConstructProps extends VolumeMonitor_ConstructProps {
@@ -7030,9 +6824,9 @@ export class NativeVolumeMonitor {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.VolumeMonitor */
     getConnectedDrives(): Drive[]
-    getMountForUuid(uuid: string): Mount | null
+    getMountForUuid(uuid: string): Mount
     getMounts(): Mount[]
-    getVolumeForUuid(uuid: string): Volume | null
+    getVolumeForUuid(uuid: string): Volume
     getVolumes(): Volume[]
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -7148,7 +6942,7 @@ export class NetworkAddress {
     /* Methods of Gio-2.0.Gio.NetworkAddress */
     getHostname(): string
     getPort(): number
-    getScheme(): string | null
+    getScheme(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -7191,11 +6985,6 @@ export class NetworkAddress {
     static name: string
     constructor (config?: NetworkAddress_ConstructProps)
     _init (config?: NetworkAddress_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(hostname: string, port: number): NetworkAddress
-    static newLoopback(port: number): NetworkAddress
-    static parse(hostAndPort: string, defaultPort: number): NetworkAddress
-    static parseUri(uri: string, defaultPort: number): NetworkAddress
     static $gtype: GObject.Type
 }
 export interface NetworkService_ConstructProps extends GObject.Object_ConstructProps {
@@ -7264,8 +7053,6 @@ export class NetworkService {
     static name: string
     constructor (config?: NetworkService_ConstructProps)
     _init (config?: NetworkService_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(service: string, protocol: string, domain: string): NetworkService
     static $gtype: GObject.Type
 }
 export interface Notification_ConstructProps extends GObject.Object_ConstructProps {
@@ -7321,8 +7108,6 @@ export class Notification {
     static name: string
     constructor (config?: Notification_ConstructProps)
     _init (config?: Notification_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(title: string): Notification
     static $gtype: GObject.Type
 }
 export interface OutputStream_ConstructProps extends GObject.Object_ConstructProps {
@@ -7523,7 +7308,7 @@ export class PropertyAction {
     getEnabled(): boolean
     getName(): string
     getParameterType(): GLib.VariantType | null
-    getState(): GLib.Variant | null
+    getState(): GLib.Variant
     getStateHint(): GLib.Variant | null
     getStateType(): GLib.VariantType | null
     /* Signals of GObject-2.0.GObject.Object */
@@ -7567,11 +7352,6 @@ export class PropertyAction {
     static name: string
     constructor (config?: PropertyAction_ConstructProps)
     _init (config?: PropertyAction_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(name: string, object: GObject.Object, propertyName: string): PropertyAction
-    static nameIsValid(actionName: string): boolean
-    static parseDetailedName(detailedName: string): { returnType: boolean, actionName: string, targetValue: GLib.Variant }
-    static printDetailedName(actionName: string, targetValue?: GLib.Variant | null): string
     static $gtype: GObject.Type
 }
 export interface ProxyAddress_ConstructProps extends InetSocketAddress_ConstructProps {
@@ -7594,10 +7374,10 @@ export class ProxyAddress {
     getDestinationHostname(): string
     getDestinationPort(): number
     getDestinationProtocol(): string
-    getPassword(): string | null
+    getPassword(): string
     getProtocol(): string
-    getUri(): string | null
-    getUsername(): string | null
+    getUri(): string
+    getUsername(): string
     /* Methods of Gio-2.0.Gio.InetSocketAddress */
     getAddress(): InetAddress
     getFlowinfo(): number
@@ -7654,9 +7434,6 @@ export class ProxyAddress {
     static name: string
     constructor (config?: ProxyAddress_ConstructProps)
     _init (config?: ProxyAddress_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(inetaddr: InetAddress, port: number, protocol: string, destHostname: string, destPort: number, username?: string | null, password?: string | null): ProxyAddress
-    static new(address: InetAddress, port: number): ProxyAddress
     static $gtype: GObject.Type
 }
 export interface ProxyAddressEnumerator_ConstructProps extends SocketAddressEnumerator_ConstructProps {
@@ -7788,8 +7565,6 @@ export class Resolver {
     static name: string
     constructor (config?: Resolver_ConstructProps)
     _init (config?: Resolver_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static getDefault(): Resolver
     static $gtype: GObject.Type
 }
 export interface Settings_ConstructProps extends GObject.Object_ConstructProps {
@@ -7917,16 +7692,6 @@ export class Settings {
     static name: string
     constructor (config?: Settings_ConstructProps)
     _init (config?: Settings_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(schemaId: string): Settings
-    static newFull(schema: SettingsSchema, backend?: SettingsBackend | null, path?: string | null): Settings
-    static newWithBackend(schemaId: string, backend: SettingsBackend): Settings
-    static newWithBackendAndPath(schemaId: string, backend: SettingsBackend, path: string): Settings
-    static newWithPath(schemaId: string, path: string): Settings
-    static listRelocatableSchemas(): string[]
-    static listSchemas(): string[]
-    static sync(): void
-    static unbind(object: GObject.Object, property: string): void
     static $gtype: GObject.Type
 }
 export interface SettingsBackend_ConstructProps extends GObject.Object_ConstructProps {
@@ -7981,9 +7746,6 @@ export class SettingsBackend {
     static name: string
     constructor (config?: SettingsBackend_ConstructProps)
     _init (config?: SettingsBackend_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static flattenTree(tree: GLib.Tree): { path: string, keys: string[], values: GLib.Variant[] | null }
-    static getDefault(): SettingsBackend
     static $gtype: GObject.Type
 }
 export interface SimpleAction_ConstructProps extends GObject.Object_ConstructProps {
@@ -8034,7 +7796,7 @@ export class SimpleAction {
     getEnabled(): boolean
     getName(): string
     getParameterType(): GLib.VariantType | null
-    getState(): GLib.Variant | null
+    getState(): GLib.Variant
     getStateHint(): GLib.Variant | null
     getStateType(): GLib.VariantType | null
     /* Signals of Gio-2.0.Gio.SimpleAction */
@@ -8089,12 +7851,6 @@ export class SimpleAction {
     static name: string
     constructor (config?: SimpleAction_ConstructProps)
     _init (config?: SimpleAction_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(name: string, parameterType?: GLib.VariantType | null): SimpleAction
-    static newStateful(name: string, parameterType: GLib.VariantType | null, state: GLib.Variant): SimpleAction
-    static nameIsValid(actionName: string): boolean
-    static parseDetailedName(detailedName: string): { returnType: boolean, actionName: string, targetValue: GLib.Variant }
-    static printDetailedName(actionName: string, targetValue?: GLib.Variant | null): string
     static $gtype: GObject.Type
 }
 export interface SimpleActionGroup_ConstructProps extends GObject.Object_ConstructProps {
@@ -8147,7 +7903,7 @@ export class SimpleActionGroup {
     /* Methods of Gio-2.0.Gio.ActionMap */
     addAction(action: Action): void
     addActionEntries(entries: ActionEntry[], userData?: object | null): void
-    lookupAction(actionName: string): Action | null
+    lookupAction(actionName: string): Action
     removeAction(actionName: string): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SimpleActionGroup, pspec: GObject.ParamSpec) => void)): number
@@ -8186,8 +7942,6 @@ export class SimpleActionGroup {
     static name: string
     constructor (config?: SimpleActionGroup_ConstructProps)
     _init (config?: SimpleActionGroup_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): SimpleActionGroup
     static $gtype: GObject.Type
 }
 export interface SimpleAsyncResult_ConstructProps extends GObject.Object_ConstructProps {
@@ -8249,10 +8003,6 @@ export class SimpleAsyncResult {
     static name: string
     constructor (config?: SimpleAsyncResult_ConstructProps)
     _init (config?: SimpleAsyncResult_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(sourceObject?: GObject.Object | null, callback?: AsyncReadyCallback | null, sourceTag?: object | null): SimpleAsyncResult
-    static newFromError(sourceObject: GObject.Object | null, callback: AsyncReadyCallback | null, error: GLib.Error): SimpleAsyncResult
-    static isValid(result: AsyncResult, source?: GObject.Object | null, sourceTag?: object | null): boolean
     static $gtype: GObject.Type
 }
 export interface SimpleIOStream_ConstructProps extends IOStream_ConstructProps {
@@ -8332,8 +8082,6 @@ export class SimpleIOStream {
     static name: string
     constructor (config?: SimpleIOStream_ConstructProps)
     _init (config?: SimpleIOStream_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(inputStream: InputStream, outputStream: OutputStream): SimpleIOStream
     static $gtype: GObject.Type
 }
 export interface SimplePermission_ConstructProps extends Permission_ConstructProps {
@@ -8411,8 +8159,6 @@ export class SimplePermission {
     static name: string
     constructor (config?: SimplePermission_ConstructProps)
     _init (config?: SimplePermission_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(allowed: boolean): SimplePermission
     static $gtype: GObject.Type
 }
 export interface SimpleProxyResolver_ConstructProps extends GObject.Object_ConstructProps {
@@ -8484,8 +8230,6 @@ export class SimpleProxyResolver {
     static name: string
     constructor (config?: SimpleProxyResolver_ConstructProps)
     _init (config?: SimpleProxyResolver_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static getDefault(): ProxyResolver
     static $gtype: GObject.Type
 }
 export interface Socket_ConstructProps extends GObject.Object_ConstructProps {
@@ -8670,10 +8414,6 @@ export class Socket {
     static name: string
     constructor (config?: Socket_ConstructProps)
     _init (config?: Socket_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(family: SocketFamily, type: SocketType, protocol: SocketProtocol): Socket
-    static newFromFd(fd: number): Socket
-    static newv(objectType: GObject.Type, parameters: GObject.Parameter[], cancellable?: Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
 export interface SocketAddress_ConstructProps extends GObject.Object_ConstructProps {
@@ -8736,8 +8476,6 @@ export class SocketAddress {
     static name: string
     constructor (config?: SocketAddress_ConstructProps)
     _init (config?: SocketAddress_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static newFromNative(native: object, len: number): SocketAddress
     static $gtype: GObject.Type
 }
 export interface SocketAddressEnumerator_ConstructProps extends GObject.Object_ConstructProps {
@@ -8832,7 +8570,7 @@ export class SocketClient {
     connectToUriFinish(result: AsyncResult): SocketConnection
     getEnableProxy(): boolean
     getFamily(): SocketFamily
-    getLocalAddress(): SocketAddress | null
+    getLocalAddress(): SocketAddress
     getProtocol(): SocketProtocol
     getProxyResolver(): ProxyResolver
     getSocketType(): SocketType
@@ -8937,8 +8675,6 @@ export class SocketClient {
     static name: string
     constructor (config?: SocketClient_ConstructProps)
     _init (config?: SocketClient_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): SocketClient
     static $gtype: GObject.Type
 }
 export interface SocketConnection_ConstructProps extends IOStream_ConstructProps {
@@ -9026,9 +8762,6 @@ export class SocketConnection {
     static name: string
     constructor (config?: SocketConnection_ConstructProps)
     _init (config?: SocketConnection_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static factoryLookupType(family: SocketFamily, type: SocketType, protocolId: number): GObject.Type
-    static factoryRegisterType(gType: GObject.Type, family: SocketFamily, type: SocketType, protocol: number): void
     static $gtype: GObject.Type
 }
 export interface SocketControlMessage_ConstructProps extends GObject.Object_ConstructProps {
@@ -9082,8 +8815,6 @@ export class SocketControlMessage {
     static name: string
     constructor (config?: SocketControlMessage_ConstructProps)
     _init (config?: SocketControlMessage_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static deserialize(level: number, type: number, data: any[]): SocketControlMessage
     static $gtype: GObject.Type
 }
 export interface SocketListener_ConstructProps extends GObject.Object_ConstructProps {
@@ -9159,8 +8890,6 @@ export class SocketListener {
     static name: string
     constructor (config?: SocketListener_ConstructProps)
     _init (config?: SocketListener_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): SocketListener
     static $gtype: GObject.Type
 }
 export interface SocketService_ConstructProps extends SocketListener_ConstructProps {
@@ -9253,8 +8982,6 @@ export class SocketService {
     static name: string
     constructor (config?: SocketService_ConstructProps)
     _init (config?: SocketService_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): SocketService
     static $gtype: GObject.Type
 }
 export interface Subprocess_ConstructProps extends GObject.Object_ConstructProps {
@@ -9277,9 +9004,9 @@ export class Subprocess {
     getIfExited(): boolean
     getIfSignaled(): boolean
     getStatus(): number
-    getStderrPipe(): InputStream | null
-    getStdinPipe(): OutputStream | null
-    getStdoutPipe(): InputStream | null
+    getStderrPipe(): InputStream
+    getStdinPipe(): OutputStream
+    getStdoutPipe(): InputStream
     getSuccessful(): boolean
     getTermSig(): number
     sendSignal(signalNum: number): void
@@ -9329,9 +9056,6 @@ export class Subprocess {
     static name: string
     constructor (config?: Subprocess_ConstructProps)
     _init (config?: Subprocess_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(argv: string[], flags: SubprocessFlags): Subprocess
-    static newv(objectType: GObject.Type, parameters: GObject.Parameter[], cancellable?: Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
 export interface SubprocessLauncher_ConstructProps extends GObject.Object_ConstructProps {
@@ -9341,8 +9065,7 @@ export class SubprocessLauncher {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.SubprocessLauncher */
-    close(): void
-    getenv(variable: string): string | null
+    getenv(variable: string): string
     setCwd(cwd: string): void
     setEnviron(env: string[]): void
     setFlags(flags: SubprocessFlags): void
@@ -9394,8 +9117,6 @@ export class SubprocessLauncher {
     static name: string
     constructor (config?: SubprocessLauncher_ConstructProps)
     _init (config?: SubprocessLauncher_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(flags: SubprocessFlags): SubprocessLauncher
     static $gtype: GObject.Type
 }
 export interface Task_ConstructProps extends GObject.Object_ConstructProps {
@@ -9482,10 +9203,6 @@ export class Task {
     static name: string
     constructor (config?: Task_ConstructProps)
     _init (config?: Task_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(sourceObject?: GObject.Object | null, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): Task
-    static isValid(result: AsyncResult, sourceObject?: GObject.Object | null): boolean
-    static reportError(sourceObject: GObject.Object | null, callback: AsyncReadyCallback | null, sourceTag: object | null, error: GLib.Error): void
     static $gtype: GObject.Type
 }
 export interface TcpConnection_ConstructProps extends SocketConnection_ConstructProps {
@@ -9682,8 +9399,6 @@ export class TcpWrapperConnection {
     static name: string
     constructor (config?: TcpWrapperConnection_ConstructProps)
     _init (config?: TcpWrapperConnection_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(baseIoStream: IOStream, socket: Socket): TcpWrapperConnection
     static $gtype: GObject.Type
 }
 export interface TestDBus_ConstructProps extends GObject.Object_ConstructProps {
@@ -9737,9 +9452,6 @@ export class TestDBus {
     static name: string
     constructor (config?: TestDBus_ConstructProps)
     _init (config?: TestDBus_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(flags: TestDBusFlags): TestDBus
-    static unset(): void
     static $gtype: GObject.Type
 }
 export interface ThemedIcon_ConstructProps extends GObject.Object_ConstructProps {
@@ -9778,7 +9490,7 @@ export class ThemedIcon {
     watchClosure(closure: GObject.Closure): void
     /* Methods of Gio-2.0.Gio.Icon */
     equal(icon2?: Icon | null): boolean
-    serialize(): GLib.Variant | null
+    serialize(): GLib.Variant
     toString(): string | null
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ThemedIcon, pspec: GObject.ParamSpec) => void)): number
@@ -9796,13 +9508,6 @@ export class ThemedIcon {
     static name: string
     constructor (config?: ThemedIcon_ConstructProps)
     _init (config?: ThemedIcon_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(iconname: string): ThemedIcon
-    static newFromNames(iconnames: string[]): ThemedIcon
-    static newWithDefaultFallbacks(iconname: string): ThemedIcon
-    static deserialize(value: GLib.Variant): Icon | null
-    static hash(icon: object): number
-    static newForString(str: string): Icon
     static $gtype: GObject.Type
 }
 export interface ThreadedSocketService_ConstructProps extends SocketService_ConstructProps {
@@ -9901,19 +9606,14 @@ export class ThreadedSocketService {
     static name: string
     constructor (config?: ThreadedSocketService_ConstructProps)
     _init (config?: ThreadedSocketService_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(maxThreads: number): ThreadedSocketService
-    static new(): ThreadedSocketService
     static $gtype: GObject.Type
 }
 export interface TlsCertificate_ConstructProps extends GObject.Object_ConstructProps {
     certificate?: any[]
     certificatePem?: string
     issuer?: TlsCertificate
-    pkcs11Uri?: string
     privateKey?: any[]
     privateKeyPem?: string
-    privateKeyPkcs11Uri?: string
 }
 export class TlsCertificate {
     /* Fields of Gio-2.0.Gio.TlsCertificate */
@@ -9922,7 +9622,7 @@ export class TlsCertificate {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.TlsCertificate */
-    getIssuer(): TlsCertificate | null
+    getIssuer(): TlsCertificate
     isSame(certTwo: TlsCertificate): boolean
     verify(identity?: SocketConnectable | null, trustedCa?: TlsCertificate | null): TlsCertificateFlags
     /* Methods of GObject-2.0.GObject.Object */
@@ -9963,12 +9663,6 @@ export class TlsCertificate {
     static name: string
     constructor (config?: TlsCertificate_ConstructProps)
     _init (config?: TlsCertificate_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static newFromFile(file: string): TlsCertificate
-    static newFromFiles(certFile: string, keyFile: string): TlsCertificate
-    static newFromPem(data: string, length: number): TlsCertificate
-    static newFromPkcs11Uris(pkcs11Uri: string, privateKeyPkcs11Uri?: string | null): TlsCertificate
-    static listNewFromFile(file: string): TlsCertificate[]
     static $gtype: GObject.Type
 }
 export interface TlsConnection_ConstructProps extends IOStream_ConstructProps {
@@ -10340,8 +10034,6 @@ export class TlsPassword {
     static name: string
     constructor (config?: TlsPassword_ConstructProps)
     _init (config?: TlsPassword_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(flags: TlsPasswordFlags, description: string): TlsPassword
     static $gtype: GObject.Type
 }
 export interface UnixConnection_ConstructProps extends SocketConnection_ConstructProps {
@@ -10493,10 +10185,6 @@ export class UnixCredentialsMessage {
     static name: string
     constructor (config?: UnixCredentialsMessage_ConstructProps)
     _init (config?: UnixCredentialsMessage_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): UnixCredentialsMessage
-    static newWithCredentials(credentials: Credentials): UnixCredentialsMessage
-    static isSupported(): boolean
     static $gtype: GObject.Type
 }
 export interface UnixFDList_ConstructProps extends GObject.Object_ConstructProps {
@@ -10551,9 +10239,6 @@ export class UnixFDList {
     static name: string
     constructor (config?: UnixFDList_ConstructProps)
     _init (config?: UnixFDList_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): UnixFDList
-    static newFromArray(fds: number[]): UnixFDList
     static $gtype: GObject.Type
 }
 export interface UnixFDMessage_ConstructProps extends SocketControlMessage_ConstructProps {
@@ -10612,9 +10297,6 @@ export class UnixFDMessage {
     static name: string
     constructor (config?: UnixFDMessage_ConstructProps)
     _init (config?: UnixFDMessage_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): UnixFDMessage
-    static newWithFdList(fdList: UnixFDList): UnixFDMessage
     static $gtype: GObject.Type
 }
 export interface UnixInputStream_ConstructProps extends InputStream_ConstructProps {
@@ -10700,8 +10382,6 @@ export class UnixInputStream {
     static name: string
     constructor (config?: UnixInputStream_ConstructProps)
     _init (config?: UnixInputStream_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(fd: number, closeFd: boolean): UnixInputStream
     static $gtype: GObject.Type
 }
 export interface UnixMountMonitor_ConstructProps extends GObject.Object_ConstructProps {
@@ -10760,9 +10440,6 @@ export class UnixMountMonitor {
     static name: string
     constructor (config?: UnixMountMonitor_ConstructProps)
     _init (config?: UnixMountMonitor_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): UnixMountMonitor
-    static get(): UnixMountMonitor
     static $gtype: GObject.Type
 }
 export interface UnixOutputStream_ConstructProps extends OutputStream_ConstructProps {
@@ -10859,8 +10536,6 @@ export class UnixOutputStream {
     static name: string
     constructor (config?: UnixOutputStream_ConstructProps)
     _init (config?: UnixOutputStream_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(fd: number, closeFd: boolean): UnixOutputStream
     static $gtype: GObject.Type
 }
 export interface UnixSocketAddress_ConstructProps extends SocketAddress_ConstructProps {
@@ -10932,11 +10607,6 @@ export class UnixSocketAddress {
     static name: string
     constructor (config?: UnixSocketAddress_ConstructProps)
     _init (config?: UnixSocketAddress_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(path: string): UnixSocketAddress
-    static newAbstract(path: number[]): UnixSocketAddress
-    static newWithType(path: number[], type: UnixSocketAddressType): UnixSocketAddress
-    static abstractNamesSupported(): boolean
     static $gtype: GObject.Type
 }
 export interface Vfs_ConstructProps extends GObject.Object_ConstructProps {
@@ -10992,9 +10662,6 @@ export class Vfs {
     static name: string
     constructor (config?: Vfs_ConstructProps)
     _init (config?: Vfs_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static getDefault(): Vfs
-    static getLocal(): Vfs
     static $gtype: GObject.Type
 }
 export interface VolumeMonitor_ConstructProps extends GObject.Object_ConstructProps {
@@ -11006,9 +10673,9 @@ export class VolumeMonitor {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.VolumeMonitor */
     getConnectedDrives(): Drive[]
-    getMountForUuid(uuid: string): Mount | null
+    getMountForUuid(uuid: string): Mount
     getMounts(): Mount[]
-    getVolumeForUuid(uuid: string): Volume | null
+    getVolumeForUuid(uuid: string): Volume
     getVolumes(): Volume[]
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -11109,9 +10776,6 @@ export class VolumeMonitor {
     static name: string
     constructor (config?: VolumeMonitor_ConstructProps)
     _init (config?: VolumeMonitor_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static adoptOrphanMount(mount: Mount): Volume
-    static get(): VolumeMonitor
     static $gtype: GObject.Type
 }
 export interface ZlibCompressor_ConstructProps extends GObject.Object_ConstructProps {
@@ -11125,7 +10789,7 @@ export class ZlibCompressor {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.ZlibCompressor */
-    getFileInfo(): FileInfo | null
+    getFileInfo(): FileInfo
     setFileInfo(fileInfo?: FileInfo | null): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -11173,8 +10837,6 @@ export class ZlibCompressor {
     static name: string
     constructor (config?: ZlibCompressor_ConstructProps)
     _init (config?: ZlibCompressor_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(format: ZlibCompressorFormat, level: number): ZlibCompressor
     static $gtype: GObject.Type
 }
 export interface ZlibDecompressor_ConstructProps extends GObject.Object_ConstructProps {
@@ -11186,7 +10848,7 @@ export class ZlibDecompressor {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.ZlibDecompressor */
-    getFileInfo(): FileInfo | null
+    getFileInfo(): FileInfo
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -11233,8 +10895,6 @@ export class ZlibDecompressor {
     static name: string
     constructor (config?: ZlibDecompressor_ConstructProps)
     _init (config?: ZlibDecompressor_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(format: ZlibCompressorFormat): ZlibDecompressor
     static $gtype: GObject.Type
 }
 export class ActionEntry {
@@ -11273,7 +10933,7 @@ export abstract class ActionInterface {
     getStateType: (action: Action) => GLib.VariantType | null
     getStateHint: (action: Action) => GLib.Variant | null
     getEnabled: (action: Action) => boolean
-    getState: (action: Action) => GLib.Variant | null
+    getState: (action: Action) => GLib.Variant
     changeState: (action: Action, value: GLib.Variant) => void
     activate: (action: Action, parameter?: GLib.Variant | null) => void
     static name: string
@@ -11281,7 +10941,7 @@ export abstract class ActionInterface {
 export abstract class ActionMapInterface {
     /* Fields of Gio-2.0.Gio.ActionMapInterface */
     gIface: GObject.TypeInterface
-    lookupAction: (actionMap: ActionMap, actionName: string) => Action | null
+    lookupAction: (actionMap: ActionMap, actionName: string) => Action
     addAction: (actionMap: ActionMap, action: Action) => void
     removeAction: (actionMap: ActionMap, actionName: string) => void
     static name: string
@@ -11291,11 +10951,11 @@ export abstract class AppInfoIface {
     gIface: GObject.TypeInterface
     dup: (appinfo: AppInfo) => AppInfo
     equal: (appinfo1: AppInfo, appinfo2: AppInfo) => boolean
-    getId: (appinfo: AppInfo) => string | null
+    getId: (appinfo: AppInfo) => string
     getName: (appinfo: AppInfo) => string
-    getDescription: (appinfo: AppInfo) => string | null
+    getDescription: (appinfo: AppInfo) => string
     getExecutable: (appinfo: AppInfo) => string
-    getIcon: (appinfo: AppInfo) => Icon | null
+    getIcon: (appinfo: AppInfo) => Icon
     launch: (appinfo: AppInfo, files?: File[] | null, context?: AppLaunchContext | null) => boolean
     supportsUris: (appinfo: AppInfo) => boolean
     supportsFiles: (appinfo: AppInfo) => boolean
@@ -11308,7 +10968,7 @@ export abstract class AppInfoIface {
     removeSupportsType: (appinfo: AppInfo, contentType: string) => boolean
     canDelete: (appinfo: AppInfo) => boolean
     doDelete: (appinfo: AppInfo) => boolean
-    getCommandline: (appinfo: AppInfo) => string | null
+    getCommandline: (appinfo: AppInfo) => string
     getDisplayName: (appinfo: AppInfo) => string
     setAsLastUsedForType: (appinfo: AppInfo, contentType: string) => boolean
     getSupportedTypes: (appinfo: AppInfo) => string[]
@@ -11319,8 +10979,8 @@ export abstract class AppInfoIface {
 export abstract class AppLaunchContextClass {
     /* Fields of Gio-2.0.Gio.AppLaunchContextClass */
     parentClass: GObject.ObjectClass
-    getDisplay: (context: AppLaunchContext, info: AppInfo, files: File[]) => string | null
-    getStartupNotifyId: (context: AppLaunchContext, info: AppInfo, files: File[]) => string | null
+    getDisplay: (context: AppLaunchContext, info: AppInfo, files: File[]) => string
+    getStartupNotifyId: (context: AppLaunchContext, info: AppInfo, files: File[]) => string
     launchFailed: (context: AppLaunchContext, startupNotifyId: string) => void
     launched: (context: AppLaunchContext, info: AppInfo, platformData: GLib.Variant) => void
     static name: string
@@ -11351,7 +11011,7 @@ export abstract class ApplicationCommandLineClass {
     /* Fields of Gio-2.0.Gio.ApplicationCommandLineClass */
     printLiteral: (cmdline: ApplicationCommandLine, message: string) => void
     printerrLiteral: (cmdline: ApplicationCommandLine, message: string) => void
-    getStdin: (cmdline: ApplicationCommandLine) => InputStream | null
+    getStdin: (cmdline: ApplicationCommandLine) => InputStream
     static name: string
 }
 export class ApplicationCommandLinePrivate {
@@ -11444,8 +11104,6 @@ export class DBusAnnotationInfo {
     ref(): DBusAnnotationInfo
     unref(): void
     static name: string
-    /* Static methods and pseudo-constructors */
-    static lookup(annotations: DBusAnnotationInfo[] | null, name: string): string | null
 }
 export class DBusArgInfo {
     /* Fields of Gio-2.0.Gio.DBusArgInfo */
@@ -11468,9 +11126,9 @@ export abstract class DBusInterfaceIface {
     /* Fields of Gio-2.0.Gio.DBusInterfaceIface */
     parentIface: GObject.TypeInterface
     getInfo: (interface: DBusInterface) => DBusInterfaceInfo
-    getObject: (interface: DBusInterface) => DBusObject | null
+    getObject: (interface: DBusInterface) => DBusObject
     setObject: (interface: DBusInterface, object?: DBusObject | null) => void
-    dupObject: (interface: DBusInterface) => DBusObject | null
+    dupObject: (interface: DBusInterface) => DBusObject
     static name: string
 }
 export class DBusInterfaceInfo {
@@ -11485,9 +11143,9 @@ export class DBusInterfaceInfo {
     cacheBuild(): void
     cacheRelease(): void
     generateXml(indent: number, stringBuilder: GLib.String): void
-    lookupMethod(name: string): DBusMethodInfo | null
-    lookupProperty(name: string): DBusPropertyInfo | null
-    lookupSignal(name: string): DBusSignalInfo | null
+    lookupMethod(name: string): DBusMethodInfo
+    lookupProperty(name: string): DBusPropertyInfo
+    lookupSignal(name: string): DBusSignalInfo
     ref(): DBusInterfaceInfo
     unref(): void
     static name: string
@@ -11532,19 +11190,17 @@ export class DBusNodeInfo {
     annotations: DBusAnnotationInfo[]
     /* Methods of Gio-2.0.Gio.DBusNodeInfo */
     generateXml(indent: number, stringBuilder: GLib.String): void
-    lookupInterface(name: string): DBusInterfaceInfo | null
+    lookupInterface(name: string): DBusInterfaceInfo
     ref(): DBusNodeInfo
     unref(): void
     static name: string
-    /* Static methods and pseudo-constructors */
-    static newForXml(xmlData: string): DBusNodeInfo
 }
 export abstract class DBusObjectIface {
     /* Fields of Gio-2.0.Gio.DBusObjectIface */
     parentIface: GObject.TypeInterface
     getObjectPath: (object: DBusObject) => string
     getInterfaces: (object: DBusObject) => DBusInterface[]
-    getInterface: (object: DBusObject, interfaceName: string) => DBusInterface | null
+    getInterface: (object: DBusObject, interfaceName: string) => DBusInterface
     interfaceAdded: (object: DBusObject, interface: DBusInterface) => void
     interfaceRemoved: (object: DBusObject, interface: DBusInterface) => void
     static name: string
@@ -11631,7 +11287,6 @@ export class DBusSignalInfo {
 }
 export class DBusSubtreeVTable {
     /* Fields of Gio-2.0.Gio.DBusSubtreeVTable */
-    enumerate: DBusSubtreeEnumerateFunc
     introspect: DBusSubtreeIntrospectFunc
     dispatch: DBusSubtreeDispatchFunc
     static name: string
@@ -11766,8 +11421,6 @@ export class FileAttributeInfoList {
     static name: string
     static new(): FileAttributeInfoList
     constructor()
-    /* Static methods and pseudo-constructors */
-    static new(): FileAttributeInfoList
 }
 export class FileAttributeMatcher {
     /* Methods of Gio-2.0.Gio.FileAttributeMatcher */
@@ -11776,14 +11429,12 @@ export class FileAttributeMatcher {
     matches(attribute: string): boolean
     matchesOnly(attribute: string): boolean
     ref(): FileAttributeMatcher
-    subtract(subtract?: FileAttributeMatcher | null): FileAttributeMatcher | null
+    subtract(subtract: FileAttributeMatcher): FileAttributeMatcher
     toString(): string
     unref(): void
     static name: string
     static new(attributes: string): FileAttributeMatcher
     constructor(attributes: string)
-    /* Static methods and pseudo-constructors */
-    static new(attributes: string): FileAttributeMatcher
 }
 export abstract class FileDescriptorBasedIface {
     /* Fields of Gio-2.0.Gio.FileDescriptorBasedIface */
@@ -11816,7 +11467,7 @@ export abstract class FileIOStreamClass {
     queryInfo: (stream: FileIOStream, attributes: string, cancellable?: Cancellable | null) => FileInfo
     queryInfoAsync: (stream: FileIOStream, attributes: string, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     queryInfoFinish: (stream: FileIOStream, result: AsyncResult) => FileInfo
-    getEtag: (stream: FileIOStream) => string | null
+    getEtag: (stream: FileIOStream) => string
     static name: string
 }
 export class FileIOStreamPrivate {
@@ -11833,14 +11484,14 @@ export abstract class FileIface {
     equal: (file1: File, file2: File) => boolean
     isNative: (file: File) => boolean
     hasUriScheme: (file: File, uriScheme: string) => boolean
-    getUriScheme: (file: File) => string | null
-    getBasename: (file: File) => string | null
-    getPath: (file: File) => string | null
+    getUriScheme: (file: File) => string
+    getBasename: (file: File) => string
+    getPath: (file: File) => string
     getUri: (file: File) => string
     getParseName: (file: File) => string
     getParent: (file: File) => File | null
     prefixMatches: (prefix: File, file: File) => boolean
-    getRelativePath: (parent: File, descendant: File) => string | null
+    getRelativePath: (parent: File, descendant: File) => string
     resolveRelativePath: (file: File, relativePath: string) => File
     getChildForDisplayName: (file: File, displayName: string) => File
     enumerateChildren: (file: File, attributes: string, flags: FileQueryInfoFlags, cancellable?: Cancellable | null) => FileEnumerator
@@ -11961,7 +11612,7 @@ export abstract class FileOutputStreamClass {
     queryInfo: (stream: FileOutputStream, attributes: string, cancellable?: Cancellable | null) => FileInfo
     queryInfoAsync: (stream: FileOutputStream, attributes: string, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     queryInfoFinish: (stream: FileOutputStream, result: AsyncResult) => FileInfo
-    getEtag: (stream: FileOutputStream) => string | null
+    getEtag: (stream: FileOutputStream) => string
     static name: string
 }
 export class FileOutputStreamPrivate {
@@ -11997,10 +11648,6 @@ export class IOExtensionPoint {
     getRequiredType(): GObject.Type
     setRequiredType(type: GObject.Type): void
     static name: string
-    /* Static methods and pseudo-constructors */
-    static implement(extensionPointName: string, type: GObject.Type, extensionName: string, priority: number): IOExtension
-    static lookup(name: string): IOExtensionPoint
-    static register(name: string): IOExtensionPoint
 }
 export abstract class IOModuleClass {
     static name: string
@@ -12038,7 +11685,7 @@ export abstract class IconIface {
     gIface: GObject.TypeInterface
     hash: (icon: Icon) => number
     equal: (icon1?: Icon | null, icon2?: Icon | null) => boolean
-    serialize: (icon: Icon) => GLib.Variant | null
+    serialize: (icon: Icon) => GLib.Variant
     static name: string
 }
 export abstract class InetAddressClass {
@@ -12174,10 +11821,10 @@ export abstract class MenuModelClass {
     getNItems: (model: MenuModel) => number
     getItemAttributes: (model: MenuModel, itemIndex: number) => { attributes: GLib.HashTable }
     iterateItemAttributes: (model: MenuModel, itemIndex: number) => MenuAttributeIter
-    getItemAttributeValue: (model: MenuModel, itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null) => GLib.Variant | null
+    getItemAttributeValue: (model: MenuModel, itemIndex: number, attribute: string, expectedType?: GLib.VariantType | null) => GLib.Variant
     getItemLinks: (model: MenuModel, itemIndex: number) => { links: GLib.HashTable }
     iterateItemLinks: (model: MenuModel, itemIndex: number) => MenuLinkIter
-    getItemLink: (model: MenuModel, itemIndex: number, link: string) => MenuModel | null
+    getItemLink: (model: MenuModel, itemIndex: number, link: string) => MenuModel
     static name: string
 }
 export class MenuModelPrivate {
@@ -12413,9 +12060,6 @@ export class Resource {
     ref(): Resource
     unref(): void
     static name: string
-    /* Static methods and pseudo-constructors */
-    static newFromData(data: any): Resource
-    static load(filename: string): Resource
 }
 export abstract class SeekableIface {
     /* Fields of Gio-2.0.Gio.SeekableIface */
@@ -12461,7 +12105,7 @@ export class SettingsSchema {
     /* Methods of Gio-2.0.Gio.SettingsSchema */
     getId(): string
     getKey(name: string): SettingsSchemaKey
-    getPath(): string | null
+    getPath(): string
     hasKey(name: string): boolean
     listChildren(): string[]
     listKeys(): string[]
@@ -12472,10 +12116,10 @@ export class SettingsSchema {
 export class SettingsSchemaKey {
     /* Methods of Gio-2.0.Gio.SettingsSchemaKey */
     getDefaultValue(): GLib.Variant
-    getDescription(): string | null
+    getDescription(): string
     getName(): string
     getRange(): GLib.Variant
-    getSummary(): string | null
+    getSummary(): string
     getValueType(): GLib.VariantType
     rangeCheck(value: GLib.Variant): boolean
     ref(): SettingsSchemaKey
@@ -12489,9 +12133,6 @@ export class SettingsSchemaSource {
     ref(): SettingsSchemaSource
     unref(): void
     static name: string
-    /* Static methods and pseudo-constructors */
-    static newFromDirectory(directory: string, parent: SettingsSchemaSource | null, trusted: boolean): SettingsSchemaSource
-    static getDefault(): SettingsSchemaSource | null
 }
 export abstract class SimpleActionGroupClass {
     static name: string
@@ -12600,8 +12241,6 @@ export class SrvTarget {
     static name: string
     static new(hostname: string, port: number, priority: number, weight: number): SrvTarget
     constructor(hostname: string, port: number, priority: number, weight: number)
-    /* Static methods and pseudo-constructors */
-    static new(hostname: string, port: number, priority: number, weight: number): SrvTarget
 }
 export class StaticResource {
     /* Methods of Gio-2.0.Gio.StaticResource */
@@ -12792,7 +12431,7 @@ export class UnixMountPoint {
     getDevicePath(): string
     getFsType(): string
     getMountPath(): string
-    getOptions(): string | null
+    getOptions(): string
     guessCanEject(): boolean
     guessIcon(): Icon
     guessName(): string
@@ -12801,8 +12440,6 @@ export class UnixMountPoint {
     isReadonly(): boolean
     isUserMountable(): boolean
     static name: string
-    /* Static methods and pseudo-constructors */
-    static at(mountPath: string): { returnType: UnixMountPoint | null, timeRead: number | null }
 }
 export abstract class UnixOutputStreamClass {
     /* Fields of Gio-2.0.Gio.UnixOutputStreamClass */
@@ -12878,8 +12515,8 @@ export abstract class VolumeMonitorClass {
     getConnectedDrives: (volumeMonitor: VolumeMonitor) => Drive[]
     getVolumes: (volumeMonitor: VolumeMonitor) => Volume[]
     getMounts: (volumeMonitor: VolumeMonitor) => Mount[]
-    getVolumeForUuid: (volumeMonitor: VolumeMonitor, uuid: string) => Volume | null
-    getMountForUuid: (volumeMonitor: VolumeMonitor, uuid: string) => Mount | null
+    getVolumeForUuid: (volumeMonitor: VolumeMonitor, uuid: string) => Volume
+    getMountForUuid: (volumeMonitor: VolumeMonitor, uuid: string) => Mount
     driveEjectButton: (volumeMonitor: VolumeMonitor, drive: Drive) => void
     driveStopButton: (volumeMonitor: VolumeMonitor, drive: Drive) => void
     static name: string

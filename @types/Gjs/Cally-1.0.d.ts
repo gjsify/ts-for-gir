@@ -64,11 +64,13 @@ export class Actor {
     add_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     get_accessible_id(): string
     get_attributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     get_index_in_parent(): number
     get_layer(): Atk.Layer
     get_mdi_zorder(): number
     get_n_accessible_children(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     get_object_locale(): string
     get_parent(): Atk.Object
@@ -82,6 +84,7 @@ export class Actor {
     remove_property_change_handler(handler_id: number): void
     remove_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     set_accessible_id(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     set_name(name: string): void
     set_parent(parent: Atk.Object): void
@@ -133,13 +136,16 @@ export class Actor {
     /* Virtual methods of Cally-1.0.Cally.Actor */
     vfunc_do_action(i: number): boolean
     vfunc_get_description(i: number): string | null
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_keybinding(i: number): string | null
     vfunc_get_localized_name(i: number): string | null
     vfunc_get_n_actions(): number
     vfunc_get_name(i: number): string | null
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_set_description(i: number, desc: string): boolean
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_bounds_changed(bounds: Atk.Rectangle): void
     vfunc_contains(x: number, y: number, coord_type: Atk.CoordType): boolean
@@ -162,11 +168,13 @@ export class Actor {
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
     vfunc_get_attributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_index_in_parent(): number
     vfunc_get_layer(): Atk.Layer
     vfunc_get_mdi_zorder(): number
     vfunc_get_n_children(): number
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_get_object_locale(): string
     vfunc_get_parent(): Atk.Object
@@ -176,6 +184,7 @@ export class Actor {
     vfunc_ref_relation_set(): Atk.RelationSet
     vfunc_ref_state_set(): Atk.StateSet
     vfunc_remove_property_change_handler(handler_id: number): void
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_set_name(name: string): void
     vfunc_set_parent(parent: Atk.Object): void
@@ -297,11 +306,13 @@ export class Clone {
     add_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     get_accessible_id(): string
     get_attributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     get_index_in_parent(): number
     get_layer(): Atk.Layer
     get_mdi_zorder(): number
     get_n_accessible_children(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     get_object_locale(): string
     get_parent(): Atk.Object
@@ -315,6 +326,7 @@ export class Clone {
     remove_property_change_handler(handler_id: number): void
     remove_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     set_accessible_id(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     set_name(name: string): void
     set_parent(parent: Atk.Object): void
@@ -365,21 +377,27 @@ export class Clone {
     set_size(width: number, height: number): boolean
     /* Virtual methods of Cally-1.0.Cally.Clone */
     vfunc_get_description(i: number): string | null
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_name(i: number): string | null
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_set_description(i: number, desc: string): boolean
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     /* Virtual methods of Cally-1.0.Cally.Actor */
     vfunc_do_action(i: number): boolean
     vfunc_get_description(i: number): string | null
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_keybinding(i: number): string | null
     vfunc_get_localized_name(i: number): string | null
     vfunc_get_n_actions(): number
     vfunc_get_name(i: number): string | null
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_set_description(i: number, desc: string): boolean
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_bounds_changed(bounds: Atk.Rectangle): void
     vfunc_contains(x: number, y: number, coord_type: Atk.CoordType): boolean
@@ -402,11 +420,13 @@ export class Clone {
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
     vfunc_get_attributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_index_in_parent(): number
     vfunc_get_layer(): Atk.Layer
     vfunc_get_mdi_zorder(): number
     vfunc_get_n_children(): number
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_get_object_locale(): string
     vfunc_get_parent(): Atk.Object
@@ -416,6 +436,7 @@ export class Clone {
     vfunc_ref_relation_set(): Atk.RelationSet
     vfunc_ref_state_set(): Atk.StateSet
     vfunc_remove_property_change_handler(handler_id: number): void
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_set_name(name: string): void
     vfunc_set_parent(parent: Atk.Object): void
@@ -537,11 +558,13 @@ export class Group {
     add_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     get_accessible_id(): string
     get_attributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     get_index_in_parent(): number
     get_layer(): Atk.Layer
     get_mdi_zorder(): number
     get_n_accessible_children(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     get_object_locale(): string
     get_parent(): Atk.Object
@@ -555,6 +578,7 @@ export class Group {
     remove_property_change_handler(handler_id: number): void
     remove_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     set_accessible_id(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     set_name(name: string): void
     set_parent(parent: Atk.Object): void
@@ -605,21 +629,27 @@ export class Group {
     set_size(width: number, height: number): boolean
     /* Virtual methods of Cally-1.0.Cally.Group */
     vfunc_get_description(i: number): string | null
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_name(i: number): string | null
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_set_description(i: number, desc: string): boolean
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     /* Virtual methods of Cally-1.0.Cally.Actor */
     vfunc_do_action(i: number): boolean
     vfunc_get_description(i: number): string | null
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_keybinding(i: number): string | null
     vfunc_get_localized_name(i: number): string | null
     vfunc_get_n_actions(): number
     vfunc_get_name(i: number): string | null
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_set_description(i: number, desc: string): boolean
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_bounds_changed(bounds: Atk.Rectangle): void
     vfunc_contains(x: number, y: number, coord_type: Atk.CoordType): boolean
@@ -642,11 +672,13 @@ export class Group {
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
     vfunc_get_attributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_index_in_parent(): number
     vfunc_get_layer(): Atk.Layer
     vfunc_get_mdi_zorder(): number
     vfunc_get_n_children(): number
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_get_object_locale(): string
     vfunc_get_parent(): Atk.Object
@@ -656,6 +688,7 @@ export class Group {
     vfunc_ref_relation_set(): Atk.RelationSet
     vfunc_ref_state_set(): Atk.StateSet
     vfunc_remove_property_change_handler(handler_id: number): void
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_set_name(name: string): void
     vfunc_set_parent(parent: Atk.Object): void
@@ -777,11 +810,13 @@ export class Rectangle {
     add_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     get_accessible_id(): string
     get_attributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     get_index_in_parent(): number
     get_layer(): Atk.Layer
     get_mdi_zorder(): number
     get_n_accessible_children(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     get_object_locale(): string
     get_parent(): Atk.Object
@@ -795,6 +830,7 @@ export class Rectangle {
     remove_property_change_handler(handler_id: number): void
     remove_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     set_accessible_id(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     set_name(name: string): void
     set_parent(parent: Atk.Object): void
@@ -845,21 +881,27 @@ export class Rectangle {
     set_size(width: number, height: number): boolean
     /* Virtual methods of Cally-1.0.Cally.Rectangle */
     vfunc_get_description(i: number): string | null
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_name(i: number): string | null
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_set_description(i: number, desc: string): boolean
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     /* Virtual methods of Cally-1.0.Cally.Actor */
     vfunc_do_action(i: number): boolean
     vfunc_get_description(i: number): string | null
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_keybinding(i: number): string | null
     vfunc_get_localized_name(i: number): string | null
     vfunc_get_n_actions(): number
     vfunc_get_name(i: number): string | null
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_set_description(i: number, desc: string): boolean
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_bounds_changed(bounds: Atk.Rectangle): void
     vfunc_contains(x: number, y: number, coord_type: Atk.CoordType): boolean
@@ -882,11 +924,13 @@ export class Rectangle {
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
     vfunc_get_attributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_index_in_parent(): number
     vfunc_get_layer(): Atk.Layer
     vfunc_get_mdi_zorder(): number
     vfunc_get_n_children(): number
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_get_object_locale(): string
     vfunc_get_parent(): Atk.Object
@@ -896,6 +940,7 @@ export class Rectangle {
     vfunc_ref_relation_set(): Atk.RelationSet
     vfunc_ref_state_set(): Atk.StateSet
     vfunc_remove_property_change_handler(handler_id: number): void
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_set_name(name: string): void
     vfunc_set_parent(parent: Atk.Object): void
@@ -1013,11 +1058,13 @@ export class Root {
     add_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     get_accessible_id(): string
     get_attributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     get_index_in_parent(): number
     get_layer(): Atk.Layer
     get_mdi_zorder(): number
     get_n_accessible_children(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     get_object_locale(): string
     get_parent(): Atk.Object
@@ -1031,6 +1078,7 @@ export class Root {
     remove_property_change_handler(handler_id: number): void
     remove_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     set_accessible_id(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     set_name(name: string): void
     set_parent(parent: Atk.Object): void
@@ -1062,11 +1110,13 @@ export class Root {
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
     vfunc_get_attributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_index_in_parent(): number
     vfunc_get_layer(): Atk.Layer
     vfunc_get_mdi_zorder(): number
     vfunc_get_n_children(): number
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_get_object_locale(): string
     vfunc_get_parent(): Atk.Object
@@ -1076,6 +1126,7 @@ export class Root {
     vfunc_ref_relation_set(): Atk.RelationSet
     vfunc_ref_state_set(): Atk.StateSet
     vfunc_remove_property_change_handler(handler_id: number): void
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_set_name(name: string): void
     vfunc_set_parent(parent: Atk.Object): void
@@ -1193,11 +1244,13 @@ export class Stage {
     add_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     get_accessible_id(): string
     get_attributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     get_index_in_parent(): number
     get_layer(): Atk.Layer
     get_mdi_zorder(): number
     get_n_accessible_children(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     get_object_locale(): string
     get_parent(): Atk.Object
@@ -1211,6 +1264,7 @@ export class Stage {
     remove_property_change_handler(handler_id: number): void
     remove_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     set_accessible_id(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     set_name(name: string): void
     set_parent(parent: Atk.Object): void
@@ -1261,28 +1315,37 @@ export class Stage {
     set_size(width: number, height: number): boolean
     /* Virtual methods of Cally-1.0.Cally.Stage */
     vfunc_get_description(i: number): string | null
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_name(i: number): string | null
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_set_description(i: number, desc: string): boolean
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     /* Virtual methods of Cally-1.0.Cally.Group */
     vfunc_get_description(i: number): string | null
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_name(i: number): string | null
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_set_description(i: number, desc: string): boolean
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     /* Virtual methods of Cally-1.0.Cally.Actor */
     vfunc_do_action(i: number): boolean
     vfunc_get_description(i: number): string | null
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_keybinding(i: number): string | null
     vfunc_get_localized_name(i: number): string | null
     vfunc_get_n_actions(): number
     vfunc_get_name(i: number): string | null
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_set_description(i: number, desc: string): boolean
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_bounds_changed(bounds: Atk.Rectangle): void
     vfunc_contains(x: number, y: number, coord_type: Atk.CoordType): boolean
@@ -1305,11 +1368,13 @@ export class Stage {
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
     vfunc_get_attributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_index_in_parent(): number
     vfunc_get_layer(): Atk.Layer
     vfunc_get_mdi_zorder(): number
     vfunc_get_n_children(): number
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_get_object_locale(): string
     vfunc_get_parent(): Atk.Object
@@ -1319,6 +1384,7 @@ export class Stage {
     vfunc_ref_relation_set(): Atk.RelationSet
     vfunc_ref_state_set(): Atk.StateSet
     vfunc_remove_property_change_handler(handler_id: number): void
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_set_name(name: string): void
     vfunc_set_parent(parent: Atk.Object): void
@@ -1468,11 +1534,13 @@ export class Text {
     add_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     get_accessible_id(): string
     get_attributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     get_index_in_parent(): number
     get_layer(): Atk.Layer
     get_mdi_zorder(): number
     get_n_accessible_children(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     get_object_locale(): string
     get_parent(): Atk.Object
@@ -1486,6 +1554,7 @@ export class Text {
     remove_property_change_handler(handler_id: number): void
     remove_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     set_accessible_id(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     set_name(name: string): void
     set_parent(parent: Atk.Object): void
@@ -1600,21 +1669,27 @@ export class Text {
     vfunc_text_changed(position: number, length: number): void
     vfunc_text_selection_changed(): void
     vfunc_get_description(i: number): string | null
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_name(i: number): string | null
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_set_description(i: number, desc: string): boolean
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     /* Virtual methods of Cally-1.0.Cally.Actor */
     vfunc_do_action(i: number): boolean
     vfunc_get_description(i: number): string | null
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_keybinding(i: number): string | null
     vfunc_get_localized_name(i: number): string | null
     vfunc_get_n_actions(): number
     vfunc_get_name(i: number): string | null
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_set_description(i: number, desc: string): boolean
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_bounds_changed(bounds: Atk.Rectangle): void
     vfunc_contains(x: number, y: number, coord_type: Atk.CoordType): boolean
@@ -1637,11 +1712,13 @@ export class Text {
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
     vfunc_get_attributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_index_in_parent(): number
     vfunc_get_layer(): Atk.Layer
     vfunc_get_mdi_zorder(): number
     vfunc_get_n_children(): number
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_get_object_locale(): string
     vfunc_get_parent(): Atk.Object
@@ -1651,6 +1728,7 @@ export class Text {
     vfunc_ref_relation_set(): Atk.RelationSet
     vfunc_ref_state_set(): Atk.StateSet
     vfunc_remove_property_change_handler(handler_id: number): void
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_set_name(name: string): void
     vfunc_set_parent(parent: Atk.Object): void
@@ -1792,11 +1870,13 @@ export class Texture {
     add_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     get_accessible_id(): string
     get_attributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     get_index_in_parent(): number
     get_layer(): Atk.Layer
     get_mdi_zorder(): number
     get_n_accessible_children(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     get_object_locale(): string
     get_parent(): Atk.Object
@@ -1810,6 +1890,7 @@ export class Texture {
     remove_property_change_handler(handler_id: number): void
     remove_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     set_accessible_id(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     set_name(name: string): void
     set_parent(parent: Atk.Object): void
@@ -1860,21 +1941,27 @@ export class Texture {
     set_size(width: number, height: number): boolean
     /* Virtual methods of Cally-1.0.Cally.Texture */
     vfunc_get_description(i: number): string | null
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_name(i: number): string | null
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_set_description(i: number, desc: string): boolean
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     /* Virtual methods of Cally-1.0.Cally.Actor */
     vfunc_do_action(i: number): boolean
     vfunc_get_description(i: number): string | null
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_keybinding(i: number): string | null
     vfunc_get_localized_name(i: number): string | null
     vfunc_get_n_actions(): number
     vfunc_get_name(i: number): string | null
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_set_description(i: number, desc: string): boolean
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_bounds_changed(bounds: Atk.Rectangle): void
     vfunc_contains(x: number, y: number, coord_type: Atk.CoordType): boolean
@@ -1897,11 +1984,13 @@ export class Texture {
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
     vfunc_get_attributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_index_in_parent(): number
     vfunc_get_layer(): Atk.Layer
     vfunc_get_mdi_zorder(): number
     vfunc_get_n_children(): number
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_get_object_locale(): string
     vfunc_get_parent(): Atk.Object
@@ -1911,6 +2000,7 @@ export class Texture {
     vfunc_ref_relation_set(): Atk.RelationSet
     vfunc_ref_state_set(): Atk.StateSet
     vfunc_remove_property_change_handler(handler_id: number): void
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_set_name(name: string): void
     vfunc_set_parent(parent: Atk.Object): void

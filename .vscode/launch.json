@@ -9,13 +9,12 @@
             "type": "node",
             "request": "launch",
             "protocol": "inspector",
-            "program": "${workspaceRoot}/src/index.ts",
+            "program": "./src/index.ts",
             "args": [
                 "generate", "--configName=.ts-for-gir.gtk3.rc.js", "-o", "./tmp"
             ],
             "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
-            "sourceMaps": true,
-            "cwd": "${workspaceRoot}",
+            "sourceMaps": true
         },
         {
             "name": "build:types",
@@ -28,7 +27,6 @@
             ],
             "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
             "sourceMaps": true,
-            "cwd": "${workspaceRoot}",
         },
         {
             "name": "build:types:gjs",
@@ -41,7 +39,6 @@
             ],
             "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
             "sourceMaps": true,
-            "cwd": "${workspaceRoot}",
         },
         {
             "name": "build:types:node",
@@ -54,7 +51,6 @@
             ],
             "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
             "sourceMaps": true,
-            "cwd": "${workspaceRoot}",
         },
         {
             "name": "regress",
@@ -67,7 +63,6 @@
             ],
             "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
             "sourceMaps": true,
-            "cwd": "${workspaceRoot}",
         },
         {
             "name": "Launch Test",
@@ -80,7 +75,6 @@
             ],
             "runtimeArgs": ["--nolazy", "-r", "ts-node/register"],
             "sourceMaps": true,
-            "cwd": "${workspaceRoot}",
         }
     ]
 }

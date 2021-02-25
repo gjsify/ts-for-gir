@@ -689,11 +689,13 @@ export class TableCell {
     add_relationship(relationship: RelationType, target: Object): boolean
     get_accessible_id(): string
     get_attributes(): AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     get_index_in_parent(): number
     get_layer(): Layer
     get_mdi_zorder(): number
     get_n_accessible_children(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     get_object_locale(): string
     get_parent(): Object
@@ -707,6 +709,7 @@ export class TableCell {
     remove_property_change_handler(handler_id: number): void
     remove_relationship(relationship: RelationType, target: Object): boolean
     set_accessible_id(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     set_name(name: string): void
     set_parent(parent: Object): void
@@ -746,11 +749,13 @@ export class TableCell {
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
     vfunc_get_attributes(): AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_index_in_parent(): number
     vfunc_get_layer(): Layer
     vfunc_get_mdi_zorder(): number
     vfunc_get_n_children(): number
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_get_object_locale(): string
     vfunc_get_parent(): Object
@@ -760,6 +765,7 @@ export class TableCell {
     vfunc_ref_relation_set(): RelationSet
     vfunc_ref_state_set(): StateSet
     vfunc_remove_property_change_handler(handler_id: number): void
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_set_name(name: string): void
     vfunc_set_parent(parent: Object): void
@@ -971,11 +977,13 @@ export class Window {
     add_relationship(relationship: RelationType, target: Object): boolean
     get_accessible_id(): string
     get_attributes(): AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     get_index_in_parent(): number
     get_layer(): Layer
     get_mdi_zorder(): number
     get_n_accessible_children(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     get_object_locale(): string
     get_parent(): Object
@@ -989,6 +997,7 @@ export class Window {
     remove_property_change_handler(handler_id: number): void
     remove_relationship(relationship: RelationType, target: Object): boolean
     set_accessible_id(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     set_name(name: string): void
     set_parent(parent: Object): void
@@ -1020,11 +1029,13 @@ export class Window {
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
     vfunc_get_attributes(): AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_index_in_parent(): number
     vfunc_get_layer(): Layer
     vfunc_get_mdi_zorder(): number
     vfunc_get_n_children(): number
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_get_object_locale(): string
     vfunc_get_parent(): Object
@@ -1034,6 +1045,7 @@ export class Window {
     vfunc_ref_relation_set(): RelationSet
     vfunc_ref_state_set(): StateSet
     vfunc_remove_property_change_handler(handler_id: number): void
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_set_name(name: string): void
     vfunc_set_parent(parent: Object): void
@@ -1173,11 +1185,13 @@ export class GObjectAccessible {
     add_relationship(relationship: RelationType, target: Object): boolean
     get_accessible_id(): string
     get_attributes(): AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     get_index_in_parent(): number
     get_layer(): Layer
     get_mdi_zorder(): number
     get_n_accessible_children(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     get_object_locale(): string
     get_parent(): Object
@@ -1191,6 +1205,7 @@ export class GObjectAccessible {
     remove_property_change_handler(handler_id: number): void
     remove_relationship(relationship: RelationType, target: Object): boolean
     set_accessible_id(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     set_name(name: string): void
     set_parent(parent: Object): void
@@ -1222,11 +1237,13 @@ export class GObjectAccessible {
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
     vfunc_get_attributes(): AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_index_in_parent(): number
     vfunc_get_layer(): Layer
     vfunc_get_mdi_zorder(): number
     vfunc_get_n_children(): number
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_get_object_locale(): string
     vfunc_get_parent(): Object
@@ -1236,6 +1253,7 @@ export class GObjectAccessible {
     vfunc_ref_relation_set(): RelationSet
     vfunc_ref_state_set(): StateSet
     vfunc_remove_property_change_handler(handler_id: number): void
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_set_name(name: string): void
     vfunc_set_parent(parent: Object): void
@@ -1506,11 +1524,13 @@ export class NoOpObject {
     add_relationship(relationship: RelationType, target: Object): boolean
     get_accessible_id(): string
     get_attributes(): AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     get_index_in_parent(): number
     get_layer(): Layer
     get_mdi_zorder(): number
     get_n_accessible_children(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     get_object_locale(): string
     get_parent(): Object
@@ -1524,6 +1544,7 @@ export class NoOpObject {
     remove_property_change_handler(handler_id: number): void
     remove_relationship(relationship: RelationType, target: Object): boolean
     set_accessible_id(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     set_name(name: string): void
     set_parent(parent: Object): void
@@ -1681,13 +1702,16 @@ export class NoOpObject {
     /* Virtual methods of Atk-1.0.Atk.NoOpObject */
     vfunc_do_action(i: number): boolean
     vfunc_get_description(i: number): string | null
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_keybinding(i: number): string | null
     vfunc_get_localized_name(i: number): string | null
     vfunc_get_n_actions(): number
     vfunc_get_name(i: number): string | null
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_set_description(i: number, desc: string): boolean
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_bounds_changed(bounds: Rectangle): void
     vfunc_contains(x: number, y: number, coord_type: CoordType): boolean
@@ -1820,11 +1844,13 @@ export class NoOpObject {
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
     vfunc_get_attributes(): AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_index_in_parent(): number
     vfunc_get_layer(): Layer
     vfunc_get_mdi_zorder(): number
     vfunc_get_n_children(): number
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_get_object_locale(): string
     vfunc_get_parent(): Object
@@ -1834,6 +1860,7 @@ export class NoOpObject {
     vfunc_ref_relation_set(): RelationSet
     vfunc_ref_state_set(): StateSet
     vfunc_remove_property_change_handler(handler_id: number): void
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_set_name(name: string): void
     vfunc_set_parent(parent: Object): void
@@ -2113,11 +2140,13 @@ export class Object {
     add_relationship(relationship: RelationType, target: Object): boolean
     get_accessible_id(): string
     get_attributes(): AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     get_index_in_parent(): number
     get_layer(): Layer
     get_mdi_zorder(): number
     get_n_accessible_children(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     get_object_locale(): string
     get_parent(): Object
@@ -2131,6 +2160,7 @@ export class Object {
     remove_property_change_handler(handler_id: number): void
     remove_relationship(relationship: RelationType, target: Object): boolean
     set_accessible_id(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     set_name(name: string): void
     set_parent(parent: Object): void
@@ -2162,11 +2192,13 @@ export class Object {
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
     vfunc_get_attributes(): AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_index_in_parent(): number
     vfunc_get_layer(): Layer
     vfunc_get_mdi_zorder(): number
     vfunc_get_n_children(): number
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_get_object_locale(): string
     vfunc_get_parent(): Object
@@ -2176,6 +2208,7 @@ export class Object {
     vfunc_ref_relation_set(): RelationSet
     vfunc_ref_state_set(): StateSet
     vfunc_remove_property_change_handler(handler_id: number): void
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_set_name(name: string): void
     vfunc_set_parent(parent: Object): void
@@ -2344,11 +2377,13 @@ export class Plug {
     add_relationship(relationship: RelationType, target: Object): boolean
     get_accessible_id(): string
     get_attributes(): AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     get_index_in_parent(): number
     get_layer(): Layer
     get_mdi_zorder(): number
     get_n_accessible_children(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     get_object_locale(): string
     get_parent(): Object
@@ -2362,6 +2397,7 @@ export class Plug {
     remove_property_change_handler(handler_id: number): void
     remove_relationship(relationship: RelationType, target: Object): boolean
     set_accessible_id(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     set_name(name: string): void
     set_parent(parent: Object): void
@@ -2425,11 +2461,13 @@ export class Plug {
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
     vfunc_get_attributes(): AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_index_in_parent(): number
     vfunc_get_layer(): Layer
     vfunc_get_mdi_zorder(): number
     vfunc_get_n_children(): number
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_get_object_locale(): string
     vfunc_get_parent(): Object
@@ -2439,6 +2477,7 @@ export class Plug {
     vfunc_ref_relation_set(): RelationSet
     vfunc_ref_state_set(): StateSet
     vfunc_remove_property_change_handler(handler_id: number): void
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_set_name(name: string): void
     vfunc_set_parent(parent: Object): void
@@ -2742,11 +2781,13 @@ export class Socket {
     add_relationship(relationship: RelationType, target: Object): boolean
     get_accessible_id(): string
     get_attributes(): AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     get_index_in_parent(): number
     get_layer(): Layer
     get_mdi_zorder(): number
     get_n_accessible_children(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     get_object_locale(): string
     get_parent(): Object
@@ -2760,6 +2801,7 @@ export class Socket {
     remove_property_change_handler(handler_id: number): void
     remove_relationship(relationship: RelationType, target: Object): boolean
     set_accessible_id(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     set_name(name: string): void
     set_parent(parent: Object): void
@@ -2823,11 +2865,13 @@ export class Socket {
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
     vfunc_get_attributes(): AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_index_in_parent(): number
     vfunc_get_layer(): Layer
     vfunc_get_mdi_zorder(): number
     vfunc_get_n_children(): number
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_get_object_locale(): string
     vfunc_get_parent(): Object
@@ -2837,6 +2881,7 @@ export class Socket {
     vfunc_ref_relation_set(): RelationSet
     vfunc_ref_state_set(): StateSet
     vfunc_remove_property_change_handler(handler_id: number): void
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_set_name(name: string): void
     vfunc_set_parent(parent: Object): void

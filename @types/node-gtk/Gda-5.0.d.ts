@@ -168,11 +168,6 @@ export enum HolderError {
     VALUE_TYPE_ERROR,
     VALUE_NULL_ERROR,
 }
-export enum LdapSearchScope {
-    BASE,
-    ONELEVEL,
-    SUBTREE,
-}
 export enum MetaDbObjectType {
     UNKNOWN,
     TABLE,
@@ -594,8 +589,6 @@ export class DataHandler {
     getValueFromSql(sql: string | null, type: GObject.Type): any
     getValueFromStr(str: string | null, type: GObject.Type): any
     static name: string
-    /* Static methods and pseudo-constructors */
-    static getDefault(forType: GObject.Type): DataHandler
 }
 export class DataModel {
     /* Methods of Gda-5.0.Gda.DataModel */
@@ -674,8 +667,6 @@ export class DataModel {
     off(sigName: "row-updated", callback: (row: number) => void): NodeJS.EventEmitter
     emit(sigName: "row-updated", row: number): void
     static name: string
-    /* Static methods and pseudo-constructors */
-    static errorQuark(): GLib.Quark
 }
 export class Lockable {
     /* Methods of Gda-5.0.Gda.Lockable */
@@ -743,9 +734,6 @@ export class Batch {
     static name: string
     constructor (config?: Batch_ConstructProps)
     _init (config?: Batch_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): Batch
-    static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
 export interface BlobOp_ConstructProps extends GObject.Object_ConstructProps {
@@ -887,8 +875,6 @@ export class Column {
     static name: string
     constructor (config?: Column_ConstructProps)
     _init (config?: Column_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): Column
     static $gtype: GObject.Type
 }
 export interface Config_ConstructProps extends GObject.Object_ConstructProps {
@@ -973,21 +959,6 @@ export class Config {
     static name: string
     constructor (config?: Config_ConstructProps)
     _init (config?: Config_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static canModifySystemConfig(): boolean
-    static defineDsn(info: DsnInfo): boolean
-    static dsnNeedsAuthentication(dsnName: string): boolean
-    static errorQuark(): GLib.Quark
-    static get(): Config
-    static getDsnInfo(dsnName: string): DsnInfo
-    static getDsnInfoAtIndex(index: number): DsnInfo
-    static getDsnInfoIndex(dsnName: string): number
-    static getNbDsn(): number
-    static getProvider(providerName: string): ServerProvider
-    static getProviderInfo(providerName: string): ProviderInfo
-    static listDsn(): DataModel
-    static listProviders(): DataModel
-    static removeDsn(dsnName: string): boolean
     static $gtype: GObject.Type
 }
 export interface Connection_ConstructProps extends GObject.Object_ConstructProps {
@@ -1201,14 +1172,6 @@ export class Connection {
     static name: string
     constructor (config?: Connection_ConstructProps)
     _init (config?: Connection_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static newFromDsn(dsn: string, authString: string | null, options: ConnectionOptions): Connection
-    static newFromString(providerName: string | null, cncString: string, authString: string | null, options: ConnectionOptions): Connection
-    static errorQuark(): GLib.Quark
-    static openFromDsn(dsn: string, authString: string | null, options: ConnectionOptions): Connection
-    static openFromString(providerName: string | null, cncString: string, authString: string | null, options: ConnectionOptions): Connection
-    static openSqlite(directory: string | null, filename: string, autoUnlink: boolean): Connection
-    static stringSplit(string: string, outCncParams: string, outProvider: string, outUsername: string, outPassword?: string | null): void
     static $gtype: GObject.Type
 }
 export interface ConnectionEvent_ConstructProps extends GObject.Object_ConstructProps {
@@ -1404,8 +1367,6 @@ export class DataAccessWrapper {
     static name: string
     constructor (config?: DataAccessWrapper_ConstructProps)
     _init (config?: DataAccessWrapper_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
 export interface DataComparator_ConstructProps extends GObject.Object_ConstructProps {
@@ -1480,9 +1441,6 @@ export class DataComparator {
     static name: string
     constructor (config?: DataComparator_ConstructProps)
     _init (config?: DataComparator_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(oldModel: DataModel, newModel: DataModel): DataComparator
-    static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
 export interface DataModelArray_ConstructProps extends GObject.Object_ConstructProps {
@@ -1625,8 +1583,6 @@ export class DataModelArray {
     static name: string
     constructor (config?: DataModelArray_ConstructProps)
     _init (config?: DataModelArray_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
 export interface DataModelDir_ConstructProps extends GObject.Object_ConstructProps {
@@ -1754,8 +1710,6 @@ export class DataModelDir {
     static name: string
     constructor (config?: DataModelDir_ConstructProps)
     _init (config?: DataModelDir_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
 export interface DataModelImport_ConstructProps extends GObject.Object_ConstructProps {
@@ -1895,11 +1849,6 @@ export class DataModelImport {
     static name: string
     constructor (config?: DataModelImport_ConstructProps)
     _init (config?: DataModelImport_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static newFile(filename: string, randomAccess: boolean, options?: Set | null): DataModel
-    static newMem(data: string, randomAccess: boolean, options?: Set | null): DataModel
-    static newXmlNode(node: libxml2.NodePtr): DataModel
-    static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
 export interface DataModelIter_ConstructProps extends Set_ConstructProps {
@@ -2080,140 +2029,6 @@ export class DataModelIter {
     static name: string
     constructor (config?: DataModelIter_ConstructProps)
     _init (config?: DataModelIter_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static errorQuark(): GLib.Quark
-    static $gtype: GObject.Type
-}
-export interface DataModelLdap_ConstructProps extends GObject.Object_ConstructProps {
-    attributes?: string
-    base?: string
-    cnc?: Connection
-    filter?: string
-    scope?: number
-}
-export class DataModelLdap {
-    /* Fields of Gda-5.0.Gda.DataModelLdap */
-    object: GObject.Object
-    priv: DataModelLdapPrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    gTypeInstance: GObject.TypeInstance
-    /* Methods of GObject-2.0.GObject.Object */
-    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
-    forceFloating(): void
-    freezeNotify(): void
-    getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
-    getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
-    isFloating(): boolean
-    notify(propertyName: string): void
-    notifyByPspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    refSink(): GObject.Object
-    runDispose(): void
-    setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
-    stealData(key: string): object | null
-    stealQdata(quark: GLib.Quark): object | null
-    thawNotify(): void
-    unref(): void
-    watchClosure(closure: GObject.Closure): void
-    /* Methods of Gda-5.0.Gda.DataModel */
-    addDataFromXmlNode(node: libxml2.NodePtr): boolean
-    appendRow(): number
-    appendValues(values?: any[] | null): number
-    arrayCopyModel(): DataModelArray | null
-    arrayCopyModelExt(cols: number[]): DataModelArray | null
-    createIter(): DataModelIter
-    describeColumn(col: number): Column | null
-    dump(toStream?: object | null): void
-    dumpAsString(): string
-    exportToFile(format: DataModelIOFormat, file: string, cols: number[] | null, rows: number[] | null, options: Set): boolean
-    exportToString(format: DataModelIOFormat, cols: number[] | null, rows: number[] | null, options: Set): string
-    freeze(): void
-    getAccessFlags(): DataModelAccessFlags
-    getAttributesAt(col: number, row: number): ValueAttribute
-    getColumnIndex(name: string): number
-    getColumnName(col: number): string
-    getColumnTitle(col: number): string
-    getExceptions(): GLib.Error[]
-    getNColumns(): number
-    getNRows(): number
-    getNotify(): boolean
-    getRowFromValues(values: any[], colsIndex: number[]): number
-    getTypedValueAt(col: number, row: number, expectedType: GObject.Type, nullok: boolean): any | null
-    getValueAt(col: number, row: number): any | null
-    importFromFile(file: string, colsTrans: GLib.HashTable | null, options: Set): boolean
-    importFromModel(from: DataModel, overwrite: boolean, colsTrans?: GLib.HashTable | null): boolean
-    importFromString(string: string, colsTrans: GLib.HashTable | null, options: Set): boolean
-    iterAtRow(iter: DataModelIter, row: number): boolean
-    iterNext(iter: DataModelIter): boolean
-    iterPrev(iter: DataModelIter): boolean
-    iterSetValue(iter: DataModelIter, col: number, value: any): boolean
-    removeRow(row: number): boolean
-    reset(): void
-    rowInserted(row: number): void
-    rowRemoved(row: number): void
-    rowUpdated(row: number): void
-    sendHint(hint: DataModelHint, hintValue?: any | null): void
-    setColumnName(col: number, name: string): void
-    setColumnTitle(col: number, title: string): void
-    setNotify(doNotifyChanges: boolean): void
-    setValueAt(col: number, row: number, value: any): boolean
-    setValues(row: number, values?: any[] | null): boolean
-    thaw(): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: DataModelLdap, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    /* Signals of Gda-5.0.Gda.DataModel */
-    connect(sigName: "access-changed", callback: (($obj: DataModelLdap) => void)): number
-    on(sigName: "access-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "access-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "access-changed", callback: () => void): NodeJS.EventEmitter
-    emit(sigName: "access-changed"): void
-    connect(sigName: "changed", callback: (($obj: DataModelLdap) => void)): number
-    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
-    emit(sigName: "changed"): void
-    connect(sigName: "reset", callback: (($obj: DataModelLdap) => void)): number
-    on(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "reset", callback: () => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "reset", callback: () => void): NodeJS.EventEmitter
-    emit(sigName: "reset"): void
-    connect(sigName: "row-inserted", callback: (($obj: DataModelLdap, row: number) => void)): number
-    on(sigName: "row-inserted", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "row-inserted", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "row-inserted", callback: (row: number) => void): NodeJS.EventEmitter
-    emit(sigName: "row-inserted", row: number): void
-    connect(sigName: "row-removed", callback: (($obj: DataModelLdap, row: number) => void)): number
-    on(sigName: "row-removed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "row-removed", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "row-removed", callback: (row: number) => void): NodeJS.EventEmitter
-    emit(sigName: "row-removed", row: number): void
-    connect(sigName: "row-updated", callback: (($obj: DataModelLdap, row: number) => void)): number
-    on(sigName: "row-updated", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "row-updated", callback: (row: number) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "row-updated", callback: (row: number) => void): NodeJS.EventEmitter
-    emit(sigName: "row-updated", row: number): void
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    on(sigName: string, callback: any): NodeJS.EventEmitter
-    once(sigName: string, callback: any): NodeJS.EventEmitter
-    off(sigName: string, callback: any): NodeJS.EventEmitter
-    static name: string
-    constructor (config?: DataModelLdap_ConstructProps)
-    _init (config?: DataModelLdap_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static newWithConfig(cnc: Connection, baseDn: string | null, filter: string | null, attributes: string | null, scope: LdapSearchScope): DataModelLdap
-    static computeColumns(cnc: Connection, attributes?: string | null): Column[]
-    static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
 export interface DataPivot_ConstructProps extends GObject.Object_ConstructProps {
@@ -2349,8 +2164,6 @@ export class DataPivot {
     static name: string
     constructor (config?: DataPivot_ConstructProps)
     _init (config?: DataPivot_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
 export interface DataProxy_ConstructProps extends GObject.Object_ConstructProps {
@@ -2571,10 +2384,6 @@ export class DataProxy {
     static name: string
     constructor (config?: DataProxy_ConstructProps)
     _init (config?: DataProxy_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(model: DataModel): DataProxy
-    static newWithDataModel(model: DataModel): DataProxy
-    static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
 export interface DataSelect_ConstructProps extends GObject.Object_ConstructProps {
@@ -2771,8 +2580,6 @@ export class DataSelect {
     static name: string
     constructor (config?: DataSelect_ConstructProps)
     _init (config?: DataSelect_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
 export interface HandlerBin_ConstructProps extends GObject.Object_ConstructProps {
@@ -2829,8 +2636,6 @@ export class HandlerBin {
     static name: string
     constructor (config?: HandlerBin_ConstructProps)
     _init (config?: HandlerBin_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static getDefault(forType: GObject.Type): DataHandler
     static $gtype: GObject.Type
 }
 export interface HandlerBoolean_ConstructProps extends GObject.Object_ConstructProps {
@@ -2887,8 +2692,6 @@ export class HandlerBoolean {
     static name: string
     constructor (config?: HandlerBoolean_ConstructProps)
     _init (config?: HandlerBoolean_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static getDefault(forType: GObject.Type): DataHandler
     static $gtype: GObject.Type
 }
 export interface HandlerNumerical_ConstructProps extends GObject.Object_ConstructProps {
@@ -2945,8 +2748,6 @@ export class HandlerNumerical {
     static name: string
     constructor (config?: HandlerNumerical_ConstructProps)
     _init (config?: HandlerNumerical_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static getDefault(forType: GObject.Type): DataHandler
     static $gtype: GObject.Type
 }
 export interface HandlerString_ConstructProps extends GObject.Object_ConstructProps {
@@ -3003,9 +2804,6 @@ export class HandlerString {
     static name: string
     constructor (config?: HandlerString_ConstructProps)
     _init (config?: HandlerString_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static newWithProvider(prov: ServerProvider, cnc?: Connection | null): DataHandler
-    static getDefault(forType: GObject.Type): DataHandler
     static $gtype: GObject.Type
 }
 export interface HandlerTime_ConstructProps extends GObject.Object_ConstructProps {
@@ -3067,9 +2865,6 @@ export class HandlerTime {
     static name: string
     constructor (config?: HandlerTime_ConstructProps)
     _init (config?: HandlerTime_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static newNoLocale(): DataHandler
-    static getDefault(forType: GObject.Type): DataHandler
     static $gtype: GObject.Type
 }
 export interface HandlerType_ConstructProps extends GObject.Object_ConstructProps {
@@ -3126,8 +2921,6 @@ export class HandlerType {
     static name: string
     constructor (config?: HandlerType_ConstructProps)
     _init (config?: HandlerType_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static getDefault(forType: GObject.Type): DataHandler
     static $gtype: GObject.Type
 }
 export interface Holder_ConstructProps extends GObject.Object_ConstructProps {
@@ -3299,9 +3092,6 @@ export class Holder {
     static name: string
     constructor (config?: Holder_ConstructProps)
     _init (config?: Holder_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(type: GObject.Type): Holder
-    static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
 export interface MetaStore_ConstructProps extends GObject.Object_ConstructProps {
@@ -3388,11 +3178,6 @@ export class MetaStore {
     static name: string
     constructor (config?: MetaStore_ConstructProps)
     _init (config?: MetaStore_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(cncString?: string | null): MetaStore
-    static newWithFile(fileName: string): MetaStore
-    static errorQuark(): GLib.Quark
-    static sqlIdentifierQuote(id: string, cnc: Connection): string
     static $gtype: GObject.Type
 }
 export interface MetaStruct_ConstructProps extends GObject.Object_ConstructProps {
@@ -3454,9 +3239,6 @@ export class MetaStruct {
     static name: string
     constructor (config?: MetaStruct_ConstructProps)
     _init (config?: MetaStruct_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(store: MetaStore, features: MetaStructFeature): MetaStruct
-    static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
 export interface PStmt_ConstructProps extends GObject.Object_ConstructProps {
@@ -3566,8 +3348,6 @@ export class RepetitiveStatement {
     static name: string
     constructor (config?: RepetitiveStatement_ConstructProps)
     _init (config?: RepetitiveStatement_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(stmt: Statement): RepetitiveStatement
     static $gtype: GObject.Type
 }
 export interface Row_ConstructProps extends GObject.Object_ConstructProps {
@@ -3631,8 +3411,6 @@ export class Row {
     static name: string
     constructor (config?: Row_ConstructProps)
     _init (config?: Row_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(count: number): Row
     static $gtype: GObject.Type
 }
 export interface ServerOperation_ConstructProps extends GObject.Object_ConstructProps {
@@ -3718,14 +3496,6 @@ export class ServerOperation {
     static name: string
     constructor (config?: ServerOperation_ConstructProps)
     _init (config?: ServerOperation_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(opType: ServerOperationType, xmlFile: string): ServerOperation
-    static errorQuark(): GLib.Quark
-    static opTypeToString(type: ServerOperationType): string
-    static prepareCreateDatabase(provider: string, dbName?: string | null): ServerOperation | null
-    static prepareDropDatabase(provider: string, dbName?: string | null): ServerOperation | null
-    static prepareDropTable(cnc: Connection, tableName: string): ServerOperation | null
-    static stringToOpType(str: string): ServerOperationType
     static $gtype: GObject.Type
 }
 export interface ServerProvider_ConstructProps extends GObject.Object_ConstructProps {
@@ -3797,9 +3567,6 @@ export class ServerProvider {
     static name: string
     constructor (config?: ServerProvider_ConstructProps)
     _init (config?: ServerProvider_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static errorQuark(): GLib.Quark
-    static loadFileContents(instDir: string, dataDir: string, filename: string): string
     static $gtype: GObject.Type
 }
 export interface Set_ConstructProps extends GObject.Object_ConstructProps {
@@ -3932,12 +3699,6 @@ export class Set {
     static name: string
     constructor (config?: Set_ConstructProps)
     _init (config?: Set_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(holders: Holder[]): Set
-    static newFromSpecNode(xmlSpec: libxml2.NodePtr): Set
-    static newFromSpecString(xmlSpec: string): Set
-    static newReadOnly(holders: Holder[]): Set
-    static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
 export class Short {
@@ -4015,9 +3776,6 @@ export class SqlBuilder {
     static name: string
     constructor (config?: SqlBuilder_ConstructProps)
     _init (config?: SqlBuilder_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(stmtType: SqlStatementType): SqlBuilder
-    static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
 export interface SqlParser_ConstructProps extends GObject.Object_ConstructProps {
@@ -4103,9 +3861,6 @@ export class SqlParser {
     static name: string
     constructor (config?: SqlParser_ConstructProps)
     _init (config?: SqlParser_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): SqlParser
-    static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
 export interface Statement_ConstructProps extends GObject.Object_ConstructProps {
@@ -4184,9 +3939,6 @@ export class Statement {
     static name: string
     constructor (config?: Statement_ConstructProps)
     _init (config?: Statement_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): Statement
-    static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
 export interface ThreadWrapper_ConstructProps extends GObject.Object_ConstructProps {
@@ -4247,9 +3999,6 @@ export class ThreadWrapper {
     static name: string
     constructor (config?: ThreadWrapper_ConstructProps)
     _init (config?: ThreadWrapper_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): ThreadWrapper
-    static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
 export interface TransactionStatus_ConstructProps extends GObject.Object_ConstructProps {
@@ -4305,8 +4054,6 @@ export class TransactionStatus {
     static name: string
     constructor (config?: TransactionStatus_ConstructProps)
     _init (config?: TransactionStatus_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(name: string): TransactionStatus
     static $gtype: GObject.Type
 }
 export interface Tree_ConstructProps extends GObject.Object_ConstructProps {
@@ -4395,9 +4142,6 @@ export class Tree {
     static name: string
     constructor (config?: Tree_ConstructProps)
     _init (config?: Tree_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): Tree
-    static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
 export interface TreeManager_ConstructProps extends GObject.Object_ConstructProps {
@@ -4466,8 +4210,6 @@ export class TreeManager {
     static name: string
     constructor (config?: TreeManager_ConstructProps)
     _init (config?: TreeManager_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
 export interface TreeMgrColumns_ConstructProps extends TreeManager_ConstructProps {
@@ -4538,8 +4280,6 @@ export class TreeMgrColumns {
     static name: string
     constructor (config?: TreeMgrColumns_ConstructProps)
     _init (config?: TreeMgrColumns_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(cnc: Connection, schema: string, tableName: string): TreeMgrColumns
     static $gtype: GObject.Type
 }
 export interface TreeMgrLabel_ConstructProps extends TreeManager_ConstructProps {
@@ -4607,77 +4347,6 @@ export class TreeMgrLabel {
     static name: string
     constructor (config?: TreeMgrLabel_ConstructProps)
     _init (config?: TreeMgrLabel_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(label: string): TreeMgrLabel
-    static $gtype: GObject.Type
-}
-export interface TreeMgrLdap_ConstructProps extends TreeManager_ConstructProps {
-    dn?: string
-}
-export class TreeMgrLdap {
-    /* Properties of Gda-5.0.Gda.TreeManager */
-    func: object
-    recursive: boolean
-    /* Fields of Gda-5.0.Gda.TreeMgrLdap */
-    object: TreeManager
-    priv: TreeMgrLdapPriv
-    /* Fields of GObject-2.0.GObject.Object */
-    gTypeInstance: GObject.TypeInstance
-    /* Methods of Gda-5.0.Gda.TreeManager */
-    addManager(sub: TreeManager): void
-    addNewNodeAttribute(attribute: string, value?: any | null): void
-    createNode(parent?: TreeNode | null, name?: string | null): TreeNode
-    getManagers(): TreeManager[]
-    /* Methods of GObject-2.0.GObject.Object */
-    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
-    forceFloating(): void
-    freezeNotify(): void
-    getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
-    getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
-    isFloating(): boolean
-    notify(propertyName: string): void
-    notifyByPspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    refSink(): GObject.Object
-    runDispose(): void
-    setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
-    stealData(key: string): object | null
-    stealQdata(quark: GLib.Quark): object | null
-    thawNotify(): void
-    unref(): void
-    watchClosure(closure: GObject.Closure): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: TreeMgrLdap, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::func", callback: (($obj: TreeMgrLdap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::func", callback: (($obj: TreeMgrLdap, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::func", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::func", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::func", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::recursive", callback: (($obj: TreeMgrLdap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::recursive", callback: (($obj: TreeMgrLdap, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::recursive", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::recursive", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::recursive", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    on(sigName: string, callback: any): NodeJS.EventEmitter
-    once(sigName: string, callback: any): NodeJS.EventEmitter
-    off(sigName: string, callback: any): NodeJS.EventEmitter
-    static name: string
-    constructor (config?: TreeMgrLdap_ConstructProps)
-    _init (config?: TreeMgrLdap_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(cnc: Connection, dn?: string | null): TreeMgrLdap
     static $gtype: GObject.Type
 }
 export interface TreeMgrSchemas_ConstructProps extends TreeManager_ConstructProps {
@@ -4746,8 +4415,6 @@ export class TreeMgrSchemas {
     static name: string
     constructor (config?: TreeMgrSchemas_ConstructProps)
     _init (config?: TreeMgrSchemas_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(cnc: Connection): TreeMgrSchemas
     static $gtype: GObject.Type
 }
 export interface TreeMgrSelect_ConstructProps extends TreeManager_ConstructProps {
@@ -4817,8 +4484,6 @@ export class TreeMgrSelect {
     static name: string
     constructor (config?: TreeMgrSelect_ConstructProps)
     _init (config?: TreeMgrSelect_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(cnc: Connection, stmt: Statement, params: Set): TreeMgrSelect
     static $gtype: GObject.Type
 }
 export interface TreeMgrTables_ConstructProps extends TreeManager_ConstructProps {
@@ -4888,8 +4553,6 @@ export class TreeMgrTables {
     static name: string
     constructor (config?: TreeMgrTables_ConstructProps)
     _init (config?: TreeMgrTables_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(cnc: Connection, schema?: string | null): TreeMgrTables
     static $gtype: GObject.Type
 }
 export interface TreeNode_ConstructProps extends GObject.Object_ConstructProps {
@@ -4975,9 +4638,6 @@ export class TreeNode {
     static name: string
     constructor (config?: TreeNode_ConstructProps)
     _init (config?: TreeNode_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(name?: string | null): TreeNode
-    static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
 export class UShort {
@@ -5038,9 +4698,6 @@ export class XaTransaction {
     static name: string
     constructor (config?: XaTransaction_ConstructProps)
     _init (config?: XaTransaction_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(format: number, globalTransactionId: string): XaTransaction
-    static errorQuark(): GLib.Quark
     static $gtype: GObject.Type
 }
 export class AttributesManager {
@@ -5069,9 +4726,6 @@ export class Binary {
     /* Methods of Gda-5.0.Gda.Binary */
     toString(maxlen: number): string
     static name: string
-    /* Static methods and pseudo-constructors */
-    static copy(boxed?: object | null): object | null
-    static free(boxed?: object | null): void
 }
 export class Blob {
     /* Fields of Gda-5.0.Gda.Blob */
@@ -5081,9 +4735,6 @@ export class Blob {
     setOp(op?: BlobOp | null): void
     toString(maxlen: number): string
     static name: string
-    /* Static methods and pseudo-constructors */
-    static copy(boxed?: object | null): object | null
-    static free(boxed?: object | null): void
 }
 export abstract class BlobOpClass {
     /* Fields of Gda-5.0.Gda.BlobOpClass */
@@ -5233,14 +4884,6 @@ export abstract class DataModelIterClass {
 export class DataModelIterPrivate {
     static name: string
 }
-export abstract class DataModelLdapClass {
-    /* Fields of Gda-5.0.Gda.DataModelLdapClass */
-    parentClass: GObject.ObjectClass
-    static name: string
-}
-export class DataModelLdapPrivate {
-    static name: string
-}
 export abstract class DataPivotClass {
     /* Fields of Gda-5.0.Gda.DataPivotClass */
     parentClass: GObject.ObjectClass
@@ -5299,17 +4942,12 @@ export class DsnInfo {
     static name: string
     static new(): DsnInfo
     constructor()
-    /* Static methods and pseudo-constructors */
-    static new(): DsnInfo
 }
 export class GeometricPoint {
     /* Fields of Gda-5.0.Gda.GeometricPoint */
     x: number
     y: number
     static name: string
-    /* Static methods and pseudo-constructors */
-    static copy(boxed?: object | null): object | null
-    static free(boxed?: object | null): void
 }
 export abstract class HandlerBinClass {
     /* Fields of Gda-5.0.Gda.HandlerBinClass */
@@ -5396,8 +5034,6 @@ export class MetaContext {
     static name: string
     static new(): MetaContext
     constructor()
-    /* Static methods and pseudo-constructors */
-    static new(): MetaContext
 }
 export class MetaDbObject {
     /* Fields of Gda-5.0.Gda.MetaDbObject */
@@ -5502,8 +5138,6 @@ export class Numeric {
     static name: string
     static new(): Numeric
     constructor()
-    /* Static methods and pseudo-constructors */
-    static new(): Numeric
 }
 export abstract class PStmtClass {
     /* Fields of Gda-5.0.Gda.PStmtClass */
@@ -5535,9 +5169,6 @@ export class QuarkList {
     static name: string
     static new(): QuarkList
     constructor()
-    /* Static methods and pseudo-constructors */
-    static new(): QuarkList
-    static newFromString(string: string): QuarkList
 }
 export abstract class RepetitiveStatementClass {
     /* Fields of Gda-5.0.Gda.RepetitiveStatementClass */
@@ -5684,8 +5315,6 @@ export class SetGroup {
     static name: string
     static new(node: SetNode): SetGroup
     constructor(node: SetNode)
-    /* Static methods and pseudo-constructors */
-    static new(node: SetNode): SetGroup
 }
 export class SetNode {
     /* Fields of Gda-5.0.Gda.SetNode */
@@ -5704,8 +5333,6 @@ export class SetNode {
     static name: string
     static new(holder: Holder): SetNode
     constructor(holder: Holder)
-    /* Static methods and pseudo-constructors */
-    static new(holder: Holder): SetNode
 }
 export class SetPrivate {
     static name: string
@@ -5725,8 +5352,6 @@ export class SetSource {
     static name: string
     static new(model: DataModel): SetSource
     constructor(model: DataModel)
-    /* Static methods and pseudo-constructors */
-    static new(model: DataModel): SetSource
 }
 export class SqlAnyPart {
     /* Fields of Gda-5.0.Gda.SqlAnyPart */
@@ -5806,9 +5431,6 @@ export class SqlOperation {
     free(): void
     serialize(): string
     static name: string
-    /* Static methods and pseudo-constructors */
-    static operatorFromString(op: string): SqlOperatorType
-    static operatorToString(op: SqlOperatorType): string
 }
 export abstract class SqlParserClass {
     /* Fields of Gda-5.0.Gda.SqlParserClass */
@@ -5881,8 +5503,6 @@ export class SqlSelectJoin {
     free(): void
     serialize(): string
     static name: string
-    /* Static methods and pseudo-constructors */
-    static typeToString(type: SqlSelectJoinType): string
 }
 export class SqlSelectOrder {
     /* Fields of Gda-5.0.Gda.SqlSelectOrder */
@@ -6006,9 +5626,6 @@ export class Time {
     changeTimezone(ntz: number): void
     valid(): boolean
     static name: string
-    /* Static methods and pseudo-constructors */
-    static copy(boxed?: object | null): object | null
-    static free(boxed?: object | null): void
 }
 export class Timestamp {
     /* Fields of Gda-5.0.Gda.Timestamp */
@@ -6024,9 +5641,6 @@ export class Timestamp {
     changeTimezone(ntz: number): void
     valid(): boolean
     static name: string
-    /* Static methods and pseudo-constructors */
-    static copy(boxed?: object | null): object | null
-    static free(boxed?: object | null): void
 }
 export abstract class TransactionStatusClass {
     /* Fields of Gda-5.0.Gda.TransactionStatusClass */
@@ -6071,14 +5685,6 @@ export abstract class TreeMgrLabelClass {
     static name: string
 }
 export class TreeMgrLabelPriv {
-    static name: string
-}
-export abstract class TreeMgrLdapClass {
-    /* Fields of Gda-5.0.Gda.TreeMgrLdapClass */
-    objectClass: TreeManagerClass
-    static name: string
-}
-export class TreeMgrLdapPriv {
     static name: string
 }
 export abstract class TreeMgrSchemasClass {

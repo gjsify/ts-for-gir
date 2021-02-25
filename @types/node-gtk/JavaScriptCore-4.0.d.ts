@@ -200,10 +200,6 @@ export class Context {
     static name: string
     constructor (config?: Context_ConstructProps)
     _init (config?: Context_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): Context
-    static newWithVirtualMachine(vm: VirtualMachine): Context
-    static getCurrent(): Context | null
     static $gtype: GObject.Type
 }
 export interface Exception_ConstructProps extends GObject.Object_ConstructProps {
@@ -260,9 +256,6 @@ export class Exception {
     static name: string
     constructor (config?: Exception_ConstructProps)
     _init (config?: Exception_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(context: Context, message: string): Exception
-    static newWithName(context: Context, name: string, message: string): Exception
     static $gtype: GObject.Type
 }
 export interface Value_ConstructProps extends GObject.Object_ConstructProps {
@@ -341,19 +334,6 @@ export class Value {
     static name: string
     constructor (config?: Value_ConstructProps)
     _init (config?: Value_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static newArrayFromGarray(context: Context, array?: Value[] | null): Value
-    static newArrayFromStrv(context: Context, strv: string[]): Value
-    static newBoolean(context: Context, value: boolean): Value
-    static newFromJson(context: Context, json: string): Value
-    static newFunctionVariadic(context: Context, name: string | null, callback: GObject.Callback, returnType: GObject.Type): Value
-    static newFunction(context: Context, name: string | null, callback: GObject.Callback, returnType: GObject.Type, parameterTypes?: GObject.Type[] | null): Value
-    static newNull(context: Context): Value
-    static newNumber(context: Context, number: number): Value
-    static newObject(context: Context, instance?: object | null, jscClass?: Class | null): Value
-    static newString(context: Context, string?: string | null): Value
-    static newStringFromBytes(context: Context, bytes?: any | null): Value
-    static newUndefined(context: Context): Value
     static $gtype: GObject.Type
 }
 export interface VirtualMachine_ConstructProps extends GObject.Object_ConstructProps {
@@ -401,8 +381,6 @@ export class VirtualMachine {
     static name: string
     constructor (config?: VirtualMachine_ConstructProps)
     _init (config?: VirtualMachine_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): VirtualMachine
     static $gtype: GObject.Type
 }
 export interface WeakValue_ConstructProps extends GObject.Object_ConstructProps {
@@ -459,8 +437,6 @@ export class WeakValue {
     static name: string
     constructor (config?: WeakValue_ConstructProps)
     _init (config?: WeakValue_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(value: Value): WeakValue
     static $gtype: GObject.Type
 }
 export abstract class ClassClass {

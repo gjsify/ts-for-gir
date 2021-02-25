@@ -705,6 +705,7 @@ export class ChaptersView {
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     child_notify_by_pspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     child_set_property(child: Gtk.Widget, property_name: string, value: any): void
     child_type(): GObject.Type
@@ -1688,6 +1689,7 @@ export class Charmap {
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     child_notify_by_pspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     child_set_property(child: Gtk.Widget, property_name: string, value: any): void
     child_type(): GObject.Type
@@ -3369,11 +3371,13 @@ export class ChartableAccessible {
     add_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     get_accessible_id(): string
     get_attributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     get_index_in_parent(): number
     get_layer(): Atk.Layer
     get_mdi_zorder(): number
     get_n_accessible_children(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     get_object_locale(): string
     get_parent(): Atk.Object
@@ -3387,6 +3391,7 @@ export class ChartableAccessible {
     remove_property_change_handler(handler_id: number): void
     remove_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     set_accessible_id(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     set_name(name: string): void
     set_parent(parent: Atk.Object): void
@@ -3544,13 +3549,16 @@ export class ChartableAccessible {
     /* Virtual methods of Gucharmap-2.90.Gucharmap.ChartableAccessible */
     vfunc_do_action(i: number): boolean
     vfunc_get_description(i: number): string | null
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_keybinding(i: number): string | null
     vfunc_get_localized_name(i: number): string | null
     vfunc_get_n_actions(): number
     vfunc_get_name(i: number): string | null
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_set_description(i: number, desc: string): boolean
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_bounds_changed(bounds: Atk.Rectangle): void
     vfunc_contains(x: number, y: number, coord_type: Atk.CoordType): boolean
@@ -3683,11 +3691,13 @@ export class ChartableAccessible {
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
     vfunc_get_attributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_index_in_parent(): number
     vfunc_get_layer(): Atk.Layer
     vfunc_get_mdi_zorder(): number
     vfunc_get_n_children(): number
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_get_object_locale(): string
     vfunc_get_parent(): Atk.Object
@@ -3697,6 +3707,7 @@ export class ChartableAccessible {
     vfunc_ref_relation_set(): Atk.RelationSet
     vfunc_ref_state_set(): Atk.StateSet
     vfunc_remove_property_change_handler(handler_id: number): void
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_set_name(name: string): void
     vfunc_set_parent(parent: Atk.Object): void
@@ -3917,11 +3928,13 @@ export class ChartableCellAccessible {
     add_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     get_accessible_id(): string
     get_attributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     get_index_in_parent(): number
     get_layer(): Atk.Layer
     get_mdi_zorder(): number
     get_n_accessible_children(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     get_object_locale(): string
     get_parent(): Atk.Object
@@ -3935,6 +3948,7 @@ export class ChartableCellAccessible {
     remove_property_change_handler(handler_id: number): void
     remove_relationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     set_accessible_id(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     set_name(name: string): void
     set_parent(parent: Atk.Object): void
@@ -3986,13 +4000,16 @@ export class ChartableCellAccessible {
     /* Virtual methods of Gucharmap-2.90.Gucharmap.ChartableCellAccessible */
     vfunc_do_action(i: number): boolean
     vfunc_get_description(i: number): string | null
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_keybinding(i: number): string | null
     vfunc_get_localized_name(i: number): string | null
     vfunc_get_n_actions(): number
     vfunc_get_name(i: number): string | null
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_set_description(i: number, desc: string): boolean
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_bounds_changed(bounds: Atk.Rectangle): void
     vfunc_contains(x: number, y: number, coord_type: Atk.CoordType): boolean
@@ -4015,11 +4032,13 @@ export class ChartableCellAccessible {
     vfunc_children_changed(change_index: number, changed_child?: object | null): void
     vfunc_focus_event(focus_in: boolean): void
     vfunc_get_attributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     vfunc_get_description(): string | null
     vfunc_get_index_in_parent(): number
     vfunc_get_layer(): Atk.Layer
     vfunc_get_mdi_zorder(): number
     vfunc_get_n_children(): number
+    /* return type clashes with Atk.Action.get_name */
     vfunc_get_name(): string | null
     vfunc_get_object_locale(): string
     vfunc_get_parent(): Atk.Object
@@ -4029,6 +4048,7 @@ export class ChartableCellAccessible {
     vfunc_ref_relation_set(): Atk.RelationSet
     vfunc_ref_state_set(): Atk.StateSet
     vfunc_remove_property_change_handler(handler_id: number): void
+    /* return type clashes with Atk.Action.set_description */
     vfunc_set_description(description: string): boolean | null
     vfunc_set_name(name: string): void
     vfunc_set_parent(parent: Atk.Object): void

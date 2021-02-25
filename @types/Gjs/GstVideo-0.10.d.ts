@@ -66,55 +66,55 @@ export const RED_MASK_15_INT: any
 export const RED_MASK_16: string
 export const RED_MASK_16_INT: any
 export const SIZE_RANGE: string
-export function calculate_display_ratio(video_width: any, video_height: any, video_par_n: any, video_par_d: any, display_par_n: any, display_par_d: any): [ /* returnType */ any, /* dar_n */ any, /* dar_d */ any ]
-export function event_new_still_frame(in_still: any): Gst.Event
-export function event_parse_still_frame(event: Gst.Event): [ /* returnType */ any, /* in_still */ any ]
-export function format_convert(format: Format, width: any, height: any, fps_n: any, fps_d: any, src_format: Gst.Format, src_value: any, dest_format: Gst.Format): [ /* returnType */ any, /* dest_value */ any ]
-export function format_from_fourcc(fourcc: any): Format
+export function calculate_display_ratio(video_width: number, video_height: number, video_par_n: number, video_par_d: number, display_par_n: number, display_par_d: number): [ /* returnType */ boolean, /* dar_n */ any, /* dar_d */ any ]
+export function event_new_still_frame(in_still: boolean): Gst.Event
+export function event_parse_still_frame(event: Gst.Event): [ /* returnType */ boolean, /* in_still */ any ]
+export function format_convert(format: Format, width: any, height: any, fps_n: any, fps_d: any, src_format: Gst.Format, src_value: number, dest_format: Gst.Format): [ /* returnType */ boolean, /* dest_value */ any ]
+export function format_from_fourcc(fourcc: number): Format
 export function format_get_component_height(format: Format, component: any, height: any): any
 export function format_get_component_offset(format: Format, component: any, width: any, height: any): any
 export function format_get_component_width(format: Format, component: any, width: any): any
 export function format_get_pixel_stride(format: Format, component: any): any
 export function format_get_row_stride(format: Format, component: any, width: any): any
 export function format_get_size(format: Format, width: any, height: any): any
-export function format_has_alpha(format: Format): any
-export function format_is_rgb(format: Format): any
-export function format_is_yuv(format: Format): any
+export function format_has_alpha(format: Format): boolean
+export function format_is_rgb(format: Format): boolean
+export function format_is_yuv(format: Format): boolean
 export function format_new_caps(format: Format, width: any, height: any, framerate_n: any, framerate_d: any, par_n: any, par_d: any): Gst.Caps
-export function format_new_caps_interlaced(format: Format, width: any, height: any, framerate_n: any, framerate_d: any, par_n: any, par_d: any, interlaced: any): Gst.Caps
-export function format_parse_caps(caps: Gst.Caps, format: Format): [ /* returnType */ any, /* width */ any, /* height */ any ]
-export function format_parse_caps_interlaced(caps: Gst.Caps): [ /* returnType */ any, /* interlaced */ any ]
-export function format_to_fourcc(format: Format): any
+export function format_new_caps_interlaced(format: Format, width: any, height: any, framerate_n: any, framerate_d: any, par_n: any, par_d: any, interlaced: boolean): Gst.Caps
+export function format_parse_caps(caps: Gst.Caps, format: Format): [ /* returnType */ boolean, /* width */ any, /* height */ any ]
+export function format_parse_caps_interlaced(caps: Gst.Caps): [ /* returnType */ boolean, /* interlaced */ any ]
+export function format_to_fourcc(format: Format): number
 export function frame_rate(pad: Gst.Pad): any
-export function get_size(pad: Gst.Pad): [ /* returnType */ any, /* width */ any, /* height */ any ]
+export function get_size(pad: Gst.Pad): [ /* returnType */ boolean, /* width */ any, /* height */ any ]
 export function parse_caps_chroma_site(caps: Gst.Caps): string
 export function parse_caps_color_matrix(caps: Gst.Caps): string
-export function parse_caps_framerate(caps: Gst.Caps): [ /* returnType */ any, /* fps_n */ any, /* fps_d */ any ]
-export function parse_caps_pixel_aspect_ratio(caps: Gst.Caps): [ /* returnType */ any, /* par_n */ any, /* par_d */ any ]
+export function parse_caps_framerate(caps: Gst.Caps): [ /* returnType */ boolean, /* fps_n */ any, /* fps_d */ any ]
+export function parse_caps_pixel_aspect_ratio(caps: Gst.Caps): [ /* returnType */ boolean, /* par_n */ any, /* par_d */ any ]
 export interface Filter_ConstructProps extends GstBase.Transform_ConstructProps {
 }
 export class Filter {
     /* Properties of GstBase-0.10.GstBase.Transform */
-    qos: any
+    qos: boolean
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of GstVideo-0.10.GstVideo.Filter */
     element: GstBase.Transform
-    inited: any
+    inited: boolean
     /* Fields of GstBase-0.10.GstBase.Transform */
     sinkpad: Gst.Pad
     srcpad: Gst.Pad
-    passthrough: any
-    always_in_place: any
+    passthrough: boolean
+    always_in_place: boolean
     cache_caps1: Gst.Caps
-    cache_caps1_size: any
+    cache_caps1_size: number
     cache_caps2: Gst.Caps
-    cache_caps2_size: any
-    have_same_caps: any
-    delay_configure: any
-    pending_configure: any
-    negotiated: any
-    have_newsegment: any
+    cache_caps2_size: number
+    have_same_caps: boolean
+    delay_configure: boolean
+    pending_configure: boolean
+    negotiated: boolean
+    have_newsegment: boolean
     segment: Gst.Segment
     transform_lock: GLib.Mutex
     priv: Gst.BaseTransformPrivate
@@ -123,7 +123,7 @@ export class Filter {
     object: Gst.Object
     state_lock: any
     state_cond: GLib.Cond
-    state_cookie: any
+    state_cookie: number
     current_state: Gst.State
     next_state: Gst.State
     pending_state: Gst.State
@@ -131,49 +131,49 @@ export class Filter {
     bus: Gst.Bus
     clock: Gst.Clock
     base_time: Gst.ClockTimeDiff
-    numpads: any
-    pads: any[]
-    numsrcpads: any
-    srcpads: any[]
-    numsinkpads: any
-    sinkpads: any[]
-    pads_cookie: any
+    numpads: number
+    pads: object[]
+    numsrcpads: number
+    srcpads: object[]
+    numsinkpads: number
+    sinkpads: object[]
+    pads_cookie: number
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     name_prefix: string
     parent: Gst.Object
-    flags: any
+    flags: number
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GstBase-0.10.GstBase.Transform */
-    set_passthrough(passthrough: any): void
-    is_passthrough(): any
-    set_in_place(in_place: any): void
-    is_in_place(): any
+    set_passthrough(passthrough: boolean): void
+    is_passthrough(): boolean
+    set_in_place(in_place: boolean): void
+    is_in_place(): boolean
     update_qos(proportion: number, diff: Gst.ClockTimeDiff, timestamp: Gst.ClockTime): void
-    set_qos_enabled(enabled: any): void
-    is_qos_enabled(): any
-    set_gap_aware(gap_aware: any): void
-    suggest(caps: Gst.Caps, size: any): void
+    set_qos_enabled(enabled: boolean): void
+    is_qos_enabled(): boolean
+    set_gap_aware(gap_aware: boolean): void
+    suggest(caps: Gst.Caps, size: number): void
     reconfigure(): void
     /* Methods of Gst-0.10.Gst.Element */
-    requires_clock(): any
-    provides_clock(): any
+    requires_clock(): boolean
+    provides_clock(): boolean
     provide_clock(): Gst.Clock
     get_clock(): Gst.Clock
-    set_clock(clock: Gst.Clock): any
+    set_clock(clock: Gst.Clock): boolean
     set_base_time(time: Gst.ClockTime): void
     get_base_time(): Gst.ClockTime
     set_start_time(time: Gst.ClockTime): void
     get_start_time(): Gst.ClockTime
-    is_indexable(): any
+    is_indexable(): boolean
     set_index(index: Gst.Index): void
     get_index(): Gst.Index
     set_bus(bus: Gst.Bus): void
     get_bus(): Gst.Bus
-    add_pad(pad: Gst.Pad): any
-    remove_pad(pad: Gst.Pad): any
+    add_pad(pad: Gst.Pad): boolean
+    remove_pad(pad: Gst.Pad): boolean
     no_more_pads(): void
     get_pad(name: string): Gst.Pad
     get_static_pad(name: string): Gst.Pad
@@ -182,49 +182,49 @@ export class Filter {
     iterate_pads(): Gst.Iterator
     iterate_src_pads(): Gst.Iterator
     iterate_sink_pads(): Gst.Iterator
-    send_event(event: Gst.Event): any
-    seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, cur_type: Gst.SeekType, cur: any, stop_type: Gst.SeekType, stop: any): any
+    send_event(event: Gst.Event): boolean
+    seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, cur_type: Gst.SeekType, cur: number, stop_type: Gst.SeekType, stop: number): boolean
     get_query_types(): Gst.QueryType
-    query(query: Gst.Query): any
-    post_message(message: Gst.Message): any
-    message_full(type: Gst.MessageType, domain: GLib.Quark, code: any, text: string, debug: string, file: string, function_: string, line: any): void
-    is_locked_state(): any
-    set_locked_state(locked_state: any): any
-    sync_state_with_parent(): any
+    query(query: Gst.Query): boolean
+    post_message(message: Gst.Message): boolean
+    message_full(type: Gst.MessageType, domain: GLib.Quark, code: number, text: string, debug: string, file: string, function_: string, line: number): void
+    is_locked_state(): boolean
+    set_locked_state(locked_state: boolean): boolean
+    sync_state_with_parent(): boolean
     get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State, /* pending */ Gst.State ]
     set_state(state: Gst.State): Gst.StateChangeReturn
     abort_state(): void
     change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     continue_state(ret: Gst.StateChangeReturn): Gst.StateChangeReturn
     lost_state(): void
-    lost_state_full(new_base_time: any): void
+    lost_state_full(new_base_time: boolean): void
     get_factory(): Gst.ElementFactory
-    implements_interface(iface_type: GObject.Type): any
+    implements_interface(iface_type: GObject.Type): boolean
     create_all_pads(): void
     get_compatible_pad(pad: Gst.Pad, caps: Gst.Caps): Gst.Pad
     get_compatible_pad_template(compattempl: Gst.PadTemplate): Gst.PadTemplate
-    link(dest: Gst.Element): any
-    link_filtered(dest: Gst.Element, filter: Gst.Caps): any
+    link(dest: Gst.Element): boolean
+    link_filtered(dest: Gst.Element, filter: Gst.Caps): boolean
     unlink(dest: Gst.Element): void
-    link_pads(srcpadname: string, dest: Gst.Element, destpadname: string): any
-    link_pads_full(srcpadname: string, dest: Gst.Element, destpadname: string, flags: Gst.PadLinkCheck): any
+    link_pads(srcpadname: string, dest: Gst.Element, destpadname: string): boolean
+    link_pads_full(srcpadname: string, dest: Gst.Element, destpadname: string, flags: Gst.PadLinkCheck): boolean
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    link_pads_filtered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): any
-    seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: any): any
-    query_position(format: Gst.Format): [ /* returnType */ any, /* cur */ any ]
-    query_duration(format: Gst.Format): [ /* returnType */ any, /* duration */ any ]
-    query_convert(src_format: Gst.Format, src_val: any, dest_format: Gst.Format): [ /* returnType */ any, /* dest_val */ any ]
+    link_pads_filtered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
+    seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
+    query_position(format: Gst.Format): [ /* returnType */ boolean, /* cur */ any ]
+    query_duration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ any ]
+    query_convert(src_format: Gst.Format, src_val: number, dest_format: Gst.Format): [ /* returnType */ boolean, /* dest_val */ any ]
     found_tags_for_pad(pad: Gst.Pad, list: Gst.TagList): void
     found_tags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */
-    set_name(name: string): any
+    set_name(name: string): boolean
     get_name(): string
     set_name_prefix(name_prefix: string): void
     get_name_prefix(): string
-    set_parent(parent: Gst.Object): any
+    set_parent(parent: Gst.Object): boolean
     get_parent(): Gst.Object
     unparent(): void
-    has_ancestor(ancestor: Gst.Object): any
+    has_ancestor(ancestor: Gst.Object): boolean
     replace(newobj: Gst.Object): void
     get_path_string(): string
     save_thyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -260,12 +260,12 @@ export class Filter {
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_set_bus(bus: Gst.Bus): void
     vfunc_provide_clock(): Gst.Clock
-    vfunc_set_clock(clock: Gst.Clock): any
+    vfunc_set_clock(clock: Gst.Clock): boolean
     vfunc_get_index(): Gst.Index
     vfunc_set_index(index: Gst.Index): void
-    vfunc_send_event(event: Gst.Event): any
+    vfunc_send_event(event: Gst.Event): boolean
     vfunc_get_query_types(): Gst.QueryType
-    vfunc_query(query: Gst.Query): any
+    vfunc_query(query: Gst.Query): boolean
     /* Virtual methods of Gst-0.10.Gst.Object */
     vfunc_save_thyself(parent: libxml2.NodePtr): libxml2.NodePtr
     vfunc_restore_thyself(self: libxml2.NodePtr): void
@@ -291,9 +291,9 @@ export class Filter {
     connect(sigName: "deep-notify", callback: (($obj: Filter, object: Gst.Object, p0: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: Filter, object: Gst.Object, p0: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", object: Gst.Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: Filter, object: any) => void)): number
-    connect_after(sigName: "object-saved", callback: (($obj: Filter, object: any) => void)): number
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: Filter, object: object) => void)): number
+    connect_after(sigName: "object-saved", callback: (($obj: Filter, object: object) => void)): number
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: Filter, object: Gst.Object) => void)): number
     connect_after(sigName: "parent-set", callback: (($obj: Filter, object: Gst.Object) => void)): number
     emit(sigName: "parent-set", object: Gst.Object): void
@@ -318,56 +318,56 @@ export class Filter {
     static $gtype: GObject.Type
 }
 export interface Sink_ConstructProps extends GstBase.Sink_ConstructProps {
-    show_preroll_frame?: any
+    show_preroll_frame?: boolean
 }
 export class Sink {
     /* Properties of GstVideo-0.10.GstVideo.Sink */
-    show_preroll_frame: any
+    show_preroll_frame: boolean
     /* Properties of GstBase-0.10.GstBase.Sink */
-    async: any
-    blocksize: any
-    enable_last_buffer: any
+    async: boolean
+    blocksize: number
+    enable_last_buffer: boolean
     readonly last_buffer: Gst.Buffer
-    max_lateness: any
-    preroll_queue_len: any
-    qos: any
-    render_delay: any
-    sync: any
-    ts_offset: any
+    max_lateness: number
+    preroll_queue_len: number
+    qos: boolean
+    render_delay: number
+    sync: boolean
+    ts_offset: number
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of GstVideo-0.10.GstVideo.Sink */
     element: GstBase.Sink
-    width: any
-    height: any
+    width: number
+    height: number
     priv: SinkPrivate
     _gst_reserved: any[]
     /* Fields of GstBase-0.10.GstBase.Sink */
     sinkpad: Gst.Pad
     pad_mode: Gst.ActivateMode
-    offset: any
-    can_activate_pull: any
-    can_activate_push: any
+    offset: number
+    can_activate_pull: boolean
+    can_activate_push: boolean
     preroll_queue: GLib.Queue
-    preroll_queue_max_len: any
-    preroll_queued: any
-    buffers_queued: any
-    events_queued: any
-    eos: any
-    eos_queued: any
-    need_preroll: any
-    have_preroll: any
-    playing_async: any
-    have_newsegment: any
+    preroll_queue_max_len: number
+    preroll_queued: number
+    buffers_queued: number
+    events_queued: number
+    eos: boolean
+    eos_queued: boolean
+    need_preroll: boolean
+    have_preroll: boolean
+    playing_async: boolean
+    have_newsegment: boolean
     segment: Gst.Segment
     clock_id: Gst.ClockID
     end_time: Gst.ClockTime
-    flushing: any
+    flushing: boolean
     /* Fields of Gst-0.10.Gst.Element */
     object: Gst.Object
     state_lock: any
     state_cond: GLib.Cond
-    state_cookie: any
+    state_cookie: number
     current_state: Gst.State
     next_state: Gst.State
     pending_state: Gst.State
@@ -375,62 +375,62 @@ export class Sink {
     bus: Gst.Bus
     clock: Gst.Clock
     base_time: Gst.ClockTimeDiff
-    numpads: any
-    pads: any[]
-    numsrcpads: any
-    srcpads: any[]
-    numsinkpads: any
-    sinkpads: any[]
-    pads_cookie: any
+    numpads: number
+    pads: object[]
+    numsrcpads: number
+    srcpads: object[]
+    numsinkpads: number
+    sinkpads: object[]
+    pads_cookie: number
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     name_prefix: string
     parent: Gst.Object
-    flags: any
+    flags: number
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GstBase-0.10.GstBase.Sink */
     do_preroll(obj: Gst.MiniObject): Gst.FlowReturn
     wait_preroll(): Gst.FlowReturn
-    set_sync(sync: any): void
-    get_sync(): any
-    set_max_lateness(max_lateness: any): void
-    get_max_lateness(): any
-    set_qos_enabled(enabled: any): void
-    is_qos_enabled(): any
-    set_async_enabled(enabled: any): void
-    is_async_enabled(): any
+    set_sync(sync: boolean): void
+    get_sync(): boolean
+    set_max_lateness(max_lateness: number): void
+    get_max_lateness(): number
+    set_qos_enabled(enabled: boolean): void
+    is_qos_enabled(): boolean
+    set_async_enabled(enabled: boolean): void
+    is_async_enabled(): boolean
     set_ts_offset(offset: Gst.ClockTimeDiff): void
     get_ts_offset(): Gst.ClockTimeDiff
     get_last_buffer(): Gst.Buffer
-    set_last_buffer_enabled(enable: any): void
-    is_last_buffer_enabled(): any
-    query_latency(min_latency: Gst.ClockTime, max_latency: Gst.ClockTime): [ /* returnType */ any, /* live */ any, /* upstream_live */ any ]
+    set_last_buffer_enabled(enable: boolean): void
+    is_last_buffer_enabled(): boolean
+    query_latency(min_latency: Gst.ClockTime, max_latency: Gst.ClockTime): [ /* returnType */ boolean, /* live */ any, /* upstream_live */ any ]
     get_latency(): Gst.ClockTime
     set_render_delay(delay: Gst.ClockTime): void
     get_render_delay(): Gst.ClockTime
-    set_blocksize(blocksize: any): void
-    get_blocksize(): any
+    set_blocksize(blocksize: number): void
+    get_blocksize(): number
     wait_clock(time: Gst.ClockTime, jitter: Gst.ClockTimeDiff): Gst.ClockReturn
     wait_eos(time: Gst.ClockTime, jitter: Gst.ClockTimeDiff): Gst.FlowReturn
     /* Methods of Gst-0.10.Gst.Element */
-    requires_clock(): any
-    provides_clock(): any
+    requires_clock(): boolean
+    provides_clock(): boolean
     provide_clock(): Gst.Clock
     get_clock(): Gst.Clock
-    set_clock(clock: Gst.Clock): any
+    set_clock(clock: Gst.Clock): boolean
     set_base_time(time: Gst.ClockTime): void
     get_base_time(): Gst.ClockTime
     set_start_time(time: Gst.ClockTime): void
     get_start_time(): Gst.ClockTime
-    is_indexable(): any
+    is_indexable(): boolean
     set_index(index: Gst.Index): void
     get_index(): Gst.Index
     set_bus(bus: Gst.Bus): void
     get_bus(): Gst.Bus
-    add_pad(pad: Gst.Pad): any
-    remove_pad(pad: Gst.Pad): any
+    add_pad(pad: Gst.Pad): boolean
+    remove_pad(pad: Gst.Pad): boolean
     no_more_pads(): void
     get_pad(name: string): Gst.Pad
     get_static_pad(name: string): Gst.Pad
@@ -439,49 +439,49 @@ export class Sink {
     iterate_pads(): Gst.Iterator
     iterate_src_pads(): Gst.Iterator
     iterate_sink_pads(): Gst.Iterator
-    send_event(event: Gst.Event): any
-    seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, cur_type: Gst.SeekType, cur: any, stop_type: Gst.SeekType, stop: any): any
+    send_event(event: Gst.Event): boolean
+    seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, cur_type: Gst.SeekType, cur: number, stop_type: Gst.SeekType, stop: number): boolean
     get_query_types(): Gst.QueryType
-    query(query: Gst.Query): any
-    post_message(message: Gst.Message): any
-    message_full(type: Gst.MessageType, domain: GLib.Quark, code: any, text: string, debug: string, file: string, function_: string, line: any): void
-    is_locked_state(): any
-    set_locked_state(locked_state: any): any
-    sync_state_with_parent(): any
+    query(query: Gst.Query): boolean
+    post_message(message: Gst.Message): boolean
+    message_full(type: Gst.MessageType, domain: GLib.Quark, code: number, text: string, debug: string, file: string, function_: string, line: number): void
+    is_locked_state(): boolean
+    set_locked_state(locked_state: boolean): boolean
+    sync_state_with_parent(): boolean
     get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State, /* pending */ Gst.State ]
     set_state(state: Gst.State): Gst.StateChangeReturn
     abort_state(): void
     change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     continue_state(ret: Gst.StateChangeReturn): Gst.StateChangeReturn
     lost_state(): void
-    lost_state_full(new_base_time: any): void
+    lost_state_full(new_base_time: boolean): void
     get_factory(): Gst.ElementFactory
-    implements_interface(iface_type: GObject.Type): any
+    implements_interface(iface_type: GObject.Type): boolean
     create_all_pads(): void
     get_compatible_pad(pad: Gst.Pad, caps: Gst.Caps): Gst.Pad
     get_compatible_pad_template(compattempl: Gst.PadTemplate): Gst.PadTemplate
-    link(dest: Gst.Element): any
-    link_filtered(dest: Gst.Element, filter: Gst.Caps): any
+    link(dest: Gst.Element): boolean
+    link_filtered(dest: Gst.Element, filter: Gst.Caps): boolean
     unlink(dest: Gst.Element): void
-    link_pads(srcpadname: string, dest: Gst.Element, destpadname: string): any
-    link_pads_full(srcpadname: string, dest: Gst.Element, destpadname: string, flags: Gst.PadLinkCheck): any
+    link_pads(srcpadname: string, dest: Gst.Element, destpadname: string): boolean
+    link_pads_full(srcpadname: string, dest: Gst.Element, destpadname: string, flags: Gst.PadLinkCheck): boolean
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    link_pads_filtered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): any
-    seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: any): any
-    query_position(format: Gst.Format): [ /* returnType */ any, /* cur */ any ]
-    query_duration(format: Gst.Format): [ /* returnType */ any, /* duration */ any ]
-    query_convert(src_format: Gst.Format, src_val: any, dest_format: Gst.Format): [ /* returnType */ any, /* dest_val */ any ]
+    link_pads_filtered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
+    seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
+    query_position(format: Gst.Format): [ /* returnType */ boolean, /* cur */ any ]
+    query_duration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ any ]
+    query_convert(src_format: Gst.Format, src_val: number, dest_format: Gst.Format): [ /* returnType */ boolean, /* dest_val */ any ]
     found_tags_for_pad(pad: Gst.Pad, list: Gst.TagList): void
     found_tags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */
-    set_name(name: string): any
+    set_name(name: string): boolean
     get_name(): string
     set_name_prefix(name_prefix: string): void
     get_name_prefix(): string
-    set_parent(parent: Gst.Object): any
+    set_parent(parent: Gst.Object): boolean
     get_parent(): Gst.Object
     unparent(): void
-    has_ancestor(ancestor: Gst.Object): any
+    has_ancestor(ancestor: Gst.Object): boolean
     replace(newobj: Gst.Object): void
     get_path_string(): string
     save_thyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -519,12 +519,12 @@ export class Sink {
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_set_bus(bus: Gst.Bus): void
     vfunc_provide_clock(): Gst.Clock
-    vfunc_set_clock(clock: Gst.Clock): any
+    vfunc_set_clock(clock: Gst.Clock): boolean
     vfunc_get_index(): Gst.Index
     vfunc_set_index(index: Gst.Index): void
-    vfunc_send_event(event: Gst.Event): any
+    vfunc_send_event(event: Gst.Event): boolean
     vfunc_get_query_types(): Gst.QueryType
-    vfunc_query(query: Gst.Query): any
+    vfunc_query(query: Gst.Query): boolean
     /* Virtual methods of Gst-0.10.Gst.Object */
     vfunc_save_thyself(parent: libxml2.NodePtr): libxml2.NodePtr
     vfunc_restore_thyself(self: libxml2.NodePtr): void
@@ -550,9 +550,9 @@ export class Sink {
     connect(sigName: "deep-notify", callback: (($obj: Sink, object: Gst.Object, p0: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: Sink, object: Gst.Object, p0: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", object: Gst.Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: Sink, object: any) => void)): number
-    connect_after(sigName: "object-saved", callback: (($obj: Sink, object: any) => void)): number
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: Sink, object: object) => void)): number
+    connect_after(sigName: "object-saved", callback: (($obj: Sink, object: object) => void)): number
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: Sink, object: Gst.Object) => void)): number
     connect_after(sigName: "parent-set", callback: (($obj: Sink, object: Gst.Object) => void)): number
     emit(sigName: "parent-set", object: Gst.Object): void
@@ -595,7 +595,7 @@ export class Sink {
     constructor (config?: Sink_ConstructProps)
     _init (config?: Sink_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static center_rect(src: Rectangle, dst: Rectangle, result: Rectangle, scaling: any): void
+    static center_rect(src: Rectangle, dst: Rectangle, result: Rectangle, scaling: boolean): void
     static $gtype: GObject.Type
 }
 export abstract class FilterClass {
@@ -605,10 +605,10 @@ export abstract class FilterClass {
 }
 export class Rectangle {
     /* Fields of GstVideo-0.10.GstVideo.Rectangle */
-    x: any
-    y: any
-    w: any
-    h: any
+    x: number
+    y: number
+    w: number
+    h: number
     static name: string
 }
 export abstract class SinkClass {

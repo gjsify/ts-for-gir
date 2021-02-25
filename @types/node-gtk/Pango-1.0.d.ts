@@ -309,7 +309,6 @@ export const ANALYSIS_FLAG_CENTERED_BASELINE: number
 export const ANALYSIS_FLAG_IS_ELLIPSIS: number
 export const ANALYSIS_FLAG_NEED_HYPHEN: number
 export const ATTR_INDEX_FROM_TEXT_BEGINNING: number
-export const ATTR_INDEX_TO_TEXT_END: number
 export const ENGINE_TYPE_LANG: string
 export const ENGINE_TYPE_SHAPE: string
 export const GLYPH_EMPTY: Glyph
@@ -319,10 +318,7 @@ export const RENDER_TYPE_NONE: string
 export const SCALE: number
 export const UNKNOWN_GLYPH_HEIGHT: number
 export const UNKNOWN_GLYPH_WIDTH: number
-export const VERSION_MAJOR: number
-export const VERSION_MICRO: number
-export const VERSION_MINOR: number
-export const VERSION_STRING: string
+export const VERSION_MIN_REQUIRED: number
 export function attrAllowBreaksNew(allowBreaks: boolean): Attribute
 export function attrBackgroundAlphaNew(alpha: number): Attribute
 export function attrBackgroundNew(red: number, green: number, blue: number): Attribute
@@ -374,7 +370,6 @@ export function itemize(context: Context, text: string, startIndex: number, leng
 export function itemizeWithBaseDir(context: Context, baseDir: Direction, text: string, startIndex: number, length: number, attrs: AttrList, cachedIter?: AttrIterator | null): Item[]
 export function languageFromString(language?: string | null): Language | null
 export function languageGetDefault(): Language
-export function languageGetPreferred(): Language | null
 export function log2visGetEmbeddingLevels(text: string, length: number, pbaseDir: Direction): number
 export function markupParserFinish(context: GLib.MarkupParseContext): { returnType: boolean, attrList: AttrList | null, text: string | null, accelChar: number | null }
 export function markupParserNew(accelMarker: number): GLib.MarkupParseContext
@@ -481,8 +476,6 @@ export class Context {
     static name: string
     constructor (config?: Context_ConstructProps)
     _init (config?: Context_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): Context
     static $gtype: GObject.Type
 }
 export interface Coverage_ConstructProps extends GObject.Object_ConstructProps {
@@ -535,9 +528,6 @@ export class Coverage {
     static name: string
     constructor (config?: Coverage_ConstructProps)
     _init (config?: Coverage_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): Coverage
-    static fromBytes(bytes: any[]): Coverage | null
     static $gtype: GObject.Type
 }
 export interface Engine_ConstructProps extends GObject.Object_ConstructProps {
@@ -733,8 +723,6 @@ export class Font {
     static name: string
     constructor (config?: Font_ConstructProps)
     _init (config?: Font_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static descriptionsFree(descs: FontDescription[] | null): void
     static $gtype: GObject.Type
 }
 export interface FontFace_ConstructProps extends GObject.Object_ConstructProps {
@@ -1001,8 +989,6 @@ export class FontsetSimple {
     static name: string
     constructor (config?: FontsetSimple_ConstructProps)
     _init (config?: FontsetSimple_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(language: Language): FontsetSimple
     static $gtype: GObject.Type
 }
 export interface Layout_ConstructProps extends GObject.Object_ConstructProps {
@@ -1108,8 +1094,6 @@ export class Layout {
     static name: string
     constructor (config?: Layout_ConstructProps)
     _init (config?: Layout_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(context: Context): Layout
     static $gtype: GObject.Type
 }
 export interface Renderer_ConstructProps extends GObject.Object_ConstructProps {
@@ -1264,8 +1248,6 @@ export class AttrList {
     static name: string
     static new(): AttrList
     constructor()
-    /* Static methods and pseudo-constructors */
-    static new(): AttrList
 }
 export class AttrShape {
     /* Fields of Pango-1.0.Pango.AttrShape */
@@ -1276,8 +1258,6 @@ export class AttrShape {
     copyFunc: AttrDataCopyFunc
     destroyFunc: GLib.DestroyNotify
     static name: string
-    /* Static methods and pseudo-constructors */
-    static newWithData(inkRect: Rectangle, logicalRect: Rectangle, data?: object | null, copyFunc?: AttrDataCopyFunc | null): Attribute
 }
 export class AttrSize {
     /* Fields of Pango-1.0.Pango.AttrSize */
@@ -1285,8 +1265,6 @@ export class AttrSize {
     size: number
     absolute: number
     static name: string
-    /* Static methods and pseudo-constructors */
-    static newAbsolute(size: number): Attribute
 }
 export class AttrString {
     /* Fields of Pango-1.0.Pango.AttrString */
@@ -1401,9 +1379,6 @@ export class FontDescription {
     static name: string
     static new(): FontDescription
     constructor()
-    /* Static methods and pseudo-constructors */
-    static new(): FontDescription
-    static fromString(str: string): FontDescription
 }
 export abstract class FontFaceClass {
     /* Fields of Pango-1.0.Pango.FontFaceClass */
@@ -1528,8 +1503,6 @@ export class GlyphString {
     static name: string
     static new(): GlyphString
     constructor()
-    /* Static methods and pseudo-constructors */
-    static new(): GlyphString
 }
 export class GlyphVisAttr {
     /* Fields of Pango-1.0.Pango.GlyphVisAttr */
@@ -1557,8 +1530,6 @@ export class Item {
     static name: string
     static new(): Item
     constructor()
-    /* Static methods and pseudo-constructors */
-    static new(): Item
 }
 export class Language {
     /* Methods of Pango-1.0.Pango.Language */
@@ -1568,10 +1539,6 @@ export class Language {
     matches(rangeList: string): boolean
     toString(): string
     static name: string
-    /* Static methods and pseudo-constructors */
-    static fromString(language?: string | null): Language | null
-    static getDefault(): Language
-    static getPreferred(): Language | null
 }
 export abstract class LayoutClass {
     static name: string
@@ -1699,8 +1666,6 @@ export class ScriptIter {
     static name: string
     static new(text: string, length: number): ScriptIter
     constructor(text: string, length: number)
-    /* Static methods and pseudo-constructors */
-    static new(text: string, length: number): ScriptIter
 }
 export class TabArray {
     /* Methods of Pango-1.0.Pango.TabArray */
@@ -1715,8 +1680,6 @@ export class TabArray {
     static name: string
     static new(initialSize: number, positionsInPixels: boolean): TabArray
     constructor(initialSize: number, positionsInPixels: boolean)
-    /* Static methods and pseudo-constructors */
-    static new(initialSize: number, positionsInPixels: boolean): TabArray
 }
 export type Glyph = number
 export type GlyphUnit = number

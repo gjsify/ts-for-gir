@@ -23,11 +23,11 @@ export enum GstInstallPluginsReturn {
     INSTALL_IN_PROGRESS,
 }
 export function gst_install_plugins_async(details: string[], ctx: GstInstallPluginsContext, func: GstInstallPluginsResultFunc): GstInstallPluginsReturn
-export function gst_install_plugins_installation_in_progress(): any
+export function gst_install_plugins_installation_in_progress(): boolean
 export function gst_install_plugins_return_get_name(ret: GstInstallPluginsReturn): string
-export function gst_install_plugins_supported(): any
+export function gst_install_plugins_supported(): boolean
 export function gst_install_plugins_sync(details: string[], ctx: GstInstallPluginsContext): GstInstallPluginsReturn
-export function gst_is_missing_plugin_message(msg: Gst.Message): any
+export function gst_is_missing_plugin_message(msg: Gst.Message): boolean
 export function gst_missing_decoder_installer_detail_new(decode_caps: Gst.Caps): string
 export function gst_missing_decoder_message_new(element: Gst.Element, decode_caps: Gst.Caps): Gst.Message
 export function gst_missing_element_installer_detail_new(factory_name: string): string
@@ -40,7 +40,7 @@ export function gst_missing_uri_sink_installer_detail_new(protocol: string): str
 export function gst_missing_uri_sink_message_new(element: Gst.Element, protocol: string): Gst.Message
 export function gst_missing_uri_source_installer_detail_new(protocol: string): string
 export function gst_missing_uri_source_message_new(element: Gst.Element, protocol: string): Gst.Message
-export function gst_pb_utils_add_codec_description_to_tag_list(taglist: Gst.TagList, codec_tag: string, caps: Gst.Caps): any
+export function gst_pb_utils_add_codec_description_to_tag_list(taglist: Gst.TagList, codec_tag: string, caps: Gst.Caps): boolean
 export function gst_pb_utils_get_codec_description(caps: Gst.Caps): string
 export function gst_pb_utils_get_decoder_description(caps: Gst.Caps): string
 export function gst_pb_utils_get_element_description(factory_name: string): string
@@ -54,7 +54,7 @@ export interface GstInstallPluginsResultFunc {
 export class GstInstallPluginsContext {
     /* Methods of GstPbutils-0.10.GstPbutils.GstInstallPluginsContext */
     free(): void
-    set_xid(xid: any): void
+    set_xid(xid: number): void
     static name: string
     static new(): GstInstallPluginsContext
     constructor()

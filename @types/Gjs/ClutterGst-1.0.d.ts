@@ -140,7 +140,7 @@ export class VideoSink {
     send_key_event(event: string, key: string): void
     send_mouse_event(event: string, button: number, x: number, y: number): void
     /* Virtual methods of ClutterGst-1.0.ClutterGst.VideoSink */
-    vfunc_supported(iface_type: GObject.Type): any
+    vfunc_supported(iface_type: GObject.Type): boolean
     vfunc_send_event(structure: Gst.Structure): void
     static name: string
     static new(texture: Clutter.Texture): VideoSink

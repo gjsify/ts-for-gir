@@ -670,10 +670,6 @@ export class Address {
     static name: string
     constructor (config?: Address_ConstructProps)
     _init (config?: Address_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(name: string, port: number): Address
-    static newAny(family: AddressFamily, port: number): Address
-    static newFromSockaddr(sa: object | null, len: number): Address
     static $gtype: GObject.Type
 }
 export interface Auth_ConstructProps extends GObject.Object_ConstructProps {
@@ -770,8 +766,6 @@ export class Auth {
     static name: string
     constructor (config?: Auth_ConstructProps)
     _init (config?: Auth_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(type: GObject.Type, msg: Message, authHeader: string): Auth
     static $gtype: GObject.Type
 }
 export interface AuthBasic_ConstructProps extends Auth_ConstructProps {
@@ -1279,8 +1273,6 @@ export class AuthDomainDigest {
     static name: string
     constructor (config?: AuthDomainDigest_ConstructProps)
     _init (config?: AuthDomainDigest_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static encodePassword(username: string, realm: string, password: string): string
     static $gtype: GObject.Type
 }
 export interface AuthManager_ConstructProps extends GObject.Object_ConstructProps {
@@ -1530,8 +1522,6 @@ export class AuthNegotiate {
     static name: string
     constructor (config?: AuthNegotiate_ConstructProps)
     _init (config?: AuthNegotiate_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static supported(): boolean
     static $gtype: GObject.Type
 }
 export interface Cache_ConstructProps extends GObject.Object_ConstructProps {
@@ -1595,8 +1585,6 @@ export class Cache {
     static name: string
     constructor (config?: Cache_ConstructProps)
     _init (config?: Cache_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(cacheDir: string | null, cacheType: CacheType): Cache
     static $gtype: GObject.Type
 }
 export interface ContentDecoder_ConstructProps extends GObject.Object_ConstructProps {
@@ -1708,8 +1696,6 @@ export class ContentSniffer {
     static name: string
     constructor (config?: ContentSniffer_ConstructProps)
     _init (config?: ContentSniffer_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): ContentSniffer
     static $gtype: GObject.Type
 }
 export interface CookieJar_ConstructProps extends GObject.Object_ConstructProps {
@@ -1793,8 +1779,6 @@ export class CookieJar {
     static name: string
     constructor (config?: CookieJar_ConstructProps)
     _init (config?: CookieJar_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): CookieJar
     static $gtype: GObject.Type
 }
 export interface CookieJarDB_ConstructProps extends CookieJar_ConstructProps {
@@ -1877,9 +1861,6 @@ export class CookieJarDB {
     static name: string
     constructor (config?: CookieJarDB_ConstructProps)
     _init (config?: CookieJarDB_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(filename: string, readOnly: boolean): CookieJarDB
-    static new(): CookieJarDB
     static $gtype: GObject.Type
 }
 export interface CookieJarText_ConstructProps extends CookieJar_ConstructProps {
@@ -1962,9 +1943,6 @@ export class CookieJarText {
     static name: string
     constructor (config?: CookieJarText_ConstructProps)
     _init (config?: CookieJarText_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(filename: string, readOnly: boolean): CookieJarText
-    static new(): CookieJarText
     static $gtype: GObject.Type
 }
 export interface HSTSEnforcer_ConstructProps extends GObject.Object_ConstructProps {
@@ -2037,8 +2015,6 @@ export class HSTSEnforcer {
     static name: string
     constructor (config?: HSTSEnforcer_ConstructProps)
     _init (config?: HSTSEnforcer_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): HSTSEnforcer
     static $gtype: GObject.Type
 }
 export interface HSTSEnforcerDB_ConstructProps extends HSTSEnforcer_ConstructProps {
@@ -2112,9 +2088,6 @@ export class HSTSEnforcerDB {
     static name: string
     constructor (config?: HSTSEnforcerDB_ConstructProps)
     _init (config?: HSTSEnforcerDB_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(filename: string): HSTSEnforcerDB
-    static new(): HSTSEnforcerDB
     static $gtype: GObject.Type
 }
 export interface Logger_ConstructProps extends GObject.Object_ConstructProps {
@@ -2187,8 +2160,6 @@ export class Logger {
     static name: string
     constructor (config?: Logger_ConstructProps)
     _init (config?: Logger_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(level: LoggerLogLevel, maxBodySize: number): Logger
     static $gtype: GObject.Type
 }
 export interface Message_ConstructProps extends GObject.Object_ConstructProps {
@@ -2469,9 +2440,6 @@ export class Message {
     static name: string
     constructor (config?: Message_ConstructProps)
     _init (config?: Message_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(method: string, uriString: string): Message
-    static newFromUri(method: string, uri: URI): Message
     static $gtype: GObject.Type
 }
 export interface MultipartInputStream_ConstructProps extends Gio.FilterInputStream_ConstructProps {
@@ -2563,8 +2531,6 @@ export class MultipartInputStream {
     static name: string
     constructor (config?: MultipartInputStream_ConstructProps)
     _init (config?: MultipartInputStream_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(msg: Message, baseStream: Gio.InputStream): MultipartInputStream
     static $gtype: GObject.Type
 }
 export interface ProxyResolverDefault_ConstructProps extends GObject.Object_ConstructProps {
@@ -2689,8 +2655,6 @@ export class Request {
     static name: string
     constructor (config?: Request_ConstructProps)
     _init (config?: Request_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static newv(objectType: GObject.Type, parameters: GObject.Parameter[], cancellable?: Gio.Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
 export interface RequestData_ConstructProps extends Request_ConstructProps {
@@ -2926,8 +2890,6 @@ export class Requester {
     static name: string
     constructor (config?: Requester_ConstructProps)
     _init (config?: Requester_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): Requester
     static $gtype: GObject.Type
 }
 export interface Server_ConstructProps extends GObject.Object_ConstructProps {
@@ -3293,8 +3255,6 @@ export class Session {
     static name: string
     constructor (config?: Session_ConstructProps)
     _init (config?: Session_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): Session
     static $gtype: GObject.Type
 }
 export interface SessionAsync_ConstructProps extends Session_ConstructProps {
@@ -3515,8 +3475,6 @@ export class SessionAsync {
     static name: string
     constructor (config?: SessionAsync_ConstructProps)
     _init (config?: SessionAsync_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): SessionAsync
     static $gtype: GObject.Type
 }
 export interface SessionSync_ConstructProps extends Session_ConstructProps {
@@ -3737,8 +3695,6 @@ export class SessionSync {
     static name: string
     constructor (config?: SessionSync_ConstructProps)
     _init (config?: SessionSync_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): SessionSync
     static $gtype: GObject.Type
 }
 export interface Socket_ConstructProps extends GObject.Object_ConstructProps {
@@ -3891,8 +3847,6 @@ export class Socket {
     static name: string
     constructor (config?: Socket_ConstructProps)
     _init (config?: Socket_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static newv(objectType: GObject.Type, parameters: GObject.Parameter[], cancellable?: Gio.Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
 export interface WebsocketConnection_ConstructProps extends GObject.Object_ConstructProps {
@@ -4011,9 +3965,6 @@ export class WebsocketConnection {
     static name: string
     constructor (config?: WebsocketConnection_ConstructProps)
     _init (config?: WebsocketConnection_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(stream: Gio.IOStream, uri: URI, type: WebsocketConnectionType, origin?: string | null, protocol?: string | null): WebsocketConnection
-    static newWithExtensions(stream: Gio.IOStream, uri: URI, type: WebsocketConnectionType, origin: string | null, protocol: string | null, extensions: WebsocketExtension[]): WebsocketConnection
     static $gtype: GObject.Type
 }
 export interface WebsocketExtension_ConstructProps extends GObject.Object_ConstructProps {
@@ -4235,9 +4186,6 @@ export class Buffer {
     static name: string
     static new(data: any[]): Buffer
     constructor(data: any[])
-    /* Static methods and pseudo-constructors */
-    static new(data: any[]): Buffer
-    static newWithOwner(data: any[], owner?: object | null, ownerDnotify?: GLib.DestroyNotify | null): Buffer
 }
 export abstract class CacheClass {
     /* Fields of Soup-2.4.Soup.CacheClass */
@@ -4319,9 +4267,6 @@ export class Cookie {
     static name: string
     static new(name: string, value: string, domain: string, path: string, maxAge: number): Cookie
     constructor(name: string, value: string, domain: string, path: string, maxAge: number)
-    /* Static methods and pseudo-constructors */
-    static new(name: string, value: string, domain: string, path: string, maxAge: number): Cookie
-    static parse(header: string, origin: URI): Cookie | null
 }
 export abstract class CookieJarClass {
     /* Fields of Soup-2.4.Soup.CookieJarClass */
@@ -4369,11 +4314,6 @@ export class Date {
     static name: string
     static new(year: number, month: number, day: number, hour: number, minute: number, second: number): Date
     constructor(year: number, month: number, day: number, hour: number, minute: number, second: number)
-    /* Static methods and pseudo-constructors */
-    static new(year: number, month: number, day: number, hour: number, minute: number, second: number): Date
-    static newFromNow(offsetSeconds: number): Date
-    static newFromString(dateString: string): Date
-    static newFromTimeT(when: number): Date
 }
 export abstract class HSTSEnforcerClass {
     /* Fields of Soup-2.4.Soup.HSTSEnforcerClass */
@@ -4412,11 +4352,6 @@ export class HSTSPolicy {
     static name: string
     static new(domain: string, maxAge: number, includeSubdomains: boolean): HSTSPolicy
     constructor(domain: string, maxAge: number, includeSubdomains: boolean)
-    /* Static methods and pseudo-constructors */
-    static new(domain: string, maxAge: number, includeSubdomains: boolean): HSTSPolicy
-    static newFromResponse(msg: Message): HSTSPolicy
-    static newFull(domain: string, maxAge: number, expires: Date, includeSubdomains: boolean): HSTSPolicy
-    static newSessionPolicy(domain: string, includeSubdomains: boolean): HSTSPolicy
 }
 export abstract class LoggerClass {
     /* Fields of Soup-2.4.Soup.LoggerClass */
@@ -4442,8 +4377,6 @@ export class MessageBody {
     static name: string
     static new(): MessageBody
     constructor()
-    /* Static methods and pseudo-constructors */
-    static new(): MessageBody
 }
 export abstract class MessageClass {
     /* Fields of Soup-2.4.Soup.MessageClass */
@@ -4495,15 +4428,11 @@ export class MessageHeaders {
     static name: string
     static new(type: MessageHeadersType): MessageHeaders
     constructor(type: MessageHeadersType)
-    /* Static methods and pseudo-constructors */
-    static new(type: MessageHeadersType): MessageHeaders
 }
 export class MessageHeadersIter {
     /* Methods of Soup-2.4.Soup.MessageHeadersIter */
     next(): { returnType: boolean, name: string, value: string }
     static name: string
-    /* Static methods and pseudo-constructors */
-    static init(hdrs: MessageHeaders): { iter: MessageHeadersIter }
 }
 export class MessageQueue {
     static name: string
@@ -4523,9 +4452,6 @@ export class Multipart {
     static name: string
     static new(mimeType: string): Multipart
     constructor(mimeType: string)
-    /* Static methods and pseudo-constructors */
-    static new(mimeType: string): Multipart
-    static newFromMessage(headers: MessageHeaders, body: MessageBody): Multipart
 }
 export abstract class MultipartInputStreamClass {
     /* Fields of Soup-2.4.Soup.MultipartInputStreamClass */
@@ -4708,12 +4634,6 @@ export class URI {
     static name: string
     static new(uriString?: string | null): URI
     constructor(uriString?: string | null)
-    /* Static methods and pseudo-constructors */
-    static new(uriString?: string | null): URI
-    static newWithBase(base: URI, uriString: string): URI
-    static decode(part: string): string
-    static encode(part: string, escapeExtra?: string | null): string
-    static normalize(part: string, unescapeExtra?: string | null): string
 }
 export abstract class WebsocketConnectionClass {
     /* Fields of Soup-2.4.Soup.WebsocketConnectionClass */

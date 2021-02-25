@@ -37869,6 +37869,7 @@ export class WebView {
     get_main_frame(): WebFrame
     get_paste_target_list(): Gtk.TargetList
     get_progress(): number
+    /* get_settings clashes with Gtk.Widget.get_settings */
     get_snapshot(): cairo.Surface
     get_title(): string
     get_transparent(): boolean
@@ -37916,6 +37917,7 @@ export class WebView {
     add(widget: Gtk.Widget): void
     check_resize(): void
     child_get_property(child: Gtk.Widget, property_name: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     child_notify_by_pspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     child_set_property(child: Gtk.Widget, property_name: string, value: any): void
     child_type(): GObject.Type

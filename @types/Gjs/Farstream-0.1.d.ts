@@ -101,21 +101,21 @@ export interface Conference_ConstructProps extends Gst.Bin_ConstructProps {
 }
 export class Conference {
     /* Properties of Gst-0.10.Gst.Bin */
-    async_handling: any
+    async_handling: boolean
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Farstream-0.1.Farstream.Conference */
     parent: Gst.Bin
     /* Fields of Gst-0.10.Gst.Bin */
     element: Gst.Element
-    numchildren: any
-    children: any[]
-    children_cookie: any
+    numchildren: number
+    children: object[]
+    children_cookie: number
     child_bus: Gst.Bus
-    messages: any[]
-    polling: any
-    state_dirty: any
-    clock_dirty: any
+    messages: object[]
+    polling: boolean
+    state_dirty: boolean
+    clock_dirty: boolean
     provided_clock: Gst.Clock
     clock_provider: Gst.Element
     priv: Gst.BinPrivate
@@ -124,7 +124,7 @@ export class Conference {
     object: Gst.Object
     state_lock: any
     state_cond: GLib.Cond
-    state_cookie: any
+    state_cookie: number
     current_state: Gst.State
     next_state: Gst.State
     pending_state: Gst.State
@@ -132,26 +132,26 @@ export class Conference {
     bus: Gst.Bus
     clock: Gst.Clock
     base_time: Gst.ClockTimeDiff
-    numpads: any
-    pads: any[]
-    numsrcpads: any
-    srcpads: any[]
-    numsinkpads: any
-    sinkpads: any[]
-    pads_cookie: any
+    numpads: number
+    pads: object[]
+    numsrcpads: number
+    srcpads: object[]
+    numsinkpads: number
+    sinkpads: object[]
+    pads_cookie: number
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     name_prefix: string
-    flags: any
+    flags: number
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Farstream-0.1.Farstream.Conference */
     new_participant(): Participant
     new_session(media_type: MediaType): Session
     /* Methods of Gst-0.10.Gst.Bin */
-    add(element: Gst.Element): any
-    remove(element: Gst.Element): any
+    add(element: Gst.Element): boolean
+    remove(element: Gst.Element): boolean
     get_by_name(name: string): Gst.Element
     get_by_name_recurse_up(name: string): Gst.Element
     get_by_interface(iface: GObject.Type): Gst.Element
@@ -161,26 +161,26 @@ export class Conference {
     iterate_sinks(): Gst.Iterator
     iterate_sources(): Gst.Iterator
     iterate_all_by_interface(iface: GObject.Type): Gst.Iterator
-    recalculate_latency(): any
+    recalculate_latency(): boolean
     find_unlinked_pad(direction: Gst.PadDirection): Gst.Pad
     find_unconnected_pad(direction: Gst.PadDirection): Gst.Pad
     /* Methods of Gst-0.10.Gst.Element */
-    requires_clock(): any
-    provides_clock(): any
+    requires_clock(): boolean
+    provides_clock(): boolean
     provide_clock(): Gst.Clock
     get_clock(): Gst.Clock
-    set_clock(clock: Gst.Clock): any
+    set_clock(clock: Gst.Clock): boolean
     set_base_time(time: Gst.ClockTime): void
     get_base_time(): Gst.ClockTime
     set_start_time(time: Gst.ClockTime): void
     get_start_time(): Gst.ClockTime
-    is_indexable(): any
+    is_indexable(): boolean
     set_index(index: Gst.Index): void
     get_index(): Gst.Index
     set_bus(bus: Gst.Bus): void
     get_bus(): Gst.Bus
-    add_pad(pad: Gst.Pad): any
-    remove_pad(pad: Gst.Pad): any
+    add_pad(pad: Gst.Pad): boolean
+    remove_pad(pad: Gst.Pad): boolean
     no_more_pads(): void
     get_pad(name: string): Gst.Pad
     get_static_pad(name: string): Gst.Pad
@@ -189,49 +189,49 @@ export class Conference {
     iterate_pads(): Gst.Iterator
     iterate_src_pads(): Gst.Iterator
     iterate_sink_pads(): Gst.Iterator
-    send_event(event: Gst.Event): any
-    seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, cur_type: Gst.SeekType, cur: any, stop_type: Gst.SeekType, stop: any): any
+    send_event(event: Gst.Event): boolean
+    seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, cur_type: Gst.SeekType, cur: number, stop_type: Gst.SeekType, stop: number): boolean
     get_query_types(): Gst.QueryType
-    query(query: Gst.Query): any
-    post_message(message: Gst.Message): any
-    message_full(type: Gst.MessageType, domain: GLib.Quark, code: any, text: string, debug: string, file: string, function_: string, line: any): void
-    is_locked_state(): any
-    set_locked_state(locked_state: any): any
-    sync_state_with_parent(): any
+    query(query: Gst.Query): boolean
+    post_message(message: Gst.Message): boolean
+    message_full(type: Gst.MessageType, domain: GLib.Quark, code: number, text: string, debug: string, file: string, function_: string, line: number): void
+    is_locked_state(): boolean
+    set_locked_state(locked_state: boolean): boolean
+    sync_state_with_parent(): boolean
     get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State, /* pending */ Gst.State ]
     set_state(state: Gst.State): Gst.StateChangeReturn
     abort_state(): void
     change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     continue_state(ret: Gst.StateChangeReturn): Gst.StateChangeReturn
     lost_state(): void
-    lost_state_full(new_base_time: any): void
+    lost_state_full(new_base_time: boolean): void
     get_factory(): Gst.ElementFactory
-    implements_interface(iface_type: GObject.Type): any
+    implements_interface(iface_type: GObject.Type): boolean
     create_all_pads(): void
     get_compatible_pad(pad: Gst.Pad, caps: Gst.Caps): Gst.Pad
     get_compatible_pad_template(compattempl: Gst.PadTemplate): Gst.PadTemplate
-    link(dest: Gst.Element): any
-    link_filtered(dest: Gst.Element, filter: Gst.Caps): any
+    link(dest: Gst.Element): boolean
+    link_filtered(dest: Gst.Element, filter: Gst.Caps): boolean
     unlink(dest: Gst.Element): void
-    link_pads(srcpadname: string, dest: Gst.Element, destpadname: string): any
-    link_pads_full(srcpadname: string, dest: Gst.Element, destpadname: string, flags: Gst.PadLinkCheck): any
+    link_pads(srcpadname: string, dest: Gst.Element, destpadname: string): boolean
+    link_pads_full(srcpadname: string, dest: Gst.Element, destpadname: string, flags: Gst.PadLinkCheck): boolean
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    link_pads_filtered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): any
-    seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: any): any
-    query_position(format: Gst.Format): [ /* returnType */ any, /* cur */ any ]
-    query_duration(format: Gst.Format): [ /* returnType */ any, /* duration */ any ]
-    query_convert(src_format: Gst.Format, src_val: any, dest_format: Gst.Format): [ /* returnType */ any, /* dest_val */ any ]
+    link_pads_filtered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
+    seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
+    query_position(format: Gst.Format): [ /* returnType */ boolean, /* cur */ any ]
+    query_duration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ any ]
+    query_convert(src_format: Gst.Format, src_val: number, dest_format: Gst.Format): [ /* returnType */ boolean, /* dest_val */ any ]
     found_tags_for_pad(pad: Gst.Pad, list: Gst.TagList): void
     found_tags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */
-    set_name(name: string): any
+    set_name(name: string): boolean
     get_name(): string
     set_name_prefix(name_prefix: string): void
     get_name_prefix(): string
-    set_parent(parent: Gst.Object): any
+    set_parent(parent: Gst.Object): boolean
     get_parent(): Gst.Object
     unparent(): void
-    has_ancestor(ancestor: Gst.Object): any
+    has_ancestor(ancestor: Gst.Object): boolean
     replace(newobj: Gst.Object): void
     get_path_string(): string
     save_thyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -261,16 +261,16 @@ export class Conference {
     watch_closure(closure: GObject.Closure): void
     /* Methods of Gst-0.10.Gst.ChildProxy */
     get_child_by_name(name: string): Gst.Object
-    get_child_by_index(index: any): Gst.Object
-    get_children_count(): any
+    get_child_by_index(index: number): Gst.Object
+    get_children_count(): number
     /* Virtual methods of Farstream-0.1.Farstream.Conference */
     vfunc_new_participant(): Participant
     vfunc_new_session(media_type: MediaType): Session
-    vfunc_get_child_by_index(index: any): Gst.Object
-    vfunc_get_children_count(): any
+    vfunc_get_child_by_index(index: number): Gst.Object
+    vfunc_get_children_count(): number
     /* Virtual methods of Gst-0.10.Gst.Bin */
-    vfunc_add_element(element: Gst.Element): any
-    vfunc_remove_element(element: Gst.Element): any
+    vfunc_add_element(element: Gst.Element): boolean
+    vfunc_remove_element(element: Gst.Element): boolean
     vfunc_handle_message(message: Gst.Message): void
     /* Virtual methods of Gst-0.10.Gst.Element */
     vfunc_request_new_pad(templ: Gst.PadTemplate, name: string): Gst.Pad
@@ -280,12 +280,12 @@ export class Conference {
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_set_bus(bus: Gst.Bus): void
     vfunc_provide_clock(): Gst.Clock
-    vfunc_set_clock(clock: Gst.Clock): any
+    vfunc_set_clock(clock: Gst.Clock): boolean
     vfunc_get_index(): Gst.Index
     vfunc_set_index(index: Gst.Index): void
-    vfunc_send_event(event: Gst.Event): any
+    vfunc_send_event(event: Gst.Event): boolean
     vfunc_get_query_types(): Gst.QueryType
-    vfunc_query(query: Gst.Query): any
+    vfunc_query(query: Gst.Query): boolean
     /* Virtual methods of Gst-0.10.Gst.Object */
     vfunc_save_thyself(parent: libxml2.NodePtr): libxml2.NodePtr
     vfunc_restore_thyself(self: libxml2.NodePtr): void
@@ -298,8 +298,8 @@ export class Conference {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
     /* Signals of Gst-0.10.Gst.Bin */
-    connect(sigName: "do-latency", callback: (($obj: Conference) => any)): number
-    connect_after(sigName: "do-latency", callback: (($obj: Conference) => any)): number
+    connect(sigName: "do-latency", callback: (($obj: Conference) => boolean)): number
+    connect_after(sigName: "do-latency", callback: (($obj: Conference) => boolean)): number
     emit(sigName: "do-latency"): void
     connect(sigName: "element-added", callback: (($obj: Conference, object: Gst.Element) => void)): number
     connect_after(sigName: "element-added", callback: (($obj: Conference, object: Gst.Element) => void)): number
@@ -321,9 +321,9 @@ export class Conference {
     connect(sigName: "deep-notify", callback: (($obj: Conference, object: Gst.Object, p0: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: Conference, object: Gst.Object, p0: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", object: Gst.Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: Conference, object: any) => void)): number
-    connect_after(sigName: "object-saved", callback: (($obj: Conference, object: any) => void)): number
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: Conference, object: object) => void)): number
+    connect_after(sigName: "object-saved", callback: (($obj: Conference, object: object) => void)): number
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: Conference, object: Gst.Object) => void)): number
     connect_after(sigName: "parent-set", callback: (($obj: Conference, object: Gst.Object) => void)): number
     emit(sigName: "parent-set", object: Gst.Object): void
@@ -425,22 +425,22 @@ export class Participant {
     parent: Gst.Object
     /* Fields of Gst-0.10.Gst.Object */
     object: GObject.Object
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     name_prefix: string
-    flags: any
-    _gst_reserved: any
+    flags: number
+    _gst_reserved: object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.Object */
-    set_name(name: string): any
+    set_name(name: string): boolean
     get_name(): string
     set_name_prefix(name_prefix: string): void
     get_name_prefix(): string
-    set_parent(parent: Gst.Object): any
+    set_parent(parent: Gst.Object): boolean
     get_parent(): Gst.Object
     unparent(): void
-    has_ancestor(ancestor: Gst.Object): any
+    has_ancestor(ancestor: Gst.Object): boolean
     replace(newobj: Gst.Object): void
     get_path_string(): string
     save_thyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -483,9 +483,9 @@ export class Participant {
     connect(sigName: "deep-notify", callback: (($obj: Participant, object: Gst.Object, p0: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: Participant, object: Gst.Object, p0: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", object: Gst.Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: Participant, object: any) => void)): number
-    connect_after(sigName: "object-saved", callback: (($obj: Participant, object: any) => void)): number
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: Participant, object: object) => void)): number
+    connect_after(sigName: "object-saved", callback: (($obj: Participant, object: object) => void)): number
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: Participant, object: Gst.Object) => void)): number
     connect_after(sigName: "parent-set", callback: (($obj: Participant, object: Gst.Object) => void)): number
     emit(sigName: "parent-set", object: Gst.Object): void
@@ -600,11 +600,11 @@ export class Session {
     parent: Gst.Object
     /* Fields of Gst-0.10.Gst.Object */
     object: GObject.Object
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     name_prefix: string
-    flags: any
-    _gst_reserved: any
+    flags: number
+    _gst_reserved: object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Farstream-0.1.Farstream.Session */
@@ -623,14 +623,14 @@ export class Session {
     start_telephony_event(event: number, volume: number): boolean
     stop_telephony_event(): boolean
     /* Methods of Gst-0.10.Gst.Object */
-    set_name(name: string): any
+    set_name(name: string): boolean
     get_name(): string
     set_name_prefix(name_prefix: string): void
     get_name_prefix(): string
-    set_parent(parent: Gst.Object): any
+    set_parent(parent: Gst.Object): boolean
     get_parent(): Gst.Object
     unparent(): void
-    has_ancestor(ancestor: Gst.Object): any
+    has_ancestor(ancestor: Gst.Object): boolean
     replace(newobj: Gst.Object): void
     get_path_string(): string
     save_thyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -686,9 +686,9 @@ export class Session {
     connect(sigName: "deep-notify", callback: (($obj: Session, object: Gst.Object, p0: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: Session, object: Gst.Object, p0: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", object: Gst.Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: Session, object: any) => void)): number
-    connect_after(sigName: "object-saved", callback: (($obj: Session, object: any) => void)): number
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: Session, object: object) => void)): number
+    connect_after(sigName: "object-saved", callback: (($obj: Session, object: object) => void)): number
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: Session, object: Gst.Object) => void)): number
     connect_after(sigName: "parent-set", callback: (($obj: Session, object: Gst.Object) => void)): number
     emit(sigName: "parent-set", object: Gst.Object): void
@@ -739,11 +739,11 @@ export class Stream {
     parent: Gst.Object
     /* Fields of Gst-0.10.Gst.Object */
     object: GObject.Object
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     name_prefix: string
-    flags: any
-    _gst_reserved: any
+    flags: number
+    _gst_reserved: object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Farstream-0.1.Farstream.Stream */
@@ -761,14 +761,14 @@ export class Stream {
     set_remote_codecs(remote_codecs: Codec[]): boolean
     set_transmitter(transmitter: string, stream_transmitter_parameters: GObject.Parameter, stream_transmitter_n_parameters: number): boolean
     /* Methods of Gst-0.10.Gst.Object */
-    set_name(name: string): any
+    set_name(name: string): boolean
     get_name(): string
     set_name_prefix(name_prefix: string): void
     get_name_prefix(): string
-    set_parent(parent: Gst.Object): any
+    set_parent(parent: Gst.Object): boolean
     get_parent(): Gst.Object
     unparent(): void
-    has_ancestor(ancestor: Gst.Object): any
+    has_ancestor(ancestor: Gst.Object): boolean
     replace(newobj: Gst.Object): void
     get_path_string(): string
     save_thyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -824,9 +824,9 @@ export class Stream {
     connect(sigName: "deep-notify", callback: (($obj: Stream, object: Gst.Object, p0: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: Stream, object: Gst.Object, p0: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", object: Gst.Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: Stream, object: any) => void)): number
-    connect_after(sigName: "object-saved", callback: (($obj: Stream, object: any) => void)): number
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: Stream, object: object) => void)): number
+    connect_after(sigName: "object-saved", callback: (($obj: Stream, object: object) => void)): number
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: Stream, object: Gst.Object) => void)): number
     connect_after(sigName: "parent-set", callback: (($obj: Stream, object: Gst.Object) => void)): number
     emit(sigName: "parent-set", object: Gst.Object): void
@@ -870,11 +870,11 @@ export class StreamTransmitter {
     parent: Gst.Object
     /* Fields of Gst-0.10.Gst.Object */
     object: GObject.Object
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     name_prefix: string
-    flags: any
-    _gst_reserved: any
+    flags: number
+    _gst_reserved: object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Farstream-0.1.Farstream.StreamTransmitter */
@@ -884,14 +884,14 @@ export class StreamTransmitter {
     gather_local_candidates(): boolean
     stop(): void
     /* Methods of Gst-0.10.Gst.Object */
-    set_name(name: string): any
+    set_name(name: string): boolean
     get_name(): string
     set_name_prefix(name_prefix: string): void
     get_name_prefix(): string
-    set_parent(parent: Gst.Object): any
+    set_parent(parent: Gst.Object): boolean
     get_parent(): Gst.Object
     unparent(): void
-    has_ancestor(ancestor: Gst.Object): any
+    has_ancestor(ancestor: Gst.Object): boolean
     replace(newobj: Gst.Object): void
     get_path_string(): string
     save_thyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -958,9 +958,9 @@ export class StreamTransmitter {
     connect(sigName: "deep-notify", callback: (($obj: StreamTransmitter, object: Gst.Object, p0: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: StreamTransmitter, object: Gst.Object, p0: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", object: Gst.Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: StreamTransmitter, object: any) => void)): number
-    connect_after(sigName: "object-saved", callback: (($obj: StreamTransmitter, object: any) => void)): number
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: StreamTransmitter, object: object) => void)): number
+    connect_after(sigName: "object-saved", callback: (($obj: StreamTransmitter, object: object) => void)): number
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: StreamTransmitter, object: Gst.Object) => void)): number
     connect_after(sigName: "parent-set", callback: (($obj: StreamTransmitter, object: Gst.Object) => void)): number
     emit(sigName: "parent-set", object: Gst.Object): void
@@ -999,11 +999,11 @@ export class Transmitter {
     parent: Gst.Object
     /* Fields of Gst-0.10.Gst.Object */
     object: GObject.Object
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     name_prefix: string
-    flags: any
-    _gst_reserved: any
+    flags: number
+    _gst_reserved: object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Farstream-0.1.Farstream.Transmitter */
@@ -1012,14 +1012,14 @@ export class Transmitter {
     get_stream_transmitter_type(): GObject.Type
     new_stream_transmitter(participant: Participant, n_parameters: number, parameters: GObject.Parameter): StreamTransmitter
     /* Methods of Gst-0.10.Gst.Object */
-    set_name(name: string): any
+    set_name(name: string): boolean
     get_name(): string
     set_name_prefix(name_prefix: string): void
     get_name_prefix(): string
-    set_parent(parent: Gst.Object): any
+    set_parent(parent: Gst.Object): boolean
     get_parent(): Gst.Object
     unparent(): void
-    has_ancestor(ancestor: Gst.Object): any
+    has_ancestor(ancestor: Gst.Object): boolean
     replace(newobj: Gst.Object): void
     get_path_string(): string
     save_thyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -1072,9 +1072,9 @@ export class Transmitter {
     connect(sigName: "deep-notify", callback: (($obj: Transmitter, object: Gst.Object, p0: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: Transmitter, object: Gst.Object, p0: GObject.ParamSpec) => void)): number
     emit(sigName: "deep-notify", object: Gst.Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: Transmitter, object: any) => void)): number
-    connect_after(sigName: "object-saved", callback: (($obj: Transmitter, object: any) => void)): number
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: Transmitter, object: object) => void)): number
+    connect_after(sigName: "object-saved", callback: (($obj: Transmitter, object: object) => void)): number
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: Transmitter, object: Gst.Object) => void)): number
     connect_after(sigName: "parent-set", callback: (($obj: Transmitter, object: Gst.Object) => void)): number
     emit(sigName: "parent-set", object: Gst.Object): void

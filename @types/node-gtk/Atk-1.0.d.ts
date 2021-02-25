@@ -613,11 +613,13 @@ export class TableCell {
     addRelationship(relationship: RelationType, target: Object): boolean
     getAccessibleId(): string
     getAttributes(): AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     getIndexInParent(): number
     getLayer(): Layer
     getMdiZorder(): number
     getNAccessibleChildren(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     getObjectLocale(): string
     getParent(): Object
@@ -631,6 +633,7 @@ export class TableCell {
     removePropertyChangeHandler(handlerId: number): void
     removeRelationship(relationship: RelationType, target: Object): boolean
     setAccessibleId(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     setName(name: string): void
     setParent(parent: Object): void
@@ -837,8 +840,6 @@ export class Text {
     off(sigName: "text-selection-changed", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "text-selection-changed"): void
     static name: string
-    /* Static methods and pseudo-constructors */
-    static freeRanges(ranges: TextRange[]): void
 }
 export class Value {
     /* Methods of Atk-1.0.Atk.Value */
@@ -892,11 +893,13 @@ export class Window {
     addRelationship(relationship: RelationType, target: Object): boolean
     getAccessibleId(): string
     getAttributes(): AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     getIndexInParent(): number
     getLayer(): Layer
     getMdiZorder(): number
     getNAccessibleChildren(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     getObjectLocale(): string
     getParent(): Object
@@ -910,6 +913,7 @@ export class Window {
     removePropertyChangeHandler(handlerId: number): void
     removeRelationship(relationship: RelationType, target: Object): boolean
     setAccessibleId(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     setName(name: string): void
     setParent(parent: Object): void
@@ -1141,11 +1145,13 @@ export class GObjectAccessible {
     addRelationship(relationship: RelationType, target: Object): boolean
     getAccessibleId(): string
     getAttributes(): AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     getIndexInParent(): number
     getLayer(): Layer
     getMdiZorder(): number
     getNAccessibleChildren(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     getObjectLocale(): string
     getParent(): Object
@@ -1159,6 +1165,7 @@ export class GObjectAccessible {
     removePropertyChangeHandler(handlerId: number): void
     removeRelationship(relationship: RelationType, target: Object): boolean
     setAccessibleId(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     setName(name: string): void
     setParent(parent: Object): void
@@ -1307,8 +1314,6 @@ export class GObjectAccessible {
     static name: string
     constructor (config?: GObjectAccessible_ConstructProps)
     _init (config?: GObjectAccessible_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static forObject(obj: GObject.Object): Object
     static $gtype: GObject.Type
 }
 export interface Hyperlink_ConstructProps extends GObject.Object_ConstructProps {
@@ -1454,8 +1459,6 @@ export class Misc {
     static name: string
     constructor (config?: Misc_ConstructProps)
     _init (config?: Misc_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static getInstance(): Misc
     static $gtype: GObject.Type
 }
 export interface NoOpObject_ConstructProps extends Object_ConstructProps {
@@ -1491,11 +1494,13 @@ export class NoOpObject {
     addRelationship(relationship: RelationType, target: Object): boolean
     getAccessibleId(): string
     getAttributes(): AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     getIndexInParent(): number
     getLayer(): Layer
     getMdiZorder(): number
     getNAccessibleChildren(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     getObjectLocale(): string
     getParent(): Object
@@ -1509,6 +1514,7 @@ export class NoOpObject {
     removePropertyChangeHandler(handlerId: number): void
     removeRelationship(relationship: RelationType, target: Object): boolean
     setAccessibleId(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     setName(name: string): void
     setParent(parent: Object): void
@@ -1943,9 +1949,6 @@ export class NoOpObject {
     static name: string
     constructor (config?: NoOpObject_ConstructProps)
     _init (config?: NoOpObject_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(obj: GObject.Object): NoOpObject
-    static freeRanges(ranges: TextRange[]): void
     static $gtype: GObject.Type
 }
 export interface NoOpObjectFactory_ConstructProps extends ObjectFactory_ConstructProps {
@@ -1997,8 +2000,6 @@ export class NoOpObjectFactory {
     static name: string
     constructor (config?: NoOpObjectFactory_ConstructProps)
     _init (config?: NoOpObjectFactory_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): NoOpObjectFactory
     static $gtype: GObject.Type
 }
 export interface Object_ConstructProps extends GObject.Object_ConstructProps {
@@ -2045,11 +2046,13 @@ export class Object {
     addRelationship(relationship: RelationType, target: Object): boolean
     getAccessibleId(): string
     getAttributes(): AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     getIndexInParent(): number
     getLayer(): Layer
     getMdiZorder(): number
     getNAccessibleChildren(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     getObjectLocale(): string
     getParent(): Object
@@ -2063,6 +2066,7 @@ export class Object {
     removePropertyChangeHandler(handlerId: number): void
     removeRelationship(relationship: RelationType, target: Object): boolean
     setAccessibleId(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     setName(name: string): void
     setParent(parent: Object): void
@@ -2300,11 +2304,13 @@ export class Plug {
     addRelationship(relationship: RelationType, target: Object): boolean
     getAccessibleId(): string
     getAttributes(): AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     getIndexInParent(): number
     getLayer(): Layer
     getMdiZorder(): number
     getNAccessibleChildren(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     getObjectLocale(): string
     getParent(): Object
@@ -2318,6 +2324,7 @@ export class Plug {
     removePropertyChangeHandler(handlerId: number): void
     removeRelationship(relationship: RelationType, target: Object): boolean
     setAccessibleId(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     setName(name: string): void
     setParent(parent: Object): void
@@ -2486,8 +2493,6 @@ export class Plug {
     static name: string
     constructor (config?: Plug_ConstructProps)
     _init (config?: Plug_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): Plug
     static $gtype: GObject.Type
 }
 export interface Registry_ConstructProps extends GObject.Object_ConstructProps {
@@ -2609,8 +2614,6 @@ export class Relation {
     static name: string
     constructor (config?: Relation_ConstructProps)
     _init (config?: Relation_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(targets: Object[], relationship: RelationType): Relation
     static $gtype: GObject.Type
 }
 export interface RelationSet_ConstructProps extends GObject.Object_ConstructProps {
@@ -2668,8 +2671,6 @@ export class RelationSet {
     static name: string
     constructor (config?: RelationSet_ConstructProps)
     _init (config?: RelationSet_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): RelationSet
     static $gtype: GObject.Type
 }
 export interface Socket_ConstructProps extends Object_ConstructProps {
@@ -2708,11 +2709,13 @@ export class Socket {
     addRelationship(relationship: RelationType, target: Object): boolean
     getAccessibleId(): string
     getAttributes(): AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     getIndexInParent(): number
     getLayer(): Layer
     getMdiZorder(): number
     getNAccessibleChildren(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     getObjectLocale(): string
     getParent(): Object
@@ -2726,6 +2729,7 @@ export class Socket {
     removePropertyChangeHandler(handlerId: number): void
     removeRelationship(relationship: RelationType, target: Object): boolean
     setAccessibleId(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     setName(name: string): void
     setParent(parent: Object): void
@@ -2894,8 +2898,6 @@ export class Socket {
     static name: string
     constructor (config?: Socket_ConstructProps)
     _init (config?: Socket_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): Socket
     static $gtype: GObject.Type
 }
 export interface StateSet_ConstructProps extends GObject.Object_ConstructProps {
@@ -2954,8 +2956,6 @@ export class StateSet {
     static name: string
     constructor (config?: StateSet_ConstructProps)
     _init (config?: StateSet_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): StateSet
     static $gtype: GObject.Type
 }
 export interface Util_ConstructProps extends GObject.Object_ConstructProps {
@@ -3021,8 +3021,6 @@ export class Attribute {
     name: string
     value: string
     static name: string
-    /* Static methods and pseudo-constructors */
-    static setFree(attribSet: AttributeSet): void
 }
 export abstract class ComponentIface {
     /* Fields of Atk-1.0.Atk.ComponentIface */
@@ -3212,8 +3210,6 @@ export class Range {
     static name: string
     static new(lowerLimit: number, upperLimit: number, description: string): Range
     constructor(lowerLimit: number, upperLimit: number, description: string)
-    /* Static methods and pseudo-constructors */
-    static new(lowerLimit: number, upperLimit: number, description: string): Range
 }
 export class Rectangle {
     /* Fields of Atk-1.0.Atk.Rectangle */

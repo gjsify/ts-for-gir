@@ -3105,9 +3105,9 @@ export class AppLaunchContext {
     setScreen(screen: Screen): void
     setTimestamp(timestamp: number): void
     /* Methods of Gio-2.0.Gio.AppLaunchContext */
-    getDisplay(info: Gio.AppInfo, files: Gio.File[]): string | null
+    getDisplay(info: Gio.AppInfo, files: Gio.File[]): string
     getEnvironment(): string[]
-    getStartupNotifyId(info: Gio.AppInfo, files: Gio.File[]): string | null
+    getStartupNotifyId(info: Gio.AppInfo, files: Gio.File[]): string
     launchFailed(startupNotifyId: string): void
     setenv(variable: string, value: string): void
     unsetenv(variable: string): void
@@ -3160,8 +3160,6 @@ export class AppLaunchContext {
     static name: string
     constructor (config?: AppLaunchContext_ConstructProps)
     _init (config?: AppLaunchContext_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): AppLaunchContext
     static $gtype: GObject.Type
 }
 export interface Cursor_ConstructProps extends GObject.Object_ConstructProps {
@@ -3215,12 +3213,6 @@ export class Cursor {
     static name: string
     constructor (config?: Cursor_ConstructProps)
     _init (config?: Cursor_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(cursorType: CursorType): Cursor
-    static newForDisplay(display: Display, cursorType: CursorType): Cursor
-    static newFromName(display: Display, name: string): Cursor
-    static newFromPixbuf(display: Display, pixbuf: GdkPixbuf.Pixbuf, x: number, y: number): Cursor
-    static newFromSurface(display: Display, surface: cairo.Surface, x: number, y: number): Cursor
     static $gtype: GObject.Type
 }
 export interface Device_ConstructProps extends GObject.Object_ConstructProps {
@@ -3354,8 +3346,6 @@ export class Device {
     static name: string
     constructor (config?: Device_ConstructProps)
     _init (config?: Device_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static grabInfoLibgtkOnly(display: Display, device: Device): { returnType: boolean, grabWindow: Window, ownerEvents: boolean }
     static $gtype: GObject.Type
 }
 export interface DeviceManager_ConstructProps extends GObject.Object_ConstructProps {
@@ -3597,10 +3587,6 @@ export class Display {
     static name: string
     constructor (config?: Display_ConstructProps)
     _init (config?: Display_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static getDefault(): Display | null
-    static open(displayName: string): Display | null
-    static openDefaultLibgtkOnly(): Display | null
     static $gtype: GObject.Type
 }
 export interface DisplayManager_ConstructProps extends GObject.Object_ConstructProps {
@@ -3665,8 +3651,6 @@ export class DisplayManager {
     static name: string
     constructor (config?: DisplayManager_ConstructProps)
     _init (config?: DisplayManager_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static get(): DisplayManager
     static $gtype: GObject.Type
 }
 export interface DragContext_ConstructProps extends GObject.Object_ConstructProps {
@@ -3953,9 +3937,6 @@ export class GLContext {
     static name: string
     constructor (config?: GLContext_ConstructProps)
     _init (config?: GLContext_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static clearCurrent(): void
-    static getCurrent(): GLContext | null
     static $gtype: GObject.Type
 }
 export interface Keymap_ConstructProps extends GObject.Object_ConstructProps {
@@ -4031,9 +4012,6 @@ export class Keymap {
     static name: string
     constructor (config?: Keymap_ConstructProps)
     _init (config?: Keymap_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static getDefault(): Keymap
-    static getForDisplay(display: Display): Keymap
     static $gtype: GObject.Type
 }
 export interface Monitor_ConstructProps extends GObject.Object_ConstructProps {
@@ -4260,12 +4238,6 @@ export class Screen {
     static name: string
     constructor (config?: Screen_ConstructProps)
     _init (config?: Screen_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static getDefault(): Screen | null
-    static height(): number
-    static heightMm(): number
-    static width(): number
-    static widthMm(): number
     static $gtype: GObject.Type
 }
 export interface Seat_ConstructProps extends GObject.Object_ConstructProps {
@@ -4398,14 +4370,6 @@ export class Visual {
     static name: string
     constructor (config?: Visual_ConstructProps)
     _init (config?: Visual_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static getBest(): Visual
-    static getBestDepth(): number
-    static getBestType(): VisualType
-    static getBestWithBoth(depth: number, visualType: VisualType): Visual | null
-    static getBestWithDepth(depth: number): Visual
-    static getBestWithType(visualType: VisualType): Visual
-    static getSystem(): Visual
     static $gtype: GObject.Type
 }
 export interface Window_ConstructProps extends GObject.Object_ConstructProps {
@@ -4429,7 +4393,7 @@ export class Window {
     coordsFromParent(parentX: number, parentY: number): { x: number | null, y: number | null }
     coordsToParent(x: number, y: number): { parentX: number | null, parentY: number | null }
     createGlContext(): GLContext
-    createSimilarImageSurface(format: cairo.Format, width: number, height: number, scale: number): cairo.Surface
+    createSimilarImageSurface(format: number, width: number, height: number, scale: number): cairo.Surface
     createSimilarSurface(content: cairo.Content, width: number, height: number): cairo.Surface
     deiconify(): void
     destroy(): void
@@ -4640,21 +4604,12 @@ export class Window {
     static name: string
     constructor (config?: Window_ConstructProps)
     _init (config?: Window_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(parent: Window | null, attributes: WindowAttr, attributesMask: WindowAttributesType): Window
-    static atPointer(): { returnType: Window, winX: number | null, winY: number | null }
-    static constrainSize(geometry: Geometry, flags: WindowHints, width: number, height: number): { newWidth: number, newHeight: number }
-    static processAllUpdates(): void
-    static setDebugUpdates(setting: boolean): void
     static $gtype: GObject.Type
 }
 export class Atom {
     /* Methods of Gdk-3.0.Gdk.Atom */
     name(): string
     static name: string
-    /* Static methods and pseudo-constructors */
-    static intern(atomName: string, onlyIfExists: boolean): Atom
-    static internStaticString(atomName: string): Atom
 }
 export class Color {
     /* Fields of Gdk-3.0.Gdk.Color */
@@ -4669,8 +4624,6 @@ export class Color {
     hash(): number
     toString(): string
     static name: string
-    /* Static methods and pseudo-constructors */
-    static parse(spec: string): { returnType: boolean, color: Color }
 }
 export abstract class DevicePadInterface {
     static name: string
@@ -5150,12 +5103,6 @@ export class Event {
     static name: string
     static new(type: EventType): Event
     constructor(type: EventType)
-    /* Static methods and pseudo-constructors */
-    static new(type: EventType): Event
-    static get(): Event | null
-    static handlerSet(func: EventFunc): void
-    static peek(): Event | null
-    static requestMotions(event: EventMotion): void
 }
 export type XEvent = void
 }

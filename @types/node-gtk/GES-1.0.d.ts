@@ -258,13 +258,13 @@ export class Extractable {
     setAsset(asset: Asset): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -272,12 +272,12 @@ export class Extractable {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Extractable, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -371,13 +371,13 @@ export class Asset {
     unproxy(proxy: Asset): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -385,12 +385,12 @@ export class Asset {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
     checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
@@ -567,13 +567,13 @@ export class AudioSource {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -581,12 +581,12 @@ export class AudioSource {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -846,13 +846,13 @@ export class AudioTestSource {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -860,12 +860,12 @@ export class AudioTestSource {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -1215,13 +1215,13 @@ export class AudioTrack {
     unref(): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -1229,11 +1229,11 @@ export class AudioTrack {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
     checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
@@ -1515,13 +1515,13 @@ export class AudioTransition {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -1529,12 +1529,12 @@ export class AudioTransition {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -1792,13 +1792,13 @@ export class AudioUriSource {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -1806,12 +1806,12 @@ export class AudioUriSource {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -2070,13 +2070,13 @@ export class BaseEffect {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2084,12 +2084,12 @@ export class BaseEffect {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -2356,13 +2356,13 @@ export class BaseEffectClip {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2370,12 +2370,12 @@ export class BaseEffectClip {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -2637,13 +2637,13 @@ export class BaseTransitionClip {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2651,12 +2651,12 @@ export class BaseTransitionClip {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -2830,13 +2830,13 @@ export class BaseXmlFormatter {
     saveToUri(timeline: Timeline, uri: string, overwrite: boolean): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2844,12 +2844,12 @@ export class BaseXmlFormatter {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -2973,13 +2973,13 @@ export class Clip {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2987,12 +2987,12 @@ export class Clip {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -3184,13 +3184,13 @@ export class ClipAsset {
     unproxy(proxy: Asset): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -3198,12 +3198,12 @@ export class ClipAsset {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
     checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
@@ -3305,13 +3305,13 @@ export class CommandLineFormatter {
     saveToUri(timeline: Timeline, uri: string, overwrite: boolean): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -3319,12 +3319,12 @@ export class CommandLineFormatter {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -3422,13 +3422,13 @@ export class Container {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -3436,12 +3436,12 @@ export class Container {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -3683,13 +3683,13 @@ export class Effect {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -3697,12 +3697,12 @@ export class Effect {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -3904,13 +3904,13 @@ export class EffectAsset {
     unproxy(proxy: Asset): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -3918,12 +3918,12 @@ export class EffectAsset {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
     checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
@@ -4112,13 +4112,13 @@ export class EffectClip {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -4126,12 +4126,12 @@ export class EffectClip {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -4307,13 +4307,13 @@ export class Formatter {
     saveToUri(timeline: Timeline, uri: string, overwrite: boolean): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -4321,12 +4321,12 @@ export class Formatter {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -4432,13 +4432,13 @@ export class Group {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -4446,12 +4446,12 @@ export class Group {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -4691,13 +4691,13 @@ export class ImageSource {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -4705,12 +4705,12 @@ export class ImageSource {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -4914,13 +4914,13 @@ export class Layer {
     setTimeline(timeline: Timeline): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -4928,12 +4928,12 @@ export class Layer {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -5040,13 +5040,13 @@ export class Marker {
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -5054,12 +5054,12 @@ export class Marker {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
     checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
@@ -5143,13 +5143,13 @@ export class MarkerList {
     size(): number
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -5157,12 +5157,12 @@ export class MarkerList {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Signals of GES-1.0.GES.MarkerList */
     connect(sigName: "marker-added", callback: (($obj: MarkerList, position: number, marker: Marker) => void)): number
     on(sigName: "marker-added", callback: (position: number, marker: Marker) => void, after?: boolean): NodeJS.EventEmitter
@@ -5290,13 +5290,13 @@ export class MultiFileSource {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -5304,12 +5304,12 @@ export class MultiFileSource {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -5566,13 +5566,13 @@ export class Operation {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -5580,12 +5580,12 @@ export class Operation {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -5852,13 +5852,13 @@ export class OperationClip {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -5866,12 +5866,12 @@ export class OperationClip {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -6133,13 +6133,13 @@ export class OverlayClip {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -6147,12 +6147,12 @@ export class OverlayClip {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -6517,13 +6517,13 @@ export class Pipeline {
     unref(): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -6531,11 +6531,11 @@ export class Pipeline {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of Gst-1.0.Gst.ChildProxy */
     childAdded(child: GObject.Object, name: string): void
     childRemoved(child: GObject.Object, name: string): void
@@ -6711,13 +6711,13 @@ export class PitiviFormatter {
     saveToUri(timeline: Timeline, uri: string, overwrite: boolean): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -6725,12 +6725,12 @@ export class PitiviFormatter {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -6792,13 +6792,13 @@ export class Project {
     unproxy(proxy: Asset): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -6806,12 +6806,12 @@ export class Project {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
     checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
@@ -7024,13 +7024,13 @@ export class Source {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -7038,12 +7038,12 @@ export class Source {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -7310,13 +7310,13 @@ export class SourceClip {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -7324,12 +7324,12 @@ export class SourceClip {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -7524,13 +7524,13 @@ export class SourceClipAsset {
     unproxy(proxy: Asset): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -7538,12 +7538,12 @@ export class SourceClipAsset {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
     checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
@@ -7748,13 +7748,13 @@ export class TestClip {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -7762,12 +7762,12 @@ export class TestClip {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -8055,13 +8055,13 @@ export class TextOverlay {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -8069,12 +8069,12 @@ export class TextOverlay {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -8373,13 +8373,13 @@ export class TextOverlayClip {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -8387,12 +8387,12 @@ export class TextOverlayClip {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -8786,13 +8786,13 @@ export class Timeline {
     unref(): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -8800,11 +8800,11 @@ export class Timeline {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -9108,13 +9108,13 @@ export class TimelineElement {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -9122,12 +9122,12 @@ export class TimelineElement {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -9392,13 +9392,13 @@ export class TitleClip {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -9406,12 +9406,12 @@ export class TitleClip {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -9722,13 +9722,13 @@ export class TitleSource {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -9736,12 +9736,12 @@ export class TitleSource {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -10094,13 +10094,13 @@ export class Track {
     unref(): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -10108,11 +10108,11 @@ export class Track {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
     checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
@@ -10397,13 +10397,13 @@ export class TrackElement {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -10411,12 +10411,12 @@ export class TrackElement {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -10612,13 +10612,13 @@ export class TrackElementAsset {
     unproxy(proxy: Asset): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -10626,12 +10626,12 @@ export class TrackElementAsset {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
     checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
@@ -10806,13 +10806,13 @@ export class Transition {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -10820,12 +10820,12 @@ export class Transition {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -11095,13 +11095,13 @@ export class TransitionClip {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -11109,12 +11109,12 @@ export class TransitionClip {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -11396,13 +11396,13 @@ export class UriClip {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -11410,12 +11410,12 @@ export class UriClip {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -11630,13 +11630,13 @@ export class UriClipAsset {
     unproxy(proxy: Asset): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -11644,12 +11644,12 @@ export class UriClipAsset {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
     checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
@@ -11783,13 +11783,13 @@ export class UriSourceAsset {
     unproxy(proxy: Asset): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -11797,12 +11797,12 @@ export class UriSourceAsset {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
     checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
@@ -11979,13 +11979,13 @@ export class VideoSource {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -11993,12 +11993,12 @@ export class VideoSource {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -12258,13 +12258,13 @@ export class VideoTestSource {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -12272,12 +12272,12 @@ export class VideoTestSource {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -12627,13 +12627,13 @@ export class VideoTrack {
     unref(): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -12641,11 +12641,11 @@ export class VideoTrack {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.MetaContainer */
     addMetasFromString(str: string): boolean
     checkMetaRegistered(metaItem: string): { returnType: boolean, flags: MetaFlag | null, type: GObject.Type | null }
@@ -12941,13 +12941,13 @@ export class VideoTransition {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -12955,12 +12955,12 @@ export class VideoTransition {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -13235,13 +13235,13 @@ export class VideoUriSource {
     trim(start: Gst.ClockTime): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -13249,12 +13249,12 @@ export class VideoUriSource {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string
@@ -13435,13 +13435,13 @@ export class XmlFormatter {
     saveToUri(timeline: Timeline, uri: string, overwrite: boolean): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -13449,12 +13449,12 @@ export class XmlFormatter {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of GES-1.0.GES.Extractable */
     getAsset(): Asset | null
     getId(): string

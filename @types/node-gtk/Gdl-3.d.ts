@@ -493,13 +493,13 @@ export class Dock {
     unsetStateFlags(flags: Gtk.StateFlags): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -507,12 +507,12 @@ export class Dock {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
@@ -1562,13 +1562,13 @@ export class DockBar {
     unsetStateFlags(flags: Gtk.StateFlags): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -1576,12 +1576,12 @@ export class DockBar {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
@@ -2647,13 +2647,13 @@ export class DockItem {
     unsetStateFlags(flags: Gtk.StateFlags): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2661,12 +2661,12 @@ export class DockItem {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
@@ -3688,13 +3688,13 @@ export class DockItemButtonImage {
     unsetStateFlags(flags: Gtk.StateFlags): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -3702,12 +3702,12 @@ export class DockItemButtonImage {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
@@ -4630,13 +4630,13 @@ export class DockItemGrip {
     unsetStateFlags(flags: Gtk.StateFlags): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -4644,12 +4644,12 @@ export class DockItemGrip {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
@@ -5280,13 +5280,13 @@ export class DockLayout {
     setMaster(master: GObject.Object): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -5294,12 +5294,12 @@ export class DockLayout {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DockLayout, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -5360,13 +5360,13 @@ export class DockMaster {
     setController(newController: DockObject): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -5374,12 +5374,12 @@ export class DockMaster {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Signals of Gdl-3.Gdl.DockMaster */
     connect(sigName: "layout-changed", callback: (($obj: DockMaster) => void)): number
     on(sigName: "layout-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
@@ -5855,13 +5855,13 @@ export class DockNotebook {
     unsetStateFlags(flags: Gtk.StateFlags): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -5869,12 +5869,12 @@ export class DockNotebook {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
@@ -6975,13 +6975,13 @@ export class DockObject {
     unsetStateFlags(flags: Gtk.StateFlags): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -6989,12 +6989,12 @@ export class DockObject {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
@@ -8060,13 +8060,13 @@ export class DockPaned {
     unsetStateFlags(flags: Gtk.StateFlags): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -8074,12 +8074,12 @@ export class DockPaned {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
@@ -9196,13 +9196,13 @@ export class DockPlaceholder {
     unsetStateFlags(flags: Gtk.StateFlags): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -9210,12 +9210,12 @@ export class DockPlaceholder {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
@@ -10232,13 +10232,13 @@ export class DockTablabel {
     unsetStateFlags(flags: Gtk.StateFlags): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -10246,12 +10246,12 @@ export class DockTablabel {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
@@ -11358,13 +11358,13 @@ export class PreviewWindow {
     unsetStateFlags(flags: Gtk.StateFlags): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -11372,12 +11372,12 @@ export class PreviewWindow {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object
@@ -12577,13 +12577,13 @@ export class Switcher {
     unsetStateFlags(flags: Gtk.StateFlags): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
     forceFloating(): void
     freezeNotify(): void
     getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
+    getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
+    getv(names: string[], values: any[]): void
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -12591,12 +12591,12 @@ export class Switcher {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
+    setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
-    watchClosure(closure: GObject.Closure): void
+    watchClosure(closure: Function): void
     /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
     constructChild(builder: Gtk.Builder, name: string): GObject.Object

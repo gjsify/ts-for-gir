@@ -1027,7 +1027,7 @@ export function bookmarkFileErrorQuark(): Quark
 export function buildFilenamev(args: string[]): string
 export function buildPathv(separator: string, args: string[]): string
 export function byteArrayFree(array: any[], freeSegment: boolean): number
-export function byteArrayFreeToBytes(array: any[]): Bytes
+export function byteArrayFreeToBytes(array: any[]): any
 export function byteArrayNew(): any[]
 export function byteArrayNewTake(data: any[]): any[]
 export function byteArraySteal(array: any[]): { returnType: number, len: number | null }
@@ -1040,10 +1040,10 @@ export function childWatchAdd(priority: number, pid: Pid, function_: ChildWatchF
 export function childWatchSourceNew(pid: Pid): Source
 export function clearError(): void
 export function close(fd: number): boolean
-export function computeChecksumForBytes(checksumType: ChecksumType, data: Bytes): string | null
+export function computeChecksumForBytes(checksumType: ChecksumType, data: any): string | null
 export function computeChecksumForData(checksumType: ChecksumType, data: any[]): string | null
 export function computeChecksumForString(checksumType: ChecksumType, str: string, length: number): string | null
-export function computeHmacForBytes(digestType: ChecksumType, key: Bytes, data: Bytes): string
+export function computeHmacForBytes(digestType: ChecksumType, key: any, data: any): string
 export function computeHmacForData(digestType: ChecksumType, key: any[], data: any[]): string
 export function computeHmacForString(digestType: ChecksumType, key: any[], str: string, length: number): string
 export function convert(str: any[], toCodeset: string, fromCodeset: string): { returnType: any[], bytesRead: number | null }
@@ -1466,7 +1466,7 @@ export function uriResolveRelative(baseUriString: string | null, uriRef: string,
 export function uriSplit(uriRef: string, flags: UriFlags): { returnType: boolean, scheme: string | null, userinfo: string | null, host: string | null, port: number | null, path: string | null, query: string | null, fragment: string | null }
 export function uriSplitNetwork(uriString: string, flags: UriFlags): { returnType: boolean, scheme: string | null, host: string | null, port: number | null }
 export function uriSplitWithUser(uriRef: string, flags: UriFlags): { returnType: boolean, scheme: string | null, user: string | null, password: string | null, authParams: string | null, host: string | null, port: number | null, path: string | null, query: string | null, fragment: string | null }
-export function uriUnescapeBytes(escapedString: string, length: number, illegalCharacters?: string | null): Bytes
+export function uriUnescapeBytes(escapedString: string, length: number, illegalCharacters?: string | null): any
 export function uriUnescapeSegment(escapedString?: string | null, escapedStringEnd?: string | null, illegalCharacters?: string | null): string | null
 export function uriUnescapeString(escapedString: string, illegalCharacters?: string | null): string | null
 export function usleep(microseconds: number): void
@@ -1754,20 +1754,20 @@ export class ByteArray {
     static name: string
     /* Static methods and pseudo-constructors */
     static free(array: any[], freeSegment: boolean): number
-    static freeToBytes(array: any[]): Bytes
+    static freeToBytes(array: any[]): any
     static newTake(data: any[]): any[]
     static steal(array: any[]): { returnType: number, len: number | null }
     static unref(array: any[]): void
 }
 export class Bytes {
     /* Methods of GLib-2.0.GLib.Bytes */
-    compare(bytes2: Bytes): number
-    equal(bytes2: Bytes): boolean
+    compare(bytes2: any): number
+    equal(bytes2: any): boolean
     getData(): any[] | null
     getSize(): number
     hash(): number
-    newFromBytes(offset: number, length: number): Bytes
-    ref(): Bytes
+    newFromBytes(offset: number, length: number): any
+    ref(): any
     unref(): void
     unrefToArray(): any[]
     unrefToData(): any[]
@@ -2101,7 +2101,7 @@ export class KeyFile {
     getUint64(groupName: string, key: string): number
     getValue(groupName: string, key: string): string
     hasGroup(groupName: string): boolean
-    loadFromBytes(bytes: Bytes, flags: KeyFileFlags): boolean
+    loadFromBytes(bytes: any, flags: KeyFileFlags): boolean
     loadFromData(data: string, length: number, flags: KeyFileFlags): boolean
     loadFromDataDirs(file: string, flags: KeyFileFlags): { returnType: boolean, fullPath: string | null }
     loadFromDirs(file: string, searchDirs: string[], flags: KeyFileFlags): { returnType: boolean, fullPath: string | null }
@@ -2197,7 +2197,7 @@ export class MainLoop {
 export class MappedFile {
     /* Methods of GLib-2.0.GLib.MappedFile */
     free(): void
-    getBytes(): Bytes
+    getBytes(): any
     getContents(): string
     getLength(): number
     ref(): MappedFile
@@ -2644,7 +2644,7 @@ export class String {
     equal(v2: String): boolean
     erase(pos: number, len: number): String
     free(freeSegment: boolean): string | null
-    freeToBytes(): Bytes
+    freeToBytes(): any
     hash(): number
     insert(pos: number, val: string): String
     insertC(pos: number, c: number): String
@@ -2870,7 +2870,7 @@ export class Uri {
     static split(uriRef: string, flags: UriFlags): { returnType: boolean, scheme: string | null, userinfo: string | null, host: string | null, port: number | null, path: string | null, query: string | null, fragment: string | null }
     static splitNetwork(uriString: string, flags: UriFlags): { returnType: boolean, scheme: string | null, host: string | null, port: number | null }
     static splitWithUser(uriRef: string, flags: UriFlags): { returnType: boolean, scheme: string | null, user: string | null, password: string | null, authParams: string | null, host: string | null, port: number | null, path: string | null, query: string | null, fragment: string | null }
-    static unescapeBytes(escapedString: string, length: number, illegalCharacters?: string | null): Bytes
+    static unescapeBytes(escapedString: string, length: number, illegalCharacters?: string | null): any
     static unescapeSegment(escapedString?: string | null, escapedStringEnd?: string | null, illegalCharacters?: string | null): string | null
     static unescapeString(escapedString: string, illegalCharacters?: string | null): string | null
 }
@@ -2898,7 +2898,7 @@ export class Variant {
     getBytestringArray(): string[]
     getChildValue(index: number): Variant
     getData(): object | null
-    getDataAsBytes(): Bytes
+    getDataAsBytes(): any
     getDouble(): number
     getHandle(): number
     getInt16(): number
@@ -2939,7 +2939,7 @@ export class Variant {
     static newDictEntry(key: Variant, value: Variant): Variant
     static newDouble(value: number): Variant
     static newFixedArray(elementType: VariantType, elements: object | null, nElements: number, elementSize: number): Variant
-    static newFromBytes(type: VariantType, bytes: Bytes, trusted: boolean): Variant
+    static newFromBytes(type: VariantType, bytes: any, trusted: boolean): Variant
     static newFromData(type: VariantType, data: any[], trusted: boolean, notify: DestroyNotify, userData?: object | null): Variant
     static newHandle(value: number): Variant
     static newInt16(value: number): Variant

@@ -3,7 +3,7 @@ import { Transformation, C_TYPE_MAP, FULL_TYPE_MAP, POD_TYPE_MAP, POD_TYPE_MAP_A
 import { Logger } from './logger'
 import { Utils } from './utils'
 import { SymTable } from './symtable'
-import TypePatches from './type-patches'
+import { typePatches } from './type-patches'
 
 import {
     GirRepository,
@@ -48,8 +48,6 @@ import {
 } from './constants'
 
 export class GirModule {
-    static typePatches = TypePatches
-
     /**
      * E.g. 'Gtk'
      */
@@ -193,14 +191,16 @@ export class GirModule {
             }
     }
 
-    private annotateFunctions(girClass: GirClass | null, funcs: GirFunction[]): void {
-        if (funcs)
-            for (const func of funcs) {
-                if (func.$ && func.$.name) {
+    private annotateFunctions(girClass: GirClass | null, girFuncs: GirFunction[]): void {
+        if (girFuncs)
+            for (const girFunc of girFuncs) {
+                if (girFunc.$ && girFunc.$.name) {
+                    // Used for type-patches to get the packageName
+                    girFunc._containerModule = girClass?._module || this
                     const nsName = girClass ? girClass._fullSymName : this.namespace
-                    func._fullSymName = `${nsName}.${func.$.name}`
-                    this.annotateFunctionArguments(func)
-                    this.annotateFunctionReturn(func)
+                    girFunc._fullSymName = `${nsName}.${girFunc.$.name}`
+                    this.annotateFunctionArguments(girFunc)
+                    this.annotateFunctionReturn(girFunc)
                 }
             }
     }
@@ -375,26 +375,14 @@ export class GirModule {
             }
         }
 
-        if (!resValue && type?.$ && arr && POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name]) {
-            resValue = POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name]
-        }
-
-        if (!resValue && type?.$ && POD_TYPE_MAP[type.$.name]) {
-            resValue = POD_TYPE_MAP[type.$.name]
-        }
-
-        if (!resValue && cType && C_TYPE_MAP(cType)) {
-            resValue = C_TYPE_MAP(cType)
-        }
-
-        if (!resValue && fullTypeName && FULL_TYPE_MAP(this.config.environment, this.packageName, fullTypeName)) {
-            resValue = FULL_TYPE_MAP(this.config.environment, this.packageName, fullTypeName) || ''
-        }
-
         // Fully qualify our type name if need be
         if (!resValue && fullTypeName && !fullTypeName.includes('.') && type?.$) {
             const mod = girVar?._module || this
             fullTypeName = `${mod.namespace}.${type.$.name}`
+        }
+
+        if (!resValue && fullTypeName && FULL_TYPE_MAP(this.config.environment, this.packageName, fullTypeName)) {
+            resValue = FULL_TYPE_MAP(this.config.environment, this.packageName, fullTypeName) || ''
         }
 
         if (!resValue && fullTypeName) {
@@ -415,6 +403,18 @@ export class GirModule {
                     resValue = resValues.join('.')
                 }
             }
+        }
+
+        if (!resValue && type?.$ && arr && POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name]) {
+            resValue = POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name]
+        }
+
+        if (!resValue && type?.$ && POD_TYPE_MAP[type.$.name]) {
+            resValue = POD_TYPE_MAP[type.$.name]
+        }
+
+        if (!resValue && cType && C_TYPE_MAP(cType)) {
+            resValue = C_TYPE_MAP(cType)
         }
 
         if (!resValue && cType && POD_TYPE_MAP[cType]) {
@@ -438,24 +438,23 @@ export class GirModule {
         return defaultVal
     }
 
-    private getReturnType(func: GirFunction): [string, number] {
+    private getReturnType(girFunc: GirFunction): [string, number] {
         let returnType = 'void'
         let outArrayLengthIndex = -1
 
-        const returnVal = func['return-value'] ? func['return-value'][0] : null
-        if (returnVal) {
-            returnType = this.typeLookup(returnVal)
-            outArrayLengthIndex =
-                returnVal.array && returnVal.array[0].$?.length ? Number(returnVal.array[0].$.length) : -1
+        const girVar: GirVariable | null = girFunc['return-value'] ? girFunc['return-value'][0] : null
+        if (girVar) {
+            returnType = this.typeLookup(girVar)
+            outArrayLengthIndex = girVar.array && girVar.array[0].$?.length ? Number(girVar.array[0].$.length) : -1
         }
 
         return [returnType, outArrayLengthIndex] as [string, number]
     }
 
-    private arrayLengthIndexLookup(param: GirVariable): number {
-        if (!param.array) return -1
+    private arrayLengthIndexLookup(girVar: GirVariable): number {
+        if (!girVar.array) return -1
 
-        const arr: GirArray = param.array[0]
+        const arr: GirArray = girVar.array[0]
         if (!arr.$) return -1
 
         if (arr.$.length) {
@@ -465,28 +464,24 @@ export class GirModule {
         return -1
     }
 
-    private closureDataIndexLookup(param: GirVariable): number {
-        if (!param.$.closure) return -1
+    private closureDataIndexLookup(girVar: GirVariable): number {
+        if (!girVar.$.closure) return -1
 
-        return parseInt(param.$.closure)
+        return parseInt(girVar.$.closure)
     }
 
-    private destroyDataIndexLookup(param: GirVariable): number {
-        if (!param.$.destroy) return -1
+    private destroyDataIndexLookup(girVar: GirVariable): number {
+        if (!girVar.$.destroy) return -1
 
-        return parseInt(param.$.destroy)
+        return parseInt(girVar.$.destroy)
     }
 
-    private processParams(
-        parametersArray: GirVariable[],
-        skip: GirVariable[],
-        getIndex: (param: GirVariable) => number,
-    ): void {
-        for (const param of parametersArray as GirVariable[]) {
+    private processParams(girVars: GirVariable[], skip: GirVariable[], getIndex: (param: GirVariable) => number): void {
+        for (const param of girVars as GirVariable[]) {
             const index = getIndex(param)
             if (index < 0) continue
-            if (index >= parametersArray.length) continue
-            skip.push(parametersArray[index])
+            if (index >= girVars.length) continue
+            skip.push(girVars[index])
         }
     }
 
@@ -499,19 +494,19 @@ export class GirModule {
      * @author realh
      * @see https://github.com/realh/ts-for-gjs/commit/e4bdba8d4ca279dfa4abbca413eaae6ecc6a81f8
      */
-    private paramIsNullable(param: GirVariable): boolean {
-        const a = param.$
+    private paramIsNullable(girVar: GirVariable): boolean {
+        const a = girVar.$
         return a && (this.girBool(a.nullable) || this.girBool(a['allow-none']) || this.girBool(a.optional))
     }
 
-    private getParameters(outArrayLengthIndex: number, parameters?: GirParameter[]): [string, string[]] {
+    private getParameters(outArrayLengthIndex: number, girParams?: GirParameter[]): [string, string[]] {
         const def: string[] = []
         const outParams: string[] = []
 
-        if (parameters && parameters.length > 0) {
-            const parametersArray = parameters[0].parameter || []
+        if (girParams && girParams.length > 0) {
+            const params = girParams[0].parameter || []
             // Instance parameter needs to be exposed for class methods (see comment above getClassMethods())
-            const instanceParameter = parameters[0]['instance-parameter']
+            const instanceParameter = girParams[0]['instance-parameter']
             if (instanceParameter && instanceParameter[0]) {
                 const typeName = instanceParameter[0].type ? instanceParameter[0].type[0].$?.name : undefined
                 const rec = typeName ? this.ns.record?.find((r) => r.$.name == typeName) : undefined
@@ -522,14 +517,14 @@ export class GirModule {
                     def.push(`${instanceParameter[0].$.name}: ${structFor} | Function | ${gobject}Type`)
                 }
             }
-            if (parametersArray.length) {
-                const skip = outArrayLengthIndex === -1 ? [] : [parametersArray[outArrayLengthIndex]]
+            if (params.length) {
+                const skip = outArrayLengthIndex === -1 ? [] : [params[outArrayLengthIndex]]
 
-                this.processParams(parametersArray, skip, this.arrayLengthIndexLookup)
-                this.processParams(parametersArray, skip, this.closureDataIndexLookup)
-                this.processParams(parametersArray, skip, this.destroyDataIndexLookup)
+                this.processParams(params, skip, this.arrayLengthIndexLookup)
+                this.processParams(params, skip, this.closureDataIndexLookup)
+                this.processParams(params, skip, this.destroyDataIndexLookup)
 
-                for (const param of parametersArray as GirVariable[]) {
+                for (const param of params as GirVariable[]) {
                     if (skip.indexOf(param) !== -1) {
                         continue
                     }
@@ -553,8 +548,8 @@ export class GirModule {
                     let isOptional = this.paramIsNullable(param) ? '?' : ''
 
                     if (isOptional === '?') {
-                        const index = parametersArray.indexOf(param)
-                        const following = (parametersArray as GirVariable[])
+                        const index = params.indexOf(param)
+                        const following = params
                             .slice(index)
                             .filter(() => skip.indexOf(param) === -1)
                             .filter((p) => p.$.direction !== 'out')
@@ -574,31 +569,31 @@ export class GirModule {
     }
 
     private getVariable(
-        v: GirVariable,
+        girVar: GirVariable,
         optional = false,
         allowQuotes = false,
         type: 'property' | 'constant' | 'field',
     ): FunctionDescription {
-        if (!v.$.name) return FALSY_FUNCTION_DESCRIPTION
-        if (!v || !v.$ || !this.girBool(v.$.introspectable, true) || this.girBool(v.$.private))
+        if (!girVar.$.name) return FALSY_FUNCTION_DESCRIPTION
+        if (!girVar || !girVar.$ || !this.girBool(girVar.$.introspectable, true) || this.girBool(girVar.$.private))
             return FALSY_FUNCTION_DESCRIPTION
 
-        let name = v.$.name
+        let name = girVar.$.name
 
         switch (type) {
             case 'property':
-                name = this.transformation.transformPropertyName(v.$.name, allowQuotes)
+                name = this.transformation.transformPropertyName(girVar.$.name, allowQuotes)
                 break
             case 'constant':
-                name = this.transformation.transformConstantName(v.$.name, allowQuotes)
+                name = this.transformation.transformConstantName(girVar.$.name, allowQuotes)
                 break
             case 'field':
-                name = this.transformation.transformFieldName(v.$.name, allowQuotes)
+                name = this.transformation.transformFieldName(girVar.$.name, allowQuotes)
                 break
         }
         // Use the out type because in can be a union which isn't appropriate
         // for a property
-        let typeName = this.typeLookup(v)
+        let typeName = this.typeLookup(girVar)
         const nameSuffix = optional ? '?' : ''
 
         typeName = this.transformation.transformTypeName(typeName)
@@ -613,20 +608,25 @@ export class GirModule {
      * @param construct construct means include the property even if it's construct-only,
      * @param optional optional means if it's construct-only it will also be marked optional (?)
      */
-    private getProperty(v: GirVariable, indent = '', construct = false, optional = true): PropertyDescription {
-        if (this.girBool(v.$['construct-only']) && !construct) return FALSY_PROPERTY_DESCRIPTION
-        if (!this.girBool(v.$.writable) && construct) return FALSY_PROPERTY_DESCRIPTION
-        if (this.girBool(v.$.private)) return FALSY_PROPERTY_DESCRIPTION
+    private getProperty(girVar: GirVariable, indent = '', construct = false, optional = true): PropertyDescription {
+        if (this.girBool(girVar.$['construct-only']) && !construct) return FALSY_PROPERTY_DESCRIPTION
+        if (!this.girBool(girVar.$.writable) && construct) return FALSY_PROPERTY_DESCRIPTION
+        if (this.girBool(girVar.$.private)) return FALSY_PROPERTY_DESCRIPTION
 
-        const propPrefix = this.girBool(v.$.writable) ? '' : 'readonly '
-        const { desc: propDesc, name: propName, patched } = this.getVariable(v, construct && optional, true, 'property')
+        const propPrefix = this.girBool(girVar.$.writable) ? '' : 'readonly '
+        const { desc: propDesc, name: propName, patched } = this.getVariable(
+            girVar,
+            construct && optional,
+            true,
+            'property',
+        )
         let origName: string | null = null
 
         if (!propName) return FALSY_PROPERTY_DESCRIPTION
 
-        if (v.$.name) {
+        if (girVar.$.name) {
             // TODO does that make sense here? This also changes the signal names
-            origName = this.transformation.transformTypeName(v.$.name)
+            origName = this.transformation.transformTypeName(girVar.$.name)
         }
 
         return {
@@ -638,6 +638,26 @@ export class GirModule {
     }
 
     /**
+     * Get the patches for a given namespace path, type and package name (including the version number)
+     * @param packageName E.g. 'Gtk-3.0'
+     * @param type E.g 'methods'
+     * @param nsPath E.g. 'Gtk.MenuItem.activate'
+     */
+    private getPatches(packageName: string, type: 'methods' | 'constructorProperties', nsPath: string) {
+        const packagePatches = typePatches[packageName]
+        if (!packagePatches) {
+            return []
+        }
+
+        const typePatch = packagePatches[type]
+        if (!typePatch) {
+            return []
+        }
+
+        return typePatch[nsPath] || []
+    }
+
+    /**
      *
      * @param e
      * @param indent
@@ -646,25 +666,29 @@ export class GirModule {
      * @param arrowType
      */
     private getFunction(
-        e: GirFunction,
+        girFunc: GirFunction,
         indent: string = '',
         funcNamePrefix = '',
         overrideReturnType?: string,
         arrowType = false,
     ): FunctionDescription {
-        if (!e || !e.$ || !this.girBool(e.$.introspectable, true) || e.$['shadowed-by']) {
+        if (!girFunc || !girFunc.$ || !this.girBool(girFunc.$.introspectable, true) || girFunc.$['shadowed-by']) {
             return FALSY_FUNCTION_DESCRIPTION
         }
+        const packageNameToPatch =
+            girFunc._containerModule?.packageName || girFunc._module?.packageName || this.packageName
+        const methodPatches = girFunc._fullSymName
+            ? this.getPatches(packageNameToPatch, 'methods', girFunc._fullSymName)
+            : []
 
-        const patches: string[] = e._fullSymName ? GirModule.typePatches[e._fullSymName] : []
-        let name = e.$.name
+        let name = girFunc.$.name
         // eslint-disable-next-line prefer-const
-        let [retType, outArrayLengthIndex] = this.getReturnType(e)
+        let [retType, outArrayLengthIndex] = this.getReturnType(girFunc)
 
-        const [params, outParams] = this.getParameters(outArrayLengthIndex, e.parameters)
+        const [params, outParams] = this.getParameters(outArrayLengthIndex, girFunc.parameters)
 
-        if (e.$['shadows']) {
-            name = e.$['shadows']
+        if (girFunc.$['shadows']) {
+            name = girFunc.$['shadows']
         }
 
         if (funcNamePrefix) name = funcNamePrefix + name
@@ -672,19 +696,14 @@ export class GirModule {
         // Function name transformation by environment
         name = this.transformation.transformFunctionName(name)
 
-        if (patches && patches.length) {
-            // this.log.debug('Apply patches', patches)
-
-            if (patches.length === 1) {
-                return {
-                    patched: true,
-                    desc: patches.map((patch) => indent + patch),
-                    name,
-                }
+        if (methodPatches && methodPatches.length) {
+            // this.log.debug('Apply methodPatches', methodPatches)
+            let desc: string[] = []
+            if (methodPatches.length === 1) {
+                desc = methodPatches.map((patch) => indent + patch)
             }
-            if (patches.length >= 2) {
-                const desc: string[] = []
-                for (const [i, patchLine] of patches.entries()) {
+            if (methodPatches.length >= 2) {
+                for (const [i, patchLine] of methodPatches.entries()) {
                     let descLine = ''
                     if (i === 1) {
                         descLine = `${indent}${funcNamePrefix}${patchLine}`
@@ -693,11 +712,11 @@ export class GirModule {
                     }
                     desc.push(descLine)
                 }
-                return {
-                    patched: true,
-                    desc: [`${indent}${patches[0]}`, `${indent}${funcNamePrefix}${patches[1]}`],
-                    name,
-                }
+            }
+            return {
+                patched: true,
+                desc: desc,
+                name,
             }
         }
 
@@ -748,12 +767,12 @@ export class GirModule {
 
     private getConstructorFunction(
         name: string,
-        e: GirFunction,
+        girConstFunc: GirFunction,
         indent: string,
         funcNamePrefix = '',
     ): FunctionDescription {
         // eslint-disable-next-line prefer-const
-        let { desc, name: funcName, patched } = this.getFunction(e, indent, funcNamePrefix, name)
+        let { desc, name: funcName, patched } = this.getFunction(girConstFunc, indent, funcNamePrefix, name)
 
         if (!funcName) {
             return FALSY_FUNCTION_DESCRIPTION
@@ -762,10 +781,10 @@ export class GirModule {
         return { desc, name: funcName, patched }
     }
 
-    private getSignalFunc(e: GirFunction, clsName: string): string[] {
-        const sigName = this.transformation.transform('signalName', e.$.name)
-        const [retType, outArrayLengthIndex] = this.getReturnType(e)
-        const [params] = this.getParameters(outArrayLengthIndex, e.parameters)
+    private getSignalFunc(girSignalFunc: GirFunction, clsName: string): string[] {
+        const sigName = this.transformation.transform('signalName', girSignalFunc.$.name)
+        const [retType, outArrayLengthIndex] = this.getReturnType(girSignalFunc)
+        const [params] = this.getParameters(outArrayLengthIndex, girSignalFunc.parameters)
         const paramComma = params.length > 0 ? ', ' : ''
 
         return TemplateProcessor.generateSignalMethods(
@@ -877,6 +896,13 @@ export class GirModule {
         return ret
     }
 
+    /**
+     *
+     * @param desc
+     * @param name
+     * @param localNames Can be (constructor) properties, fields or methods
+     * @param type
+     */
     private checkOrSetLocalName(
         desc: VarDesc,
         name: string | null,
@@ -1708,8 +1734,8 @@ export class GirModule {
         // E.g. used for GObject-2.0 to help define GObject classes in js;
         // these aren't part of gi.
         if (templateProcessor.exists(`${this.packageName}.d.ts`)) {
-            const patches = await templateProcessor.load(`${this.packageName}.d.ts`)
-            out.push(patches)
+            const templatePatches = await templateProcessor.load(`${this.packageName}.d.ts`)
+            out.push(templatePatches)
         }
 
         if (this.ns.class) for (const cls of this.ns.class) out.push(...this.exportClassInternal(cls, false))

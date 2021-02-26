@@ -74,7 +74,7 @@ export const FULL_TYPE_MAP = (
     packageName: string,
     value: string,
     out = true,
-): string | GType | undefined => {
+): string | undefined => {
     let ba: string
     let gb: string | undefined
     if (environment === 'gjs') {
@@ -100,7 +100,7 @@ export const FULL_TYPE_MAP = (
         'GObject.Closure': 'Function',
         'GLib.ByteArray': ba,
         'GLib.Bytes': gb,
-        GType: (packageName === 'GObject-2.0' ? 'Type' : 'GObject.Type') as GType,
+        GType: packageName === 'GObject-2.0' ? 'Type' : 'GObject.Type',
     }
 
     return fullTypeMap[value]

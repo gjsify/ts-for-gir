@@ -9,9 +9,8 @@ import type * as GObject from './GObject-2.0';
 import type * as Gee from './Gee-0.8';
 import type * as GUPnP from './GUPnP-1.0';
 import type * as libxml2 from './libxml2-2.0';
-import type * as GstPbutils from './GstPbutils-0.10';
-import type * as Gst from './Gst-0.10';
-import type * as GModule from './GModule-2.0';
+import type * as Soup from './Soup-2.4';
+import type * as GSSDP from './GSSDP-1.0';
 
 export enum LogLevel {
     INVALID,
@@ -310,7 +309,7 @@ export class ConnectionManager {
     get_scpd_url(): string
     get_service_type(): string
     get_udn(): string
-    get_url_base(): any
+    get_url_base(): Soup.URI
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -348,9 +347,9 @@ export class ConnectionManager {
     connect(sigName: "action-invoked", callback: (($obj: ConnectionManager, action: GUPnP.ServiceAction) => void)): number
     connect_after(sigName: "action-invoked", callback: (($obj: ConnectionManager, action: GUPnP.ServiceAction) => void)): number
     emit(sigName: "action-invoked", action: GUPnP.ServiceAction): void
-    connect(sigName: "notify-failed", callback: (($obj: ConnectionManager, callback_url: any[], reason: GLib.Error) => void)): number
-    connect_after(sigName: "notify-failed", callback: (($obj: ConnectionManager, callback_url: any[], reason: GLib.Error) => void)): number
-    emit(sigName: "notify-failed", callback_url: any[], reason: GLib.Error): void
+    connect(sigName: "notify-failed", callback: (($obj: ConnectionManager, callback_url: Soup.URI[], reason: GLib.Error) => void)): number
+    connect_after(sigName: "notify-failed", callback: (($obj: ConnectionManager, callback_url: Soup.URI[], reason: GLib.Error) => void)): number
+    emit(sigName: "notify-failed", callback_url: Soup.URI[], reason: GLib.Error): void
     connect(sigName: "query-variable", callback: (($obj: ConnectionManager, variable: string, value: any) => void)): number
     connect_after(sigName: "query-variable", callback: (($obj: ConnectionManager, variable: string, value: any) => void)): number
     emit(sigName: "query-variable", variable: string, value: any): void
@@ -403,7 +402,7 @@ export class BasicManagement {
     get_scpd_url(): string
     get_service_type(): string
     get_udn(): string
-    get_url_base(): any
+    get_url_base(): Soup.URI
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
@@ -439,9 +438,9 @@ export class BasicManagement {
     connect(sigName: "action-invoked", callback: (($obj: BasicManagement, action: GUPnP.ServiceAction) => void)): number
     connect_after(sigName: "action-invoked", callback: (($obj: BasicManagement, action: GUPnP.ServiceAction) => void)): number
     emit(sigName: "action-invoked", action: GUPnP.ServiceAction): void
-    connect(sigName: "notify-failed", callback: (($obj: BasicManagement, callback_url: any[], reason: GLib.Error) => void)): number
-    connect_after(sigName: "notify-failed", callback: (($obj: BasicManagement, callback_url: any[], reason: GLib.Error) => void)): number
-    emit(sigName: "notify-failed", callback_url: any[], reason: GLib.Error): void
+    connect(sigName: "notify-failed", callback: (($obj: BasicManagement, callback_url: Soup.URI[], reason: GLib.Error) => void)): number
+    connect_after(sigName: "notify-failed", callback: (($obj: BasicManagement, callback_url: Soup.URI[], reason: GLib.Error) => void)): number
+    emit(sigName: "notify-failed", callback_url: Soup.URI[], reason: GLib.Error): void
     connect(sigName: "query-variable", callback: (($obj: BasicManagement, variable: string, value: any) => void)): number
     connect_after(sigName: "query-variable", callback: (($obj: BasicManagement, variable: string, value: any) => void)): number
     emit(sigName: "query-variable", variable: string, value: any): void
@@ -554,7 +553,7 @@ export class RootDevice {
     get_description_dir(): string
     get_description_path(): string
     get_relative_location(): string
-    get_ssdp_resource_group(): any
+    get_ssdp_resource_group(): GSSDP.ResourceGroup
     set_available(available: boolean): void
     /* Methods of GUPnP-1.0.GUPnP.DeviceInfo */
     get_context(): GUPnP.Context
@@ -576,7 +575,7 @@ export class RootDevice {
     get_service(type: string): GUPnP.ServiceInfo
     get_udn(): string
     get_upc(): string
-    get_url_base(): any
+    get_url_base(): Soup.URI
     list_device_types(): string[]
     list_devices(): GUPnP.DeviceInfo[]
     list_dlna_capabilities(): string[]

@@ -1053,6 +1053,7 @@ export class GotoLineBar {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -2271,6 +2272,7 @@ export class InfoBar {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -3452,6 +3454,7 @@ export class LanguageChooserDialog {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -4656,6 +4659,7 @@ export class LanguageChooserWidget {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -5834,6 +5838,7 @@ export class Notebook {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -6950,6 +6955,7 @@ export class Panel {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -7986,6 +7992,7 @@ export class SpaceDrawerPrefs {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -9025,6 +9032,7 @@ export class Statusbar {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -10043,6 +10051,7 @@ export class StyleSchemeChooserWidget {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -11074,6 +11083,7 @@ export class Tab {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -12142,6 +12152,7 @@ export class TabLabel {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -13271,6 +13282,7 @@ export class View {
     getTopMargin(): number
     getVadjustment(): Gtk.Adjustment
     getVisibleRect(): { visibleRect: Gdk.Rectangle }
+    /* get_window clashes with Gtk.Widget.get_window */
     getWindowType(window: Gdk.Window): Gtk.TextWindowType
     getWrapMode(): Gtk.WrapMode
     imContextFilterKeypress(event: Gdk.EventKey): boolean
@@ -13309,6 +13321,7 @@ export class View {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type

@@ -1436,6 +1436,7 @@ export class AdaptorChooser {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -2552,6 +2553,7 @@ export class BaseEditor {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -4013,6 +4015,7 @@ export class DesignView {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -5046,6 +5049,7 @@ export class EPropBool {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -6107,6 +6111,7 @@ export class EPropCheck {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -7168,6 +7173,7 @@ export class EPropColor {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -8229,6 +8235,7 @@ export class EPropEnum {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -9290,6 +9297,7 @@ export class EPropFlags {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -10351,6 +10359,7 @@ export class EPropNamedIcon {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -11412,6 +11421,7 @@ export class EPropNumeric {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -12473,6 +12483,7 @@ export class EPropObject {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -13534,6 +13545,7 @@ export class EPropObjects {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -14595,6 +14607,7 @@ export class EPropText {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -15656,6 +15669,7 @@ export class EPropUnichar {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -16712,6 +16726,7 @@ export class Editor {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -17781,6 +17796,7 @@ export class EditorProperty {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -18831,6 +18847,7 @@ export class EditorSkeleton {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -19861,6 +19878,7 @@ export class EditorTable {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -20900,6 +20918,7 @@ export class Inspector {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -22074,6 +22093,7 @@ export class NamedIconChooserDialog {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -23291,6 +23311,7 @@ export class Palette {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -25793,6 +25814,7 @@ export class PropertyLabel {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -26854,6 +26876,7 @@ export class PropertyShell {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -28032,6 +28055,7 @@ export class SignalEditor {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type

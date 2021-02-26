@@ -1170,6 +1170,7 @@ export class CertificateWidget {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -2342,6 +2343,7 @@ export class ComboSelector {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -3564,6 +3566,7 @@ export class ImportButton {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -4749,6 +4752,7 @@ export class KeyWidget {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -5851,6 +5855,7 @@ export class ListSelector {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -7200,6 +7205,7 @@ export class PromptDialog {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -8692,6 +8698,7 @@ export class TreeSelector {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -9870,6 +9877,7 @@ export class UnlockOptionsWidget {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -10885,6 +10893,7 @@ export class ViewerWidget {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type

@@ -96,7 +96,6 @@ import type * as GSystem10 from "./GSystem-1.0";
 import type * as GTop20 from "./GTop-2.0";
 import type * as GUPnP10 from "./GUPnP-1.0";
 import type * as GUPnP12 from "./GUPnP-1.2";
-import type * as GUPnP10 from "./GUPnP-1.0";
 import type * as GUPnPAV10 from "./GUPnPAV-1.0";
 import type * as GUPnPDLNA10 from "./GUPnPDLNA-1.0";
 import type * as GUPnPDLNA20 from "./GUPnPDLNA-2.0";
@@ -287,6 +286,7 @@ import type * as Shumate00 from "./Shumate-0.0";
 import type * as Signon20 from "./Signon-2.0";
 import type * as Snapd1 from "./Snapd-1";
 import type * as Soup24 from "./Soup-2.4";
+import type * as Soup30 from "./Soup-3.0";
 import type * as SoupGNOME24 from "./SoupGNOME-2.4";
 import type * as SpiceClientGLib20 from "./SpiceClientGLib-2.0";
 import type * as SpiceClientGtk30 from "./SpiceClientGtk-3.0";
@@ -472,8 +472,6 @@ declare global {
             GUPnP:              typeof GUPnP10
                 |
               typeof GUPnP12
-                |
-              typeof GUPnP10
             GUPnPAV:              typeof GUPnPAV10
             GUPnPDLNA:              typeof GUPnPDLNA10
                 |
@@ -707,6 +705,8 @@ declare global {
             Signon:              typeof Signon20
             Snapd:              typeof Snapd1
             Soup:              typeof Soup24
+                |
+              typeof Soup30
             SoupGNOME:              typeof SoupGNOME24
             SpiceClientGLib:              typeof SpiceClientGLib20
             SpiceClientGtk:              typeof SpiceClientGtk30
@@ -889,8 +889,6 @@ declare global {
             GUPnP:              '1.0'
                 |
               '1.2'
-                |
-              '1.0'
             GUPnPAV:              '1.0'
             GUPnPDLNA:              '1.0'
                 |
@@ -1124,6 +1122,8 @@ declare global {
             Signon:              '2.0'
             Snapd:              '1'
             Soup:              '2.4'
+                |
+              '3.0'
             SoupGNOME:              '2.4'
             SpiceClientGLib:              '2.0'
             SpiceClientGtk:              '3.0'

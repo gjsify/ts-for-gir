@@ -130,7 +130,7 @@ export class ColorBalance {
     object: Gst.Object
     stateLock: any
     stateCond: GLib.Cond
-    stateCookie: any
+    stateCookie: number
     currentState: Gst.State
     nextState: Gst.State
     pendingState: Gst.State
@@ -138,20 +138,20 @@ export class ColorBalance {
     bus: Gst.Bus
     clock: Gst.Clock
     baseTime: Gst.ClockTimeDiff
-    numpads: any
-    pads: any[]
-    numsrcpads: any
-    srcpads: any[]
-    numsinkpads: any
-    sinkpads: any[]
-    padsCookie: any
+    numpads: number
+    pads: object[]
+    numsrcpads: number
+    srcpads: object[]
+    numsinkpads: number
+    sinkpads: object[]
+    padsCookie: number
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Gst.Object
-    flags: any
-    gstReserved: any
+    flags: number
+    gstReserved: object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GstInterfaces-0.10.GstInterfaces.ColorBalance */
@@ -161,22 +161,22 @@ export class ColorBalance {
     setValue(channel: ColorBalanceChannel, value: number): void
     valueChanged(channel: ColorBalanceChannel, value: number): void
     /* Methods of Gst-0.10.Gst.Element */
-    requiresClock(): any
-    providesClock(): any
+    requiresClock(): boolean
+    providesClock(): boolean
     provideClock(): Gst.Clock
     getClock(): Gst.Clock
-    setClock(clock: Gst.Clock): any
+    setClock(clock: Gst.Clock): boolean
     setBaseTime(time: Gst.ClockTime): void
     getBaseTime(): Gst.ClockTime
     setStartTime(time: Gst.ClockTime): void
     getStartTime(): Gst.ClockTime
-    isIndexable(): any
+    isIndexable(): boolean
     setIndex(index: Gst.Index): void
     getIndex(): Gst.Index
     setBus(bus: Gst.Bus): void
     getBus(): Gst.Bus
-    addPad(pad: Gst.Pad): any
-    removePad(pad: Gst.Pad): any
+    addPad(pad: Gst.Pad): boolean
+    removePad(pad: Gst.Pad): boolean
     noMorePads(): void
     getPad(name: string): Gst.Pad
     getStaticPad(name: string): Gst.Pad
@@ -185,49 +185,49 @@ export class ColorBalance {
     iteratePads(): Gst.Iterator
     iterateSrcPads(): Gst.Iterator
     iterateSinkPads(): Gst.Iterator
-    sendEvent(event: Gst.Event): any
-    seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, curType: Gst.SeekType, cur: any, stopType: Gst.SeekType, stop: any): any
+    sendEvent(event: Gst.Event): boolean
+    seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, curType: Gst.SeekType, cur: number, stopType: Gst.SeekType, stop: number): boolean
     getQueryTypes(): Gst.QueryType
-    query(query: Gst.Query): any
-    postMessage(message: Gst.Message): any
-    messageFull(type: Gst.MessageType, domain: GLib.Quark, code: any, text: string, debug: string, file: string, function_: string, line: any): void
-    isLockedState(): any
-    setLockedState(lockedState: any): any
-    syncStateWithParent(): any
+    query(query: Gst.Query): boolean
+    postMessage(message: Gst.Message): boolean
+    messageFull(type: Gst.MessageType, domain: GLib.Quark, code: number, text: string, debug: string, file: string, function_: string, line: number): void
+    isLockedState(): boolean
+    setLockedState(lockedState: boolean): boolean
+    syncStateWithParent(): boolean
     getState(timeout: Gst.ClockTime): { returnType: Gst.StateChangeReturn, state: Gst.State, pending: Gst.State }
     setState(state: Gst.State): Gst.StateChangeReturn
     abortState(): void
     changeState(transition: Gst.StateChange): Gst.StateChangeReturn
     continueState(ret: Gst.StateChangeReturn): Gst.StateChangeReturn
     lostState(): void
-    lostStateFull(newBaseTime: any): void
+    lostStateFull(newBaseTime: boolean): void
     getFactory(): Gst.ElementFactory
-    implementsInterface(ifaceType: GObject.Type): any
+    implementsInterface(ifaceType: GObject.Type): boolean
     createAllPads(): void
     getCompatiblePad(pad: Gst.Pad, caps: Gst.Caps): Gst.Pad
     getCompatiblePadTemplate(compattempl: Gst.PadTemplate): Gst.PadTemplate
-    link(dest: Gst.Element): any
-    linkFiltered(dest: Gst.Element, filter: Gst.Caps): any
+    link(dest: Gst.Element): boolean
+    linkFiltered(dest: Gst.Element, filter: Gst.Caps): boolean
     unlink(dest: Gst.Element): void
-    linkPads(srcpadname: string, dest: Gst.Element, destpadname: string): any
-    linkPadsFull(srcpadname: string, dest: Gst.Element, destpadname: string, flags: Gst.PadLinkCheck): any
+    linkPads(srcpadname: string, dest: Gst.Element, destpadname: string): boolean
+    linkPadsFull(srcpadname: string, dest: Gst.Element, destpadname: string, flags: Gst.PadLinkCheck): boolean
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    linkPadsFiltered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): any
-    seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: any): any
-    queryPosition(format: Gst.Format): { returnType: any, cur: any }
-    queryDuration(format: Gst.Format): { returnType: any, duration: any }
-    queryConvert(srcFormat: Gst.Format, srcVal: any, destFormat: Gst.Format): { returnType: any, destVal: any }
+    linkPadsFiltered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
+    seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: any }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: any }
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: any }
     foundTagsForPad(pad: Gst.Pad, list: Gst.TagList): void
     foundTags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Gst.Object): any
+    setParent(parent: Gst.Object): boolean
     getParent(): Gst.Object
     unparent(): void
-    hasAncestor(ancestor: Gst.Object): any
+    hasAncestor(ancestor: Gst.Object): boolean
     replace(newobj: Gst.Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -283,11 +283,11 @@ export class ColorBalance {
     once(sigName: "deep-notify", callback: (object: Gst.Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Gst.Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Gst.Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: ColorBalance, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: ColorBalance, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: ColorBalance, object: Gst.Object) => void)): number
     on(sigName: "parent-set", callback: (object: Gst.Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Gst.Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -330,7 +330,7 @@ export class Mixer {
     object: Gst.Object
     stateLock: any
     stateCond: GLib.Cond
-    stateCookie: any
+    stateCookie: number
     currentState: Gst.State
     nextState: Gst.State
     pendingState: Gst.State
@@ -338,20 +338,20 @@ export class Mixer {
     bus: Gst.Bus
     clock: Gst.Clock
     baseTime: Gst.ClockTimeDiff
-    numpads: any
-    pads: any[]
-    numsrcpads: any
-    srcpads: any[]
-    numsinkpads: any
-    sinkpads: any[]
-    padsCookie: any
+    numpads: number
+    pads: object[]
+    numsrcpads: number
+    srcpads: object[]
+    numsinkpads: number
+    sinkpads: object[]
+    padsCookie: number
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Gst.Object
-    flags: any
-    gstReserved: any
+    flags: number
+    gstReserved: object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GstInterfaces-0.10.GstInterfaces.Mixer */
@@ -371,22 +371,22 @@ export class Mixer {
     setVolume(track: MixerTrack, volumes: number): void
     volumeChanged(track: MixerTrack, volumes: number): void
     /* Methods of Gst-0.10.Gst.Element */
-    requiresClock(): any
-    providesClock(): any
+    requiresClock(): boolean
+    providesClock(): boolean
     provideClock(): Gst.Clock
     getClock(): Gst.Clock
-    setClock(clock: Gst.Clock): any
+    setClock(clock: Gst.Clock): boolean
     setBaseTime(time: Gst.ClockTime): void
     getBaseTime(): Gst.ClockTime
     setStartTime(time: Gst.ClockTime): void
     getStartTime(): Gst.ClockTime
-    isIndexable(): any
+    isIndexable(): boolean
     setIndex(index: Gst.Index): void
     getIndex(): Gst.Index
     setBus(bus: Gst.Bus): void
     getBus(): Gst.Bus
-    addPad(pad: Gst.Pad): any
-    removePad(pad: Gst.Pad): any
+    addPad(pad: Gst.Pad): boolean
+    removePad(pad: Gst.Pad): boolean
     noMorePads(): void
     getPad(name: string): Gst.Pad
     getStaticPad(name: string): Gst.Pad
@@ -395,49 +395,49 @@ export class Mixer {
     iteratePads(): Gst.Iterator
     iterateSrcPads(): Gst.Iterator
     iterateSinkPads(): Gst.Iterator
-    sendEvent(event: Gst.Event): any
-    seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, curType: Gst.SeekType, cur: any, stopType: Gst.SeekType, stop: any): any
+    sendEvent(event: Gst.Event): boolean
+    seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, curType: Gst.SeekType, cur: number, stopType: Gst.SeekType, stop: number): boolean
     getQueryTypes(): Gst.QueryType
-    query(query: Gst.Query): any
-    postMessage(message: Gst.Message): any
-    messageFull(type: Gst.MessageType, domain: GLib.Quark, code: any, text: string, debug: string, file: string, function_: string, line: any): void
-    isLockedState(): any
-    setLockedState(lockedState: any): any
-    syncStateWithParent(): any
+    query(query: Gst.Query): boolean
+    postMessage(message: Gst.Message): boolean
+    messageFull(type: Gst.MessageType, domain: GLib.Quark, code: number, text: string, debug: string, file: string, function_: string, line: number): void
+    isLockedState(): boolean
+    setLockedState(lockedState: boolean): boolean
+    syncStateWithParent(): boolean
     getState(timeout: Gst.ClockTime): { returnType: Gst.StateChangeReturn, state: Gst.State, pending: Gst.State }
     setState(state: Gst.State): Gst.StateChangeReturn
     abortState(): void
     changeState(transition: Gst.StateChange): Gst.StateChangeReturn
     continueState(ret: Gst.StateChangeReturn): Gst.StateChangeReturn
     lostState(): void
-    lostStateFull(newBaseTime: any): void
+    lostStateFull(newBaseTime: boolean): void
     getFactory(): Gst.ElementFactory
-    implementsInterface(ifaceType: GObject.Type): any
+    implementsInterface(ifaceType: GObject.Type): boolean
     createAllPads(): void
     getCompatiblePad(pad: Gst.Pad, caps: Gst.Caps): Gst.Pad
     getCompatiblePadTemplate(compattempl: Gst.PadTemplate): Gst.PadTemplate
-    link(dest: Gst.Element): any
-    linkFiltered(dest: Gst.Element, filter: Gst.Caps): any
+    link(dest: Gst.Element): boolean
+    linkFiltered(dest: Gst.Element, filter: Gst.Caps): boolean
     unlink(dest: Gst.Element): void
-    linkPads(srcpadname: string, dest: Gst.Element, destpadname: string): any
-    linkPadsFull(srcpadname: string, dest: Gst.Element, destpadname: string, flags: Gst.PadLinkCheck): any
+    linkPads(srcpadname: string, dest: Gst.Element, destpadname: string): boolean
+    linkPadsFull(srcpadname: string, dest: Gst.Element, destpadname: string, flags: Gst.PadLinkCheck): boolean
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    linkPadsFiltered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): any
-    seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: any): any
-    queryPosition(format: Gst.Format): { returnType: any, cur: any }
-    queryDuration(format: Gst.Format): { returnType: any, duration: any }
-    queryConvert(srcFormat: Gst.Format, srcVal: any, destFormat: Gst.Format): { returnType: any, destVal: any }
+    linkPadsFiltered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
+    seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: any }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: any }
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: any }
     foundTagsForPad(pad: Gst.Pad, list: Gst.TagList): void
     foundTags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Gst.Object): any
+    setParent(parent: Gst.Object): boolean
     getParent(): Gst.Object
     unparent(): void
-    hasAncestor(ancestor: Gst.Object): any
+    hasAncestor(ancestor: Gst.Object): boolean
     replace(newobj: Gst.Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -508,11 +508,11 @@ export class Mixer {
     once(sigName: "deep-notify", callback: (object: Gst.Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Gst.Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Gst.Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: Mixer, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: Mixer, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: Mixer, object: Gst.Object) => void)): number
     on(sigName: "parent-set", callback: (object: Gst.Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Gst.Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -594,7 +594,7 @@ export class Tuner {
     object: Gst.Object
     stateLock: any
     stateCond: GLib.Cond
-    stateCookie: any
+    stateCookie: number
     currentState: Gst.State
     nextState: Gst.State
     pendingState: Gst.State
@@ -602,20 +602,20 @@ export class Tuner {
     bus: Gst.Bus
     clock: Gst.Clock
     baseTime: Gst.ClockTimeDiff
-    numpads: any
-    pads: any[]
-    numsrcpads: any
-    srcpads: any[]
-    numsinkpads: any
-    sinkpads: any[]
-    padsCookie: any
+    numpads: number
+    pads: object[]
+    numsrcpads: number
+    srcpads: object[]
+    numsinkpads: number
+    sinkpads: object[]
+    padsCookie: number
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Gst.Object
-    flags: any
-    gstReserved: any
+    flags: number
+    gstReserved: object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GstInterfaces-0.10.GstInterfaces.Tuner */
@@ -631,22 +631,22 @@ export class Tuner {
     signalChanged(channel: TunerChannel, signal: number): void
     signalStrength(channel: TunerChannel): number
     /* Methods of Gst-0.10.Gst.Element */
-    requiresClock(): any
-    providesClock(): any
+    requiresClock(): boolean
+    providesClock(): boolean
     provideClock(): Gst.Clock
     getClock(): Gst.Clock
-    setClock(clock: Gst.Clock): any
+    setClock(clock: Gst.Clock): boolean
     setBaseTime(time: Gst.ClockTime): void
     getBaseTime(): Gst.ClockTime
     setStartTime(time: Gst.ClockTime): void
     getStartTime(): Gst.ClockTime
-    isIndexable(): any
+    isIndexable(): boolean
     setIndex(index: Gst.Index): void
     getIndex(): Gst.Index
     setBus(bus: Gst.Bus): void
     getBus(): Gst.Bus
-    addPad(pad: Gst.Pad): any
-    removePad(pad: Gst.Pad): any
+    addPad(pad: Gst.Pad): boolean
+    removePad(pad: Gst.Pad): boolean
     noMorePads(): void
     getPad(name: string): Gst.Pad
     getStaticPad(name: string): Gst.Pad
@@ -655,49 +655,49 @@ export class Tuner {
     iteratePads(): Gst.Iterator
     iterateSrcPads(): Gst.Iterator
     iterateSinkPads(): Gst.Iterator
-    sendEvent(event: Gst.Event): any
-    seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, curType: Gst.SeekType, cur: any, stopType: Gst.SeekType, stop: any): any
+    sendEvent(event: Gst.Event): boolean
+    seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, curType: Gst.SeekType, cur: number, stopType: Gst.SeekType, stop: number): boolean
     getQueryTypes(): Gst.QueryType
-    query(query: Gst.Query): any
-    postMessage(message: Gst.Message): any
-    messageFull(type: Gst.MessageType, domain: GLib.Quark, code: any, text: string, debug: string, file: string, function_: string, line: any): void
-    isLockedState(): any
-    setLockedState(lockedState: any): any
-    syncStateWithParent(): any
+    query(query: Gst.Query): boolean
+    postMessage(message: Gst.Message): boolean
+    messageFull(type: Gst.MessageType, domain: GLib.Quark, code: number, text: string, debug: string, file: string, function_: string, line: number): void
+    isLockedState(): boolean
+    setLockedState(lockedState: boolean): boolean
+    syncStateWithParent(): boolean
     getState(timeout: Gst.ClockTime): { returnType: Gst.StateChangeReturn, state: Gst.State, pending: Gst.State }
     setState(state: Gst.State): Gst.StateChangeReturn
     abortState(): void
     changeState(transition: Gst.StateChange): Gst.StateChangeReturn
     continueState(ret: Gst.StateChangeReturn): Gst.StateChangeReturn
     lostState(): void
-    lostStateFull(newBaseTime: any): void
+    lostStateFull(newBaseTime: boolean): void
     getFactory(): Gst.ElementFactory
-    implementsInterface(ifaceType: GObject.Type): any
+    implementsInterface(ifaceType: GObject.Type): boolean
     createAllPads(): void
     getCompatiblePad(pad: Gst.Pad, caps: Gst.Caps): Gst.Pad
     getCompatiblePadTemplate(compattempl: Gst.PadTemplate): Gst.PadTemplate
-    link(dest: Gst.Element): any
-    linkFiltered(dest: Gst.Element, filter: Gst.Caps): any
+    link(dest: Gst.Element): boolean
+    linkFiltered(dest: Gst.Element, filter: Gst.Caps): boolean
     unlink(dest: Gst.Element): void
-    linkPads(srcpadname: string, dest: Gst.Element, destpadname: string): any
-    linkPadsFull(srcpadname: string, dest: Gst.Element, destpadname: string, flags: Gst.PadLinkCheck): any
+    linkPads(srcpadname: string, dest: Gst.Element, destpadname: string): boolean
+    linkPadsFull(srcpadname: string, dest: Gst.Element, destpadname: string, flags: Gst.PadLinkCheck): boolean
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    linkPadsFiltered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): any
-    seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: any): any
-    queryPosition(format: Gst.Format): { returnType: any, cur: any }
-    queryDuration(format: Gst.Format): { returnType: any, duration: any }
-    queryConvert(srcFormat: Gst.Format, srcVal: any, destFormat: Gst.Format): { returnType: any, destVal: any }
+    linkPadsFiltered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
+    seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: any }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: any }
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: any }
     foundTagsForPad(pad: Gst.Pad, list: Gst.TagList): void
     foundTags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Gst.Object): any
+    setParent(parent: Gst.Object): boolean
     getParent(): Gst.Object
     unparent(): void
-    hasAncestor(ancestor: Gst.Object): any
+    hasAncestor(ancestor: Gst.Object): boolean
     replace(newobj: Gst.Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -768,11 +768,11 @@ export class Tuner {
     once(sigName: "deep-notify", callback: (object: Gst.Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Gst.Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Gst.Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: Tuner, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: Tuner, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: Tuner, object: Gst.Object) => void)): number
     on(sigName: "parent-set", callback: (object: Gst.Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Gst.Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -815,7 +815,7 @@ export class VideoOrientation {
     object: Gst.Object
     stateLock: any
     stateCond: GLib.Cond
-    stateCookie: any
+    stateCookie: number
     currentState: Gst.State
     nextState: Gst.State
     pendingState: Gst.State
@@ -823,20 +823,20 @@ export class VideoOrientation {
     bus: Gst.Bus
     clock: Gst.Clock
     baseTime: Gst.ClockTimeDiff
-    numpads: any
-    pads: any[]
-    numsrcpads: any
-    srcpads: any[]
-    numsinkpads: any
-    sinkpads: any[]
-    padsCookie: any
+    numpads: number
+    pads: object[]
+    numsrcpads: number
+    srcpads: object[]
+    numsinkpads: number
+    sinkpads: object[]
+    padsCookie: number
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Gst.Object
-    flags: any
-    gstReserved: any
+    flags: number
+    gstReserved: object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GstInterfaces-0.10.GstInterfaces.VideoOrientation */
@@ -849,22 +849,22 @@ export class VideoOrientation {
     setVcenter(center: number): boolean
     setVflip(flip: boolean): boolean
     /* Methods of Gst-0.10.Gst.Element */
-    requiresClock(): any
-    providesClock(): any
+    requiresClock(): boolean
+    providesClock(): boolean
     provideClock(): Gst.Clock
     getClock(): Gst.Clock
-    setClock(clock: Gst.Clock): any
+    setClock(clock: Gst.Clock): boolean
     setBaseTime(time: Gst.ClockTime): void
     getBaseTime(): Gst.ClockTime
     setStartTime(time: Gst.ClockTime): void
     getStartTime(): Gst.ClockTime
-    isIndexable(): any
+    isIndexable(): boolean
     setIndex(index: Gst.Index): void
     getIndex(): Gst.Index
     setBus(bus: Gst.Bus): void
     getBus(): Gst.Bus
-    addPad(pad: Gst.Pad): any
-    removePad(pad: Gst.Pad): any
+    addPad(pad: Gst.Pad): boolean
+    removePad(pad: Gst.Pad): boolean
     noMorePads(): void
     getPad(name: string): Gst.Pad
     getStaticPad(name: string): Gst.Pad
@@ -873,49 +873,49 @@ export class VideoOrientation {
     iteratePads(): Gst.Iterator
     iterateSrcPads(): Gst.Iterator
     iterateSinkPads(): Gst.Iterator
-    sendEvent(event: Gst.Event): any
-    seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, curType: Gst.SeekType, cur: any, stopType: Gst.SeekType, stop: any): any
+    sendEvent(event: Gst.Event): boolean
+    seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, curType: Gst.SeekType, cur: number, stopType: Gst.SeekType, stop: number): boolean
     getQueryTypes(): Gst.QueryType
-    query(query: Gst.Query): any
-    postMessage(message: Gst.Message): any
-    messageFull(type: Gst.MessageType, domain: GLib.Quark, code: any, text: string, debug: string, file: string, function_: string, line: any): void
-    isLockedState(): any
-    setLockedState(lockedState: any): any
-    syncStateWithParent(): any
+    query(query: Gst.Query): boolean
+    postMessage(message: Gst.Message): boolean
+    messageFull(type: Gst.MessageType, domain: GLib.Quark, code: number, text: string, debug: string, file: string, function_: string, line: number): void
+    isLockedState(): boolean
+    setLockedState(lockedState: boolean): boolean
+    syncStateWithParent(): boolean
     getState(timeout: Gst.ClockTime): { returnType: Gst.StateChangeReturn, state: Gst.State, pending: Gst.State }
     setState(state: Gst.State): Gst.StateChangeReturn
     abortState(): void
     changeState(transition: Gst.StateChange): Gst.StateChangeReturn
     continueState(ret: Gst.StateChangeReturn): Gst.StateChangeReturn
     lostState(): void
-    lostStateFull(newBaseTime: any): void
+    lostStateFull(newBaseTime: boolean): void
     getFactory(): Gst.ElementFactory
-    implementsInterface(ifaceType: GObject.Type): any
+    implementsInterface(ifaceType: GObject.Type): boolean
     createAllPads(): void
     getCompatiblePad(pad: Gst.Pad, caps: Gst.Caps): Gst.Pad
     getCompatiblePadTemplate(compattempl: Gst.PadTemplate): Gst.PadTemplate
-    link(dest: Gst.Element): any
-    linkFiltered(dest: Gst.Element, filter: Gst.Caps): any
+    link(dest: Gst.Element): boolean
+    linkFiltered(dest: Gst.Element, filter: Gst.Caps): boolean
     unlink(dest: Gst.Element): void
-    linkPads(srcpadname: string, dest: Gst.Element, destpadname: string): any
-    linkPadsFull(srcpadname: string, dest: Gst.Element, destpadname: string, flags: Gst.PadLinkCheck): any
+    linkPads(srcpadname: string, dest: Gst.Element, destpadname: string): boolean
+    linkPadsFull(srcpadname: string, dest: Gst.Element, destpadname: string, flags: Gst.PadLinkCheck): boolean
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    linkPadsFiltered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): any
-    seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: any): any
-    queryPosition(format: Gst.Format): { returnType: any, cur: any }
-    queryDuration(format: Gst.Format): { returnType: any, duration: any }
-    queryConvert(srcFormat: Gst.Format, srcVal: any, destFormat: Gst.Format): { returnType: any, destVal: any }
+    linkPadsFiltered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
+    seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: any }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: any }
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: any }
     foundTagsForPad(pad: Gst.Pad, list: Gst.TagList): void
     foundTags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Gst.Object): any
+    setParent(parent: Gst.Object): boolean
     getParent(): Gst.Object
     unparent(): void
-    hasAncestor(ancestor: Gst.Object): any
+    hasAncestor(ancestor: Gst.Object): boolean
     replace(newobj: Gst.Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -965,11 +965,11 @@ export class VideoOrientation {
     once(sigName: "deep-notify", callback: (object: Gst.Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Gst.Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Gst.Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: VideoOrientation, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: VideoOrientation, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: VideoOrientation, object: Gst.Object) => void)): number
     on(sigName: "parent-set", callback: (object: Gst.Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Gst.Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -1012,7 +1012,7 @@ export class XOverlay {
     object: Gst.Object
     stateLock: any
     stateCond: GLib.Cond
-    stateCookie: any
+    stateCookie: number
     currentState: Gst.State
     nextState: Gst.State
     pendingState: Gst.State
@@ -1020,20 +1020,20 @@ export class XOverlay {
     bus: Gst.Bus
     clock: Gst.Clock
     baseTime: Gst.ClockTimeDiff
-    numpads: any
-    pads: any[]
-    numsrcpads: any
-    srcpads: any[]
-    numsinkpads: any
-    sinkpads: any[]
-    padsCookie: any
+    numpads: number
+    pads: object[]
+    numsrcpads: number
+    srcpads: object[]
+    numsinkpads: number
+    sinkpads: object[]
+    padsCookie: number
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Gst.Object
-    flags: any
-    gstReserved: any
+    flags: number
+    gstReserved: object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GstInterfaces-0.10.GstInterfaces.XOverlay */
@@ -1044,22 +1044,22 @@ export class XOverlay {
     setRenderRectangle(x: number, y: number, width: number, height: number): boolean
     setXwindowId(xwindowId: number): void
     /* Methods of Gst-0.10.Gst.Element */
-    requiresClock(): any
-    providesClock(): any
+    requiresClock(): boolean
+    providesClock(): boolean
     provideClock(): Gst.Clock
     getClock(): Gst.Clock
-    setClock(clock: Gst.Clock): any
+    setClock(clock: Gst.Clock): boolean
     setBaseTime(time: Gst.ClockTime): void
     getBaseTime(): Gst.ClockTime
     setStartTime(time: Gst.ClockTime): void
     getStartTime(): Gst.ClockTime
-    isIndexable(): any
+    isIndexable(): boolean
     setIndex(index: Gst.Index): void
     getIndex(): Gst.Index
     setBus(bus: Gst.Bus): void
     getBus(): Gst.Bus
-    addPad(pad: Gst.Pad): any
-    removePad(pad: Gst.Pad): any
+    addPad(pad: Gst.Pad): boolean
+    removePad(pad: Gst.Pad): boolean
     noMorePads(): void
     getPad(name: string): Gst.Pad
     getStaticPad(name: string): Gst.Pad
@@ -1068,49 +1068,49 @@ export class XOverlay {
     iteratePads(): Gst.Iterator
     iterateSrcPads(): Gst.Iterator
     iterateSinkPads(): Gst.Iterator
-    sendEvent(event: Gst.Event): any
-    seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, curType: Gst.SeekType, cur: any, stopType: Gst.SeekType, stop: any): any
+    sendEvent(event: Gst.Event): boolean
+    seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, curType: Gst.SeekType, cur: number, stopType: Gst.SeekType, stop: number): boolean
     getQueryTypes(): Gst.QueryType
-    query(query: Gst.Query): any
-    postMessage(message: Gst.Message): any
-    messageFull(type: Gst.MessageType, domain: GLib.Quark, code: any, text: string, debug: string, file: string, function_: string, line: any): void
-    isLockedState(): any
-    setLockedState(lockedState: any): any
-    syncStateWithParent(): any
+    query(query: Gst.Query): boolean
+    postMessage(message: Gst.Message): boolean
+    messageFull(type: Gst.MessageType, domain: GLib.Quark, code: number, text: string, debug: string, file: string, function_: string, line: number): void
+    isLockedState(): boolean
+    setLockedState(lockedState: boolean): boolean
+    syncStateWithParent(): boolean
     getState(timeout: Gst.ClockTime): { returnType: Gst.StateChangeReturn, state: Gst.State, pending: Gst.State }
     setState(state: Gst.State): Gst.StateChangeReturn
     abortState(): void
     changeState(transition: Gst.StateChange): Gst.StateChangeReturn
     continueState(ret: Gst.StateChangeReturn): Gst.StateChangeReturn
     lostState(): void
-    lostStateFull(newBaseTime: any): void
+    lostStateFull(newBaseTime: boolean): void
     getFactory(): Gst.ElementFactory
-    implementsInterface(ifaceType: GObject.Type): any
+    implementsInterface(ifaceType: GObject.Type): boolean
     createAllPads(): void
     getCompatiblePad(pad: Gst.Pad, caps: Gst.Caps): Gst.Pad
     getCompatiblePadTemplate(compattempl: Gst.PadTemplate): Gst.PadTemplate
-    link(dest: Gst.Element): any
-    linkFiltered(dest: Gst.Element, filter: Gst.Caps): any
+    link(dest: Gst.Element): boolean
+    linkFiltered(dest: Gst.Element, filter: Gst.Caps): boolean
     unlink(dest: Gst.Element): void
-    linkPads(srcpadname: string, dest: Gst.Element, destpadname: string): any
-    linkPadsFull(srcpadname: string, dest: Gst.Element, destpadname: string, flags: Gst.PadLinkCheck): any
+    linkPads(srcpadname: string, dest: Gst.Element, destpadname: string): boolean
+    linkPadsFull(srcpadname: string, dest: Gst.Element, destpadname: string, flags: Gst.PadLinkCheck): boolean
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
-    linkPadsFiltered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): any
-    seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: any): any
-    queryPosition(format: Gst.Format): { returnType: any, cur: any }
-    queryDuration(format: Gst.Format): { returnType: any, duration: any }
-    queryConvert(srcFormat: Gst.Format, srcVal: any, destFormat: Gst.Format): { returnType: any, destVal: any }
+    linkPadsFiltered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
+    seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: any }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: any }
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: any }
     foundTagsForPad(pad: Gst.Pad, list: Gst.TagList): void
     foundTags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Gst.Object): any
+    setParent(parent: Gst.Object): boolean
     getParent(): Gst.Object
     unparent(): void
-    hasAncestor(ancestor: Gst.Object): any
+    hasAncestor(ancestor: Gst.Object): boolean
     replace(newobj: Gst.Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -1160,11 +1160,11 @@ export class XOverlay {
     once(sigName: "deep-notify", callback: (object: Gst.Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Gst.Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Gst.Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: XOverlay, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: XOverlay, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: XOverlay, object: Gst.Object) => void)): number
     on(sigName: "parent-set", callback: (object: Gst.Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Gst.Object) => void, after?: boolean): NodeJS.EventEmitter

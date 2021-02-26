@@ -707,6 +707,9 @@ export class ContextMenu {
     static name: string
     constructor (config?: ContextMenu_ConstructProps)
     _init (config?: ContextMenu_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): ContextMenu
+    static newWithItems(items: ContextMenuItem[]): ContextMenu
     static $gtype: GObject.Type
 }
 export interface ContextMenuItem_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
@@ -762,6 +765,13 @@ export class ContextMenuItem {
     static name: string
     constructor (config?: ContextMenuItem_ConstructProps)
     _init (config?: ContextMenuItem_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(action: Gtk.Action): ContextMenuItem
+    static newFromGaction(action: Gio.Action, label: string, target?: GLib.Variant | null): ContextMenuItem
+    static newFromStockAction(action: ContextMenuAction): ContextMenuItem
+    static newFromStockActionWithLabel(action: ContextMenuAction, label: string): ContextMenuItem
+    static newSeparator(): ContextMenuItem
+    static newWithSubmenu(label: string, submenu: ContextMenu): ContextMenuItem
     static $gtype: GObject.Type
 }
 export interface CookieManager_ConstructProps extends GObject.Object_ConstructProps {
@@ -2193,6 +2203,8 @@ export class PrintCustomWidget {
     static name: string
     constructor (config?: PrintCustomWidget_ConstructProps)
     _init (config?: PrintCustomWidget_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(widget: Gtk.Widget, title: string): PrintCustomWidget
     static $gtype: GObject.Type
 }
 export interface PrintOperation_ConstructProps extends GObject.Object_ConstructProps {
@@ -2280,6 +2292,8 @@ export class PrintOperation {
     static name: string
     constructor (config?: PrintOperation_ConstructProps)
     _init (config?: PrintOperation_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(webView: WebView): PrintOperation
     static $gtype: GObject.Type
 }
 export interface ResponsePolicyDecision_ConstructProps extends PolicyDecision_ConstructProps {
@@ -2992,6 +3006,10 @@ export class Settings {
     static name: string
     constructor (config?: Settings_ConstructProps)
     _init (config?: Settings_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): Settings
+    static fontSizeToPixels(points: number): number
+    static fontSizeToPoints(pixels: number): number
     static $gtype: GObject.Type
 }
 export interface URIRequest_ConstructProps extends GObject.Object_ConstructProps {
@@ -3052,6 +3070,8 @@ export class URIRequest {
     static name: string
     constructor (config?: URIRequest_ConstructProps)
     _init (config?: URIRequest_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(uri: string): URIRequest
     static $gtype: GObject.Type
 }
 export interface URIResponse_ConstructProps extends GObject.Object_ConstructProps {
@@ -3258,6 +3278,8 @@ export class UserContentFilterStore {
     static name: string
     constructor (config?: UserContentFilterStore_ConstructProps)
     _init (config?: UserContentFilterStore_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(storagePath: string): UserContentFilterStore
     static $gtype: GObject.Type
 }
 export interface UserContentManager_ConstructProps extends GObject.Object_ConstructProps {
@@ -3278,6 +3300,8 @@ export class UserContentManager {
     removeAllStyleSheets(): void
     removeFilter(filter: UserContentFilter): void
     removeFilterById(filterId: string): void
+    removeScript(script: UserScript): void
+    removeStyleSheet(stylesheet: UserStyleSheet): void
     unregisterScriptMessageHandler(name: string): void
     unregisterScriptMessageHandlerInWorld(name: string, worldName: string): void
     /* Methods of GObject-2.0.GObject.Object */
@@ -3324,6 +3348,8 @@ export class UserContentManager {
     static name: string
     constructor (config?: UserContentManager_ConstructProps)
     _init (config?: UserContentManager_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): UserContentManager
     static $gtype: GObject.Type
 }
 export interface UserMediaPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
@@ -3401,9 +3427,9 @@ export class UserMessage {
     /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2-4.0.WebKit2.UserMessage */
-    getFdList(): Gio.UnixFDList
+    getFdList(): Gio.UnixFDList | null
     getName(): string
-    getParameters(): GLib.Variant
+    getParameters(): GLib.Variant | null
     sendReply(reply: UserMessage): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -3443,6 +3469,9 @@ export class UserMessage {
     static name: string
     constructor (config?: UserMessage_ConstructProps)
     _init (config?: UserMessage_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(name: string, parameters?: GLib.Variant | null): UserMessage
+    static newWithFdList(name: string, parameters?: GLib.Variant | null, fdList?: Gio.UnixFDList | null): UserMessage
     static $gtype: GObject.Type
 }
 export interface WebContext_ConstructProps extends GObject.Object_ConstructProps {
@@ -3570,6 +3599,11 @@ export class WebContext {
     static name: string
     constructor (config?: WebContext_ConstructProps)
     _init (config?: WebContext_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): WebContext
+    static newEphemeral(): WebContext
+    static newWithWebsiteDataManager(manager: WebsiteDataManager): WebContext
+    static getDefault(): WebContext
     static $gtype: GObject.Type
 }
 export interface WebInspector_ConstructProps extends GObject.Object_ConstructProps {
@@ -5017,6 +5051,12 @@ export class WebView {
     static name: string
     constructor (config?: WebView_ConstructProps)
     _init (config?: WebView_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): WebView
+    static newWithContext(context: WebContext): WebView
+    static newWithRelatedView(webView: WebView): WebView
+    static newWithSettings(settings: Settings): WebView
+    static newWithUserContentManager(userContentManager: UserContentManager): WebView
     static $gtype: GObject.Type
 }
 export interface WebViewBase_ConstructProps extends Gtk.Container_ConstructProps {
@@ -6079,12 +6119,15 @@ export class WebsiteDataManager {
     getOfflineApplicationCacheDirectory(): string | null
     getPersistentCredentialStorageEnabled(): boolean
     getServiceWorkerRegistrationsDirectory(): string | null
+    getTlsErrorsPolicy(): TLSErrorsPolicy
     getWebsqlDirectory(): string | null
     isEphemeral(): boolean
     remove(types: WebsiteDataTypes, websiteData: WebsiteData[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     removeFinish(result: Gio.AsyncResult): boolean
     setItpEnabled(enabled: boolean): void
+    setNetworkProxySettings(proxyMode: NetworkProxyMode, proxySettings?: NetworkProxySettings | null): void
     setPersistentCredentialStorageEnabled(enabled: boolean): void
+    setTlsErrorsPolicy(policy: TLSErrorsPolicy): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -6123,6 +6166,8 @@ export class WebsiteDataManager {
     static name: string
     constructor (config?: WebsiteDataManager_ConstructProps)
     _init (config?: WebsiteDataManager_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static newEphemeral(): WebsiteDataManager
     static $gtype: GObject.Type
 }
 export interface WebsitePolicies_ConstructProps extends GObject.Object_ConstructProps {
@@ -6174,6 +6219,8 @@ export class WebsitePolicies {
     static name: string
     constructor (config?: WebsitePolicies_ConstructProps)
     _init (config?: WebsitePolicies_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): WebsitePolicies
     static $gtype: GObject.Type
 }
 export interface WindowProperties_ConstructProps extends GObject.Object_ConstructProps {
@@ -6251,6 +6298,8 @@ export class ApplicationInfo {
     static name: string
     static new(): ApplicationInfo
     constructor()
+    /* Static methods and pseudo-constructors */
+    static new(): ApplicationInfo
 }
 export abstract class AuthenticationRequestClass {
     /* Fields of WebKit2-4.0.WebKit2.AuthenticationRequestClass */
@@ -6327,6 +6376,8 @@ export class Credential {
     static name: string
     static new(username: string, password: string, persistence: CredentialPersistence): Credential
     constructor(username: string, password: string, persistence: CredentialPersistence)
+    /* Static methods and pseudo-constructors */
+    static new(username: string, password: string, persistence: CredentialPersistence): Credential
 }
 export abstract class DeviceInfoPermissionRequestClass {
     /* Fields of WebKit2-4.0.WebKit2.DeviceInfoPermissionRequestClass */
@@ -6413,6 +6464,8 @@ export class GeolocationPosition {
     static name: string
     static new(latitude: number, longitude: number, accuracy: number): GeolocationPosition
     constructor(latitude: number, longitude: number, accuracy: number)
+    /* Static methods and pseudo-constructors */
+    static new(latitude: number, longitude: number, accuracy: number): GeolocationPosition
 }
 export abstract class HitTestResultClass {
     /* Fields of WebKit2-4.0.WebKit2.HitTestResultClass */
@@ -6468,6 +6521,8 @@ export class InputMethodUnderline {
     static name: string
     static new(startOffset: number, endOffset: number): InputMethodUnderline
     constructor(startOffset: number, endOffset: number)
+    /* Static methods and pseudo-constructors */
+    static new(startOffset: number, endOffset: number): InputMethodUnderline
 }
 export abstract class InstallMissingMediaPluginsPermissionRequestClass {
     /* Fields of WebKit2-4.0.WebKit2.InstallMissingMediaPluginsPermissionRequestClass */
@@ -6521,6 +6576,8 @@ export class NetworkProxySettings {
     static name: string
     static new(defaultProxyUri?: string | null, ignoreHosts?: string[] | null): NetworkProxySettings
     constructor(defaultProxyUri?: string | null, ignoreHosts?: string[] | null)
+    /* Static methods and pseudo-constructors */
+    static new(defaultProxyUri?: string | null, ignoreHosts?: string[] | null): NetworkProxySettings
 }
 export abstract class NotificationClass {
     /* Fields of WebKit2-4.0.WebKit2.NotificationClass */
@@ -6647,6 +6704,9 @@ export class SecurityOrigin {
     static name: string
     static new(protocol: string, host: string, port: number): SecurityOrigin
     constructor(protocol: string, host: string, port: number)
+    /* Static methods and pseudo-constructors */
+    static new(protocol: string, host: string, port: number): SecurityOrigin
+    static newForUri(uri: string): SecurityOrigin
 }
 export abstract class SettingsClass {
     /* Fields of WebKit2-4.0.WebKit2.SettingsClass */
@@ -6726,6 +6786,9 @@ export class UserScript {
     static name: string
     static new(source: string, injectedFrames: UserContentInjectedFrames, injectionTime: UserScriptInjectionTime, allowList?: string[] | null, blockList?: string[] | null): UserScript
     constructor(source: string, injectedFrames: UserContentInjectedFrames, injectionTime: UserScriptInjectionTime, allowList?: string[] | null, blockList?: string[] | null)
+    /* Static methods and pseudo-constructors */
+    static new(source: string, injectedFrames: UserContentInjectedFrames, injectionTime: UserScriptInjectionTime, allowList?: string[] | null, blockList?: string[] | null): UserScript
+    static newForWorld(source: string, injectedFrames: UserContentInjectedFrames, injectionTime: UserScriptInjectionTime, worldName: string, allowList?: string[] | null, blockList?: string[] | null): UserScript
 }
 export class UserStyleSheet {
     /* Methods of WebKit2-4.0.WebKit2.UserStyleSheet */
@@ -6734,6 +6797,9 @@ export class UserStyleSheet {
     static name: string
     static new(source: string, injectedFrames: UserContentInjectedFrames, level: UserStyleLevel, allowList?: string[] | null, blockList?: string[] | null): UserStyleSheet
     constructor(source: string, injectedFrames: UserContentInjectedFrames, level: UserStyleLevel, allowList?: string[] | null, blockList?: string[] | null)
+    /* Static methods and pseudo-constructors */
+    static new(source: string, injectedFrames: UserContentInjectedFrames, level: UserStyleLevel, allowList?: string[] | null, blockList?: string[] | null): UserStyleSheet
+    static newForWorld(source: string, injectedFrames: UserContentInjectedFrames, level: UserStyleLevel, worldName: string, allowList?: string[] | null, blockList?: string[] | null): UserStyleSheet
 }
 export abstract class WebContextClass {
     /* Fields of WebKit2-4.0.WebKit2.WebContextClass */
@@ -6814,6 +6880,8 @@ export class WebViewSessionState {
     static name: string
     static new(data: any): WebViewSessionState
     constructor(data: any)
+    /* Static methods and pseudo-constructors */
+    static new(data: any): WebViewSessionState
 }
 export class WebsiteData {
     /* Methods of WebKit2-4.0.WebKit2.WebsiteData */

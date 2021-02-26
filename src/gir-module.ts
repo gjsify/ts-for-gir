@@ -25,6 +25,7 @@ import {
     ParsedGir,
     GenerateConfig,
     FunctionDescription,
+    PropertyDescription,
     FunctionMap,
     LocalNameCheck,
     LocalNameType,
@@ -32,6 +33,7 @@ import {
     LocalNames,
     ClassDetails,
     VarDesc,
+    ConstantDescription,
 } from './types'
 
 import {
@@ -40,8 +42,9 @@ import {
     COMMENT_REG_EXP,
     PARAM_REG_EXP,
     OPT_PARAM_REG_EXP,
-    EMPTY_FUNCTION_DESCRIPTION,
-    LOCAL_NAME_CHECK_FALSY
+    FALSY_FUNCTION_DESCRIPTION,
+    FALSY_LOCAL_NAME_CHECK,
+    FALSY_PROPERTY_DESCRIPTION,
 } from './constants'
 
 export class GirModule {
@@ -95,7 +98,7 @@ export class GirModule {
      * To prevent constants from being exported twice, the names already exported are saved here for comparison.
      * Please note: Such a case is only known for Zeitgeist-2.0 with the constant "ATTACHMENT"
      */
-    constNames: { [varName: string]: 1 } = {}
+    constNames: { [varName: string]: ConstantDescription } = {}
 
     constructor(xml: ParsedGir, private readonly config: GenerateConfig) {
         this.repo = xml.repository
@@ -576,9 +579,9 @@ export class GirModule {
         allowQuotes = false,
         type: 'property' | 'constant' | 'field',
     ): FunctionDescription {
-        if (!v.$.name) return EMPTY_FUNCTION_DESCRIPTION
+        if (!v.$.name) return FALSY_FUNCTION_DESCRIPTION
         if (!v || !v.$ || !this.girBool(v.$.introspectable, true) || this.girBool(v.$.private))
-            return EMPTY_FUNCTION_DESCRIPTION
+            return FALSY_FUNCTION_DESCRIPTION
 
         let name = v.$.name
 
@@ -610,28 +613,28 @@ export class GirModule {
      * @param construct construct means include the property even if it's construct-only,
      * @param optional optional means if it's construct-only it will also be marked optional (?)
      */
-    private getProperty(
-        v: GirVariable,
-        indent = '',
-        construct = false,
-        optional = true,
-    ): [string[], string | null, string | null] {
-        if (this.girBool(v.$['construct-only']) && !construct) return [[], null, null]
-        if (!this.girBool(v.$.writable) && construct) return [[], null, null]
-        if (this.girBool(v.$.private)) return [[], null, null]
+    private getProperty(v: GirVariable, indent = '', construct = false, optional = true): PropertyDescription {
+        if (this.girBool(v.$['construct-only']) && !construct) return FALSY_PROPERTY_DESCRIPTION
+        if (!this.girBool(v.$.writable) && construct) return FALSY_PROPERTY_DESCRIPTION
+        if (this.girBool(v.$.private)) return FALSY_PROPERTY_DESCRIPTION
 
         const propPrefix = this.girBool(v.$.writable) ? '' : 'readonly '
         const { desc: propDesc, name: propName, patched } = this.getVariable(v, construct && optional, true, 'property')
         let origName: string | null = null
 
-        if (!propName) return [[], null, null]
+        if (!propName) return FALSY_PROPERTY_DESCRIPTION
 
         if (v.$.name) {
             // TODO does that make sense here? This also changes the signal names
             origName = this.transformation.transformTypeName(v.$.name)
         }
 
-        return [[`${indent}${propPrefix}${propDesc}`], propName, origName]
+        return {
+            desc: [`${indent}${propPrefix}${propDesc}`],
+            propName,
+            origName,
+            patched,
+        }
     }
 
     /**
@@ -650,7 +653,7 @@ export class GirModule {
         arrowType = false,
     ): FunctionDescription {
         if (!e || !e.$ || !this.girBool(e.$.introspectable, true) || e.$['shadowed-by']) {
-            return EMPTY_FUNCTION_DESCRIPTION
+            return FALSY_FUNCTION_DESCRIPTION
         }
 
         const patches: string[] = e._fullSymName ? GirModule.typePatches[e._fullSymName] : []
@@ -681,12 +684,12 @@ export class GirModule {
             }
             if (patches.length >= 2) {
                 const desc: string[] = []
-                for (const [i, patcheLine] of patches.entries()) {
+                for (const [i, patchLine] of patches.entries()) {
                     let descLine = ''
                     if (i === 1) {
-                        descLine = `${indent}${funcNamePrefix}${patcheLine}`
+                        descLine = `${indent}${funcNamePrefix}${patchLine}`
                     } else {
-                        descLine = `${indent}${patcheLine}`
+                        descLine = `${indent}${patchLine}`
                     }
                     desc.push(descLine)
                 }
@@ -753,7 +756,7 @@ export class GirModule {
         let { desc, name: funcName, patched } = this.getFunction(e, indent, funcNamePrefix, name)
 
         if (!funcName) {
-            return EMPTY_FUNCTION_DESCRIPTION
+            return FALSY_FUNCTION_DESCRIPTION
         }
 
         return { desc, name: funcName, patched }
@@ -881,12 +884,12 @@ export class GirModule {
         type: LocalNameType,
     ): LocalNameCheck {
         if (!desc || !desc.length) {
-            return LOCAL_NAME_CHECK_FALSY
+            return FALSY_LOCAL_NAME_CHECK
         }
 
         if (!name) {
             // this.log.error(`No name for ${desc}`)
-            return LOCAL_NAME_CHECK_FALSY
+            return FALSY_LOCAL_NAME_CHECK
         }
 
         let isOverloadable = false
@@ -900,13 +903,14 @@ export class GirModule {
         // If name is found in localNames this variable was already defined
         if (localNames[name] && localNames[name].desc) {
             // Ignore duplicates with the same type
+            // TODO should we use `this.functionSignaturesMatch` here?
             if (Utils.isEqual(localNames[name].desc, desc)) {
-                return LOCAL_NAME_CHECK_FALSY
+                return FALSY_LOCAL_NAME_CHECK
             }
 
             // Ignore if current method is not overloadable
             if (!isOverloadable) {
-                return LOCAL_NAME_CHECK_FALSY
+                return FALSY_LOCAL_NAME_CHECK
             }
 
             // Only names of the same type are overloadable
@@ -920,7 +924,7 @@ export class GirModule {
                 //     `Same name "${name}" with different type found:\nDefined: ${localNames[name].desc}\nCurrent: ${desc}\n`,
                 // )
 
-                return LOCAL_NAME_CHECK_FALSY
+                return FALSY_LOCAL_NAME_CHECK
             }
 
             // this.log.debug(`Overload ${type} ${name}\nDefined: ${localNames[name].desc}\nCurrent: ${desc}\n`)
@@ -960,8 +964,8 @@ export class GirModule {
         const def: string[] = []
         if (cls.property) {
             for (const prop of cls.property) {
-                const [desc, name, origName] = this.getProperty(prop)
-                const { desc: aDesc, added } = this.checkOrSetLocalName(desc, name, localNames, 'property')
+                const { desc, propName, origName } = this.getProperty(prop)
+                const { desc: aDesc, added } = this.checkOrSetLocalName(desc, propName, localNames, 'property')
                 if (added) {
                     if (origName) propertyNames.push(origName)
                     for (const curDesc of aDesc) {
@@ -1050,7 +1054,7 @@ export class GirModule {
         return def
     }
 
-    private stripParamNames(func: string, ignoreTail = false) {
+    private stripParamNames(func: string, ignoreTail = false): string {
         const g = func
         func = func.replace(COMMENT_REG_EXP, '')
         const lb = func.split('(', 2)
@@ -1125,7 +1129,7 @@ export class GirModule {
      * @see https://discourse.gnome.org/t/using-class-methods-like-gtk-widget-class-get-css-name-from-gjs/4001
      * @param girClass
      */
-    private getClassMethods(girClass: GirClass) {
+    private getClassMethods(girClass: GirClass): FunctionDescription[] {
         if (!girClass.$.name) return []
         const fName = girClass.$.name + 'Class'
         let rec = this.ns.record?.find((r) => r.$.name == fName)
@@ -1440,8 +1444,13 @@ export class GirModule {
             const constructPropNames: LocalNames = {}
             if (girClass.property) {
                 for (const p of girClass.property) {
-                    const [desc, name] = this.getProperty(p, '', true, true)
-                    const { desc: aDesc, added } = this.checkOrSetLocalName(desc, name, constructPropNames, 'property')
+                    const { desc, propName } = this.getProperty(p, '', true, true)
+                    const { desc: aDesc, added } = this.checkOrSetLocalName(
+                        desc,
+                        propName,
+                        constructPropNames,
+                        'property',
+                    )
                     if (added) {
                         for (const curDesc of aDesc) {
                             def.push(`    ${curDesc}`)
@@ -1454,10 +1463,10 @@ export class GirModule {
                 this.forEachInterface(girClass, (iface) => {
                     if (iface.property) {
                         for (const p of iface.property) {
-                            const [desc, name] = this.getProperty(p, '', true, true)
+                            const { desc, propName } = this.getProperty(p, '', true, true)
                             const { desc: aDesc, added } = this.checkOrSetLocalName(
                                 desc,
-                                name,
+                                propName,
                                 constructPropNames,
                                 'property',
                             )
@@ -1504,8 +1513,14 @@ export class GirModule {
         const { desc: varDesc, name: varName, patched } = this.getVariable(girVar, false, false, 'constant')
         if (varName) {
             if (!this.constNames[varName]) {
-                this.constNames[varName] = 1
-                return [`export const ${varDesc}`]
+                this.constNames[varName] = {
+                    desc: varDesc,
+                    name: varName,
+                    patched,
+                }
+                for (const desc of varDesc) {
+                    return [`export const ${desc}`]
+                }
             } else {
                 this.log.warn(`The constant '${varDesc}' has already been exported`)
             }

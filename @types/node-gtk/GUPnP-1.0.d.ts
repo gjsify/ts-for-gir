@@ -4,68 +4,117 @@
 
 import "node"
 import type { libxml2 } from './libxml2-2.0';
-import type { GstPbutils } from './GstPbutils-0.10';
-import type { Gst } from './Gst-0.10';
+import type { Soup } from './Soup-2.4';
+import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
-import type { GModule } from './GModule-2.0';
+import type { GSSDP } from './GSSDP-1.0';
 
 export declare namespace GUPnP {
 
-// TODO FIXME
-export type Service = any
-export type ServiceClass = any
-export type Service_ConstructProps = any
-export type Context = any
-export type ServiceIntrospectionCallback = any
-export type ServiceIntrospection = any
-export type RootDeviceClass = any
-export type ResourceFactory = any
-export type ResourceFactoryClass = any
-export type ResourceFactory_ConstructProps = any
-export type XMLDoc = any
-export type ServiceInfo = any
-export type DeviceInfo = any
-export type Device = any
-export type RootDevice = any
-export type RootDevice_ConstructProps = any
-export type ServiceAction = any
-export class DLNADiscoverer {
-    /* Fields of GUPnP-1.0.GUPnP.DLNADiscoverer */
-    parent: any
-    /* Methods of GUPnP-1.0.GUPnP.DLNADiscoverer */
-    discoverUri(uri: string): boolean
-    discoverUriSync(uri: string): DLNAInformation
-    getExtendedMode(): boolean
-    getProfile(name: string): DLNAProfile
-    getRelaxedMode(): boolean
-    listProfiles(): DLNAProfile[]
-    /* Signals of GUPnP-1.0.GUPnP.DLNADiscoverer */
-    connect(sigName: "done", callback: (($obj: DLNADiscoverer, dlna: DLNAInformation, err: GLib.Error) => void)): number
-    on(sigName: "done", callback: (dlna: DLNAInformation, err: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "done", callback: (dlna: DLNAInformation, err: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "done", callback: (dlna: DLNAInformation, err: GLib.Error) => void): NodeJS.EventEmitter
-    emit(sigName: "done", dlna: DLNAInformation, err: GLib.Error): void
+export enum ControlError {
+    INVALID_ACTION,
+    INVALID_ARGS,
+    OUT_OF_SYNC,
+    ACTION_FAILED,
+}
+export enum EventingError {
+    SUBSCRIPTION_FAILED,
+    SUBSCRIPTION_LOST,
+    NOTIFY_FAILED,
+}
+export enum ServerError {
+    INTERNAL_SERVER_ERROR,
+    NOT_FOUND,
+    NOT_IMPLEMENTED,
+    INVALID_RESPONSE,
+    INVALID_URL,
+    OTHER,
+}
+export enum ServiceActionArgDirection {
+    IN,
+    OUT,
+}
+export enum XMLError {
+    PARSE,
+    NO_NODE,
+    EMPTY_NODE,
+    INVALID_ATTRIBUTE,
+    OTHER,
+}
+export function controlErrorQuark(): GLib.Quark
+export function eventingErrorQuark(): GLib.Quark
+export function getUuid(): string
+export function serverErrorQuark(): GLib.Quark
+export function xmlErrorQuark(): GLib.Quark
+export interface ServiceIntrospectionCallback {
+    (info: ServiceInfo, introspection: ServiceIntrospection, error: GLib.Error): void
+}
+export interface ServiceProxyActionCallback {
+    (proxy: ServiceProxy, action: ServiceProxyAction): void
+}
+export interface ServiceProxyNotifyCallback {
+    (proxy: ServiceProxy, variable: string, value: any): void
+}
+export class Acl {
+    /* Methods of GUPnP-1.0.GUPnP.Acl */
+    canSync(): boolean
+    isAllowed(device: object | null, service: object | null, path: string, address: string, agent?: string | null): boolean
+    isAllowedAsync(device: object | null, service: object | null, path: string, address: string, agent?: string | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    isAllowedFinish(res: Gio.AsyncResult): boolean
     static name: string
-    static new(timeout: Gst.ClockTime, relaxedMode: boolean, extendedMode: boolean): DLNADiscoverer
-    constructor(timeout: Gst.ClockTime, relaxedMode: boolean, extendedMode: boolean)
-    /* Static methods and pseudo-constructors */
-    static new(timeout: Gst.ClockTime, relaxedMode: boolean, extendedMode: boolean): DLNADiscoverer
 }
-export interface DLNAInformation_ConstructProps extends GObject.Object_ConstructProps {
-    info?: any
-    mime?: string
-    name?: string
+export interface Context_ConstructProps extends GSSDP.Client_ConstructProps {
+    acl?: Acl
+    defaultLanguage?: string
+    port?: number
+    subscriptionTimeout?: number
 }
-export class DLNAInformation {
-    /* Fields of GUPnP-1.0.GUPnP.DLNAInformation */
-    parent: GObject.Object
+export class Context {
+    /* Properties of GUPnP-1.0.GUPnP.Context */
+    acl: Acl
+    defaultLanguage: string
+    readonly server: Soup.Server
+    readonly session: Soup.Session
+    /* Properties of GSSDP-1.0.GSSDP.Client */
+    active: boolean
+    hostIp: string
+    network: string
+    serverId: string
+    /* Fields of GUPnP-1.0.GUPnP.Context */
+    parent: GSSDP.Client
+    priv: ContextPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GUPnP-1.0.GUPnP.DLNAInformation */
-    getInfo(): any
-    getMime(): string
-    getName(): string
+    /* Methods of GUPnP-1.0.GUPnP.Context */
+    addServerHandler(useAcl: boolean, path: string, callback: Soup.ServerCallback): void
+    getAcl(): Acl
+    getDefaultLanguage(): string
+    getHostIp(): string
+    getPort(): number
+    getServer(): Soup.Server
+    getSession(): Soup.Session
+    getSubscriptionTimeout(): number
+    hostPath(localPath: string, serverPath: string): void
+    hostPathForAgent(localPath: string, serverPath: string, userAgent: GLib.Regex): boolean
+    removeServerHandler(path: string): void
+    setAcl(acl?: Acl | null): void
+    setDefaultLanguage(language: string): void
+    setSubscriptionTimeout(timeout: number): void
+    unhostPath(serverPath: string): void
+    /* Methods of GSSDP-1.0.GSSDP.Client */
+    addCacheEntry(ipAddress: string, userAgent: string): void
+    appendHeader(name: string, value: string): void
+    clearHeaders(): void
+    getActive(): boolean
+    getInterface(): string
+    getMainContext(): GLib.MainContext
+    getNetwork(): string
+    getServerId(): string
+    guessUserAgent(ipAddress: string): string
+    removeHeader(name: string): void
+    setNetwork(network: string): void
+    setServerId(serverId: string): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -88,105 +137,42 @@ export class DLNAInformation {
     thawNotify(): void
     unref(): void
     watchClosure(closure: GObject.Closure): void
+    /* Methods of Gio-2.0.Gio.Initable */
+    init(cancellable?: Gio.Cancellable | null): boolean
+    /* Signals of GSSDP-1.0.GSSDP.Client */
+    connect(sigName: "message-received", callback: (($obj: Context, fromIp: string, fromPort: number, type: number, headers: Soup.MessageHeaders) => void)): number
+    on(sigName: "message-received", callback: (fromIp: string, fromPort: number, type: number, headers: Soup.MessageHeaders) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "message-received", callback: (fromIp: string, fromPort: number, type: number, headers: Soup.MessageHeaders) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "message-received", callback: (fromIp: string, fromPort: number, type: number, headers: Soup.MessageHeaders) => void): NodeJS.EventEmitter
+    emit(sigName: "message-received", fromIp: string, fromPort: number, type: number, headers: Soup.MessageHeaders): void
     /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: DLNAInformation, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    on(sigName: string, callback: any): NodeJS.EventEmitter
-    once(sigName: string, callback: any): NodeJS.EventEmitter
-    off(sigName: string, callback: any): NodeJS.EventEmitter
-    static name: string
-    constructor (config?: DLNAInformation_ConstructProps)
-    _init (config?: DLNAInformation_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(name: string, mime: string, info: any): DLNAInformation
-    static $gtype: GObject.Type
-}
-export interface DLNAProfile_ConstructProps extends GObject.Object_ConstructProps {
-    extended?: boolean
-    mime?: string
-    name?: string
-}
-export class DLNAProfile {
-    /* Properties of GUPnP-1.0.GUPnP.DLNAProfile */
-    readonly encodingProfile: any
-    /* Fields of GUPnP-1.0.GUPnP.DLNAProfile */
-    parent: GObject.Object
-    /* Fields of GObject-2.0.GObject.Object */
-    gTypeInstance: GObject.TypeInstance
-    /* Methods of GUPnP-1.0.GUPnP.DLNAProfile */
-    getEncodingProfile(): any
-    getExtended(): boolean
-    getMime(): string
-    getName(): string
-    /* Methods of GObject-2.0.GObject.Object */
-    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
-    forceFloating(): void
-    freezeNotify(): void
-    getData(key: string): object | null
-    getProperty(propertyName: string, value: GObject.Value): void
-    getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: GObject.Value[]): void
-    isFloating(): boolean
-    notify(propertyName: string): void
-    notifyByPspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    refSink(): GObject.Object
-    runDispose(): void
-    setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: GObject.Value): void
-    stealData(key: string): object | null
-    stealQdata(quark: GLib.Quark): object | null
-    thawNotify(): void
-    unref(): void
-    watchClosure(closure: GObject.Closure): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: DLNAProfile, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::encoding-profile", callback: (($obj: DLNAProfile, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::encoding-profile", callback: (($obj: DLNAProfile, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::encoding-profile", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::encoding-profile", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::encoding-profile", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    on(sigName: string, callback: any): NodeJS.EventEmitter
-    once(sigName: string, callback: any): NodeJS.EventEmitter
-    off(sigName: string, callback: any): NodeJS.EventEmitter
-    static name: string
-    constructor (config?: DLNAProfile_ConstructProps)
-    _init (config?: DLNAProfile_ConstructProps): void
-    static $gtype: GObject.Type
-}
-export abstract class DLNADiscovererClass {
-    /* Fields of GUPnP-1.0.GUPnP.DLNADiscovererClass */
-    parentClass: any
-    done: (discoverer: DLNADiscoverer, dlna: DLNAInformation, err: GLib.Error) => void
-    static name: string
-}
-export abstract class DLNAInformationClass {
-    /* Fields of GUPnP-1.0.GUPnP.DLNAInformationClass */
-    parentClass: GObject.ObjectClass
-    static name: string
-}
-export abstract class DLNAProfileClass {
-    /* Fields of GUPnP-1.0.GUPnP.DLNAProfileClass */
-    parentClass: GObject.ObjectClass
-    static name: string
-}
-}  connect_after(sigName: "notify::active", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::acl", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::acl", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::acl", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::acl", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::acl", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::default-language", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::default-language", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::default-language", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::default-language", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::default-language", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::server", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::server", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::server", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::server", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::server", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::session", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::session", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::session", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::session", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::session", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::active", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::active", callback: (($obj: Context, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -822,7 +808,7 @@ export class Service {
     getId(): string
     getIntrospection(): ServiceIntrospection
     getIntrospectionAsync(callback: ServiceIntrospectionCallback): void
-    getIntrospectionAsyncFull(callback: ServiceIntrospectionCallback, cancellable?: any | null): void
+    getIntrospectionAsyncFull(callback: ServiceIntrospectionCallback, cancellable?: Gio.Cancellable | null): void
     getLocation(): string
     getScpdUrl(): string
     getServiceType(): string
@@ -904,7 +890,7 @@ export class ServiceInfo {
     getId(): string
     getIntrospection(): ServiceIntrospection
     getIntrospectionAsync(callback: ServiceIntrospectionCallback): void
-    getIntrospectionAsyncFull(callback: ServiceIntrospectionCallback, cancellable?: any | null): void
+    getIntrospectionAsyncFull(callback: ServiceIntrospectionCallback, cancellable?: Gio.Cancellable | null): void
     getLocation(): string
     getScpdUrl(): string
     getServiceType(): string
@@ -1036,7 +1022,7 @@ export class ServiceProxy {
     getId(): string
     getIntrospection(): ServiceIntrospection
     getIntrospectionAsync(callback: ServiceIntrospectionCallback): void
-    getIntrospectionAsyncFull(callback: ServiceIntrospectionCallback, cancellable?: any | null): void
+    getIntrospectionAsyncFull(callback: ServiceIntrospectionCallback, cancellable?: Gio.Cancellable | null): void
     getLocation(): string
     getScpdUrl(): string
     getServiceType(): string
@@ -1217,8 +1203,8 @@ export abstract class AclInterface {
     /* Fields of GUPnP-1.0.GUPnP.AclInterface */
     parent: GObject.TypeInterface
     isAllowed: (self: Acl, device: object | null, service: object | null, path: string, address: string, agent?: string | null) => boolean
-    isAllowedAsync: (self: Acl, device: object | null, service: object | null, path: string, address: string, agent?: string | null, cancellable?: any | null, callback?: any | null) => void
-    isAllowedFinish: (self: Acl, res: any) => boolean
+    isAllowedAsync: (self: Acl, device: object | null, service: object | null, path: string, address: string, agent?: string | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    isAllowedFinish: (self: Acl, res: Gio.AsyncResult) => boolean
     canSync: (self: Acl) => boolean
     static name: string
 }

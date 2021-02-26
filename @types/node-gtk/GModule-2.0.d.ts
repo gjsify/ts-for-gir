@@ -29,5 +29,9 @@ export class Module {
     name(): string
     symbol(symbolName: string): { returnType: boolean, symbol: object | null }
     static name: string
+    /* Static methods and pseudo-constructors */
+    static buildPath(directory: string | null, moduleName: string): string
+    static error(): string
+    static supported(): boolean
 }
 }

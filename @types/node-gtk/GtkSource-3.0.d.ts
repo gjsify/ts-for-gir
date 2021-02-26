@@ -229,13 +229,13 @@ export class Buffer {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GtkSource-3.0.GtkSource.Buffer */
-    backwardIterToSourceMark(iter: Gtk.TextIter, category?: string | null): boolean
+    backwardIterToSourceMark(iter: Gtk.TextIter, category?: string | null): { returnType: boolean, iter: Gtk.TextIter }
     beginNotUndoableAction(): void
     changeCase(caseType: ChangeCaseType, start: Gtk.TextIter, end: Gtk.TextIter): void
     createSourceMark(name: string | null, category: string, where: Gtk.TextIter): Mark
     endNotUndoableAction(): void
     ensureHighlight(start: Gtk.TextIter, end: Gtk.TextIter): void
-    forwardIterToSourceMark(iter: Gtk.TextIter, category?: string | null): boolean
+    forwardIterToSourceMark(iter: Gtk.TextIter, category?: string | null): { returnType: boolean, iter: Gtk.TextIter }
     getContextClassesAtIter(iter: Gtk.TextIter): string[]
     getHighlightMatchingBrackets(): boolean
     getHighlightSyntax(): boolean
@@ -246,8 +246,8 @@ export class Buffer {
     getSourceMarksAtLine(line: number, category?: string | null): Mark[]
     getStyleScheme(): StyleScheme | null
     getUndoManager(): UndoManager | null
-    iterBackwardToContextClassToggle(iter: Gtk.TextIter, contextClass: string): boolean
-    iterForwardToContextClassToggle(iter: Gtk.TextIter, contextClass: string): boolean
+    iterBackwardToContextClassToggle(iter: Gtk.TextIter, contextClass: string): { returnType: boolean, iter: Gtk.TextIter }
+    iterForwardToContextClassToggle(iter: Gtk.TextIter, contextClass: string): { returnType: boolean, iter: Gtk.TextIter }
     iterHasContextClass(iter: Gtk.TextIter, contextClass: string): boolean
     joinLines(start: Gtk.TextIter, end: Gtk.TextIter): void
     redo(): void
@@ -532,6 +532,9 @@ export class Buffer {
     static name: string
     constructor (config?: Buffer_ConstructProps)
     _init (config?: Buffer_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(table?: Gtk.TextTagTable | null): Buffer
+    static newWithLanguage(language: Language): Buffer
     static $gtype: GObject.Type
 }
 export interface Completion_ConstructProps extends GObject.Object_ConstructProps {
@@ -2074,6 +2077,9 @@ export class CompletionInfo {
     static name: string
     constructor (config?: CompletionInfo_ConstructProps)
     _init (config?: CompletionInfo_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): CompletionInfo
+    static new(type: Gtk.WindowType): CompletionInfo
     static $gtype: GObject.Type
 }
 export interface CompletionItem_ConstructProps extends GObject.Object_ConstructProps {
@@ -2197,6 +2203,11 @@ export class CompletionItem {
     static name: string
     constructor (config?: CompletionItem_ConstructProps)
     _init (config?: CompletionItem_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(label: string, text: string, icon?: GdkPixbuf.Pixbuf | null, info?: string | null): CompletionItem
+    static newFromStock(label: string | null, text: string, stock: string, info?: string | null): CompletionItem
+    static newWithMarkup(markup: string, text: string, icon?: GdkPixbuf.Pixbuf | null, info?: string | null): CompletionItem
+    static new2(): CompletionItem
     static $gtype: GObject.Type
 }
 export interface CompletionWords_ConstructProps extends GObject.Object_ConstructProps {
@@ -2319,6 +2330,8 @@ export class CompletionWords {
     static name: string
     constructor (config?: CompletionWords_ConstructProps)
     _init (config?: CompletionWords_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(name?: string | null, icon?: GdkPixbuf.Pixbuf | null): CompletionWords
     static $gtype: GObject.Type
 }
 export interface File_ConstructProps extends GObject.Object_ConstructProps {
@@ -2410,6 +2423,8 @@ export class File {
     static name: string
     constructor (config?: File_ConstructProps)
     _init (config?: File_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): File
     static $gtype: GObject.Type
 }
 export interface FileLoader_ConstructProps extends GObject.Object_ConstructProps {
@@ -2473,6 +2488,9 @@ export class FileLoader {
     static name: string
     constructor (config?: FileLoader_ConstructProps)
     _init (config?: FileLoader_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(buffer: Buffer, file: File): FileLoader
+    static newFromStream(buffer: Buffer, file: File, stream: Gio.InputStream): FileLoader
     static $gtype: GObject.Type
 }
 export interface FileSaver_ConstructProps extends GObject.Object_ConstructProps {
@@ -2567,6 +2585,9 @@ export class FileSaver {
     static name: string
     constructor (config?: FileSaver_ConstructProps)
     _init (config?: FileSaver_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(buffer: Buffer, file: File): FileSaver
+    static newWithTarget(buffer: Buffer, file: File, targetLocation: Gio.File): FileSaver
     static $gtype: GObject.Type
 }
 export interface Gutter_ConstructProps extends GObject.Object_ConstructProps {
@@ -3016,6 +3037,8 @@ export class GutterRendererPixbuf {
     static name: string
     constructor (config?: GutterRendererPixbuf_ConstructProps)
     _init (config?: GutterRendererPixbuf_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): GutterRendererPixbuf
     static $gtype: GObject.Type
 }
 export interface GutterRendererText_ConstructProps extends GutterRenderer_ConstructProps {
@@ -3199,6 +3222,8 @@ export class GutterRendererText {
     static name: string
     constructor (config?: GutterRendererText_ConstructProps)
     _init (config?: GutterRendererText_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): GutterRendererText
     static $gtype: GObject.Type
 }
 export interface Language_ConstructProps extends GObject.Object_ConstructProps {
@@ -3351,6 +3376,9 @@ export class LanguageManager {
     static name: string
     constructor (config?: LanguageManager_ConstructProps)
     _init (config?: LanguageManager_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): LanguageManager
+    static getDefault(): LanguageManager
     static $gtype: GObject.Type
 }
 export interface Map_ConstructProps extends View_ConstructProps {
@@ -4845,6 +4873,10 @@ export class Map {
     static name: string
     constructor (config?: Map_ConstructProps)
     _init (config?: Map_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): Map
+    static newWithBuffer(buffer: Buffer): Map
+    static newWithBuffer(buffer: Gtk.TextBuffer): Map
     static $gtype: GObject.Type
 }
 export interface Mark_ConstructProps extends Gtk.TextMark_ConstructProps {
@@ -4905,6 +4937,9 @@ export class Mark {
     static name: string
     constructor (config?: Mark_ConstructProps)
     _init (config?: Mark_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(name: string, category: string): Mark
+    static new(name: string | null, leftGravity: boolean): Mark
     static $gtype: GObject.Type
 }
 export interface MarkAttributes_ConstructProps extends GObject.Object_ConstructProps {
@@ -5011,6 +5046,8 @@ export class MarkAttributes {
     static name: string
     constructor (config?: MarkAttributes_ConstructProps)
     _init (config?: MarkAttributes_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): MarkAttributes
     static $gtype: GObject.Type
 }
 export interface PrintCompositor_ConstructProps extends GObject.Object_ConstructProps {
@@ -5173,6 +5210,9 @@ export class PrintCompositor {
     static name: string
     constructor (config?: PrintCompositor_ConstructProps)
     _init (config?: PrintCompositor_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(buffer: Buffer): PrintCompositor
+    static newFromView(view: View): PrintCompositor
     static $gtype: GObject.Type
 }
 export interface Region_ConstructProps extends GObject.Object_ConstructProps {
@@ -5233,6 +5273,8 @@ export class Region {
     static name: string
     constructor (config?: Region_ConstructProps)
     _init (config?: Region_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(buffer: Gtk.TextBuffer): Region
     static $gtype: GObject.Type
 }
 export interface SearchContext_ConstructProps extends GObject.Object_ConstructProps {
@@ -5340,6 +5382,8 @@ export class SearchContext {
     static name: string
     constructor (config?: SearchContext_ConstructProps)
     _init (config?: SearchContext_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(buffer: Buffer, settings?: SearchSettings | null): SearchContext
     static $gtype: GObject.Type
 }
 export interface SearchSettings_ConstructProps extends GObject.Object_ConstructProps {
@@ -5435,6 +5479,8 @@ export class SearchSettings {
     static name: string
     constructor (config?: SearchSettings_ConstructProps)
     _init (config?: SearchSettings_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): SearchSettings
     static $gtype: GObject.Type
 }
 export interface SpaceDrawer_ConstructProps extends GObject.Object_ConstructProps {
@@ -5506,6 +5552,8 @@ export class SpaceDrawer {
     static name: string
     constructor (config?: SpaceDrawer_ConstructProps)
     _init (config?: SpaceDrawer_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): SpaceDrawer
     static $gtype: GObject.Type
 }
 export interface Style_ConstructProps extends GObject.Object_ConstructProps {
@@ -6782,6 +6830,8 @@ export class StyleSchemeChooserButton {
     static name: string
     constructor (config?: StyleSchemeChooserButton_ConstructProps)
     _init (config?: StyleSchemeChooserButton_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): StyleSchemeChooserButton
     static $gtype: GObject.Type
 }
 export interface StyleSchemeChooserWidget_ConstructProps extends Gtk.Bin_ConstructProps {
@@ -7764,6 +7814,8 @@ export class StyleSchemeChooserWidget {
     static name: string
     constructor (config?: StyleSchemeChooserWidget_ConstructProps)
     _init (config?: StyleSchemeChooserWidget_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): StyleSchemeChooserWidget
     static $gtype: GObject.Type
 }
 export interface StyleSchemeManager_ConstructProps extends GObject.Object_ConstructProps {
@@ -7834,6 +7886,9 @@ export class StyleSchemeManager {
     static name: string
     constructor (config?: StyleSchemeManager_ConstructProps)
     _init (config?: StyleSchemeManager_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): StyleSchemeManager
+    static getDefault(): StyleSchemeManager
     static $gtype: GObject.Type
 }
 export interface Tag_ConstructProps extends Gtk.TextTag_ConstructProps {
@@ -8348,6 +8403,8 @@ export class Tag {
     static name: string
     constructor (config?: Tag_ConstructProps)
     _init (config?: Tag_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(name?: string | null): Tag
     static $gtype: GObject.Type
 }
 export interface View_ConstructProps extends Gtk.TextView_ConstructProps {
@@ -9838,6 +9895,10 @@ export class View {
     static name: string
     constructor (config?: View_ConstructProps)
     _init (config?: View_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): View
+    static newWithBuffer(buffer: Buffer): View
+    static newWithBuffer(buffer: Gtk.TextBuffer): View
     static $gtype: GObject.Type
 }
 export abstract class BufferClass {
@@ -9941,6 +10002,12 @@ export class Encoding {
     getName(): string
     toString(): string
     static name: string
+    /* Static methods and pseudo-constructors */
+    static getAll(): Encoding[]
+    static getCurrent(): Encoding
+    static getDefaultCandidates(): Encoding[]
+    static getFromCharset(charset: string): Encoding | null
+    static getUtf8(): Encoding
 }
 export abstract class FileClass {
     /* Fields of GtkSource-3.0.GtkSource.FileClass */

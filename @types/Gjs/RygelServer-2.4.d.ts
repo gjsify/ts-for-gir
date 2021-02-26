@@ -10,10 +10,8 @@ import type * as GObject from './GObject-2.0';
 import type * as Gee from './Gee-0.8';
 import type * as GUPnP from './GUPnP-1.0';
 import type * as libxml2 from './libxml2-2.0';
-import type * as GstPbutils from './GstPbutils-0.10';
-import type * as Gst from './Gst-0.10';
-import type * as GModule from './GModule-2.0';
 import type * as Soup from './Soup-2.4';
+import type * as GSSDP from './GSSDP-1.0';
 import type * as GUPnPAV from './GUPnPAV-1.0';
 
 export enum LogicalOperator {

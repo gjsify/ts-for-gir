@@ -9,9 +9,8 @@ import type { GObject } from './GObject-2.0';
 import type { Gee } from './Gee-0.8';
 import type { GUPnP } from './GUPnP-1.0';
 import type { libxml2 } from './libxml2-2.0';
-import type { GstPbutils } from './GstPbutils-0.10';
-import type { Gst } from './Gst-0.10';
-import type { GModule } from './GModule-2.0';
+import type { Soup } from './Soup-2.4';
+import type { GSSDP } from './GSSDP-1.0';
 
 export declare namespace RygelCore {
 
@@ -285,7 +284,7 @@ export class ConnectionManager {
     getScpdUrl(): string
     getServiceType(): string
     getUdn(): string
-    getUrlBase(): any
+    getUrlBase(): Soup.URI
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -312,11 +311,11 @@ export class ConnectionManager {
     once(sigName: "action-invoked", callback: (action: GUPnP.ServiceAction) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "action-invoked", callback: (action: GUPnP.ServiceAction) => void): NodeJS.EventEmitter
     emit(sigName: "action-invoked", action: GUPnP.ServiceAction): void
-    connect(sigName: "notify-failed", callback: (($obj: ConnectionManager, callbackUrl: any[], reason: GLib.Error) => void)): number
-    on(sigName: "notify-failed", callback: (callbackUrl: any[], reason: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "notify-failed", callback: (callbackUrl: any[], reason: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "notify-failed", callback: (callbackUrl: any[], reason: GLib.Error) => void): NodeJS.EventEmitter
-    emit(sigName: "notify-failed", callbackUrl: any[], reason: GLib.Error): void
+    connect(sigName: "notify-failed", callback: (($obj: ConnectionManager, callbackUrl: Soup.URI[], reason: GLib.Error) => void)): number
+    on(sigName: "notify-failed", callback: (callbackUrl: Soup.URI[], reason: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-failed", callback: (callbackUrl: Soup.URI[], reason: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-failed", callback: (callbackUrl: Soup.URI[], reason: GLib.Error) => void): NodeJS.EventEmitter
+    emit(sigName: "notify-failed", callbackUrl: Soup.URI[], reason: GLib.Error): void
     connect(sigName: "query-variable", callback: (($obj: ConnectionManager, variable: string, value: any) => void)): number
     on(sigName: "query-variable", callback: (variable: string, value: any) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "query-variable", callback: (variable: string, value: any) => void, after?: boolean): NodeJS.EventEmitter
@@ -376,7 +375,7 @@ export class BasicManagement {
     getScpdUrl(): string
     getServiceType(): string
     getUdn(): string
-    getUrlBase(): any
+    getUrlBase(): Soup.URI
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -403,11 +402,11 @@ export class BasicManagement {
     once(sigName: "action-invoked", callback: (action: GUPnP.ServiceAction) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "action-invoked", callback: (action: GUPnP.ServiceAction) => void): NodeJS.EventEmitter
     emit(sigName: "action-invoked", action: GUPnP.ServiceAction): void
-    connect(sigName: "notify-failed", callback: (($obj: BasicManagement, callbackUrl: any[], reason: GLib.Error) => void)): number
-    on(sigName: "notify-failed", callback: (callbackUrl: any[], reason: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "notify-failed", callback: (callbackUrl: any[], reason: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "notify-failed", callback: (callbackUrl: any[], reason: GLib.Error) => void): NodeJS.EventEmitter
-    emit(sigName: "notify-failed", callbackUrl: any[], reason: GLib.Error): void
+    connect(sigName: "notify-failed", callback: (($obj: BasicManagement, callbackUrl: Soup.URI[], reason: GLib.Error) => void)): number
+    on(sigName: "notify-failed", callback: (callbackUrl: Soup.URI[], reason: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify-failed", callback: (callbackUrl: Soup.URI[], reason: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify-failed", callback: (callbackUrl: Soup.URI[], reason: GLib.Error) => void): NodeJS.EventEmitter
+    emit(sigName: "notify-failed", callbackUrl: Soup.URI[], reason: GLib.Error): void
     connect(sigName: "query-variable", callback: (($obj: BasicManagement, variable: string, value: any) => void)): number
     on(sigName: "query-variable", callback: (variable: string, value: any) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "query-variable", callback: (variable: string, value: any) => void, after?: boolean): NodeJS.EventEmitter
@@ -527,7 +526,7 @@ export class RootDevice {
     getDescriptionDir(): string
     getDescriptionPath(): string
     getRelativeLocation(): string
-    getSsdpResourceGroup(): any
+    getSsdpResourceGroup(): GSSDP.ResourceGroup
     setAvailable(available: boolean): void
     /* Methods of GUPnP-1.0.GUPnP.DeviceInfo */
     getContext(): GUPnP.Context
@@ -549,7 +548,7 @@ export class RootDevice {
     getService(type: string): GUPnP.ServiceInfo
     getUdn(): string
     getUpc(): string
-    getUrlBase(): any
+    getUrlBase(): Soup.URI
     listDeviceTypes(): string[]
     listDevices(): GUPnP.DeviceInfo[]
     listDlnaCapabilities(): string[]

@@ -630,6 +630,7 @@ export class ChaptersView {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -1856,6 +1857,7 @@ export class Charmap {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -3943,11 +3945,13 @@ export class ChartableAccessible {
     addRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     getAccessibleId(): string
     getAttributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     getIndexInParent(): number
     getLayer(): Atk.Layer
     getMdiZorder(): number
     getNAccessibleChildren(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     getObjectLocale(): string
     getParent(): Atk.Object
@@ -3961,6 +3965,7 @@ export class ChartableAccessible {
     removePropertyChangeHandler(handlerId: number): void
     removeRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     setAccessibleId(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     setName(name: string): void
     setParent(parent: Atk.Object): void
@@ -4443,11 +4448,13 @@ export class ChartableCellAccessible {
     addRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     getAccessibleId(): string
     getAttributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     getIndexInParent(): number
     getLayer(): Atk.Layer
     getMdiZorder(): number
     getNAccessibleChildren(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     getObjectLocale(): string
     getParent(): Atk.Object
@@ -4461,6 +4468,7 @@ export class ChartableCellAccessible {
     removePropertyChangeHandler(handlerId: number): void
     removeRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     setAccessibleId(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     setName(name: string): void
     setParent(parent: Atk.Object): void

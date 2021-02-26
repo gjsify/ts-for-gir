@@ -66,11 +66,13 @@ export class Actor {
     addRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     getAccessibleId(): string
     getAttributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     getIndexInParent(): number
     getLayer(): Atk.Layer
     getMdiZorder(): number
     getNAccessibleChildren(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     getObjectLocale(): string
     getParent(): Atk.Object
@@ -84,6 +86,7 @@ export class Actor {
     removePropertyChangeHandler(handlerId: number): void
     removeRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     setAccessibleId(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     setName(name: string): void
     setParent(parent: Atk.Object): void
@@ -303,11 +306,13 @@ export class Clone {
     addRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     getAccessibleId(): string
     getAttributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     getIndexInParent(): number
     getLayer(): Atk.Layer
     getMdiZorder(): number
     getNAccessibleChildren(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     getObjectLocale(): string
     getParent(): Atk.Object
@@ -321,6 +326,7 @@ export class Clone {
     removePropertyChangeHandler(handlerId: number): void
     removeRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     setAccessibleId(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     setName(name: string): void
     setParent(parent: Atk.Object): void
@@ -540,11 +546,13 @@ export class Group {
     addRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     getAccessibleId(): string
     getAttributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     getIndexInParent(): number
     getLayer(): Atk.Layer
     getMdiZorder(): number
     getNAccessibleChildren(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     getObjectLocale(): string
     getParent(): Atk.Object
@@ -558,6 +566,7 @@ export class Group {
     removePropertyChangeHandler(handlerId: number): void
     removeRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     setAccessibleId(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     setName(name: string): void
     setParent(parent: Atk.Object): void
@@ -777,11 +786,13 @@ export class Rectangle {
     addRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     getAccessibleId(): string
     getAttributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     getIndexInParent(): number
     getLayer(): Atk.Layer
     getMdiZorder(): number
     getNAccessibleChildren(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     getObjectLocale(): string
     getParent(): Atk.Object
@@ -795,6 +806,7 @@ export class Rectangle {
     removePropertyChangeHandler(handlerId: number): void
     removeRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     setAccessibleId(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     setName(name: string): void
     setParent(parent: Atk.Object): void
@@ -1010,11 +1022,13 @@ export class Root {
     addRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     getAccessibleId(): string
     getAttributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     getIndexInParent(): number
     getLayer(): Atk.Layer
     getMdiZorder(): number
     getNAccessibleChildren(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     getObjectLocale(): string
     getParent(): Atk.Object
@@ -1028,6 +1042,7 @@ export class Root {
     removePropertyChangeHandler(handlerId: number): void
     removeRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     setAccessibleId(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     setName(name: string): void
     setParent(parent: Atk.Object): void
@@ -1219,11 +1234,13 @@ export class Stage {
     addRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     getAccessibleId(): string
     getAttributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     getIndexInParent(): number
     getLayer(): Atk.Layer
     getMdiZorder(): number
     getNAccessibleChildren(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     getObjectLocale(): string
     getParent(): Atk.Object
@@ -1237,6 +1254,7 @@ export class Stage {
     removePropertyChangeHandler(handlerId: number): void
     removeRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     setAccessibleId(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     setName(name: string): void
     setParent(parent: Atk.Object): void
@@ -1502,11 +1520,13 @@ export class Text {
     addRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     getAccessibleId(): string
     getAttributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     getIndexInParent(): number
     getLayer(): Atk.Layer
     getMdiZorder(): number
     getNAccessibleChildren(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     getObjectLocale(): string
     getParent(): Atk.Object
@@ -1520,6 +1540,7 @@ export class Text {
     removePropertyChangeHandler(handlerId: number): void
     removeRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     setAccessibleId(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     setName(name: string): void
     setParent(parent: Atk.Object): void
@@ -1802,11 +1823,13 @@ export class Texture {
     addRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     getAccessibleId(): string
     getAttributes(): Atk.AttributeSet
+    /* return type clashes with Atk.Action.get_description */
     get_description(): string | null
     getIndexInParent(): number
     getLayer(): Atk.Layer
     getMdiZorder(): number
     getNAccessibleChildren(): number
+    /* return type clashes with Atk.Action.get_name */
     get_name(): string | null
     getObjectLocale(): string
     getParent(): Atk.Object
@@ -1820,6 +1843,7 @@ export class Texture {
     removePropertyChangeHandler(handlerId: number): void
     removeRelationship(relationship: Atk.RelationType, target: Atk.Object): boolean
     setAccessibleId(name: string): void
+    /* return type clashes with Atk.Action.set_description */
     set_description(description: string): boolean | null
     setName(name: string): void
     setParent(parent: Atk.Object): void

@@ -10,9 +10,8 @@ import type { GObject } from './GObject-2.0';
 import type { Gee } from './Gee-0.8';
 import type { GUPnP } from './GUPnP-1.0';
 import type { libxml2 } from './libxml2-2.0';
-import type { GstPbutils } from './GstPbutils-0.10';
-import type { Gst } from './Gst-0.10';
-import type { GModule } from './GModule-2.0';
+import type { Soup } from './Soup-2.4';
+import type { GSSDP } from './GSSDP-1.0';
 import type { GUPnPAV } from './GUPnPAV-1.0';
 
 export declare namespace RygelRenderer {

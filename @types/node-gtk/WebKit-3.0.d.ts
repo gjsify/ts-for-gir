@@ -51710,6 +51710,7 @@ export class WebView {
     getMainFrame(): WebFrame
     getPasteTargetList(): Gtk.TargetList
     getProgress(): number
+    /* get_settings clashes with Gtk.Widget.get_settings */
     getSnapshot(): cairo.Surface
     getTitle(): string
     getTransparent(): boolean
@@ -51757,6 +51758,7 @@ export class WebView {
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type

@@ -143,6 +143,8 @@ export class Notification {
     static name: string
     constructor (config?: Notification_ConstructProps)
     _init (config?: Notification_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(summary: string, body?: string | null, icon?: string | null): Notification
     static $gtype: GObject.Type
 }
 export abstract class NotificationClass {

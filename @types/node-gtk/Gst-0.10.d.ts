@@ -631,42 +631,42 @@ export const VERSION_MAJOR: any
 export const VERSION_MICRO: any
 export const VERSION_MINOR: any
 export const VERSION_NANO: any
-export function allocTraceAvailable(): any
+export function allocTraceAvailable(): boolean
 export function allocTraceGet(name: string): AllocTrace
 export function allocTraceLiveAll(): any
 export function allocTracePrintAll(): void
 export function allocTracePrintLive(): void
 export function allocTraceSetFlagsAll(flags: AllocTraceFlags): void
-export function atomicIntSet(value: any): { atomicInt: any }
+export function atomicIntSet(value: number): { atomicInt: any }
 export function capsFromString(string: string): Caps
 export function capsLoadThyself(parent: libxml2.NodePtr): Caps
 export function childProxyChildAdded(object: Object, child: Object): void
 export function childProxyChildRemoved(object: Object, child: Object): void
 export function childProxyGetProperty(object: Object, name: string, value: any): void
-export function childProxyLookup(object: Object, name: string, target: Object, pspec: GObject.ParamSpec): any
+export function childProxyLookup(object: Object, name: string, target: Object, pspec: GObject.ParamSpec): boolean
 export function childProxySetProperty(object: Object, name: string, value: any): void
-export function classSignalConnect(klass: ObjectClass, name: string, func: any, funcData: any): any
+export function classSignalConnect(klass: ObjectClass, name: string, func: object, funcData: object): number
 export function classSignalEmitByName(object: Object, name: string, self: libxml2.NodePtr): void
 export function debugAddLogFunction(func: LogFunction): void
-export function debugConstructTermColor(colorinfo: any): string
-export function debugConstructWinColor(colorinfo: any): any
-export function debugGetAllCategories(): any[]
+export function debugConstructTermColor(colorinfo: number): string
+export function debugConstructWinColor(colorinfo: number): number
+export function debugGetAllCategories(): object[]
 export function debugGetDefaultThreshold(): DebugLevel
-export function debugIsActive(): any
-export function debugIsColored(): any
+export function debugIsActive(): boolean
+export function debugIsColored(): boolean
 export function debugLevelGetName(level: DebugLevel): string
-export function debugLogDefault(category: DebugCategory, level: DebugLevel, file: string, function_: string, line: any, object: GObject.Object, message: DebugMessage, unused: any): void
+export function debugLogDefault(category: DebugCategory, level: DebugLevel, file: string, function_: string, line: number, object: GObject.Object, message: DebugMessage, unused: object): void
 export function debugPrintStackTrace(): void
-export function debugRemoveLogFunction(func: LogFunction): any
-export function debugRemoveLogFunctionByData(data: any): any
-export function debugSetActive(active: any): void
-export function debugSetColored(colored: any): void
+export function debugRemoveLogFunction(func: LogFunction): number
+export function debugRemoveLogFunctionByData(data: object): number
+export function debugSetActive(active: boolean): void
+export function debugSetColored(colored: boolean): void
 export function debugSetDefaultThreshold(level: DebugLevel): void
 export function debugSetThresholdForName(name: string, level: DebugLevel): void
 export function debugUnsetThresholdForName(name: string): void
-export function defaultRegistryCheckFeatureVersion(featureName: string, minMajor: any, minMinor: any, minMicro: any): any
+export function defaultRegistryCheckFeatureVersion(featureName: string, minMajor: number, minMinor: number, minMicro: number): boolean
 export function deinit(): void
-export function errorGetMessage(domain: GLib.Quark, code: any): string
+export function errorGetMessage(domain: GLib.Quark, code: number): string
 export function flowGetName(ret: FlowReturn): string
 export function flowToQuark(ret: FlowReturn): GLib.Quark
 export function formatGetByNick(nick: string): Format
@@ -675,107 +675,107 @@ export function formatGetName(format: Format): string
 export function formatIterateDefinitions(): Iterator
 export function formatRegister(nick: string, description: string): Format
 export function formatToQuark(format: Format): GLib.Quark
-export function formatsContains(formats: Format, format: Format): any
-export function implementsInterfaceCast(from: any, type: GObject.Type): any
-export function implementsInterfaceCheck(from: any, type: GObject.Type): any
+export function formatsContains(formats: Format, format: Format): boolean
+export function implementsInterfaceCast(from: object, type: GObject.Type): object
+export function implementsInterfaceCheck(from: object, type: GObject.Type): boolean
 export function init(argv?: string[] | null): { argv: string[] | null }
-export function initCheck(argv: string[]): { returnType: any, argc: any }
+export function initCheck(argv: string[]): { returnType: boolean, argc: any }
 export function initGetOptionGroup(): GLib.OptionGroup
-export function isTagList(p: any): any
-export function paramSpecFraction(name: string, nick: string, blurb: string, minNum: any, minDenom: any, maxNum: any, maxDenom: any, defaultNum: any, defaultDenom: any, flags: GObject.ParamFlags): GObject.ParamSpec
+export function isTagList(p: object): boolean
+export function paramSpecFraction(name: string, nick: string, blurb: string, minNum: number, minDenom: number, maxNum: number, maxDenom: number, defaultNum: number, defaultDenom: number, flags: GObject.ParamFlags): GObject.ParamSpec
 export function paramSpecMiniObject(name: string, nick: string, blurb: string, objectType: GObject.Type, flags: GObject.ParamFlags): GObject.ParamSpec
-export function parseBinFromDescription(binDescription: string, ghostUnlinkedPads: any): Element
-export function parseBinFromDescriptionFull(binDescription: string, ghostUnlinkedPads: any, context: ParseContext, flags: ParseFlags): Element
+export function parseBinFromDescription(binDescription: string, ghostUnlinkedPads: boolean): Element
+export function parseBinFromDescriptionFull(binDescription: string, ghostUnlinkedPads: boolean, context: ParseContext, flags: ParseFlags): Element
 export function parseLaunch(pipelineDescription: string): Element
 export function parseLaunchFull(pipelineDescription: string, context: ParseContext, flags: ParseFlags): Element
 export function parseLaunchv(argv: string[]): Element
 export function parseLaunchvFull(argv: string[], context: ParseContext, flags: ParseFlags): Element
-export function printElementArgs(buf: GLib.String, indent: any, element: Element): void
-export function printPadCaps(buf: GLib.String, indent: any, pad: Pad): void
-export function segtrapIsEnabled(): any
-export function segtrapSetEnabled(enabled: any): void
+export function printElementArgs(buf: GLib.String, indent: number, element: Element): void
+export function printPadCaps(buf: GLib.String, indent: number, pad: Pad): void
+export function segtrapIsEnabled(): boolean
+export function segtrapSetEnabled(enabled: boolean): void
 export function structureEmptyNew(name: string): Structure
 export function structureFromString(string: string, end: string[]): Structure
 export function structureIdEmptyNew(quark: GLib.Quark): Structure
-export function tagExists(tag: string): any
+export function tagExists(tag: string): boolean
 export function tagGetDescription(tag: string): string
 export function tagGetFlag(tag: string): TagFlag
 export function tagGetNick(tag: string): string
 export function tagGetType(tag: string): GObject.Type
-export function tagIsFixed(tag: string): any
-export function tagListCopyValue(dest: any, list: TagList, tag: string): any
+export function tagIsFixed(tag: string): boolean
+export function tagListCopyValue(dest: any, list: TagList, tag: string): boolean
 export function tagMergeStringsWithComma(dest: any, src: any): void
 export function tagMergeUseFirst(dest: any, src: any): void
 export function tagRegister(name: string, flag: TagFlag, type: GObject.Type, nick: string, blurb: string, func: TagMergeFunc): void
 export function traceReadTsc(): { dst: any }
-export function typeFindHelper(src: Pad, size: any): Caps
+export function typeFindHelper(src: Pad, size: number): Caps
 export function typeFindHelperForBuffer(obj: Object, buf: Buffer, prob: TypeFindProbability): Caps
 export function typeFindHelperForExtension(obj: Object, extension: string): Caps
-export function typeFindHelperGetRange(obj: Object, func: TypeFindHelperGetRangeFunction, size: any, prob: TypeFindProbability): Caps
-export function typeFindHelperGetRangeExt(obj: Object, func: TypeFindHelperGetRangeFunction, size: any, extension: string, prob: TypeFindProbability): Caps
-export function typeFindRegister(plugin: Plugin, name: string, rank: any, func: TypeFindFunction, extensions: string[], possibleCaps: Caps, data: any, dataNotify: GLib.DestroyNotify): any
-export function typeRegisterStaticFull(parentType: GObject.Type, typeName: string, classSize: any, baseInit: GObject.BaseInitFunc, baseFinalize: GObject.BaseFinalizeFunc, classInit: GObject.ClassInitFunc, classFinalize: GObject.ClassFinalizeFunc, instanceSize: any, nPreallocs: any, instanceInit: GObject.InstanceInitFunc, valueTable: GObject.TypeValueTable, flags: GObject.TypeFlags): GObject.Type
-export function updateRegistry(): any
+export function typeFindHelperGetRange(obj: Object, func: TypeFindHelperGetRangeFunction, size: number, prob: TypeFindProbability): Caps
+export function typeFindHelperGetRangeExt(obj: Object, func: TypeFindHelperGetRangeFunction, size: number, extension: string, prob: TypeFindProbability): Caps
+export function typeFindRegister(plugin: Plugin, name: string, rank: number, func: TypeFindFunction, extensions: string[], possibleCaps: Caps, data: object, dataNotify: GLib.DestroyNotify): boolean
+export function typeRegisterStaticFull(parentType: GObject.Type, typeName: string, classSize: number, baseInit: GObject.BaseInitFunc, baseFinalize: GObject.BaseFinalizeFunc, classInit: GObject.ClassInitFunc, classFinalize: GObject.ClassFinalizeFunc, instanceSize: number, nPreallocs: number, instanceInit: GObject.InstanceInitFunc, valueTable: GObject.TypeValueTable, flags: GObject.TypeFlags): GObject.Type
+export function updateRegistry(): boolean
 export function uriConstruct(protocol: string, location: string): string
 export function uriGetLocation(uri: string): string
 export function uriGetProtocol(uri: string): string
-export function uriHasProtocol(uri: string, protocol: string): any
-export function uriIsValid(uri: string): any
-export function uriProtocolIsSupported(type: URIType, protocol: string): any
-export function uriProtocolIsValid(protocol: string): any
-export function utilArrayBinarySearch(array: any, numElements: any, elementSize: number, searchFunc: GLib.CompareDataFunc, mode: SearchMode, searchData: any, userData: any): any
+export function uriHasProtocol(uri: string, protocol: string): boolean
+export function uriIsValid(uri: string): boolean
+export function uriProtocolIsSupported(type: URIType, protocol: string): boolean
+export function uriProtocolIsValid(protocol: string): boolean
+export function utilArrayBinarySearch(array: object, numElements: number, elementSize: number, searchFunc: GLib.CompareDataFunc, mode: SearchMode, searchData: object, userData: object): object
 export function utilDoubleToFraction(src: number): { destN: any, destD: any }
-export function utilDumpMem(mem: any[], size: any): void
-export function utilFractionAdd(aN: any, aD: any, bN: any, bD: any): { returnType: any, resN: any, resD: any }
-export function utilFractionMultiply(aN: any, aD: any, bN: any, bD: any): { returnType: any, resN: any, resD: any }
-export function utilFractionToDouble(srcN: any, srcD: any): { dest: number }
-export function utilGdoubleToGuint64(value: number): any
+export function utilDumpMem(mem: any[], size: number): void
+export function utilFractionAdd(aN: number, aD: number, bN: number, bD: number): { returnType: boolean, resN: any, resD: any }
+export function utilFractionMultiply(aN: number, aD: number, bN: number, bD: number): { returnType: boolean, resN: any, resD: any }
+export function utilFractionToDouble(srcN: number, srcD: number): { dest: number }
+export function utilGdoubleToGuint64(value: number): number
 export function utilGetTimestamp(): ClockTime
-export function utilGreatestCommonDivisor(a: any, b: any): any
-export function utilGuint64ToGdouble(value: any): number
-export function utilSeqnumCompare(s1: any, s2: any): number
-export function utilSeqnumNext(): any
+export function utilGreatestCommonDivisor(a: number, b: number): number
+export function utilGuint64ToGdouble(value: number): number
+export function utilSeqnumCompare(s1: number, s2: number): number
+export function utilSeqnumNext(): number
 export function utilSetObjectArg(object: GObject.Object, name: string, value: string): void
 export function utilSetValueFromString(value: any, valueStr: string): void
-export function utilUint64Scale(val: any, num: any, denom: any): any
-export function utilUint64ScaleCeil(val: any, num: any, denom: any): any
-export function utilUint64ScaleInt(val: any, num: any, denom: any): any
-export function utilUint64ScaleIntCeil(val: any, num: any, denom: any): any
-export function utilUint64ScaleIntRound(val: any, num: any, denom: any): any
-export function utilUint64ScaleRound(val: any, num: any, denom: any): any
+export function utilUint64Scale(val: number, num: number, denom: number): number
+export function utilUint64ScaleCeil(val: number, num: number, denom: number): number
+export function utilUint64ScaleInt(val: number, num: number, denom: number): number
+export function utilUint64ScaleIntCeil(val: number, num: number, denom: number): number
+export function utilUint64ScaleIntRound(val: number, num: number, denom: number): number
+export function utilUint64ScaleRound(val: number, num: number, denom: number): number
 export function valueArrayAppendValue(value: any, appendValue: any): void
-export function valueArrayGetSize(value: any): any
-export function valueArrayGetValue(value: any, index: any): any
+export function valueArrayGetSize(value: any): number
+export function valueArrayGetValue(value: any, index: number): any
 export function valueArrayPrependValue(value: any, prependValue: any): void
-export function valueCanCompare(value1: any, value2: any): any
-export function valueCanIntersect(value1: any, value2: any): any
-export function valueCanSubtract(minuend: any, subtrahend: any): any
-export function valueCanUnion(value1: any, value2: any): any
-export function valueCompare(value1: any, value2: any): any
-export function valueDeserialize(dest: any, src: string): any
+export function valueCanCompare(value1: any, value2: any): boolean
+export function valueCanIntersect(value1: any, value2: any): boolean
+export function valueCanSubtract(minuend: any, subtrahend: any): boolean
+export function valueCanUnion(value1: any, value2: any): boolean
+export function valueCompare(value1: any, value2: any): number
+export function valueDeserialize(dest: any, src: string): boolean
 export function valueDupMiniObject(value: any): MiniObject
-export function valueFractionMultiply(product: any, factor1: any, factor2: any): any
-export function valueFractionSubtract(dest: any, minuend: any, subtrahend: any): any
+export function valueFractionMultiply(product: any, factor1: any, factor2: any): boolean
+export function valueFractionSubtract(dest: any, minuend: any, subtrahend: any): boolean
 export function valueGetCaps(value: any): Caps
 export function valueGetDate(value: any): GLib.Date
 export function valueGetDoubleRangeMax(value: any): number
 export function valueGetDoubleRangeMin(value: any): number
-export function valueGetFourcc(value: any): any
-export function valueGetFractionDenominator(value: any): any
-export function valueGetFractionNumerator(value: any): any
+export function valueGetFourcc(value: any): number
+export function valueGetFractionDenominator(value: any): number
+export function valueGetFractionNumerator(value: any): number
 export function valueGetFractionRangeMax(value: any): any
 export function valueGetFractionRangeMin(value: any): any
-export function valueGetIntRangeMax(value: any): any
-export function valueGetIntRangeMin(value: any): any
+export function valueGetIntRangeMax(value: any): number
+export function valueGetIntRangeMin(value: any): number
 export function valueGetMiniObject(value: any): MiniObject
 export function valueGetStructure(value: any): Structure
 export function valueInitAndCopy(dest: any, src: any): void
-export function valueIntersect(dest: any, value1: any, value2: any): any
-export function valueIsFixed(value: any): any
+export function valueIntersect(dest: any, value1: any, value2: any): boolean
+export function valueIsFixed(value: any): boolean
 export function valueListAppendValue(value: any, appendValue: any): void
 export function valueListConcat(dest: any, value1: any, value2: any): void
-export function valueListGetSize(value: any): any
-export function valueListGetValue(value: any, index: any): any
+export function valueListGetSize(value: any): number
+export function valueListGetValue(value: any, index: number): any
 export function valueListPrependValue(value: any, prependValue: any): void
 export function valueRegister(table: ValueTable): void
 export function valueRegisterIntersectFunc(type1: GObject.Type, type2: GObject.Type, func: ValueIntersectFunc): void
@@ -785,32 +785,32 @@ export function valueSerialize(value: any): string
 export function valueSetCaps(value: any, caps: Caps): void
 export function valueSetDate(value: any, date: GLib.Date): void
 export function valueSetDoubleRange(value: any, start: number, end: number): void
-export function valueSetFourcc(value: any, fourcc: any): void
-export function valueSetFraction(value: any, numerator: any, denominator: any): void
+export function valueSetFourcc(value: any, fourcc: number): void
+export function valueSetFraction(value: any, numerator: number, denominator: number): void
 export function valueSetFractionRange(value: any, start: any, end: any): void
-export function valueSetFractionRangeFull(value: any, numeratorStart: any, denominatorStart: any, numeratorEnd: any, denominatorEnd: any): void
-export function valueSetIntRange(value: any, start: any, end: any): void
+export function valueSetFractionRangeFull(value: any, numeratorStart: number, denominatorStart: number, numeratorEnd: number, denominatorEnd: number): void
+export function valueSetIntRange(value: any, start: number, end: number): void
 export function valueSetMiniObject(value: any, miniObject: MiniObject): void
 export function valueSetStructure(value: any, structure: Structure): void
-export function valueSubtract(dest: any, minuend: any, subtrahend: any): any
+export function valueSubtract(dest: any, minuend: any, subtrahend: any): boolean
 export function valueTakeMiniObject(value: any, miniObject: MiniObject): void
-export function valueUnion(dest: any, value1: any, value2: any): any
+export function valueUnion(dest: any, value1: any, value2: any): boolean
 export function version(): { major: any, minor: any, micro: any, nano: any }
 export function versionString(): string
 export interface BufferListDoFunction {
     (buffer: Buffer): Buffer
 }
 export interface BufferListFunc {
-    (buffer: Buffer, group: any, idx: any): BufferListItem
+    (buffer: Buffer, group: number, idx: number): BufferListItem
 }
 export interface BusFunc {
-    (bus: Bus, message: Message, data: any): any
+    (bus: Bus, message: Message, data: object): boolean
 }
 export interface BusSyncHandler {
-    (bus: Bus, message: Message, data: any): BusSyncReply
+    (bus: Bus, message: Message, data: object): BusSyncReply
 }
 export interface ClockCallback {
-    (clock: Clock, time: ClockTime, id: ClockID): any
+    (clock: Clock, time: ClockTime, id: ClockID): boolean
 }
 export interface CollectDataDestroyNotify {
     (data: CollectData): void
@@ -822,40 +822,40 @@ export interface CollectPadsFunction {
     (pads: CollectPads): FlowReturn
 }
 export interface CopyFunction {
-    (object: any): any
+    (object: object): object
 }
 export interface DataQueueCheckFullFunction {
-    (queue: DataQueue, visible: any, bytes: any, time: any, checkdata: any): any
+    (queue: DataQueue, visible: number, bytes: number, time: number, checkdata: object): boolean
 }
 export interface DataQueueEmptyCallback {
-    (queue: DataQueue, checkdata: any): void
+    (queue: DataQueue, checkdata: object): void
 }
 export interface DataQueueFullCallback {
-    (queue: DataQueue, checkdata: any): void
+    (queue: DataQueue, checkdata: object): void
 }
 export interface DebugFuncPtr {
     (): void
 }
 export interface FilterFunc {
-    (obj: any): any
+    (obj: object): boolean
 }
 export interface IndexFilter {
-    (index: Index, entry: IndexEntry): any
+    (index: Index, entry: IndexEntry): boolean
 }
 export interface IndexResolver {
-    (index: Index, writer: Object, writerString: string[]): any
+    (index: Index, writer: Object, writerString: string[]): boolean
 }
 export interface IteratorDisposeFunction {
-    (owner: any): void
+    (owner: object): void
 }
 export interface IteratorFoldFunction {
-    (item: any, ret: any): any
+    (item: object, ret: any): boolean
 }
 export interface IteratorFreeFunction {
     (it: Iterator): void
 }
 export interface IteratorItemFunction {
-    (it: Iterator, item: any): IteratorItem
+    (it: Iterator, item: object): IteratorItem
 }
 export interface IteratorNextFunction {
     (it: Iterator, result: any): IteratorResult
@@ -864,7 +864,7 @@ export interface IteratorResyncFunction {
     (it: Iterator): void
 }
 export interface LogFunction {
-    (category: DebugCategory, level: DebugLevel, file: string, function_: string, line: any, object: GObject.Object, message: DebugMessage, data: any): void
+    (category: DebugCategory, level: DebugLevel, file: string, function_: string, line: number, object: GObject.Object, message: DebugMessage, data: object): void
 }
 export interface MiniObjectCopyFunction {
     (obj: MiniObject): MiniObject
@@ -873,19 +873,19 @@ export interface MiniObjectFinalizeFunction {
     (obj: MiniObject): void
 }
 export interface PadAcceptCapsFunction {
-    (pad: Pad, caps: Caps): any
+    (pad: Pad, caps: Caps): boolean
 }
 export interface PadActivateFunction {
-    (pad: Pad): any
+    (pad: Pad): boolean
 }
 export interface PadActivateModeFunction {
-    (pad: Pad, active: any): any
+    (pad: Pad, active: boolean): boolean
 }
 export interface PadBlockCallback {
-    (pad: Pad, blocked: any): void
+    (pad: Pad, blocked: boolean): void
 }
 export interface PadBufferAllocFunction {
-    (pad: Pad, offset: any, size: any, caps: Caps, buf: Buffer): FlowReturn
+    (pad: Pad, offset: number, size: number, caps: Caps, buf: Buffer): FlowReturn
 }
 export interface PadChainFunction {
     (pad: Pad, buffer: Buffer): FlowReturn
@@ -894,13 +894,13 @@ export interface PadChainListFunction {
     (pad: Pad, list: BufferList): FlowReturn
 }
 export interface PadCheckGetRangeFunction {
-    (pad: Pad): any
+    (pad: Pad): boolean
 }
 export interface PadDispatcherFunction {
-    (pad: Pad, data: any): any
+    (pad: Pad, data: object): boolean
 }
 export interface PadEventFunction {
-    (pad: Pad, event: Event): any
+    (pad: Pad, event: Event): boolean
 }
 export interface PadFixateCapsFunction {
     (pad: Pad, caps: Caps): void
@@ -909,7 +909,7 @@ export interface PadGetCapsFunction {
     (pad: Pad): Caps
 }
 export interface PadGetRangeFunction {
-    (pad: Pad, offset: any, length: any, buffer: Buffer): FlowReturn
+    (pad: Pad, offset: number, length: number, buffer: Buffer): FlowReturn
 }
 export interface PadIntLinkFunction {
     (pad: Pad): Pad[]
@@ -921,34 +921,34 @@ export interface PadLinkFunction {
     (pad: Pad, peer: Pad): PadLinkReturn
 }
 export interface PadQueryFunction {
-    (pad: Pad, query: Query): any
+    (pad: Pad, query: Query): boolean
 }
 export interface PadQueryTypeFunction {
     (pad: Pad): QueryType
 }
 export interface PadSetCapsFunction {
-    (pad: Pad, caps: Caps): any
+    (pad: Pad, caps: Caps): boolean
 }
 export interface PadUnlinkFunction {
     (pad: Pad): void
 }
 export interface PluginFeatureFilter {
-    (feature: PluginFeature): any
+    (feature: PluginFeature): boolean
 }
 export interface PluginFilter {
-    (plugin: Plugin): any
+    (plugin: Plugin): boolean
 }
 export interface PluginInitFullFunc {
-    (plugin: Plugin): any
+    (plugin: Plugin): boolean
 }
 export interface PluginInitFunc {
-    (plugin: Plugin): any
+    (plugin: Plugin): boolean
 }
 export interface StructureForeachFunc {
-    (fieldId: GLib.Quark, value: any): any
+    (fieldId: GLib.Quark, value: any): boolean
 }
 export interface StructureMapFunc {
-    (fieldId: GLib.Quark, value: any): any
+    (fieldId: GLib.Quark, value: any): boolean
 }
 export interface TagForeachFunc {
     (list: TagList, tag: string): void
@@ -963,28 +963,28 @@ export interface TaskPoolFunction {
     (data: any): void
 }
 export interface TypeFindFunction {
-    (find: TypeFind, data: any): void
+    (find: TypeFind, data: object): void
 }
 export interface TypeFindHelperGetRangeFunction {
-    (obj: Object, offset: any, length: any, buffer: Buffer): FlowReturn
+    (obj: Object, offset: number, length: number, buffer: Buffer): FlowReturn
 }
 export interface ValueCompareFunc {
-    (value1: any, value2: any): any
+    (value1: any, value2: any): number
 }
 export interface ValueDeserializeFunc {
-    (dest: any, s: string): any
+    (dest: any, s: string): boolean
 }
 export interface ValueIntersectFunc {
-    (dest: any, value1: any, value2: any): any
+    (dest: any, value1: any, value2: any): boolean
 }
 export interface ValueSerializeFunc {
     (value1: any): string
 }
 export interface ValueSubtractFunc {
-    (dest: any, minuend: any, subtrahend: any): any
+    (dest: any, minuend: any, subtrahend: any): boolean
 }
 export interface ValueUnionFunc {
-    (dest: any, value1: any, value2: any): any
+    (dest: any, value1: any, value2: any): boolean
 }
 export interface ChildProxy_ConstructProps extends Object_ConstructProps {
 }
@@ -993,27 +993,27 @@ export class ChildProxy {
     name: string
     /* Fields of Gst-0.10.Gst.Object */
     object: GObject.Object
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
-    gstReserved: any
+    flags: number
+    gstReserved: object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.ChildProxy */
     getChildByName(name: string): Object
-    getChildByIndex(index: any): Object
-    getChildrenCount(): any
+    getChildByIndex(index: number): Object
+    getChildrenCount(): number
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -1058,11 +1058,11 @@ export class ChildProxy {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: ChildProxy, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: ChildProxy, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: ChildProxy, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -1105,7 +1105,7 @@ export class ImplementsInterface {
     object: Object
     stateLock: any
     stateCond: GLib.Cond
-    stateCookie: any
+    stateCookie: number
     currentState: State
     nextState: State
     pendingState: State
@@ -1113,39 +1113,39 @@ export class ImplementsInterface {
     bus: Bus
     clock: Clock
     baseTime: ClockTimeDiff
-    numpads: any
-    pads: any[]
-    numsrcpads: any
-    srcpads: any[]
-    numsinkpads: any
-    sinkpads: any[]
-    padsCookie: any
+    numpads: number
+    pads: object[]
+    numsrcpads: number
+    srcpads: object[]
+    numsinkpads: number
+    sinkpads: object[]
+    padsCookie: number
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
-    gstReserved: any
+    flags: number
+    gstReserved: object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.Element */
-    requiresClock(): any
-    providesClock(): any
+    requiresClock(): boolean
+    providesClock(): boolean
     provideClock(): Clock
     getClock(): Clock
-    setClock(clock: Clock): any
+    setClock(clock: Clock): boolean
     setBaseTime(time: ClockTime): void
     getBaseTime(): ClockTime
     setStartTime(time: ClockTime): void
     getStartTime(): ClockTime
-    isIndexable(): any
+    isIndexable(): boolean
     setIndex(index: Index): void
     getIndex(): Index
     setBus(bus: Bus): void
     getBus(): Bus
-    addPad(pad: Pad): any
-    removePad(pad: Pad): any
+    addPad(pad: Pad): boolean
+    removePad(pad: Pad): boolean
     noMorePads(): void
     getPad(name: string): Pad
     getStaticPad(name: string): Pad
@@ -1154,49 +1154,49 @@ export class ImplementsInterface {
     iteratePads(): Iterator
     iterateSrcPads(): Iterator
     iterateSinkPads(): Iterator
-    sendEvent(event: Event): any
-    seek(rate: number, format: Format, flags: SeekFlags, curType: SeekType, cur: any, stopType: SeekType, stop: any): any
+    sendEvent(event: Event): boolean
+    seek(rate: number, format: Format, flags: SeekFlags, curType: SeekType, cur: number, stopType: SeekType, stop: number): boolean
     getQueryTypes(): QueryType
-    query(query: Query): any
-    postMessage(message: Message): any
-    messageFull(type: MessageType, domain: GLib.Quark, code: any, text: string, debug: string, file: string, function_: string, line: any): void
-    isLockedState(): any
-    setLockedState(lockedState: any): any
-    syncStateWithParent(): any
+    query(query: Query): boolean
+    postMessage(message: Message): boolean
+    messageFull(type: MessageType, domain: GLib.Quark, code: number, text: string, debug: string, file: string, function_: string, line: number): void
+    isLockedState(): boolean
+    setLockedState(lockedState: boolean): boolean
+    syncStateWithParent(): boolean
     getState(timeout: ClockTime): { returnType: StateChangeReturn, state: State, pending: State }
     setState(state: State): StateChangeReturn
     abortState(): void
     changeState(transition: StateChange): StateChangeReturn
     continueState(ret: StateChangeReturn): StateChangeReturn
     lostState(): void
-    lostStateFull(newBaseTime: any): void
+    lostStateFull(newBaseTime: boolean): void
     getFactory(): ElementFactory
-    implementsInterface(ifaceType: GObject.Type): any
+    implementsInterface(ifaceType: GObject.Type): boolean
     createAllPads(): void
     getCompatiblePad(pad: Pad, caps: Caps): Pad
     getCompatiblePadTemplate(compattempl: PadTemplate): PadTemplate
-    link(dest: Element): any
-    linkFiltered(dest: Element, filter: Caps): any
+    link(dest: Element): boolean
+    linkFiltered(dest: Element, filter: Caps): boolean
     unlink(dest: Element): void
-    linkPads(srcpadname: string, dest: Element, destpadname: string): any
-    linkPadsFull(srcpadname: string, dest: Element, destpadname: string, flags: PadLinkCheck): any
+    linkPads(srcpadname: string, dest: Element, destpadname: string): boolean
+    linkPadsFull(srcpadname: string, dest: Element, destpadname: string, flags: PadLinkCheck): boolean
     unlinkPads(srcpadname: string, dest: Element, destpadname: string): void
-    linkPadsFiltered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): any
-    seekSimple(format: Format, seekFlags: SeekFlags, seekPos: any): any
-    queryPosition(format: Format): { returnType: any, cur: any }
-    queryDuration(format: Format): { returnType: any, duration: any }
-    queryConvert(srcFormat: Format, srcVal: any, destFormat: Format): { returnType: any, destVal: any }
+    linkPadsFiltered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): boolean
+    seekSimple(format: Format, seekFlags: SeekFlags, seekPos: number): boolean
+    queryPosition(format: Format): { returnType: boolean, cur: any }
+    queryDuration(format: Format): { returnType: boolean, duration: any }
+    queryConvert(srcFormat: Format, srcVal: number, destFormat: Format): { returnType: boolean, destVal: any }
     foundTagsForPad(pad: Pad, list: TagList): void
     foundTags(list: TagList): void
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -1246,11 +1246,11 @@ export class ImplementsInterface {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: ImplementsInterface, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: ImplementsInterface, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: ImplementsInterface, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -1293,7 +1293,7 @@ export class TagSetter {
     object: Object
     stateLock: any
     stateCond: GLib.Cond
-    stateCookie: any
+    stateCookie: number
     currentState: State
     nextState: State
     pendingState: State
@@ -1301,20 +1301,20 @@ export class TagSetter {
     bus: Bus
     clock: Clock
     baseTime: ClockTimeDiff
-    numpads: any
-    pads: any[]
-    numsrcpads: any
-    srcpads: any[]
-    numsinkpads: any
-    sinkpads: any[]
-    padsCookie: any
+    numpads: number
+    pads: object[]
+    numsrcpads: number
+    srcpads: object[]
+    numsinkpads: number
+    sinkpads: object[]
+    padsCookie: number
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
-    gstReserved: any
+    flags: number
+    gstReserved: object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.TagSetter */
@@ -1325,22 +1325,22 @@ export class TagSetter {
     setTagMergeMode(mode: TagMergeMode): void
     getTagMergeMode(): TagMergeMode
     /* Methods of Gst-0.10.Gst.Element */
-    requiresClock(): any
-    providesClock(): any
+    requiresClock(): boolean
+    providesClock(): boolean
     provideClock(): Clock
     getClock(): Clock
-    setClock(clock: Clock): any
+    setClock(clock: Clock): boolean
     setBaseTime(time: ClockTime): void
     getBaseTime(): ClockTime
     setStartTime(time: ClockTime): void
     getStartTime(): ClockTime
-    isIndexable(): any
+    isIndexable(): boolean
     setIndex(index: Index): void
     getIndex(): Index
     setBus(bus: Bus): void
     getBus(): Bus
-    addPad(pad: Pad): any
-    removePad(pad: Pad): any
+    addPad(pad: Pad): boolean
+    removePad(pad: Pad): boolean
     noMorePads(): void
     getPad(name: string): Pad
     getStaticPad(name: string): Pad
@@ -1349,49 +1349,49 @@ export class TagSetter {
     iteratePads(): Iterator
     iterateSrcPads(): Iterator
     iterateSinkPads(): Iterator
-    sendEvent(event: Event): any
-    seek(rate: number, format: Format, flags: SeekFlags, curType: SeekType, cur: any, stopType: SeekType, stop: any): any
+    sendEvent(event: Event): boolean
+    seek(rate: number, format: Format, flags: SeekFlags, curType: SeekType, cur: number, stopType: SeekType, stop: number): boolean
     getQueryTypes(): QueryType
-    query(query: Query): any
-    postMessage(message: Message): any
-    messageFull(type: MessageType, domain: GLib.Quark, code: any, text: string, debug: string, file: string, function_: string, line: any): void
-    isLockedState(): any
-    setLockedState(lockedState: any): any
-    syncStateWithParent(): any
+    query(query: Query): boolean
+    postMessage(message: Message): boolean
+    messageFull(type: MessageType, domain: GLib.Quark, code: number, text: string, debug: string, file: string, function_: string, line: number): void
+    isLockedState(): boolean
+    setLockedState(lockedState: boolean): boolean
+    syncStateWithParent(): boolean
     getState(timeout: ClockTime): { returnType: StateChangeReturn, state: State, pending: State }
     setState(state: State): StateChangeReturn
     abortState(): void
     changeState(transition: StateChange): StateChangeReturn
     continueState(ret: StateChangeReturn): StateChangeReturn
     lostState(): void
-    lostStateFull(newBaseTime: any): void
+    lostStateFull(newBaseTime: boolean): void
     getFactory(): ElementFactory
-    implementsInterface(ifaceType: GObject.Type): any
+    implementsInterface(ifaceType: GObject.Type): boolean
     createAllPads(): void
     getCompatiblePad(pad: Pad, caps: Caps): Pad
     getCompatiblePadTemplate(compattempl: PadTemplate): PadTemplate
-    link(dest: Element): any
-    linkFiltered(dest: Element, filter: Caps): any
+    link(dest: Element): boolean
+    linkFiltered(dest: Element, filter: Caps): boolean
     unlink(dest: Element): void
-    linkPads(srcpadname: string, dest: Element, destpadname: string): any
-    linkPadsFull(srcpadname: string, dest: Element, destpadname: string, flags: PadLinkCheck): any
+    linkPads(srcpadname: string, dest: Element, destpadname: string): boolean
+    linkPadsFull(srcpadname: string, dest: Element, destpadname: string, flags: PadLinkCheck): boolean
     unlinkPads(srcpadname: string, dest: Element, destpadname: string): void
-    linkPadsFiltered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): any
-    seekSimple(format: Format, seekFlags: SeekFlags, seekPos: any): any
-    queryPosition(format: Format): { returnType: any, cur: any }
-    queryDuration(format: Format): { returnType: any, duration: any }
-    queryConvert(srcFormat: Format, srcVal: any, destFormat: Format): { returnType: any, destVal: any }
+    linkPadsFiltered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): boolean
+    seekSimple(format: Format, seekFlags: SeekFlags, seekPos: number): boolean
+    queryPosition(format: Format): { returnType: boolean, cur: any }
+    queryDuration(format: Format): { returnType: boolean, duration: any }
+    queryConvert(srcFormat: Format, srcVal: number, destFormat: Format): { returnType: boolean, destVal: any }
     foundTagsForPad(pad: Pad, list: TagList): void
     foundTags(list: TagList): void
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -1441,11 +1441,11 @@ export class TagSetter {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: TagSetter, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: TagSetter, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: TagSetter, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -1481,10 +1481,10 @@ export class TagSetter {
 }
 export class URIHandler {
     /* Methods of Gst-0.10.Gst.URIHandler */
-    getUriType(): any
+    getUriType(): number
     getProtocols(): string[]
     getUri(): string
-    setUri(uri: string): any
+    setUri(uri: string): boolean
     newUri(uri: string): void
     /* Signals of Gst-0.10.Gst.URIHandler */
     connect(sigName: "new-uri", callback: (($obj: URIHandler, object: string) => void)): number
@@ -1499,13 +1499,13 @@ export interface Adapter_ConstructProps extends GObject.Object_ConstructProps {
 export class Adapter {
     /* Fields of Gst-0.10.Gst.Adapter */
     object: GObject.Object
-    buflist: any[]
-    size: any
-    skip: any
+    buflist: object[]
+    size: number
+    skip: number
     assembledData: any
-    assembledSize: any
-    assembledLen: any
-    buflistEnd: any[]
+    assembledSize: number
+    assembledLen: number
+    buflistEnd: object[]
     priv: AdapterPrivate
     gstReserved: any[]
     /* Fields of GObject-2.0.GObject.Object */
@@ -1513,16 +1513,16 @@ export class Adapter {
     /* Methods of Gst-0.10.Gst.Adapter */
     clear(): void
     push(buf: Buffer): void
-    peek(size: any): any[]
-    copy(dest: any[], offset: any, size: any): void
-    flush(flush: any): void
-    take(nbytes: any): any[]
-    takeBuffer(nbytes: any): Buffer
-    available(): any
-    availableFast(): any
+    peek(size: number): any[]
+    copy(dest: any[], offset: number, size: number): void
+    flush(flush: number): void
+    take(nbytes: number): any[]
+    takeBuffer(nbytes: number): Buffer
+    available(): number
+    availableFast(): number
     prevTimestamp(): { returnType: ClockTime, distance: any }
-    maskedScanUint32(mask: any, pattern: any, offset: any, size: any): any
-    maskedScanUint32Peek(mask: any, pattern: any, offset: any, size: any): { returnType: any, value: any }
+    maskedScanUint32(mask: number, pattern: number, offset: number, size: number): number
+    maskedScanUint32Peek(mask: number, pattern: number, offset: number, size: number): { returnType: number, value: any }
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -1566,58 +1566,58 @@ export class Adapter {
     static $gtype: GObject.Type
 }
 export interface BaseSink_ConstructProps extends Element_ConstructProps {
-    async?: any
-    blocksize?: any
-    enableLastBuffer?: any
-    maxLateness?: any
-    prerollQueueLen?: any
-    qos?: any
-    renderDelay?: any
-    sync?: any
-    tsOffset?: any
+    async?: boolean
+    blocksize?: number
+    enableLastBuffer?: boolean
+    maxLateness?: number
+    prerollQueueLen?: number
+    qos?: boolean
+    renderDelay?: number
+    sync?: boolean
+    tsOffset?: number
 }
 export class BaseSink {
     /* Properties of Gst-0.10.Gst.BaseSink */
-    async: any
-    blocksize: any
-    enableLastBuffer: any
+    async: boolean
+    blocksize: number
+    enableLastBuffer: boolean
     readonly lastBuffer: Buffer
-    maxLateness: any
-    prerollQueueLen: any
-    qos: any
-    renderDelay: any
-    sync: any
-    tsOffset: any
+    maxLateness: number
+    prerollQueueLen: number
+    qos: boolean
+    renderDelay: number
+    sync: boolean
+    tsOffset: number
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.BaseSink */
     element: Element
     sinkpad: Pad
     padMode: ActivateMode
-    offset: any
-    canActivatePull: any
-    canActivatePush: any
+    offset: number
+    canActivatePull: boolean
+    canActivatePush: boolean
     prerollQueue: GLib.Queue
-    prerollQueueMaxLen: any
-    prerollQueued: any
-    buffersQueued: any
-    eventsQueued: any
-    eos: any
-    eosQueued: any
-    needPreroll: any
-    havePreroll: any
-    playingAsync: any
-    haveNewsegment: any
+    prerollQueueMaxLen: number
+    prerollQueued: number
+    buffersQueued: number
+    eventsQueued: number
+    eos: boolean
+    eosQueued: boolean
+    needPreroll: boolean
+    havePreroll: boolean
+    playingAsync: boolean
+    haveNewsegment: boolean
     segment: Segment
     clockId: ClockID
     endTime: ClockTime
-    flushing: any
+    flushing: boolean
     priv: BaseSinkPrivate
     /* Fields of Gst-0.10.Gst.Element */
     object: Object
     stateLock: any
     stateCond: GLib.Cond
-    stateCookie: any
+    stateCookie: number
     currentState: State
     nextState: State
     pendingState: State
@@ -1625,63 +1625,63 @@ export class BaseSink {
     bus: Bus
     clock: Clock
     baseTime: ClockTimeDiff
-    numpads: any
-    pads: any[]
-    numsrcpads: any
-    srcpads: any[]
-    numsinkpads: any
-    sinkpads: any[]
-    padsCookie: any
+    numpads: number
+    pads: object[]
+    numsrcpads: number
+    srcpads: object[]
+    numsinkpads: number
+    sinkpads: object[]
+    padsCookie: number
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
-    gstReserved: any
+    flags: number
+    gstReserved: object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.BaseSink */
     doPreroll(obj: MiniObject): FlowReturn
     waitPreroll(): FlowReturn
-    setSync(sync: any): void
-    getSync(): any
-    setMaxLateness(maxLateness: any): void
-    getMaxLateness(): any
-    setQosEnabled(enabled: any): void
-    isQosEnabled(): any
-    setAsyncEnabled(enabled: any): void
-    isAsyncEnabled(): any
+    setSync(sync: boolean): void
+    getSync(): boolean
+    setMaxLateness(maxLateness: number): void
+    getMaxLateness(): number
+    setQosEnabled(enabled: boolean): void
+    isQosEnabled(): boolean
+    setAsyncEnabled(enabled: boolean): void
+    isAsyncEnabled(): boolean
     setTsOffset(offset: ClockTimeDiff): void
     getTsOffset(): ClockTimeDiff
     getLastBuffer(): Buffer
-    setLastBufferEnabled(enable: any): void
-    isLastBufferEnabled(): any
-    queryLatency(minLatency: ClockTime, maxLatency: ClockTime): { returnType: any, live: any, upstreamLive: any }
+    setLastBufferEnabled(enable: boolean): void
+    isLastBufferEnabled(): boolean
+    queryLatency(minLatency: ClockTime, maxLatency: ClockTime): { returnType: boolean, live: any, upstreamLive: any }
     getLatency(): ClockTime
     setRenderDelay(delay: ClockTime): void
     getRenderDelay(): ClockTime
-    setBlocksize(blocksize: any): void
-    getBlocksize(): any
+    setBlocksize(blocksize: number): void
+    getBlocksize(): number
     waitClock(time: ClockTime, jitter: ClockTimeDiff): ClockReturn
     waitEos(time: ClockTime, jitter: ClockTimeDiff): FlowReturn
     /* Methods of Gst-0.10.Gst.Element */
-    requiresClock(): any
-    providesClock(): any
+    requiresClock(): boolean
+    providesClock(): boolean
     provideClock(): Clock
     getClock(): Clock
-    setClock(clock: Clock): any
+    setClock(clock: Clock): boolean
     setBaseTime(time: ClockTime): void
     getBaseTime(): ClockTime
     setStartTime(time: ClockTime): void
     getStartTime(): ClockTime
-    isIndexable(): any
+    isIndexable(): boolean
     setIndex(index: Index): void
     getIndex(): Index
     setBus(bus: Bus): void
     getBus(): Bus
-    addPad(pad: Pad): any
-    removePad(pad: Pad): any
+    addPad(pad: Pad): boolean
+    removePad(pad: Pad): boolean
     noMorePads(): void
     getPad(name: string): Pad
     getStaticPad(name: string): Pad
@@ -1690,49 +1690,49 @@ export class BaseSink {
     iteratePads(): Iterator
     iterateSrcPads(): Iterator
     iterateSinkPads(): Iterator
-    sendEvent(event: Event): any
-    seek(rate: number, format: Format, flags: SeekFlags, curType: SeekType, cur: any, stopType: SeekType, stop: any): any
+    sendEvent(event: Event): boolean
+    seek(rate: number, format: Format, flags: SeekFlags, curType: SeekType, cur: number, stopType: SeekType, stop: number): boolean
     getQueryTypes(): QueryType
-    query(query: Query): any
-    postMessage(message: Message): any
-    messageFull(type: MessageType, domain: GLib.Quark, code: any, text: string, debug: string, file: string, function_: string, line: any): void
-    isLockedState(): any
-    setLockedState(lockedState: any): any
-    syncStateWithParent(): any
+    query(query: Query): boolean
+    postMessage(message: Message): boolean
+    messageFull(type: MessageType, domain: GLib.Quark, code: number, text: string, debug: string, file: string, function_: string, line: number): void
+    isLockedState(): boolean
+    setLockedState(lockedState: boolean): boolean
+    syncStateWithParent(): boolean
     getState(timeout: ClockTime): { returnType: StateChangeReturn, state: State, pending: State }
     setState(state: State): StateChangeReturn
     abortState(): void
     changeState(transition: StateChange): StateChangeReturn
     continueState(ret: StateChangeReturn): StateChangeReturn
     lostState(): void
-    lostStateFull(newBaseTime: any): void
+    lostStateFull(newBaseTime: boolean): void
     getFactory(): ElementFactory
-    implementsInterface(ifaceType: GObject.Type): any
+    implementsInterface(ifaceType: GObject.Type): boolean
     createAllPads(): void
     getCompatiblePad(pad: Pad, caps: Caps): Pad
     getCompatiblePadTemplate(compattempl: PadTemplate): PadTemplate
-    link(dest: Element): any
-    linkFiltered(dest: Element, filter: Caps): any
+    link(dest: Element): boolean
+    linkFiltered(dest: Element, filter: Caps): boolean
     unlink(dest: Element): void
-    linkPads(srcpadname: string, dest: Element, destpadname: string): any
-    linkPadsFull(srcpadname: string, dest: Element, destpadname: string, flags: PadLinkCheck): any
+    linkPads(srcpadname: string, dest: Element, destpadname: string): boolean
+    linkPadsFull(srcpadname: string, dest: Element, destpadname: string, flags: PadLinkCheck): boolean
     unlinkPads(srcpadname: string, dest: Element, destpadname: string): void
-    linkPadsFiltered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): any
-    seekSimple(format: Format, seekFlags: SeekFlags, seekPos: any): any
-    queryPosition(format: Format): { returnType: any, cur: any }
-    queryDuration(format: Format): { returnType: any, duration: any }
-    queryConvert(srcFormat: Format, srcVal: any, destFormat: Format): { returnType: any, destVal: any }
+    linkPadsFiltered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): boolean
+    seekSimple(format: Format, seekFlags: SeekFlags, seekPos: number): boolean
+    queryPosition(format: Format): { returnType: boolean, cur: any }
+    queryDuration(format: Format): { returnType: boolean, duration: any }
+    queryConvert(srcFormat: Format, srcVal: number, destFormat: Format): { returnType: boolean, destVal: any }
     foundTagsForPad(pad: Pad, list: TagList): void
     foundTags(list: TagList): void
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -1782,11 +1782,11 @@ export class BaseSink {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: BaseSink, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: BaseSink, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: BaseSink, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -1871,17 +1871,17 @@ export class BaseSink {
     static $gtype: GObject.Type
 }
 export interface BaseSrc_ConstructProps extends Element_ConstructProps {
-    blocksize?: any
-    doTimestamp?: any
-    numBuffers?: any
-    typefind?: any
+    blocksize?: number
+    doTimestamp?: boolean
+    numBuffers?: number
+    typefind?: boolean
 }
 export class BaseSrc {
     /* Properties of Gst-0.10.Gst.BaseSrc */
-    blocksize: any
-    doTimestamp: any
-    numBuffers: any
-    typefind: any
+    blocksize: number
+    doTimestamp: boolean
+    numBuffers: number
+    typefind: boolean
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.BaseSrc */
@@ -1889,25 +1889,25 @@ export class BaseSrc {
     srcpad: Pad
     liveLock: GLib.Mutex
     liveCond: GLib.Cond
-    isLive: any
-    liveRunning: any
-    canActivatePush: any
+    isLive: boolean
+    liveRunning: boolean
+    canActivatePush: boolean
     padMode: ActivateMode
-    seekable: any
-    randomAccess: any
+    seekable: boolean
+    randomAccess: boolean
     clockId: ClockID
     endTime: ClockTime
     segment: Segment
-    needNewsegment: any
-    offset: any
-    size: any
-    numBuffersLeft: any
+    needNewsegment: boolean
+    offset: number
+    size: number
+    numBuffersLeft: number
     priv: BaseSrcPrivate
     /* Fields of Gst-0.10.Gst.Element */
     object: Object
     stateLock: any
     stateCond: GLib.Cond
-    stateCookie: any
+    stateCookie: number
     currentState: State
     nextState: State
     pendingState: State
@@ -1915,49 +1915,49 @@ export class BaseSrc {
     bus: Bus
     clock: Clock
     baseTime: ClockTimeDiff
-    numpads: any
-    pads: any[]
-    numsrcpads: any
-    srcpads: any[]
-    numsinkpads: any
-    sinkpads: any[]
-    padsCookie: any
+    numpads: number
+    pads: object[]
+    numsrcpads: number
+    srcpads: object[]
+    numsinkpads: number
+    sinkpads: object[]
+    padsCookie: number
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
-    gstReserved: any
+    flags: number
+    gstReserved: object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.BaseSrc */
     waitPlaying(): FlowReturn
-    setLive(live: any): void
+    setLive(live: boolean): void
     setFormat(format: Format): void
-    queryLatency(minLatency: ClockTime, maxLatency: ClockTime): { returnType: any, live: any }
-    setBlocksize(blocksize: any): void
-    getBlocksize(): any
-    setDoTimestamp(timestamp: any): void
-    getDoTimestamp(): any
-    newSeamlessSegment(start: any, stop: any, position: any): any
+    queryLatency(minLatency: ClockTime, maxLatency: ClockTime): { returnType: boolean, live: any }
+    setBlocksize(blocksize: number): void
+    getBlocksize(): number
+    setDoTimestamp(timestamp: boolean): void
+    getDoTimestamp(): boolean
+    newSeamlessSegment(start: number, stop: number, position: number): boolean
     /* Methods of Gst-0.10.Gst.Element */
-    requiresClock(): any
-    providesClock(): any
+    requiresClock(): boolean
+    providesClock(): boolean
     provideClock(): Clock
     getClock(): Clock
-    setClock(clock: Clock): any
+    setClock(clock: Clock): boolean
     setBaseTime(time: ClockTime): void
     getBaseTime(): ClockTime
     setStartTime(time: ClockTime): void
     getStartTime(): ClockTime
-    isIndexable(): any
+    isIndexable(): boolean
     setIndex(index: Index): void
     getIndex(): Index
     setBus(bus: Bus): void
     getBus(): Bus
-    addPad(pad: Pad): any
-    removePad(pad: Pad): any
+    addPad(pad: Pad): boolean
+    removePad(pad: Pad): boolean
     noMorePads(): void
     getPad(name: string): Pad
     getStaticPad(name: string): Pad
@@ -1966,49 +1966,49 @@ export class BaseSrc {
     iteratePads(): Iterator
     iterateSrcPads(): Iterator
     iterateSinkPads(): Iterator
-    sendEvent(event: Event): any
-    seek(rate: number, format: Format, flags: SeekFlags, curType: SeekType, cur: any, stopType: SeekType, stop: any): any
+    sendEvent(event: Event): boolean
+    seek(rate: number, format: Format, flags: SeekFlags, curType: SeekType, cur: number, stopType: SeekType, stop: number): boolean
     getQueryTypes(): QueryType
-    query(query: Query): any
-    postMessage(message: Message): any
-    messageFull(type: MessageType, domain: GLib.Quark, code: any, text: string, debug: string, file: string, function_: string, line: any): void
-    isLockedState(): any
-    setLockedState(lockedState: any): any
-    syncStateWithParent(): any
+    query(query: Query): boolean
+    postMessage(message: Message): boolean
+    messageFull(type: MessageType, domain: GLib.Quark, code: number, text: string, debug: string, file: string, function_: string, line: number): void
+    isLockedState(): boolean
+    setLockedState(lockedState: boolean): boolean
+    syncStateWithParent(): boolean
     getState(timeout: ClockTime): { returnType: StateChangeReturn, state: State, pending: State }
     setState(state: State): StateChangeReturn
     abortState(): void
     changeState(transition: StateChange): StateChangeReturn
     continueState(ret: StateChangeReturn): StateChangeReturn
     lostState(): void
-    lostStateFull(newBaseTime: any): void
+    lostStateFull(newBaseTime: boolean): void
     getFactory(): ElementFactory
-    implementsInterface(ifaceType: GObject.Type): any
+    implementsInterface(ifaceType: GObject.Type): boolean
     createAllPads(): void
     getCompatiblePad(pad: Pad, caps: Caps): Pad
     getCompatiblePadTemplate(compattempl: PadTemplate): PadTemplate
-    link(dest: Element): any
-    linkFiltered(dest: Element, filter: Caps): any
+    link(dest: Element): boolean
+    linkFiltered(dest: Element, filter: Caps): boolean
     unlink(dest: Element): void
-    linkPads(srcpadname: string, dest: Element, destpadname: string): any
-    linkPadsFull(srcpadname: string, dest: Element, destpadname: string, flags: PadLinkCheck): any
+    linkPads(srcpadname: string, dest: Element, destpadname: string): boolean
+    linkPadsFull(srcpadname: string, dest: Element, destpadname: string, flags: PadLinkCheck): boolean
     unlinkPads(srcpadname: string, dest: Element, destpadname: string): void
-    linkPadsFiltered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): any
-    seekSimple(format: Format, seekFlags: SeekFlags, seekPos: any): any
-    queryPosition(format: Format): { returnType: any, cur: any }
-    queryDuration(format: Format): { returnType: any, duration: any }
-    queryConvert(srcFormat: Format, srcVal: any, destFormat: Format): { returnType: any, destVal: any }
+    linkPadsFiltered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): boolean
+    seekSimple(format: Format, seekFlags: SeekFlags, seekPos: number): boolean
+    queryPosition(format: Format): { returnType: boolean, cur: any }
+    queryDuration(format: Format): { returnType: boolean, duration: any }
+    queryConvert(srcFormat: Format, srcVal: number, destFormat: Format): { returnType: boolean, destVal: any }
     foundTagsForPad(pad: Pad, list: TagList): void
     foundTags(list: TagList): void
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -2058,11 +2058,11 @@ export class BaseSrc {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: BaseSrc, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: BaseSrc, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: BaseSrc, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -2117,28 +2117,28 @@ export class BaseSrc {
     static $gtype: GObject.Type
 }
 export interface BaseTransform_ConstructProps extends Element_ConstructProps {
-    qos?: any
+    qos?: boolean
 }
 export class BaseTransform {
     /* Properties of Gst-0.10.Gst.BaseTransform */
-    qos: any
+    qos: boolean
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.BaseTransform */
     element: Element
     sinkpad: Pad
     srcpad: Pad
-    passthrough: any
-    alwaysInPlace: any
+    passthrough: boolean
+    alwaysInPlace: boolean
     cacheCaps1: Caps
-    cacheCaps1Size: any
+    cacheCaps1Size: number
     cacheCaps2: Caps
-    cacheCaps2Size: any
-    haveSameCaps: any
-    delayConfigure: any
-    pendingConfigure: any
-    negotiated: any
-    haveNewsegment: any
+    cacheCaps2Size: number
+    haveSameCaps: boolean
+    delayConfigure: boolean
+    pendingConfigure: boolean
+    negotiated: boolean
+    haveNewsegment: boolean
     segment: Segment
     transformLock: GLib.Mutex
     priv: BaseTransformPrivate
@@ -2147,7 +2147,7 @@ export class BaseTransform {
     object: Object
     stateLock: any
     stateCond: GLib.Cond
-    stateCookie: any
+    stateCookie: number
     currentState: State
     nextState: State
     pendingState: State
@@ -2155,49 +2155,49 @@ export class BaseTransform {
     bus: Bus
     clock: Clock
     baseTime: ClockTimeDiff
-    numpads: any
-    pads: any[]
-    numsrcpads: any
-    srcpads: any[]
-    numsinkpads: any
-    sinkpads: any[]
-    padsCookie: any
+    numpads: number
+    pads: object[]
+    numsrcpads: number
+    srcpads: object[]
+    numsinkpads: number
+    sinkpads: object[]
+    padsCookie: number
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
+    flags: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.BaseTransform */
-    setPassthrough(passthrough: any): void
-    isPassthrough(): any
-    setInPlace(inPlace: any): void
-    isInPlace(): any
+    setPassthrough(passthrough: boolean): void
+    isPassthrough(): boolean
+    setInPlace(inPlace: boolean): void
+    isInPlace(): boolean
     updateQos(proportion: number, diff: ClockTimeDiff, timestamp: ClockTime): void
-    setQosEnabled(enabled: any): void
-    isQosEnabled(): any
-    setGapAware(gapAware: any): void
-    suggest(caps: Caps, size: any): void
+    setQosEnabled(enabled: boolean): void
+    isQosEnabled(): boolean
+    setGapAware(gapAware: boolean): void
+    suggest(caps: Caps, size: number): void
     reconfigure(): void
     /* Methods of Gst-0.10.Gst.Element */
-    requiresClock(): any
-    providesClock(): any
+    requiresClock(): boolean
+    providesClock(): boolean
     provideClock(): Clock
     getClock(): Clock
-    setClock(clock: Clock): any
+    setClock(clock: Clock): boolean
     setBaseTime(time: ClockTime): void
     getBaseTime(): ClockTime
     setStartTime(time: ClockTime): void
     getStartTime(): ClockTime
-    isIndexable(): any
+    isIndexable(): boolean
     setIndex(index: Index): void
     getIndex(): Index
     setBus(bus: Bus): void
     getBus(): Bus
-    addPad(pad: Pad): any
-    removePad(pad: Pad): any
+    addPad(pad: Pad): boolean
+    removePad(pad: Pad): boolean
     noMorePads(): void
     getPad(name: string): Pad
     getStaticPad(name: string): Pad
@@ -2206,49 +2206,49 @@ export class BaseTransform {
     iteratePads(): Iterator
     iterateSrcPads(): Iterator
     iterateSinkPads(): Iterator
-    sendEvent(event: Event): any
-    seek(rate: number, format: Format, flags: SeekFlags, curType: SeekType, cur: any, stopType: SeekType, stop: any): any
+    sendEvent(event: Event): boolean
+    seek(rate: number, format: Format, flags: SeekFlags, curType: SeekType, cur: number, stopType: SeekType, stop: number): boolean
     getQueryTypes(): QueryType
-    query(query: Query): any
-    postMessage(message: Message): any
-    messageFull(type: MessageType, domain: GLib.Quark, code: any, text: string, debug: string, file: string, function_: string, line: any): void
-    isLockedState(): any
-    setLockedState(lockedState: any): any
-    syncStateWithParent(): any
+    query(query: Query): boolean
+    postMessage(message: Message): boolean
+    messageFull(type: MessageType, domain: GLib.Quark, code: number, text: string, debug: string, file: string, function_: string, line: number): void
+    isLockedState(): boolean
+    setLockedState(lockedState: boolean): boolean
+    syncStateWithParent(): boolean
     getState(timeout: ClockTime): { returnType: StateChangeReturn, state: State, pending: State }
     setState(state: State): StateChangeReturn
     abortState(): void
     changeState(transition: StateChange): StateChangeReturn
     continueState(ret: StateChangeReturn): StateChangeReturn
     lostState(): void
-    lostStateFull(newBaseTime: any): void
+    lostStateFull(newBaseTime: boolean): void
     getFactory(): ElementFactory
-    implementsInterface(ifaceType: GObject.Type): any
+    implementsInterface(ifaceType: GObject.Type): boolean
     createAllPads(): void
     getCompatiblePad(pad: Pad, caps: Caps): Pad
     getCompatiblePadTemplate(compattempl: PadTemplate): PadTemplate
-    link(dest: Element): any
-    linkFiltered(dest: Element, filter: Caps): any
+    link(dest: Element): boolean
+    linkFiltered(dest: Element, filter: Caps): boolean
     unlink(dest: Element): void
-    linkPads(srcpadname: string, dest: Element, destpadname: string): any
-    linkPadsFull(srcpadname: string, dest: Element, destpadname: string, flags: PadLinkCheck): any
+    linkPads(srcpadname: string, dest: Element, destpadname: string): boolean
+    linkPadsFull(srcpadname: string, dest: Element, destpadname: string, flags: PadLinkCheck): boolean
     unlinkPads(srcpadname: string, dest: Element, destpadname: string): void
-    linkPadsFiltered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): any
-    seekSimple(format: Format, seekFlags: SeekFlags, seekPos: any): any
-    queryPosition(format: Format): { returnType: any, cur: any }
-    queryDuration(format: Format): { returnType: any, duration: any }
-    queryConvert(srcFormat: Format, srcVal: any, destFormat: Format): { returnType: any, destVal: any }
+    linkPadsFiltered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): boolean
+    seekSimple(format: Format, seekFlags: SeekFlags, seekPos: number): boolean
+    queryPosition(format: Format): { returnType: boolean, cur: any }
+    queryDuration(format: Format): { returnType: boolean, duration: any }
+    queryConvert(srcFormat: Format, srcVal: number, destFormat: Format): { returnType: boolean, destVal: any }
     foundTagsForPad(pad: Pad, list: TagList): void
     foundTags(list: TagList): void
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -2298,11 +2298,11 @@ export class BaseTransform {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: BaseTransform, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: BaseTransform, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: BaseTransform, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -2342,23 +2342,23 @@ export class BaseTransform {
     static $gtype: GObject.Type
 }
 export interface Bin_ConstructProps extends Element_ConstructProps {
-    asyncHandling?: any
+    asyncHandling?: boolean
 }
 export class Bin {
     /* Properties of Gst-0.10.Gst.Bin */
-    asyncHandling: any
+    asyncHandling: boolean
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.Bin */
     element: Element
-    numchildren: any
-    children: any[]
-    childrenCookie: any
+    numchildren: number
+    children: object[]
+    childrenCookie: number
     childBus: Bus
-    messages: any[]
-    polling: any
-    stateDirty: any
-    clockDirty: any
+    messages: object[]
+    polling: boolean
+    stateDirty: boolean
+    clockDirty: boolean
     providedClock: Clock
     clockProvider: Element
     priv: BinPrivate
@@ -2367,7 +2367,7 @@ export class Bin {
     object: Object
     stateLock: any
     stateCond: GLib.Cond
-    stateCookie: any
+    stateCookie: number
     currentState: State
     nextState: State
     pendingState: State
@@ -2375,24 +2375,24 @@ export class Bin {
     bus: Bus
     clock: Clock
     baseTime: ClockTimeDiff
-    numpads: any
-    pads: any[]
-    numsrcpads: any
-    srcpads: any[]
-    numsinkpads: any
-    sinkpads: any[]
-    padsCookie: any
+    numpads: number
+    pads: object[]
+    numsrcpads: number
+    srcpads: object[]
+    numsinkpads: number
+    sinkpads: object[]
+    padsCookie: number
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
+    flags: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.Bin */
-    add(element: Element): any
-    remove(element: Element): any
+    add(element: Element): boolean
+    remove(element: Element): boolean
     getByName(name: string): Element
     getByNameRecurseUp(name: string): Element
     getByInterface(iface: GObject.Type): Element
@@ -2402,26 +2402,26 @@ export class Bin {
     iterateSinks(): Iterator
     iterateSources(): Iterator
     iterateAllByInterface(iface: GObject.Type): Iterator
-    recalculateLatency(): any
+    recalculateLatency(): boolean
     findUnlinkedPad(direction: PadDirection): Pad
     findUnconnectedPad(direction: PadDirection): Pad
     /* Methods of Gst-0.10.Gst.Element */
-    requiresClock(): any
-    providesClock(): any
+    requiresClock(): boolean
+    providesClock(): boolean
     provideClock(): Clock
     getClock(): Clock
-    setClock(clock: Clock): any
+    setClock(clock: Clock): boolean
     setBaseTime(time: ClockTime): void
     getBaseTime(): ClockTime
     setStartTime(time: ClockTime): void
     getStartTime(): ClockTime
-    isIndexable(): any
+    isIndexable(): boolean
     setIndex(index: Index): void
     getIndex(): Index
     setBus(bus: Bus): void
     getBus(): Bus
-    addPad(pad: Pad): any
-    removePad(pad: Pad): any
+    addPad(pad: Pad): boolean
+    removePad(pad: Pad): boolean
     noMorePads(): void
     getPad(name: string): Pad
     getStaticPad(name: string): Pad
@@ -2430,49 +2430,49 @@ export class Bin {
     iteratePads(): Iterator
     iterateSrcPads(): Iterator
     iterateSinkPads(): Iterator
-    sendEvent(event: Event): any
-    seek(rate: number, format: Format, flags: SeekFlags, curType: SeekType, cur: any, stopType: SeekType, stop: any): any
+    sendEvent(event: Event): boolean
+    seek(rate: number, format: Format, flags: SeekFlags, curType: SeekType, cur: number, stopType: SeekType, stop: number): boolean
     getQueryTypes(): QueryType
-    query(query: Query): any
-    postMessage(message: Message): any
-    messageFull(type: MessageType, domain: GLib.Quark, code: any, text: string, debug: string, file: string, function_: string, line: any): void
-    isLockedState(): any
-    setLockedState(lockedState: any): any
-    syncStateWithParent(): any
+    query(query: Query): boolean
+    postMessage(message: Message): boolean
+    messageFull(type: MessageType, domain: GLib.Quark, code: number, text: string, debug: string, file: string, function_: string, line: number): void
+    isLockedState(): boolean
+    setLockedState(lockedState: boolean): boolean
+    syncStateWithParent(): boolean
     getState(timeout: ClockTime): { returnType: StateChangeReturn, state: State, pending: State }
     setState(state: State): StateChangeReturn
     abortState(): void
     changeState(transition: StateChange): StateChangeReturn
     continueState(ret: StateChangeReturn): StateChangeReturn
     lostState(): void
-    lostStateFull(newBaseTime: any): void
+    lostStateFull(newBaseTime: boolean): void
     getFactory(): ElementFactory
-    implementsInterface(ifaceType: GObject.Type): any
+    implementsInterface(ifaceType: GObject.Type): boolean
     createAllPads(): void
     getCompatiblePad(pad: Pad, caps: Caps): Pad
     getCompatiblePadTemplate(compattempl: PadTemplate): PadTemplate
-    link(dest: Element): any
-    linkFiltered(dest: Element, filter: Caps): any
+    link(dest: Element): boolean
+    linkFiltered(dest: Element, filter: Caps): boolean
     unlink(dest: Element): void
-    linkPads(srcpadname: string, dest: Element, destpadname: string): any
-    linkPadsFull(srcpadname: string, dest: Element, destpadname: string, flags: PadLinkCheck): any
+    linkPads(srcpadname: string, dest: Element, destpadname: string): boolean
+    linkPadsFull(srcpadname: string, dest: Element, destpadname: string, flags: PadLinkCheck): boolean
     unlinkPads(srcpadname: string, dest: Element, destpadname: string): void
-    linkPadsFiltered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): any
-    seekSimple(format: Format, seekFlags: SeekFlags, seekPos: any): any
-    queryPosition(format: Format): { returnType: any, cur: any }
-    queryDuration(format: Format): { returnType: any, duration: any }
-    queryConvert(srcFormat: Format, srcVal: any, destFormat: Format): { returnType: any, destVal: any }
+    linkPadsFiltered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): boolean
+    seekSimple(format: Format, seekFlags: SeekFlags, seekPos: number): boolean
+    queryPosition(format: Format): { returnType: boolean, cur: any }
+    queryDuration(format: Format): { returnType: boolean, duration: any }
+    queryConvert(srcFormat: Format, srcVal: number, destFormat: Format): { returnType: boolean, destVal: any }
     foundTagsForPad(pad: Pad, list: TagList): void
     foundTags(list: TagList): void
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -2502,10 +2502,10 @@ export class Bin {
     watchClosure(closure: GObject.Closure): void
     /* Methods of Gst-0.10.Gst.ChildProxy */
     getChildByName(name: string): Object
-    getChildByIndex(index: any): Object
-    getChildrenCount(): any
+    getChildByIndex(index: number): Object
+    getChildrenCount(): number
     /* Signals of Gst-0.10.Gst.Bin */
-    connect(sigName: "do-latency", callback: (($obj: Bin) => any)): number
+    connect(sigName: "do-latency", callback: (($obj: Bin) => boolean)): number
     on(sigName: "do-latency", callback: () => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "do-latency", callback: () => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "do-latency", callback: () => void): NodeJS.EventEmitter
@@ -2542,11 +2542,11 @@ export class Bin {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: Bin, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: Bin, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: Bin, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -2602,35 +2602,35 @@ export class Buffer {
     /* Fields of Gst-0.10.Gst.Buffer */
     miniObject: MiniObject
     data: any
-    size: any
+    size: number
     timestamp: ClockTime
     duration: ClockTime
     caps: Caps
-    offset: any
-    offsetEnd: any
+    offset: number
+    offsetEnd: number
     mallocData: any
     freeFunc: GLib.FreeFunc
     parent: Buffer
     gstReserved: any[]
     /* Fields of Gst-0.10.Gst.MiniObject */
     instance: GObject.TypeInstance
-    refcount: any
-    flags: any
+    refcount: number
+    flags: number
     /* Methods of Gst-0.10.Gst.Buffer */
     copyMetadata(src: Buffer, flags: BufferCopyFlags): void
-    isMetadataWritable(): any
+    isMetadataWritable(): boolean
     makeMetadataWritable(): Buffer
     getCaps(): Caps
     setCaps(caps: Caps): void
-    createSub(offset: any, size: any): Buffer
-    isSpanFast(buf2: Buffer): any
-    span(offset: any, buf2: Buffer, len: any): Buffer
+    createSub(offset: number, size: number): Buffer
+    isSpanFast(buf2: Buffer): boolean
+    span(offset: number, buf2: Buffer, len: number): Buffer
     merge(buf2: Buffer): Buffer
     join(buf2: Buffer): Buffer
     stamp(src: Buffer): void
     /* Methods of Gst-0.10.Gst.MiniObject */
     copy(): MiniObject
-    isWritable(): any
+    isWritable(): boolean
     makeWritable(): MiniObject
     ref(): MiniObject
     unref(): void
@@ -2641,23 +2641,23 @@ export class Buffer {
     /* Static methods and pseudo-constructors */
     static new(): Buffer
     static new(type: GObject.Type): Buffer
-    static newAndAlloc(size: any): Buffer
-    static tryNewAndAlloc(size: any): Buffer
+    static newAndAlloc(size: number): Buffer
+    static tryNewAndAlloc(size: number): Buffer
 }
 export class BufferList {
     /* Fields of Gst-0.10.Gst.MiniObject */
     instance: GObject.TypeInstance
-    refcount: any
-    flags: any
-    gstReserved: any
+    refcount: number
+    flags: number
+    gstReserved: object
     /* Methods of Gst-0.10.Gst.BufferList */
-    nGroups(): any
-    foreach(func: BufferListFunc, userData: any): void
-    get(group: any, idx: any): Buffer
+    nGroups(): number
+    foreach(func: BufferListFunc, userData: object): void
+    get(group: number, idx: number): Buffer
     iterate(): BufferListIterator
     /* Methods of Gst-0.10.Gst.MiniObject */
     copy(): MiniObject
-    isWritable(): any
+    isWritable(): boolean
     makeWritable(): MiniObject
     ref(): MiniObject
     unref(): void
@@ -2679,49 +2679,49 @@ export class Bus {
     queue: GLib.Queue
     queueLock: GLib.Mutex
     syncHandler: BusSyncHandler
-    syncHandlerData: any
-    signalWatchId: any
-    numSignalWatchers: any
+    syncHandlerData: object
+    signalWatchId: number
+    numSignalWatchers: number
     priv: BusPrivate
     gstReserved: any[]
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
+    flags: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.Bus */
-    post(message: Message): any
-    havePending(): any
+    post(message: Message): boolean
+    havePending(): boolean
     peek(): Message
     pop(): Message
     popFiltered(types: MessageType): Message
     timedPop(timeout: ClockTime): Message
     timedPopFiltered(timeout: ClockTime, types: MessageType): Message
-    setFlushing(flushing: any): void
-    setSyncHandler(func: BusSyncHandler, data: any): void
+    setFlushing(flushing: boolean): void
+    setSyncHandler(func: BusSyncHandler, data: object): void
     createWatch(): GLib.Source
-    addWatchFull(priority: any, func: BusFunc, userData: any): any
-    addWatch(func: BusFunc, userData: any): any
+    addWatchFull(priority: number, func: BusFunc, userData: object): number
+    addWatch(func: BusFunc, userData: object): number
     poll(events: MessageType, timeout: ClockTimeDiff): Message
-    asyncSignalFunc(message: Message, data: any): any
-    syncSignalHandler(message: Message, data: any): BusSyncReply
+    asyncSignalFunc(message: Message, data: object): boolean
+    syncSignalHandler(message: Message, data: object): BusSyncReply
     addSignalWatch(): void
-    addSignalWatchFull(priority: any): void
+    addSignalWatchFull(priority: number): void
     removeSignalWatch(): void
     enableSyncMessageEmission(): void
     disableSyncMessageEmission(): void
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -2766,11 +2766,11 @@ export class Bus {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: Bus, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: Bus, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: Bus, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -2807,17 +2807,17 @@ export class Bus {
     static $gtype: GObject.Type
 }
 export interface Clock_ConstructProps extends Object_ConstructProps {
-    stats?: any
-    timeout?: any
-    windowSize?: any
-    windowThreshold?: any
+    stats?: boolean
+    timeout?: number
+    windowSize?: number
+    windowThreshold?: number
 }
 export class Clock {
     /* Properties of Gst-0.10.Gst.Clock */
-    stats: any
-    timeout: any
-    windowSize: any
-    windowThreshold: any
+    stats: boolean
+    timeout: number
+    windowSize: number
+    windowThreshold: number
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.Clock */
@@ -2828,21 +2828,21 @@ export class Clock {
     rateNumerator: ClockTime
     rateDenominator: ClockTime
     lastTime: ClockTime
-    entries: any[]
+    entries: object[]
     entriesChanged: GLib.Cond
     resolution: ClockTime
     master: Clock
-    filling: any
-    timeIndex: any
+    filling: boolean
+    timeIndex: number
     times: ClockTime
     clockid: ClockID
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
-    gstReserved: any
+    flags: number
+    gstReserved: object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.Clock */
@@ -2851,23 +2851,23 @@ export class Clock {
     getTime(): ClockTime
     setCalibration(internal: ClockTime, external: ClockTime, rateNum: ClockTime, rateDenom: ClockTime): void
     getCalibration(internal: ClockTime, external: ClockTime, rateNum: ClockTime, rateDenom: ClockTime): void
-    setMaster(master: Clock): any
+    setMaster(master: Clock): boolean
     getMaster(): Clock
-    addObservation(slave: ClockTime, master: ClockTime): { returnType: any, rSquared: number }
+    addObservation(slave: ClockTime, master: ClockTime): { returnType: boolean, rSquared: number }
     getInternalTime(): ClockTime
     adjustUnlocked(internal: ClockTime): ClockTime
     unadjustUnlocked(external: ClockTime): ClockTime
     newSingleShotId(time: ClockTime): ClockID
     newPeriodicId(startTime: ClockTime, interval: ClockTime): ClockID
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -2901,11 +2901,11 @@ export class Clock {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: Clock, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: Clock, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: Clock, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -2960,7 +2960,7 @@ export class Clock {
     /* Static methods and pseudo-constructors */
     static idRef(id: ClockID): ClockID
     static idUnref(id: ClockID): void
-    static idCompareFunc(id1: any, id2: any): any
+    static idCompareFunc(id1: object, id2: object): number
     static idGetTime(id: ClockID): ClockTime
     static idWait(id: ClockID, jitter: ClockTimeDiff): ClockReturn
     static idWaitAsync(id: ClockID, func: ClockCallback): ClockReturn
@@ -2975,52 +2975,52 @@ export class CollectPads {
     name: string
     /* Fields of Gst-0.10.Gst.CollectPads */
     object: Object
-    data: any[]
-    cookie: any
+    data: object[]
+    cookie: number
     cond: GLib.Cond
     func: CollectPadsFunction
-    userData: any
-    numpads: any
-    queuedpads: any
-    eospads: any
-    started: any
+    userData: object
+    numpads: number
+    queuedpads: number
+    eospads: number
+    started: boolean
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
-    gstReserved: any
+    flags: number
+    gstReserved: object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.CollectPads */
-    setFunction(func: CollectPadsFunction, userData: any): void
-    setClipFunction(clipfunc: CollectPadsClipFunction, userData: any): void
-    addPad(pad: Pad, size: any): CollectData
-    addPadFull(pad: Pad, size: any, destroyNotify: CollectDataDestroyNotify): CollectData
-    removePad(pad: Pad): any
-    isActive(pad: Pad): any
+    setFunction(func: CollectPadsFunction, userData: object): void
+    setClipFunction(clipfunc: CollectPadsClipFunction, userData: object): void
+    addPad(pad: Pad, size: number): CollectData
+    addPadFull(pad: Pad, size: number, destroyNotify: CollectDataDestroyNotify): CollectData
+    removePad(pad: Pad): boolean
+    isActive(pad: Pad): boolean
     collect(): FlowReturn
-    collectRange(offset: any, length: any): FlowReturn
+    collectRange(offset: number, length: number): FlowReturn
     start(): void
     stop(): void
-    setFlushing(flushing: any): void
+    setFlushing(flushing: boolean): void
     peek(data: CollectData): Buffer
     pop(data: CollectData): Buffer
-    available(): any
-    read(data: CollectData, size: any): { returnType: any, bytes: any }
-    readBuffer(data: CollectData, size: any): Buffer
-    takeBuffer(data: CollectData, size: any): Buffer
-    flush(data: CollectData, size: any): any
+    available(): number
+    read(data: CollectData, size: number): { returnType: number, bytes: any }
+    readBuffer(data: CollectData, size: number): Buffer
+    takeBuffer(data: CollectData, size: number): Buffer
+    flush(data: CollectData, size: number): number
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -3054,11 +3054,11 @@ export class CollectPads {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: CollectPads, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: CollectPads, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: CollectPads, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -3098,9 +3098,9 @@ export interface DataQueue_ConstructProps extends GObject.Object_ConstructProps 
 }
 export class DataQueue {
     /* Properties of Gst-0.10.Gst.DataQueue */
-    readonly currentLevelBytes: any
-    readonly currentLevelTime: any
-    readonly currentLevelVisible: any
+    readonly currentLevelBytes: number
+    readonly currentLevelTime: number
+    readonly currentLevelVisible: number
     /* Fields of Gst-0.10.Gst.DataQueue */
     object: GObject.Object
     queue: GLib.Queue
@@ -3110,20 +3110,20 @@ export class DataQueue {
     qlock: GLib.Mutex
     itemAdd: GLib.Cond
     itemDel: GLib.Cond
-    flushing: any
+    flushing: boolean
     fullcallback: DataQueueFullCallback
     emptycallback: DataQueueEmptyCallback
     gstReserved: any[]
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.DataQueue */
-    push(item: DataQueueItem): any
-    pop(item: DataQueueItem): any
+    push(item: DataQueueItem): boolean
+    pop(item: DataQueueItem): boolean
     flush(): void
-    setFlushing(flushing: any): void
-    dropHead(type: GObject.Type): any
-    isFull(): any
-    isEmpty(): any
+    setFlushing(flushing: boolean): void
+    dropHead(type: GObject.Type): boolean
+    isFull(): boolean
+    isEmpty(): boolean
     getLevel(level: DataQueueSize): void
     limitsChanged(): void
     /* Methods of GObject-2.0.GObject.Object */
@@ -3204,7 +3204,7 @@ export class Element {
     object: Object
     stateLock: any
     stateCond: GLib.Cond
-    stateCookie: any
+    stateCookie: number
     currentState: State
     nextState: State
     pendingState: State
@@ -3212,39 +3212,39 @@ export class Element {
     bus: Bus
     clock: Clock
     baseTime: ClockTimeDiff
-    numpads: any
-    pads: any[]
-    numsrcpads: any
-    srcpads: any[]
-    numsinkpads: any
-    sinkpads: any[]
-    padsCookie: any
+    numpads: number
+    pads: object[]
+    numsrcpads: number
+    srcpads: object[]
+    numsinkpads: number
+    sinkpads: object[]
+    padsCookie: number
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
-    gstReserved: any
+    flags: number
+    gstReserved: object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.Element */
-    requiresClock(): any
-    providesClock(): any
+    requiresClock(): boolean
+    providesClock(): boolean
     provideClock(): Clock
     getClock(): Clock
-    setClock(clock: Clock): any
+    setClock(clock: Clock): boolean
     setBaseTime(time: ClockTime): void
     getBaseTime(): ClockTime
     setStartTime(time: ClockTime): void
     getStartTime(): ClockTime
-    isIndexable(): any
+    isIndexable(): boolean
     setIndex(index: Index): void
     getIndex(): Index
     setBus(bus: Bus): void
     getBus(): Bus
-    addPad(pad: Pad): any
-    removePad(pad: Pad): any
+    addPad(pad: Pad): boolean
+    removePad(pad: Pad): boolean
     noMorePads(): void
     getPad(name: string): Pad
     getStaticPad(name: string): Pad
@@ -3253,49 +3253,49 @@ export class Element {
     iteratePads(): Iterator
     iterateSrcPads(): Iterator
     iterateSinkPads(): Iterator
-    sendEvent(event: Event): any
-    seek(rate: number, format: Format, flags: SeekFlags, curType: SeekType, cur: any, stopType: SeekType, stop: any): any
+    sendEvent(event: Event): boolean
+    seek(rate: number, format: Format, flags: SeekFlags, curType: SeekType, cur: number, stopType: SeekType, stop: number): boolean
     getQueryTypes(): QueryType
-    query(query: Query): any
-    postMessage(message: Message): any
-    messageFull(type: MessageType, domain: GLib.Quark, code: any, text: string, debug: string, file: string, function_: string, line: any): void
-    isLockedState(): any
-    setLockedState(lockedState: any): any
-    syncStateWithParent(): any
+    query(query: Query): boolean
+    postMessage(message: Message): boolean
+    messageFull(type: MessageType, domain: GLib.Quark, code: number, text: string, debug: string, file: string, function_: string, line: number): void
+    isLockedState(): boolean
+    setLockedState(lockedState: boolean): boolean
+    syncStateWithParent(): boolean
     getState(timeout: ClockTime): { returnType: StateChangeReturn, state: State, pending: State }
     setState(state: State): StateChangeReturn
     abortState(): void
     changeState(transition: StateChange): StateChangeReturn
     continueState(ret: StateChangeReturn): StateChangeReturn
     lostState(): void
-    lostStateFull(newBaseTime: any): void
+    lostStateFull(newBaseTime: boolean): void
     getFactory(): ElementFactory
-    implementsInterface(ifaceType: GObject.Type): any
+    implementsInterface(ifaceType: GObject.Type): boolean
     createAllPads(): void
     getCompatiblePad(pad: Pad, caps: Caps): Pad
     getCompatiblePadTemplate(compattempl: PadTemplate): PadTemplate
-    link(dest: Element): any
-    linkFiltered(dest: Element, filter: Caps): any
+    link(dest: Element): boolean
+    linkFiltered(dest: Element, filter: Caps): boolean
     unlink(dest: Element): void
-    linkPads(srcpadname: string, dest: Element, destpadname: string): any
-    linkPadsFull(srcpadname: string, dest: Element, destpadname: string, flags: PadLinkCheck): any
+    linkPads(srcpadname: string, dest: Element, destpadname: string): boolean
+    linkPadsFull(srcpadname: string, dest: Element, destpadname: string, flags: PadLinkCheck): boolean
     unlinkPads(srcpadname: string, dest: Element, destpadname: string): void
-    linkPadsFiltered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): any
-    seekSimple(format: Format, seekFlags: SeekFlags, seekPos: any): any
-    queryPosition(format: Format): { returnType: any, cur: any }
-    queryDuration(format: Format): { returnType: any, duration: any }
-    queryConvert(srcFormat: Format, srcVal: any, destFormat: Format): { returnType: any, destVal: any }
+    linkPadsFiltered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): boolean
+    seekSimple(format: Format, seekFlags: SeekFlags, seekPos: number): boolean
+    queryPosition(format: Format): { returnType: boolean, cur: any }
+    queryDuration(format: Format): { returnType: boolean, duration: any }
+    queryConvert(srcFormat: Format, srcVal: number, destFormat: Format): { returnType: boolean, destVal: any }
     foundTagsForPad(pad: Pad, list: TagList): void
     foundTags(list: TagList): void
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -3345,11 +3345,11 @@ export class Element {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: Element, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: Element, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: Element, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -3382,7 +3382,7 @@ export class Element {
     constructor (config?: Element_ConstructProps)
     _init (config?: Element_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static register(plugin: Plugin, name: string, rank: any, type: GObject.Type): any
+    static register(plugin: Plugin, name: string, rank: number, type: GObject.Type): boolean
     static makeFromUri(type: URIType, uri: string, elementname: string): Element
     static stateGetName(state: State): string
     static stateChangeReturnGetName(stateRet: StateChangeReturn): string
@@ -3401,22 +3401,22 @@ export class ElementFactory {
     parent: PluginFeature
     type: GObject.Type
     details: ElementDetails
-    staticpadtemplates: any[]
-    numpadtemplates: any
-    uriType: any
+    staticpadtemplates: object[]
+    numpadtemplates: number
+    uriType: number
     uriProtocols: string
-    interfaces: any[]
+    interfaces: object[]
     gstReserved: any[]
     /* Fields of Gst-0.10.Gst.PluginFeature */
     object: Object
-    loaded: any
-    rank: any
+    loaded: boolean
+    rank: number
     pluginName: string
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
-    flags: any
+    flags: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.ElementFactory */
@@ -3425,29 +3425,29 @@ export class ElementFactory {
     getKlass(): string
     getDescription(): string
     getAuthor(): string
-    getNumPadTemplates(): any
-    getUriType(): any
+    getNumPadTemplates(): number
+    getUriType(): number
     getUriProtocols(): string[]
-    hasInterface(interfacename: string): any
+    hasInterface(interfacename: string): boolean
     create(name: string): Element
-    canSrcCaps(caps: Caps): any
-    canSinkCaps(caps: Caps): any
+    canSrcCaps(caps: Caps): boolean
+    canSinkCaps(caps: Caps): boolean
     /* Methods of Gst-0.10.Gst.PluginFeature */
     load(): PluginFeature
-    typeNameFilter(data: TypeNameData): any
-    setRank(rank: any): void
+    typeNameFilter(data: TypeNameData): boolean
+    setRank(rank: number): void
     setName(name: string): void
-    getRank(): any
+    getRank(): number
     getName(): string
-    checkVersion(minMajor: any, minMinor: any, minMicro: any): any
+    checkVersion(minMajor: number, minMinor: number, minMicro: number): boolean
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -3481,11 +3481,11 @@ export class ElementFactory {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: ElementFactory, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: ElementFactory, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: ElementFactory, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -3526,19 +3526,19 @@ export class Event {
     /* Fields of Gst-0.10.Gst.Event */
     miniObject: MiniObject
     type: EventType
-    timestamp: any
+    timestamp: number
     src: Object
     structure: Structure
     /* Fields of Gst-0.10.Gst.MiniObject */
     instance: GObject.TypeInstance
-    refcount: any
-    flags: any
-    gstReserved: any
+    refcount: number
+    flags: number
+    gstReserved: object
     /* Methods of Gst-0.10.Gst.Event */
     getStructure(): Structure
-    hasName(name: string): any
-    getSeqnum(): any
-    setSeqnum(seqnum: any): void
+    hasName(name: string): boolean
+    getSeqnum(): number
+    setSeqnum(seqnum: number): void
     parseNewSegment(format: Format): { update: any, rate: number, start: any, stop: any, position: any }
     parseNewSegmentFull(format: Format): { update: any, rate: number, appliedRate: number, start: any, stop: any, position: any }
     parseTag(taglist: TagList): void
@@ -3550,7 +3550,7 @@ export class Event {
     parseSinkMessage(msg: Message): void
     /* Methods of Gst-0.10.Gst.MiniObject */
     copy(): MiniObject
-    isWritable(): any
+    isWritable(): boolean
     makeWritable(): MiniObject
     ref(): MiniObject
     unref(): void
@@ -3561,15 +3561,15 @@ export class Event {
     static newFlushStart(): Event
     static newFlushStop(): Event
     static newEos(): Event
-    static newNewSegment(update: any, rate: number, format: Format, start: any, stop: any, position: any): Event
-    static newNewSegmentFull(update: any, rate: number, appliedRate: number, format: Format, start: any, stop: any, position: any): Event
+    static newNewSegment(update: boolean, rate: number, format: Format, start: number, stop: number, position: number): Event
+    static newNewSegmentFull(update: boolean, rate: number, appliedRate: number, format: Format, start: number, stop: number, position: number): Event
     static newTag(taglist: TagList): Event
-    static newBufferSize(format: Format, minsize: any, maxsize: any, async: any): Event
+    static newBufferSize(format: Format, minsize: number, maxsize: number, async: boolean): Event
     static newQos(proportion: number, diff: ClockTimeDiff, timestamp: ClockTime): Event
-    static newSeek(rate: number, format: Format, flags: SeekFlags, startType: SeekType, start: any, stopType: SeekType, stop: any): Event
+    static newSeek(rate: number, format: Format, flags: SeekFlags, startType: SeekType, start: number, stopType: SeekType, stop: number): Event
     static newNavigation(structure: Structure): Event
     static newLatency(latency: ClockTime): Event
-    static newStep(format: Format, amount: any, rate: number, flush: any, intermediate: any): Event
+    static newStep(format: Format, amount: number, rate: number, flush: boolean, intermediate: boolean): Event
     static newSinkMessage(msg: Message): Event
     static typeGetName(type: EventType): string
     static typeToQuark(type: EventType): GLib.Quark
@@ -3633,7 +3633,7 @@ export class GhostPad {
     priv: GhostPadPrivate
     /* Fields of Gst-0.10.Gst.Pad */
     object: Object
-    elementPrivate: any
+    elementPrivate: object
     padtemplate: PadTemplate
     direction: PadDirection
     streamRecLock: any
@@ -3642,7 +3642,7 @@ export class GhostPad {
     prerollCond: GLib.Cond
     blockCond: GLib.Cond
     blockCallback: PadBlockCallback
-    blockData: any
+    blockData: object
     getcapsfunc: PadGetCapsFunction
     setcapsfunc: PadSetCapsFunction
     acceptcapsfunc: PadAcceptCapsFunction
@@ -3653,7 +3653,7 @@ export class GhostPad {
     linkfunc: PadLinkFunction
     unlinkfunc: PadUnlinkFunction
     peer: Pad
-    schedPrivate: any
+    schedPrivate: object
     chainfunc: PadChainFunction
     checkgetrangefunc: PadCheckGetRangeFunction
     getrangefunc: PadGetRangeFunction
@@ -3663,40 +3663,40 @@ export class GhostPad {
     queryfunc: PadQueryFunction
     intlinkfunc: PadIntLinkFunction
     bufferallocfunc: PadBufferAllocFunction
-    doBufferSignals: any
-    doEventSignals: any
+    doBufferSignals: number
+    doEventSignals: number
     iterintlinkfunc: PadIterIntLinkFunction
     blockDestroyData: GLib.DestroyNotify
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
-    gstReserved: any
+    flags: number
+    gstReserved: object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.GhostPad */
     getTarget(): Pad
-    setTarget(newtarget: Pad): any
-    construct(): any
+    setTarget(newtarget: Pad): boolean
+    construct(): boolean
     /* Methods of Gst-0.10.Gst.Pad */
     getDirection(): PadDirection
-    setActive(active: any): any
-    isActive(): any
-    activatePull(active: any): any
-    activatePush(active: any): any
-    setBlocked(blocked: any): any
-    setBlockedAsync(blocked: any, callback: PadBlockCallback, userData: any): any
-    setBlockedAsyncFull(blocked: any, callback: PadBlockCallback, userData: any): any
-    isBlocked(): any
-    isBlocking(): any
-    setElementPrivate(priv: any): void
-    getElementPrivate(): any
+    setActive(active: boolean): boolean
+    isActive(): boolean
+    activatePull(active: boolean): boolean
+    activatePush(active: boolean): boolean
+    setBlocked(blocked: boolean): boolean
+    setBlockedAsync(blocked: boolean, callback: PadBlockCallback, userData: object): boolean
+    setBlockedAsyncFull(blocked: boolean, callback: PadBlockCallback, userData: object): boolean
+    isBlocked(): boolean
+    isBlocking(): boolean
+    setElementPrivate(priv: object): void
+    getElementPrivate(): object
     getPadTemplate(): PadTemplate
     setBufferallocFunction(bufalloc: PadBufferAllocFunction): void
-    allocBuffer(offset: any, size: any, caps: Caps, buf: Buffer): FlowReturn
-    allocBufferAndSetCaps(offset: any, size: any, caps: Caps, buf: Buffer): FlowReturn
+    allocBuffer(offset: number, size: number, caps: Caps, buf: Buffer): FlowReturn
+    allocBufferAndSetCaps(offset: number, size: number, caps: Caps, buf: Buffer): FlowReturn
     setActivateFunction(activate: PadActivateFunction): void
     setActivatepullFunction(activatepull: PadActivateModeFunction): void
     setActivatepushFunction(activatepush: PadActivateModeFunction): void
@@ -3707,11 +3707,11 @@ export class GhostPad {
     setEventFunction(event: PadEventFunction): void
     setLinkFunction(link: PadLinkFunction): void
     setUnlinkFunction(unlink: PadUnlinkFunction): void
-    canLink(sinkpad: Pad): any
+    canLink(sinkpad: Pad): boolean
     link(sinkpad: Pad): PadLinkReturn
     linkFull(sinkpad: Pad, flags: PadLinkCheck): PadLinkReturn
-    unlink(sinkpad: Pad): any
-    isLinked(): any
+    unlink(sinkpad: Pad): boolean
+    isLinked(): boolean
     getPeer(): Pad
     setGetcapsFunction(getcaps: PadGetCapsFunction): void
     setAcceptcapsFunction(acceptcaps: PadAcceptCapsFunction): void
@@ -3721,26 +3721,26 @@ export class GhostPad {
     getCapsReffed(): Caps
     getCaps(): Caps
     fixateCaps(caps: Caps): void
-    acceptCaps(caps: Caps): any
-    setCaps(caps: Caps): any
+    acceptCaps(caps: Caps): boolean
+    setCaps(caps: Caps): boolean
     peerGetCapsReffed(): Caps
     peerGetCaps(): Caps
-    peerAcceptCaps(caps: Caps): any
+    peerAcceptCaps(caps: Caps): boolean
     getAllowedCaps(): Caps
     getNegotiatedCaps(): Caps
     push(buffer: Buffer): FlowReturn
     pushList(list: BufferList): FlowReturn
-    checkPullRange(): any
-    pullRange(offset: any, size: any, buffer: Buffer): FlowReturn
-    pushEvent(event: Event): any
-    eventDefault(event: Event): any
+    checkPullRange(): boolean
+    pullRange(offset: number, size: number, buffer: Buffer): FlowReturn
+    pushEvent(event: Event): boolean
+    eventDefault(event: Event): boolean
     chain(buffer: Buffer): FlowReturn
     chainList(list: BufferList): FlowReturn
-    getRange(offset: any, size: any, buffer: Buffer): FlowReturn
-    sendEvent(event: Event): any
-    startTask(func: TaskFunction, data: any): any
-    pauseTask(): any
-    stopTask(): any
+    getRange(offset: number, size: number, buffer: Buffer): FlowReturn
+    sendEvent(event: Event): boolean
+    startTask(func: TaskFunction, data: object): boolean
+    pauseTask(): boolean
+    stopTask(): boolean
     setInternalLinkFunction(intlink: PadIntLinkFunction): void
     setIterateInternalLinksFunction(iterintlink: PadIterIntLinkFunction): void
     iterateInternalLinks(): Iterator
@@ -3748,40 +3748,40 @@ export class GhostPad {
     setQueryTypeFunction(typeFunc: PadQueryTypeFunction): void
     getQueryTypes(): QueryType
     getQueryTypesDefault(): QueryType
-    query(query: Query): any
-    peerQuery(query: Query): any
+    query(query: Query): boolean
+    peerQuery(query: Query): boolean
     setQueryFunction(query: PadQueryFunction): void
-    queryDefault(query: Query): any
-    dispatcher(dispatch: PadDispatcherFunction, data: any): any
+    queryDefault(query: Query): boolean
+    dispatcher(dispatch: PadDispatcherFunction, data: object): boolean
     useFixedCaps(): void
     getFixedCapsFunc(): Caps
     proxyGetcaps(): Caps
-    proxySetcaps(caps: Caps): any
+    proxySetcaps(caps: Caps): boolean
     getParentElement(): Element
-    queryPosition(format: Format): { returnType: any, cur: any }
-    queryDuration(format: Format): { returnType: any, duration: any }
-    queryConvert(srcFormat: Format, srcVal: any, destFormat: Format): { returnType: any, destVal: any }
-    queryPeerPosition(format: Format): { returnType: any, cur: any }
-    queryPeerDuration(format: Format): { returnType: any, duration: any }
-    queryPeerConvert(srcFormat: Format, srcVal: any, destFormat: Format): { returnType: any, destVal: any }
-    addDataProbe(handler: GObject.Callback, data: any): any
-    addDataProbeFull(handler: GObject.Callback, data: any): any
-    removeDataProbe(handlerId: any): void
-    addEventProbe(handler: GObject.Callback, data: any): any
-    addEventProbeFull(handler: GObject.Callback, data: any): any
-    removeEventProbe(handlerId: any): void
-    addBufferProbe(handler: GObject.Callback, data: any): any
-    addBufferProbeFull(handler: GObject.Callback, data: any): any
-    removeBufferProbe(handlerId: any): void
+    queryPosition(format: Format): { returnType: boolean, cur: any }
+    queryDuration(format: Format): { returnType: boolean, duration: any }
+    queryConvert(srcFormat: Format, srcVal: number, destFormat: Format): { returnType: boolean, destVal: any }
+    queryPeerPosition(format: Format): { returnType: boolean, cur: any }
+    queryPeerDuration(format: Format): { returnType: boolean, duration: any }
+    queryPeerConvert(srcFormat: Format, srcVal: number, destFormat: Format): { returnType: boolean, destVal: any }
+    addDataProbe(handler: GObject.Callback, data: object): number
+    addDataProbeFull(handler: GObject.Callback, data: object): number
+    removeDataProbe(handlerId: number): void
+    addEventProbe(handler: GObject.Callback, data: object): number
+    addEventProbeFull(handler: GObject.Callback, data: object): number
+    removeEventProbe(handlerId: number): void
+    addBufferProbe(handler: GObject.Callback, data: object): number
+    addBufferProbeFull(handler: GObject.Callback, data: object): number
+    removeBufferProbe(handlerId: number): void
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -3810,7 +3810,7 @@ export class GhostPad {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Signals of Gst-0.10.Gst.Pad */
-    connect(sigName: "have-data", callback: (($obj: GhostPad, object: MiniObject) => any)): number
+    connect(sigName: "have-data", callback: (($obj: GhostPad, object: MiniObject) => boolean)): number
     on(sigName: "have-data", callback: (object: MiniObject) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "have-data", callback: (object: MiniObject) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "have-data", callback: (object: MiniObject) => void): NodeJS.EventEmitter
@@ -3836,11 +3836,11 @@ export class GhostPad {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: GhostPad, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: GhostPad, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: GhostPad, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -3901,53 +3901,53 @@ export class Index {
     name: string
     /* Fields of Gst-0.10.Gst.Index */
     object: Object
-    groups: any[]
+    groups: object[]
     curgroup: IndexGroup
-    maxgroup: any
+    maxgroup: number
     method: IndexResolverMethod
-    resolverUserData: any
+    resolverUserData: object
     filter: IndexFilter
-    filterUserData: any
+    filterUserData: object
     filterUserDataDestroy: GLib.DestroyNotify
     writers: GLib.HashTable
-    lastId: any
+    lastId: number
     resolverUserDataDestroy: GLib.DestroyNotify
     gstReserved: any[]
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
+    flags: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.Index */
-    commit(id: any): void
-    getGroup(): any
-    newGroup(): any
-    setGroup(groupnum: any): any
+    commit(id: number): void
+    getGroup(): number
+    newGroup(): number
+    setGroup(groupnum: number): boolean
     setCertainty(certainty: IndexCertainty): void
     getCertainty(): IndexCertainty
-    setFilter(filter: IndexFilter, userData: any): void
-    setFilterFull(filter: IndexFilter, userData: any): void
-    setResolver(resolver: IndexResolver, userData: any): void
-    setResolverFull(resolver: IndexResolver, userData: any): void
-    getWriterId(writer: Object): { returnType: any, id: any }
-    addFormat(id: any, format: Format): IndexEntry
-    addAssociationv(id: any, flags: AssocFlags, n: any, list: IndexAssociation): IndexEntry
-    addObject(id: any, key: string, type: GObject.Type, object: any): IndexEntry
-    addId(id: any, description: string): IndexEntry
-    getAssocEntry(id: any, method: IndexLookupMethod, flags: AssocFlags, format: Format, value: any): IndexEntry
-    getAssocEntryFull(id: any, method: IndexLookupMethod, flags: AssocFlags, format: Format, value: any, func: GLib.CompareDataFunc, userData: any): IndexEntry
+    setFilter(filter: IndexFilter, userData: object): void
+    setFilterFull(filter: IndexFilter, userData: object): void
+    setResolver(resolver: IndexResolver, userData: object): void
+    setResolverFull(resolver: IndexResolver, userData: object): void
+    getWriterId(writer: Object): { returnType: boolean, id: any }
+    addFormat(id: number, format: Format): IndexEntry
+    addAssociationv(id: number, flags: AssocFlags, n: number, list: IndexAssociation): IndexEntry
+    addObject(id: number, key: string, type: GObject.Type, object: object): IndexEntry
+    addId(id: number, description: string): IndexEntry
+    getAssocEntry(id: number, method: IndexLookupMethod, flags: AssocFlags, format: Format, value: number): IndexEntry
+    getAssocEntryFull(id: number, method: IndexLookupMethod, flags: AssocFlags, format: Format, value: number, func: GLib.CompareDataFunc, userData: object): IndexEntry
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -3987,11 +3987,11 @@ export class Index {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: Index, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: Index, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: Index, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -4044,15 +4044,15 @@ export class IndexFactory {
     gstReserved: any[]
     /* Fields of Gst-0.10.Gst.PluginFeature */
     object: Object
-    loaded: any
-    rank: any
+    loaded: boolean
+    rank: number
     pluginName: string
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
+    flags: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.IndexFactory */
@@ -4060,20 +4060,20 @@ export class IndexFactory {
     create(): Index
     /* Methods of Gst-0.10.Gst.PluginFeature */
     load(): PluginFeature
-    typeNameFilter(data: TypeNameData): any
-    setRank(rank: any): void
+    typeNameFilter(data: TypeNameData): boolean
+    setRank(rank: number): void
     setName(name: string): void
-    getRank(): any
+    getRank(): number
     getName(): string
-    checkVersion(minMajor: any, minMinor: any, minMicro: any): any
+    checkVersion(minMajor: number, minMinor: number, minMicro: number): boolean
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -4107,11 +4107,11 @@ export class IndexFactory {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: IndexFactory, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: IndexFactory, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: IndexFactory, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -4155,24 +4155,24 @@ export class Message {
     lock: GLib.Mutex
     cond: GLib.Cond
     type: MessageType
-    timestamp: any
+    timestamp: number
     src: Object
     structure: Structure
     /* Fields of Gst-0.10.Gst.MiniObject */
     instance: GObject.TypeInstance
-    refcount: any
-    flags: any
-    gstReserved: any
+    refcount: number
+    flags: number
+    gstReserved: object
     /* Methods of Gst-0.10.Gst.Message */
-    getSeqnum(): any
-    setSeqnum(seqnum: any): void
+    getSeqnum(): number
+    setSeqnum(seqnum: number): void
     parseError(gerror: GLib.Error, debug: string[]): void
     parseWarning(gerror: GLib.Error, debug: string[]): void
     parseInfo(gerror: GLib.Error, debug: string[]): void
     parseTag(tagList: TagList): void
     parseTagFull(pad: Pad, tagList: TagList): void
     parseBuffering(): { percent: any }
-    setBufferingStats(mode: BufferingMode, avgIn: any, avgOut: any, bufferingLeft: any): void
+    setBufferingStats(mode: BufferingMode, avgIn: number, avgOut: number, bufferingLeft: number): void
     parseBufferingStats(mode: BufferingMode): { avgIn: any, avgOut: any, bufferingLeft: any }
     parseStateChanged(oldstate: State, newstate: State, pending: State): void
     parseStepDone(format: Format): { amount: any, rate: number, flush: any, intermediate: any, duration: any, eos: any }
@@ -4189,15 +4189,15 @@ export class Message {
     getStreamStatusObject(): any
     parseRequestState(state: State): void
     parseStepStart(format: Format): { active: any, amount: any, rate: number, flush: any, intermediate: any }
-    setQosValues(jitter: any, proportion: number, quality: any): void
-    setQosStats(format: Format, processed: any, dropped: any): void
+    setQosValues(jitter: number, proportion: number, quality: number): void
+    setQosStats(format: Format, processed: number, dropped: number): void
     parseQos(): { live: any, runningTime: any, streamTime: any, timestamp: any, duration: any }
     parseQosValues(): { jitter: any, proportion: number, quality: any }
     parseQosStats(format: Format): { processed: any, dropped: any }
     getStructure(): Structure
     /* Methods of Gst-0.10.Gst.MiniObject */
     copy(): MiniObject
-    isWritable(): any
+    isWritable(): boolean
     makeWritable(): MiniObject
     ref(): MiniObject
     unref(): void
@@ -4210,26 +4210,26 @@ export class Message {
     static newInfo(src: Object, error: GLib.Error, debug: string): Message
     static newTag(src: Object, tagList: TagList): Message
     static newTagFull(src: Object, pad: Pad, tagList: TagList): Message
-    static newBuffering(src: Object, percent: any): Message
+    static newBuffering(src: Object, percent: number): Message
     static newStateChanged(src: Object, oldstate: State, newstate: State, pending: State): Message
     static newStateDirty(src: Object): Message
-    static newStepDone(src: Object, format: Format, amount: any, rate: number, flush: any, intermediate: any, duration: any, eos: any): Message
-    static newClockProvide(src: Object, clock: Clock, ready: any): Message
+    static newStepDone(src: Object, format: Format, amount: number, rate: number, flush: boolean, intermediate: boolean, duration: number, eos: boolean): Message
+    static newClockProvide(src: Object, clock: Clock, ready: boolean): Message
     static newClockLost(src: Object, clock: Clock): Message
     static newNewClock(src: Object, clock: Clock): Message
     static newApplication(src: Object, structure: Structure): Message
     static newElement(src: Object, structure: Structure): Message
-    static newSegmentStart(src: Object, format: Format, position: any): Message
-    static newSegmentDone(src: Object, format: Format, position: any): Message
-    static newDuration(src: Object, format: Format, duration: any): Message
+    static newSegmentStart(src: Object, format: Format, position: number): Message
+    static newSegmentDone(src: Object, format: Format, position: number): Message
+    static newDuration(src: Object, format: Format, duration: number): Message
     static newLatency(src: Object): Message
-    static newAsyncStart(src: Object, newBaseTime: any): Message
+    static newAsyncStart(src: Object, newBaseTime: boolean): Message
     static newAsyncDone(src: Object): Message
-    static newStructureChange(src: Object, type: StructureChangeType, owner: Element, busy: any): Message
+    static newStructureChange(src: Object, type: StructureChangeType, owner: Element, busy: boolean): Message
     static newStreamStatus(src: Object, type: StreamStatusType, owner: Element): Message
     static newRequestState(src: Object, state: State): Message
-    static newStepStart(src: Object, active: any, format: Format, amount: any, rate: number, flush: any, intermediate: any): Message
-    static newQos(src: Object, live: any, runningTime: any, streamTime: any, timestamp: any, duration: any): Message
+    static newStepStart(src: Object, active: boolean, format: Format, amount: number, rate: number, flush: boolean, intermediate: boolean): Message
+    static newQos(src: Object, live: boolean, runningTime: number, streamTime: number, timestamp: number, duration: number): Message
     static newCustom(type: MessageType, src: Object, structure: Structure): Message
     static typeGetName(type: MessageType): string
     static typeToQuark(type: MessageType): GLib.Quark
@@ -4237,12 +4237,12 @@ export class Message {
 export class MiniObject {
     /* Fields of Gst-0.10.Gst.MiniObject */
     instance: GObject.TypeInstance
-    refcount: any
-    flags: any
-    gstReserved: any
+    refcount: number
+    flags: number
+    gstReserved: object
     /* Methods of Gst-0.10.Gst.MiniObject */
     copy(): MiniObject
-    isWritable(): any
+    isWritable(): boolean
     makeWritable(): MiniObject
     ref(): MiniObject
     unref(): void
@@ -4261,23 +4261,23 @@ export class Object {
     name: string
     /* Fields of Gst-0.10.Gst.Object */
     object: GObject.Object
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
-    gstReserved: any
+    flags: number
+    gstReserved: object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -4311,11 +4311,11 @@ export class Object {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: Object, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: Object, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: Object, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -4349,10 +4349,10 @@ export class Object {
     _init (config?: Object_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static defaultDeepNotify(object: GObject.Object, orig: Object, pspec: GObject.ParamSpec, excludedProps: string[]): void
-    static ref(object: any): any
-    static unref(object: any): void
-    static refSink(object: any): void
-    static sink(object: any): void
+    static ref(object: object): object
+    static unref(object: object): void
+    static refSink(object: object): void
+    static sink(object: object): void
     static $gtype: GObject.Type
 }
 export interface Pad_ConstructProps extends Object_ConstructProps {
@@ -4367,7 +4367,7 @@ export class Pad {
     name: string
     /* Fields of Gst-0.10.Gst.Pad */
     object: Object
-    elementPrivate: any
+    elementPrivate: object
     padtemplate: PadTemplate
     direction: PadDirection
     streamRecLock: any
@@ -4376,7 +4376,7 @@ export class Pad {
     prerollCond: GLib.Cond
     blockCond: GLib.Cond
     blockCallback: PadBlockCallback
-    blockData: any
+    blockData: object
     getcapsfunc: PadGetCapsFunction
     setcapsfunc: PadSetCapsFunction
     acceptcapsfunc: PadAcceptCapsFunction
@@ -4387,7 +4387,7 @@ export class Pad {
     linkfunc: PadLinkFunction
     unlinkfunc: PadUnlinkFunction
     peer: Pad
-    schedPrivate: any
+    schedPrivate: object
     chainfunc: PadChainFunction
     checkgetrangefunc: PadCheckGetRangeFunction
     getrangefunc: PadGetRangeFunction
@@ -4397,36 +4397,36 @@ export class Pad {
     queryfunc: PadQueryFunction
     intlinkfunc: PadIntLinkFunction
     bufferallocfunc: PadBufferAllocFunction
-    doBufferSignals: any
-    doEventSignals: any
+    doBufferSignals: number
+    doEventSignals: number
     iterintlinkfunc: PadIterIntLinkFunction
     blockDestroyData: GLib.DestroyNotify
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
-    gstReserved: any
+    flags: number
+    gstReserved: object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.Pad */
     getDirection(): PadDirection
-    setActive(active: any): any
-    isActive(): any
-    activatePull(active: any): any
-    activatePush(active: any): any
-    setBlocked(blocked: any): any
-    setBlockedAsync(blocked: any, callback: PadBlockCallback, userData: any): any
-    setBlockedAsyncFull(blocked: any, callback: PadBlockCallback, userData: any): any
-    isBlocked(): any
-    isBlocking(): any
-    setElementPrivate(priv: any): void
-    getElementPrivate(): any
+    setActive(active: boolean): boolean
+    isActive(): boolean
+    activatePull(active: boolean): boolean
+    activatePush(active: boolean): boolean
+    setBlocked(blocked: boolean): boolean
+    setBlockedAsync(blocked: boolean, callback: PadBlockCallback, userData: object): boolean
+    setBlockedAsyncFull(blocked: boolean, callback: PadBlockCallback, userData: object): boolean
+    isBlocked(): boolean
+    isBlocking(): boolean
+    setElementPrivate(priv: object): void
+    getElementPrivate(): object
     getPadTemplate(): PadTemplate
     setBufferallocFunction(bufalloc: PadBufferAllocFunction): void
-    allocBuffer(offset: any, size: any, caps: Caps, buf: Buffer): FlowReturn
-    allocBufferAndSetCaps(offset: any, size: any, caps: Caps, buf: Buffer): FlowReturn
+    allocBuffer(offset: number, size: number, caps: Caps, buf: Buffer): FlowReturn
+    allocBufferAndSetCaps(offset: number, size: number, caps: Caps, buf: Buffer): FlowReturn
     setActivateFunction(activate: PadActivateFunction): void
     setActivatepullFunction(activatepull: PadActivateModeFunction): void
     setActivatepushFunction(activatepush: PadActivateModeFunction): void
@@ -4437,11 +4437,11 @@ export class Pad {
     setEventFunction(event: PadEventFunction): void
     setLinkFunction(link: PadLinkFunction): void
     setUnlinkFunction(unlink: PadUnlinkFunction): void
-    canLink(sinkpad: Pad): any
+    canLink(sinkpad: Pad): boolean
     link(sinkpad: Pad): PadLinkReturn
     linkFull(sinkpad: Pad, flags: PadLinkCheck): PadLinkReturn
-    unlink(sinkpad: Pad): any
-    isLinked(): any
+    unlink(sinkpad: Pad): boolean
+    isLinked(): boolean
     getPeer(): Pad
     setGetcapsFunction(getcaps: PadGetCapsFunction): void
     setAcceptcapsFunction(acceptcaps: PadAcceptCapsFunction): void
@@ -4451,26 +4451,26 @@ export class Pad {
     getCapsReffed(): Caps
     getCaps(): Caps
     fixateCaps(caps: Caps): void
-    acceptCaps(caps: Caps): any
-    setCaps(caps: Caps): any
+    acceptCaps(caps: Caps): boolean
+    setCaps(caps: Caps): boolean
     peerGetCapsReffed(): Caps
     peerGetCaps(): Caps
-    peerAcceptCaps(caps: Caps): any
+    peerAcceptCaps(caps: Caps): boolean
     getAllowedCaps(): Caps
     getNegotiatedCaps(): Caps
     push(buffer: Buffer): FlowReturn
     pushList(list: BufferList): FlowReturn
-    checkPullRange(): any
-    pullRange(offset: any, size: any, buffer: Buffer): FlowReturn
-    pushEvent(event: Event): any
-    eventDefault(event: Event): any
+    checkPullRange(): boolean
+    pullRange(offset: number, size: number, buffer: Buffer): FlowReturn
+    pushEvent(event: Event): boolean
+    eventDefault(event: Event): boolean
     chain(buffer: Buffer): FlowReturn
     chainList(list: BufferList): FlowReturn
-    getRange(offset: any, size: any, buffer: Buffer): FlowReturn
-    sendEvent(event: Event): any
-    startTask(func: TaskFunction, data: any): any
-    pauseTask(): any
-    stopTask(): any
+    getRange(offset: number, size: number, buffer: Buffer): FlowReturn
+    sendEvent(event: Event): boolean
+    startTask(func: TaskFunction, data: object): boolean
+    pauseTask(): boolean
+    stopTask(): boolean
     setInternalLinkFunction(intlink: PadIntLinkFunction): void
     setIterateInternalLinksFunction(iterintlink: PadIterIntLinkFunction): void
     iterateInternalLinks(): Iterator
@@ -4478,40 +4478,40 @@ export class Pad {
     setQueryTypeFunction(typeFunc: PadQueryTypeFunction): void
     getQueryTypes(): QueryType
     getQueryTypesDefault(): QueryType
-    query(query: Query): any
-    peerQuery(query: Query): any
+    query(query: Query): boolean
+    peerQuery(query: Query): boolean
     setQueryFunction(query: PadQueryFunction): void
-    queryDefault(query: Query): any
-    dispatcher(dispatch: PadDispatcherFunction, data: any): any
+    queryDefault(query: Query): boolean
+    dispatcher(dispatch: PadDispatcherFunction, data: object): boolean
     useFixedCaps(): void
     getFixedCapsFunc(): Caps
     proxyGetcaps(): Caps
-    proxySetcaps(caps: Caps): any
+    proxySetcaps(caps: Caps): boolean
     getParentElement(): Element
-    queryPosition(format: Format): { returnType: any, cur: any }
-    queryDuration(format: Format): { returnType: any, duration: any }
-    queryConvert(srcFormat: Format, srcVal: any, destFormat: Format): { returnType: any, destVal: any }
-    queryPeerPosition(format: Format): { returnType: any, cur: any }
-    queryPeerDuration(format: Format): { returnType: any, duration: any }
-    queryPeerConvert(srcFormat: Format, srcVal: any, destFormat: Format): { returnType: any, destVal: any }
-    addDataProbe(handler: GObject.Callback, data: any): any
-    addDataProbeFull(handler: GObject.Callback, data: any): any
-    removeDataProbe(handlerId: any): void
-    addEventProbe(handler: GObject.Callback, data: any): any
-    addEventProbeFull(handler: GObject.Callback, data: any): any
-    removeEventProbe(handlerId: any): void
-    addBufferProbe(handler: GObject.Callback, data: any): any
-    addBufferProbeFull(handler: GObject.Callback, data: any): any
-    removeBufferProbe(handlerId: any): void
+    queryPosition(format: Format): { returnType: boolean, cur: any }
+    queryDuration(format: Format): { returnType: boolean, duration: any }
+    queryConvert(srcFormat: Format, srcVal: number, destFormat: Format): { returnType: boolean, destVal: any }
+    queryPeerPosition(format: Format): { returnType: boolean, cur: any }
+    queryPeerDuration(format: Format): { returnType: boolean, duration: any }
+    queryPeerConvert(srcFormat: Format, srcVal: number, destFormat: Format): { returnType: boolean, destVal: any }
+    addDataProbe(handler: GObject.Callback, data: object): number
+    addDataProbeFull(handler: GObject.Callback, data: object): number
+    removeDataProbe(handlerId: number): void
+    addEventProbe(handler: GObject.Callback, data: object): number
+    addEventProbeFull(handler: GObject.Callback, data: object): number
+    removeEventProbe(handlerId: number): void
+    addBufferProbe(handler: GObject.Callback, data: object): number
+    addBufferProbeFull(handler: GObject.Callback, data: object): number
+    removeBufferProbe(handlerId: number): void
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -4540,7 +4540,7 @@ export class Pad {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Signals of Gst-0.10.Gst.Pad */
-    connect(sigName: "have-data", callback: (($obj: Pad, object: MiniObject) => any)): number
+    connect(sigName: "have-data", callback: (($obj: Pad, object: MiniObject) => boolean)): number
     on(sigName: "have-data", callback: (object: MiniObject) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "have-data", callback: (object: MiniObject) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "have-data", callback: (object: MiniObject) => void): NodeJS.EventEmitter
@@ -4566,11 +4566,11 @@ export class Pad {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: Pad, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: Pad, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: Pad, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -4636,25 +4636,25 @@ export class PadTemplate {
     caps: Caps
     gstReserved: any[]
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
+    flags: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.PadTemplate */
     getCaps(): Caps
     padCreated(pad: Pad): void
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -4694,11 +4694,11 @@ export class PadTemplate {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: PadTemplate, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: PadTemplate, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: PadTemplate, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -4780,15 +4780,15 @@ export class ParamFraction {
     static $gtype: GObject.Type
 }
 export interface Pipeline_ConstructProps extends Bin_ConstructProps {
-    autoFlushBus?: any
-    delay?: any
+    autoFlushBus?: boolean
+    delay?: number
 }
 export class Pipeline {
     /* Properties of Gst-0.10.Gst.Pipeline */
-    autoFlushBus: any
-    delay: any
+    autoFlushBus: boolean
+    delay: number
     /* Properties of Gst-0.10.Gst.Bin */
-    asyncHandling: any
+    asyncHandling: boolean
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.Pipeline */
@@ -4799,21 +4799,21 @@ export class Pipeline {
     gstReserved: any[]
     /* Fields of Gst-0.10.Gst.Bin */
     element: Element
-    numchildren: any
-    children: any[]
-    childrenCookie: any
+    numchildren: number
+    children: object[]
+    childrenCookie: number
     childBus: Bus
-    messages: any[]
-    polling: any
-    stateDirty: any
-    clockDirty: any
+    messages: object[]
+    polling: boolean
+    stateDirty: boolean
+    clockDirty: boolean
     providedClock: Clock
     clockProvider: Element
     /* Fields of Gst-0.10.Gst.Element */
     object: Object
     stateLock: any
     stateCond: GLib.Cond
-    stateCookie: any
+    stateCookie: number
     currentState: State
     nextState: State
     pendingState: State
@@ -4821,19 +4821,19 @@ export class Pipeline {
     bus: Bus
     clock: Clock
     baseTime: ClockTimeDiff
-    numpads: any
-    pads: any[]
-    numsrcpads: any
-    srcpads: any[]
-    numsinkpads: any
-    sinkpads: any[]
-    padsCookie: any
+    numpads: number
+    pads: object[]
+    numsrcpads: number
+    srcpads: object[]
+    numsinkpads: number
+    sinkpads: object[]
+    padsCookie: number
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
+    flags: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.Pipeline */
@@ -4841,16 +4841,16 @@ export class Pipeline {
     setNewStreamTime(time: ClockTime): void
     getLastStreamTime(): ClockTime
     useClock(clock: Clock): void
-    setClock(clock: Clock): any
+    setClock(clock: Clock): boolean
     getClock(): Clock
     autoClock(): void
     setDelay(delay: ClockTime): void
     getDelay(): ClockTime
-    setAutoFlushBus(autoFlush: any): void
-    getAutoFlushBus(): any
+    setAutoFlushBus(autoFlush: boolean): void
+    getAutoFlushBus(): boolean
     /* Methods of Gst-0.10.Gst.Bin */
-    add(element: Element): any
-    remove(element: Element): any
+    add(element: Element): boolean
+    remove(element: Element): boolean
     getByName(name: string): Element
     getByNameRecurseUp(name: string): Element
     getByInterface(iface: GObject.Type): Element
@@ -4860,23 +4860,23 @@ export class Pipeline {
     iterateSinks(): Iterator
     iterateSources(): Iterator
     iterateAllByInterface(iface: GObject.Type): Iterator
-    recalculateLatency(): any
+    recalculateLatency(): boolean
     findUnlinkedPad(direction: PadDirection): Pad
     findUnconnectedPad(direction: PadDirection): Pad
     /* Methods of Gst-0.10.Gst.Element */
-    requiresClock(): any
-    providesClock(): any
+    requiresClock(): boolean
+    providesClock(): boolean
     provideClock(): Clock
     setBaseTime(time: ClockTime): void
     getBaseTime(): ClockTime
     setStartTime(time: ClockTime): void
     getStartTime(): ClockTime
-    isIndexable(): any
+    isIndexable(): boolean
     setIndex(index: Index): void
     getIndex(): Index
     setBus(bus: Bus): void
-    addPad(pad: Pad): any
-    removePad(pad: Pad): any
+    addPad(pad: Pad): boolean
+    removePad(pad: Pad): boolean
     noMorePads(): void
     getPad(name: string): Pad
     getStaticPad(name: string): Pad
@@ -4885,49 +4885,49 @@ export class Pipeline {
     iteratePads(): Iterator
     iterateSrcPads(): Iterator
     iterateSinkPads(): Iterator
-    sendEvent(event: Event): any
-    seek(rate: number, format: Format, flags: SeekFlags, curType: SeekType, cur: any, stopType: SeekType, stop: any): any
+    sendEvent(event: Event): boolean
+    seek(rate: number, format: Format, flags: SeekFlags, curType: SeekType, cur: number, stopType: SeekType, stop: number): boolean
     getQueryTypes(): QueryType
-    query(query: Query): any
-    postMessage(message: Message): any
-    messageFull(type: MessageType, domain: GLib.Quark, code: any, text: string, debug: string, file: string, function_: string, line: any): void
-    isLockedState(): any
-    setLockedState(lockedState: any): any
-    syncStateWithParent(): any
+    query(query: Query): boolean
+    postMessage(message: Message): boolean
+    messageFull(type: MessageType, domain: GLib.Quark, code: number, text: string, debug: string, file: string, function_: string, line: number): void
+    isLockedState(): boolean
+    setLockedState(lockedState: boolean): boolean
+    syncStateWithParent(): boolean
     getState(timeout: ClockTime): { returnType: StateChangeReturn, state: State, pending: State }
     setState(state: State): StateChangeReturn
     abortState(): void
     changeState(transition: StateChange): StateChangeReturn
     continueState(ret: StateChangeReturn): StateChangeReturn
     lostState(): void
-    lostStateFull(newBaseTime: any): void
+    lostStateFull(newBaseTime: boolean): void
     getFactory(): ElementFactory
-    implementsInterface(ifaceType: GObject.Type): any
+    implementsInterface(ifaceType: GObject.Type): boolean
     createAllPads(): void
     getCompatiblePad(pad: Pad, caps: Caps): Pad
     getCompatiblePadTemplate(compattempl: PadTemplate): PadTemplate
-    link(dest: Element): any
-    linkFiltered(dest: Element, filter: Caps): any
+    link(dest: Element): boolean
+    linkFiltered(dest: Element, filter: Caps): boolean
     unlink(dest: Element): void
-    linkPads(srcpadname: string, dest: Element, destpadname: string): any
-    linkPadsFull(srcpadname: string, dest: Element, destpadname: string, flags: PadLinkCheck): any
+    linkPads(srcpadname: string, dest: Element, destpadname: string): boolean
+    linkPadsFull(srcpadname: string, dest: Element, destpadname: string, flags: PadLinkCheck): boolean
     unlinkPads(srcpadname: string, dest: Element, destpadname: string): void
-    linkPadsFiltered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): any
-    seekSimple(format: Format, seekFlags: SeekFlags, seekPos: any): any
-    queryPosition(format: Format): { returnType: any, cur: any }
-    queryDuration(format: Format): { returnType: any, duration: any }
-    queryConvert(srcFormat: Format, srcVal: any, destFormat: Format): { returnType: any, destVal: any }
+    linkPadsFiltered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): boolean
+    seekSimple(format: Format, seekFlags: SeekFlags, seekPos: number): boolean
+    queryPosition(format: Format): { returnType: boolean, cur: any }
+    queryDuration(format: Format): { returnType: boolean, duration: any }
+    queryConvert(srcFormat: Format, srcVal: number, destFormat: Format): { returnType: boolean, destVal: any }
     foundTagsForPad(pad: Pad, list: TagList): void
     foundTags(list: TagList): void
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -4957,10 +4957,10 @@ export class Pipeline {
     watchClosure(closure: GObject.Closure): void
     /* Methods of Gst-0.10.Gst.ChildProxy */
     getChildByName(name: string): Object
-    getChildByIndex(index: any): Object
-    getChildrenCount(): any
+    getChildByIndex(index: number): Object
+    getChildrenCount(): number
     /* Signals of Gst-0.10.Gst.Bin */
-    connect(sigName: "do-latency", callback: (($obj: Pipeline) => any)): number
+    connect(sigName: "do-latency", callback: (($obj: Pipeline) => boolean)): number
     on(sigName: "do-latency", callback: () => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "do-latency", callback: () => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "do-latency", callback: () => void): NodeJS.EventEmitter
@@ -4997,11 +4997,11 @@ export class Pipeline {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: Pipeline, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: Pipeline, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: Pipeline, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -5078,11 +5078,11 @@ export class Plugin {
     module: GModule.Module
     fileSize: number
     fileMtime: number
-    registered: any
+    registered: boolean
     priv: PluginPrivate
     gstReserved: any[]
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
@@ -5100,19 +5100,19 @@ export class Plugin {
     getCacheData(): Structure
     setCacheData(cacheData: Structure): void
     getModule(): GModule.Module
-    isLoaded(): any
-    nameFilter(name: string): any
+    isLoaded(): boolean
+    nameFilter(name: string): boolean
     load(): Plugin
     addDependency(envVars: string[], paths: string[], names: string[], flags: PluginDependencyFlags): void
     addDependencySimple(envVars: string, paths: string, names: string, flags: PluginDependencyFlags): void
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -5146,11 +5146,11 @@ export class Plugin {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: Plugin, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: Plugin, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: Plugin, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -5183,8 +5183,8 @@ export class Plugin {
     constructor (config?: Plugin_ConstructProps)
     _init (config?: Plugin_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static registerStatic(majorVersion: any, minorVersion: any, name: string, description: string, initFunc: PluginInitFunc, version: string, license: string, source: string, package: string, origin: string): any
-    static registerStaticFull(majorVersion: any, minorVersion: any, name: string, description: string, initFullFunc: PluginInitFullFunc, version: string, license: string, source: string, package: string, origin: string, userData: any): any
+    static registerStatic(majorVersion: number, minorVersion: number, name: string, description: string, initFunc: PluginInitFunc, version: string, license: string, source: string, package: string, origin: string): boolean
+    static registerStaticFull(majorVersion: number, minorVersion: number, name: string, description: string, initFullFunc: PluginInitFullFunc, version: string, license: string, source: string, package: string, origin: string, userData: object): boolean
     static loadFile(filename: string): Plugin
     static loadByName(name: string): Plugin
     static $gtype: GObject.Type
@@ -5196,34 +5196,34 @@ export class PluginFeature {
     name: string
     /* Fields of Gst-0.10.Gst.PluginFeature */
     object: Object
-    loaded: any
-    rank: any
+    loaded: boolean
+    rank: number
     pluginName: string
     gstReserved: any[]
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
+    flags: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.PluginFeature */
     load(): PluginFeature
-    typeNameFilter(data: TypeNameData): any
-    setRank(rank: any): void
+    typeNameFilter(data: TypeNameData): boolean
+    setRank(rank: number): void
     setName(name: string): void
-    getRank(): any
+    getRank(): number
     getName(): string
-    checkVersion(minMajor: any, minMinor: any, minMicro: any): any
+    checkVersion(minMajor: number, minMinor: number, minMicro: number): boolean
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -5257,11 +5257,11 @@ export class PluginFeature {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: PluginFeature, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: PluginFeature, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: PluginFeature, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -5308,7 +5308,7 @@ export class ProxyPad {
     priv: ProxyPadPrivate
     /* Fields of Gst-0.10.Gst.Pad */
     object: Object
-    elementPrivate: any
+    elementPrivate: object
     padtemplate: PadTemplate
     direction: PadDirection
     streamRecLock: any
@@ -5317,7 +5317,7 @@ export class ProxyPad {
     prerollCond: GLib.Cond
     blockCond: GLib.Cond
     blockCallback: PadBlockCallback
-    blockData: any
+    blockData: object
     getcapsfunc: PadGetCapsFunction
     setcapsfunc: PadSetCapsFunction
     acceptcapsfunc: PadAcceptCapsFunction
@@ -5328,7 +5328,7 @@ export class ProxyPad {
     linkfunc: PadLinkFunction
     unlinkfunc: PadUnlinkFunction
     peer: Pad
-    schedPrivate: any
+    schedPrivate: object
     chainfunc: PadChainFunction
     checkgetrangefunc: PadCheckGetRangeFunction
     getrangefunc: PadGetRangeFunction
@@ -5338,36 +5338,36 @@ export class ProxyPad {
     queryfunc: PadQueryFunction
     intlinkfunc: PadIntLinkFunction
     bufferallocfunc: PadBufferAllocFunction
-    doBufferSignals: any
-    doEventSignals: any
+    doBufferSignals: number
+    doEventSignals: number
     iterintlinkfunc: PadIterIntLinkFunction
     blockDestroyData: GLib.DestroyNotify
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
-    gstReserved: any
+    flags: number
+    gstReserved: object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.Pad */
     getDirection(): PadDirection
-    setActive(active: any): any
-    isActive(): any
-    activatePull(active: any): any
-    activatePush(active: any): any
-    setBlocked(blocked: any): any
-    setBlockedAsync(blocked: any, callback: PadBlockCallback, userData: any): any
-    setBlockedAsyncFull(blocked: any, callback: PadBlockCallback, userData: any): any
-    isBlocked(): any
-    isBlocking(): any
-    setElementPrivate(priv: any): void
-    getElementPrivate(): any
+    setActive(active: boolean): boolean
+    isActive(): boolean
+    activatePull(active: boolean): boolean
+    activatePush(active: boolean): boolean
+    setBlocked(blocked: boolean): boolean
+    setBlockedAsync(blocked: boolean, callback: PadBlockCallback, userData: object): boolean
+    setBlockedAsyncFull(blocked: boolean, callback: PadBlockCallback, userData: object): boolean
+    isBlocked(): boolean
+    isBlocking(): boolean
+    setElementPrivate(priv: object): void
+    getElementPrivate(): object
     getPadTemplate(): PadTemplate
     setBufferallocFunction(bufalloc: PadBufferAllocFunction): void
-    allocBuffer(offset: any, size: any, caps: Caps, buf: Buffer): FlowReturn
-    allocBufferAndSetCaps(offset: any, size: any, caps: Caps, buf: Buffer): FlowReturn
+    allocBuffer(offset: number, size: number, caps: Caps, buf: Buffer): FlowReturn
+    allocBufferAndSetCaps(offset: number, size: number, caps: Caps, buf: Buffer): FlowReturn
     setActivateFunction(activate: PadActivateFunction): void
     setActivatepullFunction(activatepull: PadActivateModeFunction): void
     setActivatepushFunction(activatepush: PadActivateModeFunction): void
@@ -5378,11 +5378,11 @@ export class ProxyPad {
     setEventFunction(event: PadEventFunction): void
     setLinkFunction(link: PadLinkFunction): void
     setUnlinkFunction(unlink: PadUnlinkFunction): void
-    canLink(sinkpad: Pad): any
+    canLink(sinkpad: Pad): boolean
     link(sinkpad: Pad): PadLinkReturn
     linkFull(sinkpad: Pad, flags: PadLinkCheck): PadLinkReturn
-    unlink(sinkpad: Pad): any
-    isLinked(): any
+    unlink(sinkpad: Pad): boolean
+    isLinked(): boolean
     getPeer(): Pad
     setGetcapsFunction(getcaps: PadGetCapsFunction): void
     setAcceptcapsFunction(acceptcaps: PadAcceptCapsFunction): void
@@ -5392,26 +5392,26 @@ export class ProxyPad {
     getCapsReffed(): Caps
     getCaps(): Caps
     fixateCaps(caps: Caps): void
-    acceptCaps(caps: Caps): any
-    setCaps(caps: Caps): any
+    acceptCaps(caps: Caps): boolean
+    setCaps(caps: Caps): boolean
     peerGetCapsReffed(): Caps
     peerGetCaps(): Caps
-    peerAcceptCaps(caps: Caps): any
+    peerAcceptCaps(caps: Caps): boolean
     getAllowedCaps(): Caps
     getNegotiatedCaps(): Caps
     push(buffer: Buffer): FlowReturn
     pushList(list: BufferList): FlowReturn
-    checkPullRange(): any
-    pullRange(offset: any, size: any, buffer: Buffer): FlowReturn
-    pushEvent(event: Event): any
-    eventDefault(event: Event): any
+    checkPullRange(): boolean
+    pullRange(offset: number, size: number, buffer: Buffer): FlowReturn
+    pushEvent(event: Event): boolean
+    eventDefault(event: Event): boolean
     chain(buffer: Buffer): FlowReturn
     chainList(list: BufferList): FlowReturn
-    getRange(offset: any, size: any, buffer: Buffer): FlowReturn
-    sendEvent(event: Event): any
-    startTask(func: TaskFunction, data: any): any
-    pauseTask(): any
-    stopTask(): any
+    getRange(offset: number, size: number, buffer: Buffer): FlowReturn
+    sendEvent(event: Event): boolean
+    startTask(func: TaskFunction, data: object): boolean
+    pauseTask(): boolean
+    stopTask(): boolean
     setInternalLinkFunction(intlink: PadIntLinkFunction): void
     setIterateInternalLinksFunction(iterintlink: PadIterIntLinkFunction): void
     iterateInternalLinks(): Iterator
@@ -5419,40 +5419,40 @@ export class ProxyPad {
     setQueryTypeFunction(typeFunc: PadQueryTypeFunction): void
     getQueryTypes(): QueryType
     getQueryTypesDefault(): QueryType
-    query(query: Query): any
-    peerQuery(query: Query): any
+    query(query: Query): boolean
+    peerQuery(query: Query): boolean
     setQueryFunction(query: PadQueryFunction): void
-    queryDefault(query: Query): any
-    dispatcher(dispatch: PadDispatcherFunction, data: any): any
+    queryDefault(query: Query): boolean
+    dispatcher(dispatch: PadDispatcherFunction, data: object): boolean
     useFixedCaps(): void
     getFixedCapsFunc(): Caps
     proxyGetcaps(): Caps
-    proxySetcaps(caps: Caps): any
+    proxySetcaps(caps: Caps): boolean
     getParentElement(): Element
-    queryPosition(format: Format): { returnType: any, cur: any }
-    queryDuration(format: Format): { returnType: any, duration: any }
-    queryConvert(srcFormat: Format, srcVal: any, destFormat: Format): { returnType: any, destVal: any }
-    queryPeerPosition(format: Format): { returnType: any, cur: any }
-    queryPeerDuration(format: Format): { returnType: any, duration: any }
-    queryPeerConvert(srcFormat: Format, srcVal: any, destFormat: Format): { returnType: any, destVal: any }
-    addDataProbe(handler: GObject.Callback, data: any): any
-    addDataProbeFull(handler: GObject.Callback, data: any): any
-    removeDataProbe(handlerId: any): void
-    addEventProbe(handler: GObject.Callback, data: any): any
-    addEventProbeFull(handler: GObject.Callback, data: any): any
-    removeEventProbe(handlerId: any): void
-    addBufferProbe(handler: GObject.Callback, data: any): any
-    addBufferProbeFull(handler: GObject.Callback, data: any): any
-    removeBufferProbe(handlerId: any): void
+    queryPosition(format: Format): { returnType: boolean, cur: any }
+    queryDuration(format: Format): { returnType: boolean, duration: any }
+    queryConvert(srcFormat: Format, srcVal: number, destFormat: Format): { returnType: boolean, destVal: any }
+    queryPeerPosition(format: Format): { returnType: boolean, cur: any }
+    queryPeerDuration(format: Format): { returnType: boolean, duration: any }
+    queryPeerConvert(srcFormat: Format, srcVal: number, destFormat: Format): { returnType: boolean, destVal: any }
+    addDataProbe(handler: GObject.Callback, data: object): number
+    addDataProbeFull(handler: GObject.Callback, data: object): number
+    removeDataProbe(handlerId: number): void
+    addEventProbe(handler: GObject.Callback, data: object): number
+    addEventProbeFull(handler: GObject.Callback, data: object): number
+    removeEventProbe(handlerId: number): void
+    addBufferProbe(handler: GObject.Callback, data: object): number
+    addBufferProbeFull(handler: GObject.Callback, data: object): number
+    removeBufferProbe(handlerId: number): void
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -5481,7 +5481,7 @@ export class ProxyPad {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Signals of Gst-0.10.Gst.Pad */
-    connect(sigName: "have-data", callback: (($obj: ProxyPad, object: MiniObject) => any)): number
+    connect(sigName: "have-data", callback: (($obj: ProxyPad, object: MiniObject) => boolean)): number
     on(sigName: "have-data", callback: (object: MiniObject) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "have-data", callback: (object: MiniObject) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "have-data", callback: (object: MiniObject) => void): NodeJS.EventEmitter
@@ -5507,11 +5507,11 @@ export class ProxyPad {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: ProxyPad, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: ProxyPad, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: ProxyPad, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -5559,10 +5559,10 @@ export interface PushSrc_ConstructProps extends BaseSrc_ConstructProps {
 }
 export class PushSrc {
     /* Properties of Gst-0.10.Gst.BaseSrc */
-    blocksize: any
-    doTimestamp: any
-    numBuffers: any
-    typefind: any
+    blocksize: number
+    doTimestamp: boolean
+    numBuffers: number
+    typefind: boolean
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.PushSrc */
@@ -5573,25 +5573,25 @@ export class PushSrc {
     srcpad: Pad
     liveLock: GLib.Mutex
     liveCond: GLib.Cond
-    isLive: any
-    liveRunning: any
-    canActivatePush: any
+    isLive: boolean
+    liveRunning: boolean
+    canActivatePush: boolean
     padMode: ActivateMode
-    seekable: any
-    randomAccess: any
+    seekable: boolean
+    randomAccess: boolean
     clockId: ClockID
     endTime: ClockTime
     segment: Segment
-    needNewsegment: any
-    offset: any
-    size: any
-    numBuffersLeft: any
+    needNewsegment: boolean
+    offset: number
+    size: number
+    numBuffersLeft: number
     priv: BaseSrcPrivate
     /* Fields of Gst-0.10.Gst.Element */
     object: Object
     stateLock: any
     stateCond: GLib.Cond
-    stateCookie: any
+    stateCookie: number
     currentState: State
     nextState: State
     pendingState: State
@@ -5599,47 +5599,47 @@ export class PushSrc {
     bus: Bus
     clock: Clock
     baseTime: ClockTimeDiff
-    numpads: any
-    pads: any[]
-    numsrcpads: any
-    srcpads: any[]
-    numsinkpads: any
-    sinkpads: any[]
-    padsCookie: any
+    numpads: number
+    pads: object[]
+    numsrcpads: number
+    srcpads: object[]
+    numsinkpads: number
+    sinkpads: object[]
+    padsCookie: number
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
-    flags: any
+    flags: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.BaseSrc */
     waitPlaying(): FlowReturn
-    setLive(live: any): void
+    setLive(live: boolean): void
     setFormat(format: Format): void
-    queryLatency(minLatency: ClockTime, maxLatency: ClockTime): { returnType: any, live: any }
-    setBlocksize(blocksize: any): void
-    getBlocksize(): any
-    setDoTimestamp(timestamp: any): void
-    getDoTimestamp(): any
-    newSeamlessSegment(start: any, stop: any, position: any): any
+    queryLatency(minLatency: ClockTime, maxLatency: ClockTime): { returnType: boolean, live: any }
+    setBlocksize(blocksize: number): void
+    getBlocksize(): number
+    setDoTimestamp(timestamp: boolean): void
+    getDoTimestamp(): boolean
+    newSeamlessSegment(start: number, stop: number, position: number): boolean
     /* Methods of Gst-0.10.Gst.Element */
-    requiresClock(): any
-    providesClock(): any
+    requiresClock(): boolean
+    providesClock(): boolean
     provideClock(): Clock
     getClock(): Clock
-    setClock(clock: Clock): any
+    setClock(clock: Clock): boolean
     setBaseTime(time: ClockTime): void
     getBaseTime(): ClockTime
     setStartTime(time: ClockTime): void
     getStartTime(): ClockTime
-    isIndexable(): any
+    isIndexable(): boolean
     setIndex(index: Index): void
     getIndex(): Index
     setBus(bus: Bus): void
     getBus(): Bus
-    addPad(pad: Pad): any
-    removePad(pad: Pad): any
+    addPad(pad: Pad): boolean
+    removePad(pad: Pad): boolean
     noMorePads(): void
     getPad(name: string): Pad
     getStaticPad(name: string): Pad
@@ -5648,49 +5648,49 @@ export class PushSrc {
     iteratePads(): Iterator
     iterateSrcPads(): Iterator
     iterateSinkPads(): Iterator
-    sendEvent(event: Event): any
-    seek(rate: number, format: Format, flags: SeekFlags, curType: SeekType, cur: any, stopType: SeekType, stop: any): any
+    sendEvent(event: Event): boolean
+    seek(rate: number, format: Format, flags: SeekFlags, curType: SeekType, cur: number, stopType: SeekType, stop: number): boolean
     getQueryTypes(): QueryType
-    query(query: Query): any
-    postMessage(message: Message): any
-    messageFull(type: MessageType, domain: GLib.Quark, code: any, text: string, debug: string, file: string, function_: string, line: any): void
-    isLockedState(): any
-    setLockedState(lockedState: any): any
-    syncStateWithParent(): any
+    query(query: Query): boolean
+    postMessage(message: Message): boolean
+    messageFull(type: MessageType, domain: GLib.Quark, code: number, text: string, debug: string, file: string, function_: string, line: number): void
+    isLockedState(): boolean
+    setLockedState(lockedState: boolean): boolean
+    syncStateWithParent(): boolean
     getState(timeout: ClockTime): { returnType: StateChangeReturn, state: State, pending: State }
     setState(state: State): StateChangeReturn
     abortState(): void
     changeState(transition: StateChange): StateChangeReturn
     continueState(ret: StateChangeReturn): StateChangeReturn
     lostState(): void
-    lostStateFull(newBaseTime: any): void
+    lostStateFull(newBaseTime: boolean): void
     getFactory(): ElementFactory
-    implementsInterface(ifaceType: GObject.Type): any
+    implementsInterface(ifaceType: GObject.Type): boolean
     createAllPads(): void
     getCompatiblePad(pad: Pad, caps: Caps): Pad
     getCompatiblePadTemplate(compattempl: PadTemplate): PadTemplate
-    link(dest: Element): any
-    linkFiltered(dest: Element, filter: Caps): any
+    link(dest: Element): boolean
+    linkFiltered(dest: Element, filter: Caps): boolean
     unlink(dest: Element): void
-    linkPads(srcpadname: string, dest: Element, destpadname: string): any
-    linkPadsFull(srcpadname: string, dest: Element, destpadname: string, flags: PadLinkCheck): any
+    linkPads(srcpadname: string, dest: Element, destpadname: string): boolean
+    linkPadsFull(srcpadname: string, dest: Element, destpadname: string, flags: PadLinkCheck): boolean
     unlinkPads(srcpadname: string, dest: Element, destpadname: string): void
-    linkPadsFiltered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): any
-    seekSimple(format: Format, seekFlags: SeekFlags, seekPos: any): any
-    queryPosition(format: Format): { returnType: any, cur: any }
-    queryDuration(format: Format): { returnType: any, duration: any }
-    queryConvert(srcFormat: Format, srcVal: any, destFormat: Format): { returnType: any, destVal: any }
+    linkPadsFiltered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): boolean
+    seekSimple(format: Format, seekFlags: SeekFlags, seekPos: number): boolean
+    queryPosition(format: Format): { returnType: boolean, cur: any }
+    queryDuration(format: Format): { returnType: boolean, duration: any }
+    queryConvert(srcFormat: Format, srcVal: number, destFormat: Format): { returnType: boolean, destVal: any }
     foundTagsForPad(pad: Pad, list: TagList): void
     foundTags(list: TagList): void
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -5740,11 +5740,11 @@ export class PushSrc {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: PushSrc, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: PushSrc, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: PushSrc, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -5803,39 +5803,39 @@ export class Query {
     miniObject: MiniObject
     type: QueryType
     structure: Structure
-    gstReserved: any
+    gstReserved: object
     /* Fields of Gst-0.10.Gst.MiniObject */
     instance: GObject.TypeInstance
-    refcount: any
-    flags: any
+    refcount: number
+    flags: number
     /* Methods of Gst-0.10.Gst.Query */
-    setPosition(format: Format, cur: any): void
+    setPosition(format: Format, cur: number): void
     parsePosition(format: Format): { cur: any }
-    setDuration(format: Format, duration: any): void
+    setDuration(format: Format, duration: number): void
     parseDuration(format: Format): { duration: any }
-    setLatency(live: any, minLatency: ClockTime, maxLatency: ClockTime): void
+    setLatency(live: boolean, minLatency: ClockTime, maxLatency: ClockTime): void
     parseLatency(minLatency: ClockTime, maxLatency: ClockTime): { live: any }
-    setConvert(srcFormat: Format, srcValue: any, destFormat: Format, destValue: any): void
+    setConvert(srcFormat: Format, srcValue: number, destFormat: Format, destValue: number): void
     parseConvert(srcFormat: Format, destFormat: Format): { srcValue: any, destValue: any }
-    setSegment(rate: number, format: Format, startValue: any, stopValue: any): void
+    setSegment(rate: number, format: Format, startValue: number, stopValue: number): void
     parseSegment(format: Format): { rate: number, startValue: any, stopValue: any }
     getStructure(): Structure
-    setSeeking(format: Format, seekable: any, segmentStart: any, segmentEnd: any): void
+    setSeeking(format: Format, seekable: boolean, segmentStart: number, segmentEnd: number): void
     parseSeeking(format: Format): { seekable: any, segmentStart: any, segmentEnd: any }
-    setFormatsv(nFormats: any, formats: Format): void
+    setFormatsv(nFormats: number, formats: Format): void
     parseFormatsLength(): { nFormats: any }
-    parseFormatsNth(nth: any, format: Format): void
-    setBufferingPercent(busy: any, percent: any): void
+    parseFormatsNth(nth: number, format: Format): void
+    setBufferingPercent(busy: boolean, percent: number): void
     parseBufferingPercent(): { busy: any, percent: any }
-    setBufferingStats(mode: BufferingMode, avgIn: any, avgOut: any, bufferingLeft: any): void
+    setBufferingStats(mode: BufferingMode, avgIn: number, avgOut: number, bufferingLeft: number): void
     parseBufferingStats(mode: BufferingMode): { avgIn: any, avgOut: any, bufferingLeft: any }
-    setBufferingRange(format: Format, start: any, stop: any, estimatedTotal: any): void
+    setBufferingRange(format: Format, start: number, stop: number, estimatedTotal: number): void
     parseBufferingRange(format: Format): { start: any, stop: any, estimatedTotal: any }
     parseUri(uri: string[]): void
     setUri(uri: string): void
     /* Methods of Gst-0.10.Gst.MiniObject */
     copy(): MiniObject
-    isWritable(): any
+    isWritable(): boolean
     makeWritable(): MiniObject
     ref(): MiniObject
     unref(): void
@@ -5845,7 +5845,7 @@ export class Query {
     static newPosition(format: Format): Query
     static newDuration(format: Format): Query
     static newLatency(): Query
-    static newConvert(srcFormat: Format, value: any, destFormat: Format): Query
+    static newConvert(srcFormat: Format, value: number, destFormat: Format): Query
     static newSegment(format: Format): Query
     static newApplication(type: QueryType, structure: Structure): Query
     static newSeeking(format: Format): Query
@@ -5856,7 +5856,7 @@ export class Query {
     static typeToQuark(query: QueryType): GLib.Quark
     static typeRegister(nick: string, description: string): QueryType
     static typeGetByNick(nick: string): QueryType
-    static typesContains(types: QueryType, type: QueryType): any
+    static typesContains(types: QueryType, type: QueryType): boolean
     static typeGetDetails(type: QueryType): QueryTypeDefinition
     static typeIterateDefinitions(): Iterator
 }
@@ -5867,45 +5867,45 @@ export class Registry {
     name: string
     /* Fields of Gst-0.10.Gst.Registry */
     object: Object
-    plugins: any[]
-    features: any[]
-    paths: any[]
+    plugins: object[]
+    features: object[]
+    paths: object[]
     cacheFile: any
     featureHash: GLib.HashTable
     basenameHash: GLib.HashTable
     priv: RegistryPrivate
     gstReserved: any[]
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
+    flags: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.Registry */
-    scanPath(path: string): any
+    scanPath(path: string): boolean
     addPath(path: string): void
-    addPlugin(plugin: Plugin): any
+    addPlugin(plugin: Plugin): boolean
     removePlugin(plugin: Plugin): void
-    addFeature(feature: PluginFeature): any
+    addFeature(feature: PluginFeature): boolean
     removeFeature(feature: PluginFeature): void
-    getFeatureListCookie(): any
+    getFeatureListCookie(): number
     findPlugin(name: string): Plugin
     findFeature(name: string, type: GObject.Type): PluginFeature
     lookup(filename: string): Plugin
     lookupFeature(name: string): PluginFeature
-    xmlReadCache(location: string): any
-    xmlWriteCache(location: string): any
+    xmlReadCache(location: string): boolean
+    xmlWriteCache(location: string): boolean
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -5934,27 +5934,27 @@ export class Registry {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Signals of Gst-0.10.Gst.Registry */
-    connect(sigName: "feature-added", callback: (($obj: Registry, object: any) => void)): number
-    on(sigName: "feature-added", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "feature-added", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "feature-added", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "feature-added", object: any): void
-    connect(sigName: "plugin-added", callback: (($obj: Registry, object: any) => void)): number
-    on(sigName: "plugin-added", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "plugin-added", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "plugin-added", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "plugin-added", object: any): void
+    connect(sigName: "feature-added", callback: (($obj: Registry, object: object) => void)): number
+    on(sigName: "feature-added", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "feature-added", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "feature-added", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "feature-added", object: object): void
+    connect(sigName: "plugin-added", callback: (($obj: Registry, object: object) => void)): number
+    on(sigName: "plugin-added", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "plugin-added", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "plugin-added", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "plugin-added", object: object): void
     /* Signals of Gst-0.10.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: Registry, object: Object, p0: GObject.ParamSpec) => void)): number
     on(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: Registry, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: Registry, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: Registry, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -5988,8 +5988,8 @@ export class Registry {
     _init (config?: Registry_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static getDefault(): Registry
-    static forkIsEnabled(): any
-    static forkSetEnabled(enabled: any): void
+    static forkIsEnabled(): boolean
+    static forkSetEnabled(enabled: boolean): void
     static $gtype: GObject.Type
 }
 export interface SystemClock_ConstructProps extends Clock_ConstructProps {
@@ -5999,16 +5999,16 @@ export class SystemClock {
     /* Properties of Gst-0.10.Gst.SystemClock */
     clockType: ClockType
     /* Properties of Gst-0.10.Gst.Clock */
-    stats: any
-    timeout: any
-    windowSize: any
-    windowThreshold: any
+    stats: boolean
+    timeout: number
+    windowSize: number
+    windowThreshold: number
     /* Properties of Gst-0.10.Gst.Object */
     name: string
     /* Fields of Gst-0.10.Gst.SystemClock */
     clock: Clock
     thread: GLib.Thread
-    stopping: any
+    stopping: boolean
     priv: SystemClockPrivate
     gstReserved: any[]
     /* Fields of Gst-0.10.Gst.Clock */
@@ -6019,20 +6019,20 @@ export class SystemClock {
     rateNumerator: ClockTime
     rateDenominator: ClockTime
     lastTime: ClockTime
-    entries: any[]
+    entries: object[]
     entriesChanged: GLib.Cond
     resolution: ClockTime
     master: Clock
-    filling: any
-    timeIndex: any
+    filling: boolean
+    timeIndex: number
     times: ClockTime
     clockid: ClockID
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
+    flags: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.Clock */
@@ -6041,23 +6041,23 @@ export class SystemClock {
     getTime(): ClockTime
     setCalibration(internal: ClockTime, external: ClockTime, rateNum: ClockTime, rateDenom: ClockTime): void
     getCalibration(internal: ClockTime, external: ClockTime, rateNum: ClockTime, rateDenom: ClockTime): void
-    setMaster(master: Clock): any
+    setMaster(master: Clock): boolean
     getMaster(): Clock
-    addObservation(slave: ClockTime, master: ClockTime): { returnType: any, rSquared: number }
+    addObservation(slave: ClockTime, master: ClockTime): { returnType: boolean, rSquared: number }
     getInternalTime(): ClockTime
     adjustUnlocked(internal: ClockTime): ClockTime
     unadjustUnlocked(external: ClockTime): ClockTime
     newSingleShotId(time: ClockTime): ClockID
     newPeriodicId(startTime: ClockTime, interval: ClockTime): ClockID
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -6091,11 +6091,11 @@ export class SystemClock {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: SystemClock, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: SystemClock, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: SystemClock, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -6167,15 +6167,15 @@ export class Task {
     cond: GLib.Cond
     lock: any
     func: TaskFunction
-    data: any
-    running: any
+    data: object
+    running: boolean
     priv: TaskPrivate
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     namePrefix: string
     parent: Object
-    flags: any
-    gstReserved: any
+    flags: number
+    gstReserved: object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.Task */
@@ -6183,22 +6183,22 @@ export class Task {
     setPriority(priority: any): void
     getPool(): TaskPool
     setPool(pool: TaskPool): void
-    setThreadCallbacks(callbacks: TaskThreadCallbacks, userData: any, notify: GLib.DestroyNotify): void
+    setThreadCallbacks(callbacks: TaskThreadCallbacks, userData: object, notify: GLib.DestroyNotify): void
     getState(): TaskState
-    setState(state: TaskState): any
-    start(): any
-    stop(): any
-    pause(): any
-    join(): any
+    setState(state: TaskState): boolean
+    start(): boolean
+    stop(): boolean
+    pause(): boolean
+    join(): boolean
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -6232,11 +6232,11 @@ export class Task {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: Task, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: Task, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: Task, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -6283,27 +6283,27 @@ export class TaskPool {
     pool: GLib.ThreadPool
     gstReserved: any[]
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
+    flags: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.TaskPool */
     prepare(): void
-    push(func: TaskPoolFunction, userData: any): any
-    join(id: any): void
+    push(func: TaskPoolFunction, userData: object): object
+    join(id: object): void
     cleanup(): void
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -6337,11 +6337,11 @@ export class TaskPool {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: TaskPool, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: TaskPool, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: TaskPool, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -6387,20 +6387,20 @@ export class TypeFindFactory {
     function_: TypeFindFunction
     extensions: string
     caps: Caps
-    userData: any
+    userData: object
     userDataNotify: GLib.DestroyNotify
     gstReserved: any[]
     /* Fields of Gst-0.10.Gst.PluginFeature */
     object: Object
-    loaded: any
-    rank: any
+    loaded: boolean
+    rank: number
     pluginName: string
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
+    flags: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.TypeFindFactory */
@@ -6409,20 +6409,20 @@ export class TypeFindFactory {
     callFunction(find: TypeFind): void
     /* Methods of Gst-0.10.Gst.PluginFeature */
     load(): PluginFeature
-    typeNameFilter(data: TypeNameData): any
-    setRank(rank: any): void
+    typeNameFilter(data: TypeNameData): boolean
+    setRank(rank: number): void
     setName(name: string): void
-    getRank(): any
+    getRank(): number
     getName(): string
-    checkVersion(minMajor: any, minMinor: any, minMicro: any): any
+    checkVersion(minMajor: number, minMinor: number, minMicro: number): boolean
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -6456,11 +6456,11 @@ export class TypeFindFactory {
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: TypeFindFactory, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: TypeFindFactory, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: TypeFindFactory, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -6501,31 +6501,31 @@ export class XML {
     name: string
     /* Fields of Gst-0.10.Gst.XML */
     object: Object
-    topelements: any[]
+    topelements: object[]
     ns: libxml2.NsPtr
     gstReserved: any[]
     /* Fields of Gst-0.10.Gst.Object */
-    refcount: any
+    refcount: number
     lock: GLib.Mutex
     namePrefix: string
     parent: Object
-    flags: any
+    flags: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gst-0.10.Gst.XML */
-    parseDoc(doc: libxml2.DocPtr, root: any[]): any
-    parseFile(fname: any[], root: any[]): any
-    parseMemory(buffer: any[], size: any, root: string): any
+    parseDoc(doc: libxml2.DocPtr, root: any[]): boolean
+    parseFile(fname: any[], root: any[]): boolean
+    parseMemory(buffer: any[], size: number, root: string): boolean
     getElement(name: any[]): Element
     /* Methods of Gst-0.10.Gst.Object */
-    setName(name: string): any
+    setName(name: string): boolean
     getName(): string
     setNamePrefix(namePrefix: string): void
     getNamePrefix(): string
-    setParent(parent: Object): any
+    setParent(parent: Object): boolean
     getParent(): Object
     unparent(): void
-    hasAncestor(ancestor: Object): any
+    hasAncestor(ancestor: Object): boolean
     replace(newobj: Object): void
     getPathString(): string
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
@@ -6554,22 +6554,22 @@ export class XML {
     unref(): void
     watchClosure(closure: GObject.Closure): void
     /* Signals of Gst-0.10.Gst.XML */
-    connect(sigName: "object-loaded", callback: (($obj: XML, object: Object, p0: any) => void)): number
-    on(sigName: "object-loaded", callback: (object: Object, p0: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-loaded", callback: (object: Object, p0: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-loaded", callback: (object: Object, p0: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-loaded", object: Object, p0: any): void
+    connect(sigName: "object-loaded", callback: (($obj: XML, object: Object, p0: object) => void)): number
+    on(sigName: "object-loaded", callback: (object: Object, p0: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-loaded", callback: (object: Object, p0: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-loaded", callback: (object: Object, p0: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-loaded", object: Object, p0: object): void
     /* Signals of Gst-0.10.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: XML, object: Object, p0: GObject.ParamSpec) => void)): number
     on(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deep-notify", callback: (object: Object, p0: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deep-notify", object: Object, p0: GObject.ParamSpec): void
-    connect(sigName: "object-saved", callback: (($obj: XML, object: any) => void)): number
-    on(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "object-saved", callback: (object: any) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "object-saved", callback: (object: any) => void): NodeJS.EventEmitter
-    emit(sigName: "object-saved", object: any): void
+    connect(sigName: "object-saved", callback: (($obj: XML, object: object) => void)): number
+    on(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "object-saved", callback: (object: object) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "object-saved", callback: (object: object) => void): NodeJS.EventEmitter
+    emit(sigName: "object-saved", object: object): void
     connect(sigName: "parent-set", callback: (($obj: XML, object: Object) => void)): number
     on(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "parent-set", callback: (object: Object) => void, after?: boolean): NodeJS.EventEmitter
@@ -6619,9 +6619,9 @@ export class AdapterPrivate {
 export class AllocTrace {
     /* Fields of Gst-0.10.Gst.AllocTrace */
     name: string
-    flags: any
-    live: any
-    memLive: any[]
+    flags: number
+    live: number
+    memLive: object[]
     /* Methods of Gst-0.10.Gst.AllocTrace */
     print(): void
     setFlags(flags: AllocTraceFlags): void
@@ -6631,19 +6631,19 @@ export abstract class BaseSinkClass {
     /* Fields of Gst-0.10.Gst.BaseSinkClass */
     parentClass: ElementClass
     getCaps: (sink: BaseSink) => Caps
-    setCaps: (sink: BaseSink, caps: Caps) => any
-    bufferAlloc: (sink: BaseSink, offset: any, size: any, caps: Caps, buf: Buffer) => FlowReturn
+    setCaps: (sink: BaseSink, caps: Caps) => boolean
+    bufferAlloc: (sink: BaseSink, offset: number, size: number, caps: Caps, buf: Buffer) => FlowReturn
     getTimes: (sink: BaseSink, buffer: Buffer, start: ClockTime, end: ClockTime) => void
-    start: (sink: BaseSink) => any
-    stop: (sink: BaseSink) => any
-    unlock: (sink: BaseSink) => any
-    event: (sink: BaseSink, event: Event) => any
+    start: (sink: BaseSink) => boolean
+    stop: (sink: BaseSink) => boolean
+    unlock: (sink: BaseSink) => boolean
+    event: (sink: BaseSink, event: Event) => boolean
     preroll: (sink: BaseSink, buffer: Buffer) => FlowReturn
     render: (sink: BaseSink, buffer: Buffer) => FlowReturn
     asyncPlay: (sink: BaseSink) => StateChangeReturn
-    activatePull: (sink: BaseSink, active: any) => any
+    activatePull: (sink: BaseSink, active: boolean) => boolean
     fixate: (sink: BaseSink, caps: Caps) => void
-    unlockStop: (sink: BaseSink) => any
+    unlockStop: (sink: BaseSink) => boolean
     renderList: (sink: BaseSink, bufferList: BufferList) => FlowReturn
     gstReserved: any[]
     static name: string
@@ -6655,23 +6655,23 @@ export abstract class BaseSrcClass {
     /* Fields of Gst-0.10.Gst.BaseSrcClass */
     parentClass: ElementClass
     getCaps: (src: BaseSrc) => Caps
-    setCaps: (src: BaseSrc, caps: Caps) => any
-    negotiate: (src: BaseSrc) => any
-    newsegment: (src: BaseSrc) => any
-    start: (src: BaseSrc) => any
-    stop: (src: BaseSrc) => any
+    setCaps: (src: BaseSrc, caps: Caps) => boolean
+    negotiate: (src: BaseSrc) => boolean
+    newsegment: (src: BaseSrc) => boolean
+    start: (src: BaseSrc) => boolean
+    stop: (src: BaseSrc) => boolean
     getTimes: (src: BaseSrc, buffer: Buffer, start: ClockTime, end: ClockTime) => void
-    getSize: (src: BaseSrc) => { returnType: any, size: any }
-    isSeekable: (src: BaseSrc) => any
-    unlock: (src: BaseSrc) => any
-    event: (src: BaseSrc, event: Event) => any
-    create: (src: BaseSrc, offset: any, size: any, buf: Buffer) => FlowReturn
-    doSeek: (src: BaseSrc, segment: Segment) => any
-    query: (src: BaseSrc, query: Query) => any
-    checkGetRange: (src: BaseSrc) => any
+    getSize: (src: BaseSrc) => { returnType: boolean, size: any }
+    isSeekable: (src: BaseSrc) => boolean
+    unlock: (src: BaseSrc) => boolean
+    event: (src: BaseSrc, event: Event) => boolean
+    create: (src: BaseSrc, offset: number, size: number, buf: Buffer) => FlowReturn
+    doSeek: (src: BaseSrc, segment: Segment) => boolean
+    query: (src: BaseSrc, query: Query) => boolean
+    checkGetRange: (src: BaseSrc) => boolean
     fixate: (src: BaseSrc, caps: Caps) => void
-    unlockStop: (src: BaseSrc) => any
-    prepareSeekSegment: (src: BaseSrc, seek: Event, segment: Segment) => any
+    unlockStop: (src: BaseSrc) => boolean
+    prepareSeekSegment: (src: BaseSrc, seek: Event, segment: Segment) => boolean
     gstReserved: any[]
     static name: string
 }
@@ -6683,19 +6683,19 @@ export abstract class BaseTransformClass {
     parentClass: ElementClass
     transformCaps: (trans: BaseTransform, direction: PadDirection, caps: Caps) => Caps
     fixateCaps: (trans: BaseTransform, direction: PadDirection, caps: Caps, othercaps: Caps) => void
-    transformSize: (trans: BaseTransform, direction: PadDirection, caps: Caps, size: any, othercaps: Caps) => { returnType: any, othersize: any }
-    getUnitSize: (trans: BaseTransform, caps: Caps) => { returnType: any, size: any }
-    setCaps: (trans: BaseTransform, incaps: Caps, outcaps: Caps) => any
-    start: (trans: BaseTransform) => any
-    stop: (trans: BaseTransform) => any
-    event: (trans: BaseTransform, event: Event) => any
+    transformSize: (trans: BaseTransform, direction: PadDirection, caps: Caps, size: number, othercaps: Caps) => { returnType: boolean, othersize: any }
+    getUnitSize: (trans: BaseTransform, caps: Caps) => { returnType: boolean, size: any }
+    setCaps: (trans: BaseTransform, incaps: Caps, outcaps: Caps) => boolean
+    start: (trans: BaseTransform) => boolean
+    stop: (trans: BaseTransform) => boolean
+    event: (trans: BaseTransform, event: Event) => boolean
     transform: (trans: BaseTransform, inbuf: Buffer, outbuf: Buffer) => FlowReturn
     transformIp: (trans: BaseTransform, buf: Buffer) => FlowReturn
-    passthroughOnSameCaps: any
-    prepareOutputBuffer: (trans: BaseTransform, input: Buffer, size: any, caps: Caps, buf: Buffer) => FlowReturn
-    srcEvent: (trans: BaseTransform, event: Event) => any
+    passthroughOnSameCaps: boolean
+    prepareOutputBuffer: (trans: BaseTransform, input: Buffer, size: number, caps: Caps, buf: Buffer) => FlowReturn
+    srcEvent: (trans: BaseTransform, event: Event) => boolean
     beforeTransform: (trans: BaseTransform, buffer: Buffer) => void
-    acceptCaps: (trans: BaseTransform, direction: PadDirection, caps: Caps) => any
+    acceptCaps: (trans: BaseTransform, direction: PadDirection, caps: Caps) => boolean
     gstReserved: any[]
     static name: string
 }
@@ -6708,10 +6708,10 @@ export abstract class BinClass {
     pool: GLib.ThreadPool
     elementAdded: (bin: Bin, child: Element) => void
     elementRemoved: (bin: Bin, child: Element) => void
-    addElement: (bin: Bin, element: Element) => any
-    removeElement: (bin: Bin, element: Element) => any
+    addElement: (bin: Bin, element: Element) => boolean
+    removeElement: (bin: Bin, element: Element) => boolean
     handleMessage: (bin: Bin, message: Message) => void
-    doLatency: (bin: Bin) => any
+    doLatency: (bin: Bin) => boolean
     gstReserved: any[]
     static name: string
 }
@@ -6721,32 +6721,32 @@ export class BinPrivate {
 export class BitReader {
     /* Fields of Gst-0.10.Gst.BitReader */
     data: any
-    size: any
-    byte: any
-    bit: any
+    size: number
+    byte: number
+    bit: number
     /* Methods of Gst-0.10.Gst.BitReader */
     free(): void
-    init(data: any[], size: any): void
+    init(data: any[], size: number): void
     initFromBuffer(buffer: Buffer): void
-    setPos(pos: any): any
-    getPos(): any
-    getRemaining(): any
-    getSize(): any
-    skip(nbits: any): any
-    skipToByte(): any
-    getBitsUint8(val: any[], nbits: any): any
-    getBitsUint16(nbits: any): { returnType: any, val: any }
-    getBitsUint32(nbits: any): { returnType: any, val: any }
-    getBitsUint64(nbits: any): { returnType: any, val: any }
-    peekBitsUint8(val: any[], nbits: any): any
-    peekBitsUint16(nbits: any): { returnType: any, val: any }
-    peekBitsUint32(nbits: any): { returnType: any, val: any }
-    peekBitsUint64(nbits: any): { returnType: any, val: any }
+    setPos(pos: number): boolean
+    getPos(): number
+    getRemaining(): number
+    getSize(): number
+    skip(nbits: number): boolean
+    skipToByte(): boolean
+    getBitsUint8(val: any[], nbits: number): boolean
+    getBitsUint16(nbits: number): { returnType: boolean, val: any }
+    getBitsUint32(nbits: number): { returnType: boolean, val: any }
+    getBitsUint64(nbits: number): { returnType: boolean, val: any }
+    peekBitsUint8(val: any[], nbits: number): boolean
+    peekBitsUint16(nbits: number): { returnType: boolean, val: any }
+    peekBitsUint32(nbits: number): { returnType: boolean, val: any }
+    peekBitsUint64(nbits: number): { returnType: boolean, val: any }
     static name: string
-    static new(data: any[], size: any): BitReader
-    constructor(data: any[], size: any)
+    static new(data: any[], size: number): BitReader
+    constructor(data: any[], size: number)
     /* Static methods and pseudo-constructors */
-    static new(data: any[], size: any): BitReader
+    static new(data: any[], size: number): BitReader
     static newFromBuffer(buffer: Buffer): BitReader
 }
 export abstract class BufferClass {
@@ -6760,15 +6760,15 @@ export abstract class BufferListClass {
 export class BufferListIterator {
     /* Methods of Gst-0.10.Gst.BufferListIterator */
     free(): void
-    nBuffers(): any
+    nBuffers(): number
     next(): Buffer
-    nextGroup(): any
+    nextGroup(): boolean
     add(buffer: Buffer): void
     addGroup(): void
     remove(): void
     steal(): Buffer
     take(buffer: Buffer): void
-    do(doFunc: BufferListDoFunction, userData: any): Buffer
+    do(doFunc: BufferListDoFunction, userData: object): Buffer
     mergeGroup(): Buffer
     static name: string
 }
@@ -6786,139 +6786,139 @@ export class BusPrivate {
 export class ByteReader {
     /* Fields of Gst-0.10.Gst.ByteReader */
     data: any
-    size: any
-    byte: any
+    size: number
+    byte: number
     /* Methods of Gst-0.10.Gst.ByteReader */
     free(): void
-    init(data: any[], size: any): void
+    init(data: any[], size: number): void
     initFromBuffer(buffer: Buffer): void
-    setPos(pos: any): any
-    getPos(): any
-    getRemaining(): any
-    getSize(): any
-    skip(nbytes: any): any
-    getUint8(val: any[]): any
-    getInt8(): { returnType: any, val: any }
-    getUint16Le(): { returnType: any, val: any }
-    getInt16Le(): { returnType: any, val: any }
-    getUint16Be(): { returnType: any, val: any }
-    getInt16Be(): { returnType: any, val: any }
-    getUint24Le(): { returnType: any, val: any }
-    getInt24Le(): { returnType: any, val: number }
-    getUint24Be(): { returnType: any, val: any }
-    getInt24Be(): { returnType: any, val: number }
-    getUint32Le(): { returnType: any, val: any }
-    getInt32Le(): { returnType: any, val: number }
-    getUint32Be(): { returnType: any, val: any }
-    getInt32Be(): { returnType: any, val: number }
-    getUint64Le(): { returnType: any, val: any }
-    getInt64Le(): { returnType: any, val: any }
-    getUint64Be(): { returnType: any, val: any }
-    getInt64Be(): { returnType: any, val: any }
-    peekUint8(val: any[]): any
-    peekInt8(): { returnType: any, val: any }
-    peekUint16Le(): { returnType: any, val: any }
-    peekInt16Le(): { returnType: any, val: any }
-    peekUint16Be(): { returnType: any, val: any }
-    peekInt16Be(): { returnType: any, val: any }
-    peekUint24Le(): { returnType: any, val: any }
-    peekInt24Le(): { returnType: any, val: number }
-    peekUint24Be(): { returnType: any, val: any }
-    peekInt24Be(): { returnType: any, val: number }
-    peekUint32Le(): { returnType: any, val: any }
-    peekInt32Le(): { returnType: any, val: number }
-    peekUint32Be(): { returnType: any, val: any }
-    peekInt32Be(): { returnType: any, val: number }
-    peekUint64Le(): { returnType: any, val: any }
-    peekInt64Le(): { returnType: any, val: any }
-    peekUint64Be(): { returnType: any, val: any }
-    peekInt64Be(): { returnType: any, val: any }
-    getFloat32Le(): { returnType: any, val: any }
-    getFloat32Be(): { returnType: any, val: any }
-    getFloat64Le(): { returnType: any, val: number }
-    getFloat64Be(): { returnType: any, val: number }
-    peekFloat32Le(): { returnType: any, val: any }
-    peekFloat32Be(): { returnType: any, val: any }
-    peekFloat64Le(): { returnType: any, val: number }
-    peekFloat64Be(): { returnType: any, val: number }
-    dupData(size: any): { returnType: any, val: any }
-    getData(size: any): { returnType: any, val: any }
-    peekData(size: any): { returnType: any, val: any }
-    dupStringUtf8(str: string[]): any
-    dupStringUtf16(): { returnType: any, str: any }
-    dupStringUtf32(): { returnType: any, str: any }
-    skipStringUtf8(): any
-    skipStringUtf16(): any
-    skipStringUtf32(): any
-    getStringUtf8(str: string[]): any
-    peekStringUtf8(str: string[]): any
-    maskedScanUint32(mask: any, pattern: any, offset: any, size: any): any
+    setPos(pos: number): boolean
+    getPos(): number
+    getRemaining(): number
+    getSize(): number
+    skip(nbytes: number): boolean
+    getUint8(val: any[]): boolean
+    getInt8(): { returnType: boolean, val: any }
+    getUint16Le(): { returnType: boolean, val: any }
+    getInt16Le(): { returnType: boolean, val: any }
+    getUint16Be(): { returnType: boolean, val: any }
+    getInt16Be(): { returnType: boolean, val: any }
+    getUint24Le(): { returnType: boolean, val: any }
+    getInt24Le(): { returnType: boolean, val: number }
+    getUint24Be(): { returnType: boolean, val: any }
+    getInt24Be(): { returnType: boolean, val: number }
+    getUint32Le(): { returnType: boolean, val: any }
+    getInt32Le(): { returnType: boolean, val: number }
+    getUint32Be(): { returnType: boolean, val: any }
+    getInt32Be(): { returnType: boolean, val: number }
+    getUint64Le(): { returnType: boolean, val: any }
+    getInt64Le(): { returnType: boolean, val: any }
+    getUint64Be(): { returnType: boolean, val: any }
+    getInt64Be(): { returnType: boolean, val: any }
+    peekUint8(val: any[]): boolean
+    peekInt8(): { returnType: boolean, val: any }
+    peekUint16Le(): { returnType: boolean, val: any }
+    peekInt16Le(): { returnType: boolean, val: any }
+    peekUint16Be(): { returnType: boolean, val: any }
+    peekInt16Be(): { returnType: boolean, val: any }
+    peekUint24Le(): { returnType: boolean, val: any }
+    peekInt24Le(): { returnType: boolean, val: number }
+    peekUint24Be(): { returnType: boolean, val: any }
+    peekInt24Be(): { returnType: boolean, val: number }
+    peekUint32Le(): { returnType: boolean, val: any }
+    peekInt32Le(): { returnType: boolean, val: number }
+    peekUint32Be(): { returnType: boolean, val: any }
+    peekInt32Be(): { returnType: boolean, val: number }
+    peekUint64Le(): { returnType: boolean, val: any }
+    peekInt64Le(): { returnType: boolean, val: any }
+    peekUint64Be(): { returnType: boolean, val: any }
+    peekInt64Be(): { returnType: boolean, val: any }
+    getFloat32Le(): { returnType: boolean, val: any }
+    getFloat32Be(): { returnType: boolean, val: any }
+    getFloat64Le(): { returnType: boolean, val: number }
+    getFloat64Be(): { returnType: boolean, val: number }
+    peekFloat32Le(): { returnType: boolean, val: any }
+    peekFloat32Be(): { returnType: boolean, val: any }
+    peekFloat64Le(): { returnType: boolean, val: number }
+    peekFloat64Be(): { returnType: boolean, val: number }
+    dupData(size: number): { returnType: boolean, val: any }
+    getData(size: number): { returnType: boolean, val: any }
+    peekData(size: number): { returnType: boolean, val: any }
+    dupStringUtf8(str: string[]): boolean
+    dupStringUtf16(): { returnType: boolean, str: any }
+    dupStringUtf32(): { returnType: boolean, str: any }
+    skipStringUtf8(): boolean
+    skipStringUtf16(): boolean
+    skipStringUtf32(): boolean
+    getStringUtf8(str: string[]): boolean
+    peekStringUtf8(str: string[]): boolean
+    maskedScanUint32(mask: number, pattern: number, offset: number, size: number): number
     static name: string
-    static new(data: any[], size: any): ByteReader
-    constructor(data: any[], size: any)
+    static new(data: any[], size: number): ByteReader
+    constructor(data: any[], size: number)
     /* Static methods and pseudo-constructors */
-    static new(data: any[], size: any): ByteReader
+    static new(data: any[], size: number): ByteReader
     static newFromBuffer(buffer: Buffer): ByteReader
 }
 export class ByteWriter {
     /* Fields of Gst-0.10.Gst.ByteWriter */
     parent: ByteReader
-    allocSize: any
-    fixed: any
-    owned: any
+    allocSize: number
+    fixed: boolean
+    owned: boolean
     /* Methods of Gst-0.10.Gst.ByteWriter */
     init(): void
-    initWithSize(size: any, fixed: any): void
-    initWithData(data: any[], size: any, initialized: any): void
-    initWithBuffer(buffer: Buffer, initialized: any): void
+    initWithSize(size: number, fixed: boolean): void
+    initWithData(data: any[], size: number, initialized: boolean): void
+    initWithBuffer(buffer: Buffer, initialized: boolean): void
     free(): void
     freeAndGetData(): any[]
     freeAndGetBuffer(): Buffer
     reset(): void
     resetAndGetData(): any[]
     resetAndGetBuffer(): Buffer
-    getRemaining(): any
-    ensureFreeSpace(size: any): any
-    putUint8(val: any): any
-    putInt8(val: any): any
-    putUint16Be(val: any): any
-    putUint16Le(val: any): any
-    putInt16Be(val: any): any
-    putInt16Le(val: any): any
-    putUint24Be(val: any): any
-    putUint24Le(val: any): any
-    putInt24Be(val: number): any
-    putInt24Le(val: number): any
-    putUint32Be(val: any): any
-    putUint32Le(val: any): any
-    putInt32Be(val: number): any
-    putInt32Le(val: number): any
-    putUint64Be(val: any): any
-    putUint64Le(val: any): any
-    putInt64Be(val: any): any
-    putInt64Le(val: any): any
-    putFloat32Be(val: any): any
-    putFloat32Le(val: any): any
-    putFloat64Be(val: number): any
-    putFloat64Le(val: number): any
-    putData(data: any[], size: any): any
-    fill(value: any, size: any): any
-    putStringUtf8(data: string): any
-    putStringUtf16(): { returnType: any, data: any }
-    putStringUtf32(): { returnType: any, data: any }
+    getRemaining(): number
+    ensureFreeSpace(size: number): boolean
+    putUint8(val: number): boolean
+    putInt8(val: number): boolean
+    putUint16Be(val: number): boolean
+    putUint16Le(val: number): boolean
+    putInt16Be(val: number): boolean
+    putInt16Le(val: number): boolean
+    putUint24Be(val: number): boolean
+    putUint24Le(val: number): boolean
+    putInt24Be(val: number): boolean
+    putInt24Le(val: number): boolean
+    putUint32Be(val: number): boolean
+    putUint32Le(val: number): boolean
+    putInt32Be(val: number): boolean
+    putInt32Le(val: number): boolean
+    putUint64Be(val: number): boolean
+    putUint64Le(val: number): boolean
+    putInt64Be(val: number): boolean
+    putInt64Le(val: number): boolean
+    putFloat32Be(val: number): boolean
+    putFloat32Le(val: number): boolean
+    putFloat64Be(val: number): boolean
+    putFloat64Le(val: number): boolean
+    putData(data: any[], size: number): boolean
+    fill(value: number, size: number): boolean
+    putStringUtf8(data: string): boolean
+    putStringUtf16(): { returnType: boolean, data: any }
+    putStringUtf32(): { returnType: boolean, data: any }
     static name: string
     static new(): ByteWriter
     constructor()
     /* Static methods and pseudo-constructors */
     static new(): ByteWriter
-    static newWithSize(size: any, fixed: any): ByteWriter
-    static newWithData(data: any[], size: any, initialized: any): ByteWriter
-    static newWithBuffer(buffer: Buffer, initialized: any): ByteWriter
+    static newWithSize(size: number, fixed: boolean): ByteWriter
+    static newWithData(data: any[], size: number, initialized: boolean): ByteWriter
+    static newWithBuffer(buffer: Buffer, initialized: boolean): ByteWriter
 }
 export class Caps {
     /* Fields of Gst-0.10.Gst.Caps */
     type: GObject.Type
-    refcount: any
+    refcount: number
     flags: CapsFlags
     structs: GLib.PtrArray
     gstReserved: any[]
@@ -6930,27 +6930,27 @@ export class Caps {
     append(caps2: Caps): void
     merge(caps2: Caps): void
     appendStructure(structure: Structure): void
-    removeStructure(idx: any): void
+    removeStructure(idx: number): void
     mergeStructure(structure: Structure): void
-    getSize(): any
-    getStructure(index: any): Structure
-    stealStructure(index: any): Structure
-    copyNth(nth: any): Caps
+    getSize(): number
+    getStructure(index: number): Structure
+    stealStructure(index: number): Structure
+    copyNth(nth: number): Caps
     truncate(): void
     setValue(field: string, value: any): void
-    isAny(): any
-    isEmpty(): any
-    isFixed(): any
-    isAlwaysCompatible(caps2: Caps): any
-    isSubset(superset: Caps): any
-    isEqual(caps2: Caps): any
-    isEqualFixed(caps2: Caps): any
-    canIntersect(caps2: Caps): any
+    isAny(): boolean
+    isEmpty(): boolean
+    isFixed(): boolean
+    isAlwaysCompatible(caps2: Caps): boolean
+    isSubset(superset: Caps): boolean
+    isEqual(caps2: Caps): boolean
+    isEqualFixed(caps2: Caps): boolean
+    canIntersect(caps2: Caps): boolean
     intersect(caps2: Caps): Caps
     subtract(subtrahend: Caps): Caps
     union(caps2: Caps): Caps
     normalize(): Caps
-    doSimplify(): any
+    doSimplify(): boolean
     saveThyself(parent: libxml2.NodePtr): libxml2.NodePtr
     replace(newcaps: Caps): void
     toString(): string
@@ -6962,8 +6962,8 @@ export class Caps {
 export abstract class ChildProxyInterface {
     /* Fields of Gst-0.10.Gst.ChildProxyInterface */
     parent: GObject.TypeInterface
-    getChildByIndex: (parent: ChildProxy, index: any) => Object
-    getChildrenCount: (parent: ChildProxy) => any
+    getChildByIndex: (parent: ChildProxy, index: number) => Object
+    getChildrenCount: (parent: ChildProxy) => number
     childAdded: (parent: ChildProxy, child: Object) => void
     childRemoved: (parent: ChildProxy, child: Object) => void
     gstReserved: any[]
@@ -6984,14 +6984,14 @@ export abstract class ClockClass {
 }
 export class ClockEntry {
     /* Fields of Gst-0.10.Gst.ClockEntry */
-    refcount: any
+    refcount: number
     clock: Clock
     type: ClockEntryType
     time: ClockTime
     interval: ClockTime
     status: ClockReturn
     func: ClockCallback
-    userData: any
+    userData: object
     destroyData: GLib.DestroyNotify
     static name: string
 }
@@ -7003,7 +7003,7 @@ export class CollectData {
     collect: CollectPads
     pad: Pad
     buffer: Buffer
-    pos: any
+    pos: number
     segment: Segment
     static name: string
 }
@@ -7027,23 +7027,23 @@ export abstract class DataQueueClass {
 export class DataQueueItem {
     /* Fields of Gst-0.10.Gst.DataQueueItem */
     object: MiniObject
-    size: any
-    duration: any
-    visible: any
+    size: number
+    duration: number
+    visible: boolean
     destroy: GLib.DestroyNotify
     static name: string
 }
 export class DataQueueSize {
     /* Fields of Gst-0.10.Gst.DataQueueSize */
-    visible: any
-    bytes: any
-    time: any
+    visible: number
+    bytes: number
+    time: number
     static name: string
 }
 export class DebugCategory {
     /* Fields of Gst-0.10.Gst.DebugCategory */
-    threshold: any
-    color: any
+    threshold: number
+    color: number
     name: string
     description: string
     /* Methods of Gst-0.10.Gst.DebugCategory */
@@ -7052,7 +7052,7 @@ export class DebugCategory {
     resetThreshold(): void
     getThreshold(): DebugLevel
     getName(): string
-    getColor(): any
+    getColor(): number
     getDescription(): string
     static name: string
 }
@@ -7066,9 +7066,9 @@ export abstract class ElementClass {
     parentClass: ObjectClass
     details: ElementDetails
     elementfactory: ElementFactory
-    padtemplates: any[]
-    numpadtemplates: any
-    padTemplCookie: any
+    padtemplates: object[]
+    numpadtemplates: number
+    padTemplCookie: number
     padAdded: (element: Element, pad: Pad) => void
     padRemoved: (element: Element, pad: Pad) => void
     noMorePads: (element: Element) => void
@@ -7079,12 +7079,12 @@ export abstract class ElementClass {
     changeState: (element: Element, transition: StateChange) => StateChangeReturn
     setBus: (element: Element, bus: Bus) => void
     provideClock: (element: Element) => Clock
-    setClock: (element: Element, clock: Clock) => any
+    setClock: (element: Element, clock: Clock) => boolean
     getIndex: (element: Element) => Index
     setIndex: (element: Element, index: Index) => void
-    sendEvent: (element: Element, event: Event) => any
+    sendEvent: (element: Element, event: Event) => boolean
     getQueryTypes: (element: Element) => QueryType
-    query: (element: Element, query: Query) => any
+    query: (element: Element, query: Query) => boolean
     gstReserved: any[]
     /* Methods of Gst-0.10.Gst.ElementClass */
     addPadTemplate(templ: PadTemplate): void
@@ -7134,23 +7134,23 @@ export class GhostPadPrivate {
 export abstract class ImplementsInterfaceClass {
     /* Fields of Gst-0.10.Gst.ImplementsInterfaceClass */
     parent: GObject.TypeInterface
-    supported: (iface: ImplementsInterface, ifaceType: GObject.Type) => any
+    supported: (iface: ImplementsInterface, ifaceType: GObject.Type) => boolean
     gstReserved: any[]
     static name: string
 }
 export class IndexAssociation {
     /* Fields of Gst-0.10.Gst.IndexAssociation */
     format: Format
-    value: any
+    value: number
     static name: string
 }
 export abstract class IndexClass {
     /* Fields of Gst-0.10.Gst.IndexClass */
     parentClass: ObjectClass
-    getWriterId: (index: Index, writerString: string) => { returnType: any, writerId: any }
-    commit: (index: Index, id: any) => void
+    getWriterId: (index: Index, writerString: string) => { returnType: boolean, writerId: any }
+    commit: (index: Index, id: number) => void
     addEntry: (index: Index, entry: IndexEntry) => void
-    getAssocEntry: (index: Index, id: any, method: IndexLookupMethod, flags: AssocFlags, format: Format, value: any, func: GLib.CompareDataFunc) => IndexEntry
+    getAssocEntry: (index: Index, id: number, method: IndexLookupMethod, flags: AssocFlags, format: Format, value: number, func: GLib.CompareDataFunc) => IndexEntry
     entryAdded: (index: Index, entry: IndexEntry) => void
     gstReserved: any[]
     static name: string
@@ -7158,11 +7158,11 @@ export abstract class IndexClass {
 export class IndexEntry {
     /* Fields of Gst-0.10.Gst.IndexEntry */
     type: IndexEntryType
-    id: any
+    id: number
     /* Methods of Gst-0.10.Gst.IndexEntry */
     copy(): IndexEntry
     free(): void
-    assocMap(format: Format): { returnType: any, value: any }
+    assocMap(format: Format): { returnType: boolean, value: any }
     static name: string
 }
 export abstract class IndexFactoryClass {
@@ -7173,10 +7173,10 @@ export abstract class IndexFactoryClass {
 }
 export class IndexGroup {
     /* Fields of Gst-0.10.Gst.IndexGroup */
-    groupnum: any
-    entries: any[]
+    groupnum: number
+    entries: object[]
     certainty: IndexCertainty
-    peergroup: any
+    peergroup: number
     static name: string
 }
 export class Iterator {
@@ -7188,21 +7188,21 @@ export class Iterator {
     pushed: Iterator
     type: GObject.Type
     lock: GLib.Mutex
-    cookie: any
+    cookie: number
     masterCookie: any
     gstReserved: any[]
     /* Methods of Gst-0.10.Gst.Iterator */
     push(other: Iterator): void
-    filter(func: GLib.CompareFunc, userData: any): Iterator
-    fold(func: IteratorFoldFunction, ret: any, userData: any): IteratorResult
-    foreach(func: GLib.Func, userData: any): IteratorResult
-    findCustom(func: GLib.CompareFunc, userData: any): any
+    filter(func: GLib.CompareFunc, userData: object): Iterator
+    fold(func: IteratorFoldFunction, ret: any, userData: object): IteratorResult
+    foreach(func: GLib.Func, userData: object): IteratorResult
+    findCustom(func: GLib.CompareFunc, userData: object): object
     static name: string
-    static new(size: any, type: GObject.Type, lock: GLib.Mutex, next: IteratorNextFunction, item: IteratorItemFunction, resync: IteratorResyncFunction, free: IteratorFreeFunction): Iterator
-    constructor(size: any, type: GObject.Type, lock: GLib.Mutex, next: IteratorNextFunction, item: IteratorItemFunction, resync: IteratorResyncFunction, free: IteratorFreeFunction)
+    static new(size: number, type: GObject.Type, lock: GLib.Mutex, next: IteratorNextFunction, item: IteratorItemFunction, resync: IteratorResyncFunction, free: IteratorFreeFunction): Iterator
+    constructor(size: number, type: GObject.Type, lock: GLib.Mutex, next: IteratorNextFunction, item: IteratorItemFunction, resync: IteratorResyncFunction, free: IteratorFreeFunction)
     /* Static methods and pseudo-constructors */
-    static new(size: any, type: GObject.Type, lock: GLib.Mutex, next: IteratorNextFunction, item: IteratorItemFunction, resync: IteratorResyncFunction, free: IteratorFreeFunction): Iterator
-    static newSingle(type: GObject.Type, object: any, copy: CopyFunction, free: GLib.FreeFunc): Iterator
+    static new(size: number, type: GObject.Type, lock: GLib.Mutex, next: IteratorNextFunction, item: IteratorItemFunction, resync: IteratorResyncFunction, free: IteratorFreeFunction): Iterator
+    static newSingle(type: GObject.Type, object: object, copy: CopyFunction, free: GLib.FreeFunc): Iterator
 }
 export abstract class MessageClass {
     /* Fields of Gst-0.10.Gst.MessageClass */
@@ -7215,7 +7215,7 @@ export abstract class MiniObjectClass {
     typeClass: GObject.TypeClass
     copy: MiniObjectCopyFunction
     finalize: MiniObjectFinalizeFunction
-    gstReserved: any
+    gstReserved: object
     static name: string
 }
 export abstract class ObjectClass {
@@ -7239,7 +7239,7 @@ export abstract class PadClass {
     linked: (pad: Pad, peer: Pad) => void
     unlinked: (pad: Pad, peer: Pad) => void
     requestLink: (pad: Pad) => void
-    haveData: (pad: Pad, data: MiniObject) => any
+    haveData: (pad: Pad, data: MiniObject) => boolean
     gstReserved: any[]
     static name: string
 }
@@ -7256,12 +7256,12 @@ export abstract class PadTemplateClass {
 export class ParamSpecFraction {
     /* Fields of Gst-0.10.Gst.ParamSpecFraction */
     parentInstance: GObject.ParamSpec
-    minNum: any
-    minDen: any
-    maxNum: any
-    maxDen: any
-    defNum: any
-    defDen: any
+    minNum: number
+    minDen: number
+    maxNum: number
+    maxDen: number
+    defNum: number
+    defDen: number
     static name: string
 }
 export class ParamSpecMiniObject {
@@ -7296,8 +7296,8 @@ export abstract class PluginClass {
 }
 export class PluginDesc {
     /* Fields of Gst-0.10.Gst.PluginDesc */
-    majorVersion: any
-    minorVersion: any
+    majorVersion: number
+    minorVersion: number
     name: string
     description: string
     pluginInit: PluginInitFunc
@@ -7321,32 +7321,32 @@ export class PluginPrivate {
 export class Poll {
     /* Methods of Gst-0.10.Gst.Poll */
     free(): void
-    addFd(fd: PollFD): any
-    removeFd(fd: PollFD): any
-    fdCtlWrite(fd: PollFD, active: any): any
-    fdCtlRead(fd: PollFD, active: any): any
+    addFd(fd: PollFD): boolean
+    removeFd(fd: PollFD): boolean
+    fdCtlWrite(fd: PollFD, active: boolean): boolean
+    fdCtlRead(fd: PollFD, active: boolean): boolean
     fdIgnored(fd: PollFD): void
-    fdHasClosed(fd: PollFD): any
-    fdHasError(fd: PollFD): any
-    fdCanRead(fd: PollFD): any
-    fdCanWrite(fd: PollFD): any
-    wait(timeout: ClockTime): any
-    setControllable(controllable: any): any
+    fdHasClosed(fd: PollFD): boolean
+    fdHasError(fd: PollFD): boolean
+    fdCanRead(fd: PollFD): boolean
+    fdCanWrite(fd: PollFD): boolean
+    wait(timeout: ClockTime): number
+    setControllable(controllable: boolean): boolean
     restart(): void
-    setFlushing(flushing: any): void
-    writeControl(): any
-    readControl(): any
+    setFlushing(flushing: boolean): void
+    writeControl(): boolean
+    readControl(): boolean
     static name: string
-    static new(controllable: any): Poll
-    constructor(controllable: any)
+    static new(controllable: boolean): Poll
+    constructor(controllable: boolean)
     /* Static methods and pseudo-constructors */
-    static new(controllable: any): Poll
+    static new(controllable: boolean): Poll
     static newTimer(): Poll
 }
 export class PollFD {
     /* Fields of Gst-0.10.Gst.PollFD */
     fd: any
-    idx: any
+    idx: number
     /* Methods of Gst-0.10.Gst.PollFD */
     init(): void
     static name: string
@@ -7398,28 +7398,28 @@ export class Segment {
     absRate: number
     format: Format
     flags: SeekFlags
-    start: any
-    stop: any
-    time: any
-    accum: any
-    lastStop: any
-    duration: any
+    start: number
+    stop: number
+    time: number
+    accum: number
+    lastStop: number
+    duration: number
     appliedRate: number
     gstReserved: any[]
     /* Methods of Gst-0.10.Gst.Segment */
     copy(): Segment
     free(): void
     init(format: Format): void
-    setDuration(format: Format, duration: any): void
-    setLastStop(format: Format, position: any): void
-    setSeek(rate: number, format: Format, flags: SeekFlags, startType: SeekType, start: any, stopType: SeekType, stop: any): { update: any }
-    setNewsegment(update: any, rate: number, format: Format, start: any, stop: any, time: any): void
-    setNewsegmentFull(update: any, rate: number, appliedRate: number, format: Format, start: any, stop: any, time: any): void
-    toStreamTime(format: Format, position: any): any
-    toRunningTime(format: Format, position: any): any
-    toPosition(format: Format, runningTime: any): any
-    clip(format: Format, start: any, stop: any): { returnType: any, clipStart: any, clipStop: any }
-    setRunningTime(format: Format, runningTime: any): any
+    setDuration(format: Format, duration: number): void
+    setLastStop(format: Format, position: number): void
+    setSeek(rate: number, format: Format, flags: SeekFlags, startType: SeekType, start: number, stopType: SeekType, stop: number): { update: any }
+    setNewsegment(update: boolean, rate: number, format: Format, start: number, stop: number, time: number): void
+    setNewsegmentFull(update: boolean, rate: number, appliedRate: number, format: Format, start: number, stop: number, time: number): void
+    toStreamTime(format: Format, position: number): number
+    toRunningTime(format: Format, position: number): number
+    toPosition(format: Format, runningTime: number): number
+    clip(format: Format, start: number, stop: number): { returnType: boolean, clipStart: any, clipStop: any }
+    setRunningTime(format: Format, runningTime: number): boolean
     static name: string
     static new(): Segment
     constructor()
@@ -7452,14 +7452,14 @@ export class Structure {
     name: GLib.Quark
     parentRefcount: any
     fields: GLib.Array
-    gstReserved: any
+    gstReserved: object
     /* Methods of Gst-0.10.Gst.Structure */
     copy(): Structure
     setParentRefcount(): { refcount: any }
     free(): void
     getName(): string
     getNameId(): GLib.Quark
-    hasName(name: string): any
+    hasName(name: string): boolean
     setName(name: string): void
     idSetValue(field: GLib.Quark, value: any): void
     setValue(fieldname: string, value: any): void
@@ -7468,30 +7468,30 @@ export class Structure {
     removeField(fieldname: string): void
     removeAllFields(): void
     getFieldType(fieldname: string): GObject.Type
-    foreach(func: StructureForeachFunc, userData: any): any
-    mapInPlace(func: StructureMapFunc, userData: any): any
-    nFields(): any
-    nthFieldName(index: any): string
-    idHasField(field: GLib.Quark): any
-    idHasFieldTyped(field: GLib.Quark, type: GObject.Type): any
-    hasField(fieldname: string): any
-    hasFieldTyped(fieldname: string, type: GObject.Type): any
-    getBoolean(fieldname: string): { returnType: any, value: any }
-    getInt(fieldname: string): { returnType: any, value: any }
-    getUint(fieldname: string): { returnType: any, value: any }
-    getFourcc(fieldname: string): { returnType: any, value: any }
-    getDouble(fieldname: string): { returnType: any, value: number }
-    getDate(fieldname: string, value: GLib.Date): any
-    getClockTime(fieldname: string, value: ClockTime): any
+    foreach(func: StructureForeachFunc, userData: object): boolean
+    mapInPlace(func: StructureMapFunc, userData: object): boolean
+    nFields(): number
+    nthFieldName(index: number): string
+    idHasField(field: GLib.Quark): boolean
+    idHasFieldTyped(field: GLib.Quark, type: GObject.Type): boolean
+    hasField(fieldname: string): boolean
+    hasFieldTyped(fieldname: string, type: GObject.Type): boolean
+    getBoolean(fieldname: string): { returnType: boolean, value: any }
+    getInt(fieldname: string): { returnType: boolean, value: any }
+    getUint(fieldname: string): { returnType: boolean, value: any }
+    getFourcc(fieldname: string): { returnType: boolean, value: any }
+    getDouble(fieldname: string): { returnType: boolean, value: number }
+    getDate(fieldname: string, value: GLib.Date): boolean
+    getClockTime(fieldname: string, value: ClockTime): boolean
     getString(fieldname: string): string
-    getEnum(fieldname: string, enumtype: GObject.Type): { returnType: any, value: any }
-    getFraction(fieldname: string): { returnType: any, valueNumerator: any, valueDenominator: any }
+    getEnum(fieldname: string, enumtype: GObject.Type): { returnType: boolean, value: any }
+    getFraction(fieldname: string): { returnType: boolean, valueNumerator: any, valueDenominator: any }
     toString(): string
-    fixateFieldNearestInt(fieldName: string, target: any): any
-    fixateFieldNearestDouble(fieldName: string, target: number): any
-    fixateFieldBoolean(fieldName: string, target: any): any
-    fixateFieldString(fieldName: string, target: string): any
-    fixateFieldNearestFraction(fieldName: string, targetNumerator: any, targetDenominator: any): any
+    fixateFieldNearestInt(fieldName: string, target: any): boolean
+    fixateFieldNearestDouble(fieldName: string, target: number): boolean
+    fixateFieldBoolean(fieldName: string, target: boolean): boolean
+    fixateFieldString(fieldName: string, target: string): boolean
+    fixateFieldNearestFraction(fieldName: string, targetNumerator: number, targetDenominator: number): boolean
     static name: string
 }
 export abstract class SystemClockClass {
@@ -7520,8 +7520,8 @@ export abstract class TaskPoolClass {
     parentClass: ObjectClass
     prepare: (pool: TaskPool) => void
     cleanup: (pool: TaskPool) => void
-    push: (pool: TaskPool, func: TaskPoolFunction) => any
-    join: (pool: TaskPool, id: any) => void
+    push: (pool: TaskPool, func: TaskPoolFunction) => object
+    join: (pool: TaskPool, id: object) => void
     gstReserved: any[]
     static name: string
 }
@@ -7540,24 +7540,24 @@ export class Trace {
     filename: string
     fd: any
     buf: TraceEntry
-    bufsize: any
-    bufoffset: any
+    bufsize: number
+    bufoffset: number
     /* Methods of Gst-0.10.Gst.Trace */
     destroy(): void
     flush(): void
     textFlush(): void
     setDefault(): void
     static name: string
-    static new(filename: string, size: any): Trace
-    constructor(filename: string, size: any)
+    static new(filename: string, size: number): Trace
+    constructor(filename: string, size: number)
     /* Static methods and pseudo-constructors */
-    static new(filename: string, size: any): Trace
+    static new(filename: string, size: number): Trace
 }
 export class TraceEntry {
     /* Fields of Gst-0.10.Gst.TraceEntry */
-    timestamp: any
-    sequence: any
-    data: any
+    timestamp: number
+    sequence: number
+    data: number
     message: any[]
     static name: string
 }
@@ -7565,7 +7565,7 @@ export class TypeFind {
     /* Fields of Gst-0.10.Gst.TypeFind */
     peek: any
     suggest: any
-    data: any
+    data: object
     getLength: any
     gstReserved: any[]
     static name: string
@@ -7589,7 +7589,7 @@ export abstract class URIHandlerInterface {
     getType: () => URIType
     getProtocols: () => string[]
     getUri: (handler: URIHandler) => string
-    setUri: (handler: URIHandler, uri: string) => any
+    setUri: (handler: URIHandler, uri: string) => boolean
     getTypeFull: (type: GObject.Type) => URIType
     getProtocolsFull: (type: GObject.Type) => string[]
     gstReserved: any[]

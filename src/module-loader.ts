@@ -393,10 +393,10 @@ export class ModuleLoader {
         this.log.log(`Parsing ${file.path}...`)
         const fileContents = fs.readFileSync(file.path, 'utf8')
         const result = (await xml2js.parseStringPromise(fileContents)) as ParsedGir
-        const gi = new GirModule(result, this.config)
+        const girModule = new GirModule(result, this.config)
         // Figure out transitive module dependencies
-        this.extendDependencyMapByGirModule(gi)
-        return gi
+        this.extendDependencyMapByGirModule(girModule)
+        return girModule
     }
 
     /**
@@ -442,16 +442,16 @@ export class ModuleLoader {
             if (!packageName) throw new Error(`Module name '${packageName} 'not found!`)
             // If module has not already been loaded
             if (!this.existsGirModules(girModules, [packageName])) {
-                const gi = await this.loadAndCreateGirModule(packageName)
-                if (!gi) {
+                const girModule = await this.loadAndCreateGirModule(packageName)
+                if (!girModule) {
                     if (!failedGirModules.has(packageName)) {
                         this.log.warn(`No gir file found for '${packageName}', this module will be ignored`)
                         failedGirModules.add(packageName)
                     }
-                } else if (gi && gi.packageName) {
+                } else if (girModule && girModule.packageName) {
                     const addModule = {
-                        packageName: gi.packageName,
-                        module: gi,
+                        packageName: girModule.packageName,
+                        module: girModule,
                         resolvedBy,
                     }
                     girModules.push(addModule)

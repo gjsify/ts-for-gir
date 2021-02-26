@@ -49,6 +49,10 @@ import {
 
 export class GirModule {
     /**
+     * Array of all gir modules
+     */
+    static allGirModules: GirModule[] = []
+    /**
      * E.g. 'Gtk'
      */
     namespace: string
@@ -195,8 +199,7 @@ export class GirModule {
         if (girFuncs)
             for (const girFunc of girFuncs) {
                 if (girFunc.$ && girFunc.$.name) {
-                    // Used for type-patches to get the packageName
-                    girFunc._containerModule = girClass?._module || this
+                    girFunc._class = girClass || undefined
                     const nsName = girClass ? girClass._fullSymName : this.namespace
                     girFunc._fullSymName = `${nsName}.${girFunc.$.name}`
                     this.annotateFunctionArguments(girFunc)
@@ -210,6 +213,7 @@ export class GirModule {
             for (const girVar of girVars) {
                 const nsName = girClass ? girClass._fullSymName : this.namespace
                 girVar._module = this
+                girVar._class = girClass || undefined
                 if (girVar.$ && girVar.$.name) {
                     girVar._fullSymName = `${nsName}.${girVar.$.name}`
                 }
@@ -317,8 +321,9 @@ export class GirModule {
         }
     }
 
-    private fullTypeLookup(fullTypeName: string) {
+    private fullTypeLookupWithNamespace(fullTypeName: string) {
         let resValue = ''
+        let namespace = ''
 
         // Check overwrites first
         if (!resValue && fullTypeName && FULL_TYPE_MAP(this.config.environment, this.packageName, fullTypeName)) {
@@ -332,6 +337,7 @@ export class GirModule {
                 resValue = this.transformation.transformTypeName(resValue)
                 // TODO check if resValue this is a class, enum, interface or unify the transformClassName method
                 resValue = this.transformation.transformClassName(resValue)
+                namespace = this.namespace
             } else {
                 const resValues = fullTypeName.split('.')
                 resValues.map((name) => this.transformation.transformTypeName(name))
@@ -340,10 +346,69 @@ export class GirModule {
                     resValues[resValues.length - 1],
                 )
                 resValue = resValues.join('.')
+                namespace = resValues[0]
             }
         }
 
-        return resValue
+        return {
+            value: resValue,
+            namespace,
+        }
+    }
+
+    private fullTypeLookup(girVar: GirVariable, fullTypeName: string | null) {
+        let resValue = ''
+        let namespace = ''
+
+        if (!fullTypeName) {
+            return {
+                value: resValue,
+                fullTypeName,
+                namespace,
+            }
+        }
+
+        // Fully qualify our type name if need be
+        if (!fullTypeName.includes('.')) {
+            let tryFullTypeName = ``
+
+            if (!resValue && girVar._module && girVar._module !== this) {
+                tryFullTypeName = `${girVar._module.namespace}.${fullTypeName}`
+                resValue = this.fullTypeLookupWithNamespace(tryFullTypeName).value
+                if (resValue) {
+                    fullTypeName = tryFullTypeName
+                    namespace = girVar._module.namespace
+                }
+            }
+
+            if (!resValue) {
+                tryFullTypeName = `${this.namespace}.${fullTypeName}`
+                resValue = this.fullTypeLookupWithNamespace(tryFullTypeName).value
+                if (resValue) {
+                    fullTypeName = tryFullTypeName
+                    namespace = this.namespace
+                }
+            }
+
+            if (!resValue && girVar._class?._module?.namespace && girVar._class._module !== this) {
+                tryFullTypeName = `${girVar._class._module.namespace}.${fullTypeName}`
+                resValue = this.fullTypeLookupWithNamespace(tryFullTypeName).value
+                if (resValue) {
+                    fullTypeName = tryFullTypeName
+                    namespace = girVar._class?._module?.namespace
+                }
+            }
+        }
+
+        if (!resValue && fullTypeName) {
+            resValue = this.fullTypeLookupWithNamespace(fullTypeName).value
+        }
+
+        return {
+            value: resValue,
+            fullTypeName,
+            namespace,
+        }
     }
 
     private typeLookup(girVar: GirVariable) {
@@ -353,6 +418,8 @@ export class GirModule {
         let arrCType: string | undefined
         let nul: TypeNullableSuffix = ''
         let resValue = ''
+        let namespace = ''
+        let isFunction = false
 
         const collection = girVar.array
             ? girVar.array
@@ -396,45 +463,23 @@ export class GirModule {
                     this.log.warn('Ignore multiline function description!', desc)
                 }
                 fullTypeName = desc[0]
+                isFunction = true
             }
 
             if (fullTypeName) {
                 if (suffix.length) fullTypeName = '(' + fullTypeName + ')'
                 resValue = fullTypeName
+                isFunction = true
             }
         }
 
-        // Fully qualify our type name if need be
-        if (!resValue && fullTypeName && !fullTypeName.includes('.') && type?.$) {
-            let tryFullTypeName = ``
-
-            if (!resValue && girVar._containerModule) {
-                tryFullTypeName = `${girVar._containerModule.namespace}.${fullTypeName}`
-                resValue = this.fullTypeLookup(tryFullTypeName)
-                if (resValue) {
-                    fullTypeName = tryFullTypeName
-                }
+        if (!isFunction) {
+            const res = this.fullTypeLookup(girVar, fullTypeName)
+            if (res.value) {
+                resValue = res.value
+                fullTypeName = res.fullTypeName
+                namespace = res.namespace
             }
-
-            if (!resValue && girVar._module) {
-                tryFullTypeName = `${girVar._module.namespace}.${fullTypeName}`
-                resValue = this.fullTypeLookup(tryFullTypeName)
-                if (resValue) {
-                    fullTypeName = tryFullTypeName
-                }
-            }
-
-            if (!resValue && girVar._module) {
-                tryFullTypeName = `${this.namespace}.${fullTypeName}`
-                resValue = this.fullTypeLookup(tryFullTypeName)
-                if (resValue) {
-                    fullTypeName = tryFullTypeName
-                }
-            }
-        }
-
-        if (!resValue && fullTypeName) {
-            resValue = this.fullTypeLookup(fullTypeName)
         }
 
         if (!resValue && type?.$ && arr && POD_TYPE_MAP_ARRAY(this.config.environment)[type.$.name]) {
@@ -463,6 +508,7 @@ export class GirModule {
             value: resValue,
             suffix,
             fullTypeName,
+            namespace,
         }
     }
 
@@ -627,7 +673,7 @@ export class GirModule {
                 name = this.transformation.transformFieldName(girVar.$.name, allowQuotes)
                 break
         }
-        // Use the out type because in can be a union which isn't appropriate
+        // Use the out type because it can be a union which isn't appropriate
         // for a property
         let typeName = this.typeLookup(girVar).result
         const nameSuffix = optional ? '?' : ''
@@ -712,7 +758,7 @@ export class GirModule {
             return FALSY_FUNCTION_DESCRIPTION
         }
         const packageNameToPatch =
-            girFunc._containerModule?.packageName || girFunc._module?.packageName || this.packageName
+            girFunc._class?._module?.packageName || girFunc._module?.packageName || this.packageName
         const methodPatches = girFunc._fullSymName
             ? this.getPatches(packageNameToPatch, 'methods', girFunc._fullSymName)
             : []
@@ -831,6 +877,20 @@ export class GirModule {
             params,
             retType,
         )
+    }
+
+    private getDependencyByNamespace(namespace: string) {
+        const packageName = this.allDependencies.find((dependency) => dependency.startsWith(namespace + '-'))
+        return packageName
+    }
+
+    /**
+     * Get girModule by namespace of the current dependencies
+     * @param namespace
+     */
+    private getModuleByNamespace(namespace: string) {
+        const packageName = this.getDependencyByNamespace(namespace)
+        GirModule.allGirModules.find((girModule) => girModule.packageName === packageName)
     }
 
     private traverseInheritanceTree(

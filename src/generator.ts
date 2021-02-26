@@ -73,6 +73,8 @@ export class Generator {
             this.log.error('Need to specify modules!')
         }
 
+        GirModule.allGirModules = girModules
+
         //this.log.dir(girModules["GObject-2.0"], { depth: null })
 
         this.log.info('Files parsed, loading types...')

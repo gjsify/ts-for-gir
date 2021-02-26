@@ -1320,7 +1320,7 @@ export class Closure {
     /* Fields of GObject-2.0.GObject.Closure */
     in_marshal: number
     is_invalid: number
-    marshal: (closure: Function, return_value: any, n_param_values: number, param_values: any, invocation_hint: object, marshal_data: object) => void
+    marshal: (closure: Closure, return_value: Value, n_param_values: number, param_values: Value, invocation_hint: object, marshal_data: object) => void
     /* Methods of GObject-2.0.GObject.Closure */
     invalidate(): void
     invoke(param_values: any[], invocation_hint?: object | null): /* return_value */ any | null
@@ -1372,8 +1372,8 @@ export class FlagsValue {
 export abstract class InitiallyUnownedClass {
     /* Fields of GObject-2.0.GObject.InitiallyUnownedClass */
     g_type_class: TypeClass
-    set_property: (object: Object, property_id: number, value: any, pspec: ParamSpec) => void
-    get_property: (object: Object, property_id: number, value: any, pspec: ParamSpec) => void
+    set_property: (object: Object, property_id: number, value: Value, pspec: ParamSpec) => void
+    get_property: (object: Object, property_id: number, value: Value, pspec: ParamSpec) => void
     dispose: (object: Object) => void
     finalize: (object: Object) => void
     dispatch_properties_changed: (object: Object, n_pspecs: number, pspecs: ParamSpec) => void
@@ -1391,8 +1391,8 @@ export class InterfaceInfo {
 export abstract class ObjectClass {
     /* Fields of GObject-2.0.GObject.ObjectClass */
     g_type_class: TypeClass
-    set_property: (object: Object, property_id: number, value: any, pspec: ParamSpec) => void
-    get_property: (object: Object, property_id: number, value: any, pspec: ParamSpec) => void
+    set_property: (object: Object, property_id: number, value: Value, pspec: ParamSpec) => void
+    get_property: (object: Object, property_id: number, value: Value, pspec: ParamSpec) => void
     dispose: (object: Object) => void
     finalize: (object: Object) => void
     dispatch_properties_changed: (object: Object, n_pspecs: number, pspecs: ParamSpec) => void
@@ -1417,9 +1417,9 @@ export abstract class ParamSpecClass {
     g_type_class: TypeClass
     value_type: Type
     finalize: (pspec: ParamSpec) => void
-    value_set_default: (pspec: ParamSpec, value: any) => void
-    value_validate: (pspec: ParamSpec, value: any) => boolean
-    values_cmp: (pspec: ParamSpec, value1: any, value2: any) => number
+    value_set_default: (pspec: ParamSpec, value: Value) => void
+    value_validate: (pspec: ParamSpec, value: Value) => boolean
+    values_cmp: (pspec: ParamSpec, value1: Value, value2: Value) => number
     static name: string
 }
 export class ParamSpecPool {
@@ -1438,9 +1438,9 @@ export class ParamSpecTypeInfo {
     instance_init: (pspec: ParamSpec) => void
     value_type: Type
     finalize: (pspec: ParamSpec) => void
-    value_set_default: (pspec: ParamSpec, value: any) => void
-    value_validate: (pspec: ParamSpec, value: any) => boolean
-    values_cmp: (pspec: ParamSpec, value1: any, value2: any) => number
+    value_set_default: (pspec: ParamSpec, value: Value) => void
+    value_validate: (pspec: ParamSpec, value: Value) => boolean
+    values_cmp: (pspec: ParamSpec, value1: Value, value2: Value) => number
     static name: string
 }
 export class Parameter {
@@ -1544,14 +1544,14 @@ export class TypeQuery {
 }
 export class TypeValueTable {
     /* Fields of GObject-2.0.GObject.TypeValueTable */
-    value_init: (value: any) => void
-    value_free: (value: any) => void
-    value_copy: (src_value: any, dest_value: any) => void
-    value_peek_pointer: (value: any) => object
+    value_init: (value: Value) => void
+    value_free: (value: Value) => void
+    value_copy: (src_value: Value, dest_value: Value) => void
+    value_peek_pointer: (value: Value) => object
     collect_format: string
-    collect_value: (value: any, n_collect_values: number, collect_values: TypeCValue, collect_flags: number) => string
+    collect_value: (value: Value, n_collect_values: number, collect_values: TypeCValue, collect_flags: number) => string
     lcopy_format: string
-    lcopy_value: (value: any, n_collect_values: number, collect_values: TypeCValue, collect_flags: number) => string
+    lcopy_value: (value: Value, n_collect_values: number, collect_values: TypeCValue, collect_flags: number) => string
     static name: string
 }
 export class Value {

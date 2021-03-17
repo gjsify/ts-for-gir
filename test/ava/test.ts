@@ -150,9 +150,12 @@ test('callback', (t) => {
     const mod = new GirModule(emptyRepositoryXml, config)
     t.is(mod.namespace, 'Test')
 
-    mod.symTable.set([], 'Test.MyType', emptyConstruct)
-    mod.symTable.set([], 'Test.SimpleAction', emptyConstruct)
-    mod.symTable.set([], 'Test.Variant', emptyConstruct)
+    mod.dependencies.push('GLib-2.0');
+
+    mod.symTable.set(mod.dependencies, 'Test.MyType', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.SimpleAction', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.Variant', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'GLib.Variant', emptyConstruct)
 
     t.deepEqual(mod.exportCallback(cbs[0]), [
         'export interface activate {',
@@ -165,9 +168,11 @@ test('interface', (t) => {
     const mod = new GirModule(emptyRepositoryXml, config)
     t.is(mod.namespace, 'Test')
 
-    mod.symTable.set([], 'Test.MyType', emptyConstruct)
-    mod.symTable.set([], 'GLib.Variant', emptyConstruct)
-    mod.symTable.set([], 'GLib.VariantType', emptyConstruct)
+    mod.dependencies.push('GLib-2.0');
+
+    mod.symTable.set(mod.dependencies, 'Test.MyType', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'GLib.Variant', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'GLib.VariantType', emptyConstruct)
 
     t.deepEqual(mod.exportInterface(TestData.interfaceAction), [
         'export class Action {',
@@ -257,10 +262,12 @@ test('constructors', (t) => {
     const mod = new GirModule(emptyRepositoryXml, config)
     t.is(mod.namespace, 'Test')
 
-    mod.symTable.set([], 'Test.MyType', emptyConstruct)
-    mod.symTable.set([], 'GLib.String', emptyConstruct)
-    mod.symTable.set([], 'Test.DBusInterfaceInfo', emptyConstruct)
-    mod.symTable.set([], 'Test.DBusNodeInfo', emptyConstruct)
+    mod.dependencies.push('GLib-2.0');
+
+    mod.symTable.set(mod.dependencies, 'Test.MyType', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'GLib.String', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.DBusInterfaceInfo', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.DBusNodeInfo', emptyConstruct)
 
     t.deepEqual(mod.exportInterface(TestData.interfaceDBusNodeInfo), [
         'export class DBusNodeInfo {',
@@ -286,20 +293,23 @@ test('class', (t) => {
     const mod = new GirModule(emptyRepositoryXml, config)
     t.is(mod.namespace, 'Test')
 
-    mod.symTable.set([], 'GObject.Object', TestData.classGObject)
-    mod.symTable.set([], 'GLib.Variant', emptyConstruct)
-    mod.symTable.set([], 'GLib.VariantDict', emptyConstruct)
-    mod.symTable.set([], 'Test.File', emptyConstruct)
-    mod.symTable.set([], 'Test.InputStream', emptyConstruct)
-    mod.symTable.set([], 'Test.Object', emptyConstruct)
-    mod.symTable.set([], 'Test.BindingFlags', emptyConstruct)
-    mod.symTable.set([], 'Test.Binding', emptyConstruct)
-    mod.symTable.set([], 'Test.BindingTransformFunc', emptyConstruct)
-    mod.symTable.set([], 'GLib.DestroyNotify', emptyConstruct)
-    mod.symTable.set([], 'Test.Closure', emptyConstruct)
-    mod.symTable.set([], 'Test.Value', emptyConstruct)
-    mod.symTable.set([], 'GLib.Quark', emptyConstruct)
-    mod.symTable.set([], 'Test.ParamSpec', emptyConstruct)
+    mod.dependencies.push('GLib-2.0');
+    mod.dependencies.push('GObject-2.0');
+
+    mod.symTable.set(mod.dependencies, 'GObject.Object', TestData.classGObject)
+    mod.symTable.set(mod.dependencies, 'GLib.Variant', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'GLib.VariantDict', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.File', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.InputStream', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.Object', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.BindingFlags', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.Binding', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.BindingTransformFunc', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'GLib.DestroyNotify', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.Closure', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.Value', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'GLib.Quark', emptyConstruct)
+    mod.symTable.set(mod.dependencies, 'Test.ParamSpec', emptyConstruct)
 
     const result = mod.exportClass(TestData.classApplicationCommandLine)
 

@@ -9,6 +9,9 @@ import type { GLib } from './GLib-2.0';
 
 export declare namespace Fwupd {
 
+export enum ClientDownloadFlags {
+    NONE,
+}
 export enum Error {
     INTERNAL,
     VERSION_NEWER,
@@ -111,10 +114,6 @@ export enum VersionFormat {
     SURFACE,
     DELL_BIOS,
     HEX,
-}
-export enum ClientDownloadFlags {
-    NONE,
-    ONLY_IPFS,
 }
 export enum ClientUploadFlags {
     NONE,
@@ -251,7 +250,6 @@ export const RESULT_KEY_INSTALL_DURATION: string
 export const RESULT_KEY_INSTANCE_IDS: string
 export const RESULT_KEY_ISSUES: string
 export const RESULT_KEY_LICENSE: string
-export const RESULT_KEY_LOCATIONS: string
 export const RESULT_KEY_METADATA: string
 export const RESULT_KEY_MODIFIED: string
 export const RESULT_KEY_NAME: string
@@ -441,8 +439,6 @@ export class Client {
     installBytesFinish(res: Gio.AsyncResult): boolean
     installFinish(res: Gio.AsyncResult): boolean
     installRelease(device: Device, release: Release, installFlags: InstallFlags, cancellable?: Gio.Cancellable | null): boolean
-    installRelease2(device: Device, release: Release, installFlags: InstallFlags, downloadFlags: ClientDownloadFlags, cancellable?: Gio.Cancellable | null): boolean
-    installRelease2Async(device: Device, release: Release, installFlags: InstallFlags, downloadFlags: ClientDownloadFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     installReleaseAsync(device: Device, release: Release, installFlags: InstallFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     installReleaseFinish(res: Gio.AsyncResult): boolean
     modifyConfig(key: string, value: string, cancellable?: Gio.Cancellable | null): boolean
@@ -606,7 +602,6 @@ export interface Device_ConstructProps extends GObject.Object_ConstructProps {
     parent?: Device
     protocol?: string
     status?: number
-    updateState?: number
     versionFormat?: number
 }
 export class Device {
@@ -615,7 +610,6 @@ export class Device {
     parent: Device
     protocol: string
     status: number
-    updateState: number
     versionFormat: number
     /* Fields of Fwupd-2.0.Fwupd.Device */
     parentInstance: GObject.Object
@@ -755,11 +749,6 @@ export class Device {
     on(sigName: "notify::status", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::status", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::status", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::update-state", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::update-state", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::update-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::update-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::update-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::version-format", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::version-format", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::version-format", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -875,7 +864,6 @@ export class Release {
     addChecksum(checksum: string): void
     addFlag(flag: ReleaseFlags): void
     addIssue(issue: string): void
-    addLocation(location: string): void
     addMetadata(hash: GLib.HashTable): void
     addMetadataItem(key: string, value: string): void
     getAppstreamId(): string
@@ -893,7 +881,6 @@ export class Release {
     getInstallDuration(): number
     getIssues(): string[]
     getLicense(): string
-    getLocations(): string[]
     getMetadata(): GLib.HashTable
     getMetadataItem(key: string): string
     getName(): string

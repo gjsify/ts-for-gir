@@ -25375,75 +25375,55 @@ const inheritanceTable: { [key: string]: string[] } = {
 ],
     'Soup.Auth': [
     'GObject.Object',
-    'GObject.Object',
 ],
     'Soup.AuthBasic': [
-    'Soup.Auth',
     'Soup.Auth',
     'GObject.Object',
 ],
     'Soup.AuthDigest': [
     'Soup.Auth',
-    'Soup.Auth',
     'GObject.Object',
 ],
     'Soup.AuthDomain': [
     'GObject.Object',
-    'GObject.Object',
 ],
     'Soup.AuthDomainBasic': [
-    'Soup.AuthDomain',
     'Soup.AuthDomain',
     'GObject.Object',
 ],
     'Soup.AuthDomainDigest': [
-    'Soup.AuthDomain',
     'Soup.AuthDomain',
     'GObject.Object',
 ],
     'Soup.AuthManager': [
     'GObject.Object',
     'Soup.SessionFeature',
-    'GObject.Object',
-    'Soup.SessionFeature',
 ],
     'Soup.AuthNTLM': [
-    'Soup.Auth',
     'Soup.Auth',
     'GObject.Object',
 ],
     'Soup.AuthNegotiate': [
-    'Soup.Auth',
     'Soup.Auth',
     'GObject.Object',
 ],
     'Soup.Cache': [
     'GObject.Object',
     'Soup.SessionFeature',
-    'GObject.Object',
-    'Soup.SessionFeature',
 ],
     'Soup.ContentDecoder': [
-    'GObject.Object',
-    'Soup.SessionFeature',
     'GObject.Object',
     'Soup.SessionFeature',
 ],
     'Soup.ContentSniffer': [
     'GObject.Object',
     'Soup.SessionFeature',
-    'GObject.Object',
-    'Soup.SessionFeature',
 ],
     'Soup.CookieJar': [
     'GObject.Object',
     'Soup.SessionFeature',
-    'GObject.Object',
-    'Soup.SessionFeature',
 ],
     'Soup.CookieJarDB': [
-    'Soup.CookieJar',
-    'Soup.SessionFeature',
     'Soup.CookieJar',
     'Soup.SessionFeature',
     'GObject.Object',
@@ -25451,19 +25431,13 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Soup.CookieJarText': [
     'Soup.CookieJar',
     'Soup.SessionFeature',
-    'Soup.CookieJar',
-    'Soup.SessionFeature',
     'GObject.Object',
 ],
     'Soup.HSTSEnforcer': [
     'GObject.Object',
     'Soup.SessionFeature',
-    'GObject.Object',
-    'Soup.SessionFeature',
 ],
     'Soup.HSTSEnforcerDB': [
-    'Soup.HSTSEnforcer',
-    'Soup.SessionFeature',
     'Soup.HSTSEnforcer',
     'Soup.SessionFeature',
     'GObject.Object',
@@ -25471,16 +25445,11 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Soup.Logger': [
     'GObject.Object',
     'Soup.SessionFeature',
-    'GObject.Object',
-    'Soup.SessionFeature',
 ],
     'Soup.Message': [
     'GObject.Object',
-    'GObject.Object',
 ],
     'Soup.MultipartInputStream': [
-    'Gio.FilterInputStream',
-    'Gio.PollableInputStream',
     'Gio.FilterInputStream',
     'Gio.PollableInputStream',
     'Gio.InputStream',
@@ -25516,10 +25485,8 @@ const inheritanceTable: { [key: string]: string[] } = {
 ],
     'Soup.Server': [
     'GObject.Object',
-    'GObject.Object',
 ],
     'Soup.Session': [
-    'GObject.Object',
     'GObject.Object',
 ],
     'Soup.SessionAsync': [
@@ -25536,25 +25503,17 @@ const inheritanceTable: { [key: string]: string[] } = {
 ],
     'Soup.WebsocketConnection': [
     'GObject.Object',
-    'GObject.Object',
 ],
     'Soup.WebsocketExtension': [
     'GObject.Object',
-    'GObject.Object',
 ],
     'Soup.WebsocketExtensionDeflate': [
-    'Soup.WebsocketExtension',
     'Soup.WebsocketExtension',
     'GObject.Object',
 ],
     'Soup.WebsocketExtensionManager': [
     'GObject.Object',
     'Soup.SessionFeature',
-    'GObject.Object',
-    'Soup.SessionFeature',
-],
-    'Soup.ServerMessage': [
-    'GObject.Object',
 ],
     'SoupGNOME.CookieJarSqlite': [
     'Soup.CookieJarDB',

@@ -1,2 +1,2 @@
 imports.gi.versions.GtkSource = '4'
-export default imports.gi.GtkSource
+module.exports = imports.gi.GtkSource

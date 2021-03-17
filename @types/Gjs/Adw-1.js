@@ -1,2 +1,2 @@
 imports.gi.versions.Adw = '1'
-export default imports.gi.Adw
+module.exports = imports.gi.Adw

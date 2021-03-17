@@ -1,2 +1,2 @@
 imports.gi.versions.GWeather = '3.0'
-export default imports.gi.GWeather
+module.exports = imports.gi.GWeather

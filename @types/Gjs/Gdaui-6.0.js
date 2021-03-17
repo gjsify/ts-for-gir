@@ -1,2 +1,2 @@
 imports.gi.versions.Gdaui = '6.0'
-export default imports.gi.Gdaui
+module.exports = imports.gi.Gdaui

@@ -1,2 +1,2 @@
 imports.gi.versions.RygelServer = '2.4'
-export default imports.gi.RygelServer
+module.exports = imports.gi.RygelServer

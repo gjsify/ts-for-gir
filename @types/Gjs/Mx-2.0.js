@@ -1,2 +1,2 @@
 imports.gi.versions.Mx = '2.0'
-export default imports.gi.Mx
+module.exports = imports.gi.Mx

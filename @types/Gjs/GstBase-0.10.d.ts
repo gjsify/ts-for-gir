@@ -49,7 +49,7 @@ export class GstAdapter {
     buflist: object[]
     size: number
     skip: number
-    assembled_data: any
+    assembled_data: number
     assembled_size: number
     assembled_len: number
     buflist_end: object[]
@@ -67,9 +67,9 @@ export class GstAdapter {
     take_buffer(nbytes: number): Gst.Buffer
     available(): number
     available_fast(): number
-    prev_timestamp(): [ /* returnType */ Gst.ClockTime, /* distance */ any ]
+    prev_timestamp(): [ /* returnType */ Gst.ClockTime, /* distance */ number ]
     masked_scan_uint32(mask: number, pattern: number, offset: number, size: number): number
-    masked_scan_uint32_peek(mask: number, pattern: number, offset: number, size: number): [ /* returnType */ number, /* value */ any ]
+    masked_scan_uint32_peek(mask: number, pattern: number, offset: number, size: number): [ /* returnType */ number, /* value */ number ]
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -155,7 +155,7 @@ export class GstCollectPads {
     peek(data: Gst.CollectData): Gst.Buffer
     pop(data: Gst.CollectData): Gst.Buffer
     available(): number
-    read(data: Gst.CollectData, size: number): [ /* returnType */ number, /* bytes */ any ]
+    read(data: Gst.CollectData, size: number): [ /* returnType */ number, /* bytes */ number ]
     read_buffer(data: Gst.CollectData, size: number): Gst.Buffer
     take_buffer(data: Gst.CollectData, size: number): Gst.Buffer
     flush(data: Gst.CollectData, size: number): number
@@ -248,7 +248,7 @@ export class GstDataQueue {
     queue: GLib.Queue
     cur_level: Gst.DataQueueSize
     checkfull: Gst.DataQueueCheckFullFunction
-    checkdata: any
+    checkdata: object
     qlock: GLib.Mutex
     item_add: GLib.Cond
     item_del: GLib.Cond
@@ -389,7 +389,7 @@ export class GstPushSrc {
     wait_playing(): Gst.FlowReturn
     set_live(live: boolean): void
     set_format(format: Gst.Format): void
-    query_latency(min_latency: Gst.ClockTime, max_latency: Gst.ClockTime): [ /* returnType */ boolean, /* live */ any ]
+    query_latency(min_latency: Gst.ClockTime, max_latency: Gst.ClockTime): [ /* returnType */ boolean, /* live */ boolean ]
     set_blocksize(blocksize: number): void
     get_blocksize(): number
     set_do_timestamp(timestamp: boolean): void
@@ -449,9 +449,9 @@ export class GstPushSrc {
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
     link_pads_filtered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
-    query_position(format: Gst.Format): [ /* returnType */ boolean, /* cur */ any ]
-    query_duration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ any ]
-    query_convert(src_format: Gst.Format, src_val: number, dest_format: Gst.Format): [ /* returnType */ boolean, /* dest_val */ any ]
+    query_position(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number ]
+    query_duration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number ]
+    query_convert(src_format: Gst.Format, src_val: number, dest_format: Gst.Format): [ /* returnType */ boolean, /* dest_val */ number ]
     found_tags_for_pad(pad: Gst.Pad, list: Gst.TagList): void
     found_tags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */
@@ -653,7 +653,7 @@ export class Sink {
     get_last_buffer(): Gst.Buffer
     set_last_buffer_enabled(enable: boolean): void
     is_last_buffer_enabled(): boolean
-    query_latency(min_latency: Gst.ClockTime, max_latency: Gst.ClockTime): [ /* returnType */ boolean, /* live */ any, /* upstream_live */ any ]
+    query_latency(min_latency: Gst.ClockTime, max_latency: Gst.ClockTime): [ /* returnType */ boolean, /* live */ boolean, /* upstream_live */ boolean ]
     get_latency(): Gst.ClockTime
     set_render_delay(delay: Gst.ClockTime): void
     get_render_delay(): Gst.ClockTime
@@ -715,9 +715,9 @@ export class Sink {
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
     link_pads_filtered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
-    query_position(format: Gst.Format): [ /* returnType */ boolean, /* cur */ any ]
-    query_duration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ any ]
-    query_convert(src_format: Gst.Format, src_val: number, dest_format: Gst.Format): [ /* returnType */ boolean, /* dest_val */ any ]
+    query_position(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number ]
+    query_duration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number ]
+    query_convert(src_format: Gst.Format, src_val: number, dest_format: Gst.Format): [ /* returnType */ boolean, /* dest_val */ number ]
     found_tags_for_pad(pad: Gst.Pad, list: Gst.TagList): void
     found_tags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */
@@ -904,7 +904,7 @@ export class Src {
     wait_playing(): Gst.FlowReturn
     set_live(live: boolean): void
     set_format(format: Gst.Format): void
-    query_latency(min_latency: Gst.ClockTime, max_latency: Gst.ClockTime): [ /* returnType */ boolean, /* live */ any ]
+    query_latency(min_latency: Gst.ClockTime, max_latency: Gst.ClockTime): [ /* returnType */ boolean, /* live */ boolean ]
     set_blocksize(blocksize: number): void
     get_blocksize(): number
     set_do_timestamp(timestamp: boolean): void
@@ -964,9 +964,9 @@ export class Src {
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
     link_pads_filtered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
-    query_position(format: Gst.Format): [ /* returnType */ boolean, /* cur */ any ]
-    query_duration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ any ]
-    query_convert(src_format: Gst.Format, src_val: number, dest_format: Gst.Format): [ /* returnType */ boolean, /* dest_val */ any ]
+    query_position(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number ]
+    query_duration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number ]
+    query_convert(src_format: Gst.Format, src_val: number, dest_format: Gst.Format): [ /* returnType */ boolean, /* dest_val */ number ]
     found_tags_for_pad(pad: Gst.Pad, list: Gst.TagList): void
     found_tags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */
@@ -1195,9 +1195,9 @@ export class Transform {
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
     link_pads_filtered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
-    query_position(format: Gst.Format): [ /* returnType */ boolean, /* cur */ any ]
-    query_duration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ any ]
-    query_convert(src_format: Gst.Format, src_val: number, dest_format: Gst.Format): [ /* returnType */ boolean, /* dest_val */ any ]
+    query_position(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number ]
+    query_duration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number ]
+    query_convert(src_format: Gst.Format, src_val: number, dest_format: Gst.Format): [ /* returnType */ boolean, /* dest_val */ number ]
     found_tags_for_pad(pad: Gst.Pad, list: Gst.TagList): void
     found_tags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */
@@ -1312,7 +1312,7 @@ export class GstAdapterPrivate {
 }
 export class GstBitReader {
     /* Fields of GstBase-0.10.GstBase.GstBitReader */
-    data: any
+    data: number
     size: number
     byte: number
     bit: number
@@ -1327,13 +1327,13 @@ export class GstBitReader {
     skip(nbits: number): boolean
     skip_to_byte(): boolean
     get_bits_uint8(val: any[], nbits: number): boolean
-    get_bits_uint16(nbits: number): [ /* returnType */ boolean, /* val */ any ]
-    get_bits_uint32(nbits: number): [ /* returnType */ boolean, /* val */ any ]
-    get_bits_uint64(nbits: number): [ /* returnType */ boolean, /* val */ any ]
+    get_bits_uint16(nbits: number): [ /* returnType */ boolean, /* val */ number ]
+    get_bits_uint32(nbits: number): [ /* returnType */ boolean, /* val */ number ]
+    get_bits_uint64(nbits: number): [ /* returnType */ boolean, /* val */ number ]
     peek_bits_uint8(val: any[], nbits: number): boolean
-    peek_bits_uint16(nbits: number): [ /* returnType */ boolean, /* val */ any ]
-    peek_bits_uint32(nbits: number): [ /* returnType */ boolean, /* val */ any ]
-    peek_bits_uint64(nbits: number): [ /* returnType */ boolean, /* val */ any ]
+    peek_bits_uint16(nbits: number): [ /* returnType */ boolean, /* val */ number ]
+    peek_bits_uint32(nbits: number): [ /* returnType */ boolean, /* val */ number ]
+    peek_bits_uint64(nbits: number): [ /* returnType */ boolean, /* val */ number ]
     static name: string
     static new(data: any[], size: number): GstBitReader
     constructor(data: any[], size: number)
@@ -1343,7 +1343,7 @@ export class GstBitReader {
 }
 export class GstByteReader {
     /* Fields of GstBase-0.10.GstBase.GstByteReader */
-    data: any
+    data: number
     size: number
     byte: number
     /* Methods of GstBase-0.10.GstBase.GstByteReader */
@@ -1356,52 +1356,52 @@ export class GstByteReader {
     get_size(): number
     skip(nbytes: number): boolean
     get_uint8(val: any[]): boolean
-    get_int8(): [ /* returnType */ boolean, /* val */ any ]
-    get_uint16_le(): [ /* returnType */ boolean, /* val */ any ]
-    get_int16_le(): [ /* returnType */ boolean, /* val */ any ]
-    get_uint16_be(): [ /* returnType */ boolean, /* val */ any ]
-    get_int16_be(): [ /* returnType */ boolean, /* val */ any ]
-    get_uint24_le(): [ /* returnType */ boolean, /* val */ any ]
+    get_int8(): [ /* returnType */ boolean, /* val */ number ]
+    get_uint16_le(): [ /* returnType */ boolean, /* val */ number ]
+    get_int16_le(): [ /* returnType */ boolean, /* val */ number ]
+    get_uint16_be(): [ /* returnType */ boolean, /* val */ number ]
+    get_int16_be(): [ /* returnType */ boolean, /* val */ number ]
+    get_uint24_le(): [ /* returnType */ boolean, /* val */ number ]
     get_int24_le(): [ /* returnType */ boolean, /* val */ number ]
-    get_uint24_be(): [ /* returnType */ boolean, /* val */ any ]
+    get_uint24_be(): [ /* returnType */ boolean, /* val */ number ]
     get_int24_be(): [ /* returnType */ boolean, /* val */ number ]
-    get_uint32_le(): [ /* returnType */ boolean, /* val */ any ]
+    get_uint32_le(): [ /* returnType */ boolean, /* val */ number ]
     get_int32_le(): [ /* returnType */ boolean, /* val */ number ]
-    get_uint32_be(): [ /* returnType */ boolean, /* val */ any ]
+    get_uint32_be(): [ /* returnType */ boolean, /* val */ number ]
     get_int32_be(): [ /* returnType */ boolean, /* val */ number ]
-    get_uint64_le(): [ /* returnType */ boolean, /* val */ any ]
-    get_int64_le(): [ /* returnType */ boolean, /* val */ any ]
-    get_uint64_be(): [ /* returnType */ boolean, /* val */ any ]
-    get_int64_be(): [ /* returnType */ boolean, /* val */ any ]
+    get_uint64_le(): [ /* returnType */ boolean, /* val */ number ]
+    get_int64_le(): [ /* returnType */ boolean, /* val */ number ]
+    get_uint64_be(): [ /* returnType */ boolean, /* val */ number ]
+    get_int64_be(): [ /* returnType */ boolean, /* val */ number ]
     peek_uint8(val: any[]): boolean
-    peek_int8(): [ /* returnType */ boolean, /* val */ any ]
-    peek_uint16_le(): [ /* returnType */ boolean, /* val */ any ]
-    peek_int16_le(): [ /* returnType */ boolean, /* val */ any ]
-    peek_uint16_be(): [ /* returnType */ boolean, /* val */ any ]
-    peek_int16_be(): [ /* returnType */ boolean, /* val */ any ]
-    peek_uint24_le(): [ /* returnType */ boolean, /* val */ any ]
+    peek_int8(): [ /* returnType */ boolean, /* val */ number ]
+    peek_uint16_le(): [ /* returnType */ boolean, /* val */ number ]
+    peek_int16_le(): [ /* returnType */ boolean, /* val */ number ]
+    peek_uint16_be(): [ /* returnType */ boolean, /* val */ number ]
+    peek_int16_be(): [ /* returnType */ boolean, /* val */ number ]
+    peek_uint24_le(): [ /* returnType */ boolean, /* val */ number ]
     peek_int24_le(): [ /* returnType */ boolean, /* val */ number ]
-    peek_uint24_be(): [ /* returnType */ boolean, /* val */ any ]
+    peek_uint24_be(): [ /* returnType */ boolean, /* val */ number ]
     peek_int24_be(): [ /* returnType */ boolean, /* val */ number ]
-    peek_uint32_le(): [ /* returnType */ boolean, /* val */ any ]
+    peek_uint32_le(): [ /* returnType */ boolean, /* val */ number ]
     peek_int32_le(): [ /* returnType */ boolean, /* val */ number ]
-    peek_uint32_be(): [ /* returnType */ boolean, /* val */ any ]
+    peek_uint32_be(): [ /* returnType */ boolean, /* val */ number ]
     peek_int32_be(): [ /* returnType */ boolean, /* val */ number ]
-    peek_uint64_le(): [ /* returnType */ boolean, /* val */ any ]
-    peek_int64_le(): [ /* returnType */ boolean, /* val */ any ]
-    peek_uint64_be(): [ /* returnType */ boolean, /* val */ any ]
-    peek_int64_be(): [ /* returnType */ boolean, /* val */ any ]
-    get_float32_le(): [ /* returnType */ boolean, /* val */ any ]
-    get_float32_be(): [ /* returnType */ boolean, /* val */ any ]
+    peek_uint64_le(): [ /* returnType */ boolean, /* val */ number ]
+    peek_int64_le(): [ /* returnType */ boolean, /* val */ number ]
+    peek_uint64_be(): [ /* returnType */ boolean, /* val */ number ]
+    peek_int64_be(): [ /* returnType */ boolean, /* val */ number ]
+    get_float32_le(): [ /* returnType */ boolean, /* val */ number ]
+    get_float32_be(): [ /* returnType */ boolean, /* val */ number ]
     get_float64_le(): [ /* returnType */ boolean, /* val */ number ]
     get_float64_be(): [ /* returnType */ boolean, /* val */ number ]
-    peek_float32_le(): [ /* returnType */ boolean, /* val */ any ]
-    peek_float32_be(): [ /* returnType */ boolean, /* val */ any ]
+    peek_float32_le(): [ /* returnType */ boolean, /* val */ number ]
+    peek_float32_be(): [ /* returnType */ boolean, /* val */ number ]
     peek_float64_le(): [ /* returnType */ boolean, /* val */ number ]
     peek_float64_be(): [ /* returnType */ boolean, /* val */ number ]
-    dup_data(size: number): [ /* returnType */ boolean, /* val */ any ]
-    get_data(size: number): [ /* returnType */ boolean, /* val */ any ]
-    peek_data(size: number): [ /* returnType */ boolean, /* val */ any ]
+    dup_data(size: number): [ /* returnType */ boolean, /* val */ number ]
+    get_data(size: number): [ /* returnType */ boolean, /* val */ number ]
+    peek_data(size: number): [ /* returnType */ boolean, /* val */ number ]
     dup_string_utf8(str: string[]): boolean
     dup_string_utf16(): [ /* returnType */ boolean, /* str */ any ]
     dup_string_utf32(): [ /* returnType */ boolean, /* str */ any ]
@@ -1462,8 +1462,8 @@ export class GstByteWriter {
     put_data(data: any[], size: number): boolean
     fill(value: number, size: number): boolean
     put_string_utf8(data: string): boolean
-    put_string_utf16(): [ /* returnType */ boolean, /* data */ any ]
-    put_string_utf32(): [ /* returnType */ boolean, /* data */ any ]
+    put_string_utf16(): [ /* returnType */ boolean, /* data */ number ]
+    put_string_utf32(): [ /* returnType */ boolean, /* data */ number ]
     static name: string
     static new(): GstByteWriter
     constructor()
@@ -1556,7 +1556,7 @@ export abstract class SrcClass {
     start: (src: Gst.BaseSrc) => boolean
     stop: (src: Gst.BaseSrc) => boolean
     get_times: (src: Gst.BaseSrc, buffer: Gst.Buffer, start: Gst.ClockTime, end: Gst.ClockTime) => void
-    get_size: (src: Gst.BaseSrc) => [ /* returnType */ boolean, /* size */ any ]
+    get_size: (src: Gst.BaseSrc) => [ /* returnType */ boolean, /* size */ number ]
     is_seekable: (src: Gst.BaseSrc) => boolean
     unlock: (src: Gst.BaseSrc) => boolean
     event: (src: Gst.BaseSrc, event: Gst.Event) => boolean
@@ -1578,8 +1578,8 @@ export abstract class TransformClass {
     parent_class: Gst.ElementClass
     transform_caps: (trans: Gst.BaseTransform, direction: Gst.PadDirection, caps: Gst.Caps) => Gst.Caps
     fixate_caps: (trans: Gst.BaseTransform, direction: Gst.PadDirection, caps: Gst.Caps, othercaps: Gst.Caps) => void
-    transform_size: (trans: Gst.BaseTransform, direction: Gst.PadDirection, caps: Gst.Caps, size: number, othercaps: Gst.Caps) => [ /* returnType */ boolean, /* othersize */ any ]
-    get_unit_size: (trans: Gst.BaseTransform, caps: Gst.Caps) => [ /* returnType */ boolean, /* size */ any ]
+    transform_size: (trans: Gst.BaseTransform, direction: Gst.PadDirection, caps: Gst.Caps, size: number, othercaps: Gst.Caps) => [ /* returnType */ boolean, /* othersize */ number ]
+    get_unit_size: (trans: Gst.BaseTransform, caps: Gst.Caps) => [ /* returnType */ boolean, /* size */ number ]
     set_caps: (trans: Gst.BaseTransform, incaps: Gst.Caps, outcaps: Gst.Caps) => boolean
     start: (trans: Gst.BaseTransform) => boolean
     stop: (trans: Gst.BaseTransform) => boolean

@@ -1,2 +1,2 @@
 imports.gi.versions.ClutterGst = '1.0'
-export default imports.gi.ClutterGst
+module.exports = imports.gi.ClutterGst

@@ -68,31 +68,31 @@ export const RED_MASK_15_INT: any
 export const RED_MASK_16: string
 export const RED_MASK_16_INT: any
 export const SIZE_RANGE: string
-export function calculateDisplayRatio(videoWidth: number, videoHeight: number, videoParN: number, videoParD: number, displayParN: number, displayParD: number): { returnType: boolean, darN: any, darD: any }
+export function calculateDisplayRatio(videoWidth: number, videoHeight: number, videoParN: number, videoParD: number, displayParN: number, displayParD: number): { returnType: boolean, darN: number, darD: number }
 export function eventNewStillFrame(inStill: boolean): Gst.Event
-export function eventParseStillFrame(event: Gst.Event): { returnType: boolean, inStill: any }
-export function formatConvert(format: Format, width: any, height: any, fpsN: any, fpsD: any, srcFormat: Gst.Format, srcValue: number, destFormat: Gst.Format): { returnType: boolean, destValue: any }
+export function eventParseStillFrame(event: Gst.Event): { returnType: boolean, inStill: boolean }
+export function formatConvert(format: Format, width: number, height: number, fpsN: number, fpsD: number, srcFormat: Gst.Format, srcValue: number, destFormat: Gst.Format): { returnType: boolean, destValue: number }
 export function formatFromFourcc(fourcc: number): Format
-export function formatGetComponentHeight(format: Format, component: any, height: any): any
-export function formatGetComponentOffset(format: Format, component: any, width: any, height: any): any
-export function formatGetComponentWidth(format: Format, component: any, width: any): any
-export function formatGetPixelStride(format: Format, component: any): any
-export function formatGetRowStride(format: Format, component: any, width: any): any
-export function formatGetSize(format: Format, width: any, height: any): any
+export function formatGetComponentHeight(format: Format, component: number, height: number): number
+export function formatGetComponentOffset(format: Format, component: number, width: number, height: number): number
+export function formatGetComponentWidth(format: Format, component: number, width: number): number
+export function formatGetPixelStride(format: Format, component: number): number
+export function formatGetRowStride(format: Format, component: number, width: number): number
+export function formatGetSize(format: Format, width: number, height: number): number
 export function formatHasAlpha(format: Format): boolean
 export function formatIsRgb(format: Format): boolean
 export function formatIsYuv(format: Format): boolean
-export function formatNewCaps(format: Format, width: any, height: any, framerateN: any, framerateD: any, parN: any, parD: any): Gst.Caps
-export function formatNewCapsInterlaced(format: Format, width: any, height: any, framerateN: any, framerateD: any, parN: any, parD: any, interlaced: boolean): Gst.Caps
-export function formatParseCaps(caps: Gst.Caps, format: Format): { returnType: boolean, width: any, height: any }
-export function formatParseCapsInterlaced(caps: Gst.Caps): { returnType: boolean, interlaced: any }
+export function formatNewCaps(format: Format, width: number, height: number, framerateN: number, framerateD: number, parN: number, parD: number): Gst.Caps
+export function formatNewCapsInterlaced(format: Format, width: number, height: number, framerateN: number, framerateD: number, parN: number, parD: number, interlaced: boolean): Gst.Caps
+export function formatParseCaps(caps: Gst.Caps, format: Format): { returnType: boolean, width: number, height: number }
+export function formatParseCapsInterlaced(caps: Gst.Caps): { returnType: boolean, interlaced: boolean }
 export function formatToFourcc(format: Format): number
 export function frameRate(pad: Gst.Pad): any
-export function getSize(pad: Gst.Pad): { returnType: boolean, width: any, height: any }
+export function getSize(pad: Gst.Pad): { returnType: boolean, width: number, height: number }
 export function parseCapsChromaSite(caps: Gst.Caps): string
 export function parseCapsColorMatrix(caps: Gst.Caps): string
-export function parseCapsFramerate(caps: Gst.Caps): { returnType: boolean, fpsN: any, fpsD: any }
-export function parseCapsPixelAspectRatio(caps: Gst.Caps): { returnType: boolean, parN: any, parD: any }
+export function parseCapsFramerate(caps: Gst.Caps): { returnType: boolean, fpsN: number, fpsD: number }
+export function parseCapsPixelAspectRatio(caps: Gst.Caps): { returnType: boolean, parN: number, parD: number }
 export interface Filter_ConstructProps extends GstBase.Transform_ConstructProps {
 }
 export class Filter {
@@ -213,9 +213,9 @@ export class Filter {
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
     linkPadsFiltered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
-    queryPosition(format: Gst.Format): { returnType: boolean, cur: any }
-    queryDuration(format: Gst.Format): { returnType: boolean, duration: any }
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: any }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number }
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
     foundTagsForPad(pad: Gst.Pad, list: Gst.TagList): void
     foundTags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */
@@ -408,7 +408,7 @@ export class Sink {
     getLastBuffer(): Gst.Buffer
     setLastBufferEnabled(enable: boolean): void
     isLastBufferEnabled(): boolean
-    queryLatency(minLatency: Gst.ClockTime, maxLatency: Gst.ClockTime): { returnType: boolean, live: any, upstreamLive: any }
+    queryLatency(minLatency: Gst.ClockTime, maxLatency: Gst.ClockTime): { returnType: boolean, live: boolean, upstreamLive: boolean }
     getLatency(): Gst.ClockTime
     setRenderDelay(delay: Gst.ClockTime): void
     getRenderDelay(): Gst.ClockTime
@@ -470,9 +470,9 @@ export class Sink {
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
     linkPadsFiltered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
-    queryPosition(format: Gst.Format): { returnType: boolean, cur: any }
-    queryDuration(format: Gst.Format): { returnType: boolean, duration: any }
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: any }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number }
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
     foundTagsForPad(pad: Gst.Pad, list: Gst.TagList): void
     foundTags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */

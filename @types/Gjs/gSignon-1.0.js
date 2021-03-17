@@ -1,2 +1,2 @@
 imports.gi.versions.gSignon = '1.0'
-export default imports.gi.gSignon
+module.exports = imports.gi.gSignon

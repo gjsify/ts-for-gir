@@ -51,7 +51,7 @@ export class GstAdapter {
     buflist: object[]
     size: number
     skip: number
-    assembledData: any
+    assembledData: number
     assembledSize: number
     assembledLen: number
     buflistEnd: object[]
@@ -69,9 +69,9 @@ export class GstAdapter {
     takeBuffer(nbytes: number): Gst.Buffer
     available(): number
     availableFast(): number
-    prevTimestamp(): { returnType: Gst.ClockTime, distance: any }
+    prevTimestamp(): { returnType: Gst.ClockTime, distance: number }
     maskedScanUint32(mask: number, pattern: number, offset: number, size: number): number
-    maskedScanUint32Peek(mask: number, pattern: number, offset: number, size: number): { returnType: number, value: any }
+    maskedScanUint32Peek(mask: number, pattern: number, offset: number, size: number): { returnType: number, value: number }
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -154,7 +154,7 @@ export class GstCollectPads {
     peek(data: Gst.CollectData): Gst.Buffer
     pop(data: Gst.CollectData): Gst.Buffer
     available(): number
-    read(data: Gst.CollectData, size: number): { returnType: number, bytes: any }
+    read(data: Gst.CollectData, size: number): { returnType: number, bytes: number }
     readBuffer(data: Gst.CollectData, size: number): Gst.Buffer
     takeBuffer(data: Gst.CollectData, size: number): Gst.Buffer
     flush(data: Gst.CollectData, size: number): number
@@ -252,7 +252,7 @@ export class GstDataQueue {
     queue: GLib.Queue
     curLevel: Gst.DataQueueSize
     checkfull: Gst.DataQueueCheckFullFunction
-    checkdata: any
+    checkdata: object
     qlock: GLib.Mutex
     itemAdd: GLib.Cond
     itemDel: GLib.Cond
@@ -403,7 +403,7 @@ export class GstPushSrc {
     waitPlaying(): Gst.FlowReturn
     setLive(live: boolean): void
     setFormat(format: Gst.Format): void
-    queryLatency(minLatency: Gst.ClockTime, maxLatency: Gst.ClockTime): { returnType: boolean, live: any }
+    queryLatency(minLatency: Gst.ClockTime, maxLatency: Gst.ClockTime): { returnType: boolean, live: boolean }
     setBlocksize(blocksize: number): void
     getBlocksize(): number
     setDoTimestamp(timestamp: boolean): void
@@ -463,9 +463,9 @@ export class GstPushSrc {
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
     linkPadsFiltered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
-    queryPosition(format: Gst.Format): { returnType: boolean, cur: any }
-    queryDuration(format: Gst.Format): { returnType: boolean, duration: any }
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: any }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number }
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
     foundTagsForPad(pad: Gst.Pad, list: Gst.TagList): void
     foundTags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */
@@ -676,7 +676,7 @@ export class Sink {
     getLastBuffer(): Gst.Buffer
     setLastBufferEnabled(enable: boolean): void
     isLastBufferEnabled(): boolean
-    queryLatency(minLatency: Gst.ClockTime, maxLatency: Gst.ClockTime): { returnType: boolean, live: any, upstreamLive: any }
+    queryLatency(minLatency: Gst.ClockTime, maxLatency: Gst.ClockTime): { returnType: boolean, live: boolean, upstreamLive: boolean }
     getLatency(): Gst.ClockTime
     setRenderDelay(delay: Gst.ClockTime): void
     getRenderDelay(): Gst.ClockTime
@@ -738,9 +738,9 @@ export class Sink {
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
     linkPadsFiltered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
-    queryPosition(format: Gst.Format): { returnType: boolean, cur: any }
-    queryDuration(format: Gst.Format): { returnType: boolean, duration: any }
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: any }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number }
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
     foundTagsForPad(pad: Gst.Pad, list: Gst.TagList): void
     foundTags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */
@@ -954,7 +954,7 @@ export class Src {
     waitPlaying(): Gst.FlowReturn
     setLive(live: boolean): void
     setFormat(format: Gst.Format): void
-    queryLatency(minLatency: Gst.ClockTime, maxLatency: Gst.ClockTime): { returnType: boolean, live: any }
+    queryLatency(minLatency: Gst.ClockTime, maxLatency: Gst.ClockTime): { returnType: boolean, live: boolean }
     setBlocksize(blocksize: number): void
     getBlocksize(): number
     setDoTimestamp(timestamp: boolean): void
@@ -1014,9 +1014,9 @@ export class Src {
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
     linkPadsFiltered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
-    queryPosition(format: Gst.Format): { returnType: boolean, cur: any }
-    queryDuration(format: Gst.Format): { returnType: boolean, duration: any }
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: any }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number }
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
     foundTagsForPad(pad: Gst.Pad, list: Gst.TagList): void
     foundTags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */
@@ -1254,9 +1254,9 @@ export class Transform {
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
     linkPadsFiltered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
-    queryPosition(format: Gst.Format): { returnType: boolean, cur: any }
-    queryDuration(format: Gst.Format): { returnType: boolean, duration: any }
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: any }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number }
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
     foundTagsForPad(pad: Gst.Pad, list: Gst.TagList): void
     foundTags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */
@@ -1371,7 +1371,7 @@ export class GstAdapterPrivate {
 }
 export class GstBitReader {
     /* Fields of GstBase-0.10.GstBase.GstBitReader */
-    data: any
+    data: number
     size: number
     byte: number
     bit: number
@@ -1386,13 +1386,13 @@ export class GstBitReader {
     skip(nbits: number): boolean
     skipToByte(): boolean
     getBitsUint8(val: any[], nbits: number): boolean
-    getBitsUint16(nbits: number): { returnType: boolean, val: any }
-    getBitsUint32(nbits: number): { returnType: boolean, val: any }
-    getBitsUint64(nbits: number): { returnType: boolean, val: any }
+    getBitsUint16(nbits: number): { returnType: boolean, val: number }
+    getBitsUint32(nbits: number): { returnType: boolean, val: number }
+    getBitsUint64(nbits: number): { returnType: boolean, val: number }
     peekBitsUint8(val: any[], nbits: number): boolean
-    peekBitsUint16(nbits: number): { returnType: boolean, val: any }
-    peekBitsUint32(nbits: number): { returnType: boolean, val: any }
-    peekBitsUint64(nbits: number): { returnType: boolean, val: any }
+    peekBitsUint16(nbits: number): { returnType: boolean, val: number }
+    peekBitsUint32(nbits: number): { returnType: boolean, val: number }
+    peekBitsUint64(nbits: number): { returnType: boolean, val: number }
     static name: string
     static new(data: any[], size: number): GstBitReader
     constructor(data: any[], size: number)
@@ -1402,7 +1402,7 @@ export class GstBitReader {
 }
 export class GstByteReader {
     /* Fields of GstBase-0.10.GstBase.GstByteReader */
-    data: any
+    data: number
     size: number
     byte: number
     /* Methods of GstBase-0.10.GstBase.GstByteReader */
@@ -1415,52 +1415,52 @@ export class GstByteReader {
     getSize(): number
     skip(nbytes: number): boolean
     getUint8(val: any[]): boolean
-    getInt8(): { returnType: boolean, val: any }
-    getUint16Le(): { returnType: boolean, val: any }
-    getInt16Le(): { returnType: boolean, val: any }
-    getUint16Be(): { returnType: boolean, val: any }
-    getInt16Be(): { returnType: boolean, val: any }
-    getUint24Le(): { returnType: boolean, val: any }
+    getInt8(): { returnType: boolean, val: number }
+    getUint16Le(): { returnType: boolean, val: number }
+    getInt16Le(): { returnType: boolean, val: number }
+    getUint16Be(): { returnType: boolean, val: number }
+    getInt16Be(): { returnType: boolean, val: number }
+    getUint24Le(): { returnType: boolean, val: number }
     getInt24Le(): { returnType: boolean, val: number }
-    getUint24Be(): { returnType: boolean, val: any }
+    getUint24Be(): { returnType: boolean, val: number }
     getInt24Be(): { returnType: boolean, val: number }
-    getUint32Le(): { returnType: boolean, val: any }
+    getUint32Le(): { returnType: boolean, val: number }
     getInt32Le(): { returnType: boolean, val: number }
-    getUint32Be(): { returnType: boolean, val: any }
+    getUint32Be(): { returnType: boolean, val: number }
     getInt32Be(): { returnType: boolean, val: number }
-    getUint64Le(): { returnType: boolean, val: any }
-    getInt64Le(): { returnType: boolean, val: any }
-    getUint64Be(): { returnType: boolean, val: any }
-    getInt64Be(): { returnType: boolean, val: any }
+    getUint64Le(): { returnType: boolean, val: number }
+    getInt64Le(): { returnType: boolean, val: number }
+    getUint64Be(): { returnType: boolean, val: number }
+    getInt64Be(): { returnType: boolean, val: number }
     peekUint8(val: any[]): boolean
-    peekInt8(): { returnType: boolean, val: any }
-    peekUint16Le(): { returnType: boolean, val: any }
-    peekInt16Le(): { returnType: boolean, val: any }
-    peekUint16Be(): { returnType: boolean, val: any }
-    peekInt16Be(): { returnType: boolean, val: any }
-    peekUint24Le(): { returnType: boolean, val: any }
+    peekInt8(): { returnType: boolean, val: number }
+    peekUint16Le(): { returnType: boolean, val: number }
+    peekInt16Le(): { returnType: boolean, val: number }
+    peekUint16Be(): { returnType: boolean, val: number }
+    peekInt16Be(): { returnType: boolean, val: number }
+    peekUint24Le(): { returnType: boolean, val: number }
     peekInt24Le(): { returnType: boolean, val: number }
-    peekUint24Be(): { returnType: boolean, val: any }
+    peekUint24Be(): { returnType: boolean, val: number }
     peekInt24Be(): { returnType: boolean, val: number }
-    peekUint32Le(): { returnType: boolean, val: any }
+    peekUint32Le(): { returnType: boolean, val: number }
     peekInt32Le(): { returnType: boolean, val: number }
-    peekUint32Be(): { returnType: boolean, val: any }
+    peekUint32Be(): { returnType: boolean, val: number }
     peekInt32Be(): { returnType: boolean, val: number }
-    peekUint64Le(): { returnType: boolean, val: any }
-    peekInt64Le(): { returnType: boolean, val: any }
-    peekUint64Be(): { returnType: boolean, val: any }
-    peekInt64Be(): { returnType: boolean, val: any }
-    getFloat32Le(): { returnType: boolean, val: any }
-    getFloat32Be(): { returnType: boolean, val: any }
+    peekUint64Le(): { returnType: boolean, val: number }
+    peekInt64Le(): { returnType: boolean, val: number }
+    peekUint64Be(): { returnType: boolean, val: number }
+    peekInt64Be(): { returnType: boolean, val: number }
+    getFloat32Le(): { returnType: boolean, val: number }
+    getFloat32Be(): { returnType: boolean, val: number }
     getFloat64Le(): { returnType: boolean, val: number }
     getFloat64Be(): { returnType: boolean, val: number }
-    peekFloat32Le(): { returnType: boolean, val: any }
-    peekFloat32Be(): { returnType: boolean, val: any }
+    peekFloat32Le(): { returnType: boolean, val: number }
+    peekFloat32Be(): { returnType: boolean, val: number }
     peekFloat64Le(): { returnType: boolean, val: number }
     peekFloat64Be(): { returnType: boolean, val: number }
-    dupData(size: number): { returnType: boolean, val: any }
-    getData(size: number): { returnType: boolean, val: any }
-    peekData(size: number): { returnType: boolean, val: any }
+    dupData(size: number): { returnType: boolean, val: number }
+    getData(size: number): { returnType: boolean, val: number }
+    peekData(size: number): { returnType: boolean, val: number }
     dupStringUtf8(str: string[]): boolean
     dupStringUtf16(): { returnType: boolean, str: any }
     dupStringUtf32(): { returnType: boolean, str: any }
@@ -1521,8 +1521,8 @@ export class GstByteWriter {
     putData(data: any[], size: number): boolean
     fill(value: number, size: number): boolean
     putStringUtf8(data: string): boolean
-    putStringUtf16(): { returnType: boolean, data: any }
-    putStringUtf32(): { returnType: boolean, data: any }
+    putStringUtf16(): { returnType: boolean, data: number }
+    putStringUtf32(): { returnType: boolean, data: number }
     static name: string
     static new(): GstByteWriter
     constructor()
@@ -1615,7 +1615,7 @@ export abstract class SrcClass {
     start: (src: Gst.BaseSrc) => boolean
     stop: (src: Gst.BaseSrc) => boolean
     getTimes: (src: Gst.BaseSrc, buffer: Gst.Buffer, start: Gst.ClockTime, end: Gst.ClockTime) => void
-    getSize: (src: Gst.BaseSrc) => { returnType: boolean, size: any }
+    getSize: (src: Gst.BaseSrc) => { returnType: boolean, size: number }
     isSeekable: (src: Gst.BaseSrc) => boolean
     unlock: (src: Gst.BaseSrc) => boolean
     event: (src: Gst.BaseSrc, event: Gst.Event) => boolean
@@ -1637,8 +1637,8 @@ export abstract class TransformClass {
     parentClass: Gst.ElementClass
     transformCaps: (trans: Gst.BaseTransform, direction: Gst.PadDirection, caps: Gst.Caps) => Gst.Caps
     fixateCaps: (trans: Gst.BaseTransform, direction: Gst.PadDirection, caps: Gst.Caps, othercaps: Gst.Caps) => void
-    transformSize: (trans: Gst.BaseTransform, direction: Gst.PadDirection, caps: Gst.Caps, size: number, othercaps: Gst.Caps) => { returnType: boolean, othersize: any }
-    getUnitSize: (trans: Gst.BaseTransform, caps: Gst.Caps) => { returnType: boolean, size: any }
+    transformSize: (trans: Gst.BaseTransform, direction: Gst.PadDirection, caps: Gst.Caps, size: number, othercaps: Gst.Caps) => { returnType: boolean, othersize: number }
+    getUnitSize: (trans: Gst.BaseTransform, caps: Gst.Caps) => { returnType: boolean, size: number }
     setCaps: (trans: Gst.BaseTransform, incaps: Gst.Caps, outcaps: Gst.Caps) => boolean
     start: (trans: Gst.BaseTransform) => boolean
     stop: (trans: Gst.BaseTransform) => boolean

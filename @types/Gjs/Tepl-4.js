@@ -1,2 +1,2 @@
 imports.gi.versions.Tepl = '4'
-export default imports.gi.Tepl
+module.exports = imports.gi.Tepl

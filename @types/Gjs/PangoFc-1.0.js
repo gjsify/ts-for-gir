@@ -1,2 +1,2 @@
 imports.gi.versions.PangoFc = '1.0'
-export default imports.gi.PangoFc
+module.exports = imports.gi.PangoFc

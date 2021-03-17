@@ -66,31 +66,31 @@ export const RED_MASK_15_INT: any
 export const RED_MASK_16: string
 export const RED_MASK_16_INT: any
 export const SIZE_RANGE: string
-export function calculate_display_ratio(video_width: number, video_height: number, video_par_n: number, video_par_d: number, display_par_n: number, display_par_d: number): [ /* returnType */ boolean, /* dar_n */ any, /* dar_d */ any ]
+export function calculate_display_ratio(video_width: number, video_height: number, video_par_n: number, video_par_d: number, display_par_n: number, display_par_d: number): [ /* returnType */ boolean, /* dar_n */ number, /* dar_d */ number ]
 export function event_new_still_frame(in_still: boolean): Gst.Event
-export function event_parse_still_frame(event: Gst.Event): [ /* returnType */ boolean, /* in_still */ any ]
-export function format_convert(format: Format, width: any, height: any, fps_n: any, fps_d: any, src_format: Gst.Format, src_value: number, dest_format: Gst.Format): [ /* returnType */ boolean, /* dest_value */ any ]
+export function event_parse_still_frame(event: Gst.Event): [ /* returnType */ boolean, /* in_still */ boolean ]
+export function format_convert(format: Format, width: number, height: number, fps_n: number, fps_d: number, src_format: Gst.Format, src_value: number, dest_format: Gst.Format): [ /* returnType */ boolean, /* dest_value */ number ]
 export function format_from_fourcc(fourcc: number): Format
-export function format_get_component_height(format: Format, component: any, height: any): any
-export function format_get_component_offset(format: Format, component: any, width: any, height: any): any
-export function format_get_component_width(format: Format, component: any, width: any): any
-export function format_get_pixel_stride(format: Format, component: any): any
-export function format_get_row_stride(format: Format, component: any, width: any): any
-export function format_get_size(format: Format, width: any, height: any): any
+export function format_get_component_height(format: Format, component: number, height: number): number
+export function format_get_component_offset(format: Format, component: number, width: number, height: number): number
+export function format_get_component_width(format: Format, component: number, width: number): number
+export function format_get_pixel_stride(format: Format, component: number): number
+export function format_get_row_stride(format: Format, component: number, width: number): number
+export function format_get_size(format: Format, width: number, height: number): number
 export function format_has_alpha(format: Format): boolean
 export function format_is_rgb(format: Format): boolean
 export function format_is_yuv(format: Format): boolean
-export function format_new_caps(format: Format, width: any, height: any, framerate_n: any, framerate_d: any, par_n: any, par_d: any): Gst.Caps
-export function format_new_caps_interlaced(format: Format, width: any, height: any, framerate_n: any, framerate_d: any, par_n: any, par_d: any, interlaced: boolean): Gst.Caps
-export function format_parse_caps(caps: Gst.Caps, format: Format): [ /* returnType */ boolean, /* width */ any, /* height */ any ]
-export function format_parse_caps_interlaced(caps: Gst.Caps): [ /* returnType */ boolean, /* interlaced */ any ]
+export function format_new_caps(format: Format, width: number, height: number, framerate_n: number, framerate_d: number, par_n: number, par_d: number): Gst.Caps
+export function format_new_caps_interlaced(format: Format, width: number, height: number, framerate_n: number, framerate_d: number, par_n: number, par_d: number, interlaced: boolean): Gst.Caps
+export function format_parse_caps(caps: Gst.Caps, format: Format): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
+export function format_parse_caps_interlaced(caps: Gst.Caps): [ /* returnType */ boolean, /* interlaced */ boolean ]
 export function format_to_fourcc(format: Format): number
 export function frame_rate(pad: Gst.Pad): any
-export function get_size(pad: Gst.Pad): [ /* returnType */ boolean, /* width */ any, /* height */ any ]
+export function get_size(pad: Gst.Pad): [ /* returnType */ boolean, /* width */ number, /* height */ number ]
 export function parse_caps_chroma_site(caps: Gst.Caps): string
 export function parse_caps_color_matrix(caps: Gst.Caps): string
-export function parse_caps_framerate(caps: Gst.Caps): [ /* returnType */ boolean, /* fps_n */ any, /* fps_d */ any ]
-export function parse_caps_pixel_aspect_ratio(caps: Gst.Caps): [ /* returnType */ boolean, /* par_n */ any, /* par_d */ any ]
+export function parse_caps_framerate(caps: Gst.Caps): [ /* returnType */ boolean, /* fps_n */ number, /* fps_d */ number ]
+export function parse_caps_pixel_aspect_ratio(caps: Gst.Caps): [ /* returnType */ boolean, /* par_n */ number, /* par_d */ number ]
 export interface Filter_ConstructProps extends GstBase.Transform_ConstructProps {
 }
 export class Filter {
@@ -211,9 +211,9 @@ export class Filter {
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
     link_pads_filtered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
-    query_position(format: Gst.Format): [ /* returnType */ boolean, /* cur */ any ]
-    query_duration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ any ]
-    query_convert(src_format: Gst.Format, src_val: number, dest_format: Gst.Format): [ /* returnType */ boolean, /* dest_val */ any ]
+    query_position(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number ]
+    query_duration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number ]
+    query_convert(src_format: Gst.Format, src_val: number, dest_format: Gst.Format): [ /* returnType */ boolean, /* dest_val */ number ]
     found_tags_for_pad(pad: Gst.Pad, list: Gst.TagList): void
     found_tags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */
@@ -406,7 +406,7 @@ export class Sink {
     get_last_buffer(): Gst.Buffer
     set_last_buffer_enabled(enable: boolean): void
     is_last_buffer_enabled(): boolean
-    query_latency(min_latency: Gst.ClockTime, max_latency: Gst.ClockTime): [ /* returnType */ boolean, /* live */ any, /* upstream_live */ any ]
+    query_latency(min_latency: Gst.ClockTime, max_latency: Gst.ClockTime): [ /* returnType */ boolean, /* live */ boolean, /* upstream_live */ boolean ]
     get_latency(): Gst.ClockTime
     set_render_delay(delay: Gst.ClockTime): void
     get_render_delay(): Gst.ClockTime
@@ -468,9 +468,9 @@ export class Sink {
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
     link_pads_filtered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
-    query_position(format: Gst.Format): [ /* returnType */ boolean, /* cur */ any ]
-    query_duration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ any ]
-    query_convert(src_format: Gst.Format, src_val: number, dest_format: Gst.Format): [ /* returnType */ boolean, /* dest_val */ any ]
+    query_position(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number ]
+    query_duration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number ]
+    query_convert(src_format: Gst.Format, src_val: number, dest_format: Gst.Format): [ /* returnType */ boolean, /* dest_val */ number ]
     found_tags_for_pad(pad: Gst.Pad, list: Gst.TagList): void
     found_tags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */

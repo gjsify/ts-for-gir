@@ -631,11 +631,11 @@ export const VERSION_MINOR: any
 export const VERSION_NANO: any
 export function alloc_trace_available(): boolean
 export function alloc_trace_get(name: string): AllocTrace
-export function alloc_trace_live_all(): any
+export function alloc_trace_live_all(): number
 export function alloc_trace_print_all(): void
 export function alloc_trace_print_live(): void
 export function alloc_trace_set_flags_all(flags: AllocTraceFlags): void
-export function atomic_int_set(value: number): /* atomic_int */ any
+export function atomic_int_set(value: number): /* atomic_int */ number
 export function caps_from_string(string: string): Caps
 export function caps_load_thyself(parent: libxml2.NodePtr): Caps
 export function child_proxy_child_added(object: Object, child: Object): void
@@ -677,7 +677,7 @@ export function formats_contains(formats: Format, format: Format): boolean
 export function implements_interface_cast(from: object, type: GObject.Type): object
 export function implements_interface_check(from: object, type: GObject.Type): boolean
 export function init(argv?: string[] | null): /* argv */ string[] | null
-export function init_check(argv: string[]): [ /* returnType */ boolean, /* argc */ any ]
+export function init_check(argv: string[]): [ /* returnType */ boolean, /* argc */ number ]
 export function init_get_option_group(): GLib.OptionGroup
 export function is_tag_list(p: object): boolean
 export function param_spec_fraction(name: string, nick: string, blurb: string, min_num: number, min_denom: number, max_num: number, max_denom: number, default_num: number, default_denom: number, flags: GObject.ParamFlags): GObject.ParamSpec
@@ -705,7 +705,7 @@ export function tag_list_copy_value(dest: any, list: TagList, tag: string): bool
 export function tag_merge_strings_with_comma(dest: any, src: any): void
 export function tag_merge_use_first(dest: any, src: any): void
 export function tag_register(name: string, flag: TagFlag, type: GObject.Type, nick: string, blurb: string, func: TagMergeFunc): void
-export function trace_read_tsc(): /* dst */ any
+export function trace_read_tsc(): /* dst */ number
 export function type_find_helper(src: Pad, size: number): Caps
 export function type_find_helper_for_buffer(obj: Object, buf: Buffer, prob: TypeFindProbability): Caps
 export function type_find_helper_for_extension(obj: Object, extension: string): Caps
@@ -722,10 +722,10 @@ export function uri_is_valid(uri: string): boolean
 export function uri_protocol_is_supported(type: URIType, protocol: string): boolean
 export function uri_protocol_is_valid(protocol: string): boolean
 export function util_array_binary_search(array: object, num_elements: number, element_size: number, search_func: GLib.CompareDataFunc, mode: SearchMode, search_data: object, user_data: object): object
-export function util_double_to_fraction(src: number): [ /* dest_n */ any, /* dest_d */ any ]
+export function util_double_to_fraction(src: number): [ /* dest_n */ number, /* dest_d */ number ]
 export function util_dump_mem(mem: any[], size: number): void
-export function util_fraction_add(a_n: number, a_d: number, b_n: number, b_d: number): [ /* returnType */ boolean, /* res_n */ any, /* res_d */ any ]
-export function util_fraction_multiply(a_n: number, a_d: number, b_n: number, b_d: number): [ /* returnType */ boolean, /* res_n */ any, /* res_d */ any ]
+export function util_fraction_add(a_n: number, a_d: number, b_n: number, b_d: number): [ /* returnType */ boolean, /* res_n */ number, /* res_d */ number ]
+export function util_fraction_multiply(a_n: number, a_d: number, b_n: number, b_d: number): [ /* returnType */ boolean, /* res_n */ number, /* res_d */ number ]
 export function util_fraction_to_double(src_n: number, src_d: number): /* dest */ number
 export function util_gdouble_to_guint64(value: number): number
 export function util_get_timestamp(): ClockTime
@@ -793,7 +793,7 @@ export function value_set_structure(value: any, structure: Structure): void
 export function value_subtract(dest: any, minuend: any, subtrahend: any): boolean
 export function value_take_mini_object(value: any, mini_object: MiniObject): void
 export function value_union(dest: any, value1: any, value2: any): boolean
-export function version(): [ /* major */ any, /* minor */ any, /* micro */ any, /* nano */ any ]
+export function version(): [ /* major */ number, /* minor */ number, /* micro */ number, /* nano */ number ]
 export function version_string(): string
 export interface BufferListDoFunction {
     (buffer: Buffer): Buffer
@@ -856,7 +856,7 @@ export interface IteratorItemFunction {
     (it: Iterator, item: object): IteratorItem
 }
 export interface IteratorNextFunction {
-    (it: Iterator, result: any): IteratorResult
+    (it: Iterator, result: object): IteratorResult
 }
 export interface IteratorResyncFunction {
     (it: Iterator): void
@@ -1175,9 +1175,9 @@ export class ImplementsInterface {
     unlink_pads(srcpadname: string, dest: Element, destpadname: string): void
     link_pads_filtered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): boolean
     seek_simple(format: Format, seek_flags: SeekFlags, seek_pos: number): boolean
-    query_position(format: Format): [ /* returnType */ boolean, /* cur */ any ]
-    query_duration(format: Format): [ /* returnType */ boolean, /* duration */ any ]
-    query_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ any ]
+    query_position(format: Format): [ /* returnType */ boolean, /* cur */ number ]
+    query_duration(format: Format): [ /* returnType */ boolean, /* duration */ number ]
+    query_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ number ]
     found_tags_for_pad(pad: Pad, list: TagList): void
     found_tags(list: TagList): void
     /* Methods of Gst-0.10.Gst.Object */
@@ -1375,9 +1375,9 @@ export class TagSetter {
     unlink_pads(srcpadname: string, dest: Element, destpadname: string): void
     link_pads_filtered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): boolean
     seek_simple(format: Format, seek_flags: SeekFlags, seek_pos: number): boolean
-    query_position(format: Format): [ /* returnType */ boolean, /* cur */ any ]
-    query_duration(format: Format): [ /* returnType */ boolean, /* duration */ any ]
-    query_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ any ]
+    query_position(format: Format): [ /* returnType */ boolean, /* cur */ number ]
+    query_duration(format: Format): [ /* returnType */ boolean, /* duration */ number ]
+    query_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ number ]
     found_tags_for_pad(pad: Pad, list: TagList): void
     found_tags(list: TagList): void
     /* Methods of Gst-0.10.Gst.Object */
@@ -1503,7 +1503,7 @@ export class Adapter {
     buflist: object[]
     size: number
     skip: number
-    assembled_data: any
+    assembled_data: number
     assembled_size: number
     assembled_len: number
     buflist_end: object[]
@@ -1521,9 +1521,9 @@ export class Adapter {
     take_buffer(nbytes: number): Buffer
     available(): number
     available_fast(): number
-    prev_timestamp(): [ /* returnType */ ClockTime, /* distance */ any ]
+    prev_timestamp(): [ /* returnType */ ClockTime, /* distance */ number ]
     masked_scan_uint32(mask: number, pattern: number, offset: number, size: number): number
-    masked_scan_uint32_peek(mask: number, pattern: number, offset: number, size: number): [ /* returnType */ number, /* value */ any ]
+    masked_scan_uint32_peek(mask: number, pattern: number, offset: number, size: number): [ /* returnType */ number, /* value */ number ]
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -1661,7 +1661,7 @@ export class BaseSink {
     get_last_buffer(): Buffer
     set_last_buffer_enabled(enable: boolean): void
     is_last_buffer_enabled(): boolean
-    query_latency(min_latency: ClockTime, max_latency: ClockTime): [ /* returnType */ boolean, /* live */ any, /* upstream_live */ any ]
+    query_latency(min_latency: ClockTime, max_latency: ClockTime): [ /* returnType */ boolean, /* live */ boolean, /* upstream_live */ boolean ]
     get_latency(): ClockTime
     set_render_delay(delay: ClockTime): void
     get_render_delay(): ClockTime
@@ -1723,9 +1723,9 @@ export class BaseSink {
     unlink_pads(srcpadname: string, dest: Element, destpadname: string): void
     link_pads_filtered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): boolean
     seek_simple(format: Format, seek_flags: SeekFlags, seek_pos: number): boolean
-    query_position(format: Format): [ /* returnType */ boolean, /* cur */ any ]
-    query_duration(format: Format): [ /* returnType */ boolean, /* duration */ any ]
-    query_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ any ]
+    query_position(format: Format): [ /* returnType */ boolean, /* cur */ number ]
+    query_duration(format: Format): [ /* returnType */ boolean, /* duration */ number ]
+    query_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ number ]
     found_tags_for_pad(pad: Pad, list: TagList): void
     found_tags(list: TagList): void
     /* Methods of Gst-0.10.Gst.Object */
@@ -1928,7 +1928,7 @@ export class BaseSrc {
     wait_playing(): FlowReturn
     set_live(live: boolean): void
     set_format(format: Format): void
-    query_latency(min_latency: ClockTime, max_latency: ClockTime): [ /* returnType */ boolean, /* live */ any ]
+    query_latency(min_latency: ClockTime, max_latency: ClockTime): [ /* returnType */ boolean, /* live */ boolean ]
     set_blocksize(blocksize: number): void
     get_blocksize(): number
     set_do_timestamp(timestamp: boolean): void
@@ -1988,9 +1988,9 @@ export class BaseSrc {
     unlink_pads(srcpadname: string, dest: Element, destpadname: string): void
     link_pads_filtered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): boolean
     seek_simple(format: Format, seek_flags: SeekFlags, seek_pos: number): boolean
-    query_position(format: Format): [ /* returnType */ boolean, /* cur */ any ]
-    query_duration(format: Format): [ /* returnType */ boolean, /* duration */ any ]
-    query_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ any ]
+    query_position(format: Format): [ /* returnType */ boolean, /* cur */ number ]
+    query_duration(format: Format): [ /* returnType */ boolean, /* duration */ number ]
+    query_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ number ]
     found_tags_for_pad(pad: Pad, list: TagList): void
     found_tags(list: TagList): void
     /* Methods of Gst-0.10.Gst.Object */
@@ -2037,7 +2037,7 @@ export class BaseSrc {
     vfunc_start(): boolean
     vfunc_stop(): boolean
     vfunc_get_times(buffer: Buffer, start: ClockTime, end: ClockTime): void
-    vfunc_get_size(): [ /* returnType */ boolean, /* size */ any ]
+    vfunc_get_size(): [ /* returnType */ boolean, /* size */ number ]
     vfunc_is_seekable(): boolean
     vfunc_unlock(): boolean
     vfunc_event(event: Event): boolean
@@ -2238,9 +2238,9 @@ export class BaseTransform {
     unlink_pads(srcpadname: string, dest: Element, destpadname: string): void
     link_pads_filtered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): boolean
     seek_simple(format: Format, seek_flags: SeekFlags, seek_pos: number): boolean
-    query_position(format: Format): [ /* returnType */ boolean, /* cur */ any ]
-    query_duration(format: Format): [ /* returnType */ boolean, /* duration */ any ]
-    query_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ any ]
+    query_position(format: Format): [ /* returnType */ boolean, /* cur */ number ]
+    query_duration(format: Format): [ /* returnType */ boolean, /* duration */ number ]
+    query_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ number ]
     found_tags_for_pad(pad: Pad, list: TagList): void
     found_tags(list: TagList): void
     /* Methods of Gst-0.10.Gst.Object */
@@ -2282,8 +2282,8 @@ export class BaseTransform {
     /* Virtual methods of Gst-0.10.Gst.BaseTransform */
     vfunc_transform_caps(direction: PadDirection, caps: Caps): Caps
     vfunc_fixate_caps(direction: PadDirection, caps: Caps, othercaps: Caps): void
-    vfunc_transform_size(direction: PadDirection, caps: Caps, size: number, othercaps: Caps): [ /* returnType */ boolean, /* othersize */ any ]
-    vfunc_get_unit_size(caps: Caps): [ /* returnType */ boolean, /* size */ any ]
+    vfunc_transform_size(direction: PadDirection, caps: Caps, size: number, othercaps: Caps): [ /* returnType */ boolean, /* othersize */ number ]
+    vfunc_get_unit_size(caps: Caps): [ /* returnType */ boolean, /* size */ number ]
     vfunc_set_caps(incaps: Caps, outcaps: Caps): boolean
     vfunc_start(): boolean
     vfunc_stop(): boolean
@@ -2477,9 +2477,9 @@ export class Bin {
     unlink_pads(srcpadname: string, dest: Element, destpadname: string): void
     link_pads_filtered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): boolean
     seek_simple(format: Format, seek_flags: SeekFlags, seek_pos: number): boolean
-    query_position(format: Format): [ /* returnType */ boolean, /* cur */ any ]
-    query_duration(format: Format): [ /* returnType */ boolean, /* duration */ any ]
-    query_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ any ]
+    query_position(format: Format): [ /* returnType */ boolean, /* cur */ number ]
+    query_duration(format: Format): [ /* returnType */ boolean, /* duration */ number ]
+    query_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ number ]
     found_tags_for_pad(pad: Pad, list: TagList): void
     found_tags(list: TagList): void
     /* Methods of Gst-0.10.Gst.Object */
@@ -2615,14 +2615,14 @@ export class Bin {
 export class Buffer {
     /* Fields of Gst-0.10.Gst.Buffer */
     mini_object: MiniObject
-    data: any
+    data: number
     size: number
     timestamp: ClockTime
     duration: ClockTime
     caps: Caps
     offset: number
     offset_end: number
-    malloc_data: any
+    malloc_data: number
     free_func: GLib.FreeFunc
     parent: Buffer
     _gst_reserved: any[]
@@ -3004,7 +3004,7 @@ export class CollectPads {
     peek(data: CollectData): Buffer
     pop(data: CollectData): Buffer
     available(): number
-    read(data: CollectData, size: number): [ /* returnType */ number, /* bytes */ any ]
+    read(data: CollectData, size: number): [ /* returnType */ number, /* bytes */ number ]
     read_buffer(data: CollectData, size: number): Buffer
     take_buffer(data: CollectData, size: number): Buffer
     flush(data: CollectData, size: number): number
@@ -3097,7 +3097,7 @@ export class DataQueue {
     queue: GLib.Queue
     cur_level: DataQueueSize
     checkfull: DataQueueCheckFullFunction
-    checkdata: any
+    checkdata: object
     qlock: GLib.Mutex
     item_add: GLib.Cond
     item_del: GLib.Cond
@@ -3263,9 +3263,9 @@ export class Element {
     unlink_pads(srcpadname: string, dest: Element, destpadname: string): void
     link_pads_filtered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): boolean
     seek_simple(format: Format, seek_flags: SeekFlags, seek_pos: number): boolean
-    query_position(format: Format): [ /* returnType */ boolean, /* cur */ any ]
-    query_duration(format: Format): [ /* returnType */ boolean, /* duration */ any ]
-    query_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ any ]
+    query_position(format: Format): [ /* returnType */ boolean, /* cur */ number ]
+    query_duration(format: Format): [ /* returnType */ boolean, /* duration */ number ]
+    query_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ number ]
     found_tags_for_pad(pad: Pad, list: TagList): void
     found_tags(list: TagList): void
     /* Methods of Gst-0.10.Gst.Object */
@@ -3518,14 +3518,14 @@ export class Event {
     has_name(name: string): boolean
     get_seqnum(): number
     set_seqnum(seqnum: number): void
-    parse_new_segment(format: Format): [ /* update */ any, /* rate */ number, /* start */ any, /* stop */ any, /* position */ any ]
-    parse_new_segment_full(format: Format): [ /* update */ any, /* rate */ number, /* applied_rate */ number, /* start */ any, /* stop */ any, /* position */ any ]
+    parse_new_segment(format: Format): [ /* update */ boolean, /* rate */ number, /* start */ number, /* stop */ number, /* position */ number ]
+    parse_new_segment_full(format: Format): [ /* update */ boolean, /* rate */ number, /* applied_rate */ number, /* start */ number, /* stop */ number, /* position */ number ]
     parse_tag(taglist: TagList): void
-    parse_buffer_size(format: Format): [ /* minsize */ any, /* maxsize */ any, /* async */ any ]
+    parse_buffer_size(format: Format): [ /* minsize */ number, /* maxsize */ number, /* async */ boolean ]
     parse_qos(diff: ClockTimeDiff, timestamp: ClockTime): /* proportion */ number
-    parse_seek(format: Format, flags: SeekFlags, start_type: SeekType, stop_type: SeekType): [ /* rate */ number, /* start */ any, /* stop */ any ]
+    parse_seek(format: Format, flags: SeekFlags, start_type: SeekType, stop_type: SeekType): [ /* rate */ number, /* start */ number, /* stop */ number ]
     parse_latency(latency: ClockTime): void
-    parse_step(format: Format): [ /* amount */ any, /* rate */ number, /* flush */ any, /* intermediate */ any ]
+    parse_step(format: Format): [ /* amount */ number, /* rate */ number, /* flush */ boolean, /* intermediate */ boolean ]
     parse_sink_message(msg: Message): void
     /* Methods of Gst-0.10.Gst.MiniObject */
     copy(): MiniObject
@@ -3740,12 +3740,12 @@ export class GhostPad {
     proxy_getcaps(): Caps
     proxy_setcaps(caps: Caps): boolean
     get_parent_element(): Element
-    query_position(format: Format): [ /* returnType */ boolean, /* cur */ any ]
-    query_duration(format: Format): [ /* returnType */ boolean, /* duration */ any ]
-    query_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ any ]
-    query_peer_position(format: Format): [ /* returnType */ boolean, /* cur */ any ]
-    query_peer_duration(format: Format): [ /* returnType */ boolean, /* duration */ any ]
-    query_peer_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ any ]
+    query_position(format: Format): [ /* returnType */ boolean, /* cur */ number ]
+    query_duration(format: Format): [ /* returnType */ boolean, /* duration */ number ]
+    query_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ number ]
+    query_peer_position(format: Format): [ /* returnType */ boolean, /* cur */ number ]
+    query_peer_duration(format: Format): [ /* returnType */ boolean, /* duration */ number ]
+    query_peer_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ number ]
     add_data_probe(handler: GObject.Callback, data: object): number
     add_data_probe_full(handler: GObject.Callback, data: object): number
     remove_data_probe(handler_id: number): void
@@ -3895,7 +3895,7 @@ export class Index {
     set_filter_full(filter: IndexFilter, user_data: object): void
     set_resolver(resolver: IndexResolver, user_data: object): void
     set_resolver_full(resolver: IndexResolver, user_data: object): void
-    get_writer_id(writer: Object): [ /* returnType */ boolean, /* id */ any ]
+    get_writer_id(writer: Object): [ /* returnType */ boolean, /* id */ number ]
     add_format(id: number, format: Format): IndexEntry
     add_associationv(id: number, flags: AssocFlags, n: number, list: IndexAssociation): IndexEntry
     add_object(id: number, key: string, type: GObject.Type, object: object): IndexEntry
@@ -3939,7 +3939,7 @@ export class Index {
     unref(): void
     watch_closure(closure: Function): void
     /* Virtual methods of Gst-0.10.Gst.Index */
-    vfunc_get_writer_id(writer_string: string): [ /* returnType */ boolean, /* writer_id */ any ]
+    vfunc_get_writer_id(writer_string: string): [ /* returnType */ boolean, /* writer_id */ number ]
     vfunc_commit(id: number): void
     vfunc_add_entry(entry: IndexEntry): void
     vfunc_get_assoc_entry(id: number, method: IndexLookupMethod, flags: AssocFlags, format: Format, value: number, func: GLib.CompareDataFunc, user_data: object): IndexEntry
@@ -4124,29 +4124,29 @@ export class Message {
     parse_info(gerror: GLib.Error, debug: string[]): void
     parse_tag(tag_list: TagList): void
     parse_tag_full(pad: Pad, tag_list: TagList): void
-    parse_buffering(): /* percent */ any
+    parse_buffering(): /* percent */ number
     set_buffering_stats(mode: BufferingMode, avg_in: number, avg_out: number, buffering_left: number): void
-    parse_buffering_stats(mode: BufferingMode): [ /* avg_in */ any, /* avg_out */ any, /* buffering_left */ any ]
+    parse_buffering_stats(mode: BufferingMode): [ /* avg_in */ number, /* avg_out */ number, /* buffering_left */ number ]
     parse_state_changed(oldstate: State, newstate: State, pending: State): void
-    parse_step_done(format: Format): [ /* amount */ any, /* rate */ number, /* flush */ any, /* intermediate */ any, /* duration */ any, /* eos */ any ]
-    parse_clock_provide(clock: Clock): /* ready */ any
+    parse_step_done(format: Format): [ /* amount */ number, /* rate */ number, /* flush */ boolean, /* intermediate */ boolean, /* duration */ number, /* eos */ boolean ]
+    parse_clock_provide(clock: Clock): /* ready */ boolean
     parse_clock_lost(clock: Clock): void
     parse_new_clock(clock: Clock): void
-    parse_segment_start(format: Format): /* position */ any
-    parse_segment_done(format: Format): /* position */ any
-    parse_duration(format: Format): /* duration */ any
-    parse_async_start(): /* new_base_time */ any
-    parse_structure_change(type: StructureChangeType, owner: Element): /* busy */ any
+    parse_segment_start(format: Format): /* position */ number
+    parse_segment_done(format: Format): /* position */ number
+    parse_duration(format: Format): /* duration */ number
+    parse_async_start(): /* new_base_time */ boolean
+    parse_structure_change(type: StructureChangeType, owner: Element): /* busy */ boolean
     parse_stream_status(type: StreamStatusType, owner: Element): void
     set_stream_status_object(object: any): void
     get_stream_status_object(): any
     parse_request_state(state: State): void
-    parse_step_start(format: Format): [ /* active */ any, /* amount */ any, /* rate */ number, /* flush */ any, /* intermediate */ any ]
+    parse_step_start(format: Format): [ /* active */ boolean, /* amount */ number, /* rate */ number, /* flush */ boolean, /* intermediate */ boolean ]
     set_qos_values(jitter: number, proportion: number, quality: number): void
     set_qos_stats(format: Format, processed: number, dropped: number): void
-    parse_qos(): [ /* live */ any, /* running_time */ any, /* stream_time */ any, /* timestamp */ any, /* duration */ any ]
-    parse_qos_values(): [ /* jitter */ any, /* proportion */ number, /* quality */ any ]
-    parse_qos_stats(format: Format): [ /* processed */ any, /* dropped */ any ]
+    parse_qos(): [ /* live */ boolean, /* running_time */ number, /* stream_time */ number, /* timestamp */ number, /* duration */ number ]
+    parse_qos_values(): [ /* jitter */ number, /* proportion */ number, /* quality */ number ]
+    parse_qos_stats(format: Format): [ /* processed */ number, /* dropped */ number ]
     get_structure(): Structure
     /* Methods of Gst-0.10.Gst.MiniObject */
     copy(): MiniObject
@@ -4436,12 +4436,12 @@ export class Pad {
     proxy_getcaps(): Caps
     proxy_setcaps(caps: Caps): boolean
     get_parent_element(): Element
-    query_position(format: Format): [ /* returnType */ boolean, /* cur */ any ]
-    query_duration(format: Format): [ /* returnType */ boolean, /* duration */ any ]
-    query_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ any ]
-    query_peer_position(format: Format): [ /* returnType */ boolean, /* cur */ any ]
-    query_peer_duration(format: Format): [ /* returnType */ boolean, /* duration */ any ]
-    query_peer_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ any ]
+    query_position(format: Format): [ /* returnType */ boolean, /* cur */ number ]
+    query_duration(format: Format): [ /* returnType */ boolean, /* duration */ number ]
+    query_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ number ]
+    query_peer_position(format: Format): [ /* returnType */ boolean, /* cur */ number ]
+    query_peer_duration(format: Format): [ /* returnType */ boolean, /* duration */ number ]
+    query_peer_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ number ]
     add_data_probe(handler: GObject.Callback, data: object): number
     add_data_probe_full(handler: GObject.Callback, data: object): number
     remove_data_probe(handler_id: number): void
@@ -4839,9 +4839,9 @@ export class Pipeline {
     unlink_pads(srcpadname: string, dest: Element, destpadname: string): void
     link_pads_filtered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): boolean
     seek_simple(format: Format, seek_flags: SeekFlags, seek_pos: number): boolean
-    query_position(format: Format): [ /* returnType */ boolean, /* cur */ any ]
-    query_duration(format: Format): [ /* returnType */ boolean, /* duration */ any ]
-    query_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ any ]
+    query_position(format: Format): [ /* returnType */ boolean, /* cur */ number ]
+    query_duration(format: Format): [ /* returnType */ boolean, /* duration */ number ]
+    query_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ number ]
     found_tags_for_pad(pad: Pad, list: TagList): void
     found_tags(list: TagList): void
     /* Methods of Gst-0.10.Gst.Object */
@@ -5334,12 +5334,12 @@ export class ProxyPad {
     proxy_getcaps(): Caps
     proxy_setcaps(caps: Caps): boolean
     get_parent_element(): Element
-    query_position(format: Format): [ /* returnType */ boolean, /* cur */ any ]
-    query_duration(format: Format): [ /* returnType */ boolean, /* duration */ any ]
-    query_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ any ]
-    query_peer_position(format: Format): [ /* returnType */ boolean, /* cur */ any ]
-    query_peer_duration(format: Format): [ /* returnType */ boolean, /* duration */ any ]
-    query_peer_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ any ]
+    query_position(format: Format): [ /* returnType */ boolean, /* cur */ number ]
+    query_duration(format: Format): [ /* returnType */ boolean, /* duration */ number ]
+    query_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ number ]
+    query_peer_position(format: Format): [ /* returnType */ boolean, /* cur */ number ]
+    query_peer_duration(format: Format): [ /* returnType */ boolean, /* duration */ number ]
+    query_peer_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ number ]
     add_data_probe(handler: GObject.Callback, data: object): number
     add_data_probe_full(handler: GObject.Callback, data: object): number
     remove_data_probe(handler_id: number): void
@@ -5503,7 +5503,7 @@ export class PushSrc {
     wait_playing(): FlowReturn
     set_live(live: boolean): void
     set_format(format: Format): void
-    query_latency(min_latency: ClockTime, max_latency: ClockTime): [ /* returnType */ boolean, /* live */ any ]
+    query_latency(min_latency: ClockTime, max_latency: ClockTime): [ /* returnType */ boolean, /* live */ boolean ]
     set_blocksize(blocksize: number): void
     get_blocksize(): number
     set_do_timestamp(timestamp: boolean): void
@@ -5563,9 +5563,9 @@ export class PushSrc {
     unlink_pads(srcpadname: string, dest: Element, destpadname: string): void
     link_pads_filtered(srcpadname: string, dest: Element, destpadname: string, filter: Caps): boolean
     seek_simple(format: Format, seek_flags: SeekFlags, seek_pos: number): boolean
-    query_position(format: Format): [ /* returnType */ boolean, /* cur */ any ]
-    query_duration(format: Format): [ /* returnType */ boolean, /* duration */ any ]
-    query_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ any ]
+    query_position(format: Format): [ /* returnType */ boolean, /* cur */ number ]
+    query_duration(format: Format): [ /* returnType */ boolean, /* duration */ number ]
+    query_convert(src_format: Format, src_val: number, dest_format: Format): [ /* returnType */ boolean, /* dest_val */ number ]
     found_tags_for_pad(pad: Pad, list: TagList): void
     found_tags(list: TagList): void
     /* Methods of Gst-0.10.Gst.Object */
@@ -5615,7 +5615,7 @@ export class PushSrc {
     vfunc_start(): boolean
     vfunc_stop(): boolean
     vfunc_get_times(buffer: Buffer, start: ClockTime, end: ClockTime): void
-    vfunc_get_size(): [ /* returnType */ boolean, /* size */ any ]
+    vfunc_get_size(): [ /* returnType */ boolean, /* size */ number ]
     vfunc_is_seekable(): boolean
     vfunc_unlock(): boolean
     vfunc_event(event: Event): boolean
@@ -5709,27 +5709,27 @@ export class Query {
     flags: number
     /* Methods of Gst-0.10.Gst.Query */
     set_position(format: Format, cur: number): void
-    parse_position(format: Format): /* cur */ any
+    parse_position(format: Format): /* cur */ number
     set_duration(format: Format, duration: number): void
-    parse_duration(format: Format): /* duration */ any
+    parse_duration(format: Format): /* duration */ number
     set_latency(live: boolean, min_latency: ClockTime, max_latency: ClockTime): void
-    parse_latency(min_latency: ClockTime, max_latency: ClockTime): /* live */ any
+    parse_latency(min_latency: ClockTime, max_latency: ClockTime): /* live */ boolean
     set_convert(src_format: Format, src_value: number, dest_format: Format, dest_value: number): void
-    parse_convert(src_format: Format, dest_format: Format): [ /* src_value */ any, /* dest_value */ any ]
+    parse_convert(src_format: Format, dest_format: Format): [ /* src_value */ number, /* dest_value */ number ]
     set_segment(rate: number, format: Format, start_value: number, stop_value: number): void
-    parse_segment(format: Format): [ /* rate */ number, /* start_value */ any, /* stop_value */ any ]
+    parse_segment(format: Format): [ /* rate */ number, /* start_value */ number, /* stop_value */ number ]
     get_structure(): Structure
     set_seeking(format: Format, seekable: boolean, segment_start: number, segment_end: number): void
-    parse_seeking(format: Format): [ /* seekable */ any, /* segment_start */ any, /* segment_end */ any ]
+    parse_seeking(format: Format): [ /* seekable */ boolean, /* segment_start */ number, /* segment_end */ number ]
     set_formatsv(n_formats: number, formats: Format): void
-    parse_formats_length(): /* n_formats */ any
+    parse_formats_length(): /* n_formats */ number
     parse_formats_nth(nth: number, format: Format): void
     set_buffering_percent(busy: boolean, percent: number): void
-    parse_buffering_percent(): [ /* busy */ any, /* percent */ any ]
+    parse_buffering_percent(): [ /* busy */ boolean, /* percent */ number ]
     set_buffering_stats(mode: BufferingMode, avg_in: number, avg_out: number, buffering_left: number): void
-    parse_buffering_stats(mode: BufferingMode): [ /* avg_in */ any, /* avg_out */ any, /* buffering_left */ any ]
+    parse_buffering_stats(mode: BufferingMode): [ /* avg_in */ number, /* avg_out */ number, /* buffering_left */ number ]
     set_buffering_range(format: Format, start: number, stop: number, estimated_total: number): void
-    parse_buffering_range(format: Format): [ /* start */ any, /* stop */ any, /* estimated_total */ any ]
+    parse_buffering_range(format: Format): [ /* start */ number, /* stop */ number, /* estimated_total */ number ]
     parse_uri(uri: string[]): void
     set_uri(uri: string): void
     /* Methods of Gst-0.10.Gst.MiniObject */
@@ -5769,7 +5769,7 @@ export class Registry {
     plugins: object[]
     features: object[]
     paths: object[]
-    cache_file: any
+    cache_file: number
     feature_hash: GLib.HashTable
     basename_hash: GLib.HashTable
     priv: RegistryPrivate
@@ -6524,7 +6524,7 @@ export abstract class BaseSrcClass {
     start: (src: BaseSrc) => boolean
     stop: (src: BaseSrc) => boolean
     get_times: (src: BaseSrc, buffer: Buffer, start: ClockTime, end: ClockTime) => void
-    get_size: (src: BaseSrc) => [ /* returnType */ boolean, /* size */ any ]
+    get_size: (src: BaseSrc) => [ /* returnType */ boolean, /* size */ number ]
     is_seekable: (src: BaseSrc) => boolean
     unlock: (src: BaseSrc) => boolean
     event: (src: BaseSrc, event: Event) => boolean
@@ -6546,8 +6546,8 @@ export abstract class BaseTransformClass {
     parent_class: ElementClass
     transform_caps: (trans: BaseTransform, direction: PadDirection, caps: Caps) => Caps
     fixate_caps: (trans: BaseTransform, direction: PadDirection, caps: Caps, othercaps: Caps) => void
-    transform_size: (trans: BaseTransform, direction: PadDirection, caps: Caps, size: number, othercaps: Caps) => [ /* returnType */ boolean, /* othersize */ any ]
-    get_unit_size: (trans: BaseTransform, caps: Caps) => [ /* returnType */ boolean, /* size */ any ]
+    transform_size: (trans: BaseTransform, direction: PadDirection, caps: Caps, size: number, othercaps: Caps) => [ /* returnType */ boolean, /* othersize */ number ]
+    get_unit_size: (trans: BaseTransform, caps: Caps) => [ /* returnType */ boolean, /* size */ number ]
     set_caps: (trans: BaseTransform, incaps: Caps, outcaps: Caps) => boolean
     start: (trans: BaseTransform) => boolean
     stop: (trans: BaseTransform) => boolean
@@ -6583,7 +6583,7 @@ export class BinPrivate {
 }
 export class BitReader {
     /* Fields of Gst-0.10.Gst.BitReader */
-    data: any
+    data: number
     size: number
     byte: number
     bit: number
@@ -6598,13 +6598,13 @@ export class BitReader {
     skip(nbits: number): boolean
     skip_to_byte(): boolean
     get_bits_uint8(val: any[], nbits: number): boolean
-    get_bits_uint16(nbits: number): [ /* returnType */ boolean, /* val */ any ]
-    get_bits_uint32(nbits: number): [ /* returnType */ boolean, /* val */ any ]
-    get_bits_uint64(nbits: number): [ /* returnType */ boolean, /* val */ any ]
+    get_bits_uint16(nbits: number): [ /* returnType */ boolean, /* val */ number ]
+    get_bits_uint32(nbits: number): [ /* returnType */ boolean, /* val */ number ]
+    get_bits_uint64(nbits: number): [ /* returnType */ boolean, /* val */ number ]
     peek_bits_uint8(val: any[], nbits: number): boolean
-    peek_bits_uint16(nbits: number): [ /* returnType */ boolean, /* val */ any ]
-    peek_bits_uint32(nbits: number): [ /* returnType */ boolean, /* val */ any ]
-    peek_bits_uint64(nbits: number): [ /* returnType */ boolean, /* val */ any ]
+    peek_bits_uint16(nbits: number): [ /* returnType */ boolean, /* val */ number ]
+    peek_bits_uint32(nbits: number): [ /* returnType */ boolean, /* val */ number ]
+    peek_bits_uint64(nbits: number): [ /* returnType */ boolean, /* val */ number ]
     static name: string
     static new(data: any[], size: number): BitReader
     constructor(data: any[], size: number)
@@ -6648,7 +6648,7 @@ export class BusPrivate {
 }
 export class ByteReader {
     /* Fields of Gst-0.10.Gst.ByteReader */
-    data: any
+    data: number
     size: number
     byte: number
     /* Methods of Gst-0.10.Gst.ByteReader */
@@ -6661,52 +6661,52 @@ export class ByteReader {
     get_size(): number
     skip(nbytes: number): boolean
     get_uint8(val: any[]): boolean
-    get_int8(): [ /* returnType */ boolean, /* val */ any ]
-    get_uint16_le(): [ /* returnType */ boolean, /* val */ any ]
-    get_int16_le(): [ /* returnType */ boolean, /* val */ any ]
-    get_uint16_be(): [ /* returnType */ boolean, /* val */ any ]
-    get_int16_be(): [ /* returnType */ boolean, /* val */ any ]
-    get_uint24_le(): [ /* returnType */ boolean, /* val */ any ]
+    get_int8(): [ /* returnType */ boolean, /* val */ number ]
+    get_uint16_le(): [ /* returnType */ boolean, /* val */ number ]
+    get_int16_le(): [ /* returnType */ boolean, /* val */ number ]
+    get_uint16_be(): [ /* returnType */ boolean, /* val */ number ]
+    get_int16_be(): [ /* returnType */ boolean, /* val */ number ]
+    get_uint24_le(): [ /* returnType */ boolean, /* val */ number ]
     get_int24_le(): [ /* returnType */ boolean, /* val */ number ]
-    get_uint24_be(): [ /* returnType */ boolean, /* val */ any ]
+    get_uint24_be(): [ /* returnType */ boolean, /* val */ number ]
     get_int24_be(): [ /* returnType */ boolean, /* val */ number ]
-    get_uint32_le(): [ /* returnType */ boolean, /* val */ any ]
+    get_uint32_le(): [ /* returnType */ boolean, /* val */ number ]
     get_int32_le(): [ /* returnType */ boolean, /* val */ number ]
-    get_uint32_be(): [ /* returnType */ boolean, /* val */ any ]
+    get_uint32_be(): [ /* returnType */ boolean, /* val */ number ]
     get_int32_be(): [ /* returnType */ boolean, /* val */ number ]
-    get_uint64_le(): [ /* returnType */ boolean, /* val */ any ]
-    get_int64_le(): [ /* returnType */ boolean, /* val */ any ]
-    get_uint64_be(): [ /* returnType */ boolean, /* val */ any ]
-    get_int64_be(): [ /* returnType */ boolean, /* val */ any ]
+    get_uint64_le(): [ /* returnType */ boolean, /* val */ number ]
+    get_int64_le(): [ /* returnType */ boolean, /* val */ number ]
+    get_uint64_be(): [ /* returnType */ boolean, /* val */ number ]
+    get_int64_be(): [ /* returnType */ boolean, /* val */ number ]
     peek_uint8(val: any[]): boolean
-    peek_int8(): [ /* returnType */ boolean, /* val */ any ]
-    peek_uint16_le(): [ /* returnType */ boolean, /* val */ any ]
-    peek_int16_le(): [ /* returnType */ boolean, /* val */ any ]
-    peek_uint16_be(): [ /* returnType */ boolean, /* val */ any ]
-    peek_int16_be(): [ /* returnType */ boolean, /* val */ any ]
-    peek_uint24_le(): [ /* returnType */ boolean, /* val */ any ]
+    peek_int8(): [ /* returnType */ boolean, /* val */ number ]
+    peek_uint16_le(): [ /* returnType */ boolean, /* val */ number ]
+    peek_int16_le(): [ /* returnType */ boolean, /* val */ number ]
+    peek_uint16_be(): [ /* returnType */ boolean, /* val */ number ]
+    peek_int16_be(): [ /* returnType */ boolean, /* val */ number ]
+    peek_uint24_le(): [ /* returnType */ boolean, /* val */ number ]
     peek_int24_le(): [ /* returnType */ boolean, /* val */ number ]
-    peek_uint24_be(): [ /* returnType */ boolean, /* val */ any ]
+    peek_uint24_be(): [ /* returnType */ boolean, /* val */ number ]
     peek_int24_be(): [ /* returnType */ boolean, /* val */ number ]
-    peek_uint32_le(): [ /* returnType */ boolean, /* val */ any ]
+    peek_uint32_le(): [ /* returnType */ boolean, /* val */ number ]
     peek_int32_le(): [ /* returnType */ boolean, /* val */ number ]
-    peek_uint32_be(): [ /* returnType */ boolean, /* val */ any ]
+    peek_uint32_be(): [ /* returnType */ boolean, /* val */ number ]
     peek_int32_be(): [ /* returnType */ boolean, /* val */ number ]
-    peek_uint64_le(): [ /* returnType */ boolean, /* val */ any ]
-    peek_int64_le(): [ /* returnType */ boolean, /* val */ any ]
-    peek_uint64_be(): [ /* returnType */ boolean, /* val */ any ]
-    peek_int64_be(): [ /* returnType */ boolean, /* val */ any ]
-    get_float32_le(): [ /* returnType */ boolean, /* val */ any ]
-    get_float32_be(): [ /* returnType */ boolean, /* val */ any ]
+    peek_uint64_le(): [ /* returnType */ boolean, /* val */ number ]
+    peek_int64_le(): [ /* returnType */ boolean, /* val */ number ]
+    peek_uint64_be(): [ /* returnType */ boolean, /* val */ number ]
+    peek_int64_be(): [ /* returnType */ boolean, /* val */ number ]
+    get_float32_le(): [ /* returnType */ boolean, /* val */ number ]
+    get_float32_be(): [ /* returnType */ boolean, /* val */ number ]
     get_float64_le(): [ /* returnType */ boolean, /* val */ number ]
     get_float64_be(): [ /* returnType */ boolean, /* val */ number ]
-    peek_float32_le(): [ /* returnType */ boolean, /* val */ any ]
-    peek_float32_be(): [ /* returnType */ boolean, /* val */ any ]
+    peek_float32_le(): [ /* returnType */ boolean, /* val */ number ]
+    peek_float32_be(): [ /* returnType */ boolean, /* val */ number ]
     peek_float64_le(): [ /* returnType */ boolean, /* val */ number ]
     peek_float64_be(): [ /* returnType */ boolean, /* val */ number ]
-    dup_data(size: number): [ /* returnType */ boolean, /* val */ any ]
-    get_data(size: number): [ /* returnType */ boolean, /* val */ any ]
-    peek_data(size: number): [ /* returnType */ boolean, /* val */ any ]
+    dup_data(size: number): [ /* returnType */ boolean, /* val */ number ]
+    get_data(size: number): [ /* returnType */ boolean, /* val */ number ]
+    peek_data(size: number): [ /* returnType */ boolean, /* val */ number ]
     dup_string_utf8(str: string[]): boolean
     dup_string_utf16(): [ /* returnType */ boolean, /* str */ any ]
     dup_string_utf32(): [ /* returnType */ boolean, /* str */ any ]
@@ -6767,8 +6767,8 @@ export class ByteWriter {
     put_data(data: any[], size: number): boolean
     fill(value: number, size: number): boolean
     put_string_utf8(data: string): boolean
-    put_string_utf16(): [ /* returnType */ boolean, /* data */ any ]
-    put_string_utf32(): [ /* returnType */ boolean, /* data */ any ]
+    put_string_utf16(): [ /* returnType */ boolean, /* data */ number ]
+    put_string_utf32(): [ /* returnType */ boolean, /* data */ number ]
     static name: string
     static new(): ByteWriter
     constructor()
@@ -7010,7 +7010,7 @@ export class IndexAssociation {
 export abstract class IndexClass {
     /* Fields of Gst-0.10.Gst.IndexClass */
     parent_class: ObjectClass
-    get_writer_id: (index: Index, writer_string: string) => [ /* returnType */ boolean, /* writer_id */ any ]
+    get_writer_id: (index: Index, writer_string: string) => [ /* returnType */ boolean, /* writer_id */ number ]
     commit: (index: Index, id: number) => void
     add_entry: (index: Index, entry: IndexEntry) => void
     get_assoc_entry: (index: Index, id: number, method: IndexLookupMethod, flags: AssocFlags, format: Format, value: number, func: GLib.CompareDataFunc) => IndexEntry
@@ -7025,7 +7025,7 @@ export class IndexEntry {
     /* Methods of Gst-0.10.Gst.IndexEntry */
     copy(): IndexEntry
     free(): void
-    assoc_map(format: Format): [ /* returnType */ boolean, /* value */ any ]
+    assoc_map(format: Format): [ /* returnType */ boolean, /* value */ number ]
     static name: string
 }
 export abstract class IndexFactoryClass {
@@ -7052,7 +7052,7 @@ export class Iterator {
     type: GObject.Type
     lock: GLib.Mutex
     cookie: number
-    master_cookie: any
+    master_cookie: number
     _gst_reserved: any[]
     /* Methods of Gst-0.10.Gst.Iterator */
     push(other: Iterator): void
@@ -7208,7 +7208,7 @@ export class Poll {
 }
 export class PollFD {
     /* Fields of Gst-0.10.Gst.PollFD */
-    fd: any
+    fd: number
     idx: number
     /* Methods of Gst-0.10.Gst.PollFD */
     init(): void
@@ -7275,13 +7275,13 @@ export class Segment {
     init(format: Format): void
     set_duration(format: Format, duration: number): void
     set_last_stop(format: Format, position: number): void
-    set_seek(rate: number, format: Format, flags: SeekFlags, start_type: SeekType, start: number, stop_type: SeekType, stop: number): /* update */ any
+    set_seek(rate: number, format: Format, flags: SeekFlags, start_type: SeekType, start: number, stop_type: SeekType, stop: number): /* update */ boolean
     set_newsegment(update: boolean, rate: number, format: Format, start: number, stop: number, time: number): void
     set_newsegment_full(update: boolean, rate: number, applied_rate: number, format: Format, start: number, stop: number, time: number): void
     to_stream_time(format: Format, position: number): number
     to_running_time(format: Format, position: number): number
     to_position(format: Format, running_time: number): number
-    clip(format: Format, start: number, stop: number): [ /* returnType */ boolean, /* clip_start */ any, /* clip_stop */ any ]
+    clip(format: Format, start: number, stop: number): [ /* returnType */ boolean, /* clip_start */ number, /* clip_stop */ number ]
     set_running_time(format: Format, running_time: number): boolean
     static name: string
     static new(): Segment
@@ -7313,12 +7313,12 @@ export class Structure {
     /* Fields of Gst-0.10.Gst.Structure */
     type: GObject.Type
     name: GLib.Quark
-    parent_refcount: any
+    parent_refcount: number
     fields: GLib.Array
     _gst_reserved: object
     /* Methods of Gst-0.10.Gst.Structure */
     copy(): Structure
-    set_parent_refcount(): /* refcount */ any
+    set_parent_refcount(): /* refcount */ number
     free(): void
     get_name(): string
     get_name_id(): GLib.Quark
@@ -7339,18 +7339,18 @@ export class Structure {
     id_has_field_typed(field: GLib.Quark, type: GObject.Type): boolean
     has_field(fieldname: string): boolean
     has_field_typed(fieldname: string, type: GObject.Type): boolean
-    get_boolean(fieldname: string): [ /* returnType */ boolean, /* value */ any ]
-    get_int(fieldname: string): [ /* returnType */ boolean, /* value */ any ]
-    get_uint(fieldname: string): [ /* returnType */ boolean, /* value */ any ]
-    get_fourcc(fieldname: string): [ /* returnType */ boolean, /* value */ any ]
+    get_boolean(fieldname: string): [ /* returnType */ boolean, /* value */ boolean ]
+    get_int(fieldname: string): [ /* returnType */ boolean, /* value */ number ]
+    get_uint(fieldname: string): [ /* returnType */ boolean, /* value */ number ]
+    get_fourcc(fieldname: string): [ /* returnType */ boolean, /* value */ number ]
     get_double(fieldname: string): [ /* returnType */ boolean, /* value */ number ]
     get_date(fieldname: string, value: GLib.Date): boolean
     get_clock_time(fieldname: string, value: ClockTime): boolean
     get_string(fieldname: string): string
-    get_enum(fieldname: string, enumtype: GObject.Type): [ /* returnType */ boolean, /* value */ any ]
-    get_fraction(fieldname: string): [ /* returnType */ boolean, /* value_numerator */ any, /* value_denominator */ any ]
+    get_enum(fieldname: string, enumtype: GObject.Type): [ /* returnType */ boolean, /* value */ number ]
+    get_fraction(fieldname: string): [ /* returnType */ boolean, /* value_numerator */ number, /* value_denominator */ number ]
     to_string(): string
-    fixate_field_nearest_int(field_name: string, target: any): boolean
+    fixate_field_nearest_int(field_name: string, target: number): boolean
     fixate_field_nearest_double(field_name: string, target: number): boolean
     fixate_field_boolean(field_name: string, target: boolean): boolean
     fixate_field_string(field_name: string, target: string): boolean
@@ -7401,7 +7401,7 @@ export class TaskThreadCallbacks {
 export class Trace {
     /* Fields of Gst-0.10.Gst.Trace */
     filename: string
-    fd: any
+    fd: number
     buf: TraceEntry
     bufsize: number
     bufoffset: number

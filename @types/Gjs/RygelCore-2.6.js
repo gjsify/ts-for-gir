@@ -1,2 +1,2 @@
 imports.gi.versions.RygelCore = '2.6'
-export default imports.gi.RygelCore
+module.exports = imports.gi.RygelCore

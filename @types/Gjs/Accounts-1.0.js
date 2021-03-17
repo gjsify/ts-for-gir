@@ -1,2 +1,2 @@
 imports.gi.versions.Accounts = '1.0'
-export default imports.gi.Accounts
+module.exports = imports.gi.Accounts

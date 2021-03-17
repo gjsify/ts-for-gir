@@ -162,9 +162,9 @@ export class Demux {
     unlink_pads(srcpadname: string, dest: Gst.Element, destpadname: string): void
     link_pads_filtered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
-    query_position(format: Gst.Format): [ /* returnType */ boolean, /* cur */ any ]
-    query_duration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ any ]
-    query_convert(src_format: Gst.Format, src_val: number, dest_format: Gst.Format): [ /* returnType */ boolean, /* dest_val */ any ]
+    query_position(format: Gst.Format): [ /* returnType */ boolean, /* cur */ number ]
+    query_duration(format: Gst.Format): [ /* returnType */ boolean, /* duration */ number ]
+    query_convert(src_format: Gst.Format, src_val: number, dest_format: Gst.Format): [ /* returnType */ boolean, /* dest_val */ number ]
     found_tags_for_pad(pad: Gst.Pad, list: Gst.TagList): void
     found_tags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */
@@ -204,8 +204,8 @@ export class Demux {
     unref(): void
     watch_closure(closure: Function): void
     /* Virtual methods of GstTag-0.10.GstTag.Demux */
-    vfunc_identify_tag(buffer: Gst.Buffer, start_tag: boolean): [ /* returnType */ boolean, /* tag_size */ any ]
-    vfunc_parse_tag(buffer: Gst.Buffer, start_tag: boolean, tags: Gst.TagList): [ /* returnType */ DemuxResult, /* tag_size */ any ]
+    vfunc_identify_tag(buffer: Gst.Buffer, start_tag: boolean): [ /* returnType */ boolean, /* tag_size */ number ]
+    vfunc_parse_tag(buffer: Gst.Buffer, start_tag: boolean, tags: Gst.TagList): [ /* returnType */ DemuxResult, /* tag_size */ number ]
     vfunc_merge_tags(start_tags: Gst.TagList, end_tags: Gst.TagList): Gst.TagList
     /* Virtual methods of Gst-0.10.Gst.Element */
     vfunc_request_new_pad(templ: Gst.PadTemplate, name: string): Gst.Pad
@@ -275,8 +275,8 @@ export abstract class DemuxClass {
     parent_class: Gst.ElementClass
     min_start_size: number
     min_end_size: number
-    identify_tag: (demux: Demux, buffer: Gst.Buffer, start_tag: boolean) => [ /* returnType */ boolean, /* tag_size */ any ]
-    parse_tag: (demux: Demux, buffer: Gst.Buffer, start_tag: boolean, tags: Gst.TagList) => [ /* returnType */ DemuxResult, /* tag_size */ any ]
+    identify_tag: (demux: Demux, buffer: Gst.Buffer, start_tag: boolean) => [ /* returnType */ boolean, /* tag_size */ number ]
+    parse_tag: (demux: Demux, buffer: Gst.Buffer, start_tag: boolean, tags: Gst.TagList) => [ /* returnType */ DemuxResult, /* tag_size */ number ]
     merge_tags: (demux: Demux, start_tags: Gst.TagList, end_tags: Gst.TagList) => Gst.TagList
     reserved: any[]
     static name: string

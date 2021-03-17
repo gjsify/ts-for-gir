@@ -1,2 +1,2 @@
 imports.gi.versions.GstGLX11 = '1.0'
-export default imports.gi.GstGLX11
+module.exports = imports.gi.GstGLX11

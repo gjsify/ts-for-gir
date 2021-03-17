@@ -214,9 +214,9 @@ export class ColorBalance {
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
     linkPadsFiltered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
-    queryPosition(format: Gst.Format): { returnType: boolean, cur: any }
-    queryDuration(format: Gst.Format): { returnType: boolean, duration: any }
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: any }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number }
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
     foundTagsForPad(pad: Gst.Pad, list: Gst.TagList): void
     foundTags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */
@@ -424,9 +424,9 @@ export class Mixer {
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
     linkPadsFiltered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
-    queryPosition(format: Gst.Format): { returnType: boolean, cur: any }
-    queryDuration(format: Gst.Format): { returnType: boolean, duration: any }
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: any }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number }
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
     foundTagsForPad(pad: Gst.Pad, list: Gst.TagList): void
     foundTags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */
@@ -684,9 +684,9 @@ export class Tuner {
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
     linkPadsFiltered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
-    queryPosition(format: Gst.Format): { returnType: boolean, cur: any }
-    queryDuration(format: Gst.Format): { returnType: boolean, duration: any }
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: any }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number }
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
     foundTagsForPad(pad: Gst.Pad, list: Gst.TagList): void
     foundTags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */
@@ -902,9 +902,9 @@ export class VideoOrientation {
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
     linkPadsFiltered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
-    queryPosition(format: Gst.Format): { returnType: boolean, cur: any }
-    queryDuration(format: Gst.Format): { returnType: boolean, duration: any }
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: any }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number }
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
     foundTagsForPad(pad: Gst.Pad, list: Gst.TagList): void
     foundTags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */
@@ -1097,9 +1097,9 @@ export class XOverlay {
     unlinkPads(srcpadname: string, dest: Gst.Element, destpadname: string): void
     linkPadsFiltered(srcpadname: string, dest: Gst.Element, destpadname: string, filter: Gst.Caps): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
-    queryPosition(format: Gst.Format): { returnType: boolean, cur: any }
-    queryDuration(format: Gst.Format): { returnType: boolean, duration: any }
-    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: any }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number }
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number }
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
     foundTagsForPad(pad: Gst.Pad, list: Gst.TagList): void
     foundTags(list: Gst.TagList): void
     /* Methods of Gst-0.10.Gst.Object */

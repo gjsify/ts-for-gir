@@ -1,2 +1,2 @@
 imports.gi.versions.Poppler = '0.18'
-export default imports.gi.Poppler
+module.exports = imports.gi.Poppler

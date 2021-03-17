@@ -1,2 +1,2 @@
 imports.gi.versions.SecretUnstable = '0'
-export default imports.gi.SecretUnstable
+module.exports = imports.gi.SecretUnstable

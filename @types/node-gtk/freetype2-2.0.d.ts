@@ -17,5 +17,5 @@ export class Face {
 export class Library {
     static name: string
 }
-export type Int32 = number
+export type Int32 = any
 }

@@ -286,7 +286,6 @@ import type * as Shumate00 from "./Shumate-0.0";
 import type * as Signon20 from "./Signon-2.0";
 import type * as Snapd1 from "./Snapd-1";
 import type * as Soup24 from "./Soup-2.4";
-import type * as Soup30 from "./Soup-3.0";
 import type * as SoupGNOME24 from "./SoupGNOME-2.4";
 import type * as SpiceClientGLib20 from "./SpiceClientGLib-2.0";
 import type * as SpiceClientGtk30 from "./SpiceClientGtk-3.0";
@@ -705,8 +704,6 @@ declare global {
             Signon:              typeof Signon20
             Snapd:              typeof Snapd1
             Soup:              typeof Soup24
-                |
-              typeof Soup30
             SoupGNOME:              typeof SoupGNOME24
             SpiceClientGLib:              typeof SpiceClientGLib20
             SpiceClientGtk:              typeof SpiceClientGtk30
@@ -1122,8 +1119,6 @@ declare global {
             Signon:              '2.0'
             Snapd:              '1'
             Soup:              '2.4'
-                |
-              '3.0'
             SoupGNOME:              '2.4'
             SpiceClientGLib:              '2.0'
             SpiceClientGtk:              '3.0'

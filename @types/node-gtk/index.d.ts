@@ -285,7 +285,6 @@ import type { Shumate as Shumate00 } from "./Shumate-0.0";
 import type { Signon as Signon20 } from "./Signon-2.0";
 import type { Snapd as Snapd1 } from "./Snapd-1";
 import type { Soup as Soup24 } from "./Soup-2.4";
-import type { Soup as Soup30 } from "./Soup-3.0";
 import type { SoupGNOME as SoupGNOME24 } from "./SoupGNOME-2.4";
 import type { SpiceClientGLib as SpiceClientGLib20 } from "./SpiceClientGLib-2.0";
 import type { SpiceClientGtk as SpiceClientGtk30 } from "./SpiceClientGtk-3.0";
@@ -639,7 +638,6 @@ declare module 'node-gtk' {
         export function require(ns: 'Signon', ver: '2.0'): typeof Signon20;
         export function require(ns: 'Snapd', ver: '1'): typeof Snapd1;
         export function require(ns: 'Soup', ver: '2.4'): typeof Soup24;
-        export function require(ns: 'Soup', ver: '3.0'): typeof Soup30;
         export function require(ns: 'SoupGNOME', ver: '2.4'): typeof SoupGNOME24;
         export function require(ns: 'SpiceClientGLib', ver: '2.0'): typeof SpiceClientGLib20;
         export function require(ns: 'SpiceClientGtk', ver: '3.0'): typeof SpiceClientGtk30;

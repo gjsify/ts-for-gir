@@ -1,2 +1,2 @@
 imports.gi.versions.GstApp = '1.0'
-export default imports.gi.GstApp
+module.exports = imports.gi.GstApp

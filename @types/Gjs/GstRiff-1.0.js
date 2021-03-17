@@ -1,2 +1,2 @@
 imports.gi.versions.GstRiff = '1.0'
-export default imports.gi.GstRiff
+module.exports = imports.gi.GstRiff

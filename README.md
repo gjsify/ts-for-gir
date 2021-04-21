@@ -81,7 +81,7 @@ EXAMPLES
   ts-for-gir generate '*' -e node
 
   # Use a special config file
-  ts-for-gir generate --configName='.ts-for-gir.gtk4.rc.js
+  ts-for-gir generate --configName='.ts-for-gir.gtk4.rc.js'
 
   # Generate .d.ts. files but not for Gtk-3.0 and xrandr-1.3
   ts-for-gir generate --ignore=Gtk-3.0 xrandr-1.3

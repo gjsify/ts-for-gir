@@ -14,4 +14,5 @@ export interface UserConfig {
     pretty: boolean
     modules: string[]
     ignore?: string[]
+    exportDefault: boolean
 }

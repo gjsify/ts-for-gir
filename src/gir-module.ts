@@ -1430,10 +1430,11 @@ export class GirModule {
             this.packageName || undefined,
             this.config,
         )
+        const template = this.exports ? 'esmodule.js' : 'module.js'
         if (this.config.outdir) {
-            templateProcessor.create('module.js', this.config.outdir, `${this.packageName}.js`)
+            templateProcessor.create(template, this.config.outdir, `${this.packageName}.js`)
         } else {
-            const moduleContent = templateProcessor.load('module.js')
+            const moduleContent = templateProcessor.load(template)
             this.log.log(moduleContent)
         }
     }

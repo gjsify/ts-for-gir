@@ -96,10 +96,7 @@ export class GirModule {
         this.log = new Logger(config.environment, config.verbose, this.packageName || 'GirModule')
         this.importName = this.transformation.transformModuleNamespaceName(this.packageName)
         if (this.config.exportDefault) {
-            console.log('Default export enabled')
             this.exports = []
-        } else {
-            console.log('Default export disabled')
         }
     }
 

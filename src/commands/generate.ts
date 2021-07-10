@@ -49,6 +49,7 @@ export default class Generate extends Command {
         ignoreConflicts: Config.defaultCliFlags.ignoreConflicts,
         print: Config.defaultCliFlags.print,
         configName: Config.defaultCliFlags.configName,
+        exportDefault: Config.defaultCliFlags.exportDefault,
     }
 
     static args = [Config.defaultCliArgs.modules]

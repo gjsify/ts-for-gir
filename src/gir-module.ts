@@ -77,6 +77,8 @@ export class GirModule {
     private paramRegExp = /[0-9a-zA-Z_]*:/g
     private optParamRegExp = /[0-9a-zA-Z_]*\?:/g
 
+    private exports?: string[]
+
     constructor(xml: ParsedGir, private readonly config: GenerateConfig) {
         this.repo = xml.repository
 
@@ -93,6 +95,12 @@ export class GirModule {
         this.transformation = new Transformation(this.packageName, config)
         this.log = new Logger(config.environment, config.verbose, this.packageName || 'GirModule')
         this.importName = this.transformation.transformModuleNamespaceName(this.packageName)
+        if (this.config.exportDefault) {
+            console.log('Default export enabled')
+            this.exports = []
+        } else {
+            console.log('Default export disabled')
+        }
     }
 
     private loadDependencies(girInclude: GirInclude[]): string[] {
@@ -1219,6 +1227,17 @@ export class GirModule {
         return def
     }
 
+    private addExport(def: string[], t: string, name: string, definition: string) {
+        let exp: string
+        if (this.exports) {
+            exp = ''
+            this.exports.push(name)
+        } else {
+            exp = 'export '
+        }
+        def.push(`${exp}${t} ${name} ${definition}`)
+    }
+
     private generateConstructPropsInterface(
         girClass: GirClass,
         name: string,
@@ -1267,7 +1286,7 @@ export class GirModule {
         // E.g. the NetworkManager-1.0 has enum names starting with 80211
         name = this.transformation.transformEnumName(name)
 
-        def.push(`export enum ${name} {`)
+        this.addExport(def, "enum", name, '{')
         if (e.member) {
             for (const member of e.member) {
                 const _name = member.$.name || member.$['glib:nick'] || member.$['c:identifier']
@@ -1288,7 +1307,10 @@ export class GirModule {
         if (varName) {
             if (!this.constNames[varName]) {
                 this.constNames[varName] = 1
-                return [`export const ${varDesc}`]
+                let result: string[] = []
+                // varDesc has the form [`${name}...`]
+                this.addExport(result, 'const', varName, varDesc[0].substring(varName.length))
+                return result
             } else {
                 this.log.warn(`The constant '${varDesc}' has already been exported`)
             }
@@ -1321,9 +1343,9 @@ export class GirModule {
 
         // START CLASS
         if (isAbstract) {
-            def.push(`export abstract class ${name} {`)
+            this.addExport(def, 'abstract class', name, '{')
         } else {
-            def.push(`export class ${name} {`)
+            this.addExport(def, 'class', name, '{')
         }
 
         const localNames: LocalNames = {}
@@ -1365,7 +1387,10 @@ export class GirModule {
     }
 
     public exportFunction(e: GirFunction): string[] {
-        return this.getFunction(e, 'export function ')[0]
+        const exp = this.exports ? '' : 'export '
+        const fn = this.getFunction(e, '${exp}function ')
+        if (fn[1]) this.exports?.push(fn[1])
+        return fn[0]
     }
 
     public exportCallback(e: GirFunction): string[] {
@@ -1387,7 +1412,7 @@ export class GirModule {
 
         const typeName = this.typeLookupTransformed(girAlias, true)
         const name = girAlias.$.name
-        return [`type ${name} = ${typeName}`]
+        return [`export type ${name} = ${typeName}`]
     }
 
     public exportInterface(girClass: GirClass): string[] {
@@ -1517,6 +1542,12 @@ export class GirModule {
                 if (this.packageName !== 'GObject-2.0' || e.$.name !== 'Type') out.push(...this.exportAlias(e))
 
         if (this.packageName === 'GObject-2.0') out.push('export interface Type {', '    name: string', '}')
+
+        if (this.exports) {
+            out.push('export default {')
+            out.push(...this.exports.map(n => `  ${n},`))
+            out.push('}')
+        }
 
         // END Namespace
         if (this.config.buildType === 'types') {

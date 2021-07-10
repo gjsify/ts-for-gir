@@ -122,7 +122,7 @@ export class Config {
             case '.js':
                 writeConfigString = `module.exports = ${JSON.stringify(configToStore, null, 4)}`
                 break
-            case '.jsson':
+            case '.json':
                 writeConfigString = `${JSON.stringify(configToStore, null, 4)}`
                 break
             default:

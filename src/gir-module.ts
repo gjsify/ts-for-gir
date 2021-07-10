@@ -1385,7 +1385,7 @@ export class GirModule {
 
     public exportFunction(e: GirFunction): string[] {
         const exp = this.exports ? '' : 'export '
-        const fn = this.getFunction(e, exp + 'function')
+        const fn = this.getFunction(e, exp + 'function ')
         if (fn[1]) this.exports?.push(fn[1])
         return fn[0]
     }

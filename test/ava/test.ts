@@ -22,6 +22,7 @@ const config: GenerateConfig = {
     pretty: false,
     verbose: false,
     buildType: 'lib',
+    exportDefault: false,
 }
 
 test('enumeration', (t) => {

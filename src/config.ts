@@ -160,7 +160,7 @@ export class Config {
             pretty: config.pretty,
             verbose: config.verbose,
             buildType: config.buildType || defaultBuildType,
-            exportDefault: config.exportDefault
+            exportDefault: config.exportDefault,
         }
         return generateConfig
     }
@@ -184,7 +184,7 @@ export class Config {
             girDirectories: flags.girDirectories,
             ignore: flags.ignore,
             modules,
-            exportDefault: flags.exportDefault
+            exportDefault: flags.exportDefault,
         }
 
         if (configFile) {
@@ -230,8 +230,10 @@ export class Config {
             ) {
                 config.modules = configFile.config.modules
             }
-            if (config.exportDefault === Config.defaultCliFlags.exportDefault.default &&
-                typeof configFile.config.exportDefault === 'boolean') {
+            if (
+                config.exportDefault === Config.defaultCliFlags.exportDefault.default &&
+                typeof configFile.config.exportDefault === 'boolean'
+            ) {
                 config.exportDefault = configFile.config.exportDefault
             }
         }

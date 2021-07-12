@@ -299,8 +299,7 @@ export class GirModule {
 
         if (girVar.callback?.length) {
             fullTypeName = this.getFunction(girVar.callback[0], '', '', undefined, true)[0][0]
-            if (suffix.length)
-                fullTypeName = '(' + fullTypeName + ')'
+            if (suffix.length) fullTypeName = '(' + fullTypeName + ')'
         } else {
             if (!type?.$) return 'any'
 
@@ -448,13 +447,12 @@ export class GirModule {
         if (parameters && parameters.length > 0) {
             const parametersArray = parameters[0].parameter || []
             // Instance parameter needs to be exposed for class methods (see comment above getClassMethods())
-            const instanceParameter = parameters[0]["instance-parameter"]
-            if (instanceParameter && instanceParameter[0])
-            {
+            const instanceParameter = parameters[0]['instance-parameter']
+            if (instanceParameter && instanceParameter[0]) {
                 const typeName = instanceParameter[0].type ? instanceParameter[0].type[0].$.name : undefined
                 const rec = typeName ? this.ns.record?.find((r) => r.$.name == typeName) : undefined
                 const structFor = rec?.$['glib:is-gtype-struct-for']
-                const gobject = (this.name === "GObject" || this.name === "GLib") ? '' : 'GObject.'
+                const gobject = this.name === 'GObject' || this.name === 'GLib' ? '' : 'GObject.'
                 if (structFor) {
                     // TODO: Should use of a constructor, and even of an instance, be discouraged?
                     def.push(`${instanceParameter[0].$.name}: ${structFor} | Function | ${gobject}Type`)
@@ -1221,7 +1219,10 @@ export class GirModule {
 
     private addExport(def: string[], t: string, name: string, definition: string) {
         const exp = this.config.exportDefault ? '' : 'export '
-        def.push(`${exp}${t} ${name} ${definition}`)
+        if (!definition.startsWith(':')) {
+            definition = ' ' + definition
+        }
+        def.push(`${exp}${t} ${name}${definition}`)
     }
 
     private generateConstructPropsInterface(
@@ -1272,7 +1273,7 @@ export class GirModule {
         // E.g. the NetworkManager-1.0 has enum names starting with 80211
         name = this.transformation.transformEnumName(name)
 
-        this.addExport(def, "enum", name, '{')
+        this.addExport(def, 'enum', name, '{')
         if (e.member) {
             for (const member of e.member) {
                 const _name = member.$.name || member.$['glib:nick'] || member.$['c:identifier']
@@ -1293,8 +1294,8 @@ export class GirModule {
         if (varName) {
             if (!this.constNames[varName]) {
                 this.constNames[varName] = 1
-                let result: string[] = []
-                // varDesc has the form [`${name}...`]
+                const result: string[] = []
+                // varDesc has the form [`${name}:...`]
                 this.addExport(result, 'const', varName, varDesc[0].substring(varName.length))
                 return result
             } else {
@@ -1385,7 +1386,7 @@ export class GirModule {
         const [params] = this.getParameters(outArrayLengthIndex, e.parameters)
 
         const def: string[] = []
-        this.addExport(def, "interface", name, '{')
+        this.addExport(def, 'interface', name, '{')
         def.push(`    (${params}): ${retType}`)
         def.push('}')
         return def

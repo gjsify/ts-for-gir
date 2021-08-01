@@ -10,4 +10,5 @@ export interface GenerateConfig {
     girDirectories: string[]
     verbose: boolean
     pretty: boolean
+    exportDefault: boolean
 }

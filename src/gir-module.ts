@@ -299,8 +299,7 @@ export class GirModule {
 
         if (girVar.callback?.length) {
             fullTypeName = this.getFunction(girVar.callback[0], '', '', undefined, true)[0][0]
-            if (suffix.length)
-                fullTypeName = '(' + fullTypeName + ')'
+            if (suffix.length) fullTypeName = '(' + fullTypeName + ')'
         } else {
             if (!type?.$) return 'any'
 
@@ -448,13 +447,12 @@ export class GirModule {
         if (parameters && parameters.length > 0) {
             const parametersArray = parameters[0].parameter || []
             // Instance parameter needs to be exposed for class methods (see comment above getClassMethods())
-            const instanceParameter = parameters[0]["instance-parameter"]
-            if (instanceParameter && instanceParameter[0])
-            {
+            const instanceParameter = parameters[0]['instance-parameter']
+            if (instanceParameter && instanceParameter[0]) {
                 const typeName = instanceParameter[0].type ? instanceParameter[0].type[0].$.name : undefined
                 const rec = typeName ? this.ns.record?.find((r) => r.$.name == typeName) : undefined
                 const structFor = rec?.$['glib:is-gtype-struct-for']
-                const gobject = (this.name === "GObject" || this.name === "GLib") ? '' : 'GObject.'
+                const gobject = this.name === 'GObject' || this.name === 'GLib' ? '' : 'GObject.'
                 if (structFor) {
                     // TODO: Should use of a constructor, and even of an instance, be discouraged?
                     def.push(`${instanceParameter[0].$.name}: ${structFor} | Function | ${gobject}Type`)
@@ -1219,6 +1217,14 @@ export class GirModule {
         return def
     }
 
+    private addExport(def: string[], t: string, name: string, definition: string) {
+        const exp = this.config.exportDefault ? '' : 'export '
+        if (!definition.startsWith(':')) {
+            definition = ' ' + definition
+        }
+        def.push(`${exp}${t} ${name}${definition}`)
+    }
+
     private generateConstructPropsInterface(
         girClass: GirClass,
         name: string,
@@ -1267,7 +1273,7 @@ export class GirModule {
         // E.g. the NetworkManager-1.0 has enum names starting with 80211
         name = this.transformation.transformEnumName(name)
 
-        def.push(`export enum ${name} {`)
+        this.addExport(def, 'enum', name, '{')
         if (e.member) {
             for (const member of e.member) {
                 const _name = member.$.name || member.$['glib:nick'] || member.$['c:identifier']
@@ -1288,7 +1294,10 @@ export class GirModule {
         if (varName) {
             if (!this.constNames[varName]) {
                 this.constNames[varName] = 1
-                return [`export const ${varDesc}`]
+                const result: string[] = []
+                // varDesc has the form [`${name}:...`]
+                this.addExport(result, 'const', varName, varDesc[0].substring(varName.length))
+                return result
             } else {
                 this.log.warn(`The constant '${varDesc}' has already been exported`)
             }
@@ -1321,9 +1330,9 @@ export class GirModule {
 
         // START CLASS
         if (isAbstract) {
-            def.push(`export abstract class ${name} {`)
+            this.addExport(def, 'abstract class', name, '{')
         } else {
-            def.push(`export class ${name} {`)
+            this.addExport(def, 'class', name, '{')
         }
 
         const localNames: LocalNames = {}
@@ -1365,7 +1374,8 @@ export class GirModule {
     }
 
     public exportFunction(e: GirFunction): string[] {
-        return this.getFunction(e, 'export function ')[0]
+        const exp = this.config.exportDefault ? '' : 'export '
+        return this.getFunction(e, exp + 'function ')[0]
     }
 
     public exportCallback(e: GirFunction): string[] {
@@ -1376,7 +1386,7 @@ export class GirModule {
         const [params] = this.getParameters(outArrayLengthIndex, e.parameters)
 
         const def: string[] = []
-        def.push(`export interface ${name} {`)
+        this.addExport(def, 'interface', name, '{')
         def.push(`    (${params}): ${retType}`)
         def.push('}')
         return def
@@ -1387,7 +1397,8 @@ export class GirModule {
 
         const typeName = this.typeLookupTransformed(girAlias, true)
         const name = girAlias.$.name
-        return [`type ${name} = ${typeName}`]
+        const exp = this.config.exportDefault ? '' : 'export '
+        return [`${exp}type ${name} = ${typeName}`]
     }
 
     public exportInterface(girClass: GirClass): string[] {
@@ -1408,10 +1419,11 @@ export class GirModule {
             this.packageName || undefined,
             this.config,
         )
+        const template = this.config.exportDefault ? 'esmodule.js' : 'module.js'
         if (this.config.outdir) {
-            templateProcessor.create('module.js', this.config.outdir, `${this.packageName}.js`)
+            templateProcessor.create(template, this.config.outdir, `${this.packageName}.js`)
         } else {
-            const moduleContent = templateProcessor.load('module.js')
+            const moduleContent = templateProcessor.load(template)
             this.log.log(moduleContent)
         }
     }
@@ -1474,6 +1486,9 @@ export class GirModule {
         if (this.config.buildType === 'types') {
             out.push('')
             out.push(`declare namespace ${this.name} {`)
+        } else if (this.config.exportDefault) {
+            out.push('')
+            out.push(`export namespace ${this.name} {`)
         }
 
         // Newline
@@ -1519,8 +1534,12 @@ export class GirModule {
         if (this.packageName === 'GObject-2.0') out.push('export interface Type {', '    name: string', '}')
 
         // END Namespace
-        if (this.config.buildType === 'types') {
+        if (this.config.buildType === 'types' || this.config.exportDefault) {
             out.push(`}`)
+        }
+
+        if (this.config.exportDefault) {
+            out.push(`export default ${this.name}`)
         }
 
         // End of file

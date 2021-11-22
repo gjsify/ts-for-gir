@@ -26,7 +26,7 @@ if (require.main === module) {
                 console.log(error)
                 require('@oclif/errors/handle')(error)
             })
-    } catch (ex) {
+    } catch (ex: any) {
         console.log(ex.stack)
     }
 }

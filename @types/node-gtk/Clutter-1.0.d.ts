@@ -19970,6 +19970,7 @@ export class Text {
     opacity: number
     pivotPoint: Point
     pivotPointZ: number
+    position: Point
     reactive: boolean
     readonly realized: boolean
     requestMode: RequestMode
@@ -20927,6 +20928,11 @@ export class Text {
     on(sigName: "notify::pivot-point-z", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::pivot-point-z", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::pivot-point-z", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::position", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::position", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::position", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::position", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::position", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::reactive", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::reactive", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::reactive", callback: (...args: any[]) => void): NodeJS.EventEmitter

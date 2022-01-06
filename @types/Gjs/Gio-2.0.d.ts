@@ -8798,8 +8798,10 @@ export class SimpleAction {
     state: GLib.Variant
     readonly state_type: GLib.VariantType
     /* Properties of Gio-2.0.Gio.Action */
+    readonly enabled: boolean
     readonly name: string
     readonly parameter_type: GLib.VariantType
+    readonly state: GLib.Variant
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.SimpleAction */
@@ -8871,10 +8873,14 @@ export class SimpleAction {
     connect_after(sigName: "notify::state", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::state-type", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::state-type", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::enabled", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::enabled", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parameter-type", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parameter-type", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::state", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::state", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void

@@ -9596,6 +9596,7 @@ export class Sidebar {
     hover_expand: boolean
     hover_selection: boolean
     level_indentation: number
+    model: Gtk.TreeModel
     reorderable: boolean
     rubber_banding: boolean
     rules_hint: boolean
@@ -10491,6 +10492,8 @@ export class Sidebar {
     connect_after(sigName: "notify::hover-selection", callback: (($obj: Sidebar, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::level-indentation", callback: (($obj: Sidebar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::level-indentation", callback: (($obj: Sidebar, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::model", callback: (($obj: Sidebar, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::model", callback: (($obj: Sidebar, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::reorderable", callback: (($obj: Sidebar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::reorderable", callback: (($obj: Sidebar, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::rubber-banding", callback: (($obj: Sidebar, pspec: GObject.ParamSpec) => void)): number

@@ -428,6 +428,7 @@ export class List {
     /* Properties of Gee-1.0.Gee.Collection */
     readonly size: number
     readonly isEmpty: boolean
+    readonly readOnlyView: Collection
     /* Properties of Gee-1.0.Gee.Iterable */
     readonly elementType: GObject.Type
     /* Fields of GObject-2.0.GObject.Object */
@@ -499,6 +500,11 @@ export class List {
     on(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::read-only-view", callback: (($obj: List, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: List, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::element-type", callback: (($obj: List, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::element-type", callback: (($obj: List, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::element-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1009,6 +1015,7 @@ export class Set {
     /* Properties of Gee-1.0.Gee.Collection */
     readonly size: number
     readonly isEmpty: boolean
+    readonly readOnlyView: Collection
     /* Properties of Gee-1.0.Gee.Iterable */
     readonly elementType: GObject.Type
     /* Fields of GObject-2.0.GObject.Object */
@@ -1068,6 +1075,11 @@ export class Set {
     on(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::read-only-view", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::element-type", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::element-type", callback: (($obj: Set, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::element-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1096,8 +1108,13 @@ export class SortedSet {
     /* Properties of Gee-1.0.Gee.Collection */
     readonly size: number
     readonly isEmpty: boolean
+    readonly readOnlyView: Collection
     /* Properties of Gee-1.0.Gee.Iterable */
     readonly elementType: GObject.Type
+    /* Properties of Gee-1.0.Gee.Set */
+    readonly readOnlyView: Set
+    /* Properties of Gee-1.0.Gee.Collection */
+    readonly readOnlyView: Collection
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gee-1.0.Gee.SortedSet */
@@ -1167,11 +1184,26 @@ export class SortedSet {
     on(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::read-only-view", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::element-type", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::element-type", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::element-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::element-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::element-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::read-only-view", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::read-only-view", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: SortedSet, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1282,6 +1314,11 @@ export class AbstractList {
     /* Properties of Gee-1.0.Gee.AbstractCollection */
     readonly size: number
     readonly isEmpty: boolean
+    readonly readOnlyView: Collection
+    /* Properties of Gee-1.0.Gee.List */
+    readonly readOnlyView: List
+    /* Properties of Gee-1.0.Gee.Collection */
+    readonly readOnlyView: Collection
     /* Properties of Gee-1.0.Gee.Iterable */
     readonly elementType: GObject.Type
     /* Fields of Gee-1.0.Gee.AbstractList */
@@ -1356,6 +1393,21 @@ export class AbstractList {
     on(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::read-only-view", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::read-only-view", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::read-only-view", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::element-type", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::element-type", callback: (($obj: AbstractList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::element-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1775,6 +1827,11 @@ export class AbstractSet {
     /* Properties of Gee-1.0.Gee.AbstractCollection */
     readonly size: number
     readonly isEmpty: boolean
+    readonly readOnlyView: Collection
+    /* Properties of Gee-1.0.Gee.Set */
+    readonly readOnlyView: Set
+    /* Properties of Gee-1.0.Gee.Collection */
+    readonly readOnlyView: Collection
     /* Properties of Gee-1.0.Gee.Iterable */
     readonly elementType: GObject.Type
     /* Fields of Gee-1.0.Gee.AbstractSet */
@@ -1836,6 +1893,21 @@ export class AbstractSet {
     on(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::read-only-view", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::read-only-view", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::read-only-view", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::element-type", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::element-type", callback: (($obj: AbstractSet, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::element-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1866,6 +1938,7 @@ export class ArrayList {
     /* Properties of Gee-1.0.Gee.AbstractCollection */
     readonly size: number
     readonly isEmpty: boolean
+    readonly readOnlyView: Collection
     /* Fields of Gee-1.0.Gee.ArrayList */
     parentInstance: AbstractList
     priv: ArrayListPrivate
@@ -1943,6 +2016,11 @@ export class ArrayList {
     on(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::read-only-view", callback: (($obj: ArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: ArrayList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2268,6 +2346,7 @@ export class HashSet {
     /* Properties of Gee-1.0.Gee.AbstractCollection */
     readonly size: number
     readonly isEmpty: boolean
+    readonly readOnlyView: Collection
     /* Fields of Gee-1.0.Gee.HashSet */
     parentInstance: AbstractSet
     priv: HashSetPrivate
@@ -2337,6 +2416,11 @@ export class HashSet {
     on(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::read-only-view", callback: (($obj: HashSet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: HashSet, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2362,6 +2446,7 @@ export class LinkedList {
     /* Properties of Gee-1.0.Gee.AbstractCollection */
     readonly size: number
     readonly isEmpty: boolean
+    readonly readOnlyView: Collection
     /* Properties of Gee-1.0.Gee.Queue */
     readonly capacity: number
     readonly remainingCapacity: number
@@ -2457,6 +2542,11 @@ export class LinkedList {
     on(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::read-only-view", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::capacity", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::capacity", callback: (($obj: LinkedList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::capacity", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2886,6 +2976,11 @@ export class TreeSet {
     /* Properties of Gee-1.0.Gee.AbstractCollection */
     readonly size: number
     readonly isEmpty: boolean
+    readonly readOnlyView: Collection
+    /* Properties of Gee-1.0.Gee.Set */
+    readonly readOnlyView: Set
+    /* Properties of Gee-1.0.Gee.Collection */
+    readonly readOnlyView: Collection
     /* Properties of Gee-1.0.Gee.Iterable */
     readonly elementType: GObject.Type
     /* Fields of Gee-1.0.Gee.TreeSet */
@@ -2964,6 +3059,21 @@ export class TreeSet {
     on(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::read-only-view", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::read-only-view", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::read-only-view", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::element-type", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::element-type", callback: (($obj: TreeSet, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::element-type", callback: (...args: any[]) => void): NodeJS.EventEmitter

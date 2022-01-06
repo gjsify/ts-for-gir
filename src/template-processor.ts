@@ -12,7 +12,7 @@ import { Logger } from './logger'
 import { GenerateConfig } from './types'
 import { ESLint } from 'eslint'
 
-const lint = new ESLint({ ignore: false, fix: true, useEslintrc: true, extensions: ['.ts', '.d.ts'] })
+const lint = new ESLint({ ignore: false, fix: true, useEslintrc: true, extensions: ['.ts', '.d.ts', '.js'] })
 
 const TEMPLATE_DIR = Path.join(__dirname, '../templates')
 

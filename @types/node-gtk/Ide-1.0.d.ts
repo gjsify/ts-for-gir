@@ -27034,6 +27034,7 @@ export class SourceViewMode {
     marginRight: number
     marginStart: number
     marginTop: number
+    name: string
     noShowAll: boolean
     opacity: number
     parent: Gtk.Container
@@ -28180,6 +28181,11 @@ export class SourceViewMode {
     on(sigName: "notify::margin-top", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::margin-top", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::margin-top", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::name", callback: (($obj: SourceViewMode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::name", callback: (($obj: SourceViewMode, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::no-show-all", callback: (($obj: SourceViewMode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::no-show-all", callback: (($obj: SourceViewMode, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::no-show-all", callback: (...args: any[]) => void): NodeJS.EventEmitter

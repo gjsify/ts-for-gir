@@ -204,12 +204,6 @@ export class Config {
             }
             // pretty
             if (
-                config.ignoreConflicts === Config.defaultCliFlags.ignoreConflicts.default &&
-                typeof configFile.config.ignoreConflicts === 'boolean'
-            ) {
-                config.ignoreConflicts = configFile.config.ignoreConflicts
-            }
-            if (
                 config.pretty === Config.defaultCliFlags.pretty.default &&
                 typeof configFile.config.pretty === 'boolean'
             ) {

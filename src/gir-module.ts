@@ -46,7 +46,6 @@ import {
     FALSY_LOCAL_NAME_CHECK,
     FALSY_PROPERTY_DESCRIPTION,
 } from './constants'
-
 export class GirModule {
     /**
      * Array of all gir modules
@@ -318,6 +317,11 @@ export class GirModule {
                 const arr: string[] = inheritanceTable[clsName] || []
                 inheritanceTable[clsName] = arr.concat(names)
             }
+        }
+
+        this.log.debug('loadInheritance')
+        for (const key in inheritanceTable) {
+            this.log.debug('key', key)
         }
     }
 
@@ -1049,7 +1053,7 @@ export class GirModule {
 
         // Methods are overloadable by typescript
         // TODO Add support for properties
-        if (type === 'method') {
+        if (type === 'method' || type === 'property') {
             isOverloadable = true
         }
 
@@ -1071,16 +1075,9 @@ export class GirModule {
                 // This can be happen on node bindings, e.g. on `WebKit2.WebView.isLoading` and `WebKit2.WebView.isLoading()`
                 // See issue https://github.com/romgrk/node-gtk/issues/256
                 // See Gjs doc https://gjs-docs.gnome.org/webkit240~4.0_api/webkit2.webview#property-is_loading
-                // TODO prefer functions over properties (Overwrite the properties with the functions if they have the same name)
-
-                // this.log.warn(
-                //     `Same name "${name}" with different type found:\nDefined: ${localNames[name].desc}\nCurrent: ${desc}\n`,
-                // )
-
+                // TODO prefer functions over properties (Overwrite the properties with the functions of they have the same name)
                 return FALSY_LOCAL_NAME_CHECK
             }
-
-            // this.log.debug(`Overload ${type} ${name}\nDefined: ${localNames[name].desc}\nCurrent: ${desc}\n`)
         }
 
         localNames[name] = localNames[name] || {}

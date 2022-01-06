@@ -961,8 +961,11 @@ export class CertificateRenderer {
     readonly expiry: GLib.Date
     readonly icon: Gio.Icon
     readonly issuer: string
+    readonly label: string
     readonly markup: string
     readonly subject: string
+    /* Properties of GcrUi-3.GcrUi.Renderer */
+    label: string
     /* Fields of GcrUi-3.GcrUi.CertificateRenderer */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1070,6 +1073,11 @@ export class CertificateRenderer {
     on(sigName: "notify::issuer", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::issuer", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::issuer", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::label", callback: (($obj: CertificateRenderer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::label", callback: (($obj: CertificateRenderer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::label", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::label", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::label", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::markup", callback: (($obj: CertificateRenderer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::markup", callback: (($obj: CertificateRenderer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::markup", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1080,6 +1088,11 @@ export class CertificateRenderer {
     on(sigName: "notify::subject", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::subject", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::subject", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::label", callback: (($obj: CertificateRenderer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::label", callback: (($obj: CertificateRenderer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::label", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::label", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::label", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void

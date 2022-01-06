@@ -1254,7 +1254,6 @@ declare global {
     //    //       : typeof ColorHug10
     //    //       : typeof Colord10
     //    //       : typeof ColordGtk10
-    //    //       : typeof Colorhug10
     //    //       : typeof DBus10
     //    //       : typeof DBusGLib10
     //    //       : typeof DMAP30
@@ -1329,7 +1328,6 @@ declare global {
     //    //       : typeof GWeather30
     //    //       : typeof GWeather40
     //    //       : typeof GXPS01
-    //    //       : typeof GXml010
     //    //       : typeof GXml014
     //    //       : typeof GXml016
     //    //       : typeof GXml018

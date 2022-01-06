@@ -8066,8 +8066,10 @@ export class SimpleAction {
     state: GLib.Variant
     readonly stateType: GLib.VariantType
     /* Properties of Gio-2.0.Gio.Action */
+    readonly enabled: boolean
     readonly name: string
     readonly parameterType: GLib.VariantType
+    readonly state: GLib.Variant
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.SimpleAction */
@@ -8137,6 +8139,11 @@ export class SimpleAction {
     on(sigName: "notify::state-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::state-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::state-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::enabled", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::enabled", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8147,6 +8154,11 @@ export class SimpleAction {
     on(sigName: "notify::parameter-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::parameter-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::parameter-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::state", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::state", callback: (($obj: SimpleAction, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::state", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void

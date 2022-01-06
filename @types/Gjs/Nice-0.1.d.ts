@@ -91,6 +91,7 @@ export enum AgentOption {
     LITE_MODE,
     ICE_TRICKLE,
     SUPPORT_RENOMINATION,
+    CONSENT_FRESHNESS,
 }
 export const AGENT_MAX_REMOTE_CANDIDATES: number
 export const CANDIDATE_MAX_FOUNDATION: number
@@ -110,6 +111,7 @@ export interface AgentRecvFunc {
 }
 export interface Agent_ConstructProps extends GObject.Object_ConstructProps {
     compatibility?: number
+    consent_freshness?: boolean
     controlling_mode?: boolean
     force_relay?: boolean
     full_mode?: boolean
@@ -167,6 +169,7 @@ export class Agent {
     add_local_address(addr: Address): boolean
     add_stream(n_components: number): number
     close_async(callback?: Gio.AsyncReadyCallback | null): void
+    consent_lost(stream_id: number, component_id: number): boolean
     forget_relays(stream_id: number, component_id: number): boolean
     gather_candidates(stream_id: number): boolean
     generate_local_candidate_sdp(candidate: Candidate): string

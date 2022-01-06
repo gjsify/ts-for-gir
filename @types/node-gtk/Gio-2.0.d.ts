@@ -343,6 +343,16 @@ export enum TlsInteractionResult {
     HANDLED,
     FAILED,
 }
+export enum TlsProtocolVersion {
+    UNKNOWN,
+    SSL_3_0,
+    TLS_1_0,
+    TLS_1_1,
+    TLS_1_2,
+    TLS_1_3,
+    DTLS_1_0,
+    DTLS_1_2,
+}
 export enum TlsRehandshakeMode {
     NEVER,
     SAFELY,
@@ -445,6 +455,7 @@ export enum DBusProxyFlags {
     DO_NOT_AUTO_START,
     GET_INVALIDATED_PROPERTIES,
     DO_NOT_AUTO_START_AT_CONSTRUCTION,
+    NO_MATCH_RULE,
 }
 export enum DBusSendMessageFlags {
     NONE,
@@ -559,6 +570,7 @@ export enum SubprocessFlags {
     STDERR_SILENCE,
     STDERR_MERGE,
     INHERIT_FDS,
+    SEARCH_PATH_FROM_ENVP,
 }
 export enum TestDBusFlags {
     NONE,
@@ -581,6 +593,9 @@ export enum TlsPasswordFlags {
     RETRY,
     MANY_TRIES,
     FINAL_TRY,
+    PKCS11_USER,
+    PKCS11_SECURITY_OFFICER,
+    PKCS11_CONTEXT_SPECIFIC,
 }
 export const DBUS_METHOD_INVOCATION_HANDLED: boolean
 export const DBUS_METHOD_INVOCATION_UNHANDLED: boolean
@@ -679,6 +694,7 @@ export const MENU_LINK_SECTION: string
 export const MENU_LINK_SUBMENU: string
 export const NATIVE_VOLUME_MONITOR_EXTENSION_POINT_NAME: string
 export const NETWORK_MONITOR_EXTENSION_POINT_NAME: string
+export const POWER_PROFILE_MONITOR_EXTENSION_POINT_NAME: string
 export const PROXY_EXTENSION_POINT_NAME: string
 export const PROXY_RESOLVER_EXTENSION_POINT_NAME: string
 export const SETTINGS_BACKEND_EXTENSION_POINT_NAME: string
@@ -754,6 +770,7 @@ export function dbusGenerateGuid(): string
 export function dbusGvalueToGvariant(gvalue: any, type: GLib.VariantType): GLib.Variant
 export function dbusGvariantToGvalue(value: GLib.Variant): { outGvalue: any }
 export function dbusIsAddress(string: string): boolean
+export function dbusIsErrorName(string: string): boolean
 export function dbusIsGuid(string: string): boolean
 export function dbusIsInterfaceName(string: string): boolean
 export function dbusIsMemberName(string: string): boolean
@@ -795,6 +812,7 @@ export function pollableSourceNewFull(pollableStream: GObject.Object, childSourc
 export function pollableStreamRead(stream: InputStream, buffer: any[], blocking: boolean, cancellable?: Cancellable | null): number
 export function pollableStreamWrite(stream: OutputStream, buffer: any[], blocking: boolean, cancellable?: Cancellable | null): number
 export function pollableStreamWriteAll(stream: OutputStream, buffer: any[], blocking: boolean, cancellable?: Cancellable | null): { returnType: boolean, bytesWritten: number }
+export function powerProfileMonitorDupDefault(): PowerProfileMonitor
 export function proxyGetDefaultForProtocol(protocol: string): Proxy | null
 export function proxyResolverGetDefault(): ProxyResolver
 export function resolverErrorQuark(): GLib.Quark
@@ -817,10 +835,10 @@ export function tlsServerConnectionNew(baseIoStream: IOStream, certificate?: Tls
 export function unixIsMountPathSystemInternal(mountPath: string): boolean
 export function unixIsSystemDevicePath(devicePath: string): boolean
 export function unixIsSystemFsType(fsType: string): boolean
-export function unixMountAt(mountPath: string): { returnType: UnixMountEntry, timeRead: number | null }
+export function unixMountAt(mountPath: string): { returnType: UnixMountEntry | null, timeRead: number | null }
 export function unixMountCompare(mount1: UnixMountEntry, mount2: UnixMountEntry): number
 export function unixMountCopy(mountEntry: UnixMountEntry): UnixMountEntry
-export function unixMountFor(filePath: string): { returnType: UnixMountEntry, timeRead: number | null }
+export function unixMountFor(filePath: string): { returnType: UnixMountEntry | null, timeRead: number | null }
 export function unixMountFree(mountEntry: UnixMountEntry): void
 export function unixMountGetDevicePath(mountEntry: UnixMountEntry): string
 export function unixMountGetFsType(mountEntry: UnixMountEntry): string
@@ -1092,8 +1110,8 @@ export class DBusObject {
 }
 export class DBusObjectManager {
     /* Methods of Gio-2.0.Gio.DBusObjectManager */
-    getInterface(objectPath: string, interfaceName: string): DBusInterface
-    getObject(objectPath: string): DBusObject
+    getInterface(objectPath: string, interfaceName: string): DBusInterface | null
+    getObject(objectPath: string): DBusObject | null
     getObjectPath(): string
     getObjects(): DBusObject[]
     /* Signals of Gio-2.0.Gio.DBusObjectManager */
@@ -1209,11 +1227,13 @@ export class DtlsConnection {
     /* Properties of Gio-2.0.Gio.DtlsConnection */
     advertisedProtocols: string[]
     certificate: TlsCertificate
+    readonly ciphersuiteName: string
     database: TlsDatabase
     interaction: TlsInteraction
     readonly negotiatedProtocol: string
     readonly peerCertificate: TlsCertificate
     readonly peerCertificateErrors: TlsCertificateFlags
+    readonly protocolVersion: TlsProtocolVersion
     rehandshakeMode: TlsRehandshakeMode
     requireCloseNotify: boolean
     /* Methods of Gio-2.0.Gio.DtlsConnection */
@@ -1223,11 +1243,13 @@ export class DtlsConnection {
     emitAcceptCertificate(peerCert: TlsCertificate, errors: TlsCertificateFlags): boolean
     getCertificate(): TlsCertificate | null
     getChannelBindingData(type: TlsChannelBindingType): { returnType: boolean, data: any[] | null }
+    getCiphersuiteName(): string | null
     getDatabase(): TlsDatabase | null
     getInteraction(): TlsInteraction | null
     getNegotiatedProtocol(): string | null
     getPeerCertificate(): TlsCertificate | null
     getPeerCertificateErrors(): TlsCertificateFlags
+    getProtocolVersion(): TlsProtocolVersion
     getRehandshakeMode(): TlsRehandshakeMode
     getRequireCloseNotify(): boolean
     handshake(cancellable?: Cancellable | null): boolean
@@ -1365,7 +1387,7 @@ export class File {
     replaceReadwrite(etag: string | null, makeBackup: boolean, flags: FileCreateFlags, cancellable?: Cancellable | null): FileIOStream
     replaceReadwriteAsync(etag: string | null, makeBackup: boolean, flags: FileCreateFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null): void
     replaceReadwriteFinish(res: AsyncResult): FileIOStream
-    resolveRelativePath(relativePath: string): File
+    resolveRelativePath(relativePath: string): File | null
     setAttribute(attribute: string, type: FileAttributeType, valueP: object | null, flags: FileQueryInfoFlags, cancellable?: Cancellable | null): boolean
     setAttributeByteString(attribute: string, value: string, flags: FileQueryInfoFlags, cancellable?: Cancellable | null): boolean
     setAttributeInt32(attribute: string, value: number, flags: FileQueryInfoFlags, cancellable?: Cancellable | null): boolean
@@ -1543,7 +1565,7 @@ export class PollableInputStream {
     canPoll(): boolean
     createSource(cancellable?: Cancellable | null): GLib.Source
     isReadable(): boolean
-    readNonblocking(buffer: any[], cancellable?: Cancellable | null): number
+    readNonblocking(cancellable?: Cancellable | null): { returnType: number, buffer: any[] }
     /* Methods of Gio-2.0.Gio.InputStream */
     clearPending(): void
     close(cancellable?: Cancellable | null): boolean
@@ -1687,6 +1709,17 @@ export class PollableOutputStream {
     _init (config?: PollableOutputStream_ConstructProps): void
     static $gtype: GObject.Type
 }
+export class PowerProfileMonitor {
+    /* Properties of Gio-2.0.Gio.PowerProfileMonitor */
+    readonly powerSaverEnabled: boolean
+    /* Methods of Gio-2.0.Gio.PowerProfileMonitor */
+    getPowerSaverEnabled(): boolean
+    /* Methods of Gio-2.0.Gio.Initable */
+    init(cancellable?: Cancellable | null): boolean
+    static name: string
+    /* Static methods and pseudo-constructors */
+    static dupDefault(): PowerProfileMonitor
+}
 export class Proxy {
     /* Methods of Gio-2.0.Gio.Proxy */
     connect(connection: IOStream, proxyAddress: ProxyAddress, cancellable?: Cancellable | null): IOStream
@@ -1795,11 +1828,13 @@ export class TlsClientConnection {
     /* Properties of Gio-2.0.Gio.TlsConnection */
     advertisedProtocols: string[]
     certificate: TlsCertificate
+    readonly ciphersuiteName: string
     database: TlsDatabase
     interaction: TlsInteraction
     readonly negotiatedProtocol: string
     readonly peerCertificate: TlsCertificate
     readonly peerCertificateErrors: TlsCertificateFlags
+    readonly protocolVersion: TlsProtocolVersion
     rehandshakeMode: TlsRehandshakeMode
     requireCloseNotify: boolean
     useSystemCertdb: boolean
@@ -1825,11 +1860,13 @@ export class TlsClientConnection {
     emitAcceptCertificate(peerCert: TlsCertificate, errors: TlsCertificateFlags): boolean
     getCertificate(): TlsCertificate | null
     getChannelBindingData(type: TlsChannelBindingType): { returnType: boolean, data: any[] | null }
+    getCiphersuiteName(): string | null
     getDatabase(): TlsDatabase | null
     getInteraction(): TlsInteraction | null
     getNegotiatedProtocol(): string | null
     getPeerCertificate(): TlsCertificate | null
     getPeerCertificateErrors(): TlsCertificateFlags
+    getProtocolVersion(): TlsProtocolVersion
     getRehandshakeMode(): TlsRehandshakeMode
     getRequireCloseNotify(): boolean
     getUseSystemCertdb(): boolean
@@ -1918,6 +1955,11 @@ export class TlsClientConnection {
     on(sigName: "notify::certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ciphersuite-name", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ciphersuite-name", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ciphersuite-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ciphersuite-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ciphersuite-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::database", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::database", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::database", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1943,6 +1985,11 @@ export class TlsClientConnection {
     on(sigName: "notify::peer-certificate-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::peer-certificate-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::peer-certificate-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::protocol-version", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::protocol-version", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::protocol-version", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::protocol-version", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::protocol-version", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::rehandshake-mode", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::rehandshake-mode", callback: (($obj: TlsClientConnection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::rehandshake-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2064,11 +2111,13 @@ export class TlsServerConnection {
     /* Properties of Gio-2.0.Gio.TlsConnection */
     advertisedProtocols: string[]
     certificate: TlsCertificate
+    readonly ciphersuiteName: string
     database: TlsDatabase
     interaction: TlsInteraction
     readonly negotiatedProtocol: string
     readonly peerCertificate: TlsCertificate
     readonly peerCertificateErrors: TlsCertificateFlags
+    readonly protocolVersion: TlsProtocolVersion
     rehandshakeMode: TlsRehandshakeMode
     requireCloseNotify: boolean
     useSystemCertdb: boolean
@@ -2085,11 +2134,13 @@ export class TlsServerConnection {
     emitAcceptCertificate(peerCert: TlsCertificate, errors: TlsCertificateFlags): boolean
     getCertificate(): TlsCertificate | null
     getChannelBindingData(type: TlsChannelBindingType): { returnType: boolean, data: any[] | null }
+    getCiphersuiteName(): string | null
     getDatabase(): TlsDatabase | null
     getInteraction(): TlsInteraction | null
     getNegotiatedProtocol(): string | null
     getPeerCertificate(): TlsCertificate | null
     getPeerCertificateErrors(): TlsCertificateFlags
+    getProtocolVersion(): TlsProtocolVersion
     getRehandshakeMode(): TlsRehandshakeMode
     getRequireCloseNotify(): boolean
     getUseSystemCertdb(): boolean
@@ -2163,6 +2214,11 @@ export class TlsServerConnection {
     on(sigName: "notify::certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ciphersuite-name", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ciphersuite-name", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ciphersuite-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ciphersuite-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ciphersuite-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::database", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::database", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::database", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2188,6 +2244,11 @@ export class TlsServerConnection {
     on(sigName: "notify::peer-certificate-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::peer-certificate-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::peer-certificate-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::protocol-version", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::protocol-version", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::protocol-version", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::protocol-version", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::protocol-version", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::rehandshake-mode", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::rehandshake-mode", callback: (($obj: TlsServerConnection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::rehandshake-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2359,6 +2420,11 @@ export class AppLaunchContext {
     once(sigName: "launch-failed", callback: (startupNotifyId: string) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "launch-failed", callback: (startupNotifyId: string) => void): NodeJS.EventEmitter
     emit(sigName: "launch-failed", startupNotifyId: string): void
+    connect(sigName: "launch-started", callback: (($obj: AppLaunchContext, info: AppInfo, platformData?: GLib.Variant | null) => void)): number
+    on(sigName: "launch-started", callback: (info: AppInfo, platformData?: GLib.Variant | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "launch-started", callback: (info: AppInfo, platformData?: GLib.Variant | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "launch-started", callback: (info: AppInfo, platformData?: GLib.Variant | null) => void): NodeJS.EventEmitter
+    emit(sigName: "launch-started", info: AppInfo, platformData?: GLib.Variant | null): void
     connect(sigName: "launched", callback: (($obj: AppLaunchContext, info: AppInfo, platformData: GLib.Variant) => void)): number
     on(sigName: "launched", callback: (info: AppInfo, platformData: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "launched", callback: (info: AppInfo, platformData: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
@@ -3147,7 +3213,7 @@ export class ConverterInputStream {
     canPoll(): boolean
     createSource(cancellable?: Cancellable | null): GLib.Source
     isReadable(): boolean
-    readNonblocking(buffer: any[], cancellable?: Cancellable | null): number
+    readNonblocking(cancellable?: Cancellable | null): { returnType: number, buffer: any[] }
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ConverterInputStream, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -3952,8 +4018,8 @@ export class DBusObjectManagerClient {
     initFinish(res: AsyncResult): boolean
     newFinish(res: AsyncResult): GObject.Object
     /* Methods of Gio-2.0.Gio.DBusObjectManager */
-    getInterface(objectPath: string, interfaceName: string): DBusInterface
-    getObject(objectPath: string): DBusObject
+    getInterface(objectPath: string, interfaceName: string): DBusInterface | null
+    getObject(objectPath: string): DBusObject | null
     getObjectPath(): string
     getObjects(): DBusObject[]
     /* Methods of Gio-2.0.Gio.Initable */
@@ -4033,7 +4099,7 @@ export class DBusObjectManagerServer {
     /* Methods of Gio-2.0.Gio.DBusObjectManagerServer */
     export(object: DBusObjectSkeleton): void
     exportUniquely(object: DBusObjectSkeleton): void
-    getConnection(): DBusConnection
+    getConnection(): DBusConnection | null
     isExported(object: DBusObjectSkeleton): boolean
     setConnection(connection?: DBusConnection | null): void
     unexport(objectPath: string): boolean
@@ -4060,8 +4126,8 @@ export class DBusObjectManagerServer {
     unref(): void
     watchClosure(closure: Function): void
     /* Methods of Gio-2.0.Gio.DBusObjectManager */
-    getInterface(objectPath: string, interfaceName: string): DBusInterface
-    getObject(objectPath: string): DBusObject
+    getInterface(objectPath: string, interfaceName: string): DBusInterface | null
+    getObject(objectPath: string): DBusObject | null
     getObjectPath(): string
     getObjects(): DBusObject[]
     /* Signals of GObject-2.0.GObject.Object */
@@ -4289,7 +4355,7 @@ export class DBusProxy {
     getFlags(): DBusProxyFlags
     getInterfaceInfo(): DBusInterfaceInfo | null
     getInterfaceName(): string
-    getName(): string
+    getName(): string | null
     getNameOwner(): string | null
     getObjectPath(): string
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
@@ -5161,6 +5227,7 @@ export class FileInfo {
     clearStatus(): void
     copyInto(destInfo: FileInfo): void
     dup(): FileInfo
+    getAccessDateTime(): GLib.DateTime | null
     getAttributeAsString(attribute: string): string | null
     getAttributeBoolean(attribute: string): boolean
     getAttributeByteString(attribute: string): string | null
@@ -5175,6 +5242,7 @@ export class FileInfo {
     getAttributeUint32(attribute: string): number
     getAttributeUint64(attribute: string): number
     getContentType(): string | null
+    getCreationDateTime(): GLib.DateTime | null
     getDeletionDate(): GLib.DateTime | null
     getDisplayName(): string
     getEditName(): string
@@ -5195,6 +5263,7 @@ export class FileInfo {
     hasNamespace(nameSpace: string): boolean
     listAttributes(nameSpace?: string | null): string[] | null
     removeAttribute(attribute: string): void
+    setAccessDateTime(atime: GLib.DateTime): void
     setAttribute(attribute: string, type: FileAttributeType, valueP: object): void
     setAttributeBoolean(attribute: string, attrValue: boolean): void
     setAttributeByteString(attribute: string, attrValue: string): void
@@ -5208,6 +5277,7 @@ export class FileInfo {
     setAttributeUint32(attribute: string, attrValue: number): void
     setAttributeUint64(attribute: string, attrValue: number): void
     setContentType(contentType: string): void
+    setCreationDateTime(creationTime: GLib.DateTime): void
     setDisplayName(displayName: string): void
     setEditName(editName: string): void
     setFileType(type: FileType): void
@@ -5734,9 +5804,6 @@ export class IOModule {
     name: string
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of Gio-2.0.Gio.IOModule */
-    load(): void
-    unload(): void
     /* Methods of GObject-2.0.GObject.TypeModule */
     addInterface(instanceType: GObject.Type, interfaceType: GObject.Type, interfaceInfo: GObject.InterfaceInfo): void
     registerEnum(name: string, constStaticValues: GObject.EnumValue): GObject.Type
@@ -6348,7 +6415,7 @@ export class MemoryInputStream {
     canPoll(): boolean
     createSource(cancellable?: Cancellable | null): GLib.Source
     isReadable(): boolean
-    readNonblocking(buffer: any[], cancellable?: Cancellable | null): number
+    readNonblocking(cancellable?: Cancellable | null): { returnType: number, buffer: any[] }
     /* Methods of Gio-2.0.Gio.Seekable */
     canSeek(): boolean
     canTruncate(): boolean
@@ -7277,6 +7344,7 @@ export class Notification {
     addButton(label: string, detailedAction: string): void
     addButtonWithTarget(label: string, action: string, target?: GLib.Variant | null): void
     setBody(body?: string | null): void
+    setCategory(category?: string | null): void
     setDefaultAction(detailedAction: string): void
     setDefaultActionAndTarget(action: string, target?: GLib.Variant | null): void
     setIcon(icon: Icon): void
@@ -8429,7 +8497,7 @@ export class SimpleProxyResolver {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.SimpleProxyResolver */
     setDefaultProxy(defaultProxy: string): void
-    setIgnoreHosts(ignoreHosts: string): void
+    setIgnoreHosts(ignoreHosts: string[]): void
     setUriProxy(uriScheme: string, proxy: string): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -9916,13 +9984,26 @@ export interface TlsCertificate_ConstructProps extends GObject.Object_ConstructP
     privateKeyPkcs11Uri?: string
 }
 export class TlsCertificate {
+    /* Properties of Gio-2.0.Gio.TlsCertificate */
+    readonly dnsNames: object[]
+    readonly ipAddresses: object[]
+    readonly issuerName: string
+    readonly notValidAfter: GLib.DateTime
+    readonly notValidBefore: GLib.DateTime
+    readonly subjectName: string
     /* Fields of Gio-2.0.Gio.TlsCertificate */
     parentInstance: GObject.Object
     priv: TlsCertificatePrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.TlsCertificate */
+    getDnsNames(): any[] | null
+    getIpAddresses(): InetAddress[] | null
     getIssuer(): TlsCertificate | null
+    getIssuerName(): string | null
+    getNotValidAfter(): GLib.DateTime | null
+    getNotValidBefore(): GLib.DateTime | null
+    getSubjectName(): string | null
     isSame(certTwo: TlsCertificate): boolean
     verify(identity?: SocketConnectable | null, trustedCa?: TlsCertificate | null): TlsCertificateFlags
     /* Methods of GObject-2.0.GObject.Object */
@@ -9953,6 +10034,36 @@ export class TlsCertificate {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::dns-names", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::dns-names", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::dns-names", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::dns-names", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::dns-names", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ip-addresses", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ip-addresses", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ip-addresses", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ip-addresses", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ip-addresses", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::issuer-name", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::issuer-name", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::issuer-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::issuer-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::issuer-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::not-valid-after", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::not-valid-after", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::not-valid-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::not-valid-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::not-valid-after", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::not-valid-before", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::not-valid-before", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::not-valid-before", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::not-valid-before", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::not-valid-before", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::subject-name", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::subject-name", callback: (($obj: TlsCertificate, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::subject-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::subject-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::subject-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9985,11 +10096,13 @@ export class TlsConnection {
     /* Properties of Gio-2.0.Gio.TlsConnection */
     advertisedProtocols: string[]
     certificate: TlsCertificate
+    readonly ciphersuiteName: string
     database: TlsDatabase
     interaction: TlsInteraction
     readonly negotiatedProtocol: string
     readonly peerCertificate: TlsCertificate
     readonly peerCertificateErrors: TlsCertificateFlags
+    readonly protocolVersion: TlsProtocolVersion
     rehandshakeMode: TlsRehandshakeMode
     requireCloseNotify: boolean
     useSystemCertdb: boolean
@@ -10006,11 +10119,13 @@ export class TlsConnection {
     emitAcceptCertificate(peerCert: TlsCertificate, errors: TlsCertificateFlags): boolean
     getCertificate(): TlsCertificate | null
     getChannelBindingData(type: TlsChannelBindingType): { returnType: boolean, data: any[] | null }
+    getCiphersuiteName(): string | null
     getDatabase(): TlsDatabase | null
     getInteraction(): TlsInteraction | null
     getNegotiatedProtocol(): string | null
     getPeerCertificate(): TlsCertificate | null
     getPeerCertificateErrors(): TlsCertificateFlags
+    getProtocolVersion(): TlsProtocolVersion
     getRehandshakeMode(): TlsRehandshakeMode
     getRequireCloseNotify(): boolean
     getUseSystemCertdb(): boolean
@@ -10079,6 +10194,11 @@ export class TlsConnection {
     on(sigName: "notify::certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ciphersuite-name", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ciphersuite-name", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ciphersuite-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ciphersuite-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ciphersuite-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::database", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::database", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::database", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10104,6 +10224,11 @@ export class TlsConnection {
     on(sigName: "notify::peer-certificate-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::peer-certificate-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::peer-certificate-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::protocol-version", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::protocol-version", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::protocol-version", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::protocol-version", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::protocol-version", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::rehandshake-mode", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::rehandshake-mode", callback: (($obj: TlsConnection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::rehandshake-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10280,7 +10405,7 @@ export class TlsPassword {
     /* Methods of Gio-2.0.Gio.TlsPassword */
     getDescription(): string
     getFlags(): TlsPasswordFlags
-    getValue(length?: number | null): number
+    getValue(): any[]
     getWarning(): string
     setDescription(description: string): void
     setFlags(flags: TlsPasswordFlags): void
@@ -10678,7 +10803,7 @@ export class UnixInputStream {
     canPoll(): boolean
     createSource(cancellable?: Cancellable | null): GLib.Source
     isReadable(): boolean
-    readNonblocking(buffer: any[], cancellable?: Cancellable | null): number
+    readNonblocking(cancellable?: Cancellable | null): { returnType: number, buffer: any[] }
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UnixInputStream, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -11323,6 +11448,7 @@ export abstract class AppLaunchContextClass {
     getStartupNotifyId: (context: AppLaunchContext, info: AppInfo, files: File[]) => string | null
     launchFailed: (context: AppLaunchContext, startupNotifyId: string) => void
     launched: (context: AppLaunchContext, info: AppInfo, platformData: GLib.Variant) => void
+    launchStarted: (context: AppLaunchContext, info: AppInfo, platformData: GLib.Variant) => void
     static name: string
 }
 export class AppLaunchContextPrivate {
@@ -11564,8 +11690,8 @@ export abstract class DBusObjectManagerIface {
     parentIface: GObject.TypeInterface
     getObjectPath: (manager: DBusObjectManager) => string
     getObjects: (manager: DBusObjectManager) => DBusObject[]
-    getObject: (manager: DBusObjectManager, objectPath: string) => DBusObject
-    getInterface: (manager: DBusObjectManager, objectPath: string, interfaceName: string) => DBusInterface
+    getObject: (manager: DBusObjectManager, objectPath: string) => DBusObject | null
+    getInterface: (manager: DBusObjectManager, objectPath: string, interfaceName: string) => DBusInterface | null
     objectAdded: (manager: DBusObjectManager, object: DBusObject) => void
     objectRemoved: (manager: DBusObjectManager, object: DBusObject) => void
     interfaceAdded: (manager: DBusObjectManager, object: DBusObject, interface: DBusInterface) => void
@@ -11841,7 +11967,7 @@ export abstract class FileIface {
     getParent: (file: File) => File | null
     prefixMatches: (prefix: File, file: File) => boolean
     getRelativePath: (parent: File, descendant: File) => string | null
-    resolveRelativePath: (file: File, relativePath: string) => File
+    resolveRelativePath: (file: File, relativePath: string) => File | null
     getChildForDisplayName: (file: File, displayName: string) => File
     enumerateChildren: (file: File, attributes: string, flags: FileQueryInfoFlags, cancellable?: Cancellable | null) => FileEnumerator
     enumerateChildrenAsync: (file: File, attributes: string, flags: FileQueryInfoFlags, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
@@ -12327,7 +12453,7 @@ export abstract class PollableInputStreamInterface {
     canPoll: (stream: PollableInputStream) => boolean
     isReadable: (stream: PollableInputStream) => boolean
     createSource: (stream: PollableInputStream, cancellable?: Cancellable | null) => GLib.Source
-    readNonblocking: (stream: PollableInputStream, buffer: any[] | null) => number
+    readNonblocking: (stream: PollableInputStream) => { returnType: number, buffer: any[] | null }
     static name: string
 }
 export abstract class PollableOutputStreamInterface {
@@ -12338,6 +12464,9 @@ export abstract class PollableOutputStreamInterface {
     createSource: (stream: PollableOutputStream, cancellable?: Cancellable | null) => GLib.Source
     writeNonblocking: (stream: PollableOutputStream, buffer: any[] | null) => number
     writevNonblocking: (stream: PollableOutputStream, vectors: OutputVector[]) => { returnType: PollableReturn, bytesWritten: number | null }
+    static name: string
+}
+export abstract class PowerProfileMonitorInterface {
     static name: string
 }
 export abstract class ProxyAddressClass {
@@ -12678,6 +12807,7 @@ export abstract class TlsConnectionClass {
     handshakeAsync: (conn: TlsConnection, ioPriority: number, cancellable?: Cancellable | null, callback?: AsyncReadyCallback | null) => void
     handshakeFinish: (conn: TlsConnection, result: AsyncResult) => boolean
     getBindingData: (conn: TlsConnection, type: TlsChannelBindingType, data: any[]) => boolean
+    getNegotiatedProtocol: (conn: TlsConnection) => string | null
     static name: string
 }
 export class TlsConnectionPrivate {
@@ -12725,7 +12855,7 @@ export class TlsInteractionPrivate {
 export abstract class TlsPasswordClass {
     /* Fields of Gio-2.0.Gio.TlsPasswordClass */
     parentClass: GObject.ObjectClass
-    getValue: (password: TlsPassword, length?: number | null) => number
+    getValue: (password: TlsPassword) => any[]
     setValue: (password: TlsPassword, value: any[], destroy?: GLib.DestroyNotify | null) => void
     getDefaultWarning: (password: TlsPassword) => string
     static name: string

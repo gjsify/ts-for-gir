@@ -30,9 +30,6 @@ export function fileInfoListFree(files: FileInfo[]): void
 export function fileInfoLookup(location: Gio.File): FileInfo
 export function fileInfoLookupForUri(uri: string): FileInfo
 export function infoProviderUpdateCompleteInvoke(updateComplete: Function, provider: InfoProvider, handle: OperationHandle, result: OperationResult): void
-export function moduleInitialize(module: GObject.TypeModule): void
-export function moduleListTypes(): { types: GObject.Type[] }
-export function moduleShutdown(): void
 export class ColumnProvider {
     /* Methods of Nautilus-3.0.Nautilus.ColumnProvider */
     getColumns(): Column[]

@@ -822,7 +822,7 @@ export class BlockProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -1478,7 +1478,7 @@ export class DriveAtaProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -2039,7 +2039,7 @@ export class DriveProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -2472,7 +2472,7 @@ export class EncryptedProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -2737,7 +2737,7 @@ export class FilesystemProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -3020,7 +3020,7 @@ export class JobProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -3321,7 +3321,7 @@ export class LoopProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -3610,7 +3610,7 @@ export class MDRaidProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -4025,7 +4025,7 @@ export class ManagerProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -4368,8 +4368,8 @@ export class ObjectManagerClient {
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
     /* Methods of Gio-2.0.Gio.DBusObjectManager */
-    get_interface(object_path: string, interface_name: string): Gio.DBusInterface
-    get_object(object_path: string): Gio.DBusObject
+    get_interface(object_path: string, interface_name: string): Gio.DBusInterface | null
+    get_object(object_path: string): Gio.DBusObject | null
     get_object_path(): string
     get_objects(): Gio.DBusObject[]
     /* Methods of Gio-2.0.Gio.Initable */
@@ -4377,8 +4377,8 @@ export class ObjectManagerClient {
     /* Virtual methods of UDisks-2.0.UDisks.ObjectManagerClient */
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
-    vfunc_get_interface(object_path: string, interface_name: string): Gio.DBusInterface
-    vfunc_get_object(object_path: string): Gio.DBusObject
+    vfunc_get_interface(object_path: string, interface_name: string): Gio.DBusInterface | null
+    vfunc_get_object(object_path: string): Gio.DBusObject | null
     vfunc_get_object_path(): string
     vfunc_get_objects(): Gio.DBusObject[]
     vfunc_interface_added(object: Gio.DBusObject, interface_: Gio.DBusInterface): void
@@ -4777,7 +4777,7 @@ export class PartitionProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -5112,7 +5112,7 @@ export class PartitionTableProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -5361,7 +5361,7 @@ export class SwapspaceProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void

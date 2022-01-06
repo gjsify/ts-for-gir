@@ -54,6 +54,16 @@ export function eventingErrorQuark(): GLib.Quark
 export function getUuid(): string
 export function rootdeviceErrorQuark(): GLib.Quark
 export function serverErrorQuark(): GLib.Quark
+export function whiteListAddEntry(whiteList: WhiteList, entry: string): boolean
+export function whiteListAddEntryv(whiteList: WhiteList, entries: string[]): void
+export function whiteListCheckContext(whiteList: WhiteList, context: Context): boolean
+export function whiteListClear(whiteList: WhiteList): void
+export function whiteListGetEnabled(whiteList: WhiteList): boolean
+export function whiteListGetEntries(whiteList: WhiteList): string[] | null
+export function whiteListIsEmpty(whiteList: WhiteList): boolean
+export function whiteListNew(): WhiteList
+export function whiteListRemoveEntry(whiteList: WhiteList, entry: string): boolean
+export function whiteListSetEnabled(whiteList: WhiteList, enable: boolean): void
 export function xmlErrorQuark(): GLib.Quark
 export interface ServiceIntrospectionCallback {
     (info: ServiceInfo, introspection?: ServiceIntrospection | null, error?: GLib.Error | null): void
@@ -114,7 +124,8 @@ export class Context {
     unhostPath(serverPath: string): void
     /* Methods of GSSDP-1.2.GSSDP.Client */
     addCacheEntry(ipAddress: string, userAgent: string): void
-    appendHeader(name: string, value: string): void
+    appendHeader(name: string, value?: string | null): void
+    canReach(address: Gio.InetSocketAddress): boolean
     clearHeaders(): void
     getActive(): boolean
     getAddress(): Gio.InetAddress
@@ -238,6 +249,72 @@ export class Context {
     static new(iface?: string | null): Context
     static $gtype: GObject.Type
 }
+export interface ContextFilter_ConstructProps extends GObject.Object_ConstructProps {
+    enabled?: boolean
+    entries?: string[]
+}
+export class ContextFilter {
+    /* Properties of GUPnP-1.2.GUPnP.ContextFilter */
+    enabled: boolean
+    /* Fields of GUPnP-1.2.GUPnP.ContextFilter */
+    parentInstance: GObject.Object
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GUPnP-1.2.GUPnP.ContextFilter */
+    addEntry(entry: string): boolean
+    addEntryv(entries: string[]): void
+    checkContext(context: Context): boolean
+    clear(): void
+    getEnabled(): boolean
+    getEntries(): string[] | null
+    isEmpty(): boolean
+    removeEntry(entry: string): boolean
+    setEnabled(enable: boolean): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ContextFilter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::enabled", callback: (($obj: ContextFilter, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::enabled", callback: (($obj: ContextFilter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: ContextFilter_ConstructProps)
+    _init (config?: ContextFilter_ConstructProps): void
+    static $gtype: GObject.Type
+}
 export interface ContextManager_ConstructProps extends GObject.Object_ConstructProps {
     family?: Gio.SocketFamily
     port?: number
@@ -245,12 +322,13 @@ export interface ContextManager_ConstructProps extends GObject.Object_ConstructP
 }
 export class ContextManager {
     /* Properties of GUPnP-1.2.GUPnP.ContextManager */
-    readonly whiteList: WhiteList
+    readonly contextFilter: ContextFilter
     /* Fields of GUPnP-1.2.GUPnP.ContextManager */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GUPnP-1.2.GUPnP.ContextManager */
+    getContextFilter(): ContextFilter
     getPort(): number
     getSocketFamily(): Gio.SocketFamily
     getUdaVersion(): GSSDP.UDAVersion
@@ -297,11 +375,11 @@ export class ContextManager {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::white-list", callback: (($obj: ContextManager, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::white-list", callback: (($obj: ContextManager, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::white-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::white-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::white-list", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::context-filter", callback: (($obj: ContextManager, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::context-filter", callback: (($obj: ContextManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::context-filter", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::context-filter", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::context-filter", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -453,31 +531,31 @@ export class Device {
     gTypeInstance: GObject.TypeInstance
     /* Methods of GUPnP-1.2.GUPnP.DeviceInfo */
     getContext(): Context
-    getDescriptionValue(element: string): string
+    getDescriptionValue(element: string): string | null
     getDevice(type: string): DeviceInfo | null
     getDeviceType(): string
     getFriendlyName(): string
-    getIconUrl(requestedMimeType: string | null, requestedDepth: number, requestedWidth: number, requestedHeight: number, preferBigger: boolean): { returnType: string, mimeType: string | null, depth: number | null, width: number | null, height: number | null }
+    getIconUrl(requestedMimeType: string | null, requestedDepth: number, requestedWidth: number, requestedHeight: number, preferBigger: boolean): { returnType: string | null, mimeType: string | null, depth: number | null, width: number | null, height: number | null }
     getLocation(): string
-    getManufacturer(): string
-    getManufacturerUrl(): string
-    getModelDescription(): string
-    getModelName(): string
-    getModelNumber(): string
-    getModelUrl(): string
-    getPresentationUrl(): string
+    getManufacturer(): string | null
+    getManufacturerUrl(): string | null
+    getModelDescription(): string | null
+    getModelName(): string | null
+    getModelNumber(): string | null
+    getModelUrl(): string | null
+    getPresentationUrl(): string | null
     getResourceFactory(): ResourceFactory
-    getSerialNumber(): string
-    getService(type: string): ServiceInfo
+    getSerialNumber(): string | null
+    getService(type: string): ServiceInfo | null
     getUdn(): string
-    getUpc(): string
+    getUpc(): string | null
     getUrlBase(): Soup.URI
-    listDeviceTypes(): string[]
-    listDevices(): DeviceInfo[]
-    listDlnaCapabilities(): string[]
-    listDlnaDeviceClassIdentifier(): string[]
-    listServiceTypes(): string[]
-    listServices(): ServiceInfo[]
+    listDeviceTypes(): string[] | null
+    listDevices(): DeviceInfo[] | null
+    listDlnaCapabilities(): string[] | null
+    listDlnaDeviceClassIdentifier(): string[] | null
+    listServiceTypes(): string[] | null
+    listServices(): ServiceInfo[] | null
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -554,31 +632,31 @@ export class DeviceInfo {
     gTypeInstance: GObject.TypeInstance
     /* Methods of GUPnP-1.2.GUPnP.DeviceInfo */
     getContext(): Context
-    getDescriptionValue(element: string): string
+    getDescriptionValue(element: string): string | null
     getDevice(type: string): DeviceInfo | null
     getDeviceType(): string
     getFriendlyName(): string
-    getIconUrl(requestedMimeType: string | null, requestedDepth: number, requestedWidth: number, requestedHeight: number, preferBigger: boolean): { returnType: string, mimeType: string | null, depth: number | null, width: number | null, height: number | null }
+    getIconUrl(requestedMimeType: string | null, requestedDepth: number, requestedWidth: number, requestedHeight: number, preferBigger: boolean): { returnType: string | null, mimeType: string | null, depth: number | null, width: number | null, height: number | null }
     getLocation(): string
-    getManufacturer(): string
-    getManufacturerUrl(): string
-    getModelDescription(): string
-    getModelName(): string
-    getModelNumber(): string
-    getModelUrl(): string
-    getPresentationUrl(): string
+    getManufacturer(): string | null
+    getManufacturerUrl(): string | null
+    getModelDescription(): string | null
+    getModelName(): string | null
+    getModelNumber(): string | null
+    getModelUrl(): string | null
+    getPresentationUrl(): string | null
     getResourceFactory(): ResourceFactory
-    getSerialNumber(): string
-    getService(type: string): ServiceInfo
+    getSerialNumber(): string | null
+    getService(type: string): ServiceInfo | null
     getUdn(): string
-    getUpc(): string
+    getUpc(): string | null
     getUrlBase(): Soup.URI
-    listDeviceTypes(): string[]
-    listDevices(): DeviceInfo[]
-    listDlnaCapabilities(): string[]
-    listDlnaDeviceClassIdentifier(): string[]
-    listServiceTypes(): string[]
-    listServices(): ServiceInfo[]
+    listDeviceTypes(): string[] | null
+    listDevices(): DeviceInfo[] | null
+    listDlnaCapabilities(): string[] | null
+    listDlnaDeviceClassIdentifier(): string[] | null
+    listServiceTypes(): string[] | null
+    listServices(): ServiceInfo[] | null
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -647,31 +725,31 @@ export class DeviceProxy {
     gTypeInstance: GObject.TypeInstance
     /* Methods of GUPnP-1.2.GUPnP.DeviceInfo */
     getContext(): Context
-    getDescriptionValue(element: string): string
+    getDescriptionValue(element: string): string | null
     getDevice(type: string): DeviceInfo | null
     getDeviceType(): string
     getFriendlyName(): string
-    getIconUrl(requestedMimeType: string | null, requestedDepth: number, requestedWidth: number, requestedHeight: number, preferBigger: boolean): { returnType: string, mimeType: string | null, depth: number | null, width: number | null, height: number | null }
+    getIconUrl(requestedMimeType: string | null, requestedDepth: number, requestedWidth: number, requestedHeight: number, preferBigger: boolean): { returnType: string | null, mimeType: string | null, depth: number | null, width: number | null, height: number | null }
     getLocation(): string
-    getManufacturer(): string
-    getManufacturerUrl(): string
-    getModelDescription(): string
-    getModelName(): string
-    getModelNumber(): string
-    getModelUrl(): string
-    getPresentationUrl(): string
+    getManufacturer(): string | null
+    getManufacturerUrl(): string | null
+    getModelDescription(): string | null
+    getModelName(): string | null
+    getModelNumber(): string | null
+    getModelUrl(): string | null
+    getPresentationUrl(): string | null
     getResourceFactory(): ResourceFactory
-    getSerialNumber(): string
-    getService(type: string): ServiceInfo
+    getSerialNumber(): string | null
+    getService(type: string): ServiceInfo | null
     getUdn(): string
-    getUpc(): string
+    getUpc(): string | null
     getUrlBase(): Soup.URI
-    listDeviceTypes(): string[]
-    listDevices(): DeviceInfo[]
-    listDlnaCapabilities(): string[]
-    listDlnaDeviceClassIdentifier(): string[]
-    listServiceTypes(): string[]
-    listServices(): ServiceInfo[]
+    listDeviceTypes(): string[] | null
+    listDevices(): DeviceInfo[] | null
+    listDlnaCapabilities(): string[] | null
+    listDlnaDeviceClassIdentifier(): string[] | null
+    listServiceTypes(): string[] | null
+    listServices(): ServiceInfo[] | null
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -808,31 +886,31 @@ export class RootDevice {
     setAvailable(available: boolean): void
     /* Methods of GUPnP-1.2.GUPnP.DeviceInfo */
     getContext(): Context
-    getDescriptionValue(element: string): string
+    getDescriptionValue(element: string): string | null
     getDevice(type: string): DeviceInfo | null
     getDeviceType(): string
     getFriendlyName(): string
-    getIconUrl(requestedMimeType: string | null, requestedDepth: number, requestedWidth: number, requestedHeight: number, preferBigger: boolean): { returnType: string, mimeType: string | null, depth: number | null, width: number | null, height: number | null }
+    getIconUrl(requestedMimeType: string | null, requestedDepth: number, requestedWidth: number, requestedHeight: number, preferBigger: boolean): { returnType: string | null, mimeType: string | null, depth: number | null, width: number | null, height: number | null }
     getLocation(): string
-    getManufacturer(): string
-    getManufacturerUrl(): string
-    getModelDescription(): string
-    getModelName(): string
-    getModelNumber(): string
-    getModelUrl(): string
-    getPresentationUrl(): string
+    getManufacturer(): string | null
+    getManufacturerUrl(): string | null
+    getModelDescription(): string | null
+    getModelName(): string | null
+    getModelNumber(): string | null
+    getModelUrl(): string | null
+    getPresentationUrl(): string | null
     getResourceFactory(): ResourceFactory
-    getSerialNumber(): string
-    getService(type: string): ServiceInfo
+    getSerialNumber(): string | null
+    getService(type: string): ServiceInfo | null
     getUdn(): string
-    getUpc(): string
+    getUpc(): string | null
     getUrlBase(): Soup.URI
-    listDeviceTypes(): string[]
-    listDevices(): DeviceInfo[]
-    listDlnaCapabilities(): string[]
-    listDlnaDeviceClassIdentifier(): string[]
-    listServiceTypes(): string[]
-    listServices(): ServiceInfo[]
+    listDeviceTypes(): string[] | null
+    listDevices(): DeviceInfo[] | null
+    listDlnaCapabilities(): string[] | null
+    listDlnaDeviceClassIdentifier(): string[] | null
+    listServiceTypes(): string[] | null
+    listServices(): ServiceInfo[] | null
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -925,7 +1003,7 @@ export class Service {
     getUdn(): string
     getUrlBase(): Soup.URI
     introspectAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    introspectFinish(res: Gio.AsyncResult): ServiceIntrospection
+    introspectFinish(res: Gio.AsyncResult): ServiceIntrospection | null
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -1007,7 +1085,7 @@ export class ServiceInfo {
     getUdn(): string
     getUrlBase(): Soup.URI
     introspectAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    introspectFinish(res: Gio.AsyncResult): ServiceIntrospection
+    introspectFinish(res: Gio.AsyncResult): ServiceIntrospection | null
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -1055,8 +1133,8 @@ export class ServiceIntrospection {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GUPnP-1.2.GUPnP.ServiceIntrospection */
-    getAction(actionName: string): ServiceActionInfo
-    getStateVariable(variableName: string): ServiceStateVariableInfo
+    getAction(actionName: string): ServiceActionInfo | null
+    getStateVariable(variableName: string): ServiceStateVariableInfo | null
     listActionNames(): string[]
     listActions(): ServiceActionInfo[]
     listStateVariableNames(): string[]
@@ -1115,9 +1193,9 @@ export class ServiceProxy {
     addNotify(variable: string, type: GObject.Type, callback: ServiceProxyNotifyCallback): boolean
     addRawNotify(callback: ServiceProxyNotifyCallback): boolean
     beginActionList(action: string, inNames: string[], inValues: any[], callback: ServiceProxyActionCallback): ServiceProxyAction
-    callAction(action: ServiceProxyAction, cancellable?: Gio.Cancellable | null): ServiceProxyAction
+    callAction(action: ServiceProxyAction, cancellable?: Gio.Cancellable | null): ServiceProxyAction | null
     callActionAsync(action: ServiceProxyAction, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    callActionFinish(result: Gio.AsyncResult): ServiceProxyAction
+    callActionFinish(result: Gio.AsyncResult): ServiceProxyAction | null
     cancelAction(action: ServiceProxyAction): void
     endActionHash(action: ServiceProxyAction, hash: GLib.HashTable): { returnType: boolean, hash: GLib.HashTable }
     endActionList(action: ServiceProxyAction, outNames: string[], outTypes: GObject.Type[]): { returnType: boolean, outValues: any[] }
@@ -1139,7 +1217,7 @@ export class ServiceProxy {
     getUdn(): string
     getUrlBase(): Soup.URI
     introspectAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    introspectFinish(res: Gio.AsyncResult): ServiceIntrospection
+    introspectFinish(res: Gio.AsyncResult): ServiceIntrospection | null
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -1189,74 +1267,6 @@ export class ServiceProxy {
     static name: string
     constructor (config?: ServiceProxy_ConstructProps)
     _init (config?: ServiceProxy_ConstructProps): void
-    static $gtype: GObject.Type
-}
-export interface WhiteList_ConstructProps extends GObject.Object_ConstructProps {
-    enabled?: boolean
-    entries?: string[]
-}
-export class WhiteList {
-    /* Properties of GUPnP-1.2.GUPnP.WhiteList */
-    enabled: boolean
-    /* Fields of GUPnP-1.2.GUPnP.WhiteList */
-    parentInstance: GObject.Object
-    /* Fields of GObject-2.0.GObject.Object */
-    gTypeInstance: GObject.TypeInstance
-    /* Methods of GUPnP-1.2.GUPnP.WhiteList */
-    addEntry(entry: string): boolean
-    addEntryv(entries: string[]): void
-    checkContext(context: Context): boolean
-    clear(): void
-    getEnabled(): boolean
-    getEntries(): string[]
-    isEmpty(): boolean
-    removeEntry(entry: string): boolean
-    setEnabled(enable: boolean): void
-    /* Methods of GObject-2.0.GObject.Object */
-    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
-    forceFloating(): void
-    freezeNotify(): void
-    getData(key: string): object | null
-    getProperty(propertyName: string, value: any): void
-    getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    isFloating(): boolean
-    notify(propertyName: string): void
-    notifyByPspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    refSink(): GObject.Object
-    runDispose(): void
-    setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: any): void
-    stealData(key: string): object | null
-    stealQdata(quark: GLib.Quark): object | null
-    thawNotify(): void
-    unref(): void
-    watchClosure(closure: Function): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: WhiteList, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::enabled", callback: (($obj: WhiteList, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::enabled", callback: (($obj: WhiteList, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::enabled", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    on(sigName: string, callback: any): NodeJS.EventEmitter
-    once(sigName: string, callback: any): NodeJS.EventEmitter
-    off(sigName: string, callback: any): NodeJS.EventEmitter
-    static name: string
-    constructor (config?: WhiteList_ConstructProps)
-    _init (config?: WhiteList_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): WhiteList
     static $gtype: GObject.Type
 }
 export interface XMLDoc_ConstructProps extends GObject.Object_ConstructProps {
@@ -1321,6 +1331,11 @@ export abstract class AclInterface {
 export abstract class ContextClass {
     /* Fields of GUPnP-1.2.GUPnP.ContextClass */
     parentClass: GSSDP.ClientClass
+    static name: string
+}
+export abstract class ContextFilterClass {
+    /* Fields of GUPnP-1.2.GUPnP.ContextFilterClass */
+    parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class ContextManagerClass {
@@ -1436,14 +1451,10 @@ export class ServiceStateVariableInfo {
     allowedValues: string[]
     static name: string
 }
-export abstract class WhiteListClass {
-    /* Fields of GUPnP-1.2.GUPnP.WhiteListClass */
-    parentClass: GObject.ObjectClass
-    static name: string
-}
 export abstract class XMLDocClass {
     /* Fields of GUPnP-1.2.GUPnP.XMLDocClass */
     parentClass: GObject.ObjectClass
     static name: string
 }
+export type WhiteList = ContextFilter
 }

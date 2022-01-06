@@ -128,6 +128,7 @@ export class File {
     getName(): string
     getSize(): number
     setAttributes(attr: number): void
+    setBytes(bytes: any): void
     setDate(tv: GLib.TimeVal): void
     setDateTime(dt: GLib.DateTime): void
     setExtractName(name?: string | null): void

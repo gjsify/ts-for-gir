@@ -11,6 +11,11 @@ import type { GModule } from './GModule-2.0';
 
 export declare namespace GstApp {
 
+export enum AppLeakyType {
+    NONE,
+    UPSTREAM,
+    DOWNSTREAM,
+}
 export enum AppStreamType {
     STREAM,
     SEEKABLE,
@@ -101,16 +106,16 @@ export class AppSink {
     getMaxBuffers(): number
     getWaitOnEos(): boolean
     isEos(): boolean
-    pullPreroll(): Gst.Sample
-    pullSample(): Gst.Sample
+    pullPreroll(): Gst.Sample | null
+    pullSample(): Gst.Sample | null
     setBufferListSupport(enableLists: boolean): void
     setCaps(caps?: Gst.Caps | null): void
     setDrop(drop: boolean): void
     setEmitSignals(emit: boolean): void
     setMaxBuffers(max: number): void
     setWaitOnEos(wait: boolean): void
-    tryPullPreroll(timeout: Gst.ClockTime): Gst.Sample
-    tryPullSample(timeout: Gst.ClockTime): Gst.Sample
+    tryPullPreroll(timeout: Gst.ClockTime): Gst.Sample | null
+    tryPullSample(timeout: Gst.ClockTime): Gst.Sample | null
     /* Methods of GstBase-1.0.GstBase.BaseSink */
     doPreroll(obj: Gst.MiniObject): Gst.FlowReturn
     getBlocksize(): number
@@ -197,6 +202,7 @@ export class AppSink {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -277,6 +283,11 @@ export class AppSink {
     once(sigName: "new-sample", callback: () => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "new-sample", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "new-sample"): void
+    connect(sigName: "new-serialized-event", callback: (($obj: AppSink) => boolean)): number
+    on(sigName: "new-serialized-event", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "new-serialized-event", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "new-serialized-event", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "new-serialized-event"): void
     connect(sigName: "pull-preroll", callback: (($obj: AppSink) => Gst.Sample)): number
     on(sigName: "pull-preroll", callback: () => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "pull-preroll", callback: () => void, after?: boolean): NodeJS.EventEmitter
@@ -287,6 +298,11 @@ export class AppSink {
     once(sigName: "pull-sample", callback: () => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "pull-sample", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "pull-sample"): void
+    connect(sigName: "try-pull-object", callback: (($obj: AppSink, timeout: number) => Gst.MiniObject)): number
+    on(sigName: "try-pull-object", callback: (timeout: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "try-pull-object", callback: (timeout: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "try-pull-object", callback: (timeout: number) => void): NodeJS.EventEmitter
+    emit(sigName: "try-pull-object", timeout: number): void
     connect(sigName: "try-pull-preroll", callback: (($obj: AppSink, timeout: number) => Gst.Sample)): number
     on(sigName: "try-pull-preroll", callback: (timeout: number) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "try-pull-preroll", callback: (timeout: number) => void, after?: boolean): NodeJS.EventEmitter
@@ -455,8 +471,11 @@ export interface AppSrc_ConstructProps extends GstBase.BaseSrc_ConstructProps {
     format?: Gst.Format
     handleSegmentChange?: boolean
     isLive?: boolean
+    leakyType?: AppLeakyType
+    maxBuffers?: number
     maxBytes?: number
     maxLatency?: number
+    maxTime?: number
     minLatency?: number
     minPercent?: number
     size?: number
@@ -466,14 +485,19 @@ export class AppSrc {
     /* Properties of GstApp-1.0.GstApp.AppSrc */
     block: boolean
     caps: Gst.Caps
+    readonly currentLevelBuffers: number
     readonly currentLevelBytes: number
+    readonly currentLevelTime: number
     duration: number
     emitSignals: boolean
     format: Gst.Format
     handleSegmentChange: boolean
     isLive: boolean
+    leakyType: AppLeakyType
+    maxBuffers: number
     maxBytes: number
     maxLatency: number
+    maxTime: number
     minLatency: number
     minPercent: number
     size: number
@@ -533,11 +557,16 @@ export class AppSrc {
     /* Methods of GstApp-1.0.GstApp.AppSrc */
     endOfStream(): Gst.FlowReturn
     getCaps(): Gst.Caps
+    getCurrentLevelBuffers(): number
     getCurrentLevelBytes(): number
+    getCurrentLevelTime(): Gst.ClockTime
     getDuration(): Gst.ClockTime
     getEmitSignals(): boolean
     getLatency(): { min: number, max: number }
+    getLeakyType(): AppLeakyType
+    getMaxBuffers(): number
     getMaxBytes(): number
+    getMaxTime(): Gst.ClockTime
     getSize(): number
     getStreamType(): AppStreamType
     pushBuffer(buffer: Gst.Buffer): Gst.FlowReturn
@@ -547,7 +576,10 @@ export class AppSrc {
     setDuration(duration: Gst.ClockTime): void
     setEmitSignals(emit: boolean): void
     setLatency(min: number, max: number): void
+    setLeakyType(leaky: AppLeakyType): void
+    setMaxBuffers(max: number): void
     setMaxBytes(max: number): void
+    setMaxTime(max: Gst.ClockTime): void
     setSize(size: number): void
     setStreamType(type: AppStreamType): void
     /* Methods of GstBase-1.0.GstBase.BaseSrc */
@@ -625,6 +657,7 @@ export class AppSrc {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -763,11 +796,21 @@ export class AppSrc {
     on(sigName: "notify::caps", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::caps", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::caps", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::current-level-buffers", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::current-level-buffers", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::current-level-buffers", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::current-level-buffers", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::current-level-buffers", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::current-level-bytes", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::current-level-bytes", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::current-level-bytes", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::current-level-bytes", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::current-level-bytes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::current-level-time", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::current-level-time", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::current-level-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::current-level-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::current-level-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::duration", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::duration", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -793,6 +836,16 @@ export class AppSrc {
     on(sigName: "notify::is-live", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::is-live", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::is-live", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::leaky-type", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::leaky-type", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::leaky-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::leaky-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::leaky-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::max-buffers", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::max-buffers", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::max-buffers", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::max-buffers", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::max-buffers", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::max-bytes", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-bytes", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::max-bytes", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -803,6 +856,11 @@ export class AppSrc {
     on(sigName: "notify::max-latency", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::max-latency", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::max-latency", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::max-time", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::max-time", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::max-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::max-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::max-time", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::min-latency", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::min-latency", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::min-latency", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -870,6 +928,7 @@ export class AppSinkCallbacks {
     eos: (appsink: AppSink) => void
     newPreroll: (appsink: AppSink) => Gst.FlowReturn
     newSample: (appsink: AppSink) => Gst.FlowReturn
+    newEvent: (appsink: AppSink) => boolean
     static name: string
 }
 export abstract class AppSinkClass {
@@ -878,10 +937,11 @@ export abstract class AppSinkClass {
     eos: (appsink: AppSink) => void
     newPreroll: (appsink: AppSink) => Gst.FlowReturn
     newSample: (appsink: AppSink) => Gst.FlowReturn
-    pullPreroll: (appsink: AppSink) => Gst.Sample
-    pullSample: (appsink: AppSink) => Gst.Sample
-    tryPullPreroll: (appsink: AppSink, timeout: Gst.ClockTime) => Gst.Sample
-    tryPullSample: (appsink: AppSink, timeout: Gst.ClockTime) => Gst.Sample
+    pullPreroll: (appsink: AppSink) => Gst.Sample | null
+    pullSample: (appsink: AppSink) => Gst.Sample | null
+    tryPullPreroll: (appsink: AppSink, timeout: Gst.ClockTime) => Gst.Sample | null
+    tryPullSample: (appsink: AppSink, timeout: Gst.ClockTime) => Gst.Sample | null
+    tryPullObject: (appsink: AppSink, timeout: Gst.ClockTime) => Gst.MiniObject
     static name: string
 }
 export class AppSinkPrivate {

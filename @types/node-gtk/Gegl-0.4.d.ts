@@ -47,6 +47,8 @@ export enum DitherMethod {
     ADD_COVARIANT,
     XOR,
     XOR_COVARIANT,
+    BLUE_NOISE,
+    BLUE_NOISE_COVARIANT,
 }
 export enum MapFlags {
     MAP_EXCLUDE_UNMAPPED,

@@ -167,6 +167,10 @@ export enum VideoTestPattern {
     CHROMA_ZONE_PLATE,
     SOLID_COLOR,
 }
+export enum MarkerFlags {
+    NONE,
+    SNAPPABLE,
+}
 export enum MetaFlag {
     READABLE,
     WRITABLE,
@@ -1175,6 +1179,7 @@ export class AudioTrack {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -3169,7 +3174,7 @@ export class ClipAsset {
     gTypeInstance: GObject.TypeInstance
     /* Methods of GES-1.0.GES.ClipAsset */
     getFrameTime(frameNumber: FrameNumber): Gst.ClockTime
-    getNaturalFramerate(framerateN: number, framerateD: number): boolean
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getSupportedFormats(): TrackType
     setSupportedFormats(supportedformats: TrackType): void
     /* Methods of GES-1.0.GES.Asset */
@@ -3346,7 +3351,7 @@ export class CommandLineFormatter {
     constructor (config?: CommandLineFormatter_ConstructProps)
     _init (config?: CommandLineFormatter_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static getHelp(nargs: number, commands: string): string
+    static getHelp(commands: string[]): string
     static getTimelineUri(timeline: Timeline): string
     static $gtype: GObject.Type
 }
@@ -3889,7 +3894,7 @@ export class EffectAsset {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GES-1.0.GES.TrackElementAsset */
-    getNaturalFramerate(framerateN: number, framerateD: number): boolean
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getTrackType(): TrackType
     setTrackType(type: TrackType): void
     /* Methods of GES-1.0.GES.Asset */
@@ -4292,7 +4297,7 @@ export class EffectClip {
     constructor (config?: EffectClip_ConstructProps)
     _init (config?: EffectClip_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(videoBinDescription: string, audioBinDescription: string): EffectClip
+    static new(videoBinDescription?: string | null, audioBinDescription?: string | null): EffectClip
     static $gtype: GObject.Type
 }
 export interface Formatter_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
@@ -5131,8 +5136,11 @@ export class Marker {
     static $gtype: GObject.Type
 }
 export interface MarkerList_ConstructProps extends GObject.Object_ConstructProps {
+    flags?: MarkerFlags
 }
 export class MarkerList {
+    /* Properties of GES-1.0.GES.MarkerList */
+    flags: MarkerFlags
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GES-1.0.GES.MarkerList */
@@ -5185,6 +5193,11 @@ export class MarkerList {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::flags", callback: (($obj: MarkerList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::flags", callback: (($obj: MarkerList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6477,6 +6490,7 @@ export class Pipeline {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -7509,7 +7523,7 @@ export class SourceClipAsset {
     gTypeInstance: GObject.TypeInstance
     /* Methods of GES-1.0.GES.ClipAsset */
     getFrameTime(frameNumber: FrameNumber): Gst.ClockTime
-    getNaturalFramerate(framerateN: number, framerateD: number): boolean
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getSupportedFormats(): TrackType
     setSupportedFormats(supportedformats: TrackType): void
     /* Methods of GES-1.0.GES.Asset */
@@ -8654,6 +8668,7 @@ export class Timeline {
     appendLayer(): Layer
     commit(): boolean
     commitSync(): boolean
+    freezeCommit(): void
     getAutoTransition(): boolean
     getDuration(): Gst.ClockTime
     getElement(name: string): TimelineElement | null
@@ -8675,6 +8690,7 @@ export class Timeline {
     saveToUri(uri: string, formatterAsset: Asset | null, overwrite: boolean): boolean
     setAutoTransition(autoTransition: boolean): void
     setSnappingDistance(snappingDistance: Gst.ClockTime): void
+    thawCommit(): void
     /* Methods of Gst-1.0.Gst.Bin */
     add(element: Gst.Element): boolean
     findUnlinkedPad(direction: Gst.PadDirection): Gst.Pad | null
@@ -8746,6 +8762,7 @@ export class Timeline {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -10054,6 +10071,7 @@ export class Track {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -10597,7 +10615,7 @@ export class TrackElementAsset {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GES-1.0.GES.TrackElementAsset */
-    getNaturalFramerate(framerateN: number, framerateD: number): boolean
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getTrackType(): TrackType
     setTrackType(type: TrackType): void
     /* Methods of GES-1.0.GES.Asset */
@@ -11615,7 +11633,7 @@ export class UriClipAsset {
     isImage(): boolean
     /* Methods of GES-1.0.GES.ClipAsset */
     getFrameTime(frameNumber: FrameNumber): Gst.ClockTime
-    getNaturalFramerate(framerateN: number, framerateD: number): boolean
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getSupportedFormats(): TrackType
     setSupportedFormats(supportedformats: TrackType): void
     /* Methods of GES-1.0.GES.Asset */
@@ -11768,7 +11786,7 @@ export class UriSourceAsset {
     getStreamUri(): string
     isImage(): boolean
     /* Methods of GES-1.0.GES.TrackElementAsset */
-    getNaturalFramerate(framerateN: number, framerateD: number): boolean
+    getNaturalFramerate(): { returnType: boolean, framerateN: number, framerateD: number }
     getTrackType(): TrackType
     setTrackType(type: TrackType): void
     /* Methods of GES-1.0.GES.Asset */
@@ -12587,6 +12605,7 @@ export class VideoTrack {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -13559,7 +13578,7 @@ export class BaseXmlFormatterPrivate {
 export abstract class ClipAssetClass {
     /* Fields of GES-1.0.GES.ClipAssetClass */
     parent: AssetClass
-    getNaturalFramerate: (self: ClipAsset, framerateN: number, framerateD: number) => boolean
+    getNaturalFramerate: (self: ClipAsset) => { returnType: boolean, framerateN: number, framerateD: number }
     gesReserved: object[]
     static name: string
 }
@@ -13749,6 +13768,7 @@ export class ProjectPrivate {
 export abstract class SourceClass {
     /* Fields of GES-1.0.GES.SourceClass */
     selectPad: (source: Source, pad: Gst.Pad) => boolean
+    createSource: (source: Source) => Gst.Element
     static name: string
 }
 export abstract class SourceClipAssetClass {
@@ -13845,7 +13865,7 @@ export abstract class TrackClass {
 export abstract class TrackElementAssetClass {
     /* Fields of GES-1.0.GES.TrackElementAssetClass */
     parentClass: AssetClass
-    getNaturalFramerate: (self: TrackElementAsset, framerateN: number, framerateD: number) => boolean
+    getNaturalFramerate: (self: TrackElementAsset) => { returnType: boolean, framerateN: number, framerateD: number }
     gesReserved: object[]
     static name: string
 }
@@ -13855,6 +13875,8 @@ export class TrackElementAssetPrivate {
 export abstract class TrackElementClass {
     /* Fields of GES-1.0.GES.TrackElementClass */
     nleobjectFactorytype: string
+    createGnlObject: (object: TrackElement) => Gst.Element
+    createElement: (object: TrackElement) => Gst.Element
     activeChanged: (object: TrackElement, active: boolean) => void
     changed: (object: TrackElement) => void
     lookupChild: (object: TrackElement, propName: string) => { returnType: boolean, element: Gst.Element | null, pspec: GObject.ParamSpec | null }

@@ -8,10 +8,6 @@ import type { GLib } from './GLib-2.0';
 
 export declare namespace ICal {
 
-export enum _invalid_rrule_handling {
-    TREAT_AS_ERROR,
-    IGNORE_INVALID,
-}
 export enum _unknown_token_handling {
     ASSUME_IANA_TOKEN,
     DISCARD_TOKEN,
@@ -736,7 +732,6 @@ export function bt(): void
 export function decodeBase64(dest: string, src: string, size: number): string
 export function decodeQuotedPrintable(dest: string, src: string, size: number): string
 export function freeZoneDirectory(): void
-export function getInvalidRruleHandlingSetting(): _invalid_rrule_handling
 export function getUnknownTokenHandlingSetting(): _unknown_token_handling
 export function icalarrayAppend(array: array, element?: object | null): void
 export function icalarrayElementAt(array: array, position: number): object | null
@@ -761,8 +756,6 @@ export function icalcomponentForeachRecurrence(comp: component, start?: object |
 export function icalcomponentForeachTzid(comp: component, callback?: object | null, callbackData?: object | null): void
 export function icalcomponentFree(component: component): void
 export function icalcomponentGetComment(comp: component): string
-export function icalcomponentGetComponentName(comp: component): string
-export function icalcomponentGetComponentNameR(comp: component): string
 export function icalcomponentGetDescription(comp: component): string
 export function icalcomponentGetDtend(comp: component): object | null
 export function icalcomponentGetDtstamp(comp: component): object | null
@@ -778,7 +771,6 @@ export function icalcomponentGetSpan(comp: component): object | null
 export function icalcomponentGetStatus(comp: component): object | null
 export function icalcomponentGetSummary(comp: component): string
 export function icalcomponentGetUid(comp: component): string
-export function icalcomponentGetXName(comp: component): string
 export function icalcomponentIsValid(component: component): number
 export function icalcomponentIsa(component: component): component_kind
 export function icalcomponentIsaComponent(component?: object | null): number
@@ -804,7 +796,6 @@ export function icalcomponentSetSequence(comp: component, v: number): void
 export function icalcomponentSetStatus(comp: component, v?: object | null): void
 export function icalcomponentSetSummary(comp: component, v: string): void
 export function icalcomponentSetUid(comp: component, v: string): void
-export function icalcomponentSetXName(comp: component, name: string): void
 export function icalcomponentStringToKind(string: string): component_kind
 export function icalcomponentStripErrors(component: component): void
 export function icaldurationtypeAsIcalString(d?: object | null): string
@@ -1272,9 +1263,6 @@ export function icalrecurExpandRecurrence(rule: string, start: number, count: nu
 export function icalrecurFreqToString(kind: recurrencetype_frequency): string
 export function icalrecurIteratorFree(arg0: recur_iterator): void
 export function icalrecurIteratorNext(arg0: recur_iterator): object | null
-export function icalrecurIteratorPrev(arg0: recur_iterator): object | null
-export function icalrecurIteratorSetEnd(impl: recur_iterator, end?: object | null): number
-export function icalrecurIteratorSetRange(impl: recur_iterator, from?: object | null, to?: object | null): number
 export function icalrecurIteratorSetStart(impl: recur_iterator, start?: object | null): number
 export function icalrecurSkipToString(kind: recurrencetype_skip): string
 export function icalrecurStringToFreq(str: string): recurrencetype_frequency
@@ -1286,8 +1274,6 @@ export function icalrecurrencetypeAsStringR(recur?: object | null): string
 export function icalrecurrencetypeClear(r?: object | null): void
 export function icalrecurrencetypeDayDayOfWeek(day: number): object | null
 export function icalrecurrencetypeDayPosition(day: number): number
-export function icalrecurrencetypeEncodeDay(weekday: object | null, position: number): number
-export function icalrecurrencetypeEncodeMonth(month: number, isLeap: number): number
 export function icalrecurrencetypeFromString(str: string): object | null
 export function icalrecurrencetypeMonthIsLeap(month: number): number
 export function icalrecurrencetypeMonthMonth(month: number): number
@@ -1362,7 +1348,6 @@ export function icaltriggertypeFromString(str: string): object | null
 export function icaltriggertypeIsBadTrigger(tr?: object | null): number
 export function icaltriggertypeIsNullTrigger(tr?: object | null): number
 export function icaltzutilGetZoneDirectory(): string
-export function icaltzutilSetZoneDirectory(zonepath: string): void
 export function icalvalueAsIcalString(value: value): string
 export function icalvalueAsIcalStringR(value: value): string
 export function icalvalueCompare(a: value, b: value): parameter_xliccomparetype
@@ -1459,7 +1444,6 @@ export function pvlPush(l: pvl_list, d?: object | null): void
 export function pvlRemove(arg0: pvl_list, arg1: pvl_elem): object | null
 export function pvlShift(l: pvl_list): object | null
 export function pvlUnshift(l: pvl_list, d?: object | null): void
-export function setInvalidRruleHandlingSetting(newSetting: _invalid_rrule_handling): void
 export function setUnknownTokenHandlingSetting(newSetting: _unknown_token_handling): void
 export function setZoneDirectory(path: string): void
 export function sspmEncodingString(type?: object | null): string
@@ -1641,6 +1625,26 @@ export class timetype {
     static name: string
 }
 export class timezone {
+    static name: string
+}
+export class timezonephase {
+    /* Fields of ICal-3.0.ICal.timezonephase */
+    tzname: string
+    isStdandard: number
+    dtstart: object
+    offsetto: number
+    tzoffsetfrom: number
+    comment: string
+    rdate: object
+    rrule: string
+    static name: string
+}
+export class timezonetype {
+    /* Fields of ICal-3.0.ICal.timezonetype */
+    tzid: string
+    lastMod: object
+    tzurl: string
+    phases: object
     static name: string
 }
 export class triggertype {

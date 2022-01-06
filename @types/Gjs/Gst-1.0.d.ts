@@ -904,8 +904,11 @@ export const VERSION_MICRO: number
 export const VERSION_MINOR: number
 export const VERSION_NANO: number
 export function buffer_get_max_memory(): number
+export function buffer_list_replace(old_list?: BufferList | null, new_list?: BufferList | null): [ /* returnType */ boolean, /* old_list */ BufferList | null ]
+export function buffer_list_take(old_list: BufferList, new_list?: BufferList | null): [ /* returnType */ boolean, /* old_list */ BufferList ]
 export function caps_features_from_string(features: string): CapsFeatures | null
 export function caps_from_string(string: string): Caps | null
+export function context_replace(old_context: Context, new_context?: Context | null): [ /* returnType */ boolean, /* old_context */ Context ]
 export function core_error_quark(): GLib.Quark
 export function debug_add_log_function(func: LogFunction): void
 export function debug_add_ring_buffer_logger(max_size_per_thread: number, thread_timeout: number): void
@@ -923,6 +926,7 @@ export function debug_is_colored(): boolean
 export function debug_level_get_name(level: DebugLevel): string
 export function debug_log_default(category: DebugCategory, level: DebugLevel, file: string, function_: string, line: number, object: GObject.Object | null, message: DebugMessage, user_data?: object | null): void
 export function debug_log_get_line(category: DebugCategory, level: DebugLevel, file: string, function_: string, line: number, object: GObject.Object | null, message: DebugMessage): string
+export function debug_log_literal(category: DebugCategory, level: DebugLevel, file: string, function_: string, line: number, object: GObject.Object | null, message_string: string): void
 export function debug_print_stack_trace(): void
 export function debug_remove_log_function(func?: LogFunction | null): number
 export function debug_remove_log_function_by_data(data?: object | null): number
@@ -958,6 +962,7 @@ export function init_check(argv?: string[] | null): [ /* returnType */ boolean, 
 export function is_caps_features(obj?: object | null): boolean
 export function is_initialized(): boolean
 export function library_error_quark(): GLib.Quark
+export function message_take(old_message: Message, new_message?: Message | null): [ /* returnType */ boolean, /* old_message */ Message ]
 export function message_type_get_name(type: MessageType): string
 export function message_type_to_quark(type: MessageType): GLib.Quark
 export function meta_api_type_get_tags(api: GObject.Type): string[]
@@ -987,6 +992,7 @@ export function protection_filter_systems_by_available_decryptors(system_identif
 export function protection_meta_api_get_type(): GObject.Type
 export function protection_meta_get_info(): MetaInfo
 export function protection_select_system(system_identifiers: string[]): string | null
+export function query_take(old_query?: Query | null, new_query?: Query | null): [ /* returnType */ boolean, /* old_query */ Query | null ]
 export function query_type_get_flags(type: QueryType): QueryTypeFlags
 export function query_type_get_name(type: QueryType): string
 export function query_type_to_quark(type: QueryType): GLib.Quark
@@ -1008,6 +1014,8 @@ export function tag_get_nick(tag: string): string | null
 export function tag_get_type(tag: string): GObject.Type
 export function tag_is_fixed(tag: string): boolean
 export function tag_list_copy_value(list: TagList, tag: string): [ /* returnType */ boolean, /* dest */ any ]
+export function tag_list_replace(old_taglist?: TagList | null, new_taglist?: TagList | null): [ /* returnType */ boolean, /* old_taglist */ TagList | null ]
+export function tag_list_take(old_taglist: TagList, new_taglist?: TagList | null): [ /* returnType */ boolean, /* old_taglist */ TagList ]
 export function tag_merge_strings_with_comma(src: any): /* dest */ any
 export function tag_merge_use_first(src: any): /* dest */ any
 export function toc_entry_type_get_nick(type: TocEntryType): string
@@ -1204,6 +1212,9 @@ export interface MetaInitFunction {
 }
 export interface MetaTransformFunction {
     (transbuf: Buffer, meta: Meta, buffer: Buffer, type: GLib.Quark, data?: object | null): boolean
+}
+export interface MiniObjectCopyFunction {
+    (obj: MiniObject): MiniObject
 }
 export interface MiniObjectDisposeFunction {
     (obj: MiniObject): boolean
@@ -1453,6 +1464,7 @@ export class TagSetter {
     remove_pad(pad: Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: PadTemplate, name?: string | null, caps?: Caps | null): Pad | null
+    request_pad_simple(name: string): Pad | null
     seek(rate: number, format: Format, flags: SeekFlags, start_type: SeekType, start: number, stop_type: SeekType, stop: number): boolean
     seek_simple(format: Format, seek_flags: SeekFlags, seek_pos: number): boolean
     send_event(event: Event): boolean
@@ -1660,6 +1672,7 @@ export class TocSetter {
     remove_pad(pad: Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: PadTemplate, name?: string | null, caps?: Caps | null): Pad | null
+    request_pad_simple(name: string): Pad | null
     seek(rate: number, format: Format, flags: SeekFlags, start_type: SeekType, start: number, stop_type: SeekType, stop: number): boolean
     seek_simple(format: Format, seek_flags: SeekFlags, seek_pos: number): boolean
     send_event(event: Event): boolean
@@ -2017,6 +2030,7 @@ export class Bin {
     remove_pad(pad: Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: PadTemplate, name?: string | null, caps?: Caps | null): Pad | null
+    request_pad_simple(name: string): Pad | null
     seek(rate: number, format: Format, flags: SeekFlags, start_type: SeekType, start: number, stop_type: SeekType, stop: number): boolean
     seek_simple(format: Format, seek_flags: SeekFlags, seek_pos: number): boolean
     send_event(event: Event): boolean
@@ -3415,6 +3429,7 @@ export class Element {
     remove_pad(pad: Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: PadTemplate, name?: string | null, caps?: Caps | null): Pad | null
+    request_pad_simple(name: string): Pad | null
     seek(rate: number, format: Format, flags: SeekFlags, start_type: SeekType, start: number, stop_type: SeekType, stop: number): boolean
     seek_simple(format: Format, seek_flags: SeekFlags, seek_pos: number): boolean
     send_event(event: Event): boolean
@@ -3535,6 +3550,7 @@ export class Element {
     static register(plugin: Plugin | null, name: string, rank: number, type: GObject.Type): boolean
     static state_change_return_get_name(state_ret: StateChangeReturn): string
     static state_get_name(state: State): string
+    static type_set_skip_documentation(type: GObject.Type): void
     static add_metadata(klass: Element | Function | GObject.Type, key: string, value: string): void
     static add_pad_template(klass: Element | Function | GObject.Type, templ: PadTemplate): void
     static add_static_metadata(klass: Element | Function | GObject.Type, key: string, value: string): void
@@ -3565,10 +3581,12 @@ export class ElementFactory {
     can_src_all_caps(caps: Caps): boolean
     can_src_any_caps(caps: Caps): boolean
     create(name?: string | null): Element | null
+    create_with_properties(names?: string[] | null, values?: any[] | null): Element | null
     get_element_type(): GObject.Type
     get_metadata(key: string): string | null
     get_metadata_keys(): string[] | null
     get_num_pad_templates(): number
+    get_skip_documentation(): boolean
     get_static_pad_templates(): StaticPadTemplate[]
     get_uri_protocols(): string[]
     get_uri_type(): URIType
@@ -3661,6 +3679,7 @@ export class ElementFactory {
     static list_filter(list: ElementFactory[], caps: Caps, direction: PadDirection, subsetonly: boolean): ElementFactory[]
     static list_get_elements(type: ElementFactoryListType, minrank: Rank): ElementFactory[]
     static make(factoryname: string, name?: string | null): Element | null
+    static make_with_properties(factoryname: string, names?: string[] | null, values?: any[] | null): Element | null
     static $gtype: GObject.Type
 }
 export class FlagSet {
@@ -4493,6 +4512,7 @@ export class Pipeline {
     remove_pad(pad: Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: PadTemplate, name?: string | null, caps?: Caps | null): Pad | null
+    request_pad_simple(name: string): Pad | null
     seek(rate: number, format: Format, flags: SeekFlags, start_type: SeekType, start: number, stop_type: SeekType, stop: number): boolean
     seek_simple(format: Format, seek_flags: SeekFlags, seek_pos: number): boolean
     send_event(event: Event): boolean
@@ -6317,6 +6337,10 @@ export class AllocationParams {
     free(): void
     init(): void
     static name: string
+    static new(): AllocationParams
+    constructor()
+    /* Static methods and pseudo-constructors */
+    static new(): AllocationParams
 }
 export abstract class AllocatorClass {
     /* Fields of Gst-1.0.Gst.AllocatorClass */
@@ -6425,6 +6449,7 @@ export class Buffer {
     /* Static methods and pseudo-constructors */
     static new(): Buffer
     static new_allocate(allocator: Allocator | null, size: number, params?: AllocationParams | null): Buffer
+    static new_memdup(data: Uint8Array[]): Buffer
     static new_wrapped(data: Uint8Array[]): Buffer
     static new_wrapped_bytes(bytes: GLib.Bytes): Buffer
     static new_wrapped_full(flags: MemoryFlags, data: Uint8Array[], maxsize: number, offset: number, notify?: GLib.DestroyNotify | null): Buffer
@@ -6446,6 +6471,8 @@ export class BufferList {
     /* Static methods and pseudo-constructors */
     static new(): BufferList
     static new_sized(size: number): BufferList
+    static replace(old_list?: BufferList | null, new_list?: BufferList | null): [ /* returnType */ boolean, /* old_list */ BufferList | null ]
+    static take(old_list: BufferList, new_list?: BufferList | null): [ /* returnType */ boolean, /* old_list */ BufferList ]
 }
 export class BufferPoolAcquireParams {
     /* Fields of Gst-1.0.Gst.BufferPoolAcquireParams */
@@ -6555,6 +6582,7 @@ export class CapsFeatures {
     /* Static methods and pseudo-constructors */
     static new_any(): CapsFeatures
     static new_empty(): CapsFeatures
+    static new_single(feature: string): CapsFeatures
     static from_string(features: string): CapsFeatures | null
 }
 export abstract class ChildProxyInterface {
@@ -6588,16 +6616,20 @@ export class ClockPrivate {
 }
 export class Context {
     /* Methods of Gst-1.0.Gst.Context */
+    copy(): Context
     get_context_type(): string
     get_structure(): Structure
     has_context_type(context_type: string): boolean
     is_persistent(): boolean
+    ref(): Context
+    unref(): void
     writable_structure(): Structure
     static name: string
     static new(context_type: string, persistent: boolean): Context
     constructor(context_type: string, persistent: boolean)
     /* Static methods and pseudo-constructors */
     static new(context_type: string, persistent: boolean): Context
+    static replace(old_context: Context, new_context?: Context | null): [ /* returnType */ boolean, /* old_context */ Context ]
 }
 export abstract class ControlBindingClass {
     /* Fields of Gst-1.0.Gst.ControlBindingClass */
@@ -7012,6 +7044,7 @@ export class Message {
     static new_toc(src: Object, toc: Toc, updated: boolean): Message
     static new_warning(src: Object | null, error: GLib.Error, debug: string): Message
     static new_warning_with_details(src: Object | null, error: GLib.Error, debug: string, details?: Structure | null): Message
+    static take(old_message: Message, new_message?: Message | null): [ /* returnType */ boolean, /* old_message */ Message ]
 }
 export class Meta {
     /* Fields of Gst-1.0.Gst.Meta */
@@ -7054,6 +7087,7 @@ export class MiniObject {
     refcount: number
     lockstate: number
     flags: number
+    copy: MiniObjectCopyFunction
     dispose: MiniObjectDisposeFunction
     free: MiniObjectFreeFunction
     /* Methods of Gst-1.0.Gst.MiniObject */
@@ -7222,7 +7256,9 @@ export class Promise {
     expire(): void
     get_reply(): Structure | null
     interrupt(): void
+    ref(): Promise
     reply(s?: Structure | null): void
+    unref(): void
     wait(): PromiseResult
     static name: string
     static new(): Promise
@@ -7294,6 +7330,7 @@ export class Query {
     parse_uri(): /* uri */ string | null
     parse_uri_redirection(): /* uri */ string | null
     parse_uri_redirection_permanent(): /* permanent */ boolean | null
+    ref(): Query
     remove_nth_allocation_meta(index: number): void
     remove_nth_allocation_param(index: number): void
     remove_nth_allocation_pool(index: number): void
@@ -7337,6 +7374,7 @@ export class Query {
     static new_seeking(format: Format): Query
     static new_segment(format: Format): Query
     static new_uri(): Query
+    static take(old_query?: Query | null, new_query?: Query | null): [ /* returnType */ boolean, /* old_query */ Query | null ]
 }
 export class ReferenceTimestampMeta {
     /* Fields of Gst-1.0.Gst.ReferenceTimestampMeta */
@@ -7581,6 +7619,8 @@ export class TagList {
     static new_empty(): TagList
     static new_from_string(str: string): TagList
     static copy_value(list: TagList, tag: string): [ /* returnType */ boolean, /* dest */ any ]
+    static replace(old_taglist?: TagList | null, new_taglist?: TagList | null): [ /* returnType */ boolean, /* old_taglist */ TagList | null ]
+    static take(old_taglist: TagList, new_taglist?: TagList | null): [ /* returnType */ boolean, /* old_taglist */ TagList ]
 }
 export abstract class TagSetterInterface {
     /* Fields of Gst-1.0.Gst.TagSetterInterface */
@@ -7675,6 +7715,8 @@ export class TypeFind {
     suggest: (data: object, probability: number, caps: Caps) => void
     data: object
     get_length: (data: object) => number
+    /* Methods of Gst-1.0.Gst.TypeFind */
+    suggest_empty_simple(probability: number, media_type: string): void
     static name: string
     /* Static methods and pseudo-constructors */
     static register(plugin: Plugin | null, name: string, rank: number, func: TypeFindFunction, extensions: string | null, possible_caps: Caps | null): boolean
@@ -7695,6 +7737,7 @@ export class Uri {
     /* Methods of Gst-1.0.Gst.Uri */
     append_path(relative_path: string): boolean
     append_path_segment(path_segment: string): boolean
+    copy(): Uri
     equal(second: Uri): boolean
     from_string_with_base(uri: string): Uri
     get_fragment(): string | null
@@ -7717,6 +7760,7 @@ export class Uri {
     new_with_base(scheme: string | null, userinfo: string | null, host: string | null, port: number, path?: string | null, query?: string | null, fragment?: string | null): Uri
     normalize(): boolean
     query_has_key(query_key: string): boolean
+    ref(): Uri
     remove_query_key(query_key: string): boolean
     set_fragment(fragment?: string | null): boolean
     set_host(host: string): boolean
@@ -7730,6 +7774,7 @@ export class Uri {
     set_scheme(scheme: string): boolean
     set_userinfo(userinfo: string): boolean
     to_string(): string
+    unref(): void
     static name: string
     static new(scheme: string | null, userinfo: string | null, host: string | null, port: number, path?: string | null, query?: string | null, fragment?: string | null): Uri
     constructor(scheme: string | null, userinfo: string | null, host: string | null, port: number, path?: string | null, query?: string | null, fragment?: string | null)

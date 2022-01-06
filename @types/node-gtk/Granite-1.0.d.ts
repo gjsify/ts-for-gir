@@ -27,7 +27,7 @@ export enum ServicesLogLevel {
     ERROR,
     FATAL,
 }
-export enum ContractorError {
+export enum ServicesContractorError {
     SERVICE_NOT_AVAILABLE,
 }
 export enum WidgetsDynamicNotebookTabBarBehavior {
@@ -74,22 +74,22 @@ export enum SettingsColorScheme {
     DARK,
     LIGHT,
 }
-export const BADGE: string
-export const CATEGORY_EXPANDER: string
-export const CONTENT_VIEW: string
-export const CONTENT_VIEW_WINDOW: string
-export const COMPOSITED: string
-export const DECORATED_WINDOW: string
-export const H1_TEXT: string
-export const H2_TEXT: string
-export const H3_TEXT: string
-export const HELP_BUTTON: string
-export const OVERLAY_BAR: string
-export const POPOVER: string
-export const POPOVER_BG: string
-export const SOURCE_LIST: string
-export const THIN_PANE_SEPARATOR: string
-export const TITLE_TEXT: string
+export const StyleClassBADGE: string
+export const StyleClassCATEGORY_EXPANDER: string
+export const StyleClassCONTENT_VIEW: string
+export const StyleClassCONTENT_VIEW_WINDOW: string
+export const StyleClassCOMPOSITED: string
+export const StyleClassDECORATED_WINDOW: string
+export const StyleClassH1_TEXT: string
+export const StyleClassH2_TEXT: string
+export const StyleClassH3_TEXT: string
+export const StyleClassHELP_BUTTON: string
+export const StyleClassOVERLAY_BAR: string
+export const StyleClassPOPOVER: string
+export const StyleClassPOPOVER_BG: string
+export const StyleClassSOURCE_LIST: string
+export const StyleClassTHIN_PANE_SEPARATOR: string
+export const StyleClassTITLE_TEXT: string
 export const STYLE_CLASS_ACCENT: string
 export const STYLE_CLASS_AVATAR: string
 export const STYLE_CLASS_BACK_BUTTON: string
@@ -117,6 +117,7 @@ export const STYLE_CLASS_WELCOME: string
 export const STYLE_CLASS_WARMTH: string
 export const STYLE_CLASS_TEMPERATURE: string
 export const TRANSITION_DURATION_CLOSE: number
+export const TRANSITION_DURATION_IN_PLACE: number
 export const TRANSITION_DURATION_OPEN: number
 export const TOOLTIP_SECONDARY_TEXT_MARKUP: string
 export function dateTimeGetDefaultTimeFormat(is12h: boolean, withSecond: boolean): string
@@ -7561,6 +7562,9 @@ export interface WidgetsTab_ConstructProps extends Gtk.EventBox_ConstructProps {
     pinned?: boolean
     pinnable?: boolean
     restoreData?: string
+    closeTabLabel?: AccelLabel
+    duplicateTabLabel?: AccelLabel
+    newWindowLabel?: AccelLabel
     page?: Gtk.Widget
     icon?: Gio.Icon
     working?: boolean
@@ -7654,6 +7658,9 @@ export class WidgetsTab {
     setPinnable(value: boolean): void
     getRestoreData(): string
     setRestoreData(value: string): void
+    getCloseTabLabel(): AccelLabel | null
+    getDuplicateTabLabel(): AccelLabel | null
+    getNewWindowLabel(): AccelLabel | null
     getPage(): Gtk.Widget
     setPage(value: Gtk.Widget): void
     getIcon(): Gio.Icon | null
@@ -8638,6 +8645,7 @@ export class WidgetsTab {
     /* Static methods and pseudo-constructors */
     static new(label?: string | null, icon?: Gio.Icon | null, page?: Gtk.Widget | null): WidgetsTab
     static new(): WidgetsTab
+    static withAccellabels(label?: string | null, icon?: Gio.Icon | null, page?: Gtk.Widget | null, closeTabLabel?: AccelLabel | null, duplicateTabLabel?: AccelLabel | null, newWindowLabel?: AccelLabel | null): WidgetsTab
     static $gtype: GObject.Type
 }
 export interface WidgetsDynamicNotebook_ConstructProps extends Gtk.EventBox_ConstructProps {
@@ -8652,6 +8660,8 @@ export interface WidgetsDynamicNotebook_ConstructProps extends Gtk.EventBox_Cons
     allowPinning?: boolean
     forceLeft?: boolean
     addButtonTooltip?: string
+    newTabLabel?: AccelLabel
+    restoreTabLabel?: AccelLabel
     current?: WidgetsTab
     groupName?: string
     tabBarBehavior?: WidgetsDynamicNotebookTabBarBehavior
@@ -8757,6 +8767,8 @@ export class WidgetsDynamicNotebook {
     setForceLeft(value: boolean): void
     getAddButtonTooltip(): string
     setAddButtonTooltip(value: string): void
+    getNewTabLabel(): AccelLabel
+    getRestoreTabLabel(): AccelLabel
     getCurrent(): WidgetsTab
     setCurrent(value: WidgetsTab): void
     getTabs(): WidgetsTab[]
@@ -9827,6 +9839,7 @@ export class WidgetsDynamicNotebook {
     _init (config?: WidgetsDynamicNotebook_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): WidgetsDynamicNotebook
+    static withAccellabels(newTabLabel: AccelLabel, restoreTabLabel: AccelLabel): WidgetsDynamicNotebook
     static $gtype: GObject.Type
 }
 export interface WidgetsModeButton_ConstructProps extends Gtk.Box_ConstructProps {
@@ -26076,6 +26089,1246 @@ export class HeaderLabel {
     static new(str?: string | null): HeaderLabel
     static $gtype: GObject.Type
 }
+export interface HyperTextView_ConstructProps extends Gtk.TextView_ConstructProps {
+}
+export class HyperTextView {
+    /* Properties of Gtk-3.0.Gtk.TextView */
+    acceptsTab: boolean
+    bottomMargin: number
+    buffer: Gtk.TextBuffer
+    cursorVisible: boolean
+    editable: boolean
+    imModule: string
+    indent: number
+    inputHints: Gtk.InputHints
+    inputPurpose: Gtk.InputPurpose
+    justification: Gtk.Justification
+    leftMargin: number
+    monospace: boolean
+    overwrite: boolean
+    pixelsAboveLines: number
+    pixelsBelowLines: number
+    pixelsInsideWrap: number
+    populateAll: boolean
+    rightMargin: number
+    tabs: Pango.TabArray
+    topMargin: number
+    wrapMode: Gtk.WrapMode
+    /* Properties of Gtk-3.0.Gtk.Container */
+    borderWidth: number
+    child: Gtk.Widget
+    resizeMode: Gtk.ResizeMode
+    /* Properties of Gtk-3.0.Gtk.Widget */
+    appPaintable: boolean
+    canDefault: boolean
+    canFocus: boolean
+    readonly compositeChild: boolean
+    doubleBuffered: boolean
+    events: Gdk.EventMask
+    expand: boolean
+    focusOnClick: boolean
+    halign: Gtk.Align
+    hasDefault: boolean
+    hasFocus: boolean
+    hasTooltip: boolean
+    heightRequest: number
+    hexpand: boolean
+    hexpandSet: boolean
+    isFocus: boolean
+    margin: number
+    marginBottom: number
+    marginEnd: number
+    marginLeft: number
+    marginRight: number
+    marginStart: number
+    marginTop: number
+    name: string
+    noShowAll: boolean
+    opacity: number
+    parent: Gtk.Container
+    receivesDefault: boolean
+    readonly scaleFactor: number
+    sensitive: boolean
+    style: Gtk.Style
+    tooltipMarkup: string
+    tooltipText: string
+    valign: Gtk.Align
+    vexpand: boolean
+    vexpandSet: boolean
+    visible: boolean
+    widthRequest: number
+    readonly window: Gdk.Window
+    /* Fields of Gtk-3.0.Gtk.TextView */
+    parentInstance: Gtk.Container
+    /* Fields of Gtk-3.0.Gtk.Container */
+    widget: Gtk.Widget
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Gtk-3.0.Gtk.TextView */
+    addChildAtAnchor(child: Gtk.Widget, anchor: Gtk.TextChildAnchor): void
+    addChildInWindow(child: Gtk.Widget, whichWindow: Gtk.TextWindowType, xpos: number, ypos: number): void
+    backwardDisplayLine(iter: Gtk.TextIter): boolean
+    backwardDisplayLineStart(iter: Gtk.TextIter): boolean
+    bufferToWindowCoords(win: Gtk.TextWindowType, bufferX: number, bufferY: number): { windowX: number | null, windowY: number | null }
+    forwardDisplayLine(iter: Gtk.TextIter): boolean
+    forwardDisplayLineEnd(iter: Gtk.TextIter): boolean
+    getAcceptsTab(): boolean
+    getBorderWindowSize(type: Gtk.TextWindowType): number
+    getBottomMargin(): number
+    getBuffer(): Gtk.TextBuffer
+    getCursorLocations(iter?: Gtk.TextIter | null): { strong: Gdk.Rectangle | null, weak: Gdk.Rectangle | null }
+    getCursorVisible(): boolean
+    getDefaultAttributes(): Gtk.TextAttributes
+    getEditable(): boolean
+    getHadjustment(): Gtk.Adjustment
+    getIndent(): number
+    getInputHints(): Gtk.InputHints
+    getInputPurpose(): Gtk.InputPurpose
+    getIterAtLocation(x: number, y: number): { returnType: boolean, iter: Gtk.TextIter }
+    getIterAtPosition(x: number, y: number): { returnType: boolean, iter: Gtk.TextIter, trailing: number | null }
+    getIterLocation(iter: Gtk.TextIter): { location: Gdk.Rectangle }
+    getJustification(): Gtk.Justification
+    getLeftMargin(): number
+    getLineAtY(y: number): { targetIter: Gtk.TextIter, lineTop: number }
+    getLineYrange(iter: Gtk.TextIter): { y: number, height: number }
+    getMonospace(): boolean
+    getOverwrite(): boolean
+    getPixelsAboveLines(): number
+    getPixelsBelowLines(): number
+    getPixelsInsideWrap(): number
+    getRightMargin(): number
+    getTabs(): Pango.TabArray | null
+    getTopMargin(): number
+    getVadjustment(): Gtk.Adjustment
+    getVisibleRect(): { visibleRect: Gdk.Rectangle }
+    /* get_window clashes with Gtk.Widget.get_window */
+    getWindowType(window: Gdk.Window): Gtk.TextWindowType
+    getWrapMode(): Gtk.WrapMode
+    imContextFilterKeypress(event: Gdk.EventKey): boolean
+    moveChild(child: Gtk.Widget, xpos: number, ypos: number): void
+    moveMarkOnscreen(mark: Gtk.TextMark): boolean
+    moveVisually(iter: Gtk.TextIter, count: number): boolean
+    placeCursorOnscreen(): boolean
+    resetCursorBlink(): void
+    resetImContext(): void
+    scrollMarkOnscreen(mark: Gtk.TextMark): void
+    scrollToIter(iter: Gtk.TextIter, withinMargin: number, useAlign: boolean, xalign: number, yalign: number): boolean
+    scrollToMark(mark: Gtk.TextMark, withinMargin: number, useAlign: boolean, xalign: number, yalign: number): void
+    setAcceptsTab(acceptsTab: boolean): void
+    setBorderWindowSize(type: Gtk.TextWindowType, size: number): void
+    setBottomMargin(bottomMargin: number): void
+    setBuffer(buffer?: Gtk.TextBuffer | null): void
+    setCursorVisible(setting: boolean): void
+    setEditable(setting: boolean): void
+    setIndent(indent: number): void
+    setInputHints(hints: Gtk.InputHints): void
+    setInputPurpose(purpose: Gtk.InputPurpose): void
+    setJustification(justification: Gtk.Justification): void
+    setLeftMargin(leftMargin: number): void
+    setMonospace(monospace: boolean): void
+    setOverwrite(overwrite: boolean): void
+    setPixelsAboveLines(pixelsAboveLines: number): void
+    setPixelsBelowLines(pixelsBelowLines: number): void
+    setPixelsInsideWrap(pixelsInsideWrap: number): void
+    setRightMargin(rightMargin: number): void
+    setTabs(tabs: Pango.TabArray): void
+    setTopMargin(topMargin: number): void
+    setWrapMode(wrapMode: Gtk.WrapMode): void
+    startsDisplayLine(iter: Gtk.TextIter): boolean
+    windowToBufferCoords(win: Gtk.TextWindowType, windowX: number, windowY: number): { bufferX: number | null, bufferY: number | null }
+    /* Methods of Gtk-3.0.Gtk.Container */
+    add(widget: Gtk.Widget): void
+    checkResize(): void
+    childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
+    childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
+    childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    childType(): GObject.Type
+    forall(callback: Gtk.Callback): void
+    foreach(callback: Gtk.Callback): void
+    getBorderWidth(): number
+    getChildren(): Gtk.Widget[]
+    getFocusChain(): { returnType: boolean, focusableWidgets: Gtk.Widget[] }
+    getFocusChild(): Gtk.Widget | null
+    getFocusHadjustment(): Gtk.Adjustment | null
+    getFocusVadjustment(): Gtk.Adjustment | null
+    getPathForChild(child: Gtk.Widget): Gtk.WidgetPath
+    getResizeMode(): Gtk.ResizeMode
+    propagateDraw(child: Gtk.Widget, cr: cairo.Context): void
+    remove(widget: Gtk.Widget): void
+    resizeChildren(): void
+    setBorderWidth(borderWidth: number): void
+    setFocusChain(focusableWidgets: Gtk.Widget[]): void
+    setFocusChild(child?: Gtk.Widget | null): void
+    setFocusHadjustment(adjustment: Gtk.Adjustment): void
+    setFocusVadjustment(adjustment: Gtk.Adjustment): void
+    setReallocateRedraws(needsRedraws: boolean): void
+    setResizeMode(resizeMode: Gtk.ResizeMode): void
+    unsetFocusChain(): void
+    /* Methods of Gtk-3.0.Gtk.Widget */
+    activate(): boolean
+    addAccelerator(accelSignal: string, accelGroup: Gtk.AccelGroup, accelKey: number, accelMods: Gdk.ModifierType, accelFlags: Gtk.AccelFlags): void
+    addDeviceEvents(device: Gdk.Device, events: Gdk.EventMask): void
+    addEvents(events: number): void
+    addMnemonicLabel(label: Gtk.Widget): void
+    addTickCallback(callback: Gtk.TickCallback): number
+    canActivateAccel(signalId: number): boolean
+    childFocus(direction: Gtk.DirectionType): boolean
+    childNotify(childProperty: string): void
+    classPath(): { pathLength: number | null, path: string | null, pathReversed: string | null }
+    computeExpand(orientation: Gtk.Orientation): boolean
+    createPangoContext(): Pango.Context
+    createPangoLayout(text?: string | null): Pango.Layout
+    destroy(): void
+    destroyed(widgetPointer: Gtk.Widget): { widgetPointer: Gtk.Widget }
+    deviceIsShadowed(device: Gdk.Device): boolean
+    dragBegin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event?: Gdk.Event | null): Gdk.DragContext
+    dragBeginWithCoordinates(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null, x: number, y: number): Gdk.DragContext
+    dragCheckThreshold(startX: number, startY: number, currentX: number, currentY: number): boolean
+    dragDestAddImageTargets(): void
+    dragDestAddTextTargets(): void
+    dragDestAddUriTargets(): void
+    dragDestFindTarget(context: Gdk.DragContext, targetList?: Gtk.TargetList | null): Gdk.Atom
+    dragDestGetTargetList(): Gtk.TargetList | null
+    dragDestGetTrackMotion(): boolean
+    dragDestSet(flags: Gtk.DestDefaults, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
+    dragDestSetProxy(proxyWindow: Gdk.Window, protocol: Gdk.DragProtocol, useCoordinates: boolean): void
+    dragDestSetTargetList(targetList?: Gtk.TargetList | null): void
+    dragDestSetTrackMotion(trackMotion: boolean): void
+    dragDestUnset(): void
+    dragGetData(context: Gdk.DragContext, target: Gdk.Atom, time: number): void
+    dragHighlight(): void
+    dragSourceAddImageTargets(): void
+    dragSourceAddTextTargets(): void
+    dragSourceAddUriTargets(): void
+    dragSourceGetTargetList(): Gtk.TargetList | null
+    dragSourceSet(startButtonMask: Gdk.ModifierType, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
+    dragSourceSetIconGicon(icon: Gio.Icon): void
+    dragSourceSetIconName(iconName: string): void
+    dragSourceSetIconPixbuf(pixbuf: GdkPixbuf.Pixbuf): void
+    dragSourceSetIconStock(stockId: string): void
+    dragSourceSetTargetList(targetList?: Gtk.TargetList | null): void
+    dragSourceUnset(): void
+    dragUnhighlight(): void
+    draw(cr: cairo.Context): void
+    ensureStyle(): void
+    errorBell(): void
+    event(event: Gdk.Event): boolean
+    freezeChildNotify(): void
+    getAccessible(): Atk.Object
+    getActionGroup(prefix: string): Gio.ActionGroup | null
+    getAllocatedBaseline(): number
+    getAllocatedHeight(): number
+    getAllocatedSize(): { allocation: Gtk.Allocation, baseline: number | null }
+    getAllocatedWidth(): number
+    getAllocation(): { allocation: Gtk.Allocation }
+    getAncestor(widgetType: GObject.Type): Gtk.Widget | null
+    getAppPaintable(): boolean
+    getCanDefault(): boolean
+    getCanFocus(): boolean
+    getChildRequisition(): { requisition: Gtk.Requisition }
+    getChildVisible(): boolean
+    getClip(): { clip: Gtk.Allocation }
+    getClipboard(selection: Gdk.Atom): Gtk.Clipboard
+    getCompositeName(): string
+    getDeviceEnabled(device: Gdk.Device): boolean
+    getDeviceEvents(device: Gdk.Device): Gdk.EventMask
+    getDirection(): Gtk.TextDirection
+    getDisplay(): Gdk.Display
+    getDoubleBuffered(): boolean
+    getEvents(): number
+    getFocusOnClick(): boolean
+    getFontMap(): Pango.FontMap | null
+    getFontOptions(): cairo.FontOptions | null
+    getFrameClock(): Gdk.FrameClock | null
+    getHalign(): Gtk.Align
+    getHasTooltip(): boolean
+    getHasWindow(): boolean
+    getHexpand(): boolean
+    getHexpandSet(): boolean
+    getMapped(): boolean
+    getMarginBottom(): number
+    getMarginEnd(): number
+    getMarginLeft(): number
+    getMarginRight(): number
+    getMarginStart(): number
+    getMarginTop(): number
+    getModifierMask(intent: Gdk.ModifierIntent): Gdk.ModifierType
+    getModifierStyle(): Gtk.RcStyle
+    getName(): string
+    getNoShowAll(): boolean
+    getOpacity(): number
+    getPangoContext(): Pango.Context
+    getParent(): Gtk.Widget | null
+    getParentWindow(): Gdk.Window | null
+    getPath(): Gtk.WidgetPath
+    getPointer(): { x: number | null, y: number | null }
+    getPreferredHeight(): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredHeightAndBaselineForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
+    getPreferredHeightForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
+    getPreferredWidth(): { minimumWidth: number | null, naturalWidth: number | null }
+    getPreferredWidthForHeight(height: number): { minimumWidth: number | null, naturalWidth: number | null }
+    getRealized(): boolean
+    getReceivesDefault(): boolean
+    getRequestMode(): Gtk.SizeRequestMode
+    getRequisition(): { requisition: Gtk.Requisition }
+    getRootWindow(): Gdk.Window
+    getScaleFactor(): number
+    getScreen(): Gdk.Screen
+    getSensitive(): boolean
+    getSettings(): Gtk.Settings
+    getSizeRequest(): { width: number | null, height: number | null }
+    getState(): Gtk.StateType
+    getStateFlags(): Gtk.StateFlags
+    getStyle(): Gtk.Style
+    getStyleContext(): Gtk.StyleContext
+    getSupportMultidevice(): boolean
+    getTemplateChild(widgetType: GObject.Type, name: string): GObject.Object
+    getTooltipMarkup(): string | null
+    getTooltipText(): string | null
+    getTooltipWindow(): Gtk.Window
+    getToplevel(): Gtk.Widget
+    getValign(): Gtk.Align
+    getValignWithBaseline(): Gtk.Align
+    getVexpand(): boolean
+    getVexpandSet(): boolean
+    getVisible(): boolean
+    getVisual(): Gdk.Visual
+    getWindow(): Gdk.Window | null
+    grabAdd(): void
+    grabDefault(): void
+    grabFocus(): void
+    grabRemove(): void
+    hasGrab(): boolean
+    hasRcStyle(): boolean
+    hasScreen(): boolean
+    hasVisibleFocus(): boolean
+    hide(): void
+    hideOnDelete(): boolean
+    inDestruction(): boolean
+    initTemplate(): void
+    inputShapeCombineRegion(region?: cairo.Region | null): void
+    insertActionGroup(name: string, group?: Gio.ActionGroup | null): void
+    intersect(area: Gdk.Rectangle): { returnType: boolean, intersection: Gdk.Rectangle | null }
+    isAncestor(ancestor: Gtk.Widget): boolean
+    isComposited(): boolean
+    isDrawable(): boolean
+    isSensitive(): boolean
+    isToplevel(): boolean
+    isVisible(): boolean
+    keynavFailed(direction: Gtk.DirectionType): boolean
+    listAccelClosures(): Function[]
+    listActionPrefixes(): string[]
+    listMnemonicLabels(): Gtk.Widget[]
+    map(): void
+    mnemonicActivate(groupCycling: boolean): boolean
+    modifyBase(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modifyBg(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modifyCursor(primary?: Gdk.Color | null, secondary?: Gdk.Color | null): void
+    modifyFg(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modifyFont(fontDesc?: Pango.FontDescription | null): void
+    modifyStyle(style: Gtk.RcStyle): void
+    modifyText(state: Gtk.StateType, color?: Gdk.Color | null): void
+    overrideBackgroundColor(state: Gtk.StateFlags, color?: Gdk.RGBA | null): void
+    overrideColor(state: Gtk.StateFlags, color?: Gdk.RGBA | null): void
+    overrideCursor(cursor?: Gdk.RGBA | null, secondaryCursor?: Gdk.RGBA | null): void
+    overrideFont(fontDesc?: Pango.FontDescription | null): void
+    overrideSymbolicColor(name: string, color?: Gdk.RGBA | null): void
+    path(): { pathLength: number | null, path: string | null, pathReversed: string | null }
+    queueAllocate(): void
+    queueComputeExpand(): void
+    queueDraw(): void
+    queueDrawArea(x: number, y: number, width: number, height: number): void
+    queueDrawRegion(region: cairo.Region): void
+    queueResize(): void
+    queueResizeNoRedraw(): void
+    realize(): void
+    regionIntersect(region: cairo.Region): cairo.Region
+    registerWindow(window: Gdk.Window): void
+    removeAccelerator(accelGroup: Gtk.AccelGroup, accelKey: number, accelMods: Gdk.ModifierType): boolean
+    removeMnemonicLabel(label: Gtk.Widget): void
+    removeTickCallback(id: number): void
+    renderIcon(stockId: string, size: number, detail?: string | null): GdkPixbuf.Pixbuf | null
+    renderIconPixbuf(stockId: string, size: number): GdkPixbuf.Pixbuf | null
+    reparent(newParent: Gtk.Widget): void
+    resetRcStyles(): void
+    resetStyle(): void
+    sendExpose(event: Gdk.Event): number
+    sendFocusChange(event: Gdk.Event): boolean
+    setAccelPath(accelPath?: string | null, accelGroup?: Gtk.AccelGroup | null): void
+    setAllocation(allocation: Gtk.Allocation): void
+    setAppPaintable(appPaintable: boolean): void
+    setCanDefault(canDefault: boolean): void
+    setCanFocus(canFocus: boolean): void
+    setChildVisible(isVisible: boolean): void
+    setClip(clip: Gtk.Allocation): void
+    setCompositeName(name: string): void
+    setDeviceEnabled(device: Gdk.Device, enabled: boolean): void
+    setDeviceEvents(device: Gdk.Device, events: Gdk.EventMask): void
+    setDirection(dir: Gtk.TextDirection): void
+    setDoubleBuffered(doubleBuffered: boolean): void
+    setEvents(events: number): void
+    setFocusOnClick(focusOnClick: boolean): void
+    setFontMap(fontMap?: Pango.FontMap | null): void
+    setFontOptions(options?: cairo.FontOptions | null): void
+    setHalign(align: Gtk.Align): void
+    setHasTooltip(hasTooltip: boolean): void
+    setHasWindow(hasWindow: boolean): void
+    setHexpand(expand: boolean): void
+    setHexpandSet(set: boolean): void
+    setMapped(mapped: boolean): void
+    setMarginBottom(margin: number): void
+    setMarginEnd(margin: number): void
+    setMarginLeft(margin: number): void
+    setMarginRight(margin: number): void
+    setMarginStart(margin: number): void
+    setMarginTop(margin: number): void
+    setName(name: string): void
+    setNoShowAll(noShowAll: boolean): void
+    setOpacity(opacity: number): void
+    setParent(parent: Gtk.Widget): void
+    setParentWindow(parentWindow: Gdk.Window): void
+    setRealized(realized: boolean): void
+    setReceivesDefault(receivesDefault: boolean): void
+    setRedrawOnAllocate(redrawOnAllocate: boolean): void
+    setSensitive(sensitive: boolean): void
+    setSizeRequest(width: number, height: number): void
+    setState(state: Gtk.StateType): void
+    setStateFlags(flags: Gtk.StateFlags, clear: boolean): void
+    setStyle(style?: Gtk.Style | null): void
+    setSupportMultidevice(supportMultidevice: boolean): void
+    setTooltipMarkup(markup?: string | null): void
+    setTooltipText(text?: string | null): void
+    setTooltipWindow(customWindow?: Gtk.Window | null): void
+    setValign(align: Gtk.Align): void
+    setVexpand(expand: boolean): void
+    setVexpandSet(set: boolean): void
+    setVisible(visible: boolean): void
+    setVisual(visual?: Gdk.Visual | null): void
+    setWindow(window: Gdk.Window): void
+    shapeCombineRegion(region?: cairo.Region | null): void
+    show(): void
+    showAll(): void
+    showNow(): void
+    sizeAllocate(allocation: Gtk.Allocation): void
+    sizeAllocateWithBaseline(allocation: Gtk.Allocation, baseline: number): void
+    sizeRequest(): { requisition: Gtk.Requisition }
+    styleAttach(): void
+    styleGetProperty(propertyName: string, value: any): void
+    thawChildNotify(): void
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
+    triggerTooltipQuery(): void
+    unmap(): void
+    unparent(): void
+    unrealize(): void
+    unregisterWindow(window: Gdk.Window): void
+    unsetStateFlags(flags: Gtk.StateFlags): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of Gtk-3.0.Gtk.TextView */
+    connect(sigName: "backspace", callback: (($obj: HyperTextView) => void)): number
+    on(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "backspace", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "backspace", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "backspace"): void
+    connect(sigName: "copy-clipboard", callback: (($obj: HyperTextView) => void)): number
+    on(sigName: "copy-clipboard", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "copy-clipboard", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "copy-clipboard", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "copy-clipboard"): void
+    connect(sigName: "cut-clipboard", callback: (($obj: HyperTextView) => void)): number
+    on(sigName: "cut-clipboard", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "cut-clipboard", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "cut-clipboard", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "cut-clipboard"): void
+    connect(sigName: "delete-from-cursor", callback: (($obj: HyperTextView, type: Gtk.DeleteType, count: number) => void)): number
+    on(sigName: "delete-from-cursor", callback: (type: Gtk.DeleteType, count: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "delete-from-cursor", callback: (type: Gtk.DeleteType, count: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "delete-from-cursor", callback: (type: Gtk.DeleteType, count: number) => void): NodeJS.EventEmitter
+    emit(sigName: "delete-from-cursor", type: Gtk.DeleteType, count: number): void
+    connect(sigName: "extend-selection", callback: (($obj: HyperTextView, granularity: Gtk.TextExtendSelection, location: Gtk.TextIter, start: Gtk.TextIter, end: Gtk.TextIter) => boolean)): number
+    on(sigName: "extend-selection", callback: (granularity: Gtk.TextExtendSelection, location: Gtk.TextIter, start: Gtk.TextIter, end: Gtk.TextIter) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "extend-selection", callback: (granularity: Gtk.TextExtendSelection, location: Gtk.TextIter, start: Gtk.TextIter, end: Gtk.TextIter) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "extend-selection", callback: (granularity: Gtk.TextExtendSelection, location: Gtk.TextIter, start: Gtk.TextIter, end: Gtk.TextIter) => void): NodeJS.EventEmitter
+    emit(sigName: "extend-selection", granularity: Gtk.TextExtendSelection, location: Gtk.TextIter, start: Gtk.TextIter, end: Gtk.TextIter): void
+    connect(sigName: "insert-at-cursor", callback: (($obj: HyperTextView, string: string) => void)): number
+    on(sigName: "insert-at-cursor", callback: (string: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "insert-at-cursor", callback: (string: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "insert-at-cursor", callback: (string: string) => void): NodeJS.EventEmitter
+    emit(sigName: "insert-at-cursor", string: string): void
+    connect(sigName: "insert-emoji", callback: (($obj: HyperTextView) => void)): number
+    on(sigName: "insert-emoji", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "insert-emoji", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "insert-emoji", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "insert-emoji"): void
+    connect(sigName: "move-cursor", callback: (($obj: HyperTextView, step: Gtk.MovementStep, count: number, extendSelection: boolean) => void)): number
+    on(sigName: "move-cursor", callback: (step: Gtk.MovementStep, count: number, extendSelection: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-cursor", callback: (step: Gtk.MovementStep, count: number, extendSelection: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-cursor", callback: (step: Gtk.MovementStep, count: number, extendSelection: boolean) => void): NodeJS.EventEmitter
+    emit(sigName: "move-cursor", step: Gtk.MovementStep, count: number, extendSelection: boolean): void
+    connect(sigName: "move-viewport", callback: (($obj: HyperTextView, step: Gtk.ScrollStep, count: number) => void)): number
+    on(sigName: "move-viewport", callback: (step: Gtk.ScrollStep, count: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-viewport", callback: (step: Gtk.ScrollStep, count: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-viewport", callback: (step: Gtk.ScrollStep, count: number) => void): NodeJS.EventEmitter
+    emit(sigName: "move-viewport", step: Gtk.ScrollStep, count: number): void
+    connect(sigName: "paste-clipboard", callback: (($obj: HyperTextView) => void)): number
+    on(sigName: "paste-clipboard", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "paste-clipboard", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "paste-clipboard", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "paste-clipboard"): void
+    connect(sigName: "populate-popup", callback: (($obj: HyperTextView, popup: Gtk.Widget) => void)): number
+    on(sigName: "populate-popup", callback: (popup: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "populate-popup", callback: (popup: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "populate-popup", callback: (popup: Gtk.Widget) => void): NodeJS.EventEmitter
+    emit(sigName: "populate-popup", popup: Gtk.Widget): void
+    connect(sigName: "preedit-changed", callback: (($obj: HyperTextView, preedit: string) => void)): number
+    on(sigName: "preedit-changed", callback: (preedit: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "preedit-changed", callback: (preedit: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "preedit-changed", callback: (preedit: string) => void): NodeJS.EventEmitter
+    emit(sigName: "preedit-changed", preedit: string): void
+    connect(sigName: "select-all", callback: (($obj: HyperTextView, select: boolean) => void)): number
+    on(sigName: "select-all", callback: (select: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "select-all", callback: (select: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "select-all", callback: (select: boolean) => void): NodeJS.EventEmitter
+    emit(sigName: "select-all", select: boolean): void
+    connect(sigName: "set-anchor", callback: (($obj: HyperTextView) => void)): number
+    on(sigName: "set-anchor", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-anchor", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-anchor", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "set-anchor"): void
+    connect(sigName: "toggle-cursor-visible", callback: (($obj: HyperTextView) => void)): number
+    on(sigName: "toggle-cursor-visible", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "toggle-cursor-visible", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "toggle-cursor-visible", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "toggle-cursor-visible"): void
+    connect(sigName: "toggle-overwrite", callback: (($obj: HyperTextView) => void)): number
+    on(sigName: "toggle-overwrite", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "toggle-overwrite", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "toggle-overwrite", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "toggle-overwrite"): void
+    /* Signals of Gtk-3.0.Gtk.Container */
+    connect(sigName: "add", callback: (($obj: HyperTextView, object: Gtk.Widget) => void)): number
+    on(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "add", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
+    emit(sigName: "add", object: Gtk.Widget): void
+    connect(sigName: "check-resize", callback: (($obj: HyperTextView) => void)): number
+    on(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "check-resize", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "check-resize"): void
+    connect(sigName: "remove", callback: (($obj: HyperTextView, object: Gtk.Widget) => void)): number
+    on(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "remove", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
+    emit(sigName: "remove", object: Gtk.Widget): void
+    connect(sigName: "set-focus-child", callback: (($obj: HyperTextView, object: Gtk.Widget) => void)): number
+    on(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
+    emit(sigName: "set-focus-child", object: Gtk.Widget): void
+    /* Signals of Gtk-3.0.Gtk.Widget */
+    connect(sigName: "accel-closures-changed", callback: (($obj: HyperTextView) => void)): number
+    on(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "accel-closures-changed", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "accel-closures-changed"): void
+    connect(sigName: "button-press-event", callback: (($obj: HyperTextView, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
+    emit(sigName: "button-press-event", event: Gdk.EventButton): void
+    connect(sigName: "button-release-event", callback: (($obj: HyperTextView, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
+    emit(sigName: "button-release-event", event: Gdk.EventButton): void
+    connect(sigName: "can-activate-accel", callback: (($obj: HyperTextView, signalId: number) => boolean)): number
+    on(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "can-activate-accel", callback: (signalId: number) => void): NodeJS.EventEmitter
+    emit(sigName: "can-activate-accel", signalId: number): void
+    connect(sigName: "child-notify", callback: (($obj: HyperTextView, childProperty: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "child-notify", childProperty: GObject.ParamSpec): void
+    connect(sigName: "composited-changed", callback: (($obj: HyperTextView) => void)): number
+    on(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "composited-changed", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "composited-changed"): void
+    connect(sigName: "configure-event", callback: (($obj: HyperTextView, event: Gdk.EventConfigure) => boolean)): number
+    on(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void): NodeJS.EventEmitter
+    emit(sigName: "configure-event", event: Gdk.EventConfigure): void
+    connect(sigName: "damage-event", callback: (($obj: HyperTextView, event: Gdk.EventExpose) => boolean)): number
+    on(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void): NodeJS.EventEmitter
+    emit(sigName: "damage-event", event: Gdk.EventExpose): void
+    connect(sigName: "delete-event", callback: (($obj: HyperTextView, event: Gdk.Event) => boolean)): number
+    on(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "delete-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
+    emit(sigName: "delete-event", event: Gdk.Event): void
+    connect(sigName: "destroy", callback: (($obj: HyperTextView) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "destroy"): void
+    connect(sigName: "destroy-event", callback: (($obj: HyperTextView, event: Gdk.Event) => boolean)): number
+    on(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
+    emit(sigName: "destroy-event", event: Gdk.Event): void
+    connect(sigName: "direction-changed", callback: (($obj: HyperTextView, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
+    emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
+    connect(sigName: "drag-begin", callback: (($obj: HyperTextView, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
+    emit(sigName: "drag-begin", context: Gdk.DragContext): void
+    connect(sigName: "drag-data-delete", callback: (($obj: HyperTextView, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
+    emit(sigName: "drag-data-delete", context: Gdk.DragContext): void
+    connect(sigName: "drag-data-get", callback: (($obj: HyperTextView, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
+    emit(sigName: "drag-data-get", context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number): void
+    connect(sigName: "drag-data-received", callback: (($obj: HyperTextView, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
+    emit(sigName: "drag-data-received", context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number): void
+    connect(sigName: "drag-drop", callback: (($obj: HyperTextView, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
+    emit(sigName: "drag-drop", context: Gdk.DragContext, x: number, y: number, time: number): void
+    connect(sigName: "drag-end", callback: (($obj: HyperTextView, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-end", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
+    emit(sigName: "drag-end", context: Gdk.DragContext): void
+    connect(sigName: "drag-failed", callback: (($obj: HyperTextView, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
+    on(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void): NodeJS.EventEmitter
+    emit(sigName: "drag-failed", context: Gdk.DragContext, result: Gtk.DragResult): void
+    connect(sigName: "drag-leave", callback: (($obj: HyperTextView, context: Gdk.DragContext, time: number) => void)): number
+    on(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void): NodeJS.EventEmitter
+    emit(sigName: "drag-leave", context: Gdk.DragContext, time: number): void
+    connect(sigName: "drag-motion", callback: (($obj: HyperTextView, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
+    emit(sigName: "drag-motion", context: Gdk.DragContext, x: number, y: number, time: number): void
+    connect(sigName: "draw", callback: (($obj: HyperTextView, cr: cairo.Context) => boolean)): number
+    on(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "draw", callback: (cr: cairo.Context) => void): NodeJS.EventEmitter
+    emit(sigName: "draw", cr: cairo.Context): void
+    connect(sigName: "enter-notify-event", callback: (($obj: HyperTextView, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
+    emit(sigName: "enter-notify-event", event: Gdk.EventCrossing): void
+    connect(sigName: "event", callback: (($obj: HyperTextView, event: Gdk.Event) => boolean)): number
+    on(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
+    emit(sigName: "event", event: Gdk.Event): void
+    connect(sigName: "event-after", callback: (($obj: HyperTextView, event: Gdk.Event) => void)): number
+    on(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event-after", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
+    emit(sigName: "event-after", event: Gdk.Event): void
+    connect(sigName: "focus", callback: (($obj: HyperTextView, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
+    emit(sigName: "focus", direction: Gtk.DirectionType): void
+    connect(sigName: "focus-in-event", callback: (($obj: HyperTextView, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
+    emit(sigName: "focus-in-event", event: Gdk.EventFocus): void
+    connect(sigName: "focus-out-event", callback: (($obj: HyperTextView, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
+    emit(sigName: "focus-out-event", event: Gdk.EventFocus): void
+    connect(sigName: "grab-broken-event", callback: (($obj: HyperTextView, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
+    emit(sigName: "grab-broken-event", event: Gdk.EventGrabBroken): void
+    connect(sigName: "grab-focus", callback: (($obj: HyperTextView) => void)): number
+    on(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-focus", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "grab-focus"): void
+    connect(sigName: "grab-notify", callback: (($obj: HyperTextView, wasGrabbed: boolean) => void)): number
+    on(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void): NodeJS.EventEmitter
+    emit(sigName: "grab-notify", wasGrabbed: boolean): void
+    connect(sigName: "hide", callback: (($obj: HyperTextView) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "hide"): void
+    connect(sigName: "hierarchy-changed", callback: (($obj: HyperTextView, previousToplevel?: Gtk.Widget | null) => void)): number
+    on(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void): NodeJS.EventEmitter
+    emit(sigName: "hierarchy-changed", previousToplevel?: Gtk.Widget | null): void
+    connect(sigName: "key-press-event", callback: (($obj: HyperTextView, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
+    emit(sigName: "key-press-event", event: Gdk.EventKey): void
+    connect(sigName: "key-release-event", callback: (($obj: HyperTextView, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
+    emit(sigName: "key-release-event", event: Gdk.EventKey): void
+    connect(sigName: "keynav-failed", callback: (($obj: HyperTextView, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
+    emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
+    connect(sigName: "leave-notify-event", callback: (($obj: HyperTextView, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
+    emit(sigName: "leave-notify-event", event: Gdk.EventCrossing): void
+    connect(sigName: "map", callback: (($obj: HyperTextView) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "map"): void
+    connect(sigName: "map-event", callback: (($obj: HyperTextView, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
+    emit(sigName: "map-event", event: Gdk.EventAny): void
+    connect(sigName: "mnemonic-activate", callback: (($obj: HyperTextView, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
+    emit(sigName: "mnemonic-activate", groupCycling: boolean): void
+    connect(sigName: "motion-notify-event", callback: (($obj: HyperTextView, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void): NodeJS.EventEmitter
+    emit(sigName: "motion-notify-event", event: Gdk.EventMotion): void
+    connect(sigName: "move-focus", callback: (($obj: HyperTextView, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
+    emit(sigName: "move-focus", direction: Gtk.DirectionType): void
+    connect(sigName: "parent-set", callback: (($obj: HyperTextView, oldParent?: Gtk.Widget | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void): NodeJS.EventEmitter
+    emit(sigName: "parent-set", oldParent?: Gtk.Widget | null): void
+    connect(sigName: "popup-menu", callback: (($obj: HyperTextView) => boolean)): number
+    on(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "popup-menu", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "popup-menu"): void
+    connect(sigName: "property-notify-event", callback: (($obj: HyperTextView, event: Gdk.EventProperty) => boolean)): number
+    on(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void): NodeJS.EventEmitter
+    emit(sigName: "property-notify-event", event: Gdk.EventProperty): void
+    connect(sigName: "proximity-in-event", callback: (($obj: HyperTextView, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
+    emit(sigName: "proximity-in-event", event: Gdk.EventProximity): void
+    connect(sigName: "proximity-out-event", callback: (($obj: HyperTextView, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
+    emit(sigName: "proximity-out-event", event: Gdk.EventProximity): void
+    connect(sigName: "query-tooltip", callback: (($obj: HyperTextView, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
+    emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
+    connect(sigName: "realize", callback: (($obj: HyperTextView) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "realize"): void
+    connect(sigName: "screen-changed", callback: (($obj: HyperTextView, previousScreen?: Gdk.Screen | null) => void)): number
+    on(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void): NodeJS.EventEmitter
+    emit(sigName: "screen-changed", previousScreen?: Gdk.Screen | null): void
+    connect(sigName: "scroll-event", callback: (($obj: HyperTextView, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void): NodeJS.EventEmitter
+    emit(sigName: "scroll-event", event: Gdk.EventScroll): void
+    connect(sigName: "selection-clear-event", callback: (($obj: HyperTextView, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
+    emit(sigName: "selection-clear-event", event: Gdk.EventSelection): void
+    connect(sigName: "selection-get", callback: (($obj: HyperTextView, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
+    emit(sigName: "selection-get", data: Gtk.SelectionData, info: number, time: number): void
+    connect(sigName: "selection-notify-event", callback: (($obj: HyperTextView, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
+    emit(sigName: "selection-notify-event", event: Gdk.EventSelection): void
+    connect(sigName: "selection-received", callback: (($obj: HyperTextView, data: Gtk.SelectionData, time: number) => void)): number
+    on(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void): NodeJS.EventEmitter
+    emit(sigName: "selection-received", data: Gtk.SelectionData, time: number): void
+    connect(sigName: "selection-request-event", callback: (($obj: HyperTextView, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
+    emit(sigName: "selection-request-event", event: Gdk.EventSelection): void
+    connect(sigName: "show", callback: (($obj: HyperTextView) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "show"): void
+    connect(sigName: "show-help", callback: (($obj: HyperTextView, helpType: Gtk.WidgetHelpType) => boolean)): number
+    on(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void): NodeJS.EventEmitter
+    emit(sigName: "show-help", helpType: Gtk.WidgetHelpType): void
+    connect(sigName: "size-allocate", callback: (($obj: HyperTextView, allocation: Gtk.Allocation) => void)): number
+    on(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void): NodeJS.EventEmitter
+    emit(sigName: "size-allocate", allocation: Gtk.Allocation): void
+    connect(sigName: "state-changed", callback: (($obj: HyperTextView, state: Gtk.StateType) => void)): number
+    on(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (state: Gtk.StateType) => void): NodeJS.EventEmitter
+    emit(sigName: "state-changed", state: Gtk.StateType): void
+    connect(sigName: "state-flags-changed", callback: (($obj: HyperTextView, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
+    emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
+    connect(sigName: "style-set", callback: (($obj: HyperTextView, previousStyle?: Gtk.Style | null) => void)): number
+    on(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void): NodeJS.EventEmitter
+    emit(sigName: "style-set", previousStyle?: Gtk.Style | null): void
+    connect(sigName: "style-updated", callback: (($obj: HyperTextView) => void)): number
+    on(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-updated", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "style-updated"): void
+    connect(sigName: "touch-event", callback: (($obj: HyperTextView, object: Gdk.Event) => boolean)): number
+    on(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (object: Gdk.Event) => void): NodeJS.EventEmitter
+    emit(sigName: "touch-event", object: Gdk.Event): void
+    connect(sigName: "unmap", callback: (($obj: HyperTextView) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "unmap"): void
+    connect(sigName: "unmap-event", callback: (($obj: HyperTextView, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
+    emit(sigName: "unmap-event", event: Gdk.EventAny): void
+    connect(sigName: "unrealize", callback: (($obj: HyperTextView) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "unrealize"): void
+    connect(sigName: "visibility-notify-event", callback: (($obj: HyperTextView, event: Gdk.EventVisibility) => boolean)): number
+    on(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void): NodeJS.EventEmitter
+    emit(sigName: "visibility-notify-event", event: Gdk.EventVisibility): void
+    connect(sigName: "window-state-event", callback: (($obj: HyperTextView, event: Gdk.EventWindowState) => boolean)): number
+    on(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void): NodeJS.EventEmitter
+    emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::accepts-tab", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::accepts-tab", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accepts-tab", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::accepts-tab", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::accepts-tab", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::bottom-margin", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::bottom-margin", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::bottom-margin", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::bottom-margin", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::bottom-margin", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::buffer", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::buffer", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::buffer", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::buffer", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::buffer", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::cursor-visible", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::cursor-visible", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::cursor-visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::cursor-visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::cursor-visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::editable", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::editable", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::editable", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::editable", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::editable", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::im-module", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::im-module", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::im-module", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::im-module", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::im-module", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::indent", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::indent", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::indent", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::indent", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::indent", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::input-hints", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::input-hints", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::input-hints", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::input-hints", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::input-hints", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::input-purpose", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::input-purpose", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::input-purpose", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::input-purpose", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::input-purpose", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::justification", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::justification", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::justification", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::justification", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::justification", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::left-margin", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::left-margin", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::left-margin", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::left-margin", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::left-margin", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::monospace", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::monospace", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::monospace", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::monospace", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::monospace", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::overwrite", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::overwrite", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::overwrite", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::overwrite", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::overwrite", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::pixels-above-lines", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::pixels-above-lines", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::pixels-above-lines", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::pixels-above-lines", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::pixels-above-lines", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::pixels-below-lines", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::pixels-below-lines", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::pixels-below-lines", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::pixels-below-lines", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::pixels-below-lines", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::pixels-inside-wrap", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::pixels-inside-wrap", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::pixels-inside-wrap", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::pixels-inside-wrap", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::pixels-inside-wrap", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::populate-all", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::populate-all", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::populate-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::populate-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::populate-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::right-margin", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::right-margin", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::right-margin", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::right-margin", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::right-margin", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::tabs", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::tabs", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tabs", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::tabs", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::tabs", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::top-margin", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::top-margin", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::top-margin", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::top-margin", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::top-margin", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::wrap-mode", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::wrap-mode", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::wrap-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::wrap-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::wrap-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::border-width", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::border-width", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::border-width", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::border-width", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::border-width", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::child", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::child", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::child", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::child", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::child", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::resize-mode", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::resize-mode", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::resize-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::resize-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::resize-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::app-paintable", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::app-paintable", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::app-paintable", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::app-paintable", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::app-paintable", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::can-default", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::can-default", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::can-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::can-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::can-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::can-focus", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::can-focus", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::can-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::can-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::can-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::composite-child", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::composite-child", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::composite-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::composite-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::composite-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::double-buffered", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::double-buffered", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::double-buffered", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::double-buffered", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::double-buffered", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::events", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::events", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::events", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::events", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::events", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::expand", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::expand", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::focus-on-click", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::focus-on-click", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::focus-on-click", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::focus-on-click", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::focus-on-click", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::halign", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::halign", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::halign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::halign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::halign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::has-default", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::has-default", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::has-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::has-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::has-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::has-focus", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::has-focus", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::has-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::has-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::has-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::has-tooltip", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::has-tooltip", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::has-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::has-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::has-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::height-request", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::height-request", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::height-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::height-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::height-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::hexpand", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::hexpand", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::hexpand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::hexpand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::hexpand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::hexpand-set", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::hexpand-set", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::hexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::hexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::hexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::is-focus", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::is-focus", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::margin", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::margin", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::margin", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::margin-bottom", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin-bottom", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-bottom", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::margin-bottom", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::margin-bottom", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::margin-end", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin-end", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::margin-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::margin-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::margin-left", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin-left", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-left", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::margin-left", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::margin-left", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::margin-right", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin-right", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-right", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::margin-right", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::margin-right", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::margin-start", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin-start", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::margin-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::margin-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::margin-top", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin-top", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-top", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::margin-top", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::margin-top", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::name", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::name", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::no-show-all", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::no-show-all", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::no-show-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::no-show-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::no-show-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::opacity", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::opacity", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::opacity", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::opacity", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::opacity", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::parent", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parent", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::receives-default", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::receives-default", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::receives-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::receives-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::receives-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::scale-factor", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::scale-factor", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::scale-factor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::scale-factor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::scale-factor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::sensitive", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::sensitive", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::sensitive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::sensitive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::sensitive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::style", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::style", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::style", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::style", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::style", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::tooltip-markup", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::tooltip-markup", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tooltip-markup", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::tooltip-markup", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::tooltip-markup", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::tooltip-text", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::tooltip-text", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tooltip-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::tooltip-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::tooltip-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::valign", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::valign", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::valign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::valign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::valign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::vexpand", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::vexpand", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::vexpand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::vexpand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::vexpand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::vexpand-set", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::vexpand-set", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::vexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::vexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::vexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::visible", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::visible", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::width-request", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::width-request", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::width-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::width-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::width-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::window", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::window", callback: (($obj: HyperTextView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::window", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::window", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::window", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: HyperTextView_ConstructProps)
+    _init (config?: HyperTextView_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): HyperTextView
+    static $gtype: GObject.Type
+}
 export interface MessageDialog_ConstructProps extends Dialog_ConstructProps {
     primaryText?: string
     secondaryText?: string
@@ -29594,63 +30847,6 @@ export class SeekBar {
     static new(): SeekBar
     static $gtype: GObject.Type
 }
-export interface Settings_ConstructProps extends GObject.Object_ConstructProps {
-    prefersColorScheme?: SettingsColorScheme
-}
-export class Settings {
-    /* Properties of Granite-1.0.Granite.Settings */
-    prefersColorScheme: SettingsColorScheme
-    /* Fields of GObject-2.0.GObject.Object */
-    gTypeInstance: GObject.TypeInstance
-    /* Methods of Granite-1.0.Granite.Settings */
-    getPrefersColorScheme(): SettingsColorScheme
-    /* Methods of GObject-2.0.GObject.Object */
-    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
-    forceFloating(): void
-    freezeNotify(): void
-    getData(key: string): object | null
-    getProperty(propertyName: string, value: any): void
-    getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    isFloating(): boolean
-    notify(propertyName: string): void
-    notifyByPspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    refSink(): GObject.Object
-    runDispose(): void
-    setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: any): void
-    stealData(key: string): object | null
-    stealQdata(quark: GLib.Quark): object | null
-    thawNotify(): void
-    unref(): void
-    watchClosure(closure: Function): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::prefers-color-scheme", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::prefers-color-scheme", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::prefers-color-scheme", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::prefers-color-scheme", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::prefers-color-scheme", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    on(sigName: string, callback: any): NodeJS.EventEmitter
-    once(sigName: string, callback: any): NodeJS.EventEmitter
-    off(sigName: string, callback: any): NodeJS.EventEmitter
-    static name: string
-    constructor (config?: Settings_ConstructProps)
-    _init (config?: Settings_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static getDefault(): Settings
-    static $gtype: GObject.Type
-}
 export interface SettingsSidebar_ConstructProps extends Gtk.ScrolledWindow_ConstructProps {
     stack?: Gtk.Stack
     visibleChildName?: string
@@ -30775,12 +31971,1200 @@ export class SettingsSidebar {
     static new(hadjustment?: Gtk.Adjustment | null, vadjustment?: Gtk.Adjustment | null): SettingsSidebar
     static $gtype: GObject.Type
 }
+export interface Settings_ConstructProps extends GObject.Object_ConstructProps {
+    prefersColorScheme?: SettingsColorScheme
+}
+export class Settings {
+    /* Properties of Granite-1.0.Granite.Settings */
+    prefersColorScheme: SettingsColorScheme
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Granite-1.0.Granite.Settings */
+    getPrefersColorScheme(): SettingsColorScheme
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::prefers-color-scheme", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::prefers-color-scheme", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::prefers-color-scheme", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::prefers-color-scheme", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::prefers-color-scheme", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: Settings_ConstructProps)
+    _init (config?: Settings_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static getDefault(): Settings
+    static $gtype: GObject.Type
+}
+export interface SwitchModelButton_ConstructProps extends Gtk.ToggleButton_ConstructProps {
+    text?: string
+    description?: string
+}
+export class SwitchModelButton {
+    /* Properties of Granite-1.0.Granite.SwitchModelButton */
+    text: string
+    description: string
+    /* Properties of Gtk-3.0.Gtk.ToggleButton */
+    active: boolean
+    drawIndicator: boolean
+    inconsistent: boolean
+    /* Properties of Gtk-3.0.Gtk.Button */
+    alwaysShowImage: boolean
+    image: Gtk.Widget
+    imagePosition: Gtk.PositionType
+    label: string
+    relief: Gtk.ReliefStyle
+    useStock: boolean
+    useUnderline: boolean
+    xalign: number
+    yalign: number
+    /* Properties of Gtk-3.0.Gtk.Container */
+    borderWidth: number
+    child: Gtk.Widget
+    resizeMode: Gtk.ResizeMode
+    /* Properties of Gtk-3.0.Gtk.Widget */
+    appPaintable: boolean
+    canDefault: boolean
+    canFocus: boolean
+    readonly compositeChild: boolean
+    doubleBuffered: boolean
+    events: Gdk.EventMask
+    expand: boolean
+    focusOnClick: boolean
+    halign: Gtk.Align
+    hasDefault: boolean
+    hasFocus: boolean
+    hasTooltip: boolean
+    heightRequest: number
+    hexpand: boolean
+    hexpandSet: boolean
+    isFocus: boolean
+    margin: number
+    marginBottom: number
+    marginEnd: number
+    marginLeft: number
+    marginRight: number
+    marginStart: number
+    marginTop: number
+    name: string
+    noShowAll: boolean
+    opacity: number
+    parent: Gtk.Container
+    receivesDefault: boolean
+    readonly scaleFactor: number
+    sensitive: boolean
+    style: Gtk.Style
+    tooltipMarkup: string
+    tooltipText: string
+    valign: Gtk.Align
+    vexpand: boolean
+    vexpandSet: boolean
+    visible: boolean
+    widthRequest: number
+    readonly window: Gdk.Window
+    /* Fields of Gtk-3.0.Gtk.Bin */
+    container: Gtk.Container
+    /* Fields of Gtk-3.0.Gtk.Container */
+    widget: Gtk.Widget
+    /* Fields of Gtk-3.0.Gtk.Widget */
+    parentInstance: GObject.InitiallyUnowned
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Granite-1.0.Granite.SwitchModelButton */
+    getText(): string
+    setText(value: string): void
+    getDescription(): string | null
+    setDescription(value?: string | null): void
+    /* Methods of Gtk-3.0.Gtk.ToggleButton */
+    getActive(): boolean
+    getInconsistent(): boolean
+    getMode(): boolean
+    setActive(isActive: boolean): void
+    setInconsistent(setting: boolean): void
+    setMode(drawIndicator: boolean): void
+    toggled(): void
+    /* Methods of Gtk-3.0.Gtk.Button */
+    clicked(): void
+    enter(): void
+    getAlignment(): { xalign: number, yalign: number }
+    getAlwaysShowImage(): boolean
+    getEventWindow(): Gdk.Window
+    getFocusOnClick(): boolean
+    getImage(): Gtk.Widget | null
+    getImagePosition(): Gtk.PositionType
+    getLabel(): string
+    getRelief(): Gtk.ReliefStyle
+    getUseStock(): boolean
+    getUseUnderline(): boolean
+    leave(): void
+    pressed(): void
+    released(): void
+    setAlignment(xalign: number, yalign: number): void
+    setAlwaysShowImage(alwaysShow: boolean): void
+    setFocusOnClick(focusOnClick: boolean): void
+    setImage(image?: Gtk.Widget | null): void
+    setImagePosition(position: Gtk.PositionType): void
+    setLabel(label: string): void
+    setRelief(relief: Gtk.ReliefStyle): void
+    setUseStock(useStock: boolean): void
+    setUseUnderline(useUnderline: boolean): void
+    /* Methods of Gtk-3.0.Gtk.Bin */
+    getChild(): Gtk.Widget | null
+    /* Methods of Gtk-3.0.Gtk.Container */
+    add(widget: Gtk.Widget): void
+    checkResize(): void
+    childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    /* child_notify clashes with Gtk.Widget.child_notify */
+    childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
+    childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+    childType(): GObject.Type
+    forall(callback: Gtk.Callback): void
+    foreach(callback: Gtk.Callback): void
+    getBorderWidth(): number
+    getChildren(): Gtk.Widget[]
+    getFocusChain(): { returnType: boolean, focusableWidgets: Gtk.Widget[] }
+    getFocusChild(): Gtk.Widget | null
+    getFocusHadjustment(): Gtk.Adjustment | null
+    getFocusVadjustment(): Gtk.Adjustment | null
+    getPathForChild(child: Gtk.Widget): Gtk.WidgetPath
+    getResizeMode(): Gtk.ResizeMode
+    propagateDraw(child: Gtk.Widget, cr: cairo.Context): void
+    remove(widget: Gtk.Widget): void
+    resizeChildren(): void
+    setBorderWidth(borderWidth: number): void
+    setFocusChain(focusableWidgets: Gtk.Widget[]): void
+    setFocusChild(child?: Gtk.Widget | null): void
+    setFocusHadjustment(adjustment: Gtk.Adjustment): void
+    setFocusVadjustment(adjustment: Gtk.Adjustment): void
+    setReallocateRedraws(needsRedraws: boolean): void
+    setResizeMode(resizeMode: Gtk.ResizeMode): void
+    unsetFocusChain(): void
+    /* Methods of Gtk-3.0.Gtk.Widget */
+    activate(): boolean
+    addAccelerator(accelSignal: string, accelGroup: Gtk.AccelGroup, accelKey: number, accelMods: Gdk.ModifierType, accelFlags: Gtk.AccelFlags): void
+    addDeviceEvents(device: Gdk.Device, events: Gdk.EventMask): void
+    addEvents(events: number): void
+    addMnemonicLabel(label: Gtk.Widget): void
+    addTickCallback(callback: Gtk.TickCallback): number
+    canActivateAccel(signalId: number): boolean
+    childFocus(direction: Gtk.DirectionType): boolean
+    childNotify(childProperty: string): void
+    classPath(): { pathLength: number | null, path: string | null, pathReversed: string | null }
+    computeExpand(orientation: Gtk.Orientation): boolean
+    createPangoContext(): Pango.Context
+    createPangoLayout(text?: string | null): Pango.Layout
+    destroy(): void
+    destroyed(widgetPointer: Gtk.Widget): { widgetPointer: Gtk.Widget }
+    deviceIsShadowed(device: Gdk.Device): boolean
+    dragBegin(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event?: Gdk.Event | null): Gdk.DragContext
+    dragBeginWithCoordinates(targets: Gtk.TargetList, actions: Gdk.DragAction, button: number, event: Gdk.Event | null, x: number, y: number): Gdk.DragContext
+    dragCheckThreshold(startX: number, startY: number, currentX: number, currentY: number): boolean
+    dragDestAddImageTargets(): void
+    dragDestAddTextTargets(): void
+    dragDestAddUriTargets(): void
+    dragDestFindTarget(context: Gdk.DragContext, targetList?: Gtk.TargetList | null): Gdk.Atom
+    dragDestGetTargetList(): Gtk.TargetList | null
+    dragDestGetTrackMotion(): boolean
+    dragDestSet(flags: Gtk.DestDefaults, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
+    dragDestSetProxy(proxyWindow: Gdk.Window, protocol: Gdk.DragProtocol, useCoordinates: boolean): void
+    dragDestSetTargetList(targetList?: Gtk.TargetList | null): void
+    dragDestSetTrackMotion(trackMotion: boolean): void
+    dragDestUnset(): void
+    dragGetData(context: Gdk.DragContext, target: Gdk.Atom, time: number): void
+    dragHighlight(): void
+    dragSourceAddImageTargets(): void
+    dragSourceAddTextTargets(): void
+    dragSourceAddUriTargets(): void
+    dragSourceGetTargetList(): Gtk.TargetList | null
+    dragSourceSet(startButtonMask: Gdk.ModifierType, targets: Gtk.TargetEntry[] | null, actions: Gdk.DragAction): void
+    dragSourceSetIconGicon(icon: Gio.Icon): void
+    dragSourceSetIconName(iconName: string): void
+    dragSourceSetIconPixbuf(pixbuf: GdkPixbuf.Pixbuf): void
+    dragSourceSetIconStock(stockId: string): void
+    dragSourceSetTargetList(targetList?: Gtk.TargetList | null): void
+    dragSourceUnset(): void
+    dragUnhighlight(): void
+    draw(cr: cairo.Context): void
+    ensureStyle(): void
+    errorBell(): void
+    event(event: Gdk.Event): boolean
+    freezeChildNotify(): void
+    getAccessible(): Atk.Object
+    getActionGroup(prefix: string): Gio.ActionGroup | null
+    getAllocatedBaseline(): number
+    getAllocatedHeight(): number
+    getAllocatedSize(): { allocation: Gtk.Allocation, baseline: number | null }
+    getAllocatedWidth(): number
+    getAllocation(): { allocation: Gtk.Allocation }
+    getAncestor(widgetType: GObject.Type): Gtk.Widget | null
+    getAppPaintable(): boolean
+    getCanDefault(): boolean
+    getCanFocus(): boolean
+    getChildRequisition(): { requisition: Gtk.Requisition }
+    getChildVisible(): boolean
+    getClip(): { clip: Gtk.Allocation }
+    getClipboard(selection: Gdk.Atom): Gtk.Clipboard
+    getCompositeName(): string
+    getDeviceEnabled(device: Gdk.Device): boolean
+    getDeviceEvents(device: Gdk.Device): Gdk.EventMask
+    getDirection(): Gtk.TextDirection
+    getDisplay(): Gdk.Display
+    getDoubleBuffered(): boolean
+    getEvents(): number
+    getFontMap(): Pango.FontMap | null
+    getFontOptions(): cairo.FontOptions | null
+    getFrameClock(): Gdk.FrameClock | null
+    getHalign(): Gtk.Align
+    getHasTooltip(): boolean
+    getHasWindow(): boolean
+    getHexpand(): boolean
+    getHexpandSet(): boolean
+    getMapped(): boolean
+    getMarginBottom(): number
+    getMarginEnd(): number
+    getMarginLeft(): number
+    getMarginRight(): number
+    getMarginStart(): number
+    getMarginTop(): number
+    getModifierMask(intent: Gdk.ModifierIntent): Gdk.ModifierType
+    getModifierStyle(): Gtk.RcStyle
+    getName(): string
+    getNoShowAll(): boolean
+    getOpacity(): number
+    getPangoContext(): Pango.Context
+    getParent(): Gtk.Widget | null
+    getParentWindow(): Gdk.Window | null
+    getPath(): Gtk.WidgetPath
+    getPointer(): { x: number | null, y: number | null }
+    getPreferredHeight(): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredHeightAndBaselineForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
+    getPreferredHeightForWidth(width: number): { minimumHeight: number | null, naturalHeight: number | null }
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
+    getPreferredWidth(): { minimumWidth: number | null, naturalWidth: number | null }
+    getPreferredWidthForHeight(height: number): { minimumWidth: number | null, naturalWidth: number | null }
+    getRealized(): boolean
+    getReceivesDefault(): boolean
+    getRequestMode(): Gtk.SizeRequestMode
+    getRequisition(): { requisition: Gtk.Requisition }
+    getRootWindow(): Gdk.Window
+    getScaleFactor(): number
+    getScreen(): Gdk.Screen
+    getSensitive(): boolean
+    getSettings(): Gtk.Settings
+    getSizeRequest(): { width: number | null, height: number | null }
+    getState(): Gtk.StateType
+    getStateFlags(): Gtk.StateFlags
+    getStyle(): Gtk.Style
+    getStyleContext(): Gtk.StyleContext
+    getSupportMultidevice(): boolean
+    getTemplateChild(widgetType: GObject.Type, name: string): GObject.Object
+    getTooltipMarkup(): string | null
+    getTooltipText(): string | null
+    getTooltipWindow(): Gtk.Window
+    getToplevel(): Gtk.Widget
+    getValign(): Gtk.Align
+    getValignWithBaseline(): Gtk.Align
+    getVexpand(): boolean
+    getVexpandSet(): boolean
+    getVisible(): boolean
+    getVisual(): Gdk.Visual
+    getWindow(): Gdk.Window | null
+    grabAdd(): void
+    grabDefault(): void
+    grabFocus(): void
+    grabRemove(): void
+    hasGrab(): boolean
+    hasRcStyle(): boolean
+    hasScreen(): boolean
+    hasVisibleFocus(): boolean
+    hide(): void
+    hideOnDelete(): boolean
+    inDestruction(): boolean
+    initTemplate(): void
+    inputShapeCombineRegion(region?: cairo.Region | null): void
+    insertActionGroup(name: string, group?: Gio.ActionGroup | null): void
+    intersect(area: Gdk.Rectangle): { returnType: boolean, intersection: Gdk.Rectangle | null }
+    isAncestor(ancestor: Gtk.Widget): boolean
+    isComposited(): boolean
+    isDrawable(): boolean
+    isSensitive(): boolean
+    isToplevel(): boolean
+    isVisible(): boolean
+    keynavFailed(direction: Gtk.DirectionType): boolean
+    listAccelClosures(): Function[]
+    listActionPrefixes(): string[]
+    listMnemonicLabels(): Gtk.Widget[]
+    map(): void
+    mnemonicActivate(groupCycling: boolean): boolean
+    modifyBase(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modifyBg(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modifyCursor(primary?: Gdk.Color | null, secondary?: Gdk.Color | null): void
+    modifyFg(state: Gtk.StateType, color?: Gdk.Color | null): void
+    modifyFont(fontDesc?: Pango.FontDescription | null): void
+    modifyStyle(style: Gtk.RcStyle): void
+    modifyText(state: Gtk.StateType, color?: Gdk.Color | null): void
+    overrideBackgroundColor(state: Gtk.StateFlags, color?: Gdk.RGBA | null): void
+    overrideColor(state: Gtk.StateFlags, color?: Gdk.RGBA | null): void
+    overrideCursor(cursor?: Gdk.RGBA | null, secondaryCursor?: Gdk.RGBA | null): void
+    overrideFont(fontDesc?: Pango.FontDescription | null): void
+    overrideSymbolicColor(name: string, color?: Gdk.RGBA | null): void
+    path(): { pathLength: number | null, path: string | null, pathReversed: string | null }
+    queueAllocate(): void
+    queueComputeExpand(): void
+    queueDraw(): void
+    queueDrawArea(x: number, y: number, width: number, height: number): void
+    queueDrawRegion(region: cairo.Region): void
+    queueResize(): void
+    queueResizeNoRedraw(): void
+    realize(): void
+    regionIntersect(region: cairo.Region): cairo.Region
+    registerWindow(window: Gdk.Window): void
+    removeAccelerator(accelGroup: Gtk.AccelGroup, accelKey: number, accelMods: Gdk.ModifierType): boolean
+    removeMnemonicLabel(label: Gtk.Widget): void
+    removeTickCallback(id: number): void
+    renderIcon(stockId: string, size: number, detail?: string | null): GdkPixbuf.Pixbuf | null
+    renderIconPixbuf(stockId: string, size: number): GdkPixbuf.Pixbuf | null
+    reparent(newParent: Gtk.Widget): void
+    resetRcStyles(): void
+    resetStyle(): void
+    sendExpose(event: Gdk.Event): number
+    sendFocusChange(event: Gdk.Event): boolean
+    setAccelPath(accelPath?: string | null, accelGroup?: Gtk.AccelGroup | null): void
+    setAllocation(allocation: Gtk.Allocation): void
+    setAppPaintable(appPaintable: boolean): void
+    setCanDefault(canDefault: boolean): void
+    setCanFocus(canFocus: boolean): void
+    setChildVisible(isVisible: boolean): void
+    setClip(clip: Gtk.Allocation): void
+    setCompositeName(name: string): void
+    setDeviceEnabled(device: Gdk.Device, enabled: boolean): void
+    setDeviceEvents(device: Gdk.Device, events: Gdk.EventMask): void
+    setDirection(dir: Gtk.TextDirection): void
+    setDoubleBuffered(doubleBuffered: boolean): void
+    setEvents(events: number): void
+    setFontMap(fontMap?: Pango.FontMap | null): void
+    setFontOptions(options?: cairo.FontOptions | null): void
+    setHalign(align: Gtk.Align): void
+    setHasTooltip(hasTooltip: boolean): void
+    setHasWindow(hasWindow: boolean): void
+    setHexpand(expand: boolean): void
+    setHexpandSet(set: boolean): void
+    setMapped(mapped: boolean): void
+    setMarginBottom(margin: number): void
+    setMarginEnd(margin: number): void
+    setMarginLeft(margin: number): void
+    setMarginRight(margin: number): void
+    setMarginStart(margin: number): void
+    setMarginTop(margin: number): void
+    setName(name: string): void
+    setNoShowAll(noShowAll: boolean): void
+    setOpacity(opacity: number): void
+    setParent(parent: Gtk.Widget): void
+    setParentWindow(parentWindow: Gdk.Window): void
+    setRealized(realized: boolean): void
+    setReceivesDefault(receivesDefault: boolean): void
+    setRedrawOnAllocate(redrawOnAllocate: boolean): void
+    setSensitive(sensitive: boolean): void
+    setSizeRequest(width: number, height: number): void
+    setState(state: Gtk.StateType): void
+    setStateFlags(flags: Gtk.StateFlags, clear: boolean): void
+    setStyle(style?: Gtk.Style | null): void
+    setSupportMultidevice(supportMultidevice: boolean): void
+    setTooltipMarkup(markup?: string | null): void
+    setTooltipText(text?: string | null): void
+    setTooltipWindow(customWindow?: Gtk.Window | null): void
+    setValign(align: Gtk.Align): void
+    setVexpand(expand: boolean): void
+    setVexpandSet(set: boolean): void
+    setVisible(visible: boolean): void
+    setVisual(visual?: Gdk.Visual | null): void
+    setWindow(window: Gdk.Window): void
+    shapeCombineRegion(region?: cairo.Region | null): void
+    show(): void
+    showAll(): void
+    showNow(): void
+    sizeAllocate(allocation: Gtk.Allocation): void
+    sizeAllocateWithBaseline(allocation: Gtk.Allocation, baseline: number): void
+    sizeRequest(): { requisition: Gtk.Requisition }
+    styleAttach(): void
+    styleGetProperty(propertyName: string, value: any): void
+    thawChildNotify(): void
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
+    triggerTooltipQuery(): void
+    unmap(): void
+    unparent(): void
+    unrealize(): void
+    unregisterWindow(window: Gdk.Window): void
+    unsetStateFlags(flags: Gtk.StateFlags): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of Gtk-3.0.Gtk.ToggleButton */
+    connect(sigName: "toggled", callback: (($obj: SwitchModelButton) => void)): number
+    on(sigName: "toggled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "toggled", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "toggled", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "toggled"): void
+    /* Signals of Gtk-3.0.Gtk.Button */
+    connect(sigName: "activate", callback: (($obj: SwitchModelButton) => void)): number
+    on(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "activate"): void
+    connect(sigName: "clicked", callback: (($obj: SwitchModelButton) => void)): number
+    on(sigName: "clicked", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "clicked", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "clicked", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "clicked"): void
+    connect(sigName: "enter", callback: (($obj: SwitchModelButton) => void)): number
+    on(sigName: "enter", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "enter"): void
+    connect(sigName: "leave", callback: (($obj: SwitchModelButton) => void)): number
+    on(sigName: "leave", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "leave"): void
+    connect(sigName: "pressed", callback: (($obj: SwitchModelButton) => void)): number
+    on(sigName: "pressed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "pressed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "pressed", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "pressed"): void
+    connect(sigName: "released", callback: (($obj: SwitchModelButton) => void)): number
+    on(sigName: "released", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "released", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "released", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "released"): void
+    /* Signals of Gtk-3.0.Gtk.Container */
+    connect(sigName: "add", callback: (($obj: SwitchModelButton, object: Gtk.Widget) => void)): number
+    on(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "add", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "add", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
+    emit(sigName: "add", object: Gtk.Widget): void
+    connect(sigName: "check-resize", callback: (($obj: SwitchModelButton) => void)): number
+    on(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "check-resize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "check-resize", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "check-resize"): void
+    connect(sigName: "remove", callback: (($obj: SwitchModelButton, object: Gtk.Widget) => void)): number
+    on(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "remove", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "remove", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
+    emit(sigName: "remove", object: Gtk.Widget): void
+    connect(sigName: "set-focus-child", callback: (($obj: SwitchModelButton, object: Gtk.Widget) => void)): number
+    on(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "set-focus-child", callback: (object: Gtk.Widget) => void): NodeJS.EventEmitter
+    emit(sigName: "set-focus-child", object: Gtk.Widget): void
+    /* Signals of Gtk-3.0.Gtk.Widget */
+    connect(sigName: "accel-closures-changed", callback: (($obj: SwitchModelButton) => void)): number
+    on(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "accel-closures-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "accel-closures-changed", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "accel-closures-changed"): void
+    connect(sigName: "button-press-event", callback: (($obj: SwitchModelButton, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-press-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
+    emit(sigName: "button-press-event", event: Gdk.EventButton): void
+    connect(sigName: "button-release-event", callback: (($obj: SwitchModelButton, event: Gdk.EventButton) => boolean)): number
+    on(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "button-release-event", callback: (event: Gdk.EventButton) => void): NodeJS.EventEmitter
+    emit(sigName: "button-release-event", event: Gdk.EventButton): void
+    connect(sigName: "can-activate-accel", callback: (($obj: SwitchModelButton, signalId: number) => boolean)): number
+    on(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "can-activate-accel", callback: (signalId: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "can-activate-accel", callback: (signalId: number) => void): NodeJS.EventEmitter
+    emit(sigName: "can-activate-accel", signalId: number): void
+    connect(sigName: "child-notify", callback: (($obj: SwitchModelButton, childProperty: GObject.ParamSpec) => void)): number
+    on(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "child-notify", callback: (childProperty: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "child-notify", childProperty: GObject.ParamSpec): void
+    connect(sigName: "composited-changed", callback: (($obj: SwitchModelButton) => void)): number
+    on(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "composited-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "composited-changed", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "composited-changed"): void
+    connect(sigName: "configure-event", callback: (($obj: SwitchModelButton, event: Gdk.EventConfigure) => boolean)): number
+    on(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "configure-event", callback: (event: Gdk.EventConfigure) => void): NodeJS.EventEmitter
+    emit(sigName: "configure-event", event: Gdk.EventConfigure): void
+    connect(sigName: "damage-event", callback: (($obj: SwitchModelButton, event: Gdk.EventExpose) => boolean)): number
+    on(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "damage-event", callback: (event: Gdk.EventExpose) => void): NodeJS.EventEmitter
+    emit(sigName: "damage-event", event: Gdk.EventExpose): void
+    connect(sigName: "delete-event", callback: (($obj: SwitchModelButton, event: Gdk.Event) => boolean)): number
+    on(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "delete-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "delete-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
+    emit(sigName: "delete-event", event: Gdk.Event): void
+    connect(sigName: "destroy", callback: (($obj: SwitchModelButton) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "destroy"): void
+    connect(sigName: "destroy-event", callback: (($obj: SwitchModelButton, event: Gdk.Event) => boolean)): number
+    on(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy-event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy-event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
+    emit(sigName: "destroy-event", event: Gdk.Event): void
+    connect(sigName: "direction-changed", callback: (($obj: SwitchModelButton, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
+    emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
+    connect(sigName: "drag-begin", callback: (($obj: SwitchModelButton, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-begin", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
+    emit(sigName: "drag-begin", context: Gdk.DragContext): void
+    connect(sigName: "drag-data-delete", callback: (($obj: SwitchModelButton, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-delete", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
+    emit(sigName: "drag-data-delete", context: Gdk.DragContext): void
+    connect(sigName: "drag-data-get", callback: (($obj: SwitchModelButton, context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-get", callback: (context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
+    emit(sigName: "drag-data-get", context: Gdk.DragContext, data: Gtk.SelectionData, info: number, time: number): void
+    connect(sigName: "drag-data-received", callback: (($obj: SwitchModelButton, context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-data-received", callback: (context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
+    emit(sigName: "drag-data-received", context: Gdk.DragContext, x: number, y: number, data: Gtk.SelectionData, info: number, time: number): void
+    connect(sigName: "drag-drop", callback: (($obj: SwitchModelButton, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-drop", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
+    emit(sigName: "drag-drop", context: Gdk.DragContext, x: number, y: number, time: number): void
+    connect(sigName: "drag-end", callback: (($obj: SwitchModelButton, context: Gdk.DragContext) => void)): number
+    on(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-end", callback: (context: Gdk.DragContext) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-end", callback: (context: Gdk.DragContext) => void): NodeJS.EventEmitter
+    emit(sigName: "drag-end", context: Gdk.DragContext): void
+    connect(sigName: "drag-failed", callback: (($obj: SwitchModelButton, context: Gdk.DragContext, result: Gtk.DragResult) => boolean)): number
+    on(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-failed", callback: (context: Gdk.DragContext, result: Gtk.DragResult) => void): NodeJS.EventEmitter
+    emit(sigName: "drag-failed", context: Gdk.DragContext, result: Gtk.DragResult): void
+    connect(sigName: "drag-leave", callback: (($obj: SwitchModelButton, context: Gdk.DragContext, time: number) => void)): number
+    on(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-leave", callback: (context: Gdk.DragContext, time: number) => void): NodeJS.EventEmitter
+    emit(sigName: "drag-leave", context: Gdk.DragContext, time: number): void
+    connect(sigName: "drag-motion", callback: (($obj: SwitchModelButton, context: Gdk.DragContext, x: number, y: number, time: number) => boolean)): number
+    on(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "drag-motion", callback: (context: Gdk.DragContext, x: number, y: number, time: number) => void): NodeJS.EventEmitter
+    emit(sigName: "drag-motion", context: Gdk.DragContext, x: number, y: number, time: number): void
+    connect(sigName: "draw", callback: (($obj: SwitchModelButton, cr: cairo.Context) => boolean)): number
+    on(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "draw", callback: (cr: cairo.Context) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "draw", callback: (cr: cairo.Context) => void): NodeJS.EventEmitter
+    emit(sigName: "draw", cr: cairo.Context): void
+    connect(sigName: "enter-notify-event", callback: (($obj: SwitchModelButton, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "enter-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
+    emit(sigName: "enter-notify-event", event: Gdk.EventCrossing): void
+    connect(sigName: "event", callback: (($obj: SwitchModelButton, event: Gdk.Event) => boolean)): number
+    on(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
+    emit(sigName: "event", event: Gdk.Event): void
+    connect(sigName: "event-after", callback: (($obj: SwitchModelButton, event: Gdk.Event) => void)): number
+    on(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "event-after", callback: (event: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "event-after", callback: (event: Gdk.Event) => void): NodeJS.EventEmitter
+    emit(sigName: "event-after", event: Gdk.Event): void
+    connect(sigName: "focus", callback: (($obj: SwitchModelButton, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
+    emit(sigName: "focus", direction: Gtk.DirectionType): void
+    connect(sigName: "focus-in-event", callback: (($obj: SwitchModelButton, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-in-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
+    emit(sigName: "focus-in-event", event: Gdk.EventFocus): void
+    connect(sigName: "focus-out-event", callback: (($obj: SwitchModelButton, event: Gdk.EventFocus) => boolean)): number
+    on(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "focus-out-event", callback: (event: Gdk.EventFocus) => void): NodeJS.EventEmitter
+    emit(sigName: "focus-out-event", event: Gdk.EventFocus): void
+    connect(sigName: "grab-broken-event", callback: (($obj: SwitchModelButton, event: Gdk.EventGrabBroken) => boolean)): number
+    on(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-broken-event", callback: (event: Gdk.EventGrabBroken) => void): NodeJS.EventEmitter
+    emit(sigName: "grab-broken-event", event: Gdk.EventGrabBroken): void
+    connect(sigName: "grab-focus", callback: (($obj: SwitchModelButton) => void)): number
+    on(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-focus", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-focus", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "grab-focus"): void
+    connect(sigName: "grab-notify", callback: (($obj: SwitchModelButton, wasGrabbed: boolean) => void)): number
+    on(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "grab-notify", callback: (wasGrabbed: boolean) => void): NodeJS.EventEmitter
+    emit(sigName: "grab-notify", wasGrabbed: boolean): void
+    connect(sigName: "hide", callback: (($obj: SwitchModelButton) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "hide"): void
+    connect(sigName: "hierarchy-changed", callback: (($obj: SwitchModelButton, previousToplevel?: Gtk.Widget | null) => void)): number
+    on(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hierarchy-changed", callback: (previousToplevel?: Gtk.Widget | null) => void): NodeJS.EventEmitter
+    emit(sigName: "hierarchy-changed", previousToplevel?: Gtk.Widget | null): void
+    connect(sigName: "key-press-event", callback: (($obj: SwitchModelButton, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-press-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
+    emit(sigName: "key-press-event", event: Gdk.EventKey): void
+    connect(sigName: "key-release-event", callback: (($obj: SwitchModelButton, event: Gdk.EventKey) => boolean)): number
+    on(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "key-release-event", callback: (event: Gdk.EventKey) => void): NodeJS.EventEmitter
+    emit(sigName: "key-release-event", event: Gdk.EventKey): void
+    connect(sigName: "keynav-failed", callback: (($obj: SwitchModelButton, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
+    emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
+    connect(sigName: "leave-notify-event", callback: (($obj: SwitchModelButton, event: Gdk.EventCrossing) => boolean)): number
+    on(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "leave-notify-event", callback: (event: Gdk.EventCrossing) => void): NodeJS.EventEmitter
+    emit(sigName: "leave-notify-event", event: Gdk.EventCrossing): void
+    connect(sigName: "map", callback: (($obj: SwitchModelButton) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "map"): void
+    connect(sigName: "map-event", callback: (($obj: SwitchModelButton, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
+    emit(sigName: "map-event", event: Gdk.EventAny): void
+    connect(sigName: "mnemonic-activate", callback: (($obj: SwitchModelButton, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
+    emit(sigName: "mnemonic-activate", groupCycling: boolean): void
+    connect(sigName: "motion-notify-event", callback: (($obj: SwitchModelButton, event: Gdk.EventMotion) => boolean)): number
+    on(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "motion-notify-event", callback: (event: Gdk.EventMotion) => void): NodeJS.EventEmitter
+    emit(sigName: "motion-notify-event", event: Gdk.EventMotion): void
+    connect(sigName: "move-focus", callback: (($obj: SwitchModelButton, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
+    emit(sigName: "move-focus", direction: Gtk.DirectionType): void
+    connect(sigName: "parent-set", callback: (($obj: SwitchModelButton, oldParent?: Gtk.Widget | null) => void)): number
+    on(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "parent-set", callback: (oldParent?: Gtk.Widget | null) => void): NodeJS.EventEmitter
+    emit(sigName: "parent-set", oldParent?: Gtk.Widget | null): void
+    connect(sigName: "popup-menu", callback: (($obj: SwitchModelButton) => boolean)): number
+    on(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "popup-menu", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "popup-menu", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "popup-menu"): void
+    connect(sigName: "property-notify-event", callback: (($obj: SwitchModelButton, event: Gdk.EventProperty) => boolean)): number
+    on(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "property-notify-event", callback: (event: Gdk.EventProperty) => void): NodeJS.EventEmitter
+    emit(sigName: "property-notify-event", event: Gdk.EventProperty): void
+    connect(sigName: "proximity-in-event", callback: (($obj: SwitchModelButton, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-in-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
+    emit(sigName: "proximity-in-event", event: Gdk.EventProximity): void
+    connect(sigName: "proximity-out-event", callback: (($obj: SwitchModelButton, event: Gdk.EventProximity) => boolean)): number
+    on(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "proximity-out-event", callback: (event: Gdk.EventProximity) => void): NodeJS.EventEmitter
+    emit(sigName: "proximity-out-event", event: Gdk.EventProximity): void
+    connect(sigName: "query-tooltip", callback: (($obj: SwitchModelButton, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
+    emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
+    connect(sigName: "realize", callback: (($obj: SwitchModelButton) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "realize"): void
+    connect(sigName: "screen-changed", callback: (($obj: SwitchModelButton, previousScreen?: Gdk.Screen | null) => void)): number
+    on(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "screen-changed", callback: (previousScreen?: Gdk.Screen | null) => void): NodeJS.EventEmitter
+    emit(sigName: "screen-changed", previousScreen?: Gdk.Screen | null): void
+    connect(sigName: "scroll-event", callback: (($obj: SwitchModelButton, event: Gdk.EventScroll) => boolean)): number
+    on(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "scroll-event", callback: (event: Gdk.EventScroll) => void): NodeJS.EventEmitter
+    emit(sigName: "scroll-event", event: Gdk.EventScroll): void
+    connect(sigName: "selection-clear-event", callback: (($obj: SwitchModelButton, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-clear-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
+    emit(sigName: "selection-clear-event", event: Gdk.EventSelection): void
+    connect(sigName: "selection-get", callback: (($obj: SwitchModelButton, data: Gtk.SelectionData, info: number, time: number) => void)): number
+    on(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-get", callback: (data: Gtk.SelectionData, info: number, time: number) => void): NodeJS.EventEmitter
+    emit(sigName: "selection-get", data: Gtk.SelectionData, info: number, time: number): void
+    connect(sigName: "selection-notify-event", callback: (($obj: SwitchModelButton, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-notify-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
+    emit(sigName: "selection-notify-event", event: Gdk.EventSelection): void
+    connect(sigName: "selection-received", callback: (($obj: SwitchModelButton, data: Gtk.SelectionData, time: number) => void)): number
+    on(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-received", callback: (data: Gtk.SelectionData, time: number) => void): NodeJS.EventEmitter
+    emit(sigName: "selection-received", data: Gtk.SelectionData, time: number): void
+    connect(sigName: "selection-request-event", callback: (($obj: SwitchModelButton, event: Gdk.EventSelection) => boolean)): number
+    on(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "selection-request-event", callback: (event: Gdk.EventSelection) => void): NodeJS.EventEmitter
+    emit(sigName: "selection-request-event", event: Gdk.EventSelection): void
+    connect(sigName: "show", callback: (($obj: SwitchModelButton) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "show"): void
+    connect(sigName: "show-help", callback: (($obj: SwitchModelButton, helpType: Gtk.WidgetHelpType) => boolean)): number
+    on(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-help", callback: (helpType: Gtk.WidgetHelpType) => void): NodeJS.EventEmitter
+    emit(sigName: "show-help", helpType: Gtk.WidgetHelpType): void
+    connect(sigName: "size-allocate", callback: (($obj: SwitchModelButton, allocation: Gtk.Allocation) => void)): number
+    on(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "size-allocate", callback: (allocation: Gtk.Allocation) => void): NodeJS.EventEmitter
+    emit(sigName: "size-allocate", allocation: Gtk.Allocation): void
+    connect(sigName: "state-changed", callback: (($obj: SwitchModelButton, state: Gtk.StateType) => void)): number
+    on(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (state: Gtk.StateType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (state: Gtk.StateType) => void): NodeJS.EventEmitter
+    emit(sigName: "state-changed", state: Gtk.StateType): void
+    connect(sigName: "state-flags-changed", callback: (($obj: SwitchModelButton, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
+    emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
+    connect(sigName: "style-set", callback: (($obj: SwitchModelButton, previousStyle?: Gtk.Style | null) => void)): number
+    on(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-set", callback: (previousStyle?: Gtk.Style | null) => void): NodeJS.EventEmitter
+    emit(sigName: "style-set", previousStyle?: Gtk.Style | null): void
+    connect(sigName: "style-updated", callback: (($obj: SwitchModelButton) => void)): number
+    on(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "style-updated", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "style-updated", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "style-updated"): void
+    connect(sigName: "touch-event", callback: (($obj: SwitchModelButton, object: Gdk.Event) => boolean)): number
+    on(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "touch-event", callback: (object: Gdk.Event) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "touch-event", callback: (object: Gdk.Event) => void): NodeJS.EventEmitter
+    emit(sigName: "touch-event", object: Gdk.Event): void
+    connect(sigName: "unmap", callback: (($obj: SwitchModelButton) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "unmap"): void
+    connect(sigName: "unmap-event", callback: (($obj: SwitchModelButton, event: Gdk.EventAny) => boolean)): number
+    on(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap-event", callback: (event: Gdk.EventAny) => void): NodeJS.EventEmitter
+    emit(sigName: "unmap-event", event: Gdk.EventAny): void
+    connect(sigName: "unrealize", callback: (($obj: SwitchModelButton) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "unrealize"): void
+    connect(sigName: "visibility-notify-event", callback: (($obj: SwitchModelButton, event: Gdk.EventVisibility) => boolean)): number
+    on(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "visibility-notify-event", callback: (event: Gdk.EventVisibility) => void): NodeJS.EventEmitter
+    emit(sigName: "visibility-notify-event", event: Gdk.EventVisibility): void
+    connect(sigName: "window-state-event", callback: (($obj: SwitchModelButton, event: Gdk.EventWindowState) => boolean)): number
+    on(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "window-state-event", callback: (event: Gdk.EventWindowState) => void): NodeJS.EventEmitter
+    emit(sigName: "window-state-event", event: Gdk.EventWindowState): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::text", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::text", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::description", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::description", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::active", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::active", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::active", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::draw-indicator", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::draw-indicator", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::draw-indicator", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::draw-indicator", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::draw-indicator", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::inconsistent", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::inconsistent", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::inconsistent", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::inconsistent", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::inconsistent", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::always-show-image", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-show-image", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::always-show-image", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::always-show-image", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::always-show-image", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::image", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::image", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::image", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::image", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::image", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::image-position", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::image-position", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::image-position", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::image-position", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::image-position", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::label", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::label", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::label", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::label", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::label", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::relief", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::relief", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::relief", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::relief", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::relief", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::use-stock", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::use-stock", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::use-stock", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::use-stock", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::use-stock", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::use-underline", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::use-underline", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::use-underline", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::use-underline", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::use-underline", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::xalign", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::xalign", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::xalign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::xalign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::xalign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::yalign", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::yalign", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::yalign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::yalign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::yalign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::border-width", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::border-width", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::border-width", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::border-width", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::border-width", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::child", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::child", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::child", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::child", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::child", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::resize-mode", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::resize-mode", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::resize-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::resize-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::resize-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::app-paintable", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::app-paintable", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::app-paintable", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::app-paintable", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::app-paintable", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::can-default", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::can-default", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::can-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::can-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::can-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::can-focus", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::can-focus", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::can-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::can-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::can-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::composite-child", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::composite-child", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::composite-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::composite-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::composite-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::double-buffered", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::double-buffered", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::double-buffered", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::double-buffered", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::double-buffered", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::events", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::events", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::events", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::events", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::events", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::expand", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::expand", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::focus-on-click", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::focus-on-click", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::focus-on-click", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::focus-on-click", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::focus-on-click", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::halign", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::halign", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::halign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::halign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::halign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::has-default", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::has-default", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::has-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::has-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::has-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::has-focus", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::has-focus", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::has-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::has-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::has-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::has-tooltip", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::has-tooltip", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::has-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::has-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::has-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::height-request", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::height-request", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::height-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::height-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::height-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::hexpand", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::hexpand", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::hexpand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::hexpand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::hexpand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::hexpand-set", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::hexpand-set", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::hexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::hexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::hexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::is-focus", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::is-focus", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::margin", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::margin", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::margin", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::margin-bottom", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin-bottom", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-bottom", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::margin-bottom", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::margin-bottom", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::margin-end", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin-end", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::margin-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::margin-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::margin-left", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin-left", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-left", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::margin-left", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::margin-left", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::margin-right", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin-right", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-right", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::margin-right", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::margin-right", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::margin-start", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin-start", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::margin-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::margin-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::margin-top", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin-top", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-top", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::margin-top", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::margin-top", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::name", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::name", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::no-show-all", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::no-show-all", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::no-show-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::no-show-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::no-show-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::opacity", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::opacity", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::opacity", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::opacity", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::opacity", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::parent", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parent", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::receives-default", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::receives-default", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::receives-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::receives-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::receives-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::scale-factor", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::scale-factor", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::scale-factor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::scale-factor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::scale-factor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::sensitive", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::sensitive", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::sensitive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::sensitive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::sensitive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::style", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::style", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::style", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::style", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::style", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::tooltip-markup", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::tooltip-markup", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tooltip-markup", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::tooltip-markup", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::tooltip-markup", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::tooltip-text", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::tooltip-text", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tooltip-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::tooltip-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::tooltip-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::valign", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::valign", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::valign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::valign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::valign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::vexpand", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::vexpand", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::vexpand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::vexpand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::vexpand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::vexpand-set", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::vexpand-set", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::vexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::vexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::vexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::visible", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::visible", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::width-request", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::width-request", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::width-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::width-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::width-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::window", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::window", callback: (($obj: SwitchModelButton, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::window", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::window", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::window", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: SwitchModelButton_ConstructProps)
+    _init (config?: SwitchModelButton_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(text: string): SwitchModelButton
+    static new(): SwitchModelButton
+    static $gtype: GObject.Type
+}
 export interface ValidatedEntry_ConstructProps extends Gtk.Entry_ConstructProps {
     isValid?: boolean
+    minLength?: number
+    regex?: GLib.Regex
 }
 export class ValidatedEntry {
     /* Properties of Granite-1.0.Granite.ValidatedEntry */
     isValid: boolean
+    minLength: number
+    regex: GLib.Regex
     /* Properties of Gtk-3.0.Gtk.Entry */
     activatesDefault: boolean
     attributes: Pango.AttrList
@@ -30880,6 +33264,10 @@ export class ValidatedEntry {
     /* Methods of Granite-1.0.Granite.ValidatedEntry */
     getIsValid(): boolean
     setIsValid(value: boolean): void
+    getMinLength(): number
+    setMinLength(value: number): void
+    getRegex(): GLib.Regex
+    setRegex(value: GLib.Regex): void
     /* Methods of Gtk-3.0.Gtk.Entry */
     getActivatesDefault(): boolean
     getAlignment(): number
@@ -31664,6 +34052,16 @@ export class ValidatedEntry {
     on(sigName: "notify::is-valid", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::is-valid", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::is-valid", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::min-length", callback: (($obj: ValidatedEntry, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::min-length", callback: (($obj: ValidatedEntry, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::min-length", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::min-length", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::min-length", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::regex", callback: (($obj: ValidatedEntry, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::regex", callback: (($obj: ValidatedEntry, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::regex", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::regex", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::regex", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::activates-default", callback: (($obj: ValidatedEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::activates-default", callback: (($obj: ValidatedEntry, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::activates-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -32125,7 +34523,7 @@ export class ValidatedEntry {
     constructor (config?: ValidatedEntry_ConstructProps)
     _init (config?: ValidatedEntry_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static fromRegex(regex: GLib.Regex): ValidatedEntry
+    static fromRegex(regexArg: GLib.Regex): ValidatedEntry
     static new(): ValidatedEntry
     static $gtype: GObject.Type
 }
@@ -32173,7 +34571,7 @@ export class ServicesPathsPrivate {
 }
 export abstract class ServicesSettingsClass {
     /* Fields of Granite-1.0.Granite.ServicesSettingsClass */
-    verify: (key: string) => void
+    verify: (self: any, key: string) => void
     static name: string
 }
 export class ServicesSettingsPrivate {
@@ -32193,17 +34591,17 @@ export class ServicesSystemPrivate {
 }
 export abstract class ServicesContractIface {
     /* Fields of Granite-1.0.Granite.ServicesContractIface */
-    getDisplayName: () => string
-    getDescription: () => string
-    getIcon: () => Gio.Icon
-    executeWithFile: (file: Gio.File) => void
-    executeWithFiles: (files: Gio.File[]) => void
+    getDisplayName: (self: any) => string
+    getDescription: (self: any) => string
+    getIcon: (self: any) => Gio.Icon
+    executeWithFile: (self: any, file: Gio.File) => void
+    executeWithFiles: (self: any, files: Gio.File[]) => void
     static name: string
 }
 export abstract class ServicesSettingsSerializableIface {
     /* Fields of Granite-1.0.Granite.ServicesSettingsSerializableIface */
-    settingsSerialize: () => string
-    settingsDeserialize: (s: string) => void
+    settingsSerialize: (self: any) => string
+    settingsDeserialize: (self: any, s: string) => void
     static name: string
 }
 export abstract class WidgetsAlertViewClass {
@@ -32226,7 +34624,7 @@ export class WidgetsCellRendererBadgePrivate {
 }
 export abstract class WidgetsCellRendererExpanderClass {
     /* Fields of Granite-1.0.Granite.WidgetsCellRendererExpanderClass */
-    getArrowSize: (widget: Gtk.Widget) => number
+    getArrowSize: (self: WidgetsCellRendererExpander, widget: Gtk.Widget) => number
     static name: string
 }
 export class WidgetsCellRendererExpanderPrivate {
@@ -32246,7 +34644,7 @@ export class WidgetsCompositedWindowPrivate {
 }
 export abstract class WidgetsDatePickerClass {
     /* Fields of Granite-1.0.Granite.WidgetsDatePickerClass */
-    positionDropdown: () => { rect: Gdk.Rectangle }
+    positionDropdown: (self: WidgetsDatePicker) => { rect: Gdk.Rectangle }
     static name: string
 }
 export class WidgetsDatePickerPrivate {
@@ -32278,7 +34676,7 @@ export class WidgetsOverlayBarPrivate {
 }
 export abstract class WidgetsSourceListClass {
     /* Fields of Granite-1.0.Granite.WidgetsSourceListClass */
-    itemSelected: (item?: WidgetsSourceListItem | null) => void
+    itemSelected: (self: WidgetsSourceList, item?: WidgetsSourceListItem | null) => void
     static name: string
 }
 export class WidgetsSourceListPrivate {
@@ -32286,10 +34684,10 @@ export class WidgetsSourceListPrivate {
 }
 export abstract class WidgetsSourceListItemClass {
     /* Fields of Granite-1.0.Granite.WidgetsSourceListItemClass */
-    getContextMenu: () => Gtk.Menu | null
-    edited: (newName: string) => void
-    actionActivated: () => void
-    activated: () => void
+    getContextMenu: (self: WidgetsSourceListItem) => Gtk.Menu | null
+    edited: (self: WidgetsSourceListItem, newName: string) => void
+    actionActivated: (self: WidgetsSourceListItem) => void
+    activated: (self: WidgetsSourceListItem) => void
     static name: string
 }
 export class WidgetsSourceListItemPrivate {
@@ -32297,7 +34695,7 @@ export class WidgetsSourceListItemPrivate {
 }
 export abstract class WidgetsSourceListExpandableItemClass {
     /* Fields of Granite-1.0.Granite.WidgetsSourceListExpandableItemClass */
-    toggled: () => void
+    toggled: (self: WidgetsSourceListExpandableItem) => void
     static name: string
 }
 export class WidgetsSourceListExpandableItemPrivate {
@@ -32311,7 +34709,7 @@ export class WidgetsStorageBarPrivate {
 }
 export abstract class WidgetsTimePickerClass {
     /* Fields of Granite-1.0.Granite.WidgetsTimePickerClass */
-    positionDropdown: () => { x: number, y: number }
+    positionDropdown: (self: WidgetsTimePicker) => { x: number, y: number }
     static name: string
 }
 export class WidgetsTimePickerPrivate {
@@ -32337,25 +34735,25 @@ export class WidgetsWelcomePrivate {
 }
 export abstract class WidgetsSourceListSortableIface {
     /* Fields of Granite-1.0.Granite.WidgetsSourceListSortableIface */
-    allowDndSorting: () => boolean
-    compare: (a: WidgetsSourceListItem, b: WidgetsSourceListItem) => number
+    allowDndSorting: (self: WidgetsSourceListSortable) => boolean
+    compare: (self: WidgetsSourceListSortable, a: WidgetsSourceListItem, b: WidgetsSourceListItem) => number
     static name: string
 }
 export abstract class WidgetsSourceListDragSourceIface {
     /* Fields of Granite-1.0.Granite.WidgetsSourceListDragSourceIface */
-    draggable: () => boolean
-    prepareSelectionData: (selectionData: Gtk.SelectionData) => void
+    draggable: (self: WidgetsSourceListDragSource) => boolean
+    prepareSelectionData: (self: WidgetsSourceListDragSource, selectionData: Gtk.SelectionData) => void
     static name: string
 }
 export abstract class WidgetsSourceListDragDestIface {
     /* Fields of Granite-1.0.Granite.WidgetsSourceListDragDestIface */
-    dataDropPossible: (context: Gdk.DragContext, data: Gtk.SelectionData) => boolean
-    dataReceived: (context: Gdk.DragContext, data: Gtk.SelectionData) => Gdk.DragAction
+    dataDropPossible: (self: WidgetsSourceListDragDest, context: Gdk.DragContext, data: Gtk.SelectionData) => boolean
+    dataReceived: (self: WidgetsSourceListDragDest, context: Gdk.DragContext, data: Gtk.SelectionData) => Gdk.DragAction
     static name: string
 }
 export abstract class ApplicationClass {
     /* Fields of Granite-1.0.Granite.ApplicationClass */
-    setOptions: () => void
+    setOptions: (self: Application) => void
     static name: string
 }
 export class ApplicationPrivate {
@@ -32397,6 +34795,12 @@ export abstract class HeaderLabelClass {
 export class HeaderLabelPrivate {
     static name: string
 }
+export abstract class HyperTextViewClass {
+    static name: string
+}
+export class HyperTextViewPrivate {
+    static name: string
+}
 export abstract class MessageDialogClass {
     static name: string
 }
@@ -32415,16 +34819,22 @@ export abstract class SeekBarClass {
 export class SeekBarPrivate {
     static name: string
 }
+export abstract class SettingsSidebarClass {
+    static name: string
+}
+export class SettingsSidebarPrivate {
+    static name: string
+}
 export abstract class SettingsClass {
     static name: string
 }
 export class SettingsPrivate {
     static name: string
 }
-export abstract class SettingsSidebarClass {
+export abstract class SwitchModelButtonClass {
     static name: string
 }
-export class SettingsSidebarPrivate {
+export class SwitchModelButtonPrivate {
     static name: string
 }
 export abstract class ValidatedEntryClass {

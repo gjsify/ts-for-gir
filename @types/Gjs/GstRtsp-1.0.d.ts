@@ -347,6 +347,7 @@ export class RTSPConnection {
     do_tunnel(conn2: RTSPConnection): RTSPResult
     flush(flush: boolean): RTSPResult
     free(): RTSPResult
+    get_ignore_x_server_reply(): boolean
     get_ip(): string
     get_read_socket(): Gio.Socket
     get_remember_session_id(): boolean
@@ -376,6 +377,7 @@ export class RTSPConnection {
     set_auth_param(param: string, value: string): void
     set_content_length_limit(limit: number): void
     set_http_mode(enable: boolean): void
+    set_ignore_x_server_reply(ignore: boolean): void
     set_ip(ip: string): void
     set_proxy(host: string, port: number): RTSPResult
     set_qos_dscp(qos_dscp: number): RTSPResult

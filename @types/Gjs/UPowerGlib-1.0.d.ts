@@ -323,7 +323,7 @@ export class ClientGlueProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -861,7 +861,7 @@ export class DeviceGlueProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -1590,7 +1590,7 @@ export class WakeupsGlueProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void

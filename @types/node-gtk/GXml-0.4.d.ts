@@ -2,6 +2,7 @@
  * GXml-0.4
  */
 
+<<<<<<< HEAD
 import "node"
 import type { Gee } from './Gee-0.8';
 import type { Gio } from './Gio-2.0';
@@ -9,6 +10,15 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 
 export declare namespace GXml {
+=======
+/// <reference types="node" />
+/// <reference path="Gee-0.8.d.ts" />
+/// <reference path="Gio-2.0.d.ts" />
+/// <reference path="GObject-2.0.d.ts" />
+/// <reference path="GLib-2.0.d.ts" />
+
+declare namespace GXml {
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
 
 export enum DomException {
     NONE,
@@ -69,16 +79,25 @@ export interface NamedNodeMap_ConstructProps extends GObject.Object_ConstructPro
     length?: number
 }
 export class NamedNodeMap {
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.NamedNodeMap */
     length: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.4.GXml.NamedNodeMap */
+=======
+    /* Properties of GXml.NamedNodeMap */
+    length: number
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.NamedNodeMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getNamedItem(name: string): object | null
     setNamedItem(item?: object | null): object | null
     removeNamedItem(name: string): object | null
     item(index: number): object | null
     getLength(): number
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -88,6 +107,17 @@ export class NamedNodeMap {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -95,11 +125,16 @@ export class NamedNodeMap {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NamedNodeMap, pspec: GObject.ParamSpec) => void)): number
@@ -107,6 +142,30 @@ export class NamedNodeMap {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.NamedNodeMap */
+    vfuncGetNamedItem(name: string): object | null
+    vfuncSetNamedItem(item?: object | null): object | null
+    vfuncRemoveNamedItem(name: string): object | null
+    vfuncItem(index: number): object | null
+    vfuncGetLength(): number
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: NamedNodeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: NamedNodeMap, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::length", callback: (($obj: NamedNodeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: NamedNodeMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::length", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -128,11 +187,19 @@ export interface NodeList_ConstructProps extends GObject.Object_ConstructProps {
     length?: number
 }
 export class NodeList {
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.NodeList */
     length: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.4.GXml.NodeList */
+=======
+    /* Properties of GXml.NodeList */
+    length: number
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.NodeList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     item(idx: number): Node
     insertBefore(newChild: Node, refChild?: Node | null): Node | null
     replaceChild(newChild: Node, oldChild: Node): Node | null
@@ -143,6 +210,7 @@ export class NodeList {
     last(): Node
     get(n: number): Node
     getLength(): number
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -152,6 +220,17 @@ export class NodeList {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -159,11 +238,16 @@ export class NodeList {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
@@ -171,6 +255,35 @@ export class NodeList {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.NodeList */
+    vfuncItem(idx: number): Node
+    vfuncInsertBefore(newChild: Node, refChild?: Node | null): Node | null
+    vfuncReplaceChild(newChild: Node, oldChild: Node): Node | null
+    vfuncRemoveChild(oldChild: Node): Node | null
+    vfuncAppendChild(newChild: Node): Node | null
+    vfuncToString(inLine: boolean): string
+    vfuncFirst(): Node
+    vfuncLast(): Node
+    vfuncGet(n: number): Node
+    vfuncGetLength(): number
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::length", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::length", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -195,14 +308,24 @@ export interface Serializable_ConstructProps extends GObject.Object_ConstructPro
     serializedXmlNodeValue?: string
 }
 export class Serializable {
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.Serializable */
+=======
+    /* Properties of GXml.Serializable */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     properties: GObject.ParamSpec[]
     ignoredSerializableProperties: GLib.HashTable
     unknownSerializableProperty: GLib.HashTable
     serializedXmlNodeValue: string
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.4.GXml.Serializable */
+=======
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.Serializable */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getEnableUnknownSerializableProperty(): boolean
     serializeUseXmlNodeValue(): boolean
     nodeName(): string
@@ -217,12 +340,21 @@ export class Serializable {
     defaultInitProperties(): void
     listSerializableProperties(): GObject.ParamSpec[]
     defaultListSerializableProperties(): GObject.ParamSpec[]
+<<<<<<< HEAD
     getPropertyValue(spec: GObject.ParamSpec, val: any): { val: any }
     defaultGetPropertyValue(spec: GObject.ParamSpec, val: any): { val: any }
     setPropertyValue(spec: GObject.ParamSpec, val: any): void
     defaultSetPropertyValue(spec: GObject.ParamSpec, val: any): void
     transformFromString(str: string, dest: any): { returnType: boolean, dest: any }
     transformToString(val: any, str: string): { returnType: boolean, str: string }
+=======
+    getPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    defaultGetPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    setPropertyValue(spec: GObject.ParamSpec, val: any): void
+    defaultSetPropertyValue(spec: GObject.ParamSpec, val: any): void
+    transformFromString(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    transformToString(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getProperties(): GObject.ParamSpec[]
     setProperties(value: GObject.ParamSpec[]): void
     getIgnoredSerializableProperties(): GLib.HashTable
@@ -231,6 +363,7 @@ export class Serializable {
     setUnknownSerializableProperty(value: GLib.HashTable): void
     getSerializedXmlNodeValue(): string | null
     setSerializedXmlNodeValue(value?: string | null): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -240,6 +373,17 @@ export class Serializable {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -247,11 +391,16 @@ export class Serializable {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GXml-0.4.GXml.Serializable */
     connect(sigName: "serialize_unknown_property", callback: (($obj: Serializable, element: Node, prop: GObject.ParamSpec) => void)): number
@@ -280,6 +429,78 @@ export class Serializable {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Serializable */
+    vfuncGetEnableUnknownSerializableProperty(): boolean
+    vfuncSerializeUseXmlNodeValue(): boolean
+    vfuncNodeName(): string
+    vfuncPropertyUseNick(): boolean
+    vfuncSerialize(node: Node): Node | null
+    vfuncSerializeProperty(element: Element, prop: GObject.ParamSpec): Node | null
+    vfuncDeserialize(node: Node): Node | null
+    vfuncDeserializeProperty(propertyNode: Node): boolean
+    vfuncFindPropertySpec(propertyName: string): GObject.ParamSpec | null
+    vfuncDefaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
+    vfuncInitProperties(): void
+    vfuncDefaultInitProperties(): void
+    vfuncListSerializableProperties(): GObject.ParamSpec[]
+    vfuncDefaultListSerializableProperties(): GObject.ParamSpec[]
+    vfuncGetPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfuncDefaultGetPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfuncSetPropertyValue(spec: GObject.ParamSpec, val: any): void
+    vfuncDefaultSetPropertyValue(spec: GObject.ParamSpec, val: any): void
+    vfuncTransformFromString(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    vfuncTransformToString(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+    vfuncGetProperties(): GObject.ParamSpec[]
+    vfuncSetProperties(value: GObject.ParamSpec[]): void
+    vfuncGetIgnoredSerializableProperties(): GLib.HashTable
+    vfuncSetIgnoredSerializableProperties(value: GLib.HashTable): void
+    vfuncGetUnknownSerializableProperty(): GLib.HashTable
+    vfuncSetUnknownSerializableProperty(value: GLib.HashTable): void
+    vfuncGetSerializedXmlNodeValue(): string | null
+    vfuncSetSerializedXmlNodeValue(value?: string | null): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GXml.Serializable */
+    connect(sigName: "serialize_unknown_property", callback: (($obj: Serializable, element: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "serialize_unknown_property", callback: (($obj: Serializable, element: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
+    on(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "serialize_unknown_property_type", callback: (($obj: Serializable, element: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "serialize_unknown_property_type", callback: (($obj: Serializable, element: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "serialize_unknown_property_type", element: Node, prop: GObject.ParamSpec): void
+    on(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "deserialize_unknown_property", callback: (($obj: Serializable, node: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "deserialize_unknown_property", callback: (($obj: Serializable, node: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "deserialize_unknown_property", node: Node, prop: GObject.ParamSpec): void
+    on(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "deserialize_unknown_property_type", callback: (($obj: Serializable, node: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "deserialize_unknown_property_type", callback: (($obj: Serializable, node: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
+    on(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: Serializable, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: Serializable, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::properties", callback: (($obj: Serializable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::properties", callback: (($obj: Serializable, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::properties", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -311,13 +532,18 @@ export class Serializable {
     constructor (config?: Serializable_ConstructProps)
     _init (config?: Serializable_ConstructProps): void
     /* Static methods and pseudo-constructors */
+<<<<<<< HEAD
     static stringToGvalue(str: string, dest: any): { returnType: boolean, dest: any }
+=======
+    static stringToGvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     static gvalueToString(val: any): string
     static $gtype: GObject.Type
 }
 export interface SerializableMapKey_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableMapKey {
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.4.GXml.SerializableMapKey */
@@ -331,6 +557,21 @@ export class SerializableMapKey {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.SerializableMapKey */
+    getMapKey(): object | null
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -338,11 +579,16 @@ export class SerializableMapKey {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableMapKey, pspec: GObject.ParamSpec) => void)): number
@@ -350,6 +596,26 @@ export class SerializableMapKey {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.SerializableMapKey */
+    vfuncGetMapKey(): object | null
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SerializableMapKey, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: SerializableMapKey, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -365,6 +631,7 @@ export class SerializableMapKey {
 export interface SerializableMapDualKey_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableMapDualKey {
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.4.GXml.SerializableMapDualKey */
@@ -379,6 +646,22 @@ export class SerializableMapDualKey {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.SerializableMapDualKey */
+    getMapPrimaryKey(): object | null
+    getMapSecondaryKey(): object | null
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -386,11 +669,16 @@ export class SerializableMapDualKey {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableMapDualKey, pspec: GObject.ParamSpec) => void)): number
@@ -398,6 +686,27 @@ export class SerializableMapDualKey {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.SerializableMapDualKey */
+    vfuncGetMapPrimaryKey(): object | null
+    vfuncGetMapSecondaryKey(): object | null
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SerializableMapDualKey, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: SerializableMapDualKey, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -413,6 +722,7 @@ export class SerializableMapDualKey {
 export interface SerializableCollection_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableCollection {
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.4.GXml.SerializableCollection */
@@ -426,6 +736,21 @@ export class SerializableCollection {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.SerializableCollection */
+    isCollection(): boolean
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -433,11 +758,16 @@ export class SerializableCollection {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableCollection, pspec: GObject.ParamSpec) => void)): number
@@ -445,6 +775,26 @@ export class SerializableCollection {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.SerializableCollection */
+    vfuncIsCollection(): boolean
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SerializableCollection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: SerializableCollection, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -463,11 +813,19 @@ export interface Attr_ConstructProps extends BackedNode_ConstructProps {
     value?: string
 }
 export class Attr {
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.Attr */
     name: string
     specified: boolean
     value: string
     /* Properties of GXml-0.4.GXml.Node */
+=======
+    /* Properties of GXml.Attr */
+    name: string
+    specified: boolean
+    value: string
+    /* Properties of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespaceDefinitions: NodeList
     namespaceUri: string
     prefix: string
@@ -483,17 +841,30 @@ export class Attr {
     nextSibling: Node
     attributes: NamedAttrMap
     ownerDocument: Document
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.Attr */
     parentInstance: BackedNode
     priv: AttrPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.4.GXml.Attr */
+=======
+    /* Fields of GXml.Attr */
+    parentInstance: BackedNode
+    priv: AttrPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.Attr */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getName(): string
     getSpecified(): boolean
     getValue(): string
     setValue(value: string): void
+<<<<<<< HEAD
     /* Methods of GXml-0.4.GXml.Node */
+=======
+    /* Methods of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     addNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
     insertBefore(newChild: Node, refChild?: Node | null): Node | null
     replaceChild(newChild: Node, oldChild: Node): Node | null
@@ -501,7 +872,11 @@ export class Attr {
     appendChild(newChild: Node): Node | null
     hasChildNodes(): boolean
     cloneNode(deep: boolean): Node | null
+<<<<<<< HEAD
     copy(node: Node, deep: boolean): { returnType: boolean, node: Node }
+=======
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     toString(format: boolean, level: number): string
     getNamespaceDefinitions(): NodeList | null
     getNamespaceUri(): string | null
@@ -518,6 +893,7 @@ export class Attr {
     getNextSibling(): Node | null
     getAttributes(): NamedAttrMap | null
     getOwnerDocument(): Document
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -527,6 +903,17 @@ export class Attr {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -534,11 +921,16 @@ export class Attr {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
@@ -546,6 +938,48 @@ export class Attr {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Node */
+    vfuncAddNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
+    vfuncInsertBefore(newChild: Node, refChild?: Node | null): Node | null
+    vfuncReplaceChild(newChild: Node, oldChild: Node): Node | null
+    vfuncRemoveChild(oldChild: Node): Node | null
+    vfuncAppendChild(newChild: Node): Node | null
+    vfuncHasChildNodes(): boolean
+    vfuncCloneNode(deep: boolean): Node | null
+    vfuncCopy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfuncToString(format: boolean, level: number): string
+    vfuncGetNamespaceDefinitions(): NodeList | null
+    vfuncGetNamespaceUri(): string | null
+    vfuncGetPrefix(): string | null
+    vfuncGetLocalName(): string | null
+    vfuncGetNodeName(): string
+    vfuncGetNodeValue(): string | null
+    vfuncGetNodeType(): NodeType
+    vfuncGetParentNode(): Node | null
+    vfuncGetChildNodes(): NodeList | null
+    vfuncGetFirstChild(): Node | null
+    vfuncGetLastChild(): Node | null
+    vfuncGetPreviousSibling(): Node | null
+    vfuncGetNextSibling(): Node | null
+    vfuncGetAttributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::name", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: Attr, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -651,7 +1085,11 @@ export class Attr {
 export interface BackedNode_ConstructProps extends Node_ConstructProps {
 }
 export class BackedNode {
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.Node */
+=======
+    /* Properties of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespaceDefinitions: NodeList
     namespaceUri: string
     prefix: string
@@ -667,12 +1105,21 @@ export class BackedNode {
     nextSibling: Node
     attributes: NamedAttrMap
     ownerDocument: Document
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.BackedNode */
     parentInstance: Node
     priv: BackedNodePrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.4.GXml.Node */
+=======
+    /* Fields of GXml.BackedNode */
+    parentInstance: Node
+    priv: BackedNodePrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     addNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
     insertBefore(newChild: Node, refChild?: Node | null): Node | null
     replaceChild(newChild: Node, oldChild: Node): Node | null
@@ -680,7 +1127,11 @@ export class BackedNode {
     appendChild(newChild: Node): Node | null
     hasChildNodes(): boolean
     cloneNode(deep: boolean): Node | null
+<<<<<<< HEAD
     copy(node: Node, deep: boolean): { returnType: boolean, node: Node }
+=======
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     toString(format: boolean, level: number): string
     getNamespaceDefinitions(): NodeList | null
     getNamespaceUri(): string | null
@@ -697,6 +1148,7 @@ export class BackedNode {
     getNextSibling(): Node | null
     getAttributes(): NamedAttrMap | null
     getOwnerDocument(): Document
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -706,6 +1158,17 @@ export class BackedNode {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -713,11 +1176,16 @@ export class BackedNode {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BackedNode, pspec: GObject.ParamSpec) => void)): number
@@ -725,6 +1193,48 @@ export class BackedNode {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Node */
+    vfuncAddNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
+    vfuncInsertBefore(newChild: Node, refChild?: Node | null): Node | null
+    vfuncReplaceChild(newChild: Node, oldChild: Node): Node | null
+    vfuncRemoveChild(oldChild: Node): Node | null
+    vfuncAppendChild(newChild: Node): Node | null
+    vfuncHasChildNodes(): boolean
+    vfuncCloneNode(deep: boolean): Node | null
+    vfuncCopy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfuncToString(format: boolean, level: number): string
+    vfuncGetNamespaceDefinitions(): NodeList | null
+    vfuncGetNamespaceUri(): string | null
+    vfuncGetPrefix(): string | null
+    vfuncGetLocalName(): string | null
+    vfuncGetNodeName(): string
+    vfuncGetNodeValue(): string | null
+    vfuncGetNodeType(): NodeType
+    vfuncGetParentNode(): Node | null
+    vfuncGetChildNodes(): NodeList | null
+    vfuncGetFirstChild(): Node | null
+    vfuncGetLastChild(): Node | null
+    vfuncGetPreviousSibling(): Node | null
+    vfuncGetNextSibling(): Node | null
+    vfuncGetAttributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: BackedNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: BackedNode, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::namespace-definitions", callback: (($obj: BackedNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: BackedNode, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::namespace-definitions", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -815,10 +1325,17 @@ export class BackedNode {
 export interface CDATASection_ConstructProps extends Text_ConstructProps {
 }
 export class CDATASection {
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.CharacterData */
     data: string
     length: number
     /* Properties of GXml-0.4.GXml.Node */
+=======
+    /* Properties of GXml.CharacterData */
+    data: string
+    length: number
+    /* Properties of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespaceDefinitions: NodeList
     namespaceUri: string
     prefix: string
@@ -834,6 +1351,7 @@ export class CDATASection {
     nextSibling: Node
     attributes: NamedAttrMap
     ownerDocument: Document
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.CDATASection */
     parentInstance: Text
     priv: CDATASectionPrivate
@@ -842,6 +1360,16 @@ export class CDATASection {
     /* Methods of GXml-0.4.GXml.Text */
     splitText(offset: number): Text
     /* Methods of GXml-0.4.GXml.CharacterData */
+=======
+    /* Fields of GXml.CDATASection */
+    parentInstance: Text
+    priv: CDATASectionPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.Text */
+    splitText(offset: number): Text
+    /* Methods of GXml.CharacterData */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     substringData(offset: number, count: number): string
     appendData(newSegment: string): void
     insertData(offset: number, newSegment: string): void
@@ -850,7 +1378,11 @@ export class CDATASection {
     getData(): string
     setData(value: string): void
     getLength(): number
+<<<<<<< HEAD
     /* Methods of GXml-0.4.GXml.Node */
+=======
+    /* Methods of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     addNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
     insertBefore(newChild: Node, refChild?: Node | null): Node | null
     replaceChild(newChild: Node, oldChild: Node): Node | null
@@ -858,7 +1390,11 @@ export class CDATASection {
     appendChild(newChild: Node): Node | null
     hasChildNodes(): boolean
     cloneNode(deep: boolean): Node | null
+<<<<<<< HEAD
     copy(node: Node, deep: boolean): { returnType: boolean, node: Node }
+=======
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     toString(format: boolean, level: number): string
     getNamespaceDefinitions(): NodeList | null
     getNamespaceUri(): string | null
@@ -875,6 +1411,7 @@ export class CDATASection {
     getNextSibling(): Node | null
     getAttributes(): NamedAttrMap | null
     getOwnerDocument(): Document
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -884,6 +1421,17 @@ export class CDATASection {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -891,11 +1439,16 @@ export class CDATASection {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CDATASection, pspec: GObject.ParamSpec) => void)): number
@@ -903,6 +1456,48 @@ export class CDATASection {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Node */
+    vfuncAddNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
+    vfuncInsertBefore(newChild: Node, refChild?: Node | null): Node | null
+    vfuncReplaceChild(newChild: Node, oldChild: Node): Node | null
+    vfuncRemoveChild(oldChild: Node): Node | null
+    vfuncAppendChild(newChild: Node): Node | null
+    vfuncHasChildNodes(): boolean
+    vfuncCloneNode(deep: boolean): Node | null
+    vfuncCopy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfuncToString(format: boolean, level: number): string
+    vfuncGetNamespaceDefinitions(): NodeList | null
+    vfuncGetNamespaceUri(): string | null
+    vfuncGetPrefix(): string | null
+    vfuncGetLocalName(): string | null
+    vfuncGetNodeName(): string
+    vfuncGetNodeValue(): string | null
+    vfuncGetNodeType(): NodeType
+    vfuncGetParentNode(): Node | null
+    vfuncGetChildNodes(): NodeList | null
+    vfuncGetFirstChild(): Node | null
+    vfuncGetLastChild(): Node | null
+    vfuncGetPreviousSibling(): Node | null
+    vfuncGetNextSibling(): Node | null
+    vfuncGetAttributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: CDATASection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: CDATASection, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::data", callback: (($obj: CDATASection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: CDATASection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::data", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1005,10 +1600,17 @@ export interface CharacterData_ConstructProps extends BackedNode_ConstructProps 
     length?: number
 }
 export class CharacterData {
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.CharacterData */
     data: string
     length: number
     /* Properties of GXml-0.4.GXml.Node */
+=======
+    /* Properties of GXml.CharacterData */
+    data: string
+    length: number
+    /* Properties of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespaceDefinitions: NodeList
     namespaceUri: string
     prefix: string
@@ -1024,12 +1626,21 @@ export class CharacterData {
     nextSibling: Node
     attributes: NamedAttrMap
     ownerDocument: Document
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.CharacterData */
     parentInstance: BackedNode
     priv: CharacterDataPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.4.GXml.CharacterData */
+=======
+    /* Fields of GXml.CharacterData */
+    parentInstance: BackedNode
+    priv: CharacterDataPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.CharacterData */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     substringData(offset: number, count: number): string
     appendData(newSegment: string): void
     insertData(offset: number, newSegment: string): void
@@ -1038,7 +1649,11 @@ export class CharacterData {
     getData(): string
     setData(value: string): void
     getLength(): number
+<<<<<<< HEAD
     /* Methods of GXml-0.4.GXml.Node */
+=======
+    /* Methods of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     addNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
     insertBefore(newChild: Node, refChild?: Node | null): Node | null
     replaceChild(newChild: Node, oldChild: Node): Node | null
@@ -1046,7 +1661,11 @@ export class CharacterData {
     appendChild(newChild: Node): Node | null
     hasChildNodes(): boolean
     cloneNode(deep: boolean): Node | null
+<<<<<<< HEAD
     copy(node: Node, deep: boolean): { returnType: boolean, node: Node }
+=======
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     toString(format: boolean, level: number): string
     getNamespaceDefinitions(): NodeList | null
     getNamespaceUri(): string | null
@@ -1063,6 +1682,7 @@ export class CharacterData {
     getNextSibling(): Node | null
     getAttributes(): NamedAttrMap | null
     getOwnerDocument(): Document
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -1072,6 +1692,17 @@ export class CharacterData {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -1079,11 +1710,16 @@ export class CharacterData {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
@@ -1091,6 +1727,48 @@ export class CharacterData {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Node */
+    vfuncAddNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
+    vfuncInsertBefore(newChild: Node, refChild?: Node | null): Node | null
+    vfuncReplaceChild(newChild: Node, oldChild: Node): Node | null
+    vfuncRemoveChild(oldChild: Node): Node | null
+    vfuncAppendChild(newChild: Node): Node | null
+    vfuncHasChildNodes(): boolean
+    vfuncCloneNode(deep: boolean): Node | null
+    vfuncCopy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfuncToString(format: boolean, level: number): string
+    vfuncGetNamespaceDefinitions(): NodeList | null
+    vfuncGetNamespaceUri(): string | null
+    vfuncGetPrefix(): string | null
+    vfuncGetLocalName(): string | null
+    vfuncGetNodeName(): string
+    vfuncGetNodeValue(): string | null
+    vfuncGetNodeType(): NodeType
+    vfuncGetParentNode(): Node | null
+    vfuncGetChildNodes(): NodeList | null
+    vfuncGetFirstChild(): Node | null
+    vfuncGetLastChild(): Node | null
+    vfuncGetPreviousSibling(): Node | null
+    vfuncGetNextSibling(): Node | null
+    vfuncGetAttributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::data", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: CharacterData, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::data", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1191,10 +1869,17 @@ export class CharacterData {
 export interface Comment_ConstructProps extends CharacterData_ConstructProps {
 }
 export class Comment {
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.CharacterData */
     data: string
     length: number
     /* Properties of GXml-0.4.GXml.Node */
+=======
+    /* Properties of GXml.CharacterData */
+    data: string
+    length: number
+    /* Properties of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespaceDefinitions: NodeList
     namespaceUri: string
     prefix: string
@@ -1210,12 +1895,21 @@ export class Comment {
     nextSibling: Node
     attributes: NamedAttrMap
     ownerDocument: Document
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.Comment */
     parentInstance: CharacterData
     priv: CommentPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.4.GXml.CharacterData */
+=======
+    /* Fields of GXml.Comment */
+    parentInstance: CharacterData
+    priv: CommentPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.CharacterData */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     substringData(offset: number, count: number): string
     appendData(newSegment: string): void
     insertData(offset: number, newSegment: string): void
@@ -1224,7 +1918,11 @@ export class Comment {
     getData(): string
     setData(value: string): void
     getLength(): number
+<<<<<<< HEAD
     /* Methods of GXml-0.4.GXml.Node */
+=======
+    /* Methods of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     addNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
     insertBefore(newChild: Node, refChild?: Node | null): Node | null
     replaceChild(newChild: Node, oldChild: Node): Node | null
@@ -1232,7 +1930,11 @@ export class Comment {
     appendChild(newChild: Node): Node | null
     hasChildNodes(): boolean
     cloneNode(deep: boolean): Node | null
+<<<<<<< HEAD
     copy(node: Node, deep: boolean): { returnType: boolean, node: Node }
+=======
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     toString(format: boolean, level: number): string
     getNamespaceDefinitions(): NodeList | null
     getNamespaceUri(): string | null
@@ -1249,6 +1951,7 @@ export class Comment {
     getNextSibling(): Node | null
     getAttributes(): NamedAttrMap | null
     getOwnerDocument(): Document
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -1258,6 +1961,17 @@ export class Comment {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -1265,11 +1979,16 @@ export class Comment {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
@@ -1277,6 +1996,48 @@ export class Comment {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Node */
+    vfuncAddNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
+    vfuncInsertBefore(newChild: Node, refChild?: Node | null): Node | null
+    vfuncReplaceChild(newChild: Node, oldChild: Node): Node | null
+    vfuncRemoveChild(oldChild: Node): Node | null
+    vfuncAppendChild(newChild: Node): Node | null
+    vfuncHasChildNodes(): boolean
+    vfuncCloneNode(deep: boolean): Node | null
+    vfuncCopy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfuncToString(format: boolean, level: number): string
+    vfuncGetNamespaceDefinitions(): NodeList | null
+    vfuncGetNamespaceUri(): string | null
+    vfuncGetPrefix(): string | null
+    vfuncGetLocalName(): string | null
+    vfuncGetNodeName(): string
+    vfuncGetNodeValue(): string | null
+    vfuncGetNodeType(): NodeType
+    vfuncGetParentNode(): Node | null
+    vfuncGetChildNodes(): NodeList | null
+    vfuncGetFirstChild(): Node | null
+    vfuncGetLastChild(): Node | null
+    vfuncGetPreviousSibling(): Node | null
+    vfuncGetNextSibling(): Node | null
+    vfuncGetAttributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::data", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::data", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1380,11 +2141,19 @@ export interface Document_ConstructProps extends Node_ConstructProps {
     documentElement?: Element
 }
 export class Document {
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.Document */
     doctype: DocumentType
     implementation: Implementation
     documentElement: Element
     /* Properties of GXml-0.4.GXml.Node */
+=======
+    /* Properties of GXml.Document */
+    doctype: DocumentType
+    implementation: Implementation
+    documentElement: Element
+    /* Properties of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespaceDefinitions: NodeList
     namespaceUri: string
     prefix: string
@@ -1400,12 +2169,21 @@ export class Document {
     nextSibling: Node
     attributes: NamedAttrMap
     ownerDocument: Document
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.Document */
     parentInstance: Node
     priv: DocumentPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.4.GXml.Document */
+=======
+    /* Fields of GXml.Document */
+    parentInstance: Node
+    priv: DocumentPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.Document */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     saveToPath(filePath: string): void
     saveToStream(outstream: Gio.OutputStream, can?: Gio.Cancellable | null): void
     createElement(tagName: string): Element
@@ -1421,7 +2199,11 @@ export class Document {
     getDoctype(): DocumentType | null
     getImplementation(): Implementation
     getDocumentElement(): Element
+<<<<<<< HEAD
     /* Methods of GXml-0.4.GXml.Node */
+=======
+    /* Methods of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     addNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
     insertBefore(newChild: Node, refChild?: Node | null): Node | null
     replaceChild(newChild: Node, oldChild: Node): Node | null
@@ -1429,7 +2211,11 @@ export class Document {
     appendChild(newChild: Node): Node | null
     hasChildNodes(): boolean
     cloneNode(deep: boolean): Node | null
+<<<<<<< HEAD
     copy(node: Node, deep: boolean): { returnType: boolean, node: Node }
+=======
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     toString(format: boolean, level: number): string
     getNamespaceDefinitions(): NodeList | null
     getNamespaceUri(): string | null
@@ -1446,6 +2232,7 @@ export class Document {
     getNextSibling(): Node | null
     getAttributes(): NamedAttrMap | null
     getOwnerDocument(): Document
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -1455,6 +2242,17 @@ export class Document {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -1462,11 +2260,16 @@ export class Document {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
@@ -1474,6 +2277,48 @@ export class Document {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Node */
+    vfuncAddNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
+    vfuncInsertBefore(newChild: Node, refChild?: Node | null): Node | null
+    vfuncReplaceChild(newChild: Node, oldChild: Node): Node | null
+    vfuncRemoveChild(oldChild: Node): Node | null
+    vfuncAppendChild(newChild: Node): Node | null
+    vfuncHasChildNodes(): boolean
+    vfuncCloneNode(deep: boolean): Node | null
+    vfuncCopy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfuncToString(format: boolean, level: number): string
+    vfuncGetNamespaceDefinitions(): NodeList | null
+    vfuncGetNamespaceUri(): string | null
+    vfuncGetPrefix(): string | null
+    vfuncGetLocalName(): string | null
+    vfuncGetNodeName(): string
+    vfuncGetNodeValue(): string | null
+    vfuncGetNodeType(): NodeType
+    vfuncGetParentNode(): Node | null
+    vfuncGetChildNodes(): NodeList | null
+    vfuncGetFirstChild(): Node | null
+    vfuncGetLastChild(): Node | null
+    vfuncGetPreviousSibling(): Node | null
+    vfuncGetNextSibling(): Node | null
+    vfuncGetAttributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::doctype", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::doctype", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::doctype", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1587,7 +2432,11 @@ export class Document {
 export interface DocumentFragment_ConstructProps extends BackedNode_ConstructProps {
 }
 export class DocumentFragment {
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.Node */
+=======
+    /* Properties of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespaceDefinitions: NodeList
     namespaceUri: string
     prefix: string
@@ -1603,12 +2452,21 @@ export class DocumentFragment {
     nextSibling: Node
     attributes: NamedAttrMap
     ownerDocument: Document
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.DocumentFragment */
     parentInstance: BackedNode
     priv: DocumentFragmentPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.4.GXml.Node */
+=======
+    /* Fields of GXml.DocumentFragment */
+    parentInstance: BackedNode
+    priv: DocumentFragmentPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     addNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
     insertBefore(newChild: Node, refChild?: Node | null): Node | null
     replaceChild(newChild: Node, oldChild: Node): Node | null
@@ -1616,7 +2474,11 @@ export class DocumentFragment {
     appendChild(newChild: Node): Node | null
     hasChildNodes(): boolean
     cloneNode(deep: boolean): Node | null
+<<<<<<< HEAD
     copy(node: Node, deep: boolean): { returnType: boolean, node: Node }
+=======
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     toString(format: boolean, level: number): string
     getNamespaceDefinitions(): NodeList | null
     getNamespaceUri(): string | null
@@ -1633,6 +2495,7 @@ export class DocumentFragment {
     getNextSibling(): Node | null
     getAttributes(): NamedAttrMap | null
     getOwnerDocument(): Document
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -1642,6 +2505,17 @@ export class DocumentFragment {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -1649,11 +2523,16 @@ export class DocumentFragment {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
@@ -1661,6 +2540,48 @@ export class DocumentFragment {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Node */
+    vfuncAddNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
+    vfuncInsertBefore(newChild: Node, refChild?: Node | null): Node | null
+    vfuncReplaceChild(newChild: Node, oldChild: Node): Node | null
+    vfuncRemoveChild(oldChild: Node): Node | null
+    vfuncAppendChild(newChild: Node): Node | null
+    vfuncHasChildNodes(): boolean
+    vfuncCloneNode(deep: boolean): Node | null
+    vfuncCopy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfuncToString(format: boolean, level: number): string
+    vfuncGetNamespaceDefinitions(): NodeList | null
+    vfuncGetNamespaceUri(): string | null
+    vfuncGetPrefix(): string | null
+    vfuncGetLocalName(): string | null
+    vfuncGetNodeName(): string
+    vfuncGetNodeValue(): string | null
+    vfuncGetNodeType(): NodeType
+    vfuncGetParentNode(): Node | null
+    vfuncGetChildNodes(): NodeList | null
+    vfuncGetFirstChild(): Node | null
+    vfuncGetLastChild(): Node | null
+    vfuncGetPreviousSibling(): Node | null
+    vfuncGetNextSibling(): Node | null
+    vfuncGetAttributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::namespace-definitions", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::namespace-definitions", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1754,11 +2675,19 @@ export interface DocumentType_ConstructProps extends Node_ConstructProps {
     notations?: GLib.HashTable
 }
 export class DocumentType {
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.DocumentType */
     name: string
     entities: GLib.HashTable
     notations: GLib.HashTable
     /* Properties of GXml-0.4.GXml.Node */
+=======
+    /* Properties of GXml.DocumentType */
+    name: string
+    entities: GLib.HashTable
+    notations: GLib.HashTable
+    /* Properties of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespaceDefinitions: NodeList
     namespaceUri: string
     prefix: string
@@ -1774,6 +2703,7 @@ export class DocumentType {
     nextSibling: Node
     attributes: NamedAttrMap
     ownerDocument: Document
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.DocumentType */
     parentInstance: Node
     priv: DocumentTypePrivate
@@ -1784,6 +2714,18 @@ export class DocumentType {
     getEntities(): GLib.HashTable | null
     getNotations(): GLib.HashTable | null
     /* Methods of GXml-0.4.GXml.Node */
+=======
+    /* Fields of GXml.DocumentType */
+    parentInstance: Node
+    priv: DocumentTypePrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.DocumentType */
+    getName(): string
+    getEntities(): GLib.HashTable | null
+    getNotations(): GLib.HashTable | null
+    /* Methods of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     addNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
     insertBefore(newChild: Node, refChild?: Node | null): Node | null
     replaceChild(newChild: Node, oldChild: Node): Node | null
@@ -1791,7 +2733,11 @@ export class DocumentType {
     appendChild(newChild: Node): Node | null
     hasChildNodes(): boolean
     cloneNode(deep: boolean): Node | null
+<<<<<<< HEAD
     copy(node: Node, deep: boolean): { returnType: boolean, node: Node }
+=======
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     toString(format: boolean, level: number): string
     getNamespaceDefinitions(): NodeList | null
     getNamespaceUri(): string | null
@@ -1808,6 +2754,7 @@ export class DocumentType {
     getNextSibling(): Node | null
     getAttributes(): NamedAttrMap | null
     getOwnerDocument(): Document
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -1817,6 +2764,17 @@ export class DocumentType {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -1824,11 +2782,16 @@ export class DocumentType {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
@@ -1836,6 +2799,48 @@ export class DocumentType {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Node */
+    vfuncAddNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
+    vfuncInsertBefore(newChild: Node, refChild?: Node | null): Node | null
+    vfuncReplaceChild(newChild: Node, oldChild: Node): Node | null
+    vfuncRemoveChild(oldChild: Node): Node | null
+    vfuncAppendChild(newChild: Node): Node | null
+    vfuncHasChildNodes(): boolean
+    vfuncCloneNode(deep: boolean): Node | null
+    vfuncCopy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfuncToString(format: boolean, level: number): string
+    vfuncGetNamespaceDefinitions(): NodeList | null
+    vfuncGetNamespaceUri(): string | null
+    vfuncGetPrefix(): string | null
+    vfuncGetLocalName(): string | null
+    vfuncGetNodeName(): string
+    vfuncGetNodeValue(): string | null
+    vfuncGetNodeType(): NodeType
+    vfuncGetParentNode(): Node | null
+    vfuncGetChildNodes(): NodeList | null
+    vfuncGetFirstChild(): Node | null
+    vfuncGetLastChild(): Node | null
+    vfuncGetPreviousSibling(): Node | null
+    vfuncGetNextSibling(): Node | null
+    vfuncGetAttributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::name", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1956,7 +2961,11 @@ export interface Node_ConstructProps extends GObject.Object_ConstructProps {
     ownerDocument?: Document
 }
 export class Node {
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.Node */
+=======
+    /* Properties of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespaceDefinitions: NodeList
     namespaceUri: string
     prefix: string
@@ -1972,12 +2981,21 @@ export class Node {
     nextSibling: Node
     attributes: NamedAttrMap
     ownerDocument: Document
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.Node */
     parentInstance: GObject.Object
     priv: NodePrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.4.GXml.Node */
+=======
+    /* Fields of GXml.Node */
+    parentInstance: GObject.Object
+    priv: NodePrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     addNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
     insertBefore(newChild: Node, refChild?: Node | null): Node | null
     replaceChild(newChild: Node, oldChild: Node): Node | null
@@ -1985,7 +3003,11 @@ export class Node {
     appendChild(newChild: Node): Node | null
     hasChildNodes(): boolean
     cloneNode(deep: boolean): Node | null
+<<<<<<< HEAD
     copy(node: Node, deep: boolean): { returnType: boolean, node: Node }
+=======
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     toString(format: boolean, level: number): string
     getNamespaceDefinitions(): NodeList | null
     getNamespaceUri(): string | null
@@ -2002,6 +3024,7 @@ export class Node {
     getNextSibling(): Node | null
     getAttributes(): NamedAttrMap | null
     getOwnerDocument(): Document
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -2011,6 +3034,17 @@ export class Node {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2018,11 +3052,16 @@ export class Node {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Node, pspec: GObject.ParamSpec) => void)): number
@@ -2030,6 +3069,48 @@ export class Node {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Node */
+    vfuncAddNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
+    vfuncInsertBefore(newChild: Node, refChild?: Node | null): Node | null
+    vfuncReplaceChild(newChild: Node, oldChild: Node): Node | null
+    vfuncRemoveChild(oldChild: Node): Node | null
+    vfuncAppendChild(newChild: Node): Node | null
+    vfuncHasChildNodes(): boolean
+    vfuncCloneNode(deep: boolean): Node | null
+    vfuncCopy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfuncToString(format: boolean, level: number): string
+    vfuncGetNamespaceDefinitions(): NodeList | null
+    vfuncGetNamespaceUri(): string | null
+    vfuncGetPrefix(): string | null
+    vfuncGetLocalName(): string | null
+    vfuncGetNodeName(): string
+    vfuncGetNodeValue(): string | null
+    vfuncGetNodeType(): NodeType
+    vfuncGetParentNode(): Node | null
+    vfuncGetChildNodes(): NodeList | null
+    vfuncGetFirstChild(): Node | null
+    vfuncGetLastChild(): Node | null
+    vfuncGetPreviousSibling(): Node | null
+    vfuncGetNextSibling(): Node | null
+    vfuncGetAttributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: Node, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: Node, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::namespace-definitions", callback: (($obj: Node, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: Node, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::namespace-definitions", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2122,10 +3203,17 @@ export interface Element_ConstructProps extends BackedNode_ConstructProps {
     content?: string
 }
 export class Element {
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.Element */
     tagName: string
     content: string
     /* Properties of GXml-0.4.GXml.Node */
+=======
+    /* Properties of GXml.Element */
+    tagName: string
+    content: string
+    /* Properties of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespaceDefinitions: NodeList
     namespaceUri: string
     prefix: string
@@ -2141,12 +3229,21 @@ export class Element {
     nextSibling: Node
     attributes: NamedAttrMap
     ownerDocument: Document
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.Element */
     parentInstance: BackedNode
     priv: ElementPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.4.GXml.Element */
+=======
+    /* Fields of GXml.Element */
+    parentInstance: BackedNode
+    priv: ElementPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.Element */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getAttribute(name: string): string
     setAttribute(name: string, value: string): void
     removeAttribute(name: string): void
@@ -2158,7 +3255,11 @@ export class Element {
     getTagName(): string
     getContent(): string
     setContent(value: string): void
+<<<<<<< HEAD
     /* Methods of GXml-0.4.GXml.Node */
+=======
+    /* Methods of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     addNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
     insertBefore(newChild: Node, refChild?: Node | null): Node | null
     replaceChild(newChild: Node, oldChild: Node): Node | null
@@ -2166,7 +3267,11 @@ export class Element {
     appendChild(newChild: Node): Node | null
     hasChildNodes(): boolean
     cloneNode(deep: boolean): Node | null
+<<<<<<< HEAD
     copy(node: Node, deep: boolean): { returnType: boolean, node: Node }
+=======
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     toString(format: boolean, level: number): string
     getNamespaceDefinitions(): NodeList | null
     getNamespaceUri(): string | null
@@ -2183,6 +3288,7 @@ export class Element {
     getNextSibling(): Node | null
     getAttributes(): NamedAttrMap | null
     getOwnerDocument(): Document
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -2192,6 +3298,17 @@ export class Element {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2199,11 +3316,16 @@ export class Element {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
@@ -2211,6 +3333,48 @@ export class Element {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Node */
+    vfuncAddNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
+    vfuncInsertBefore(newChild: Node, refChild?: Node | null): Node | null
+    vfuncReplaceChild(newChild: Node, oldChild: Node): Node | null
+    vfuncRemoveChild(oldChild: Node): Node | null
+    vfuncAppendChild(newChild: Node): Node | null
+    vfuncHasChildNodes(): boolean
+    vfuncCloneNode(deep: boolean): Node | null
+    vfuncCopy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfuncToString(format: boolean, level: number): string
+    vfuncGetNamespaceDefinitions(): NodeList | null
+    vfuncGetNamespaceUri(): string | null
+    vfuncGetPrefix(): string | null
+    vfuncGetLocalName(): string | null
+    vfuncGetNodeName(): string
+    vfuncGetNodeValue(): string | null
+    vfuncGetNodeType(): NodeType
+    vfuncGetParentNode(): Node | null
+    vfuncGetChildNodes(): NodeList | null
+    vfuncGetFirstChild(): Node | null
+    vfuncGetLastChild(): Node | null
+    vfuncGetPreviousSibling(): Node | null
+    vfuncGetNextSibling(): Node | null
+    vfuncGetAttributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::tag-name", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tag-name", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::tag-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2314,11 +3478,19 @@ export interface Entity_ConstructProps extends Node_ConstructProps {
     notationName?: string
 }
 export class Entity {
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.Entity */
     publicId: string
     systemId: string
     notationName: string
     /* Properties of GXml-0.4.GXml.Node */
+=======
+    /* Properties of GXml.Entity */
+    publicId: string
+    systemId: string
+    notationName: string
+    /* Properties of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespaceDefinitions: NodeList
     namespaceUri: string
     prefix: string
@@ -2334,6 +3506,7 @@ export class Entity {
     nextSibling: Node
     attributes: NamedAttrMap
     ownerDocument: Document
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.Entity */
     parentInstance: Node
     priv: EntityPrivate
@@ -2344,6 +3517,18 @@ export class Entity {
     getSystemId(): string
     getNotationName(): string
     /* Methods of GXml-0.4.GXml.Node */
+=======
+    /* Fields of GXml.Entity */
+    parentInstance: Node
+    priv: EntityPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.Entity */
+    getPublicId(): string
+    getSystemId(): string
+    getNotationName(): string
+    /* Methods of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     addNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
     insertBefore(newChild: Node, refChild?: Node | null): Node | null
     replaceChild(newChild: Node, oldChild: Node): Node | null
@@ -2351,7 +3536,11 @@ export class Entity {
     appendChild(newChild: Node): Node | null
     hasChildNodes(): boolean
     cloneNode(deep: boolean): Node | null
+<<<<<<< HEAD
     copy(node: Node, deep: boolean): { returnType: boolean, node: Node }
+=======
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     toString(format: boolean, level: number): string
     getNamespaceDefinitions(): NodeList | null
     getNamespaceUri(): string | null
@@ -2368,6 +3557,7 @@ export class Entity {
     getNextSibling(): Node | null
     getAttributes(): NamedAttrMap | null
     getOwnerDocument(): Document
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -2377,6 +3567,17 @@ export class Entity {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2384,11 +3585,16 @@ export class Entity {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Entity, pspec: GObject.ParamSpec) => void)): number
@@ -2396,6 +3602,48 @@ export class Entity {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Node */
+    vfuncAddNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
+    vfuncInsertBefore(newChild: Node, refChild?: Node | null): Node | null
+    vfuncReplaceChild(newChild: Node, oldChild: Node): Node | null
+    vfuncRemoveChild(oldChild: Node): Node | null
+    vfuncAppendChild(newChild: Node): Node | null
+    vfuncHasChildNodes(): boolean
+    vfuncCloneNode(deep: boolean): Node | null
+    vfuncCopy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfuncToString(format: boolean, level: number): string
+    vfuncGetNamespaceDefinitions(): NodeList | null
+    vfuncGetNamespaceUri(): string | null
+    vfuncGetPrefix(): string | null
+    vfuncGetLocalName(): string | null
+    vfuncGetNodeName(): string
+    vfuncGetNodeValue(): string | null
+    vfuncGetNodeType(): NodeType
+    vfuncGetParentNode(): Node | null
+    vfuncGetChildNodes(): NodeList | null
+    vfuncGetFirstChild(): Node | null
+    vfuncGetLastChild(): Node | null
+    vfuncGetPreviousSibling(): Node | null
+    vfuncGetNextSibling(): Node | null
+    vfuncGetAttributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: Entity, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: Entity, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::public-id", callback: (($obj: Entity, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::public-id", callback: (($obj: Entity, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::public-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2501,7 +3749,11 @@ export class Entity {
 export interface EntityReference_ConstructProps extends Node_ConstructProps {
 }
 export class EntityReference {
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.Node */
+=======
+    /* Properties of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespaceDefinitions: NodeList
     namespaceUri: string
     prefix: string
@@ -2517,12 +3769,21 @@ export class EntityReference {
     nextSibling: Node
     attributes: NamedAttrMap
     ownerDocument: Document
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.EntityReference */
     parentInstance: Node
     priv: EntityReferencePrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.4.GXml.Node */
+=======
+    /* Fields of GXml.EntityReference */
+    parentInstance: Node
+    priv: EntityReferencePrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     addNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
     insertBefore(newChild: Node, refChild?: Node | null): Node | null
     replaceChild(newChild: Node, oldChild: Node): Node | null
@@ -2530,7 +3791,11 @@ export class EntityReference {
     appendChild(newChild: Node): Node | null
     hasChildNodes(): boolean
     cloneNode(deep: boolean): Node | null
+<<<<<<< HEAD
     copy(node: Node, deep: boolean): { returnType: boolean, node: Node }
+=======
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     toString(format: boolean, level: number): string
     getNamespaceDefinitions(): NodeList | null
     getNamespaceUri(): string | null
@@ -2547,6 +3812,7 @@ export class EntityReference {
     getNextSibling(): Node | null
     getAttributes(): NamedAttrMap | null
     getOwnerDocument(): Document
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -2556,6 +3822,17 @@ export class EntityReference {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2563,11 +3840,16 @@ export class EntityReference {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EntityReference, pspec: GObject.ParamSpec) => void)): number
@@ -2575,6 +3857,48 @@ export class EntityReference {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Node */
+    vfuncAddNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
+    vfuncInsertBefore(newChild: Node, refChild?: Node | null): Node | null
+    vfuncReplaceChild(newChild: Node, oldChild: Node): Node | null
+    vfuncRemoveChild(oldChild: Node): Node | null
+    vfuncAppendChild(newChild: Node): Node | null
+    vfuncHasChildNodes(): boolean
+    vfuncCloneNode(deep: boolean): Node | null
+    vfuncCopy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfuncToString(format: boolean, level: number): string
+    vfuncGetNamespaceDefinitions(): NodeList | null
+    vfuncGetNamespaceUri(): string | null
+    vfuncGetPrefix(): string | null
+    vfuncGetLocalName(): string | null
+    vfuncGetNodeName(): string
+    vfuncGetNodeValue(): string | null
+    vfuncGetNodeType(): NodeType
+    vfuncGetParentNode(): Node | null
+    vfuncGetChildNodes(): NodeList | null
+    vfuncGetFirstChild(): Node | null
+    vfuncGetLastChild(): Node | null
+    vfuncGetPreviousSibling(): Node | null
+    vfuncGetNextSibling(): Node | null
+    vfuncGetAttributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: EntityReference, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: EntityReference, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::namespace-definitions", callback: (($obj: EntityReference, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: EntityReference, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::namespace-definitions", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2665,6 +3989,7 @@ export class EntityReference {
 export interface Implementation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Implementation {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.Implementation */
     parentInstance: GObject.Object
     priv: ImplementationPrivate
@@ -2682,6 +4007,25 @@ export class Implementation {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of GXml.Implementation */
+    parentInstance: GObject.Object
+    priv: ImplementationPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.Implementation */
+    createDocument(namespaceUri?: string | null, qualifiedName?: string | null, doctype?: DocumentType | null): Document
+    hasFeature(feature: string, version?: string | null): boolean
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2689,11 +4033,16 @@ export class Implementation {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Implementation, pspec: GObject.ParamSpec) => void)): number
@@ -2701,6 +4050,24 @@ export class Implementation {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: Implementation, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: Implementation, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2717,6 +4084,7 @@ export interface NamedAttrMap_ConstructProps extends GObject.Object_ConstructPro
     length?: number
 }
 export class NamedAttrMap {
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.NamedNodeMap */
     length: number
     /* Fields of GXml-0.4.GXml.NamedAttrMap */
@@ -2735,6 +4103,26 @@ export class NamedAttrMap {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Properties of GXml.NamedNodeMap */
+    length: number
+    /* Fields of GXml.NamedAttrMap */
+    parentInstance: GObject.Object
+    priv: NamedAttrMapPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.NamedAttrMap */
+    getValues(): Gee.Collection
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2742,24 +4130,57 @@ export class NamedAttrMap {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Methods of GXml-0.4.GXml.NamedNodeMap */
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Methods of GXml.NamedNodeMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getNamedItem(name: string): object | null
     setNamedItem(item?: object | null): object | null
     removeNamedItem(name: string): object | null
     item(index: number): object | null
     getLength(): number
+<<<<<<< HEAD
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    /* Virtual methods of GXml.NamedAttrMap */
+    vfuncGetNamedItem(name: string): object | null
+    vfuncSetNamedItem(item?: object | null): object | null
+    vfuncRemoveNamedItem(name: string): object | null
+    vfuncItem(index: number): object | null
+    vfuncGetLength(): number
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::length", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::length", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2782,10 +4203,17 @@ export interface NamespaceAttr_ConstructProps extends Node_ConstructProps {
     definedNamespaceUri?: string
 }
 export class NamespaceAttr {
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.NamespaceAttr */
     definedPrefix: string
     definedNamespaceUri: string
     /* Properties of GXml-0.4.GXml.Node */
+=======
+    /* Properties of GXml.NamespaceAttr */
+    definedPrefix: string
+    definedNamespaceUri: string
+    /* Properties of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespaceDefinitions: NodeList
     namespaceUri: string
     prefix: string
@@ -2801,6 +4229,7 @@ export class NamespaceAttr {
     nextSibling: Node
     attributes: NamedAttrMap
     ownerDocument: Document
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.NamespaceAttr */
     parentInstance: Node
     priv: NamespaceAttrPrivate
@@ -2810,6 +4239,17 @@ export class NamespaceAttr {
     getDefinedPrefix(): string
     getDefinedNamespaceUri(): string
     /* Methods of GXml-0.4.GXml.Node */
+=======
+    /* Fields of GXml.NamespaceAttr */
+    parentInstance: Node
+    priv: NamespaceAttrPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.NamespaceAttr */
+    getDefinedPrefix(): string
+    getDefinedNamespaceUri(): string
+    /* Methods of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     addNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
     insertBefore(newChild: Node, refChild?: Node | null): Node | null
     replaceChild(newChild: Node, oldChild: Node): Node | null
@@ -2817,7 +4257,11 @@ export class NamespaceAttr {
     appendChild(newChild: Node): Node | null
     hasChildNodes(): boolean
     cloneNode(deep: boolean): Node | null
+<<<<<<< HEAD
     copy(node: Node, deep: boolean): { returnType: boolean, node: Node }
+=======
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     toString(format: boolean, level: number): string
     getNamespaceDefinitions(): NodeList | null
     getNamespaceUri(): string | null
@@ -2834,6 +4278,7 @@ export class NamespaceAttr {
     getNextSibling(): Node | null
     getAttributes(): NamedAttrMap | null
     getOwnerDocument(): Document
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -2843,6 +4288,17 @@ export class NamespaceAttr {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2850,11 +4306,16 @@ export class NamespaceAttr {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NamespaceAttr, pspec: GObject.ParamSpec) => void)): number
@@ -2862,6 +4323,48 @@ export class NamespaceAttr {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Node */
+    vfuncAddNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
+    vfuncInsertBefore(newChild: Node, refChild?: Node | null): Node | null
+    vfuncReplaceChild(newChild: Node, oldChild: Node): Node | null
+    vfuncRemoveChild(oldChild: Node): Node | null
+    vfuncAppendChild(newChild: Node): Node | null
+    vfuncHasChildNodes(): boolean
+    vfuncCloneNode(deep: boolean): Node | null
+    vfuncCopy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfuncToString(format: boolean, level: number): string
+    vfuncGetNamespaceDefinitions(): NodeList | null
+    vfuncGetNamespaceUri(): string | null
+    vfuncGetPrefix(): string | null
+    vfuncGetLocalName(): string | null
+    vfuncGetNodeName(): string
+    vfuncGetNodeValue(): string | null
+    vfuncGetNodeType(): NodeType
+    vfuncGetParentNode(): Node | null
+    vfuncGetChildNodes(): NodeList | null
+    vfuncGetFirstChild(): Node | null
+    vfuncGetLastChild(): Node | null
+    vfuncGetPreviousSibling(): Node | null
+    vfuncGetNextSibling(): Node | null
+    vfuncGetAttributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: NamespaceAttr, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: NamespaceAttr, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::defined-prefix", callback: (($obj: NamespaceAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::defined-prefix", callback: (($obj: NamespaceAttr, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::defined-prefix", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2964,10 +4467,17 @@ export interface Notation_ConstructProps extends Node_ConstructProps {
     systemId?: string
 }
 export class Notation {
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.Notation */
     publicId: string
     systemId: string
     /* Properties of GXml-0.4.GXml.Node */
+=======
+    /* Properties of GXml.Notation */
+    publicId: string
+    systemId: string
+    /* Properties of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespaceDefinitions: NodeList
     namespaceUri: string
     prefix: string
@@ -2983,6 +4493,7 @@ export class Notation {
     nextSibling: Node
     attributes: NamedAttrMap
     ownerDocument: Document
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.Notation */
     parentInstance: Node
     priv: NotationPrivate
@@ -2992,6 +4503,17 @@ export class Notation {
     getPublicId(): string | null
     getSystemId(): string | null
     /* Methods of GXml-0.4.GXml.Node */
+=======
+    /* Fields of GXml.Notation */
+    parentInstance: Node
+    priv: NotationPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.Notation */
+    getPublicId(): string | null
+    getSystemId(): string | null
+    /* Methods of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     addNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
     insertBefore(newChild: Node, refChild?: Node | null): Node | null
     replaceChild(newChild: Node, oldChild: Node): Node | null
@@ -2999,7 +4521,11 @@ export class Notation {
     appendChild(newChild: Node): Node | null
     hasChildNodes(): boolean
     cloneNode(deep: boolean): Node | null
+<<<<<<< HEAD
     copy(node: Node, deep: boolean): { returnType: boolean, node: Node }
+=======
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     toString(format: boolean, level: number): string
     getNamespaceDefinitions(): NodeList | null
     getNamespaceUri(): string | null
@@ -3016,6 +4542,7 @@ export class Notation {
     getNextSibling(): Node | null
     getAttributes(): NamedAttrMap | null
     getOwnerDocument(): Document
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -3025,6 +4552,17 @@ export class Notation {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -3032,11 +4570,16 @@ export class Notation {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Notation, pspec: GObject.ParamSpec) => void)): number
@@ -3044,6 +4587,48 @@ export class Notation {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Node */
+    vfuncAddNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
+    vfuncInsertBefore(newChild: Node, refChild?: Node | null): Node | null
+    vfuncReplaceChild(newChild: Node, oldChild: Node): Node | null
+    vfuncRemoveChild(oldChild: Node): Node | null
+    vfuncAppendChild(newChild: Node): Node | null
+    vfuncHasChildNodes(): boolean
+    vfuncCloneNode(deep: boolean): Node | null
+    vfuncCopy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfuncToString(format: boolean, level: number): string
+    vfuncGetNamespaceDefinitions(): NodeList | null
+    vfuncGetNamespaceUri(): string | null
+    vfuncGetPrefix(): string | null
+    vfuncGetLocalName(): string | null
+    vfuncGetNodeName(): string
+    vfuncGetNodeValue(): string | null
+    vfuncGetNodeType(): NodeType
+    vfuncGetParentNode(): Node | null
+    vfuncGetChildNodes(): NodeList | null
+    vfuncGetFirstChild(): Node | null
+    vfuncGetLastChild(): Node | null
+    vfuncGetPreviousSibling(): Node | null
+    vfuncGetNextSibling(): Node | null
+    vfuncGetAttributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: Notation, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: Notation, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::public-id", callback: (($obj: Notation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::public-id", callback: (($obj: Notation, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::public-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3146,10 +4731,17 @@ export interface ProcessingInstruction_ConstructProps extends Node_ConstructProp
     data?: string
 }
 export class ProcessingInstruction {
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.ProcessingInstruction */
     target: string
     data: string
     /* Properties of GXml-0.4.GXml.Node */
+=======
+    /* Properties of GXml.ProcessingInstruction */
+    target: string
+    data: string
+    /* Properties of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespaceDefinitions: NodeList
     namespaceUri: string
     prefix: string
@@ -3165,6 +4757,7 @@ export class ProcessingInstruction {
     nextSibling: Node
     attributes: NamedAttrMap
     ownerDocument: Document
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.ProcessingInstruction */
     parentInstance: Node
     priv: ProcessingInstructionPrivate
@@ -3175,6 +4768,18 @@ export class ProcessingInstruction {
     getData(): string
     setData(value: string): void
     /* Methods of GXml-0.4.GXml.Node */
+=======
+    /* Fields of GXml.ProcessingInstruction */
+    parentInstance: Node
+    priv: ProcessingInstructionPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.ProcessingInstruction */
+    getTarget(): string
+    getData(): string
+    setData(value: string): void
+    /* Methods of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     addNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
     insertBefore(newChild: Node, refChild?: Node | null): Node | null
     replaceChild(newChild: Node, oldChild: Node): Node | null
@@ -3182,7 +4787,11 @@ export class ProcessingInstruction {
     appendChild(newChild: Node): Node | null
     hasChildNodes(): boolean
     cloneNode(deep: boolean): Node | null
+<<<<<<< HEAD
     copy(node: Node, deep: boolean): { returnType: boolean, node: Node }
+=======
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     toString(format: boolean, level: number): string
     getNamespaceDefinitions(): NodeList | null
     getNamespaceUri(): string | null
@@ -3199,6 +4808,7 @@ export class ProcessingInstruction {
     getNextSibling(): Node | null
     getAttributes(): NamedAttrMap | null
     getOwnerDocument(): Document
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -3208,6 +4818,17 @@ export class ProcessingInstruction {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -3215,11 +4836,16 @@ export class ProcessingInstruction {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
@@ -3227,6 +4853,48 @@ export class ProcessingInstruction {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Node */
+    vfuncAddNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
+    vfuncInsertBefore(newChild: Node, refChild?: Node | null): Node | null
+    vfuncReplaceChild(newChild: Node, oldChild: Node): Node | null
+    vfuncRemoveChild(oldChild: Node): Node | null
+    vfuncAppendChild(newChild: Node): Node | null
+    vfuncHasChildNodes(): boolean
+    vfuncCloneNode(deep: boolean): Node | null
+    vfuncCopy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfuncToString(format: boolean, level: number): string
+    vfuncGetNamespaceDefinitions(): NodeList | null
+    vfuncGetNamespaceUri(): string | null
+    vfuncGetPrefix(): string | null
+    vfuncGetLocalName(): string | null
+    vfuncGetNodeName(): string
+    vfuncGetNodeValue(): string | null
+    vfuncGetNodeType(): NodeType
+    vfuncGetParentNode(): Node | null
+    vfuncGetChildNodes(): NodeList | null
+    vfuncGetFirstChild(): Node | null
+    vfuncGetLastChild(): Node | null
+    vfuncGetPreviousSibling(): Node | null
+    vfuncGetNextSibling(): Node | null
+    vfuncGetAttributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::target", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::target", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::target", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3327,10 +4995,17 @@ export class ProcessingInstruction {
 export interface Text_ConstructProps extends CharacterData_ConstructProps {
 }
 export class Text {
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.CharacterData */
     data: string
     length: number
     /* Properties of GXml-0.4.GXml.Node */
+=======
+    /* Properties of GXml.CharacterData */
+    data: string
+    length: number
+    /* Properties of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespaceDefinitions: NodeList
     namespaceUri: string
     prefix: string
@@ -3346,6 +5021,7 @@ export class Text {
     nextSibling: Node
     attributes: NamedAttrMap
     ownerDocument: Document
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.Text */
     parentInstance: CharacterData
     priv: TextPrivate
@@ -3354,6 +5030,16 @@ export class Text {
     /* Methods of GXml-0.4.GXml.Text */
     splitText(offset: number): Text
     /* Methods of GXml-0.4.GXml.CharacterData */
+=======
+    /* Fields of GXml.Text */
+    parentInstance: CharacterData
+    priv: TextPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.Text */
+    splitText(offset: number): Text
+    /* Methods of GXml.CharacterData */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     substringData(offset: number, count: number): string
     appendData(newSegment: string): void
     insertData(offset: number, newSegment: string): void
@@ -3362,7 +5048,11 @@ export class Text {
     getData(): string
     setData(value: string): void
     getLength(): number
+<<<<<<< HEAD
     /* Methods of GXml-0.4.GXml.Node */
+=======
+    /* Methods of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     addNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
     insertBefore(newChild: Node, refChild?: Node | null): Node | null
     replaceChild(newChild: Node, oldChild: Node): Node | null
@@ -3370,7 +5060,11 @@ export class Text {
     appendChild(newChild: Node): Node | null
     hasChildNodes(): boolean
     cloneNode(deep: boolean): Node | null
+<<<<<<< HEAD
     copy(node: Node, deep: boolean): { returnType: boolean, node: Node }
+=======
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     toString(format: boolean, level: number): string
     getNamespaceDefinitions(): NodeList | null
     getNamespaceUri(): string | null
@@ -3387,6 +5081,7 @@ export class Text {
     getNextSibling(): Node | null
     getAttributes(): NamedAttrMap | null
     getOwnerDocument(): Document
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -3396,6 +5091,17 @@ export class Text {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -3403,11 +5109,16 @@ export class Text {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
@@ -3415,6 +5126,48 @@ export class Text {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Node */
+    vfuncAddNamespaceAttr(uri: string, prefix: string): NamespaceAttr | null
+    vfuncInsertBefore(newChild: Node, refChild?: Node | null): Node | null
+    vfuncReplaceChild(newChild: Node, oldChild: Node): Node | null
+    vfuncRemoveChild(oldChild: Node): Node | null
+    vfuncAppendChild(newChild: Node): Node | null
+    vfuncHasChildNodes(): boolean
+    vfuncCloneNode(deep: boolean): Node | null
+    vfuncCopy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfuncToString(format: boolean, level: number): string
+    vfuncGetNamespaceDefinitions(): NodeList | null
+    vfuncGetNamespaceUri(): string | null
+    vfuncGetPrefix(): string | null
+    vfuncGetLocalName(): string | null
+    vfuncGetNodeName(): string
+    vfuncGetNodeValue(): string | null
+    vfuncGetNodeType(): NodeType
+    vfuncGetParentNode(): Node | null
+    vfuncGetChildNodes(): NodeList | null
+    vfuncGetFirstChild(): Node | null
+    vfuncGetLastChild(): Node | null
+    vfuncGetPreviousSibling(): Node | null
+    vfuncGetNextSibling(): Node | null
+    vfuncGetAttributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::data", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::data", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::data", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3519,17 +5272,30 @@ export interface SerializableObjectModel_ConstructProps extends GObject.Object_C
     serializedXmlNodeValue?: string
 }
 export class SerializableObjectModel {
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.Serializable */
+=======
+    /* Properties of GXml.Serializable */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     properties: GObject.ParamSpec[]
     ignoredSerializableProperties: GLib.HashTable
     unknownSerializableProperty: GLib.HashTable
     serializedXmlNodeValue: string
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.SerializableObjectModel */
     parentInstance: GObject.Object
     priv: SerializableObjectModelPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.4.GXml.SerializableObjectModel */
+=======
+    /* Fields of GXml.SerializableObjectModel */
+    parentInstance: GObject.Object
+    priv: SerializableObjectModelPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.SerializableObjectModel */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getEnableUnknownSerializableProperty(): boolean
     serializeUseXmlNodeValue(): boolean
     propertyUseNick(): boolean
@@ -3538,10 +5304,17 @@ export class SerializableObjectModel {
     findPropertySpec(propertyName: string): GObject.ParamSpec | null
     initProperties(): void
     listSerializableProperties(): GObject.ParamSpec[]
+<<<<<<< HEAD
     getPropertyValue(spec: GObject.ParamSpec, val: any): { val: any }
     setPropertyValue(spec: GObject.ParamSpec, val: any): void
     transformFromString(str: string, dest: any): { returnType: boolean, dest: any }
     transformToString(val: any, str: string): { returnType: boolean, str: string }
+=======
+    getPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    setPropertyValue(spec: GObject.ParamSpec, val: any): void
+    transformFromString(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    transformToString(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     serialize(node: Node): Node | null
     defaultSerialize(node: Node): Node | null
     serializeProperty(element: Element, prop: GObject.ParamSpec): Node | null
@@ -3551,6 +5324,7 @@ export class SerializableObjectModel {
     deserializeProperty(propertyNode: Node): boolean
     defaultDeserializeProperty(propertyNode: Node): boolean
     toString(): string
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -3560,6 +5334,17 @@ export class SerializableObjectModel {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -3567,17 +5352,30 @@ export class SerializableObjectModel {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Methods of GXml-0.4.GXml.Serializable */
     defaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
     defaultInitProperties(): void
     defaultListSerializableProperties(): GObject.ParamSpec[]
     defaultGetPropertyValue(spec: GObject.ParamSpec, val: any): { val: any }
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Methods of GXml.Serializable */
+    defaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
+    defaultInitProperties(): void
+    defaultListSerializableProperties(): GObject.ParamSpec[]
+    defaultGetPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     defaultSetPropertyValue(spec: GObject.ParamSpec, val: any): void
     getProperties(): GObject.ParamSpec[]
     setProperties(value: GObject.ParamSpec[]): void
@@ -3587,6 +5385,7 @@ export class SerializableObjectModel {
     setUnknownSerializableProperty(value: GLib.HashTable): void
     getSerializedXmlNodeValue(): string | null
     setSerializedXmlNodeValue(value?: string | null): void
+<<<<<<< HEAD
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -3614,6 +5413,78 @@ export class SerializableObjectModel {
     once(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
+=======
+    /* Virtual methods of GXml.SerializableObjectModel */
+    vfuncGetEnableUnknownSerializableProperty(): boolean
+    vfuncSerializeUseXmlNodeValue(): boolean
+    vfuncPropertyUseNick(): boolean
+    vfuncNodeName(): string
+    vfuncFindPropertySpec(propertyName: string): GObject.ParamSpec | null
+    vfuncInitProperties(): void
+    vfuncListSerializableProperties(): GObject.ParamSpec[]
+    vfuncGetPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfuncSetPropertyValue(spec: GObject.ParamSpec, val: any): void
+    vfuncTransformFromString(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    vfuncTransformToString(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+    vfuncSerialize(node: Node): Node | null
+    vfuncSerializeProperty(element: Element, prop: GObject.ParamSpec): Node | null
+    vfuncDeserialize(node: Node): Node | null
+    vfuncDeserializeProperty(propertyNode: Node): boolean
+    vfuncToString(): string
+    vfuncDefaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
+    vfuncDefaultInitProperties(): void
+    vfuncDefaultListSerializableProperties(): GObject.ParamSpec[]
+    vfuncDefaultGetPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfuncDefaultSetPropertyValue(spec: GObject.ParamSpec, val: any): void
+    vfuncGetProperties(): GObject.ParamSpec[]
+    vfuncSetProperties(value: GObject.ParamSpec[]): void
+    vfuncGetIgnoredSerializableProperties(): GLib.HashTable
+    vfuncSetIgnoredSerializableProperties(value: GLib.HashTable): void
+    vfuncGetUnknownSerializableProperty(): GLib.HashTable
+    vfuncSetUnknownSerializableProperty(value: GLib.HashTable): void
+    vfuncGetSerializedXmlNodeValue(): string | null
+    vfuncSetSerializedXmlNodeValue(value?: string | null): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GXml.Serializable */
+    connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableObjectModel, element: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableObjectModel, element: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
+    on(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableObjectModel, element: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableObjectModel, element: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "serialize_unknown_property_type", element: Node, prop: GObject.ParamSpec): void
+    on(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "deserialize_unknown_property", callback: (($obj: SerializableObjectModel, node: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "deserialize_unknown_property", callback: (($obj: SerializableObjectModel, node: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "deserialize_unknown_property", node: Node, prop: GObject.ParamSpec): void
+    on(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableObjectModel, node: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableObjectModel, node: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
+    on(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::properties", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::properties", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3646,7 +5517,11 @@ export class SerializableObjectModel {
     _init (config?: SerializableObjectModel_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static equals(a: SerializableObjectModel, b: SerializableObjectModel): boolean
+<<<<<<< HEAD
     static stringToGvalue(str: string, dest: any): { returnType: boolean, dest: any }
+=======
+    static stringToGvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     static gvalueToString(val: any): string
     static $gtype: GObject.Type
 }
@@ -3657,17 +5532,30 @@ export interface SerializableJson_ConstructProps extends GObject.Object_Construc
     serializedXmlNodeValue?: string
 }
 export class SerializableJson {
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.Serializable */
+=======
+    /* Properties of GXml.Serializable */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     properties: GObject.ParamSpec[]
     ignoredSerializableProperties: GLib.HashTable
     unknownSerializableProperty: GLib.HashTable
     serializedXmlNodeValue: string
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.SerializableJson */
     parentInstance: GObject.Object
     priv: SerializableJsonPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.4.GXml.SerializableJson */
+=======
+    /* Fields of GXml.SerializableJson */
+    parentInstance: GObject.Object
+    priv: SerializableJsonPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.SerializableJson */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getEnableUnknownSerializableProperty(): boolean
     serializeUseXmlNodeValue(): boolean
     nodeName(): string
@@ -3675,6 +5563,7 @@ export class SerializableJson {
     findPropertySpec(propertyName: string): GObject.ParamSpec | null
     initProperties(): void
     listSerializableProperties(): GObject.ParamSpec[]
+<<<<<<< HEAD
     getPropertyValue(spec: GObject.ParamSpec, val: any): { val: any }
     setPropertyValue(spec: GObject.ParamSpec, val: any): void
     transformFromString(str: string, dest: any): { returnType: boolean, dest: any }
@@ -3690,6 +5579,23 @@ export class SerializableJson {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    getPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    setPropertyValue(spec: GObject.ParamSpec, val: any): void
+    transformFromString(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    transformToString(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+    serializeProperty(element: Element, prop: GObject.ParamSpec): Node | null
+    deserializeProperty(propertyNode: Node): boolean
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -3697,19 +5603,32 @@ export class SerializableJson {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Methods of GXml-0.4.GXml.Serializable */
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Methods of GXml.Serializable */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     serialize(node: Node): Node | null
     deserialize(node: Node): Node | null
     defaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
     defaultInitProperties(): void
     defaultListSerializableProperties(): GObject.ParamSpec[]
+<<<<<<< HEAD
     defaultGetPropertyValue(spec: GObject.ParamSpec, val: any): { val: any }
+=======
+    defaultGetPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     defaultSetPropertyValue(spec: GObject.ParamSpec, val: any): void
     getProperties(): GObject.ParamSpec[]
     setProperties(value: GObject.ParamSpec[]): void
@@ -3719,6 +5638,7 @@ export class SerializableJson {
     setUnknownSerializableProperty(value: GLib.HashTable): void
     getSerializedXmlNodeValue(): string | null
     setSerializedXmlNodeValue(value?: string | null): void
+<<<<<<< HEAD
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableJson, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -3746,6 +5666,77 @@ export class SerializableJson {
     once(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
+=======
+    /* Virtual methods of GXml.SerializableJson */
+    vfuncGetEnableUnknownSerializableProperty(): boolean
+    vfuncSerializeUseXmlNodeValue(): boolean
+    vfuncNodeName(): string
+    vfuncPropertyUseNick(): boolean
+    vfuncFindPropertySpec(propertyName: string): GObject.ParamSpec | null
+    vfuncInitProperties(): void
+    vfuncListSerializableProperties(): GObject.ParamSpec[]
+    vfuncGetPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfuncSetPropertyValue(spec: GObject.ParamSpec, val: any): void
+    vfuncTransformFromString(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    vfuncTransformToString(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+    vfuncSerializeProperty(element: Element, prop: GObject.ParamSpec): Node | null
+    vfuncDeserializeProperty(propertyNode: Node): boolean
+    vfuncSerialize(node: Node): Node | null
+    vfuncDeserialize(node: Node): Node | null
+    vfuncDefaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
+    vfuncDefaultInitProperties(): void
+    vfuncDefaultListSerializableProperties(): GObject.ParamSpec[]
+    vfuncDefaultGetPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfuncDefaultSetPropertyValue(spec: GObject.ParamSpec, val: any): void
+    vfuncGetProperties(): GObject.ParamSpec[]
+    vfuncSetProperties(value: GObject.ParamSpec[]): void
+    vfuncGetIgnoredSerializableProperties(): GLib.HashTable
+    vfuncSetIgnoredSerializableProperties(value: GLib.HashTable): void
+    vfuncGetUnknownSerializableProperty(): GLib.HashTable
+    vfuncSetUnknownSerializableProperty(value: GLib.HashTable): void
+    vfuncGetSerializedXmlNodeValue(): string | null
+    vfuncSetSerializedXmlNodeValue(value?: string | null): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SerializableJson, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: SerializableJson, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GXml.Serializable */
+    connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableJson, element: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableJson, element: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
+    on(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableJson, element: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableJson, element: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "serialize_unknown_property_type", element: Node, prop: GObject.ParamSpec): void
+    on(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "deserialize_unknown_property", callback: (($obj: SerializableJson, node: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "deserialize_unknown_property", callback: (($obj: SerializableJson, node: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "deserialize_unknown_property", node: Node, prop: GObject.ParamSpec): void
+    on(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableJson, node: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableJson, node: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
+    on(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::properties", callback: (($obj: SerializableJson, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableJson, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::properties", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3778,13 +5769,18 @@ export class SerializableJson {
     _init (config?: SerializableJson_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): SerializableJson
+<<<<<<< HEAD
     static stringToGvalue(str: string, dest: any): { returnType: boolean, dest: any }
+=======
+    static stringToGvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     static gvalueToString(val: any): string
     static $gtype: GObject.Type
 }
 export interface Serialization_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Serialization {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.Serialization */
     parentInstance: GObject.Object
     priv: SerializationPrivate
@@ -3799,6 +5795,22 @@ export class Serialization {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of GXml.Serialization */
+    parentInstance: GObject.Object
+    priv: SerializationPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -3806,11 +5818,16 @@ export class Serialization {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Serialization, pspec: GObject.ParamSpec) => void)): number
@@ -3818,6 +5835,24 @@ export class Serialization {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: Serialization, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: Serialization, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3842,6 +5877,7 @@ export interface SerializableTreeMap_ConstructProps extends Gee.TreeMap_Construc
     serializedXmlNodeValue?: string
 }
 export class SerializableTreeMap {
+<<<<<<< HEAD
     /* Properties of Gee-0.8.Gee.AbstractBidirSortedMap */
     readonly readOnlyView: Gee.BidirSortedMap
     /* Properties of Gee-0.8.Gee.AbstractSortedMap */
@@ -3854,26 +5890,55 @@ export class SerializableTreeMap {
     readonly values: Gee.Collection
     readonly entries: Gee.Set
     /* Properties of GXml-0.4.GXml.Serializable */
+=======
+    /* Properties of Gee.TreeMap */
+    keyCompareFunc: GLib.CompareFunc
+    valueEqualFunc: GLib.EqualFunc
+    /* Properties of Gee.AbstractMap */
+    readonly size: number
+    readonly isEmpty: boolean
+    readonly keys: Gee.Set
+    readonly values: Gee.Collection
+    readonly entries: Gee.Set
+    readonly readOnlyView: Gee.Map
+    /* Properties of GXml.Serializable */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     properties: GObject.ParamSpec[]
     ignoredSerializableProperties: GLib.HashTable
     unknownSerializableProperty: GLib.HashTable
     serializedXmlNodeValue: string
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.SerializableTreeMap */
     parentInstance: Gee.TreeMap
     priv: SerializableTreeMapPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.4.GXml.SerializableTreeMap */
+=======
+    /* Fields of GXml.SerializableTreeMap */
+    parentInstance: Gee.TreeMap
+    priv: SerializableTreeMapPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.SerializableTreeMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     serializeUseXmlNodeValue(): boolean
     propertyUseNick(): boolean
     nodeName(): string
     findPropertySpec(propertyName: string): GObject.ParamSpec | null
     initProperties(): void
     listSerializableProperties(): GObject.ParamSpec[]
+<<<<<<< HEAD
     getPropertyValue(spec: GObject.ParamSpec, val: any): { val: any }
     setPropertyValue(spec: GObject.ParamSpec, val: any): void
     transformFromString(str: string, dest: any): { returnType: boolean, dest: any }
     transformToString(val: any, str: string): { returnType: boolean, str: string }
+=======
+    getPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    setPropertyValue(spec: GObject.ParamSpec, val: any): void
+    transformFromString(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    transformToString(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     serialize(node: Node): Node | null
     defaultSerialize(node: Node): Node | null
     serializeProperty(element: Element, prop: GObject.ParamSpec): Node | null
@@ -3882,6 +5947,7 @@ export class SerializableTreeMap {
     defaultDeserialize(node: Node): Node | null
     deserializeProperty(propertyNode: Node): boolean
     defaultDeserializeProperty(propertyNode: Node): boolean
+<<<<<<< HEAD
     /* Methods of Gee-0.8.Gee.TreeMap */
     getKeyCompareFunc(): { returnType: GLib.CompareDataFunc, resultTarget: object | null }
     getValueEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -3905,10 +5971,14 @@ export class SerializableTreeMap {
     getAscendingKeys(): Gee.SortedSet
     getAscendingEntries(): Gee.SortedSet
     /* Methods of Gee-0.8.Gee.AbstractMap */
+=======
+    /* Methods of Gee.AbstractMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     hasKey(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
     get(key?: object | null): object | null
     set(key?: object | null, value?: object | null): void
+<<<<<<< HEAD
     unset(key?: object | null): { returnType: boolean, value: object | null }
     mapIterator(): Gee.MapIterator
     clear(): void
@@ -3929,6 +5999,23 @@ export class SerializableTreeMap {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
+    mapIterator(): Gee.MapIterator
+    clear(): void
+    setAll(map: Gee.Map): void
+    unsetAll(map: Gee.Map): boolean
+    hasAll(map: Gee.Map): boolean
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -3936,18 +6023,31 @@ export class SerializableTreeMap {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Methods of GXml-0.4.GXml.Serializable */
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Methods of GXml.Serializable */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getEnableUnknownSerializableProperty(): boolean
     defaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
     defaultInitProperties(): void
     defaultListSerializableProperties(): GObject.ParamSpec[]
+<<<<<<< HEAD
     defaultGetPropertyValue(spec: GObject.ParamSpec, val: any): { val: any }
+=======
+    defaultGetPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     defaultSetPropertyValue(spec: GObject.ParamSpec, val: any): void
     getProperties(): GObject.ParamSpec[]
     setProperties(value: GObject.ParamSpec[]): void
@@ -3957,6 +6057,7 @@ export class SerializableTreeMap {
     setUnknownSerializableProperty(value: GLib.HashTable): void
     getSerializedXmlNodeValue(): string | null
     setSerializedXmlNodeValue(value?: string | null): void
+<<<<<<< HEAD
     /* Methods of GXml-0.4.GXml.SerializableCollection */
     isCollection(): boolean
     /* Signals of GObject-2.0.GObject.Object */
@@ -4001,16 +6102,124 @@ export class SerializableTreeMap {
     on(sigName: "notify::ascending-entries", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::ascending-entries", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::ascending-entries", callback: (...args: any[]) => void): NodeJS.EventEmitter
+=======
+    /* Methods of GXml.SerializableCollection */
+    isCollection(): boolean
+    /* Virtual methods of GXml.SerializableTreeMap */
+    vfuncSerializeUseXmlNodeValue(): boolean
+    vfuncPropertyUseNick(): boolean
+    vfuncNodeName(): string
+    vfuncFindPropertySpec(propertyName: string): GObject.ParamSpec | null
+    vfuncInitProperties(): void
+    vfuncListSerializableProperties(): GObject.ParamSpec[]
+    vfuncGetPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfuncSetPropertyValue(spec: GObject.ParamSpec, val: any): void
+    vfuncTransformFromString(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    vfuncTransformToString(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+    vfuncSerialize(node: Node): Node | null
+    vfuncSerializeProperty(element: Element, prop: GObject.ParamSpec): Node | null
+    vfuncDeserialize(node: Node): Node | null
+    vfuncDeserializeProperty(propertyNode: Node): boolean
+    vfuncGetEnableUnknownSerializableProperty(): boolean
+    vfuncDefaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
+    vfuncDefaultInitProperties(): void
+    vfuncDefaultListSerializableProperties(): GObject.ParamSpec[]
+    vfuncDefaultGetPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfuncDefaultSetPropertyValue(spec: GObject.ParamSpec, val: any): void
+    vfuncGetProperties(): GObject.ParamSpec[]
+    vfuncSetProperties(value: GObject.ParamSpec[]): void
+    vfuncGetIgnoredSerializableProperties(): GLib.HashTable
+    vfuncSetIgnoredSerializableProperties(value: GLib.HashTable): void
+    vfuncGetUnknownSerializableProperty(): GLib.HashTable
+    vfuncSetUnknownSerializableProperty(value: GLib.HashTable): void
+    vfuncGetSerializedXmlNodeValue(): string | null
+    vfuncSetSerializedXmlNodeValue(value?: string | null): void
+    vfuncIsCollection(): boolean
+    /* Virtual methods of Gee.AbstractMap */
+    vfuncHasKey(key?: object | null): boolean
+    vfuncHas(key?: object | null, value?: object | null): boolean
+    vfuncGet(key?: object | null): object | null
+    vfuncSet(key?: object | null, value?: object | null): void
+    vfuncUnset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
+    vfuncMapIterator(): Gee.MapIterator
+    vfuncClear(): void
+    vfuncSetAll(map: Gee.Map): void
+    vfuncUnsetAll(map: Gee.Map): boolean
+    vfuncHasAll(map: Gee.Map): boolean
+    vfuncIterator(): Gee.Iterator
+    vfuncContains(key?: object | null): boolean
+    vfuncRemove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
+    vfuncRemoveAll(map: Gee.Map): boolean
+    vfuncContainsAll(map: Gee.Map): boolean
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GXml.Serializable */
+    connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableTreeMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableTreeMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
+    on(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableTreeMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableTreeMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "serialize_unknown_property_type", element: Node, prop: GObject.ParamSpec): void
+    on(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "deserialize_unknown_property", callback: (($obj: SerializableTreeMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "deserialize_unknown_property", callback: (($obj: SerializableTreeMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "deserialize_unknown_property", node: Node, prop: GObject.ParamSpec): void
+    on(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableTreeMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableTreeMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
+    on(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::key-compare-func", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::key-compare-func", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::key-compare-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::key-compare-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::key-compare-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::value-equal-func", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::value-equal-func", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::value-equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::value-equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::value-equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::size", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
     connect(sigName: "notify::read-only", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+=======
+    connect(sigName: "notify::is-empty", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::is-empty", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::keys", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::keys", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4026,6 +6235,14 @@ export class SerializableTreeMap {
     on(sigName: "notify::entries", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::entries", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::entries", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
+=======
+    connect(sigName: "notify::read-only-view", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::properties", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::properties", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4058,8 +6275,13 @@ export class SerializableTreeMap {
     _init (config?: SerializableTreeMap_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): SerializableTreeMap
+<<<<<<< HEAD
     static new(kType: GObject.Type, kDupFunc: GObject.BoxedCopyFunc, kDestroyFunc: GLib.DestroyNotify, vType: GObject.Type, vDupFunc: GObject.BoxedCopyFunc, vDestroyFunc: GLib.DestroyNotify, keyCompareFunc: GLib.CompareDataFunc | null, valueEqualFunc: Gee.EqualDataFunc | null): SerializableTreeMap
     static stringToGvalue(str: string, dest: any): { returnType: boolean, dest: any }
+=======
+    static new(keyCompareFunc?: GLib.CompareFunc | null, valueEqualFunc?: GLib.EqualFunc | null): SerializableTreeMap
+    static stringToGvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     static gvalueToString(val: any): string
     static $gtype: GObject.Type
 }
@@ -4070,24 +6292,47 @@ export interface SerializableHashMap_ConstructProps extends Gee.HashMap_Construc
     serializedXmlNodeValue?: string
 }
 export class SerializableHashMap {
+<<<<<<< HEAD
     /* Properties of Gee-0.8.Gee.AbstractMap */
     readonly size: number
     readonly readOnly: boolean
+=======
+    /* Properties of Gee.HashMap */
+    keyHashFunc: GLib.HashFunc
+    keyEqualFunc: GLib.EqualFunc
+    valueEqualFunc: GLib.EqualFunc
+    /* Properties of Gee.AbstractMap */
+    readonly size: number
+    readonly isEmpty: boolean
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
     readonly readOnlyView: Gee.Map
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.Serializable */
+=======
+    /* Properties of GXml.Serializable */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     properties: GObject.ParamSpec[]
     ignoredSerializableProperties: GLib.HashTable
     unknownSerializableProperty: GLib.HashTable
     serializedXmlNodeValue: string
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.SerializableHashMap */
     parentInstance: Gee.HashMap
     priv: SerializableHashMapPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.4.GXml.SerializableHashMap */
+=======
+    /* Fields of GXml.SerializableHashMap */
+    parentInstance: Gee.HashMap
+    priv: SerializableHashMapPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.SerializableHashMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getEnableUnknownSerializableProperty(): boolean
     serializeUseXmlNodeValue(): boolean
     propertyUseNick(): boolean
@@ -4095,10 +6340,17 @@ export class SerializableHashMap {
     findPropertySpec(propertyName: string): GObject.ParamSpec | null
     initProperties(): void
     listSerializableProperties(): GObject.ParamSpec[]
+<<<<<<< HEAD
     getPropertyValue(spec: GObject.ParamSpec, val: any): { val: any }
     setPropertyValue(spec: GObject.ParamSpec, val: any): void
     transformFromString(str: string, dest: any): { returnType: boolean, dest: any }
     transformToString(val: any, str: string): { returnType: boolean, str: string }
+=======
+    getPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    setPropertyValue(spec: GObject.ParamSpec, val: any): void
+    transformFromString(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    transformToString(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     serialize(node: Node): Node | null
     defaultSerialize(node: Node): Node | null
     serializeProperty(element: Element, prop: GObject.ParamSpec): Node | null
@@ -4107,15 +6359,20 @@ export class SerializableHashMap {
     defaultDeserialize(node: Node): Node | null
     deserializeProperty(propertyNode: Node): boolean
     defaultDeserializeProperty(propertyNode: Node): boolean
+<<<<<<< HEAD
     /* Methods of Gee-0.8.Gee.HashMap */
     getKeyHashFunc(): { returnType: Gee.HashDataFunc, resultTarget: object | null }
     getKeyEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
     getValueEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
     /* Methods of Gee-0.8.Gee.AbstractMap */
+=======
+    /* Methods of Gee.AbstractMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     hasKey(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
     get(key?: object | null): object | null
     set(key?: object | null, value?: object | null): void
+<<<<<<< HEAD
     unset(key?: object | null): { returnType: boolean, value: object | null }
     mapIterator(): Gee.MapIterator
     clear(): void
@@ -4146,6 +6403,23 @@ export class SerializableHashMap {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
+    mapIterator(): Gee.MapIterator
+    clear(): void
+    setAll(map: Gee.Map): void
+    unsetAll(map: Gee.Map): boolean
+    hasAll(map: Gee.Map): boolean
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -4153,17 +6427,30 @@ export class SerializableHashMap {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Methods of GXml-0.4.GXml.Serializable */
     defaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
     defaultInitProperties(): void
     defaultListSerializableProperties(): GObject.ParamSpec[]
     defaultGetPropertyValue(spec: GObject.ParamSpec, val: any): { val: any }
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Methods of GXml.Serializable */
+    defaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
+    defaultInitProperties(): void
+    defaultListSerializableProperties(): GObject.ParamSpec[]
+    defaultGetPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     defaultSetPropertyValue(spec: GObject.ParamSpec, val: any): void
     getProperties(): GObject.ParamSpec[]
     setProperties(value: GObject.ParamSpec[]): void
@@ -4173,6 +6460,7 @@ export class SerializableHashMap {
     setUnknownSerializableProperty(value: GLib.HashTable): void
     getSerializedXmlNodeValue(): string | null
     setSerializedXmlNodeValue(value?: string | null): void
+<<<<<<< HEAD
     /* Methods of GXml-0.4.GXml.SerializableCollection */
     isCollection(): boolean
     /* Signals of GObject-2.0.GObject.Object */
@@ -4202,16 +6490,129 @@ export class SerializableHashMap {
     once(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
+=======
+    /* Methods of GXml.SerializableCollection */
+    isCollection(): boolean
+    /* Virtual methods of GXml.SerializableHashMap */
+    vfuncGetEnableUnknownSerializableProperty(): boolean
+    vfuncSerializeUseXmlNodeValue(): boolean
+    vfuncPropertyUseNick(): boolean
+    vfuncNodeName(): string
+    vfuncFindPropertySpec(propertyName: string): GObject.ParamSpec | null
+    vfuncInitProperties(): void
+    vfuncListSerializableProperties(): GObject.ParamSpec[]
+    vfuncGetPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfuncSetPropertyValue(spec: GObject.ParamSpec, val: any): void
+    vfuncTransformFromString(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    vfuncTransformToString(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+    vfuncSerialize(node: Node): Node | null
+    vfuncSerializeProperty(element: Element, prop: GObject.ParamSpec): Node | null
+    vfuncDeserialize(node: Node): Node | null
+    vfuncDeserializeProperty(propertyNode: Node): boolean
+    vfuncDefaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
+    vfuncDefaultInitProperties(): void
+    vfuncDefaultListSerializableProperties(): GObject.ParamSpec[]
+    vfuncDefaultGetPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfuncDefaultSetPropertyValue(spec: GObject.ParamSpec, val: any): void
+    vfuncGetProperties(): GObject.ParamSpec[]
+    vfuncSetProperties(value: GObject.ParamSpec[]): void
+    vfuncGetIgnoredSerializableProperties(): GLib.HashTable
+    vfuncSetIgnoredSerializableProperties(value: GLib.HashTable): void
+    vfuncGetUnknownSerializableProperty(): GLib.HashTable
+    vfuncSetUnknownSerializableProperty(value: GLib.HashTable): void
+    vfuncGetSerializedXmlNodeValue(): string | null
+    vfuncSetSerializedXmlNodeValue(value?: string | null): void
+    vfuncIsCollection(): boolean
+    /* Virtual methods of Gee.AbstractMap */
+    vfuncHasKey(key?: object | null): boolean
+    vfuncHas(key?: object | null, value?: object | null): boolean
+    vfuncGet(key?: object | null): object | null
+    vfuncSet(key?: object | null, value?: object | null): void
+    vfuncUnset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
+    vfuncMapIterator(): Gee.MapIterator
+    vfuncClear(): void
+    vfuncSetAll(map: Gee.Map): void
+    vfuncUnsetAll(map: Gee.Map): boolean
+    vfuncHasAll(map: Gee.Map): boolean
+    vfuncIterator(): Gee.Iterator
+    vfuncContains(key?: object | null): boolean
+    vfuncRemove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
+    vfuncRemoveAll(map: Gee.Map): boolean
+    vfuncContainsAll(map: Gee.Map): boolean
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GXml.Serializable */
+    connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableHashMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableHashMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
+    on(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableHashMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableHashMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "serialize_unknown_property_type", element: Node, prop: GObject.ParamSpec): void
+    on(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "deserialize_unknown_property", callback: (($obj: SerializableHashMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "deserialize_unknown_property", callback: (($obj: SerializableHashMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "deserialize_unknown_property", node: Node, prop: GObject.ParamSpec): void
+    on(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableHashMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableHashMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
+    on(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::key-hash-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::key-hash-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::key-hash-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::key-hash-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::key-hash-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::key-equal-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::key-equal-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::key-equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::key-equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::key-equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::value-equal-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::value-equal-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::value-equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::value-equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::value-equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::size", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
     connect(sigName: "notify::read-only", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+=======
+    connect(sigName: "notify::is-empty", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::is-empty", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::keys", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::keys", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4264,8 +6665,13 @@ export class SerializableHashMap {
     _init (config?: SerializableHashMap_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): SerializableHashMap
+<<<<<<< HEAD
     static new(kType: GObject.Type, kDupFunc: GObject.BoxedCopyFunc, kDestroyFunc: GLib.DestroyNotify, vType: GObject.Type, vDupFunc: GObject.BoxedCopyFunc, vDestroyFunc: GLib.DestroyNotify, keyHashFunc: Gee.HashDataFunc | null, keyEqualFunc: Gee.EqualDataFunc | null, valueEqualFunc: Gee.EqualDataFunc | null): SerializableHashMap
     static stringToGvalue(str: string, dest: any): { returnType: boolean, dest: any }
+=======
+    static new(keyHashFunc?: GLib.HashFunc | null, keyEqualFunc?: GLib.EqualFunc | null, valueEqualFunc?: GLib.EqualFunc | null): SerializableHashMap
+    static stringToGvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     static gvalueToString(val: any): string
     static $gtype: GObject.Type
 }
@@ -4276,17 +6682,26 @@ export interface SerializableDualKeyMap_ConstructProps extends GObject.Object_Co
     serializedXmlNodeValue?: string
 }
 export class SerializableDualKeyMap {
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.SerializableDualKeyMap */
+=======
+    /* Properties of GXml.SerializableDualKeyMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly valueType: GObject.Type
     readonly primaryKeyType: GObject.Type
     readonly secondaryKeyType: GObject.Type
     readonly primaryKeys: Gee.Collection
     readonly size: number
+<<<<<<< HEAD
     /* Properties of GXml-0.4.GXml.Serializable */
+=======
+    /* Properties of GXml.Serializable */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     properties: GObject.ParamSpec[]
     ignoredSerializableProperties: GLib.HashTable
     unknownSerializableProperty: GLib.HashTable
     serializedXmlNodeValue: string
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.SerializableDualKeyMap */
     parentInstance: GObject.Object
     priv: SerializableDualKeyMapPrivate
@@ -4294,6 +6709,15 @@ export class SerializableDualKeyMap {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.4.GXml.SerializableDualKeyMap */
+=======
+    /* Fields of GXml.SerializableDualKeyMap */
+    parentInstance: GObject.Object
+    priv: SerializableDualKeyMapPrivate
+    storage: Gee.HashMultiMap
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.SerializableDualKeyMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     secondaryKeys(key?: object | null): Gee.Collection
     valuesForKey(primaryKey?: object | null): Gee.Collection
     values(): Gee.Collection
@@ -4306,10 +6730,17 @@ export class SerializableDualKeyMap {
     findPropertySpec(propertyName: string): GObject.ParamSpec | null
     initProperties(): void
     listSerializableProperties(): GObject.ParamSpec[]
+<<<<<<< HEAD
     getPropertyValue(spec: GObject.ParamSpec, val: any): { val: any }
     setPropertyValue(spec: GObject.ParamSpec, val: any): void
     transformFromString(str: string, dest: any): { returnType: boolean, dest: any }
     transformToString(val: any, str: string): { returnType: boolean, str: string }
+=======
+    getPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    setPropertyValue(spec: GObject.ParamSpec, val: any): void
+    transformFromString(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    transformToString(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     serialize(node: Node): Node | null
     defaultSerialize(node: Node): Node | null
     serializeProperty(element: Element, prop: GObject.ParamSpec): Node | null
@@ -4323,6 +6754,7 @@ export class SerializableDualKeyMap {
     getSecondaryKeyType(): GObject.Type
     getPrimaryKeys(): Gee.Collection
     getSize(): number
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -4332,6 +6764,17 @@ export class SerializableDualKeyMap {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -4339,17 +6782,30 @@ export class SerializableDualKeyMap {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Methods of GXml-0.4.GXml.Serializable */
     defaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
     defaultInitProperties(): void
     defaultListSerializableProperties(): GObject.ParamSpec[]
     defaultGetPropertyValue(spec: GObject.ParamSpec, val: any): { val: any }
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Methods of GXml.Serializable */
+    defaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
+    defaultInitProperties(): void
+    defaultListSerializableProperties(): GObject.ParamSpec[]
+    defaultGetPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     defaultSetPropertyValue(spec: GObject.ParamSpec, val: any): void
     getProperties(): GObject.ParamSpec[]
     setProperties(value: GObject.ParamSpec[]): void
@@ -4359,6 +6815,7 @@ export class SerializableDualKeyMap {
     setUnknownSerializableProperty(value: GLib.HashTable): void
     getSerializedXmlNodeValue(): string | null
     setSerializedXmlNodeValue(value?: string | null): void
+<<<<<<< HEAD
     /* Methods of GXml-0.4.GXml.SerializableCollection */
     isCollection(): boolean
     /* Signals of GObject-2.0.GObject.Object */
@@ -4388,6 +6845,80 @@ export class SerializableDualKeyMap {
     once(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
+=======
+    /* Methods of GXml.SerializableCollection */
+    isCollection(): boolean
+    /* Virtual methods of GXml.SerializableDualKeyMap */
+    vfuncGetEnableUnknownSerializableProperty(): boolean
+    vfuncSerializeUseXmlNodeValue(): boolean
+    vfuncPropertyUseNick(): boolean
+    vfuncNodeName(): string
+    vfuncFindPropertySpec(propertyName: string): GObject.ParamSpec | null
+    vfuncInitProperties(): void
+    vfuncListSerializableProperties(): GObject.ParamSpec[]
+    vfuncGetPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfuncSetPropertyValue(spec: GObject.ParamSpec, val: any): void
+    vfuncTransformFromString(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    vfuncTransformToString(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+    vfuncSerialize(node: Node): Node | null
+    vfuncSerializeProperty(element: Element, prop: GObject.ParamSpec): Node | null
+    vfuncDeserialize(node: Node): Node | null
+    vfuncDeserializeProperty(propertyNode: Node): boolean
+    vfuncDefaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
+    vfuncDefaultInitProperties(): void
+    vfuncDefaultListSerializableProperties(): GObject.ParamSpec[]
+    vfuncDefaultGetPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfuncDefaultSetPropertyValue(spec: GObject.ParamSpec, val: any): void
+    vfuncGetProperties(): GObject.ParamSpec[]
+    vfuncSetProperties(value: GObject.ParamSpec[]): void
+    vfuncGetIgnoredSerializableProperties(): GLib.HashTable
+    vfuncSetIgnoredSerializableProperties(value: GLib.HashTable): void
+    vfuncGetUnknownSerializableProperty(): GLib.HashTable
+    vfuncSetUnknownSerializableProperty(value: GLib.HashTable): void
+    vfuncGetSerializedXmlNodeValue(): string | null
+    vfuncSetSerializedXmlNodeValue(value?: string | null): void
+    vfuncIsCollection(): boolean
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GXml.Serializable */
+    connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableDualKeyMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableDualKeyMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
+    on(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableDualKeyMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableDualKeyMap, element: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "serialize_unknown_property_type", element: Node, prop: GObject.ParamSpec): void
+    on(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "deserialize_unknown_property", callback: (($obj: SerializableDualKeyMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "deserialize_unknown_property", callback: (($obj: SerializableDualKeyMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "deserialize_unknown_property", node: Node, prop: GObject.ParamSpec): void
+    on(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableDualKeyMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableDualKeyMap, node: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
+    on(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::value-type", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value-type", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::value-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4445,7 +6976,11 @@ export class SerializableDualKeyMap {
     _init (config?: SerializableDualKeyMap_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): SerializableDualKeyMap
+<<<<<<< HEAD
     static stringToGvalue(str: string, dest: any): { returnType: boolean, dest: any }
+=======
+    static stringToGvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     static gvalueToString(val: any): string
     static $gtype: GObject.Type
 }
@@ -4456,16 +6991,28 @@ export interface SerializableArrayList_ConstructProps extends Gee.ArrayList_Cons
     serializedXmlNodeValue?: string
 }
 export class SerializableArrayList {
+<<<<<<< HEAD
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly readOnlyView: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
     /* Properties of GXml-0.4.GXml.Serializable */
+=======
+    /* Properties of Gee.ArrayList */
+    equalFunc: GLib.EqualFunc
+    /* Properties of Gee.AbstractList */
+    readonly readOnlyView: Gee.List
+    /* Properties of Gee.AbstractCollection */
+    readonly size: number
+    readonly isEmpty: boolean
+    /* Properties of GXml.Serializable */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     properties: GObject.ParamSpec[]
     ignoredSerializableProperties: GLib.HashTable
     unknownSerializableProperty: GLib.HashTable
     serializedXmlNodeValue: string
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.SerializableArrayList */
     parentInstance: Gee.ArrayList
     priv: SerializableArrayListPrivate
@@ -4475,16 +7022,31 @@ export class SerializableArrayList {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.4.GXml.SerializableArrayList */
+=======
+    /* Fields of GXml.SerializableArrayList */
+    parentInstance: Gee.ArrayList
+    priv: SerializableArrayListPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.SerializableArrayList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     serializeUseXmlNodeValue(): boolean
     propertyUseNick(): boolean
     nodeName(): string
     findPropertySpec(propertyName: string): GObject.ParamSpec | null
     initProperties(): void
     listSerializableProperties(): GObject.ParamSpec[]
+<<<<<<< HEAD
     getPropertyValue(spec: GObject.ParamSpec, val: any): { val: any }
     setPropertyValue(spec: GObject.ParamSpec, val: any): void
     transformFromString(str: string, dest: any): { returnType: boolean, dest: any }
     transformToString(val: any, str: string): { returnType: boolean, str: string }
+=======
+    getPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    setPropertyValue(spec: GObject.ParamSpec, val: any): void
+    transformFromString(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    transformToString(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     serialize(node: Node): Node | null
     defaultSerialize(node: Node): Node | null
     serializeProperty(element: Element, prop: GObject.ParamSpec): Node | null
@@ -4493,6 +7055,7 @@ export class SerializableArrayList {
     defaultDeserialize(node: Node): Node | null
     deserializeProperty(propertyNode: Node): boolean
     defaultDeserializeProperty(propertyNode: Node): boolean
+<<<<<<< HEAD
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -4510,6 +7073,11 @@ export class SerializableArrayList {
     reserved9(): void
     getReadOnlyView(): Gee.BidirList
     /* Methods of Gee-0.8.Gee.AbstractList */
+=======
+    /* Methods of Gee.ArrayList */
+    sortWithData(compare: GLib.CompareDataFunc): void
+    /* Methods of Gee.AbstractList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     listIterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -4517,12 +7085,20 @@ export class SerializableArrayList {
     insert(index: number, item?: object | null): void
     removeAt(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
+<<<<<<< HEAD
     getReadOnlyView(): Gee.List
     /* Methods of Gee-0.8.Gee.AbstractCollection */
+=======
+    first(): object | null
+    last(): object | null
+    insertAll(index: number, collection: Gee.Collection): void
+    /* Methods of Gee.AbstractCollection */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
+<<<<<<< HEAD
     iterator(): Gee.Iterator
     foreach(f: Gee.ForallFunc): boolean
     getSize(): number
@@ -4537,6 +7113,23 @@ export class SerializableArrayList {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    toArray(): object[]
+    addAll(collection: Gee.Collection): boolean
+    containsAll(collection: Gee.Collection): boolean
+    removeAll(collection: Gee.Collection): boolean
+    retainAll(collection: Gee.Collection): boolean
+    iterator(): Gee.Iterator
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -4544,18 +7137,31 @@ export class SerializableArrayList {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Methods of GXml-0.4.GXml.Serializable */
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Methods of GXml.Serializable */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getEnableUnknownSerializableProperty(): boolean
     defaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
     defaultInitProperties(): void
     defaultListSerializableProperties(): GObject.ParamSpec[]
+<<<<<<< HEAD
     defaultGetPropertyValue(spec: GObject.ParamSpec, val: any): { val: any }
+=======
+    defaultGetPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     defaultSetPropertyValue(spec: GObject.ParamSpec, val: any): void
     getProperties(): GObject.ParamSpec[]
     setProperties(value: GObject.ParamSpec[]): void
@@ -4565,6 +7171,7 @@ export class SerializableArrayList {
     setUnknownSerializableProperty(value: GLib.HashTable): void
     getSerializedXmlNodeValue(): string | null
     setSerializedXmlNodeValue(value?: string | null): void
+<<<<<<< HEAD
     /* Methods of GXml-0.4.GXml.SerializableCollection */
     isCollection(): boolean
     /* Signals of GObject-2.0.GObject.Object */
@@ -4594,6 +7201,108 @@ export class SerializableArrayList {
     once(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "deserialize_unknown_property_type", callback: (node: Node, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
+=======
+    /* Methods of GXml.SerializableCollection */
+    isCollection(): boolean
+    /* Virtual methods of GXml.SerializableArrayList */
+    vfuncSerializeUseXmlNodeValue(): boolean
+    vfuncPropertyUseNick(): boolean
+    vfuncNodeName(): string
+    vfuncFindPropertySpec(propertyName: string): GObject.ParamSpec | null
+    vfuncInitProperties(): void
+    vfuncListSerializableProperties(): GObject.ParamSpec[]
+    vfuncGetPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfuncSetPropertyValue(spec: GObject.ParamSpec, val: any): void
+    vfuncTransformFromString(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    vfuncTransformToString(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+    vfuncSerialize(node: Node): Node | null
+    vfuncSerializeProperty(element: Element, prop: GObject.ParamSpec): Node | null
+    vfuncDeserialize(node: Node): Node | null
+    vfuncDeserializeProperty(propertyNode: Node): boolean
+    vfuncGetEnableUnknownSerializableProperty(): boolean
+    vfuncDefaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
+    vfuncDefaultInitProperties(): void
+    vfuncDefaultListSerializableProperties(): GObject.ParamSpec[]
+    vfuncDefaultGetPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfuncDefaultSetPropertyValue(spec: GObject.ParamSpec, val: any): void
+    vfuncGetProperties(): GObject.ParamSpec[]
+    vfuncSetProperties(value: GObject.ParamSpec[]): void
+    vfuncGetIgnoredSerializableProperties(): GLib.HashTable
+    vfuncSetIgnoredSerializableProperties(value: GLib.HashTable): void
+    vfuncGetUnknownSerializableProperty(): GLib.HashTable
+    vfuncSetUnknownSerializableProperty(value: GLib.HashTable): void
+    vfuncGetSerializedXmlNodeValue(): string | null
+    vfuncSetSerializedXmlNodeValue(value?: string | null): void
+    vfuncIsCollection(): boolean
+    /* Virtual methods of Gee.AbstractList */
+    vfuncListIterator(): Gee.ListIterator
+    vfuncGet(index: number): object | null
+    vfuncSet(index: number, item?: object | null): void
+    vfuncIndexOf(item?: object | null): number
+    vfuncInsert(index: number, item?: object | null): void
+    vfuncRemoveAt(index: number): object | null
+    vfuncSlice(start: number, stop: number): Gee.List | null
+    vfuncFirst(): object | null
+    vfuncLast(): object | null
+    vfuncInsertAll(index: number, collection: Gee.Collection): void
+    vfuncSort(compareFunc?: GLib.CompareFunc | null): void
+    /* Virtual methods of Gee.AbstractCollection */
+    vfuncContains(item?: object | null): boolean
+    vfuncAdd(item?: object | null): boolean
+    vfuncRemove(item?: object | null): boolean
+    vfuncClear(): void
+    vfuncToArray(): object[]
+    vfuncAddAll(collection: Gee.Collection): boolean
+    vfuncContainsAll(collection: Gee.Collection): boolean
+    vfuncRemoveAll(collection: Gee.Collection): boolean
+    vfuncRetainAll(collection: Gee.Collection): boolean
+    vfuncIterator(): Gee.Iterator
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GXml.Serializable */
+    connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableArrayList, element: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableArrayList, element: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
+    on(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableArrayList, element: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "serialize_unknown_property_type", callback: (($obj: SerializableArrayList, element: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "serialize_unknown_property_type", element: Node, prop: GObject.ParamSpec): void
+    on(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "serialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "deserialize_unknown_property", callback: (($obj: SerializableArrayList, node: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "deserialize_unknown_property", callback: (($obj: SerializableArrayList, node: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "deserialize_unknown_property", node: Node, prop: GObject.ParamSpec): void
+    on(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableArrayList, node: Node, prop: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "deserialize_unknown_property_type", callback: (($obj: SerializableArrayList, node: Node, prop: GObject.ParamSpec) => void)): number
+    emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
+    on(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::equal-func", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::equal-func", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::read-only-view", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4604,11 +7313,19 @@ export class SerializableArrayList {
     on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
     connect(sigName: "notify::read-only", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+=======
+    connect(sigName: "notify::is-empty", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::is-empty", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::properties", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::properties", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4641,14 +7358,20 @@ export class SerializableArrayList {
     _init (config?: SerializableArrayList_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): SerializableArrayList
+<<<<<<< HEAD
     static new(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, equalFunc: Gee.EqualDataFunc | null): SerializableArrayList
     static stringToGvalue(str: string, dest: any): { returnType: boolean, dest: any }
+=======
+    static new(equalFunc?: GLib.EqualFunc | null): SerializableArrayList
+    static stringToGvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     static gvalueToString(val: any): string
     static $gtype: GObject.Type
 }
 export interface SerializableContainer_ConstructProps extends SerializableObjectModel_ConstructProps {
 }
 export class SerializableContainer {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.SerializableContainer */
     parentInstance: SerializableObjectModel
     priv: SerializableContainerPrivate
@@ -4657,6 +7380,16 @@ export class SerializableContainer {
     /* Methods of GXml-0.4.GXml.SerializableContainer */
     initContainers(): void
     /* Methods of GXml-0.4.GXml.SerializableObjectModel */
+=======
+    /* Fields of GXml.SerializableContainer */
+    parentInstance: SerializableObjectModel
+    priv: SerializableContainerPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GXml.SerializableContainer */
+    initContainers(): void
+    /* Methods of GXml.SerializableObjectModel */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getEnableUnknownSerializableProperty(): boolean
     serializeUseXmlNodeValue(): boolean
     propertyUseNick(): boolean
@@ -4665,10 +7398,17 @@ export class SerializableContainer {
     findPropertySpec(propertyName: string): GObject.ParamSpec | null
     initProperties(): void
     listSerializableProperties(): GObject.ParamSpec[]
+<<<<<<< HEAD
     getPropertyValue(spec: GObject.ParamSpec, val: any): { val: any }
     setPropertyValue(spec: GObject.ParamSpec, val: any): void
     transformFromString(str: string, dest: any): { returnType: boolean, dest: any }
     transformToString(val: any, str: string): { returnType: boolean, str: string }
+=======
+    getPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    setPropertyValue(spec: GObject.ParamSpec, val: any): void
+    transformFromString(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    transformToString(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     serialize(node: Node): Node | null
     defaultSerialize(node: Node): Node | null
     serializeProperty(element: Element, prop: GObject.ParamSpec): Node | null
@@ -4678,6 +7418,7 @@ export class SerializableContainer {
     deserializeProperty(propertyNode: Node): boolean
     defaultDeserializeProperty(propertyNode: Node): boolean
     toString(): string
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -4687,6 +7428,17 @@ export class SerializableContainer {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -4694,11 +7446,16 @@ export class SerializableContainer {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
@@ -4706,6 +7463,56 @@ export class SerializableContainer {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.SerializableContainer */
+    vfuncInitContainers(): void
+    /* Virtual methods of GXml.SerializableObjectModel */
+    vfuncGetEnableUnknownSerializableProperty(): boolean
+    vfuncSerializeUseXmlNodeValue(): boolean
+    vfuncPropertyUseNick(): boolean
+    vfuncNodeName(): string
+    vfuncFindPropertySpec(propertyName: string): GObject.ParamSpec | null
+    vfuncInitProperties(): void
+    vfuncListSerializableProperties(): GObject.ParamSpec[]
+    vfuncGetPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfuncSetPropertyValue(spec: GObject.ParamSpec, val: any): void
+    vfuncTransformFromString(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    vfuncTransformToString(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+    vfuncSerialize(node: Node): Node | null
+    vfuncSerializeProperty(element: Element, prop: GObject.ParamSpec): Node | null
+    vfuncDeserialize(node: Node): Node | null
+    vfuncDeserializeProperty(propertyNode: Node): boolean
+    vfuncToString(): string
+    vfuncDefaultFindPropertySpec(propertyName: string): GObject.ParamSpec | null
+    vfuncDefaultInitProperties(): void
+    vfuncDefaultListSerializableProperties(): GObject.ParamSpec[]
+    vfuncDefaultGetPropertyValue(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfuncDefaultSetPropertyValue(spec: GObject.ParamSpec, val: any): void
+    vfuncGetProperties(): GObject.ParamSpec[]
+    vfuncSetProperties(value: GObject.ParamSpec[]): void
+    vfuncGetIgnoredSerializableProperties(): GLib.HashTable
+    vfuncSetIgnoredSerializableProperties(value: GLib.HashTable): void
+    vfuncGetUnknownSerializableProperty(): GLib.HashTable
+    vfuncSetUnknownSerializableProperty(value: GLib.HashTable): void
+    vfuncGetSerializedXmlNodeValue(): string | null
+    vfuncSetSerializedXmlNodeValue(value?: string | null): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4719,7 +7526,11 @@ export class SerializableContainer {
     static $gtype: GObject.Type
 }
 export abstract class AttrClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.AttrClass */
+=======
+    /* Fields of GXml.AttrClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: BackedNodeClass
     static name: string
 }
@@ -4727,7 +7538,11 @@ export class AttrPrivate {
     static name: string
 }
 export abstract class BackedNodeClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.BackedNodeClass */
+=======
+    /* Fields of GXml.BackedNodeClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: NodeClass
     static name: string
 }
@@ -4735,7 +7550,11 @@ export class BackedNodePrivate {
     static name: string
 }
 export abstract class CDATASectionClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.CDATASectionClass */
+=======
+    /* Fields of GXml.CDATASectionClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: TextClass
     static name: string
 }
@@ -4743,7 +7562,11 @@ export class CDATASectionPrivate {
     static name: string
 }
 export abstract class CharacterDataClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.CharacterDataClass */
+=======
+    /* Fields of GXml.CharacterDataClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: BackedNodeClass
     static name: string
 }
@@ -4751,7 +7574,11 @@ export class CharacterDataPrivate {
     static name: string
 }
 export abstract class CommentClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.CommentClass */
+=======
+    /* Fields of GXml.CommentClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: CharacterDataClass
     static name: string
 }
@@ -4759,7 +7586,11 @@ export class CommentPrivate {
     static name: string
 }
 export abstract class DocumentClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.DocumentClass */
+=======
+    /* Fields of GXml.DocumentClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: NodeClass
     static name: string
 }
@@ -4767,7 +7598,11 @@ export class DocumentPrivate {
     static name: string
 }
 export abstract class DocumentFragmentClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.DocumentFragmentClass */
+=======
+    /* Fields of GXml.DocumentFragmentClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: BackedNodeClass
     static name: string
 }
@@ -4775,7 +7610,11 @@ export class DocumentFragmentPrivate {
     static name: string
 }
 export abstract class DocumentTypeClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.DocumentTypeClass */
+=======
+    /* Fields of GXml.DocumentTypeClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: NodeClass
     static name: string
 }
@@ -4783,7 +7622,11 @@ export class DocumentTypePrivate {
     static name: string
 }
 export abstract class NodeClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.NodeClass */
+=======
+    /* Fields of GXml.NodeClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     addNamespaceAttr: (self: Node, uri: string, prefix: string) => NamespaceAttr | null
     insertBefore: (self: Node, newChild: Node, refChild?: Node | null) => Node | null
@@ -4792,7 +7635,11 @@ export abstract class NodeClass {
     appendChild: (self: Node, newChild: Node) => Node | null
     hasChildNodes: (self: Node) => boolean
     cloneNode: (self: Node, deep: boolean) => Node | null
+<<<<<<< HEAD
     copy: (self: Node, node: Node, deep: boolean) => { returnType: boolean, node: Node }
+=======
+    copy: (self: Node, node: Node, deep: boolean) => [ /* returnType */ boolean, /* node */ Node ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     toString: (self: Node, format: boolean, level: number) => string
     static name: string
 }
@@ -4800,7 +7647,11 @@ export class NodePrivate {
     static name: string
 }
 export abstract class ElementClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.ElementClass */
+=======
+    /* Fields of GXml.ElementClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: BackedNodeClass
     static name: string
 }
@@ -4808,7 +7659,11 @@ export class ElementPrivate {
     static name: string
 }
 export abstract class EntityClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.EntityClass */
+=======
+    /* Fields of GXml.EntityClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: NodeClass
     static name: string
 }
@@ -4816,7 +7671,11 @@ export class EntityPrivate {
     static name: string
 }
 export abstract class EntityReferenceClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.EntityReferenceClass */
+=======
+    /* Fields of GXml.EntityReferenceClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: NodeClass
     static name: string
 }
@@ -4824,7 +7683,11 @@ export class EntityReferencePrivate {
     static name: string
 }
 export abstract class ImplementationClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.ImplementationClass */
+=======
+    /* Fields of GXml.ImplementationClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4832,7 +7695,11 @@ export class ImplementationPrivate {
     static name: string
 }
 export abstract class NamedAttrMapClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.NamedAttrMapClass */
+=======
+    /* Fields of GXml.NamedAttrMapClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4840,7 +7707,11 @@ export class NamedAttrMapPrivate {
     static name: string
 }
 export abstract class NamespaceAttrClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.NamespaceAttrClass */
+=======
+    /* Fields of GXml.NamespaceAttrClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: NodeClass
     static name: string
 }
@@ -4848,7 +7719,11 @@ export class NamespaceAttrPrivate {
     static name: string
 }
 export abstract class NotationClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.NotationClass */
+=======
+    /* Fields of GXml.NotationClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: NodeClass
     static name: string
 }
@@ -4856,7 +7731,11 @@ export class NotationPrivate {
     static name: string
 }
 export abstract class ProcessingInstructionClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.ProcessingInstructionClass */
+=======
+    /* Fields of GXml.ProcessingInstructionClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: NodeClass
     static name: string
 }
@@ -4864,7 +7743,11 @@ export class ProcessingInstructionPrivate {
     static name: string
 }
 export abstract class TextClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.TextClass */
+=======
+    /* Fields of GXml.TextClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: CharacterDataClass
     static name: string
 }
@@ -4884,7 +7767,11 @@ export class Enumeration {
     static toArray(enumeration: GObject.Type): GObject.EnumValue[]
 }
 export abstract class SerializableObjectModelClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.SerializableObjectModelClass */
+=======
+    /* Fields of GXml.SerializableObjectModelClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     getEnableUnknownSerializableProperty: (self: SerializableObjectModel) => boolean
     serializeUseXmlNodeValue: (self: SerializableObjectModel) => boolean
@@ -4893,10 +7780,17 @@ export abstract class SerializableObjectModelClass {
     findPropertySpec: (self: SerializableObjectModel, propertyName: string) => GObject.ParamSpec | null
     initProperties: (self: SerializableObjectModel) => void
     listSerializableProperties: (self: SerializableObjectModel) => GObject.ParamSpec[]
+<<<<<<< HEAD
     getPropertyValue: (self: SerializableObjectModel, spec: GObject.ParamSpec, val: any) => { val: any }
     setPropertyValue: (self: SerializableObjectModel, spec: GObject.ParamSpec, val: any) => void
     transformFromString: (self: SerializableObjectModel, str: string, dest: any) => { returnType: boolean, dest: any }
     transformToString: (self: SerializableObjectModel, val: any, str: string) => { returnType: boolean, str: string }
+=======
+    getPropertyValue: (self: SerializableObjectModel, spec: GObject.ParamSpec, val: any) => /* val */ any
+    setPropertyValue: (self: SerializableObjectModel, spec: GObject.ParamSpec, val: any) => void
+    transformFromString: (self: SerializableObjectModel, str: string, dest: any) => [ /* returnType */ boolean, /* dest */ any ]
+    transformToString: (self: SerializableObjectModel, val: any, str: string) => [ /* returnType */ boolean, /* str */ string ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     serialize: (self: SerializableObjectModel, node: Node) => Node | null
     serializeProperty: (self: SerializableObjectModel, element: Element, prop: GObject.ParamSpec) => Node | null
     deserialize: (self: SerializableObjectModel, node: Node) => Node | null
@@ -4908,7 +7802,11 @@ export class SerializableObjectModelPrivate {
     static name: string
 }
 export abstract class SerializableJsonClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.SerializableJsonClass */
+=======
+    /* Fields of GXml.SerializableJsonClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     getEnableUnknownSerializableProperty: (self: SerializableJson) => boolean
     serializeUseXmlNodeValue: (self: SerializableJson) => boolean
@@ -4917,10 +7815,17 @@ export abstract class SerializableJsonClass {
     findPropertySpec: (self: SerializableJson, propertyName: string) => GObject.ParamSpec | null
     initProperties: (self: SerializableJson) => void
     listSerializableProperties: (self: SerializableJson) => GObject.ParamSpec[]
+<<<<<<< HEAD
     getPropertyValue: (self: SerializableJson, spec: GObject.ParamSpec, val: any) => { val: any }
     setPropertyValue: (self: SerializableJson, spec: GObject.ParamSpec, val: any) => void
     transformFromString: (self: SerializableJson, str: string, dest: any) => { returnType: boolean, dest: any }
     transformToString: (self: SerializableJson, val: any, str: string) => { returnType: boolean, str: string }
+=======
+    getPropertyValue: (self: SerializableJson, spec: GObject.ParamSpec, val: any) => /* val */ any
+    setPropertyValue: (self: SerializableJson, spec: GObject.ParamSpec, val: any) => void
+    transformFromString: (self: SerializableJson, str: string, dest: any) => [ /* returnType */ boolean, /* dest */ any ]
+    transformToString: (self: SerializableJson, val: any, str: string) => [ /* returnType */ boolean, /* str */ string ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     serializeProperty: (self: SerializableJson, element: Element, prop: GObject.ParamSpec) => Node | null
     deserializeProperty: (self: SerializableJson, propertyNode: Node) => boolean
     static name: string
@@ -4929,7 +7834,11 @@ export class SerializableJsonPrivate {
     static name: string
 }
 export abstract class SerializationClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.SerializationClass */
+=======
+    /* Fields of GXml.SerializationClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4937,7 +7846,11 @@ export class SerializationPrivate {
     static name: string
 }
 export abstract class SerializableTreeMapClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.SerializableTreeMapClass */
+=======
+    /* Fields of GXml.SerializableTreeMapClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: Gee.TreeMapClass
     serializeUseXmlNodeValue: (self: SerializableTreeMap) => boolean
     propertyUseNick: (self: SerializableTreeMap) => boolean
@@ -4945,10 +7858,17 @@ export abstract class SerializableTreeMapClass {
     findPropertySpec: (self: SerializableTreeMap, propertyName: string) => GObject.ParamSpec | null
     initProperties: (self: SerializableTreeMap) => void
     listSerializableProperties: (self: SerializableTreeMap) => GObject.ParamSpec[]
+<<<<<<< HEAD
     getPropertyValue: (self: SerializableTreeMap, spec: GObject.ParamSpec, val: any) => { val: any }
     setPropertyValue: (self: SerializableTreeMap, spec: GObject.ParamSpec, val: any) => void
     transformFromString: (self: SerializableTreeMap, str: string, dest: any) => { returnType: boolean, dest: any }
     transformToString: (self: SerializableTreeMap, val: any, str: string) => { returnType: boolean, str: string }
+=======
+    getPropertyValue: (self: SerializableTreeMap, spec: GObject.ParamSpec, val: any) => /* val */ any
+    setPropertyValue: (self: SerializableTreeMap, spec: GObject.ParamSpec, val: any) => void
+    transformFromString: (self: SerializableTreeMap, str: string, dest: any) => [ /* returnType */ boolean, /* dest */ any ]
+    transformToString: (self: SerializableTreeMap, val: any, str: string) => [ /* returnType */ boolean, /* str */ string ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     serialize: (self: SerializableTreeMap, node: Node) => Node | null
     serializeProperty: (self: SerializableTreeMap, element: Element, prop: GObject.ParamSpec) => Node | null
     deserialize: (self: SerializableTreeMap, node: Node) => Node | null
@@ -4959,7 +7879,11 @@ export class SerializableTreeMapPrivate {
     static name: string
 }
 export abstract class SerializableHashMapClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.SerializableHashMapClass */
+=======
+    /* Fields of GXml.SerializableHashMapClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: Gee.HashMapClass
     getEnableUnknownSerializableProperty: (self: SerializableHashMap) => boolean
     serializeUseXmlNodeValue: (self: SerializableHashMap) => boolean
@@ -4968,10 +7892,17 @@ export abstract class SerializableHashMapClass {
     findPropertySpec: (self: SerializableHashMap, propertyName: string) => GObject.ParamSpec | null
     initProperties: (self: SerializableHashMap) => void
     listSerializableProperties: (self: SerializableHashMap) => GObject.ParamSpec[]
+<<<<<<< HEAD
     getPropertyValue: (self: SerializableHashMap, spec: GObject.ParamSpec, val: any) => { val: any }
     setPropertyValue: (self: SerializableHashMap, spec: GObject.ParamSpec, val: any) => void
     transformFromString: (self: SerializableHashMap, str: string, dest: any) => { returnType: boolean, dest: any }
     transformToString: (self: SerializableHashMap, val: any, str: string) => { returnType: boolean, str: string }
+=======
+    getPropertyValue: (self: SerializableHashMap, spec: GObject.ParamSpec, val: any) => /* val */ any
+    setPropertyValue: (self: SerializableHashMap, spec: GObject.ParamSpec, val: any) => void
+    transformFromString: (self: SerializableHashMap, str: string, dest: any) => [ /* returnType */ boolean, /* dest */ any ]
+    transformToString: (self: SerializableHashMap, val: any, str: string) => [ /* returnType */ boolean, /* str */ string ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     serialize: (self: SerializableHashMap, node: Node) => Node | null
     serializeProperty: (self: SerializableHashMap, element: Element, prop: GObject.ParamSpec) => Node | null
     deserialize: (self: SerializableHashMap, node: Node) => Node | null
@@ -4982,7 +7913,11 @@ export class SerializableHashMapPrivate {
     static name: string
 }
 export abstract class SerializableDualKeyMapClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.SerializableDualKeyMapClass */
+=======
+    /* Fields of GXml.SerializableDualKeyMapClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     getEnableUnknownSerializableProperty: (self: SerializableDualKeyMap) => boolean
     serializeUseXmlNodeValue: (self: SerializableDualKeyMap) => boolean
@@ -4991,10 +7926,17 @@ export abstract class SerializableDualKeyMapClass {
     findPropertySpec: (self: SerializableDualKeyMap, propertyName: string) => GObject.ParamSpec | null
     initProperties: (self: SerializableDualKeyMap) => void
     listSerializableProperties: (self: SerializableDualKeyMap) => GObject.ParamSpec[]
+<<<<<<< HEAD
     getPropertyValue: (self: SerializableDualKeyMap, spec: GObject.ParamSpec, val: any) => { val: any }
     setPropertyValue: (self: SerializableDualKeyMap, spec: GObject.ParamSpec, val: any) => void
     transformFromString: (self: SerializableDualKeyMap, str: string, dest: any) => { returnType: boolean, dest: any }
     transformToString: (self: SerializableDualKeyMap, val: any, str: string) => { returnType: boolean, str: string }
+=======
+    getPropertyValue: (self: SerializableDualKeyMap, spec: GObject.ParamSpec, val: any) => /* val */ any
+    setPropertyValue: (self: SerializableDualKeyMap, spec: GObject.ParamSpec, val: any) => void
+    transformFromString: (self: SerializableDualKeyMap, str: string, dest: any) => [ /* returnType */ boolean, /* dest */ any ]
+    transformToString: (self: SerializableDualKeyMap, val: any, str: string) => [ /* returnType */ boolean, /* str */ string ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     serialize: (self: SerializableDualKeyMap, node: Node) => Node | null
     serializeProperty: (self: SerializableDualKeyMap, element: Element, prop: GObject.ParamSpec) => Node | null
     deserialize: (self: SerializableDualKeyMap, node: Node) => Node | null
@@ -5005,7 +7947,11 @@ export class SerializableDualKeyMapPrivate {
     static name: string
 }
 export abstract class SerializableArrayListClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.SerializableArrayListClass */
+=======
+    /* Fields of GXml.SerializableArrayListClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: Gee.ArrayListClass
     serializeUseXmlNodeValue: (self: SerializableArrayList) => boolean
     propertyUseNick: (self: SerializableArrayList) => boolean
@@ -5013,10 +7959,17 @@ export abstract class SerializableArrayListClass {
     findPropertySpec: (self: SerializableArrayList, propertyName: string) => GObject.ParamSpec | null
     initProperties: (self: SerializableArrayList) => void
     listSerializableProperties: (self: SerializableArrayList) => GObject.ParamSpec[]
+<<<<<<< HEAD
     getPropertyValue: (self: SerializableArrayList, spec: GObject.ParamSpec, val: any) => { val: any }
     setPropertyValue: (self: SerializableArrayList, spec: GObject.ParamSpec, val: any) => void
     transformFromString: (self: SerializableArrayList, str: string, dest: any) => { returnType: boolean, dest: any }
     transformToString: (self: SerializableArrayList, val: any, str: string) => { returnType: boolean, str: string }
+=======
+    getPropertyValue: (self: SerializableArrayList, spec: GObject.ParamSpec, val: any) => /* val */ any
+    setPropertyValue: (self: SerializableArrayList, spec: GObject.ParamSpec, val: any) => void
+    transformFromString: (self: SerializableArrayList, str: string, dest: any) => [ /* returnType */ boolean, /* dest */ any ]
+    transformToString: (self: SerializableArrayList, val: any, str: string) => [ /* returnType */ boolean, /* str */ string ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     serialize: (self: SerializableArrayList, node: Node) => Node | null
     serializeProperty: (self: SerializableArrayList, element: Element, prop: GObject.ParamSpec) => Node | null
     deserialize: (self: SerializableArrayList, node: Node) => Node | null
@@ -5027,7 +7980,11 @@ export class SerializableArrayListPrivate {
     static name: string
 }
 export abstract class SerializableContainerClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.SerializableContainerClass */
+=======
+    /* Fields of GXml.SerializableContainerClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: SerializableObjectModelClass
     initContainers: (self: SerializableContainer) => void
     static name: string
@@ -5036,7 +7993,11 @@ export class SerializableContainerPrivate {
     static name: string
 }
 export abstract class NamedNodeMapIface {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.NamedNodeMapIface */
+=======
+    /* Fields of GXml.NamedNodeMapIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentIface: GObject.TypeInterface
     getNamedItem: (self: NamedNodeMap, name: string) => object | null
     setNamedItem: (self: NamedNodeMap, item?: object | null) => object | null
@@ -5047,7 +8008,11 @@ export abstract class NamedNodeMapIface {
     static name: string
 }
 export abstract class NodeListIface {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.NodeListIface */
+=======
+    /* Fields of GXml.NodeListIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentIface: GObject.TypeInterface
     item: (self: NodeList, idx: number) => Node
     insertBefore: (self: NodeList, newChild: Node, refChild?: Node | null) => Node | null
@@ -5063,7 +8028,11 @@ export abstract class NodeListIface {
     static name: string
 }
 export abstract class SerializableIface {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.SerializableIface */
+=======
+    /* Fields of GXml.SerializableIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentIface: GObject.TypeInterface
     getEnableUnknownSerializableProperty: (self: Serializable) => boolean
     serializeUseXmlNodeValue: (self: Serializable) => boolean
@@ -5079,12 +8048,21 @@ export abstract class SerializableIface {
     defaultInitProperties: (self: Serializable) => void
     listSerializableProperties: (self: Serializable) => GObject.ParamSpec[]
     defaultListSerializableProperties: (self: Serializable) => GObject.ParamSpec[]
+<<<<<<< HEAD
     getPropertyValue: (self: Serializable, spec: GObject.ParamSpec, val: any) => { val: any }
     defaultGetPropertyValue: (self: Serializable, spec: GObject.ParamSpec, val: any) => { val: any }
     setPropertyValue: (self: Serializable, spec: GObject.ParamSpec, val: any) => void
     defaultSetPropertyValue: (self: Serializable, spec: GObject.ParamSpec, val: any) => void
     transformFromString: (self: Serializable, str: string, dest: any) => { returnType: boolean, dest: any }
     transformToString: (self: Serializable, val: any, str: string) => { returnType: boolean, str: string }
+=======
+    getPropertyValue: (self: Serializable, spec: GObject.ParamSpec, val: any) => /* val */ any
+    defaultGetPropertyValue: (self: Serializable, spec: GObject.ParamSpec, val: any) => /* val */ any
+    setPropertyValue: (self: Serializable, spec: GObject.ParamSpec, val: any) => void
+    defaultSetPropertyValue: (self: Serializable, spec: GObject.ParamSpec, val: any) => void
+    transformFromString: (self: Serializable, str: string, dest: any) => [ /* returnType */ boolean, /* dest */ any ]
+    transformToString: (self: Serializable, val: any, str: string) => [ /* returnType */ boolean, /* str */ string ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getProperties: (self: Serializable) => GObject.ParamSpec[]
     setProperties: (self: Serializable, value: GObject.ParamSpec[]) => void
     getIgnoredSerializableProperties: (self: Serializable) => GLib.HashTable
@@ -5096,20 +8074,32 @@ export abstract class SerializableIface {
     static name: string
 }
 export abstract class SerializableMapKeyIface {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.SerializableMapKeyIface */
+=======
+    /* Fields of GXml.SerializableMapKeyIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentIface: GObject.TypeInterface
     getMapKey: (self: SerializableMapKey) => object | null
     static name: string
 }
 export abstract class SerializableMapDualKeyIface {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.SerializableMapDualKeyIface */
+=======
+    /* Fields of GXml.SerializableMapDualKeyIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentIface: GObject.TypeInterface
     getMapPrimaryKey: (self: SerializableMapDualKey) => object | null
     getMapSecondaryKey: (self: SerializableMapDualKey) => object | null
     static name: string
 }
 export abstract class SerializableCollectionIface {
+<<<<<<< HEAD
     /* Fields of GXml-0.4.GXml.SerializableCollectionIface */
+=======
+    /* Fields of GXml.SerializableCollectionIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentIface: GObject.TypeInterface
     isCollection: (self: SerializableCollection) => boolean
     static name: string

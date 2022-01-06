@@ -655,6 +655,7 @@ export function descriptorFromRegistration(formatIdentifier: string, additionalI
 export function descriptorParseAudioPreselectionDump(source: AudioPreselectionDescriptor): void
 export function descriptorParseAudioPreselectionFree(source: AudioPreselectionDescriptor): void
 export function dvbComponentDescriptorFree(source: ComponentDescriptor): void
+export function eventNewMpegtsSection(section: Section): Gst.Event
 export function eventParseMpegtsSection(event: Gst.Event): Section
 export function findDescriptor(descriptors: Descriptor[], tag: number): Descriptor
 export function findDescriptorWithExtension(descriptors: Descriptor[], tag: number, tagExtension: number): Descriptor
@@ -665,8 +666,8 @@ export function parseDescriptors(buffer: number, bufLen: number): Descriptor[]
 export function patNew(): PatProgram[]
 export function scteCancelNew(eventId: number): SCTESIT
 export function scteNullNew(): SCTESIT
-export function scteSpliceInNew(eventId: number, spliceTime: number): SCTESIT
-export function scteSpliceOutNew(eventId: number, spliceTime: number, duration: number): SCTESIT
+export function scteSpliceInNew(eventId: number, spliceTime: Gst.ClockTime): SCTESIT
+export function scteSpliceOutNew(eventId: number, spliceTime: Gst.ClockTime, duration: Gst.ClockTime): SCTESIT
 export function sectionFromAtscMgt(mgt: AtscMGT): Section
 export function sectionFromAtscRrt(rrt: AtscRRT): Section
 export function sectionFromAtscStt(stt: AtscSTT): Section
@@ -1159,11 +1160,25 @@ export class SCTESIT {
     spliceTime: number
     splices: object[]
     descriptors: object[]
+    fullyParsed: boolean
+    isRunningTime: boolean
     static name: string
     static new(): SCTESIT
     constructor()
     /* Static methods and pseudo-constructors */
     static new(): SCTESIT
+}
+export class SCTESpliceComponent {
+    /* Fields of GstMpegts-1.0.GstMpegts.SCTESpliceComponent */
+    tag: number
+    spliceTimeSpecified: boolean
+    spliceTime: number
+    utcSpliceTime: number
+    static name: string
+    static new(tag: number): SCTESpliceComponent
+    constructor(tag: number)
+    /* Static methods and pseudo-constructors */
+    static new(tag: number): SCTESpliceComponent
 }
 export class SCTESpliceEvent {
     /* Fields of GstMpegts-1.0.GstMpegts.SCTESpliceEvent */
@@ -1176,6 +1191,8 @@ export class SCTESpliceEvent {
     spliceImmediateFlag: boolean
     programSpliceTimeSpecified: boolean
     programSpliceTime: number
+    utcSpliceTime: number
+    components: object[]
     breakDurationAutoReturn: boolean
     breakDuration: number
     uniqueProgramId: number

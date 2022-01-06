@@ -725,10 +725,9 @@ export interface Array_ConstructProps extends Object_ConstructProps {
 }
 export class Array {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    alwaysDestroy: boolean
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Array */
@@ -737,10 +736,12 @@ export class Array {
     size(): number
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
+    getAlwaysDestroy(): boolean
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
     removeDepender(depender: GObject.Object): void
     removeOwner(): void
+    setAlwaysDestroy(value: boolean): void
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
@@ -772,6 +773,11 @@ export class Array {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Array, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Array, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Array, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Array, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -798,10 +804,9 @@ export interface Attach_ConstructProps extends Object_ConstructProps {
 }
 export class Attach {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    alwaysDestroy: boolean
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Attach */
@@ -810,10 +815,12 @@ export class Attach {
     getUrl(): string | null
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
+    getAlwaysDestroy(): boolean
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
     removeDepender(depender: GObject.Object): void
     removeOwner(): void
+    setAlwaysDestroy(value: boolean): void
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
@@ -845,6 +852,11 @@ export class Attach {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Attach, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Attach, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Attach, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Attach, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -875,10 +887,9 @@ export interface CompIter_ConstructProps extends Object_ConstructProps {
 }
 export class CompIter {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    alwaysDestroy: boolean
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.CompIter */
@@ -887,10 +898,12 @@ export class CompIter {
     prior(): Component
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
+    getAlwaysDestroy(): boolean
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
     removeDepender(depender: GObject.Object): void
     removeOwner(): void
+    setAlwaysDestroy(value: boolean): void
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
@@ -922,6 +935,11 @@ export class CompIter {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: CompIter, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: CompIter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: CompIter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: CompIter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -948,10 +966,9 @@ export interface Component_ConstructProps extends Object_ConstructProps {
 }
 export class Component {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    alwaysDestroy: boolean
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Component */
@@ -1019,10 +1036,12 @@ export class Component {
     stripErrors(): void
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
+    getAlwaysDestroy(): boolean
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
     removeDepender(depender: GObject.Object): void
     removeOwner(): void
+    setAlwaysDestroy(value: boolean): void
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
@@ -1054,6 +1073,11 @@ export class Component {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Component, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Component, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Component, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Component, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1103,10 +1127,9 @@ export interface Datetimeperiod_ConstructProps extends Object_ConstructProps {
 }
 export class Datetimeperiod {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    alwaysDestroy: boolean
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Datetimeperiod */
@@ -1116,10 +1139,12 @@ export class Datetimeperiod {
     setTime(time: Time): void
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
+    getAlwaysDestroy(): boolean
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
     removeDepender(depender: GObject.Object): void
     removeOwner(): void
+    setAlwaysDestroy(value: boolean): void
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
@@ -1151,6 +1176,11 @@ export class Datetimeperiod {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Datetimeperiod, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Datetimeperiod, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Datetimeperiod, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Datetimeperiod, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1179,10 +1209,9 @@ export interface Duration_ConstructProps extends Object_ConstructProps {
 }
 export class Duration {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    alwaysDestroy: boolean
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Duration */
@@ -1204,10 +1233,12 @@ export class Duration {
     setWeeks(weeks: number): void
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
+    getAlwaysDestroy(): boolean
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
     removeDepender(depender: GObject.Object): void
     removeOwner(): void
+    setAlwaysDestroy(value: boolean): void
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
@@ -1239,6 +1270,11 @@ export class Duration {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Duration, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Duration, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Duration, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Duration, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1270,10 +1306,9 @@ export interface Geo_ConstructProps extends Object_ConstructProps {
 }
 export class Geo {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    alwaysDestroy: boolean
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Geo */
@@ -1284,10 +1319,12 @@ export class Geo {
     setLon(lon: number): void
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
+    getAlwaysDestroy(): boolean
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
     removeDepender(depender: GObject.Object): void
     removeOwner(): void
+    setAlwaysDestroy(value: boolean): void
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
@@ -1319,6 +1356,11 @@ export class Geo {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Geo, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Geo, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Geo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Geo, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1344,6 +1386,7 @@ export class Geo {
     static $gtype: GObject.Type
 }
 export interface Object_ConstructProps extends GObject.Object_ConstructProps {
+    alwaysDestroy?: boolean
     isGlobalMemory?: boolean
     native?: object
     nativeDestroyFunc?: object
@@ -1351,18 +1394,19 @@ export interface Object_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Object {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    alwaysDestroy: boolean
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
+    getAlwaysDestroy(): boolean
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
     removeDepender(depender: GObject.Object): void
     removeOwner(): void
+    setAlwaysDestroy(value: boolean): void
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
@@ -1394,6 +1438,11 @@ export class Object {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1422,10 +1471,9 @@ export interface Parameter_ConstructProps extends Object_ConstructProps {
 }
 export class Parameter {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    alwaysDestroy: boolean
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Parameter */
@@ -1536,10 +1584,12 @@ export class Parameter {
     setXvalue(v: string): void
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
+    getAlwaysDestroy(): boolean
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
     removeDepender(depender: GObject.Object): void
     removeOwner(): void
+    setAlwaysDestroy(value: boolean): void
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
@@ -1571,6 +1621,11 @@ export class Parameter {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Parameter, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Parameter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Parameter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Parameter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1650,10 +1705,9 @@ export interface Parser_ConstructProps extends Object_ConstructProps {
 }
 export class Parser {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    alwaysDestroy: boolean
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Parser */
@@ -1665,10 +1719,12 @@ export class Parser {
     parse(func: ParserLineGenFunc): Component
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
+    getAlwaysDestroy(): boolean
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
     removeDepender(depender: GObject.Object): void
     removeOwner(): void
+    setAlwaysDestroy(value: boolean): void
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
@@ -1700,6 +1756,11 @@ export class Parser {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1729,10 +1790,9 @@ export interface Period_ConstructProps extends Object_ConstructProps {
 }
 export class Period {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    alwaysDestroy: boolean
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Period */
@@ -1747,10 +1807,12 @@ export class Period {
     setStart(start: Time): void
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
+    getAlwaysDestroy(): boolean
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
     removeDepender(depender: GObject.Object): void
     removeOwner(): void
+    setAlwaysDestroy(value: boolean): void
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
@@ -1782,6 +1844,11 @@ export class Period {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Period, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Period, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Period, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Period, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1811,10 +1878,9 @@ export interface Property_ConstructProps extends Object_ConstructProps {
 }
 export class Property {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    alwaysDestroy: boolean
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Property */
@@ -2072,10 +2138,12 @@ export class Property {
     setXlicmimeoptinfo(v: string): void
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
+    getAlwaysDestroy(): boolean
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
     removeDepender(depender: GObject.Object): void
     removeOwner(): void
+    setAlwaysDestroy(value: boolean): void
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
@@ -2107,6 +2175,11 @@ export class Property {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Property, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Property, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Property, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Property, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2262,22 +2335,22 @@ export interface RecurIterator_ConstructProps extends Object_ConstructProps {
 }
 export class RecurIterator {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    alwaysDestroy: boolean
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.RecurIterator */
     next(): Time
-    setEnd(end: Time): number
     setStart(start: Time): number
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
+    getAlwaysDestroy(): boolean
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
     removeDepender(depender: GObject.Object): void
     removeOwner(): void
+    setAlwaysDestroy(value: boolean): void
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
@@ -2309,6 +2382,11 @@ export class RecurIterator {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: RecurIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: RecurIterator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: RecurIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: RecurIterator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2337,10 +2415,9 @@ export interface Recurrence_ConstructProps extends Object_ConstructProps {
 }
 export class Recurrence {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    alwaysDestroy: boolean
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Recurrence */
@@ -2394,10 +2471,12 @@ export class Recurrence {
     toString(): string
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
+    getAlwaysDestroy(): boolean
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
     removeDepender(depender: GObject.Object): void
     removeOwner(): void
+    setAlwaysDestroy(value: boolean): void
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
@@ -2429,6 +2508,11 @@ export class Recurrence {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Recurrence, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Recurrence, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Recurrence, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Recurrence, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2454,8 +2538,6 @@ export class Recurrence {
     static newFromString(str: string): Recurrence
     static dayDayOfWeek(day: number): RecurrenceWeekday
     static dayPosition(day: number): number
-    static encodeDay(weekday: RecurrenceWeekday, position: number): number
-    static encodeMonth(month: number, isLeap: boolean): number
     static frequencyFromString(str: string): RecurrenceFrequency
     static frequencyToString(kind: RecurrenceFrequency): string
     static monthIsLeap(month: number): boolean
@@ -2472,10 +2554,9 @@ export interface Reqstat_ConstructProps extends Object_ConstructProps {
 }
 export class Reqstat {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    alwaysDestroy: boolean
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Reqstat */
@@ -2486,10 +2567,12 @@ export class Reqstat {
     toString(): string
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
+    getAlwaysDestroy(): boolean
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
     removeDepender(depender: GObject.Object): void
     removeOwner(): void
+    setAlwaysDestroy(value: boolean): void
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
@@ -2521,6 +2604,11 @@ export class Reqstat {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Reqstat, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Reqstat, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Reqstat, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Reqstat, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2549,10 +2637,9 @@ export interface Time_ConstructProps extends Object_ConstructProps {
 }
 export class Time {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    alwaysDestroy: boolean
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Time */
@@ -2603,10 +2690,12 @@ export class Time {
     weekNumber(): number
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
+    getAlwaysDestroy(): boolean
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
     removeDepender(depender: GObject.Object): void
     removeOwner(): void
+    setAlwaysDestroy(value: boolean): void
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
@@ -2638,6 +2727,11 @@ export class Time {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Time, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Time, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Time, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Time, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2677,10 +2771,9 @@ export interface TimeSpan_ConstructProps extends Object_ConstructProps {
 }
 export class TimeSpan {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    alwaysDestroy: boolean
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.TimeSpan */
@@ -2695,10 +2788,12 @@ export class TimeSpan {
     setStart(start: number): void
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
+    getAlwaysDestroy(): boolean
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
     removeDepender(depender: GObject.Object): void
     removeOwner(): void
+    setAlwaysDestroy(value: boolean): void
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
@@ -2730,6 +2825,11 @@ export class TimeSpan {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: TimeSpan, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: TimeSpan, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: TimeSpan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: TimeSpan, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2759,10 +2859,9 @@ export interface Timezone_ConstructProps extends Object_ConstructProps {
 }
 export class Timezone {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    alwaysDestroy: boolean
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Timezone */
@@ -2780,10 +2879,12 @@ export class Timezone {
     setComponent(comp: Component): number
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
+    getAlwaysDestroy(): boolean
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
     removeDepender(depender: GObject.Object): void
     removeOwner(): void
+    setAlwaysDestroy(value: boolean): void
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
@@ -2815,6 +2916,11 @@ export class Timezone {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Timezone, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Timezone, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Timezone, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Timezone, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2860,10 +2966,9 @@ export interface Trigger_ConstructProps extends Object_ConstructProps {
 }
 export class Trigger {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    alwaysDestroy: boolean
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Trigger */
@@ -2875,10 +2980,12 @@ export class Trigger {
     setTime(time: Time): void
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
+    getAlwaysDestroy(): boolean
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
     removeDepender(depender: GObject.Object): void
     removeOwner(): void
+    setAlwaysDestroy(value: boolean): void
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
@@ -2910,6 +3017,11 @@ export class Trigger {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Trigger, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Trigger, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Trigger, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Trigger, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2939,10 +3051,9 @@ export interface Value_ConstructProps extends Object_ConstructProps {
 }
 export class Value {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    alwaysDestroy: boolean
     nativeDestroyFunc: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Value */
@@ -3027,10 +3138,12 @@ export class Value {
     setXlicclass(v: PropertyXlicclass): void
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     addDepender(depender: GObject.Object): void
+    getAlwaysDestroy(): boolean
     getIsGlobalMemory(): boolean
     refOwner(): GObject.Object | null
     removeDepender(depender: GObject.Object): void
     removeOwner(): void
+    setAlwaysDestroy(value: boolean): void
     setNativeDestroyFunc(nativeDestroyFunc: GLib.DestroyNotify): void
     setOwner(owner: GObject.Object): void
     stealNative(): object | null
@@ -3062,6 +3175,11 @@ export class Value {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Value, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Value, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::always-destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Value, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Value, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::native-destroy-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3152,6 +3270,9 @@ export abstract class GeoClass {
 export abstract class ObjectClass {
     static name: string
 }
+export class ObjectPrivate {
+    static name: string
+}
 export abstract class ParameterClass {
     static name: string
 }
@@ -3189,98 +3310,60 @@ export abstract class ValueClass {
     static name: string
 }
 export class _Array {
-    /* Fields of ICalGLib-3.0.ICalGLib._Array */
-    parentInstance: Object
     static name: string
 }
 export class _Attach {
-    /* Fields of ICalGLib-3.0.ICalGLib._Attach */
-    parentInstance: Object
     static name: string
 }
 export class _CompIter {
-    /* Fields of ICalGLib-3.0.ICalGLib._CompIter */
-    parentInstance: Object
     static name: string
 }
 export class _Component {
-    /* Fields of ICalGLib-3.0.ICalGLib._Component */
-    parentInstance: Object
     static name: string
 }
 export class _Datetimeperiod {
-    /* Fields of ICalGLib-3.0.ICalGLib._Datetimeperiod */
-    parentInstance: Object
     static name: string
 }
 export class _Duration {
-    /* Fields of ICalGLib-3.0.ICalGLib._Duration */
-    parentInstance: Object
     static name: string
 }
 export class _Geo {
-    /* Fields of ICalGLib-3.0.ICalGLib._Geo */
-    parentInstance: Object
     static name: string
 }
 export class _Parameter {
-    /* Fields of ICalGLib-3.0.ICalGLib._Parameter */
-    parentInstance: Object
     static name: string
 }
 export class _Parser {
-    /* Fields of ICalGLib-3.0.ICalGLib._Parser */
-    parentInstance: Object
     static name: string
 }
 export class _Period {
-    /* Fields of ICalGLib-3.0.ICalGLib._Period */
-    parentInstance: Object
     static name: string
 }
 export class _Property {
-    /* Fields of ICalGLib-3.0.ICalGLib._Property */
-    parentInstance: Object
     static name: string
 }
 export class _RecurIterator {
-    /* Fields of ICalGLib-3.0.ICalGLib._RecurIterator */
-    parentInstance: Object
     static name: string
 }
 export class _Recurrence {
-    /* Fields of ICalGLib-3.0.ICalGLib._Recurrence */
-    parentInstance: Object
     static name: string
 }
 export class _Reqstat {
-    /* Fields of ICalGLib-3.0.ICalGLib._Reqstat */
-    parentInstance: Object
     static name: string
 }
 export class _Time {
-    /* Fields of ICalGLib-3.0.ICalGLib._Time */
-    parentInstance: Object
     static name: string
 }
 export class _TimeSpan {
-    /* Fields of ICalGLib-3.0.ICalGLib._TimeSpan */
-    parentInstance: Object
     static name: string
 }
 export class _Timezone {
-    /* Fields of ICalGLib-3.0.ICalGLib._Timezone */
-    parentInstance: Object
     static name: string
 }
 export class _Trigger {
-    /* Fields of ICalGLib-3.0.ICalGLib._Trigger */
-    parentInstance: Object
     static name: string
 }
 export class _Value {
-    /* Fields of ICalGLib-3.0.ICalGLib._Value */
-    parentInstance: Object
     static name: string
 }
 }

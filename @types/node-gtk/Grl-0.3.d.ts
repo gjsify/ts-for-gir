@@ -110,6 +110,7 @@ export const CONFIG_KEY_PASSWORD: string
 export const CONFIG_KEY_PLUGIN: string
 export const CONFIG_KEY_SOURCE: string
 export const CONFIG_KEY_USERNAME: string
+export const CONFIG_PATH_VAR: string
 export const COUNT_INFINITY: number
 export const KEYID_FORMAT: string
 export const METADATA_KEY_ALBUM: number

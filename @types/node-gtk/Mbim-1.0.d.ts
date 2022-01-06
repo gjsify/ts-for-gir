@@ -9,6 +9,11 @@ import type { GLib } from './GLib-2.0';
 
 export declare namespace Mbim {
 
+export enum AccessMediaType {
+    UNKNOWN,
+    /* 3GPP (invalid, starts with a number) */
+    /* 3GPP_PREFERRED (invalid, starts with a number) */
+}
 export enum ActivationCommand {
     DEACTIVATE,
     ACTIVATE,
@@ -87,15 +92,21 @@ export enum CidIntelFirmwareUpdate {
 export enum CidMsBasicConnectExtensions {
     UNKNOWN,
     PROVISIONED_CONTEXTS,
-    NETWORK_BLACKLIST,
+    NETWORK_DENYLIST,
     LTE_ATTACH_CONFIGURATION,
-    LTE_ATTACH_STATUS,
+    LTE_ATTACH_INFO,
     SYS_CAPS,
     DEVICE_CAPS,
     DEVICE_SLOT_MAPPINGS,
     SLOT_INFO_STATUS,
     PCO,
     DEVICE_RESET,
+    BASE_STATIONS_INFO,
+    LOCATION_INFO_STATUS,
+    VERSION,
+    MODEM_CONFIGURATION,
+    REGISTRATION_PARAMETERS,
+    WAKE_REASON,
 }
 export enum CidMsFirmwareId {
     UNKNOWN,
@@ -110,6 +121,15 @@ export enum CidMsSar {
     CONFIG,
     TRANSMISSION_STATUS,
 }
+export enum CidMsUiccLowLevelAccess {
+    UNKNOWN,
+    ATR,
+    OPEN_CHANNEL,
+    CLOSE_CHANNEL,
+    APDU,
+    TERMINAL_CAPABILITY,
+    RESET,
+}
 export enum CidPhonebook {
     UNKNOWN,
     CONFIGURATION,
@@ -120,10 +140,21 @@ export enum CidPhonebook {
 export enum CidProxyControl {
     UNKNOWN,
     CONFIGURATION,
+    VERSION,
+}
+export enum CidQdu {
+    UNKNOWN,
+    UPDATE_SESSION,
+    FILE_OPEN,
+    FILE_WRITE,
 }
 export enum CidQmi {
     UNKNOWN,
     MSG,
+}
+export enum CidQuectel {
+    UNKNOWN,
+    RADIO_STATE,
 }
 export enum CidSms {
     UNKNOWN,
@@ -154,12 +185,35 @@ export enum ContextIpType {
     IPV4V6,
     IPV4_AND_IPV6,
 }
+export enum ContextMediaType {
+    CELLULAR_ONLY,
+    WIFI_ONLY,
+    ALL,
+}
+export enum ContextOperation {
+    DEFAULT,
+    DELETE,
+    RESTORE_FACTORY,
+}
+export enum ContextRoamingControl {
+    HOME_ONLY,
+    PARTNER_ONLY,
+    NON_PARTNER_ONLY,
+    HOME_AND_PARTNER,
+    HOME_AND_NON_PARTNER,
+    PARTNER_AND_NON_PARTNER,
+    ALLOW_ALL,
+}
 export enum ContextSource {
     ADMIN,
     USER,
     OPERATOR,
     MODEM,
     DEVICE,
+}
+export enum ContextState {
+    DISABLED,
+    ENABLED,
 }
 export enum ContextType {
     INVALID,
@@ -172,6 +226,11 @@ export enum ContextType {
     IMS,
     MMS,
     LOCAL,
+    ADMIN,
+    APP,
+    XCAP,
+    TETHERING,
+    EMERGENCY_CALLING,
 }
 export enum CoreError {
     FAILED,
@@ -183,11 +242,23 @@ export enum CoreError {
     ABORTED,
     UNKNOWNSTATE,
 }
+export enum DefaultPduActivationHint {
+    UNLIKELY,
+    LIKELY,
+}
 export enum DeviceType {
     UNKNOWN,
     EMBEDDED,
     REMOVABLE,
     REMOTE,
+}
+export enum DrxCycle {
+    NOT_SPECIFIED,
+    NOT_SUPPORTED,
+    /* 32 (invalid, starts with a number) */
+    /* 64 (invalid, starts with a number) */
+    /* 128 (invalid, starts with a number) */
+    /* 256 (invalid, starts with a number) */
 }
 export enum DssLinkState {
     DEACTIVATE,
@@ -196,6 +267,10 @@ export enum DssLinkState {
 export enum EmergencyModeState {
     OFF,
     ON,
+}
+export enum LadnInfo {
+    NOT_NEEDED,
+    REQUESTED,
 }
 export enum LteAttachContextOperation {
     DEFAULT,
@@ -227,12 +302,23 @@ export enum MessageType {
     FUNCTION_ERROR,
     INDICATE_STATUS,
 }
+export enum MicoMode {
+    DISABLED,
+    ENABLED,
+    UNSUPPORTED,
+    DEFAULT,
+}
+export enum ModemConfigurationStatus {
+    UNKNOWN,
+    STARTED,
+    COMPLETED,
+}
 export enum NetworkIdleHintState {
     DISABLED,
     ENABLED,
 }
 export enum NwError {
-    UNKNOWN,
+    NONE,
     IMSI_UNKNOWN_IN_HLR,
     ILLEGAL_MS,
     IMSI_UNKNOWN_IN_VLR,
@@ -357,6 +443,31 @@ export enum ProtocolError {
     CANCEL,
     MAXTRANSFER,
 }
+export enum QduFileType {
+    PACKAGE,
+}
+export enum QduSessionAction {
+    START,
+    STOP,
+}
+export enum QduSessionResult {
+    SUCCESS,
+    FAILURE,
+}
+export enum QduSessionStatus {
+    INACTIVE,
+    FILE_TRANSFER,
+    APPLY_UPDATE,
+}
+export enum QduSessionType {
+    NONE,
+    LE,
+}
+export enum QuectelRadioSwitchState {
+    OFF,
+    ON,
+    FCC_LOCKED,
+}
 export enum RadioSwitchState {
     OFF,
     ON,
@@ -408,6 +519,9 @@ export enum Service {
     INTEL_FIRMWARE_UPDATE,
     MS_BASIC_CONNECT_EXTENSIONS,
     MS_SAR,
+    QDU,
+    MS_UICC_LOW_LEVEL_ACCESS,
+    QUECTEL,
 }
 export enum SmsCdmaEncoding {
     OCTET,
@@ -525,6 +639,27 @@ export enum SubscriberReadyState {
     FAILURE,
     NOT_ACTIVATED,
     DEVICE_LOCKED,
+    NO_ESIM_PROFILE,
+}
+export enum TlvType {
+    INVALID,
+    UE_POLICITES,
+    SINGLE_NSSAI,
+    ALLOWED_NSSAI,
+    CFG_NSSAI,
+    DFLT_CFG_NSSAI,
+    PRECFG_DFLT_CFG_NSSAI,
+    REJ_NSSAI,
+    LADN,
+    TAI,
+    WCHAR_STR,
+    UINT16_TBL,
+    EAP_PACKET,
+    PCO,
+    ROUTE_SELECTION_DESCRIPTORS,
+    TRAFFIC_PARAMETERS,
+    WAKE_COMMAND,
+    WAKE_PACKET,
 }
 export enum TransmissionNotificationStatus {
     DISABLED,
@@ -533,6 +668,33 @@ export enum TransmissionNotificationStatus {
 export enum TransmissionState {
     INACTIVE,
     ACTIVE,
+}
+export enum UiccClassByteType {
+    INTER_INDUSTRY,
+    EXTENDED,
+}
+export enum UiccPassThroughAction {
+    DISABLE,
+    ENABLE,
+}
+export enum UiccPassThroughStatus {
+    DISABLED,
+    ENABLED,
+}
+export enum UiccSecureMessaging {
+    NONE,
+    NO_HDR_AUTH,
+}
+export enum UiccSlotState {
+    STATE_UNKNOWN,
+    SATE_OFF_EMPTY,
+    STATE_OFF,
+    STATE_EMPTY,
+    STATE_NOT_READY,
+    STATE_ACTIVE,
+    STATE_ERROR,
+    STATE_ACTIVE_ESIM,
+    STATE_ACTIVE_ESIM_NO_PROFILES,
 }
 export enum UssdAction {
     INITIATE,
@@ -566,16 +728,25 @@ export enum VoiceClass {
     SEPARATED_VOICE_DATA,
     SIMULTANEOUS_VOICE_DATA,
 }
+export enum WakeType {
+    CID_RESPONSE,
+    CID_INDICATION,
+    PACKET,
+}
 export enum CellularClass {
     GSM,
     CDMA,
 }
 export enum CtrlCaps {
+    NONE,
     REG_MANUAL,
     HW_RADIO_SWITCH,
     CDMA_MOBILE_IP,
     CDMA_SIMPLE_IP,
     MULTI_CARRIER,
+    ESIM,
+    UE_POLICY_ROUTE_SELECTION,
+    SIM_HOT_SWAP_CAPABLE,
 }
 export enum DataClass {
     GPRS,
@@ -584,6 +755,8 @@ export enum DataClass {
     HSDPA,
     HSUPA,
     LTE,
+    /* 5G_NSA (invalid, starts with a number) */
+    /* 5G_SA (invalid, starts with a number) */
     /* 1XRTT (invalid, starts with a number) */
     /* 1XEVDO (invalid, starts with a number) */
     /* 1XEVDO_REVA (invalid, starts with a number) */
@@ -593,9 +766,41 @@ export enum DataClass {
     UMB,
     CUSTOM,
 }
+export enum DataClassV3 {
+    GPRS,
+    EDGE,
+    UMTS,
+    HSDPA,
+    HSUPA,
+    LTE,
+    /* 5G (invalid, starts with a number) */
+    /* 1XRTT (invalid, starts with a number) */
+    /* 1XEVDO (invalid, starts with a number) */
+    /* 1XEVDO_REVA (invalid, starts with a number) */
+    /* 1XEVDV (invalid, starts with a number) */
+    /* 3XRTT (invalid, starts with a number) */
+    /* 1XEVDO_REVB (invalid, starts with a number) */
+    UMB,
+    CUSTOM,
+}
+export enum DataSubclass {
+    NONE,
+    /* 5G_ENDC (invalid, starts with a number) */
+    /* 5G_NR (invalid, starts with a number) */
+    /* 5G_NEDC (invalid, starts with a number) */
+    /* 5G_ELTE (invalid, starts with a number) */
+    /* 5G_NGENDC (invalid, starts with a number) */
+}
 export enum DeviceOpenFlags {
     NONE,
     PROXY,
+    MS_MBIMEX_V2,
+    MS_MBIMEX_V3,
+}
+export enum FrequencyRange {
+    UNKNOWN,
+    /* 1 (invalid, starts with a number) */
+    /* 2 (invalid, starts with a number) */
 }
 export enum IPConfigurationAvailableFlag {
     NONE,
@@ -632,9 +837,17 @@ export enum SmsCaps {
     TEXT_RECEIVE,
     TEXT_SEND,
 }
+export enum SubscriberReadyStatusFlag {
+    NONE,
+    ESIM,
+    SIM_REMOVABILITY_KNOWN,
+    SIM_REMOVABLE,
+}
 export const DBUS_ERROR_PREFIX: string
 export const DEVICE_FILE: string
 export const DEVICE_IN_SESSION: string
+export const DEVICE_SESSION_ID_MAX: number
+export const DEVICE_SESSION_ID_MIN: number
 export const DEVICE_SIGNAL_ERROR: string
 export const DEVICE_SIGNAL_INDICATE_STATUS: string
 export const DEVICE_SIGNAL_REMOVED: string
@@ -645,12 +858,20 @@ export const MINOR_VERSION: number
 export const PROXY_N_CLIENTS: string
 export const PROXY_N_DEVICES: string
 export const PROXY_SOCKET_PATH: string
+export function accessMediaTypeGetString(val: AccessMediaType): string
 export function activationCommandGetString(val: ActivationCommand): string
 export function activationStateGetString(val: ActivationState): string
 export function atdsProviderArrayFree(array: AtdsProviderArray): void
 export function atdsProviderPlmnModeGetString(val: AtdsProviderPlmnMode): string
 export function atdsRatModeGetString(val: AtdsRatMode): string
 export function authProtocolGetString(val: AuthProtocol): string
+export function cellInfoCdmaArrayFree(array: CellInfoCdmaArray): void
+export function cellInfoNeighboringGsmArrayFree(array: CellInfoNeighboringGsmArray): void
+export function cellInfoNeighboringLteArrayFree(array: CellInfoNeighboringLteArray): void
+export function cellInfoNeighboringNrArrayFree(array: CellInfoNeighboringNrArray): void
+export function cellInfoNeighboringTdscdmaArrayFree(array: CellInfoNeighboringTdscdmaArray): void
+export function cellInfoNeighboringUmtsArrayFree(array: CellInfoNeighboringUmtsArray): void
+export function cellInfoServingNrArrayFree(array: CellInfoServingNrArray): void
 export function cellularClassBuildStringFromMask(mask: CellularClass): string
 export function cidAtdsGetString(val: CidAtds): string
 export function cidAuthGetString(val: CidAuth): string
@@ -665,37 +886,53 @@ export function cidMsBasicConnectExtensionsGetString(val: CidMsBasicConnectExten
 export function cidMsFirmwareIdGetString(val: CidMsFirmwareId): string
 export function cidMsHostShutdownGetString(val: CidMsHostShutdown): string
 export function cidMsSarGetString(val: CidMsSar): string
+export function cidMsUiccLowLevelAccessGetString(val: CidMsUiccLowLevelAccess): string
 export function cidPhonebookGetString(val: CidPhonebook): string
 export function cidProxyControlGetString(val: CidProxyControl): string
+export function cidQduGetString(val: CidQdu): string
 export function cidQmiGetString(val: CidQmi): string
+export function cidQuectelGetString(val: CidQuectel): string
 export function cidSmsGetString(val: CidSms): string
 export function cidStkGetString(val: CidStk): string
 export function cidUssdGetString(val: CidUssd): string
 export function compressionGetString(val: Compression): string
 export function contextIpTypeGetString(val: ContextIpType): string
+export function contextMediaTypeGetString(val: ContextMediaType): string
+export function contextOperationGetString(val: ContextOperation): string
+export function contextRoamingControlGetString(val: ContextRoamingControl): string
 export function contextSourceGetString(val: ContextSource): string
+export function contextStateGetString(val: ContextState): string
 export function contextTypeGetString(val: ContextType): string
 export function coreErrorGetString(val: CoreError): string
 export function coreErrorQuark(): GLib.Quark
 export function ctrlCapsBuildStringFromMask(mask: CtrlCaps): string
 export function dataClassBuildStringFromMask(mask: DataClass): string
+export function dataClassV3BuildStringFromMask(mask: DataClassV3): string
+export function dataSubclassBuildStringFromMask(mask: DataSubclass): string
+export function defaultPduActivationHintGetString(val: DefaultPduActivationHint): string
 export function deviceServiceElementArrayFree(array: DeviceServiceElementArray): void
 export function deviceTypeGetString(val: DeviceType): string
+export function drxCycleGetString(val: DrxCycle): string
 export function dssLinkStateGetString(val: DssLinkState): string
 export function emergencyModeStateGetString(val: EmergencyModeState): string
 export function eventEntryArrayFree(array: EventEntryArray): void
+export function frequencyRangeBuildStringFromMask(mask: FrequencyRange): string
 export function ipConfigurationAvailableFlagBuildStringFromMask(mask: IPConfigurationAvailableFlag): string
 export function ipv4ElementArrayFree(array: IPv4ElementArray): void
 export function ipv6ElementArrayFree(array: IPv6ElementArray): void
+export function ladnInfoGetString(val: LadnInfo): string
 export function lteAttachConfigurationArrayFree(array: LteAttachConfigurationArray): void
 export function lteAttachContextOperationGetString(val: LteAttachContextOperation): string
 export function lteAttachContextRoamingControlGetString(val: LteAttachContextRoamingControl): string
 export function lteAttachStateGetString(val: LteAttachState): string
 export function messageCommandTypeGetString(val: MessageCommandType): string
 export function messageTypeGetString(val: MessageType): string
+export function micoModeGetString(val: MicoMode): string
+export function modemConfigurationStatusGetString(val: ModemConfigurationStatus): string
 export function networkIdleHintStateGetString(val: NetworkIdleHintState): string
 export function nwErrorGetString(val: NwError): string
 export function packetFilterArrayFree(array: PacketFilterArray): void
+export function packetFilterV3ArrayFree(array: PacketFilterV3Array): void
 export function packetServiceActionGetString(val: PacketServiceAction): string
 export function packetServiceStateGetString(val: PacketServiceState): string
 export function pcoTypeGetString(val: PcoType): string
@@ -713,6 +950,13 @@ export function protocolErrorQuark(): GLib.Quark
 export function providerArrayFree(array: ProviderArray): void
 export function providerStateBuildStringFromMask(mask: ProviderState): string
 export function provisionedContextElementArrayFree(array: ProvisionedContextElementArray): void
+export function provisionedContextElementV2ArrayFree(array: ProvisionedContextElementV2Array): void
+export function qduFileTypeGetString(val: QduFileType): string
+export function qduSessionActionGetString(val: QduSessionAction): string
+export function qduSessionResultGetString(val: QduSessionResult): string
+export function qduSessionStatusGetString(val: QduSessionStatus): string
+export function qduSessionTypeGetString(val: QduSessionType): string
+export function quectelRadioSwitchStateGetString(val: QuectelRadioSwitchState): string
 export function radioSwitchStateGetString(val: RadioSwitchState): string
 export function readyInfoFlagBuildStringFromMask(mask: ReadyInfoFlag): string
 export function registerActionGetString(val: RegisterAction): string
@@ -720,6 +964,7 @@ export function registerCustomService(uuid: Uuid, nickname: string): number
 export function registerModeGetString(val: RegisterMode): string
 export function registerStateGetString(val: RegisterState): string
 export function registrationFlagBuildStringFromMask(mask: RegistrationFlag): string
+export function rsrpSnrInfoArrayFree(array: RsrpSnrInfoArray): void
 export function sarBackoffStateGetString(val: SarBackoffState): string
 export function sarConfigStateArrayFree(array: SarConfigStateArray): void
 export function sarControlModeGetString(val: SarControlMode): string
@@ -728,6 +973,7 @@ export function serviceGetString(val: Service): string
 export function serviceIdIsCustom(id: number): boolean
 export function serviceLookupName(service: number): string
 export function simClassBuildStringFromMask(mask: SimClass): string
+export function slotArrayFree(array: SlotArray): void
 export function smsCapsBuildStringFromMask(mask: SmsCaps): string
 export function smsCdmaEncodingGetString(val: SmsCdmaEncoding): string
 export function smsCdmaLangGetString(val: SmsCdmaLang): string
@@ -743,8 +989,16 @@ export function statusErrorQuark(): GLib.Quark
 export function stkPacProfileGetString(val: StkPacProfile): string
 export function stkPacTypeGetString(val: StkPacType): string
 export function subscriberReadyStateGetString(val: SubscriberReadyState): string
+export function subscriberReadyStatusFlagBuildStringFromMask(mask: SubscriberReadyStatusFlag): string
+export function terminalCapabilityInfoArrayFree(array: TerminalCapabilityInfoArray): void
+export function tlvTypeGetString(val: TlvType): string
 export function transmissionNotificationStatusGetString(val: TransmissionNotificationStatus): string
 export function transmissionStateGetString(val: TransmissionState): string
+export function uiccClassByteTypeGetString(val: UiccClassByteType): string
+export function uiccPassThroughActionGetString(val: UiccPassThroughAction): string
+export function uiccPassThroughStatusGetString(val: UiccPassThroughStatus): string
+export function uiccSecureMessagingGetString(val: UiccSecureMessaging): string
+export function uiccSlotStateGetString(val: UiccSlotState): string
 export function unregisterCustomService(id: number): boolean
 export function ussdActionGetString(val: UssdAction): string
 export function ussdResponseGetString(val: UssdResponse): string
@@ -757,6 +1011,7 @@ export function uuidFromService(service: Service): Uuid
 export function visibleProvidersActionGetString(val: VisibleProvidersAction): string
 export function voiceCallStateGetString(val: VoiceCallState): string
 export function voiceClassGetString(val: VoiceClass): string
+export function wakeTypeGetString(val: WakeType): string
 export interface Device_ConstructProps extends GObject.Object_ConstructProps {
     deviceFile?: Gio.File
     deviceInSession?: boolean
@@ -769,20 +1024,31 @@ export class Device {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Mbim-1.0.Mbim.Device */
+    addLink(sessionId: number, baseIfname: string, ifnamePrefix: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    addLinkFinish(res: Gio.AsyncResult, sessionId: number): string
+    checkLinkSupported(): boolean
+    checkMsMbimexVersion(msMbimexVersionMajor: number, msMbimexVersionMinor: number): boolean
     close(timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     closeFinish(res: Gio.AsyncResult): boolean
     closeForce(): boolean
     command(message: Message, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     commandFinish(res: Gio.AsyncResult): Message
+    deleteAllLinks(baseIfname: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    deleteAllLinksFinish(res: Gio.AsyncResult): boolean
+    deleteLink(ifname: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    deleteLinkFinish(res: Gio.AsyncResult): boolean
+    getMsMbimexVersion(outMsMbimexVersionMinor: number): number
     getNextTransactionId(): number
     getPath(): string
     getPathDisplay(): string
     getTransactionId(): number
     isOpen(): boolean
+    listLinks(baseIfname: string): { returnType: boolean, outLinks: string[] }
     open(timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     openFinish(res: Gio.AsyncResult): boolean
     openFull(flags: DeviceOpenFlags, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     openFullFinish(res: Gio.AsyncResult): boolean
+    setMsMbimexVersion(msMbimexVersionMajor: number, msMbimexVersionMinor: number): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -931,6 +1197,161 @@ export class AtdsProvider {
     /* Static methods and pseudo-constructors */
     static arrayFree(array: AtdsProviderArray): void
 }
+export class CellInfoCdma {
+    /* Fields of Mbim-1.0.Mbim.CellInfoCdma */
+    servingCellFlag: number
+    nid: number
+    sid: number
+    baseStationId: number
+    baseLatitude: number
+    baseLongitude: number
+    refPn: number
+    gpsSeconds: number
+    pilotStrength: number
+    static name: string
+    /* Static methods and pseudo-constructors */
+    static arrayFree(array: CellInfoCdmaArray): void
+}
+export class CellInfoNeighboringGsm {
+    /* Fields of Mbim-1.0.Mbim.CellInfoNeighboringGsm */
+    providerId: string
+    locationAreaCode: number
+    cellId: number
+    arfcn: number
+    baseStationId: number
+    rxLevel: number
+    static name: string
+    /* Static methods and pseudo-constructors */
+    static arrayFree(array: CellInfoNeighboringGsmArray): void
+}
+export class CellInfoNeighboringLte {
+    /* Fields of Mbim-1.0.Mbim.CellInfoNeighboringLte */
+    providerId: string
+    cellId: number
+    earfcn: number
+    physicalCellId: number
+    tac: number
+    rsrp: number
+    rsrq: number
+    static name: string
+    /* Static methods and pseudo-constructors */
+    static arrayFree(array: CellInfoNeighboringLteArray): void
+}
+export class CellInfoNeighboringNr {
+    /* Fields of Mbim-1.0.Mbim.CellInfoNeighboringNr */
+    systemSubType: number
+    providerId: string
+    cellId: string
+    physicalCellId: number
+    tac: number
+    rsrp: number
+    rsrq: number
+    sinr: number
+    static name: string
+    /* Static methods and pseudo-constructors */
+    static arrayFree(array: CellInfoNeighboringNrArray): void
+}
+export class CellInfoNeighboringTdscdma {
+    /* Fields of Mbim-1.0.Mbim.CellInfoNeighboringTdscdma */
+    providerId: string
+    locationAreaCode: number
+    cellId: number
+    uarfcn: number
+    cellParameterId: number
+    timingAdvance: number
+    rscp: number
+    pathLoss: number
+    static name: string
+    /* Static methods and pseudo-constructors */
+    static arrayFree(array: CellInfoNeighboringTdscdmaArray): void
+}
+export class CellInfoNeighboringUmts {
+    /* Fields of Mbim-1.0.Mbim.CellInfoNeighboringUmts */
+    providerId: string
+    locationAreaCode: number
+    cellId: number
+    uarfcn: number
+    primaryScramblingCode: number
+    rscp: number
+    ecno: number
+    pathLoss: number
+    static name: string
+    /* Static methods and pseudo-constructors */
+    static arrayFree(array: CellInfoNeighboringUmtsArray): void
+}
+export class CellInfoServingGsm {
+    /* Fields of Mbim-1.0.Mbim.CellInfoServingGsm */
+    providerId: string
+    locationAreaCode: number
+    cellId: number
+    timingAdvance: number
+    arfcn: number
+    baseStationId: number
+    rxLevel: number
+    /* Methods of Mbim-1.0.Mbim.CellInfoServingGsm */
+    free(): void
+    static name: string
+}
+export class CellInfoServingLte {
+    /* Fields of Mbim-1.0.Mbim.CellInfoServingLte */
+    providerId: string
+    cellId: number
+    earfcn: number
+    physicalCellId: number
+    tac: number
+    rsrp: number
+    rsrq: number
+    timingAdvance: number
+    /* Methods of Mbim-1.0.Mbim.CellInfoServingLte */
+    free(): void
+    static name: string
+}
+export class CellInfoServingNr {
+    /* Fields of Mbim-1.0.Mbim.CellInfoServingNr */
+    providerId: string
+    nci: number
+    physicalCellId: number
+    nrarfcn: number
+    tac: number
+    rsrp: number
+    rsrq: number
+    sinr: number
+    timingAdvance: number
+    static name: string
+    /* Static methods and pseudo-constructors */
+    static arrayFree(array: CellInfoServingNrArray): void
+}
+export class CellInfoServingTdscdma {
+    /* Fields of Mbim-1.0.Mbim.CellInfoServingTdscdma */
+    providerId: string
+    locationAreaCode: number
+    cellId: number
+    uarfcn: number
+    cellParameterId: number
+    timingAdvance: number
+    rscp: number
+    pathLoss: number
+    /* Methods of Mbim-1.0.Mbim.CellInfoServingTdscdma */
+    free(): void
+    static name: string
+}
+export class CellInfoServingUmts {
+    /* Fields of Mbim-1.0.Mbim.CellInfoServingUmts */
+    providerId: string
+    locationAreaCode: number
+    cellId: number
+    frequencyInfoUl: number
+    frequencyInfoDl: number
+    frequencyInfoNt: number
+    uarfcn: number
+    primaryScramblingCode: number
+    rscp: number
+    ecno: number
+    pathLoss: number
+    /* Methods of Mbim-1.0.Mbim.CellInfoServingUmts */
+    free(): void
+    static name: string
+}
 export abstract class DeviceClass {
     static name: string
 }
@@ -1049,6 +1470,7 @@ export class Message {
     getMessageLength(): number
     getMessageType(): MessageType
     getPrintable(linePrefix: string, headersOnly: boolean): string
+    getPrintableFull(mbimexVersionMajor: number, mbimexVersionMinor: number, linePrefix: string, headersOnly: boolean): string
     getRaw(): { returnType: number, length: number }
     getTransactionId(): number
     homeProviderResponseParse(): { returnType: boolean, outProvider: Provider | null }
@@ -1059,16 +1481,56 @@ export class Message {
     ipConfigurationNotificationParse(): { returnType: boolean, outSessionId: number | null, outIpv4ConfigurationAvailable: IPConfigurationAvailableFlag | null, outIpv6ConfigurationAvailable: IPConfigurationAvailableFlag | null, outIpv4AddressCount: number | null, outIpv4Address: IPv4Element[] | null, outIpv6AddressCount: number | null, outIpv6Address: IPv6Element[] | null, outIpv4Gateway: IPv4 | null, outIpv6Gateway: IPv6 | null, outIpv4DnsServerCount: number | null, outIpv4DnsServer: IPv4[] | null, outIpv6DnsServerCount: number | null, outIpv6DnsServer: IPv6[] | null, outIpv4Mtu: number | null, outIpv6Mtu: number | null }
     ipConfigurationResponseParse(): { returnType: boolean, outSessionId: number | null, outIpv4ConfigurationAvailable: IPConfigurationAvailableFlag | null, outIpv6ConfigurationAvailable: IPConfigurationAvailableFlag | null, outIpv4AddressCount: number | null, outIpv4Address: IPv4Element[] | null, outIpv6AddressCount: number | null, outIpv6Address: IPv6Element[] | null, outIpv4Gateway: IPv4 | null, outIpv6Gateway: IPv6 | null, outIpv4DnsServerCount: number | null, outIpv4DnsServer: IPv4[] | null, outIpv6DnsServerCount: number | null, outIpv6DnsServer: IPv6[] | null, outIpv4Mtu: number | null, outIpv6Mtu: number | null }
     ipPacketFiltersResponseParse(): { returnType: boolean, outSessionId: number | null, outPacketFiltersCount: number | null, outPacketFilters: PacketFilter[] | null }
+    msBasicConnectExtensionsBaseStationsInfoResponseParse(): { returnType: boolean, outSystemType: DataClass | null, outGsmServingCell: CellInfoServingGsm | null, outUmtsServingCell: CellInfoServingUmts | null, outTdscdmaServingCell: CellInfoServingTdscdma | null, outLteServingCell: CellInfoServingLte | null, outGsmNeighboringCellsCount: number | null, outGsmNeighboringCells: CellInfoNeighboringGsm[] | null, outUmtsNeighboringCellsCount: number | null, outUmtsNeighboringCells: CellInfoNeighboringUmts[] | null, outTdscdmaNeighboringCellsCount: number | null, outTdscdmaNeighboringCells: CellInfoNeighboringTdscdma[] | null, outLteNeighboringCellsCount: number | null, outLteNeighboringCells: CellInfoNeighboringLte[] | null, outCdmaCellsCount: number | null, outCdmaCells: CellInfoCdma[] | null }
+    msBasicConnectExtensionsDeviceCapsResponseParse(): { returnType: boolean, outDeviceType: DeviceType | null, outCellularClass: CellularClass | null, outVoiceClass: VoiceClass | null, outSmsClass: SimClass | null, outDataClass: DataClass | null, outSmsCaps: SmsCaps | null, outControlCaps: CtrlCaps | null, outMaxSessions: number | null, outCustomDataClass: string | null, outDeviceId: string | null, outFirmwareInfo: string | null, outHardwareInfo: string | null, outExecutorIndex: number | null }
+    msBasicConnectExtensionsDeviceSlotMappingsResponseParse(): { returnType: boolean, outMapCount: number | null, outSlotMap: Slot[] | null }
+    msBasicConnectExtensionsLocationInfoStatusNotificationParse(): { returnType: boolean, outLocationAreaCode: number | null, outTrackingAreaCode: number | null, outCellId: number | null }
+    msBasicConnectExtensionsLocationInfoStatusResponseParse(): { returnType: boolean, outLocationAreaCode: number | null, outTrackingAreaCode: number | null, outCellId: number | null }
     msBasicConnectExtensionsLteAttachConfigurationNotificationParse(): { returnType: boolean, outConfigurationCount: number | null, outConfigurations: LteAttachConfiguration[] | null }
     msBasicConnectExtensionsLteAttachConfigurationResponseParse(): { returnType: boolean, outConfigurationCount: number | null, outConfigurations: LteAttachConfiguration[] | null }
+    msBasicConnectExtensionsLteAttachInfoNotificationParse(): { returnType: boolean, outLteAttachState: LteAttachState | null, outIpType: ContextIpType | null, outAccessString: string | null, outUserName: string | null, outPassword: string | null, outCompression: Compression | null, outAuthProtocol: AuthProtocol | null }
+    msBasicConnectExtensionsLteAttachInfoResponseParse(): { returnType: boolean, outLteAttachState: LteAttachState | null, outIpType: ContextIpType | null, outAccessString: string | null, outUserName: string | null, outPassword: string | null, outCompression: Compression | null, outAuthProtocol: AuthProtocol | null }
     msBasicConnectExtensionsLteAttachStatusNotificationParse(): { returnType: boolean, outLteAttachStatus: LteAttachStatus | null }
     msBasicConnectExtensionsLteAttachStatusResponseParse(): { returnType: boolean, outLteAttachStatus: LteAttachStatus | null }
     msBasicConnectExtensionsPcoNotificationParse(): { returnType: boolean, outPcoValue: PcoValue | null }
     msBasicConnectExtensionsPcoResponseParse(): { returnType: boolean, outPcoValue: PcoValue | null }
+    msBasicConnectExtensionsProvisionedContextsNotificationParse(): { returnType: boolean, outProvisionedContextsCount: number | null, outProvisionedContexts: ProvisionedContextElementV2[] | null }
+    msBasicConnectExtensionsProvisionedContextsResponseParse(): { returnType: boolean, outProvisionedContextsCount: number | null, outProvisionedContexts: ProvisionedContextElementV2[] | null }
+    msBasicConnectExtensionsSlotInfoStatusNotificationParse(): { returnType: boolean, outSlotIndex: number | null, outState: UiccSlotState | null }
+    msBasicConnectExtensionsSlotInfoStatusResponseParse(): { returnType: boolean, outSlotIndex: number | null, outState: UiccSlotState | null }
+    msBasicConnectExtensionsSysCapsResponseParse(): { returnType: boolean, outNumberOfExecutors: number | null, outNumberOfSlots: number | null, outConcurrency: number | null, outModemId: number | null }
+    msBasicConnectExtensionsV2VersionResponseParse(): { returnType: boolean, outMbimVersion: number | null, outMbimExtendedVersion: number | null }
+    msBasicConnectExtensionsV3BaseStationsInfoResponseParse(): { returnType: boolean, outSystemType: DataClassV3 | null, outSystemSubType: DataSubclass | null, outGsmServingCell: CellInfoServingGsm | null, outUmtsServingCell: CellInfoServingUmts | null, outTdscdmaServingCell: CellInfoServingTdscdma | null, outLteServingCell: CellInfoServingLte | null, outGsmNeighboringCellsCount: number | null, outGsmNeighboringCells: CellInfoNeighboringGsm[] | null, outUmtsNeighboringCellsCount: number | null, outUmtsNeighboringCells: CellInfoNeighboringUmts[] | null, outTdscdmaNeighboringCellsCount: number | null, outTdscdmaNeighboringCells: CellInfoNeighboringTdscdma[] | null, outLteNeighboringCellsCount: number | null, outLteNeighboringCells: CellInfoNeighboringLte[] | null, outCdmaCellsCount: number | null, outCdmaCells: CellInfoCdma[] | null, outNrServingCellsCount: number | null, outNrServingCells: CellInfoServingNr[] | null, outNrNeighborCellsCount: number | null, outNrNeighborCells: CellInfoNeighboringNr[] | null }
+    msBasicConnectExtensionsV3DeviceCapsResponseParse(): { returnType: boolean, outDeviceType: DeviceType | null, outCellularClass: CellularClass | null, outVoiceClass: VoiceClass | null, outSimClass: SimClass | null, outDataClass: DataClassV3 | null, outSmsCaps: SmsCaps | null, outControlCaps: CtrlCaps | null, outDataSubclass: DataSubclass | null, outMaxSessions: number | null, outExecutorIndex: number | null, outWcdmaBandClass: number | null, outLteBandClassCount: number | null, outLteBandClass: number | null, outNrBandClassCount: number | null, outNrBandClass: number | null, outCustomDataClass: string | null, outDeviceId: string | null, outFirmwareInfo: string | null, outHardwareInfo: string | null }
+    msBasicConnectExtensionsV3LteAttachInfoNotificationParse(): { returnType: boolean, outLteAttachState: LteAttachState | null, outNwError: NwError | null, outIpType: ContextIpType | null, outAccessString: string | null, outUserName: string | null, outPassword: string | null, outCompression: Compression | null, outAuthProtocol: AuthProtocol | null }
+    msBasicConnectExtensionsV3LteAttachInfoResponseParse(): { returnType: boolean, outLteAttachState: LteAttachState | null, outNwError: NwError | null, outIpType: ContextIpType | null, outAccessString: string | null, outUserName: string | null, outPassword: string | null, outCompression: Compression | null, outAuthProtocol: AuthProtocol | null }
+    msBasicConnectExtensionsV3ModemConfigurationNotificationParse(): { returnType: boolean, outModemConfigurationStatus: ModemConfigurationStatus | null, outConfigurationName: string | null, outUnnamedIes: Tlv[] | null }
+    msBasicConnectExtensionsV3ModemConfigurationResponseParse(): { returnType: boolean, outConfigurationStatus: ModemConfigurationStatus | null, outConfigurationName: string | null, outUnnamedIes: Tlv[] | null }
+    msBasicConnectExtensionsV3RegistrationParametersResponseParse(): { returnType: boolean, outMicoMode: MicoMode | null, outDrxCycle: DrxCycle | null, outLadnInfo: LadnInfo | null, outDefaultPduActivationHint: DefaultPduActivationHint | null, outReRegisterIfNedeed: boolean | null, outUnnamedIes: Tlv[] | null }
+    msBasicConnectExtensionsV3WakeReasonResponseParse(): { returnType: boolean, outWakeType: WakeType | null, outSessionId: number | null, outWakeTlv: Tlv | null }
+    msBasicConnectV2PacketServiceNotificationParse(): { returnType: boolean, outNwError: number | null, outPacketServiceState: PacketServiceState | null, outCurrentDataClass: DataClass | null, outUplinkSpeed: number | null, outDownlinkSpeed: number | null, outFrequencyRange: FrequencyRange | null }
+    msBasicConnectV2PacketServiceResponseParse(): { returnType: boolean, outNwError: number | null, outPacketServiceState: PacketServiceState | null, outCurrentDataClass: DataClass | null, outUplinkSpeed: number | null, outDownlinkSpeed: number | null, outFrequencyRange: FrequencyRange | null }
+    msBasicConnectV2RegisterStateNotificationParse(): { returnType: boolean, outNwError: NwError | null, outRegisterState: RegisterState | null, outRegisterMode: RegisterMode | null, outAvailableDataClasses: DataClass | null, outCurrentCellularClass: CellularClass | null, outProviderId: string | null, outProviderName: string | null, outRoamingText: string | null, outRegistrationFlag: RegistrationFlag | null, outPreferredDataClasses: DataClass | null }
+    msBasicConnectV2RegisterStateResponseParse(): { returnType: boolean, outNwError: NwError | null, outRegisterState: RegisterState | null, outRegisterMode: RegisterMode | null, outAvailableDataClasses: DataClass | null, outCurrentCellularClass: CellularClass | null, outProviderId: string | null, outProviderName: string | null, outRoamingText: string | null, outRegistrationFlag: RegistrationFlag | null, outPreferredDataClasses: DataClass | null }
+    msBasicConnectV2SignalStateNotificationParse(): { returnType: boolean, outRssi: number | null, outErrorRate: number | null, outSignalStrengthInterval: number | null, outRssiThreshold: number | null, outErrorRateThreshold: number | null, outRsrpSnrCount: number | null, outRsrpSnr: RsrpSnrInfo[] | null }
+    msBasicConnectV2SignalStateResponseParse(): { returnType: boolean, outRssi: number | null, outErrorRate: number | null, outSignalStrengthInterval: number | null, outRssiThreshold: number | null, outErrorRateThreshold: number | null, outRsrpSnrCount: number | null, outRsrpSnr: RsrpSnrInfo[] | null }
+    msBasicConnectV3ConnectNotificationParse(): { returnType: boolean, outSessionId: number | null, outActivationState: ActivationState | null, outVoiceCallState: VoiceCallState | null, outIpType: ContextIpType | null, outContextType: Uuid | null, outNwError: number | null, outMediaPreference: AccessMediaType | null, outAccessString: string | null, outUnnamedIes: Tlv[] | null }
+    msBasicConnectV3ConnectResponseParse(): { returnType: boolean, outSessionId: number | null, outActivationState: ActivationState | null, outVoiceCallState: VoiceCallState | null, outIpType: ContextIpType | null, outContextType: Uuid | null, outNwError: number | null, outMediaPreference: AccessMediaType | null, outAccessString: string | null, outUnnamedIes: Tlv[] | null }
+    msBasicConnectV3IpPacketFiltersResponseParse(): { returnType: boolean, outSessionId: number | null, outPacketFiltersCount: number | null, outPacketFilters: PacketFilterV3[] | null }
+    msBasicConnectV3PacketServiceNotificationParse(): { returnType: boolean, outNwError: number | null, outPacketServiceState: PacketServiceState | null, outHighestAvailableDataClass: DataClassV3 | null, outUplinkSpeed: number | null, outDownlinkSpeed: number | null, outFrequencyRange: FrequencyRange | null, outDataSubclass: DataSubclass | null, outTai: Tai | null }
+    msBasicConnectV3PacketServiceResponseParse(): { returnType: boolean, outNwError: number | null, outPacketServiceState: PacketServiceState | null, outHighestAvailableDataClass: DataClassV3 | null, outUplinkSpeed: number | null, outDownlinkSpeed: number | null, outFrequencyRange: FrequencyRange | null, outDataSubclass: DataSubclass | null, outTai: Tai | null }
+    msBasicConnectV3SubscriberReadyStatusNotificationParse(): { returnType: boolean, outReadyState: SubscriberReadyState | null, outFlags: SubscriberReadyStatusFlag | null, outSubscriberId: string | null, outSimIccId: string | null, outReadyInfo: ReadyInfoFlag | null, outTelephoneNumbersCount: number | null, outTelephoneNumbers: string[] | null }
+    msBasicConnectV3SubscriberReadyStatusResponseParse(): { returnType: boolean, outReadyState: SubscriberReadyState | null, outFlags: SubscriberReadyStatusFlag | null, outSubscriberId: string | null, outSimIccId: string | null, outReadyInfo: ReadyInfoFlag | null, outTelephoneNumbersCount: number | null, outTelephoneNumbers: string[] | null }
     msFirmwareIdGetResponseParse(): { returnType: boolean, outFirmwareId: Uuid | null }
     msSarConfigResponseParse(): { returnType: boolean, outMode: SarControlMode | null, outBackoffState: SarBackoffState | null, outWifiIntegration: SarWifiHardwareState | null, outConfigStatesCount: number | null, outConfigStates: SarConfigState[] | null }
     msSarTransmissionStatusNotificationParse(): { returnType: boolean, outChannelNotification: TransmissionNotificationStatus | null, outTransmissionStatus: TransmissionState | null, outHysteresisTimer: number | null }
     msSarTransmissionStatusResponseParse(): { returnType: boolean, outChannelNotification: TransmissionNotificationStatus | null, outTransmissionStatus: TransmissionState | null, outHysteresisTimer: number | null }
+    msUiccLowLevelAccessApduResponseParse(): { returnType: boolean, outStatus: number | null, outResponse: any[] | null }
+    msUiccLowLevelAccessAtrResponseParse(): { returnType: boolean, outAtr: string | null }
+    msUiccLowLevelAccessCloseChannelResponseParse(): { returnType: boolean, outStatus: number | null }
+    msUiccLowLevelAccessOpenChannelResponseParse(): { returnType: boolean, outStatus: number | null, outChannel: number | null, outResponse: any[] | null }
+    msUiccLowLevelAccessResetResponseParse(): { returnType: boolean, outPassThroughStatus: UiccPassThroughStatus | null }
+    msUiccLowLevelAccessTerminalCapabilityResponseParse(): { returnType: boolean, outTerminalCapabilityCount: number | null, outTerminalCapability: TerminalCapabilityInfo[] | null }
     multicarrierProvidersNotificationParse(): { returnType: boolean, outProvidersCount: number | null, outProviders: Provider[] | null }
     multicarrierProvidersResponseParse(): { returnType: boolean, outProvidersCount: number | null, outProviders: Provider[] | null }
     networkIdleHintResponseParse(): { returnType: boolean, outState: NetworkIdleHintState | null }
@@ -1090,8 +1552,13 @@ export class Message {
     provisionedContextsNotificationParse(): { returnType: boolean, outProvisionedContextsCount: number | null, outProvisionedContexts: ProvisionedContextElement[] | null }
     provisionedContextsResponseParse(): { returnType: boolean, outProvisionedContextsCount: number | null, outProvisionedContexts: ProvisionedContextElement[] | null }
     proxyControlConfigurationResponseParse(): boolean
+    proxyControlVersionNotificationParse(): { returnType: boolean, outMbimVersion: number | null, outMbimExtendedVersion: number | null }
+    qduFileOpenResponseParse(): { returnType: boolean, outMaxTransferSize: number | null, outMaxWindowSize: number | null }
+    qduFileWriteResponseParse(): boolean
+    qduUpdateSessionResponseParse(): { returnType: boolean, outCurrentSessionType: QduSessionType | null, outCurrentSessionStatus: QduSessionStatus | null, outLastSessionType: QduSessionType | null, outLastSessionResult: QduSessionResult | null, outLastSessionErrorOffset: number | null, outLastSessionErrorSize: number | null }
     qmiMsgNotificationParse(): { returnType: boolean, outQmux: any[] | null }
     qmiMsgResponseParse(): { returnType: boolean, outQmux: any[] | null }
+    quectelRadioStateResponseParse(): { returnType: boolean, outRadioState: QuectelRadioSwitchState | null }
     radioStateNotificationParse(): { returnType: boolean, outHwRadioState: RadioSwitchState | null, outSwRadioState: RadioSwitchState | null }
     radioStateResponseParse(): { returnType: boolean, outHwRadioState: RadioSwitchState | null, outSwRadioState: RadioSwitchState | null }
     ref(): Message
@@ -1138,7 +1605,7 @@ export class Message {
     static connectQueryNew(sessionId: number, activationState: ActivationState, voiceCallState: VoiceCallState, ipType: ContextIpType, contextType: Uuid, nwError: number): Message
     static connectSetNew(sessionId: number, activationCommand: ActivationCommand, accessString: string, userName: string, password: string, compression: Compression, authProtocol: AuthProtocol, ipType: ContextIpType, contextType: Uuid): Message
     static deviceCapsQueryNew(): Message
-    static deviceServiceSubscribeListSetNew(eventsCount: number, events: EventEntry): Message
+    static deviceServiceSubscribeListSetNew(eventsCount: number, events: EventEntry[]): Message
     static deviceServiceSubscriberListSetNew(eventsCount: number, events: EventEntry): Message
     static deviceServicesQueryNew(): Message
     static dssConnectSetNew(deviceServiceId: Uuid, dssSessionId: number, dssLinkState: DssLinkState): Message
@@ -1150,20 +1617,48 @@ export class Message {
     static homeProviderSetNew(provider: Provider): Message
     static intelFirmwareUpdateModemRebootSetNew(): Message
     static ipConfigurationQueryNew(sessionId: number, ipv4ConfigurationAvailable: IPConfigurationAvailableFlag, ipv6ConfigurationAvailable: IPConfigurationAvailableFlag, ipv4AddressCount: number, ipv4Address: IPv4Element[], ipv6AddressCount: number, ipv6Address: IPv6Element[], ipv4Gateway: IPv4, ipv6Gateway: IPv6, ipv4DnsServerCount: number, ipv4DnsServer: IPv4[], ipv6DnsServerCount: number, ipv6DnsServer: IPv6[], ipv4Mtu: number, ipv6Mtu: number): Message
-    static ipPacketFiltersQueryNew(sessionId: number, packetFiltersCount: number, packetFilters: PacketFilter): Message
-    static ipPacketFiltersSetNew(sessionId: number, packetFiltersCount: number, packetFilters: PacketFilter): Message
+    static ipPacketFiltersQueryNew(sessionId: number, packetFiltersCount: number, packetFilters: PacketFilter[]): Message
+    static ipPacketFiltersSetNew(sessionId: number, packetFiltersCount: number, packetFilters: PacketFilter[]): Message
+    static msBasicConnectExtensionsBaseStationsInfoQueryNew(maxGsmCount: number, maxUmtsCount: number, maxTdscdmaCount: number, maxLteCount: number, maxCdmaCount: number): Message
+    static msBasicConnectExtensionsDeviceCapsQueryNew(): Message
+    static msBasicConnectExtensionsDeviceSlotMappingsQueryNew(): Message
+    static msBasicConnectExtensionsDeviceSlotMappingsSetNew(mapCount: number, slotMap: Slot[]): Message
+    static msBasicConnectExtensionsLocationInfoStatusQueryNew(): Message
     static msBasicConnectExtensionsLteAttachConfigurationQueryNew(): Message
-    static msBasicConnectExtensionsLteAttachConfigurationSetNew(operation: LteAttachContextOperation, configurationCount: number, configurations: LteAttachConfiguration): Message
+    static msBasicConnectExtensionsLteAttachConfigurationSetNew(operation: LteAttachContextOperation, configurationCount: number, configurations: LteAttachConfiguration[]): Message
+    static msBasicConnectExtensionsLteAttachInfoQueryNew(): Message
     static msBasicConnectExtensionsLteAttachStatusQueryNew(): Message
     static msBasicConnectExtensionsPcoQueryNew(pcoValue: PcoValue): Message
+    static msBasicConnectExtensionsProvisionedContextsQueryNew(): Message
+    static msBasicConnectExtensionsProvisionedContextsSetNew(operation: ContextOperation, contextType: Uuid, ipType: ContextIpType, state: ContextState, roaming: ContextRoamingControl, mediaType: ContextMediaType, source: ContextSource, accessString: string, userName: string, password: string, compression: Compression, authProtocol: AuthProtocol): Message
+    static msBasicConnectExtensionsSlotInfoStatusQueryNew(slotIndex: number): Message
+    static msBasicConnectExtensionsSysCapsQueryNew(): Message
+    static msBasicConnectExtensionsV2VersionQueryNew(mbimVersion: number, mbimExtendedVersion: number): Message
+    static msBasicConnectExtensionsV3BaseStationsInfoQueryNew(maxGsmCount: number, maxUmtsCount: number, maxTdscdmaCount: number, maxLteCount: number, maxCdmaCount: number, maxNrCount: number): Message
+    static msBasicConnectExtensionsV3ModemConfigurationQueryNew(): Message
+    static msBasicConnectExtensionsV3RegistrationParametersQueryNew(): Message
+    static msBasicConnectExtensionsV3RegistrationParametersSetNew(micoMode: MicoMode, drxCycle: DrxCycle, ladnInfo: LadnInfo, defaultPduActivationHint: DefaultPduActivationHint, reRegisterIfNedeed: boolean, unnamedIes: Tlv[]): Message
+    static msBasicConnectExtensionsV3WakeReasonQueryNew(): Message
+    static msBasicConnectV3ConnectQueryNew(sessionId: number): Message
+    static msBasicConnectV3ConnectSetNew(sessionId: number, activationCommand: ActivationCommand, compression: Compression, authProtocol: AuthProtocol, ipType: ContextIpType, contextType: Uuid, mediaPreference: AccessMediaType, accessString: string, userName: string, password: string, unnamedIes: Tlv[]): Message
+    static msBasicConnectV3IpPacketFiltersQueryNew(sessionId: number, packetFiltersCount: number, packetFilters: PacketFilterV3[]): Message
+    static msBasicConnectV3IpPacketFiltersSetNew(sessionId: number, packetFiltersCount: number, packetFilters: PacketFilterV3[]): Message
     static msFirmwareIdGetQueryNew(): Message
     static msHostShutdownNotifySetNew(): Message
     static msSarConfigQueryNew(): Message
-    static msSarConfigSetNew(mode: SarControlMode, backoffState: SarBackoffState, configStatesCount: number, configStates: SarConfigState): Message
+    static msSarConfigSetNew(mode: SarControlMode, backoffState: SarBackoffState, configStatesCount: number, configStates: SarConfigState[]): Message
     static msSarTransmissionStatusQueryNew(): Message
     static msSarTransmissionStatusSetNew(channelNotification: TransmissionNotificationStatus, hysteresisTimer: number): Message
+    static msUiccLowLevelAccessApduSetNew(channel: number, secureMessaging: UiccSecureMessaging, classByteType: UiccClassByteType, command: any[]): Message
+    static msUiccLowLevelAccessAtrQueryNew(): Message
+    static msUiccLowLevelAccessCloseChannelSetNew(channel: number, channelGroup: number): Message
+    static msUiccLowLevelAccessOpenChannelSetNew(appId: any[], selectP2Arg: number, channelGroup: number): Message
+    static msUiccLowLevelAccessResetQueryNew(): Message
+    static msUiccLowLevelAccessResetSetNew(passThroughAction: UiccPassThroughAction): Message
+    static msUiccLowLevelAccessTerminalCapabilityQueryNew(): Message
+    static msUiccLowLevelAccessTerminalCapabilitySetNew(terminalCapabilityCount: number, terminalCapability: TerminalCapabilityInfo[]): Message
     static multicarrierProvidersQueryNew(): Message
-    static multicarrierProvidersSetNew(providersCount: number, providers: Provider): Message
+    static multicarrierProvidersSetNew(providersCount: number, providers: Provider[]): Message
     static networkIdleHintQueryNew(): Message
     static networkIdleHintSetNew(state: NetworkIdleHintState): Message
     static new(data: number, dataLength: number): Message
@@ -1180,11 +1675,18 @@ export class Message {
     static pinQueryNew(): Message
     static pinSetNew(pinType: PinType, pinOperation: PinOperation, pin: string, newPin: string): Message
     static preferredProvidersQueryNew(): Message
-    static preferredProvidersSetNew(providersCount: number, providers: Provider): Message
+    static preferredProvidersSetNew(providersCount: number, providers: Provider[]): Message
     static provisionedContextsQueryNew(): Message
     static provisionedContextsSetNew(contextId: number, contextType: Uuid, accessString: string, userName: string, password: string, compression: Compression, authProtocol: AuthProtocol, providerId: string): Message
     static proxyControlConfigurationSetNew(devicePath: string, timeout: number): Message
+    static qduFileOpenQueryNew(): Message
+    static qduFileOpenSetNew(fileType: QduFileType, fileSize: number): Message
+    static qduFileWriteSetNew(dataBuffer: any[]): Message
+    static qduUpdateSessionQueryNew(): Message
+    static qduUpdateSessionSetNew(sessionAction: QduSessionAction, sessionType: QduSessionType): Message
     static qmiMsgSetNew(qmiMsg: any[]): Message
+    static quectelRadioStateQueryNew(): Message
+    static quectelRadioStateSetNew(radioState: QuectelRadioSwitchState): Message
     static radioStateQueryNew(): Message
     static radioStateSetNew(radioState: RadioSwitchState): Message
     static registerStateQueryNew(): Message
@@ -1215,6 +1717,16 @@ export class PacketFilter {
     static name: string
     /* Static methods and pseudo-constructors */
     static arrayFree(array: PacketFilterArray): void
+}
+export class PacketFilterV3 {
+    /* Fields of Mbim-1.0.Mbim.PacketFilterV3 */
+    filterSize: number
+    packetFilter: number
+    packetMask: number
+    filterId: number
+    static name: string
+    /* Static methods and pseudo-constructors */
+    static arrayFree(array: PacketFilterV3Array): void
 }
 export class PcoValue {
     /* Fields of Mbim-1.0.Mbim.PcoValue */
@@ -1272,6 +1784,24 @@ export class ProvisionedContextElement {
     /* Static methods and pseudo-constructors */
     static arrayFree(array: ProvisionedContextElementArray): void
 }
+export class ProvisionedContextElementV2 {
+    /* Fields of Mbim-1.0.Mbim.ProvisionedContextElementV2 */
+    contextId: number
+    contextType: Uuid
+    ipType: number
+    state: number
+    roaming: number
+    mediaType: number
+    source: number
+    accessString: string
+    userName: string
+    password: string
+    compression: number
+    authProtocol: number
+    static name: string
+    /* Static methods and pseudo-constructors */
+    static arrayFree(array: ProvisionedContextElementV2Array): void
+}
 export abstract class ProxyClass {
     /* Fields of Mbim-1.0.Mbim.ProxyClass */
     parent: GObject.ObjectClass
@@ -1280,6 +1810,17 @@ export abstract class ProxyClass {
 export class ProxyPrivate {
     static name: string
 }
+export class RsrpSnrInfo {
+    /* Fields of Mbim-1.0.Mbim.RsrpSnrInfo */
+    rsrp: number
+    snr: number
+    rsrpThreshold: number
+    snrThreshold: number
+    systemType: number
+    static name: string
+    /* Static methods and pseudo-constructors */
+    static arrayFree(array: RsrpSnrInfoArray): void
+}
 export class SarConfigState {
     /* Fields of Mbim-1.0.Mbim.SarConfigState */
     antennaIndex: number
@@ -1287,6 +1828,13 @@ export class SarConfigState {
     static name: string
     /* Static methods and pseudo-constructors */
     static arrayFree(array: SarConfigStateArray): void
+}
+export class Slot {
+    /* Fields of Mbim-1.0.Mbim.Slot */
+    slot: number
+    static name: string
+    /* Static methods and pseudo-constructors */
+    static arrayFree(array: SlotArray): void
 }
 export class SmsCdmaReadRecord {
     /* Fields of Mbim-1.0.Mbim.SmsCdmaReadRecord */
@@ -1333,6 +1881,42 @@ export class SmsPduSendRecord {
     free(): void
     static name: string
 }
+export class Tai {
+    /* Fields of Mbim-1.0.Mbim.Tai */
+    plmnMcc: number
+    plmnMnc: number
+    tac: number
+    /* Methods of Mbim-1.0.Mbim.Tai */
+    free(): void
+    static name: string
+}
+export class TerminalCapabilityInfo {
+    /* Fields of Mbim-1.0.Mbim.TerminalCapabilityInfo */
+    terminalCapabilityDataSize: number
+    terminalCapabilityData: number
+    static name: string
+    /* Static methods and pseudo-constructors */
+    static arrayFree(array: TerminalCapabilityInfoArray): void
+}
+export class Tlv {
+    /* Methods of Mbim-1.0.Mbim.Tlv */
+    dup(): Tlv
+    getRaw(): { returnType: number, length: number }
+    getTlvData(): { returnType: number, outLength: number }
+    getTlvType(): TlvType
+    guint16ArrayGet(): { returnType: boolean, arraySize: number | null, array: number | null }
+    ref(): Tlv
+    stringGet(): string
+    unref(): void
+    wakeCommandGet(): { returnType: boolean, service: Uuid | null, cid: number | null, payloadSize: number | null, payload: number | null }
+    wakePacketGet(): { returnType: boolean, filterId: number | null, originalPacketSize: number | null, packetSize: number | null, packet: number | null }
+    static name: string
+    static new(type: TlvType, data: number, dataLength: number): Tlv
+    constructor(type: TlvType, data: number, dataLength: number)
+    /* Static methods and pseudo-constructors */
+    static new(type: TlvType, data: number, dataLength: number): Tlv
+    static stringNew(str: string): Tlv
+}
 export class Uuid {
     /* Fields of Mbim-1.0.Mbim.Uuid */
     a: any[]
@@ -1352,18 +1936,32 @@ export class Uuid {
     static fromService(service: Service): Uuid
 }
 export type AtdsProviderArray = AtdsProvider
+export type CellInfoCdmaArray = CellInfoCdma
+export type CellInfoNeighboringGsmArray = CellInfoNeighboringGsm
+export type CellInfoNeighboringLteArray = CellInfoNeighboringLte
+export type CellInfoNeighboringNrArray = CellInfoNeighboringNr
+export type CellInfoNeighboringTdscdmaArray = CellInfoNeighboringTdscdma
+export type CellInfoNeighboringUmtsArray = CellInfoNeighboringUmts
+export type CellInfoServingNrArray = CellInfoServingNr
 export type DeprecatedCidBasicConnect = number
+export type DeprecatedCidMsBasicConnectExtensions = number
 export type DeprecatedRegistrationFlag = number
 export type DeviceServiceElementArray = DeviceServiceElement
 export type EventEntryArray = EventEntry
 export type IPv4ElementArray = IPv4Element
 export type IPv6ElementArray = IPv6Element
 export type LteAttachConfigurationArray = LteAttachConfiguration
+export type NwErrorDeprecated = number
 export type PacketFilterArray = PacketFilter
+export type PacketFilterV3Array = PacketFilterV3
 export type PhonebookEntryArray = PhonebookEntry
 export type ProviderArray = Provider
 export type ProvisionedContextElementArray = ProvisionedContextElement
+export type ProvisionedContextElementV2Array = ProvisionedContextElementV2
+export type RsrpSnrInfoArray = RsrpSnrInfo
 export type SarConfigStateArray = SarConfigState
+export type SlotArray = Slot
 export type SmsCdmaReadRecordArray = SmsCdmaReadRecord
 export type SmsPduReadRecordArray = SmsPduReadRecord
+export type TerminalCapabilityInfoArray = TerminalCapabilityInfo
 }

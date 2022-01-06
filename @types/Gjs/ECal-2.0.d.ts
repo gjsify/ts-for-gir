@@ -144,8 +144,10 @@ export const STATIC_CAPABILITY_REMOVE_ONLY_THIS: string
 export const STATIC_CAPABILITY_REQ_SEND_OPTIONS: string
 export const STATIC_CAPABILITY_SAVE_SCHEDULES: string
 export const STATIC_CAPABILITY_SIMPLE_MEMO: string
+export const STATIC_CAPABILITY_SIMPLE_MEMO_WITH_SUMMARY: string
 export const STATIC_CAPABILITY_TASK_CAN_RECUR: string
 export const STATIC_CAPABILITY_TASK_DATE_ONLY: string
+export const STATIC_CAPABILITY_TASK_ESTIMATED_DURATION: string
 export const STATIC_CAPABILITY_TASK_HANDLE_RECUR: string
 export const STATIC_CAPABILITY_TASK_NO_ALARM: string
 export function isodate_from_time_t(t: number): string
@@ -156,7 +158,6 @@ export function recur_ensure_end_dates(comp: Component, refresh: boolean, tz_cb:
 export function recur_generate_instances_sync(icalcomp: ICalGLib.Component, interval_start: ICalGLib.Time, interval_end: ICalGLib.Time, default_timezone: ICalGLib.Timezone, cancellable?: Gio.Cancellable | null): boolean
 export function recur_get_localized_nth(nth: number): string
 export function recur_obtain_enddate(ir: ICalGLib.Recurrence, prop: ICalGLib.Property, zone: ICalGLib.Timezone, convert_end_date: boolean): number
-export function reminder_data_free(rd?: object | null): void
 export function system_timezone_get_location(): string
 export function time_add_day(time: number, days: number): number
 export function time_add_day_with_zone(time: number, days: number, zone: ICalGLib.Timezone): number
@@ -284,26 +285,26 @@ export class Client {
     create_objects(icalcomps: ICalGLib.Component[], opflags: OperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     create_objects_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_uids */ string[] | null ]
     create_objects_sync(icalcomps: ICalGLib.Component[], opflags: OperationFlags, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_uids */ string[] | null ]
-    discard_alarm(uid: string, rid: string, auid: string, opflags: OperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    discard_alarm(uid: string, rid: string | null, auid: string, opflags: OperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     discard_alarm_finish(result: Gio.AsyncResult): boolean
-    discard_alarm_sync(uid: string, rid: string, auid: string, opflags: OperationFlags, cancellable?: Gio.Cancellable | null): boolean
+    discard_alarm_sync(uid: string, rid: string | null, auid: string, opflags: OperationFlags, cancellable?: Gio.Cancellable | null): boolean
     generate_instances(start: number, end: number, cancellable: Gio.Cancellable | null, cb: RecurInstanceCb): void
     generate_instances_for_object(icalcomp: ICalGLib.Component, start: number, end: number, cancellable: Gio.Cancellable | null, cb: RecurInstanceCb): void
     generate_instances_for_object_sync(icalcomp: ICalGLib.Component, start: number, end: number, cancellable: Gio.Cancellable | null, cb: RecurInstanceCb): void
     generate_instances_sync(start: number, end: number, cancellable: Gio.Cancellable | null, cb: RecurInstanceCb): void
-    get_attachment_uris(uid: string, rid: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    get_attachment_uris(uid: string, rid?: string | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     get_attachment_uris_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_attachment_uris */ string[] ]
-    get_attachment_uris_sync(uid: string, rid: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_attachment_uris */ string[] ]
-    get_component_as_string(icalcomp: ICalGLib.Component): string
+    get_attachment_uris_sync(uid: string, rid?: string | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_attachment_uris */ string[] ]
+    get_component_as_string(icalcomp: ICalGLib.Component): string | null
     get_default_object(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     get_default_object_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_icalcomp */ ICalGLib.Component ]
     get_default_object_sync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_icalcomp */ ICalGLib.Component ]
     get_default_timezone(): ICalGLib.Timezone
     get_free_busy(start: number, end: number, users: string[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    get_free_busy_finish(result: Gio.AsyncResult, out_freebusy: Component[]): boolean
-    get_free_busy_sync(start: number, end: number, users: string[], out_freebusy: Component[], cancellable?: Gio.Cancellable | null): boolean
+    get_free_busy_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_freebusy */ Component[] ]
+    get_free_busy_sync(start: number, end: number, users: string[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_freebusy */ Component[] ]
     get_local_attachment_store(): string
-    get_object(uid: string, rid: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    get_object(uid: string, rid?: string | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     get_object_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_icalcomp */ ICalGLib.Component ]
     get_object_list(sexp: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     get_object_list_as_comps(sexp: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -311,7 +312,7 @@ export class Client {
     get_object_list_as_comps_sync(sexp: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_ecalcomps */ Component[] ]
     get_object_list_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_icalcomps */ ICalGLib.Component[] ]
     get_object_list_sync(sexp: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_icalcomps */ ICalGLib.Component[] ]
-    get_object_sync(uid: string, rid: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_icalcomp */ ICalGLib.Component ]
+    get_object_sync(uid: string, rid?: string | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_icalcomp */ ICalGLib.Component ]
     get_objects_for_uid(uid: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     get_objects_for_uid_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_ecalcomps */ Component[] ]
     get_objects_for_uid_sync(uid: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_ecalcomps */ Component[] ]
@@ -331,9 +332,9 @@ export class Client {
     receive_objects(icalcomp: ICalGLib.Component, opflags: OperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     receive_objects_finish(result: Gio.AsyncResult): boolean
     receive_objects_sync(icalcomp: ICalGLib.Component, opflags: OperationFlags, cancellable?: Gio.Cancellable | null): boolean
-    remove_object(uid: string, rid: string, mod: ObjModType, opflags: OperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    remove_object(uid: string, rid: string | null, mod: ObjModType, opflags: OperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     remove_object_finish(result: Gio.AsyncResult): boolean
-    remove_object_sync(uid: string, rid: string, mod: ObjModType, opflags: OperationFlags, cancellable?: Gio.Cancellable | null): boolean
+    remove_object_sync(uid: string, rid: string | null, mod: ObjModType, opflags: OperationFlags, cancellable?: Gio.Cancellable | null): boolean
     remove_objects(ids: ComponentId[], mod: ObjModType, opflags: OperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     remove_objects_finish(result: Gio.AsyncResult): boolean
     remove_objects_sync(ids: ComponentId[], mod: ObjModType, opflags: OperationFlags, cancellable?: Gio.Cancellable | null): boolean
@@ -450,9 +451,9 @@ export class Client {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of ECal-2.0.ECal.Client */
-    connect(sigName: "free-busy-data", callback: (($obj: Client, object?: object | null) => void)): number
-    connect_after(sigName: "free-busy-data", callback: (($obj: Client, object?: object | null) => void)): number
-    emit(sigName: "free-busy-data", object?: object | null): void
+    connect(sigName: "free-busy-data", callback: (($obj: Client, free_busy_ecalcomps: Component[]) => void)): number
+    connect_after(sigName: "free-busy-data", callback: (($obj: Client, free_busy_ecalcomps: Component[]) => void)): number
+    emit(sigName: "free-busy-data", free_busy_ecalcomps: Component[]): void
     /* Signals of EDataServer-1.2.EDataServer.Client */
     connect(sigName: "backend-died", callback: (($obj: Client) => void)): number
     connect_after(sigName: "backend-died", callback: (($obj: Client) => void)): number
@@ -496,8 +497,8 @@ export class Client {
     /* Static methods and pseudo-constructors */
     static check_timezones_sync(vcalendar: ICalGLib.Component, icalcomps?: ICalGLib.Component[] | null, cancellable?: Gio.Cancellable | null): boolean
     static connect(source: EDataServer.Source, source_type: ClientSourceType, wait_for_connected_seconds: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    static connect_finish(result: Gio.AsyncResult): EDataServer.Client
-    static connect_sync(source: EDataServer.Source, source_type: ClientSourceType, wait_for_connected_seconds: number, cancellable?: Gio.Cancellable | null): EDataServer.Client
+    static connect_finish(result: Gio.AsyncResult): EDataServer.Client | null
+    static connect_sync(source: EDataServer.Source, source_type: ClientSourceType, wait_for_connected_seconds: number, cancellable?: Gio.Cancellable | null): EDataServer.Client | null
     static error_create(code: ClientError, custom_msg?: string | null): GLib.Error
     static error_create(code: EDataServer.ClientError, custom_msg?: string | null): GLib.Error
     static error_quark(): GLib.Quark
@@ -899,10 +900,12 @@ export class ComponentAlarmInstance {
     copy(): ComponentAlarmInstance
     get_occur_end(): number
     get_occur_start(): number
+    get_rid(): string | null
     get_time(): number
     get_uid(): string
     set_occur_end(occur_end: number): void
     set_occur_start(occur_start: number): void
+    set_rid(rid?: string | null): void
     set_time(instance_time: number): void
     set_uid(uid: string): void
     static name: string
@@ -1151,6 +1154,7 @@ export class ComponentText {
 export class ReminderData {
     /* Methods of ECal-2.0.ECal.ReminderData */
     copy(): ReminderData
+    free(): void
     get_component(): Component
     get_instance(): ComponentAlarmInstance
     get_source_uid(): string
@@ -1162,7 +1166,6 @@ export class ReminderData {
     constructor(source_uid: string, component: Component, instance: ComponentAlarmInstance)
     /* Static methods and pseudo-constructors */
     static new(source_uid: string, component: Component, instance: ComponentAlarmInstance): ReminderData
-    static free(rd?: object | null): void
 }
 export abstract class ReminderWatcherClass {
     /* Fields of ECal-2.0.ECal.ReminderWatcherClass */

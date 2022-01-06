@@ -943,6 +943,7 @@ export interface InfileZip_ConstructProps extends Infile_ConstructProps {
 export class InfileZip {
     /* Properties of Gsf-1.Gsf.InfileZip */
     readonly compression_level: number
+    readonly zip64: boolean
     /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
@@ -1025,6 +1026,8 @@ export class InfileZip {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::compression-level", callback: (($obj: InfileZip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::compression-level", callback: (($obj: InfileZip, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::zip64", callback: (($obj: InfileZip, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::zip64", callback: (($obj: InfileZip, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::container", callback: (($obj: InfileZip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: InfileZip, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::eof", callback: (($obj: InfileZip, pspec: GObject.ParamSpec) => void)): number

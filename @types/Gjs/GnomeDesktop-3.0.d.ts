@@ -819,6 +819,10 @@ export class XkbInfo {
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    /* Signals of GnomeDesktop-3.0.GnomeDesktop.XkbInfo */
+    connect(sigName: "layouts-changed", callback: (($obj: XkbInfo) => void)): number
+    connect_after(sigName: "layouts-changed", callback: (($obj: XkbInfo) => void)): number
+    emit(sigName: "layouts-changed"): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: XkbInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: XkbInfo, pspec: GObject.ParamSpec) => void)): number

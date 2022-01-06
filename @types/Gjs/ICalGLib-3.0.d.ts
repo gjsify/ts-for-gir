@@ -723,10 +723,9 @@ export interface Array_ConstructProps extends Object_ConstructProps {
 }
 export class Array {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    always_destroy: boolean
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Array */
@@ -735,10 +734,12 @@ export class Array {
     size(): number
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
+    get_always_destroy(): boolean
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
     remove_depender(depender: GObject.Object): void
     remove_owner(): void
+    set_always_destroy(value: boolean): void
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
@@ -776,6 +777,8 @@ export class Array {
     connect(sigName: "notify", callback: (($obj: Array, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Array, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Array, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Array, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Array, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Array, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner", callback: (($obj: Array, pspec: GObject.ParamSpec) => void)): number
@@ -793,10 +796,9 @@ export interface Attach_ConstructProps extends Object_ConstructProps {
 }
 export class Attach {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    always_destroy: boolean
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Attach */
@@ -805,10 +807,12 @@ export class Attach {
     get_url(): string | null
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
+    get_always_destroy(): boolean
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
     remove_depender(depender: GObject.Object): void
     remove_owner(): void
+    set_always_destroy(value: boolean): void
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
@@ -846,6 +850,8 @@ export class Attach {
     connect(sigName: "notify", callback: (($obj: Attach, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Attach, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Attach, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Attach, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Attach, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Attach, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner", callback: (($obj: Attach, pspec: GObject.ParamSpec) => void)): number
@@ -867,10 +873,9 @@ export interface CompIter_ConstructProps extends Object_ConstructProps {
 }
 export class CompIter {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    always_destroy: boolean
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.CompIter */
@@ -879,10 +884,12 @@ export class CompIter {
     prior(): Component
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
+    get_always_destroy(): boolean
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
     remove_depender(depender: GObject.Object): void
     remove_owner(): void
+    set_always_destroy(value: boolean): void
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
@@ -920,6 +927,8 @@ export class CompIter {
     connect(sigName: "notify", callback: (($obj: CompIter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CompIter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: CompIter, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: CompIter, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::native-destroy-func", callback: (($obj: CompIter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: CompIter, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner", callback: (($obj: CompIter, pspec: GObject.ParamSpec) => void)): number
@@ -937,10 +946,9 @@ export interface Component_ConstructProps extends Object_ConstructProps {
 }
 export class Component {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    always_destroy: boolean
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Component */
@@ -1008,10 +1016,12 @@ export class Component {
     strip_errors(): void
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
+    get_always_destroy(): boolean
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
     remove_depender(depender: GObject.Object): void
     remove_owner(): void
+    set_always_destroy(value: boolean): void
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
@@ -1049,6 +1059,8 @@ export class Component {
     connect(sigName: "notify", callback: (($obj: Component, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Component, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Component, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Component, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Component, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Component, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner", callback: (($obj: Component, pspec: GObject.ParamSpec) => void)): number
@@ -1089,10 +1101,9 @@ export interface Datetimeperiod_ConstructProps extends Object_ConstructProps {
 }
 export class Datetimeperiod {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    always_destroy: boolean
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Datetimeperiod */
@@ -1102,10 +1113,12 @@ export class Datetimeperiod {
     set_time(time: Time): void
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
+    get_always_destroy(): boolean
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
     remove_depender(depender: GObject.Object): void
     remove_owner(): void
+    set_always_destroy(value: boolean): void
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
@@ -1143,6 +1156,8 @@ export class Datetimeperiod {
     connect(sigName: "notify", callback: (($obj: Datetimeperiod, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Datetimeperiod, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Datetimeperiod, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Datetimeperiod, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Datetimeperiod, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Datetimeperiod, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner", callback: (($obj: Datetimeperiod, pspec: GObject.ParamSpec) => void)): number
@@ -1162,10 +1177,9 @@ export interface Duration_ConstructProps extends Object_ConstructProps {
 }
 export class Duration {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    always_destroy: boolean
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Duration */
@@ -1187,10 +1201,12 @@ export class Duration {
     set_weeks(weeks: number): void
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
+    get_always_destroy(): boolean
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
     remove_depender(depender: GObject.Object): void
     remove_owner(): void
+    set_always_destroy(value: boolean): void
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
@@ -1228,6 +1244,8 @@ export class Duration {
     connect(sigName: "notify", callback: (($obj: Duration, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Duration, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Duration, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Duration, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Duration, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Duration, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner", callback: (($obj: Duration, pspec: GObject.ParamSpec) => void)): number
@@ -1250,10 +1268,9 @@ export interface Geo_ConstructProps extends Object_ConstructProps {
 }
 export class Geo {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    always_destroy: boolean
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Geo */
@@ -1264,10 +1281,12 @@ export class Geo {
     set_lon(lon: number): void
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
+    get_always_destroy(): boolean
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
     remove_depender(depender: GObject.Object): void
     remove_owner(): void
+    set_always_destroy(value: boolean): void
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
@@ -1305,6 +1324,8 @@ export class Geo {
     connect(sigName: "notify", callback: (($obj: Geo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Geo, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Geo, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Geo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Geo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Geo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner", callback: (($obj: Geo, pspec: GObject.ParamSpec) => void)): number
@@ -1321,6 +1342,7 @@ export class Geo {
     static $gtype: GObject.Type
 }
 export interface Object_ConstructProps extends GObject.Object_ConstructProps {
+    always_destroy?: boolean
     is_global_memory?: boolean
     native?: object
     native_destroy_func?: object
@@ -1328,18 +1350,19 @@ export interface Object_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Object {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    always_destroy: boolean
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
+    get_always_destroy(): boolean
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
     remove_depender(depender: GObject.Object): void
     remove_owner(): void
+    set_always_destroy(value: boolean): void
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
@@ -1377,6 +1400,8 @@ export class Object {
     connect(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
@@ -1396,10 +1421,9 @@ export interface Parameter_ConstructProps extends Object_ConstructProps {
 }
 export class Parameter {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    always_destroy: boolean
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Parameter */
@@ -1510,10 +1534,12 @@ export class Parameter {
     set_xvalue(v: string): void
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
+    get_always_destroy(): boolean
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
     remove_depender(depender: GObject.Object): void
     remove_owner(): void
+    set_always_destroy(value: boolean): void
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
@@ -1551,6 +1577,8 @@ export class Parameter {
     connect(sigName: "notify", callback: (($obj: Parameter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Parameter, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Parameter, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Parameter, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Parameter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Parameter, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner", callback: (($obj: Parameter, pspec: GObject.ParamSpec) => void)): number
@@ -1621,10 +1649,9 @@ export interface Parser_ConstructProps extends Object_ConstructProps {
 }
 export class Parser {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    always_destroy: boolean
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Parser */
@@ -1636,10 +1663,12 @@ export class Parser {
     parse(func: ParserLineGenFunc): Component
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
+    get_always_destroy(): boolean
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
     remove_depender(depender: GObject.Object): void
     remove_owner(): void
+    set_always_destroy(value: boolean): void
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
@@ -1677,6 +1706,8 @@ export class Parser {
     connect(sigName: "notify", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner", callback: (($obj: Parser, pspec: GObject.ParamSpec) => void)): number
@@ -1697,10 +1728,9 @@ export interface Period_ConstructProps extends Object_ConstructProps {
 }
 export class Period {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    always_destroy: boolean
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Period */
@@ -1715,10 +1745,12 @@ export class Period {
     set_start(start: Time): void
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
+    get_always_destroy(): boolean
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
     remove_depender(depender: GObject.Object): void
     remove_owner(): void
+    set_always_destroy(value: boolean): void
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
@@ -1756,6 +1788,8 @@ export class Period {
     connect(sigName: "notify", callback: (($obj: Period, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Period, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Period, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Period, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Period, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Period, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner", callback: (($obj: Period, pspec: GObject.ParamSpec) => void)): number
@@ -1776,10 +1810,9 @@ export interface Property_ConstructProps extends Object_ConstructProps {
 }
 export class Property {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    always_destroy: boolean
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Property */
@@ -2037,10 +2070,12 @@ export class Property {
     set_xlicmimeoptinfo(v: string): void
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
+    get_always_destroy(): boolean
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
     remove_depender(depender: GObject.Object): void
     remove_owner(): void
+    set_always_destroy(value: boolean): void
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
@@ -2078,6 +2113,8 @@ export class Property {
     connect(sigName: "notify", callback: (($obj: Property, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Property, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Property, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Property, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Property, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Property, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner", callback: (($obj: Property, pspec: GObject.ParamSpec) => void)): number
@@ -2224,22 +2261,22 @@ export interface RecurIterator_ConstructProps extends Object_ConstructProps {
 }
 export class RecurIterator {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    always_destroy: boolean
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.RecurIterator */
     next(): Time
-    set_end(end: Time): number
     set_start(start: Time): number
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
+    get_always_destroy(): boolean
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
     remove_depender(depender: GObject.Object): void
     remove_owner(): void
+    set_always_destroy(value: boolean): void
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
@@ -2277,6 +2314,8 @@ export class RecurIterator {
     connect(sigName: "notify", callback: (($obj: RecurIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RecurIterator, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: RecurIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: RecurIterator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::native-destroy-func", callback: (($obj: RecurIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: RecurIterator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner", callback: (($obj: RecurIterator, pspec: GObject.ParamSpec) => void)): number
@@ -2296,10 +2335,9 @@ export interface Recurrence_ConstructProps extends Object_ConstructProps {
 }
 export class Recurrence {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    always_destroy: boolean
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Recurrence */
@@ -2353,10 +2391,12 @@ export class Recurrence {
     to_string(): string
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
+    get_always_destroy(): boolean
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
     remove_depender(depender: GObject.Object): void
     remove_owner(): void
+    set_always_destroy(value: boolean): void
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
@@ -2394,6 +2434,8 @@ export class Recurrence {
     connect(sigName: "notify", callback: (($obj: Recurrence, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Recurrence, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Recurrence, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Recurrence, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Recurrence, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Recurrence, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner", callback: (($obj: Recurrence, pspec: GObject.ParamSpec) => void)): number
@@ -2410,8 +2452,6 @@ export class Recurrence {
     static new_from_string(str: string): Recurrence
     static day_day_of_week(day: number): RecurrenceWeekday
     static day_position(day: number): number
-    static encode_day(weekday: RecurrenceWeekday, position: number): number
-    static encode_month(month: number, is_leap: boolean): number
     static frequency_from_string(str: string): RecurrenceFrequency
     static frequency_to_string(kind: RecurrenceFrequency): string
     static month_is_leap(month: number): boolean
@@ -2428,10 +2468,9 @@ export interface Reqstat_ConstructProps extends Object_ConstructProps {
 }
 export class Reqstat {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    always_destroy: boolean
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Reqstat */
@@ -2442,10 +2481,12 @@ export class Reqstat {
     to_string(): string
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
+    get_always_destroy(): boolean
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
     remove_depender(depender: GObject.Object): void
     remove_owner(): void
+    set_always_destroy(value: boolean): void
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
@@ -2483,6 +2524,8 @@ export class Reqstat {
     connect(sigName: "notify", callback: (($obj: Reqstat, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Reqstat, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Reqstat, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Reqstat, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Reqstat, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Reqstat, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner", callback: (($obj: Reqstat, pspec: GObject.ParamSpec) => void)): number
@@ -2502,10 +2545,9 @@ export interface Time_ConstructProps extends Object_ConstructProps {
 }
 export class Time {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    always_destroy: boolean
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Time */
@@ -2556,10 +2598,12 @@ export class Time {
     week_number(): number
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
+    get_always_destroy(): boolean
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
     remove_depender(depender: GObject.Object): void
     remove_owner(): void
+    set_always_destroy(value: boolean): void
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
@@ -2597,6 +2641,8 @@ export class Time {
     connect(sigName: "notify", callback: (($obj: Time, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Time, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Time, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Time, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Time, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Time, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner", callback: (($obj: Time, pspec: GObject.ParamSpec) => void)): number
@@ -2627,10 +2673,9 @@ export interface TimeSpan_ConstructProps extends Object_ConstructProps {
 }
 export class TimeSpan {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    always_destroy: boolean
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.TimeSpan */
@@ -2645,10 +2690,12 @@ export class TimeSpan {
     set_start(start: number): void
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
+    get_always_destroy(): boolean
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
     remove_depender(depender: GObject.Object): void
     remove_owner(): void
+    set_always_destroy(value: boolean): void
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
@@ -2686,6 +2733,8 @@ export class TimeSpan {
     connect(sigName: "notify", callback: (($obj: TimeSpan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TimeSpan, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: TimeSpan, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: TimeSpan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::native-destroy-func", callback: (($obj: TimeSpan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: TimeSpan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner", callback: (($obj: TimeSpan, pspec: GObject.ParamSpec) => void)): number
@@ -2706,10 +2755,9 @@ export interface Timezone_ConstructProps extends Object_ConstructProps {
 }
 export class Timezone {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    always_destroy: boolean
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Timezone */
@@ -2727,10 +2775,12 @@ export class Timezone {
     set_component(comp: Component): number
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
+    get_always_destroy(): boolean
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
     remove_depender(depender: GObject.Object): void
     remove_owner(): void
+    set_always_destroy(value: boolean): void
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
@@ -2768,6 +2818,8 @@ export class Timezone {
     connect(sigName: "notify", callback: (($obj: Timezone, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Timezone, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Timezone, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Timezone, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Timezone, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Timezone, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner", callback: (($obj: Timezone, pspec: GObject.ParamSpec) => void)): number
@@ -2804,10 +2856,9 @@ export interface Trigger_ConstructProps extends Object_ConstructProps {
 }
 export class Trigger {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    always_destroy: boolean
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Trigger */
@@ -2819,10 +2870,12 @@ export class Trigger {
     set_time(time: Time): void
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
+    get_always_destroy(): boolean
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
     remove_depender(depender: GObject.Object): void
     remove_owner(): void
+    set_always_destroy(value: boolean): void
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
@@ -2860,6 +2913,8 @@ export class Trigger {
     connect(sigName: "notify", callback: (($obj: Trigger, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Trigger, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Trigger, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Trigger, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Trigger, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Trigger, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner", callback: (($obj: Trigger, pspec: GObject.ParamSpec) => void)): number
@@ -2880,10 +2935,9 @@ export interface Value_ConstructProps extends Object_ConstructProps {
 }
 export class Value {
     /* Properties of ICalGLib-3.0.ICalGLib.Object */
+    always_destroy: boolean
     native_destroy_func: object
     owner: GObject.Object
-    /* Fields of ICalGLib-3.0.ICalGLib.Object */
-    parent_instance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ICalGLib-3.0.ICalGLib.Value */
@@ -2968,10 +3022,12 @@ export class Value {
     set_xlicclass(v: PropertyXlicclass): void
     /* Methods of ICalGLib-3.0.ICalGLib.Object */
     add_depender(depender: GObject.Object): void
+    get_always_destroy(): boolean
     get_is_global_memory(): boolean
     ref_owner(): GObject.Object | null
     remove_depender(depender: GObject.Object): void
     remove_owner(): void
+    set_always_destroy(value: boolean): void
     set_native_destroy_func(native_destroy_func: GLib.DestroyNotify): void
     set_owner(owner: GObject.Object): void
     steal_native(): object | null
@@ -3009,6 +3065,8 @@ export class Value {
     connect(sigName: "notify", callback: (($obj: Value, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Value, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::always-destroy", callback: (($obj: Value, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::always-destroy", callback: (($obj: Value, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::native-destroy-func", callback: (($obj: Value, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::native-destroy-func", callback: (($obj: Value, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner", callback: (($obj: Value, pspec: GObject.ParamSpec) => void)): number
@@ -3090,6 +3148,9 @@ export abstract class GeoClass {
 export abstract class ObjectClass {
     static name: string
 }
+export class ObjectPrivate {
+    static name: string
+}
 export abstract class ParameterClass {
     static name: string
 }
@@ -3127,97 +3188,59 @@ export abstract class ValueClass {
     static name: string
 }
 export class _Array {
-    /* Fields of ICalGLib-3.0.ICalGLib._Array */
-    parent_instance: Object
     static name: string
 }
 export class _Attach {
-    /* Fields of ICalGLib-3.0.ICalGLib._Attach */
-    parent_instance: Object
     static name: string
 }
 export class _CompIter {
-    /* Fields of ICalGLib-3.0.ICalGLib._CompIter */
-    parent_instance: Object
     static name: string
 }
 export class _Component {
-    /* Fields of ICalGLib-3.0.ICalGLib._Component */
-    parent_instance: Object
     static name: string
 }
 export class _Datetimeperiod {
-    /* Fields of ICalGLib-3.0.ICalGLib._Datetimeperiod */
-    parent_instance: Object
     static name: string
 }
 export class _Duration {
-    /* Fields of ICalGLib-3.0.ICalGLib._Duration */
-    parent_instance: Object
     static name: string
 }
 export class _Geo {
-    /* Fields of ICalGLib-3.0.ICalGLib._Geo */
-    parent_instance: Object
     static name: string
 }
 export class _Parameter {
-    /* Fields of ICalGLib-3.0.ICalGLib._Parameter */
-    parent_instance: Object
     static name: string
 }
 export class _Parser {
-    /* Fields of ICalGLib-3.0.ICalGLib._Parser */
-    parent_instance: Object
     static name: string
 }
 export class _Period {
-    /* Fields of ICalGLib-3.0.ICalGLib._Period */
-    parent_instance: Object
     static name: string
 }
 export class _Property {
-    /* Fields of ICalGLib-3.0.ICalGLib._Property */
-    parent_instance: Object
     static name: string
 }
 export class _RecurIterator {
-    /* Fields of ICalGLib-3.0.ICalGLib._RecurIterator */
-    parent_instance: Object
     static name: string
 }
 export class _Recurrence {
-    /* Fields of ICalGLib-3.0.ICalGLib._Recurrence */
-    parent_instance: Object
     static name: string
 }
 export class _Reqstat {
-    /* Fields of ICalGLib-3.0.ICalGLib._Reqstat */
-    parent_instance: Object
     static name: string
 }
 export class _Time {
-    /* Fields of ICalGLib-3.0.ICalGLib._Time */
-    parent_instance: Object
     static name: string
 }
 export class _TimeSpan {
-    /* Fields of ICalGLib-3.0.ICalGLib._TimeSpan */
-    parent_instance: Object
     static name: string
 }
 export class _Timezone {
-    /* Fields of ICalGLib-3.0.ICalGLib._Timezone */
-    parent_instance: Object
     static name: string
 }
 export class _Trigger {
-    /* Fields of ICalGLib-3.0.ICalGLib._Trigger */
-    parent_instance: Object
     static name: string
 }
 export class _Value {
-    /* Fields of ICalGLib-3.0.ICalGLib._Value */
-    parent_instance: Object
     static name: string
 }

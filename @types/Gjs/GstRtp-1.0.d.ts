@@ -36,6 +36,13 @@ export enum RTCPSDESType {
     TOOL,
     NOTE,
     PRIV,
+    H323_CADDR,
+    APSI,
+    RGRP,
+    RTP_STREAM_ID,
+    REPAIRED_RTP_STREAM_ID,
+    CCID,
+    MID,
 }
 export enum RTCPType {
     INVALID,
@@ -101,6 +108,13 @@ export enum RTPBufferFlags {
 export enum RTPBufferMapFlags {
     SKIP_PADDING,
     LAST,
+}
+export enum RTPHeaderExtensionDirection {
+    INACTIVE,
+    SENDONLY,
+    RECVONLY,
+    SENDRECV,
+    INHERITED,
 }
 export enum RTPHeaderExtensionFlags {
     ONE_BYTE,
@@ -185,7 +199,7 @@ export function rtp_buffer_new_allocate(payload_len: number, pad_len: number, cs
 export function rtp_buffer_new_allocate_len(packet_len: number, pad_len: number, csrc_count: number): Gst.Buffer
 export function rtp_buffer_new_copy_data(data: Uint8Array[]): Gst.Buffer
 export function rtp_buffer_new_take_data(data: Uint8Array[]): Gst.Buffer
-export function rtp_get_header_extension_list(): RTPHeaderExtension[]
+export function rtp_get_header_extension_list(): Gst.ElementFactory[]
 export function rtp_hdrext_get_ntp_56(data: Uint8Array[]): [ /* returnType */ boolean, /* ntptime */ number ]
 export function rtp_hdrext_get_ntp_64(data: Uint8Array[]): [ /* returnType */ boolean, /* ntptime */ number ]
 export function rtp_hdrext_set_ntp_56(data: object | null, size: number, ntptime: number): boolean
@@ -328,6 +342,7 @@ export class RTPBaseAudioPayload {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -605,6 +620,7 @@ export class RTPBaseDepayload {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -874,6 +890,7 @@ export class RTPBasePayload {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -1047,8 +1064,6 @@ export class RTPHeaderExtension {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstRtp-1.0.GstRtp.RTPHeaderExtension */
-    ext_id: number
     /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     state_lock: GLib.RecMutex
@@ -1077,18 +1092,23 @@ export class RTPHeaderExtension {
     /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
     /* Methods of GstRtp-1.0.GstRtp.RTPHeaderExtension */
+    get_direction(): RTPHeaderExtensionDirection
     get_id(): number
     get_max_size(input_meta: Gst.Buffer): number
     get_sdp_caps_field_name(): string
     get_supported_flags(): RTPHeaderExtensionFlags
     get_uri(): string
-    read(read_flags: RTPHeaderExtensionFlags, data: number, size: number, buffer: Gst.Buffer): boolean
+    read(read_flags: RTPHeaderExtensionFlags, data: Uint8Array[], buffer: Gst.Buffer): boolean
     set_attributes_from_caps(caps: Gst.Caps): boolean
-    set_attributes_from_caps_simple_sdp(caps: Gst.Caps): boolean
     set_caps_from_attributes(caps: Gst.Caps): boolean
-    set_caps_from_attributes_simple_sdp(caps: Gst.Caps): boolean
+    set_caps_from_attributes_helper(caps: Gst.Caps, attributes: string): boolean
+    set_direction(direction: RTPHeaderExtensionDirection): void
     set_id(ext_id: number): void
-    write(input_meta: Gst.Buffer, write_flags: RTPHeaderExtensionFlags, output: Gst.Buffer, data: number, size: number): number
+    set_non_rtp_sink_caps(caps: Gst.Caps): boolean
+    set_wants_update_non_rtp_src_caps(state: boolean): void
+    update_non_rtp_src_caps(caps: Gst.Caps): boolean
+    wants_update_non_rtp_src_caps(): boolean
+    write(input_meta: Gst.Buffer, write_flags: RTPHeaderExtensionFlags, output: Gst.Buffer, data: Uint8Array[]): number
     /* Methods of Gst-1.0.Gst.Element */
     abort_state(): void
     add_pad(pad: Gst.Pad): boolean
@@ -1142,6 +1162,7 @@ export class RTPHeaderExtension {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -1204,10 +1225,12 @@ export class RTPHeaderExtension {
     /* Virtual methods of GstRtp-1.0.GstRtp.RTPHeaderExtension */
     vfunc_get_max_size(input_meta: Gst.Buffer): number
     vfunc_get_supported_flags(): RTPHeaderExtensionFlags
-    vfunc_read(read_flags: RTPHeaderExtensionFlags, data: number, size: number, buffer: Gst.Buffer): boolean
-    vfunc_set_attributes_from_caps(caps: Gst.Caps): boolean
+    vfunc_read(read_flags: RTPHeaderExtensionFlags, data: Uint8Array[], buffer: Gst.Buffer): boolean
+    vfunc_set_attributes(direction: RTPHeaderExtensionDirection, attributes: string): boolean
     vfunc_set_caps_from_attributes(caps: Gst.Caps): boolean
-    vfunc_write(input_meta: Gst.Buffer, write_flags: RTPHeaderExtensionFlags, output: Gst.Buffer, data: number, size: number): number
+    vfunc_set_non_rtp_sink_caps(caps: Gst.Caps): boolean
+    vfunc_update_non_rtp_src_caps(caps: Gst.Caps): boolean
+    vfunc_write(input_meta: Gst.Buffer, write_flags: RTPHeaderExtensionFlags, output: Gst.Buffer, data: Uint8Array[]): number
     /* Virtual methods of Gst-1.0.Gst.Element */
     vfunc_change_state(transition: Gst.StateChange): Gst.StateChangeReturn
     vfunc_get_state(timeout: Gst.ClockTime): [ /* returnType */ Gst.StateChangeReturn, /* state */ Gst.State | null, /* pending */ Gst.State | null ]
@@ -1436,6 +1459,7 @@ export class RTPBuffer {
     get_timestamp(): number
     get_version(): number
     pad_to(len: number): void
+    remove_extension_data(): void
     set_csrc(idx: number, csrc: number): void
     set_extension(extension: boolean): void
     set_extension_data(bits: number, length: number): boolean
@@ -1469,9 +1493,11 @@ export abstract class RTPHeaderExtensionClass {
     parent_class: Gst.ElementClass
     get_supported_flags: (ext: RTPHeaderExtension) => RTPHeaderExtensionFlags
     get_max_size: (ext: RTPHeaderExtension, input_meta: Gst.Buffer) => number
-    write: (ext: RTPHeaderExtension, input_meta: Gst.Buffer, write_flags: RTPHeaderExtensionFlags, output: Gst.Buffer, data: number, size: number) => number
-    read: (ext: RTPHeaderExtension, read_flags: RTPHeaderExtensionFlags, data: number, size: number, buffer: Gst.Buffer) => boolean
-    set_attributes_from_caps: (ext: RTPHeaderExtension, caps: Gst.Caps) => boolean
+    write: (ext: RTPHeaderExtension, input_meta: Gst.Buffer, write_flags: RTPHeaderExtensionFlags, output: Gst.Buffer, data: Uint8Array[]) => number
+    read: (ext: RTPHeaderExtension, read_flags: RTPHeaderExtensionFlags, data: Uint8Array[], buffer: Gst.Buffer) => boolean
+    set_non_rtp_sink_caps: (ext: RTPHeaderExtension, caps: Gst.Caps) => boolean
+    update_non_rtp_src_caps: (ext: RTPHeaderExtension, caps: Gst.Caps) => boolean
+    set_attributes: (ext: RTPHeaderExtension, direction: RTPHeaderExtensionDirection, attributes: string) => boolean
     set_caps_from_attributes: (ext: RTPHeaderExtension, caps: Gst.Caps) => boolean
     /* Methods of GstRtp-1.0.GstRtp.RTPHeaderExtensionClass */
     set_uri(klass: RTPHeaderExtension | Function | GObject.Type, uri: string): void

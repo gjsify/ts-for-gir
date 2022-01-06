@@ -6,10 +6,6 @@ import type * as Gjs from './Gjs';
 import type * as GObject from './GObject-2.0';
 import type * as GLib from './GLib-2.0';
 
-export enum _invalid_rrule_handling {
-    TREAT_AS_ERROR,
-    IGNORE_INVALID,
-}
 export enum _unknown_token_handling {
     ASSUME_IANA_TOKEN,
     DISCARD_TOKEN,
@@ -734,7 +730,6 @@ export function bt(): void
 export function decode_base64(dest: string, src: string, size: number): string
 export function decode_quoted_printable(dest: string, src: string, size: number): string
 export function free_zone_directory(): void
-export function get_invalid_rrule_handling_setting(): _invalid_rrule_handling
 export function get_unknown_token_handling_setting(): _unknown_token_handling
 export function icalarray_append(array: array, element?: object | null): void
 export function icalarray_element_at(array: array, position: number): object | null
@@ -759,8 +754,6 @@ export function icalcomponent_foreach_recurrence(comp: component, start?: object
 export function icalcomponent_foreach_tzid(comp: component, callback?: object | null, callback_data?: object | null): void
 export function icalcomponent_free(component: component): void
 export function icalcomponent_get_comment(comp: component): string
-export function icalcomponent_get_component_name(comp: component): string
-export function icalcomponent_get_component_name_r(comp: component): string
 export function icalcomponent_get_description(comp: component): string
 export function icalcomponent_get_dtend(comp: component): object | null
 export function icalcomponent_get_dtstamp(comp: component): object | null
@@ -776,7 +769,6 @@ export function icalcomponent_get_span(comp: component): object | null
 export function icalcomponent_get_status(comp: component): object | null
 export function icalcomponent_get_summary(comp: component): string
 export function icalcomponent_get_uid(comp: component): string
-export function icalcomponent_get_x_name(comp: component): string
 export function icalcomponent_is_valid(component: component): number
 export function icalcomponent_isa(component: component): component_kind
 export function icalcomponent_isa_component(component?: object | null): number
@@ -802,7 +794,6 @@ export function icalcomponent_set_sequence(comp: component, v: number): void
 export function icalcomponent_set_status(comp: component, v?: object | null): void
 export function icalcomponent_set_summary(comp: component, v: string): void
 export function icalcomponent_set_uid(comp: component, v: string): void
-export function icalcomponent_set_x_name(comp: component, name: string): void
 export function icalcomponent_string_to_kind(string: string): component_kind
 export function icalcomponent_strip_errors(component: component): void
 export function icaldurationtype_as_ical_string(d?: object | null): string
@@ -1270,9 +1261,6 @@ export function icalrecur_expand_recurrence(rule: string, start: number, count: 
 export function icalrecur_freq_to_string(kind: recurrencetype_frequency): string
 export function icalrecur_iterator_free(arg0: recur_iterator): void
 export function icalrecur_iterator_next(arg0: recur_iterator): object | null
-export function icalrecur_iterator_prev(arg0: recur_iterator): object | null
-export function icalrecur_iterator_set_end(impl: recur_iterator, end?: object | null): number
-export function icalrecur_iterator_set_range(impl: recur_iterator, from?: object | null, to?: object | null): number
 export function icalrecur_iterator_set_start(impl: recur_iterator, start?: object | null): number
 export function icalrecur_skip_to_string(kind: recurrencetype_skip): string
 export function icalrecur_string_to_freq(str: string): recurrencetype_frequency
@@ -1284,8 +1272,6 @@ export function icalrecurrencetype_as_string_r(recur?: object | null): string
 export function icalrecurrencetype_clear(r?: object | null): void
 export function icalrecurrencetype_day_day_of_week(day: number): object | null
 export function icalrecurrencetype_day_position(day: number): number
-export function icalrecurrencetype_encode_day(weekday: object | null, position: number): number
-export function icalrecurrencetype_encode_month(month: number, is_leap: number): number
 export function icalrecurrencetype_from_string(str: string): object | null
 export function icalrecurrencetype_month_is_leap(month: number): number
 export function icalrecurrencetype_month_month(month: number): number
@@ -1360,7 +1346,6 @@ export function icaltriggertype_from_string(str: string): object | null
 export function icaltriggertype_is_bad_trigger(tr?: object | null): number
 export function icaltriggertype_is_null_trigger(tr?: object | null): number
 export function icaltzutil_get_zone_directory(): string
-export function icaltzutil_set_zone_directory(zonepath: string): void
 export function icalvalue_as_ical_string(value: value): string
 export function icalvalue_as_ical_string_r(value: value): string
 export function icalvalue_compare(a: value, b: value): parameter_xliccomparetype
@@ -1457,7 +1442,6 @@ export function pvl_push(l: pvl_list, d?: object | null): void
 export function pvl_remove(arg0: pvl_list, arg1: pvl_elem): object | null
 export function pvl_shift(l: pvl_list): object | null
 export function pvl_unshift(l: pvl_list, d?: object | null): void
-export function set_invalid_rrule_handling_setting(newSetting: _invalid_rrule_handling): void
 export function set_unknown_token_handling_setting(newSetting: _unknown_token_handling): void
 export function set_zone_directory(path: string): void
 export function sspm_encoding_string(type?: object | null): string
@@ -1639,6 +1623,26 @@ export class timetype {
     static name: string
 }
 export class timezone {
+    static name: string
+}
+export class timezonephase {
+    /* Fields of ICal-3.0.ICal.timezonephase */
+    tzname: string
+    is_stdandard: number
+    dtstart: object
+    offsetto: number
+    tzoffsetfrom: number
+    comment: string
+    rdate: object
+    rrule: string
+    static name: string
+}
+export class timezonetype {
+    /* Fields of ICal-3.0.ICal.timezonetype */
+    tzid: string
+    last_mod: object
+    tzurl: string
+    phases: object
     static name: string
 }
 export class triggertype {

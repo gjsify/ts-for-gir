@@ -27,6 +27,7 @@ export enum AuthenticationScheme {
     NEGOTIATE,
     CLIENT_CERTIFICATE_REQUESTED,
     SERVER_TRUST_EVALUATION_REQUESTED,
+    CLIENT_CERTIFICATE_PIN_REQUESTED,
     UNKNOWN,
 }
 export enum AutomationBrowsingContextPresentation {
@@ -143,6 +144,11 @@ export enum LoadEvent {
     COMMITTED,
     FINISHED,
 }
+export enum MediaCaptureState {
+    NONE,
+    ACTIVE,
+    MUTED,
+}
 export enum NavigationType {
     LINK_CLICKED,
     FORM_SUBMITTED,
@@ -238,6 +244,7 @@ export enum UserStyleLevel {
 export enum WebProcessTerminationReason {
     CRASHED,
     EXCEEDED_MEMORY_LIMIT,
+    TERMINATED_BY_API,
 }
 export enum EditorTypingAttributes {
     NONE,
@@ -312,6 +319,7 @@ export function get_major_version(): number
 export function get_micro_version(): number
 export function get_minor_version(): number
 export function javascript_error_quark(): GLib.Quark
+export function media_key_system_permission_get_name(request: MediaKeySystemPermissionRequest): string
 export function network_error_quark(): GLib.Quark
 export function plugin_error_quark(): GLib.Quark
 export function policy_error_quark(): GLib.Quark
@@ -320,6 +328,7 @@ export function snapshot_error_quark(): GLib.Quark
 export function uri_for_display(uri: string): string | null
 export function user_content_filter_error_quark(): GLib.Quark
 export function user_media_permission_is_for_audio_device(request: UserMediaPermissionRequest): boolean
+export function user_media_permission_is_for_display_device(request: UserMediaPermissionRequest): boolean
 export function user_media_permission_is_for_video_device(request: UserMediaPermissionRequest): boolean
 export function user_message_error_quark(): GLib.Quark
 export interface URISchemeRequestCallback {
@@ -345,6 +354,7 @@ export class AuthenticationRequest {
     authenticate(credential?: Credential | null): void
     can_save_credentials(): boolean
     cancel(): void
+    get_certificate_pin_flags(): Gio.TlsPasswordFlags
     get_host(): string
     get_port(): number
     get_proposed_credential(): Credential
@@ -1683,6 +1693,62 @@ export class InstallMissingMediaPluginsPermissionRequest {
     _init (config?: InstallMissingMediaPluginsPermissionRequest_ConstructProps): void
     static $gtype: GObject.Type
 }
+export interface MediaKeySystemPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
+}
+export class MediaKeySystemPermissionRequest {
+    /* Fields of WebKit2-4.0.WebKit2.MediaKeySystemPermissionRequest */
+    parent: GObject.Object
+    /* Fields of GObject-2.0.GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GObject-2.0.GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: any): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: any): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: Function): void
+    /* Methods of WebKit2-4.0.WebKit2.PermissionRequest */
+    allow(): void
+    deny(): void
+    /* Virtual methods of WebKit2-4.0.WebKit2.MediaKeySystemPermissionRequest */
+    vfunc_allow(): void
+    vfunc_deny(): void
+    /* Virtual methods of GObject-2.0.GObject.Object */
+    vfunc_constructed(): void
+    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose(): void
+    vfunc_finalize(): void
+    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: MediaKeySystemPermissionRequest, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: MediaKeySystemPermissionRequest, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    static name: string
+    constructor (config?: MediaKeySystemPermissionRequest_ConstructProps)
+    _init (config?: MediaKeySystemPermissionRequest_ConstructProps): void
+    static $gtype: GObject.Type
+}
 export interface NavigationPolicyDecision_ConstructProps extends PolicyDecision_ConstructProps {
 }
 export class NavigationPolicyDecision {
@@ -2965,6 +3031,9 @@ export class URISchemeRequest {
     /* Methods of WebKit2-4.0.WebKit2.URISchemeRequest */
     finish(stream: Gio.InputStream, stream_length: number, content_type?: string | null): void
     finish_error(error: GLib.Error): void
+    finish_with_response(response: URISchemeResponse): void
+    get_http_headers(): Soup.MessageHeaders
+    get_http_method(): string
     get_path(): string
     get_scheme(): string
     get_uri(): string
@@ -3010,6 +3079,65 @@ export class URISchemeRequest {
     static name: string
     constructor (config?: URISchemeRequest_ConstructProps)
     _init (config?: URISchemeRequest_ConstructProps): void
+    static $gtype: GObject.Type
+}
+export interface URISchemeResponse_ConstructProps extends GObject.Object_ConstructProps {
+    stream?: Gio.InputStream
+    stream_length?: number
+}
+export class URISchemeResponse {
+    /* Fields of WebKit2-4.0.WebKit2.URISchemeResponse */
+    parent: GObject.Object
+    priv: URISchemeResponsePrivate
+    /* Fields of GObject-2.0.GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of WebKit2-4.0.WebKit2.URISchemeResponse */
+    set_content_type(content_type: string): void
+    set_http_headers(headers: Soup.MessageHeaders): void
+    set_status(status_code: number, reason_phrase?: string | null): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: any): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: any): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: Function): void
+    /* Virtual methods of GObject-2.0.GObject.Object */
+    vfunc_constructed(): void
+    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose(): void
+    vfunc_finalize(): void
+    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: URISchemeResponse, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: URISchemeResponse, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    static name: string
+    constructor (config?: URISchemeResponse_ConstructProps)
+    _init (config?: URISchemeResponse_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(input_stream: Gio.InputStream, stream_length: number): URISchemeResponse
     static $gtype: GObject.Type
 }
 export interface UserContentFilterStore_ConstructProps extends GObject.Object_ConstructProps {
@@ -3275,6 +3403,7 @@ export class UserMessage {
 }
 export interface WebContext_ConstructProps extends GObject.Object_ConstructProps {
     local_storage_directory?: string
+    memory_pressure_settings?: MemoryPressureSettings
     process_swap_on_cross_site_navigation_enabled?: boolean
     use_system_appearance_for_scrollbars?: boolean
     website_data_manager?: WebsiteDataManager
@@ -3569,10 +3698,13 @@ export class WebResource {
 }
 export interface WebView_ConstructProps extends WebViewBase_ConstructProps {
     automation_presentation_type?: AutomationBrowsingContextPresentation
+    camera_capture_state?: MediaCaptureState
+    display_capture_state?: MediaCaptureState
     editable?: boolean
     is_controlled_by_automation?: boolean
     is_ephemeral?: boolean
     is_muted?: boolean
+    microphone_capture_state?: MediaCaptureState
     related_view?: WebView
     settings?: Settings
     user_content_manager?: UserContentManager
@@ -3582,12 +3714,16 @@ export interface WebView_ConstructProps extends WebViewBase_ConstructProps {
 }
 export class WebView {
     /* Properties of WebKit2-4.0.WebKit2.WebView */
+    camera_capture_state: MediaCaptureState
+    display_capture_state: MediaCaptureState
     editable: boolean
     readonly estimated_load_progress: number
     readonly favicon: object
     readonly is_loading: boolean
     is_muted: boolean
     readonly is_playing_audio: boolean
+    readonly is_web_process_responsive: boolean
+    microphone_capture_state: MediaCaptureState
     readonly page_id: number
     settings: Settings
     readonly title: string
@@ -3657,8 +3793,10 @@ export class WebView {
     get_automation_presentation_type(): AutomationBrowsingContextPresentation
     get_back_forward_list(): BackForwardList
     get_background_color(): /* rgba */ Gdk.RGBA
+    get_camera_capture_state(): MediaCaptureState
     get_context(): WebContext
     get_custom_charset(): string
+    get_display_capture_state(): MediaCaptureState
     get_editor_state(): EditorState
     get_estimated_load_progress(): number
     get_favicon(): cairo.Surface
@@ -3666,7 +3804,9 @@ export class WebView {
     get_input_method_context(): InputMethodContext | null
     get_inspector(): WebInspector
     get_is_muted(): boolean
+    get_is_web_process_responsive(): boolean
     get_main_resource(): WebResource
+    get_microphone_capture_state(): MediaCaptureState
     get_page_id(): number
     get_session_state(): WebViewSessionState
     get_settings(): Settings
@@ -3708,13 +3848,18 @@ export class WebView {
     send_message_to_page(message: UserMessage, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     send_message_to_page_finish(result: Gio.AsyncResult): UserMessage
     set_background_color(rgba: Gdk.RGBA): void
+    set_camera_capture_state(state: MediaCaptureState): void
+    set_cors_allowlist(allowlist?: string[] | null): void
     set_custom_charset(charset?: string | null): void
+    set_display_capture_state(state: MediaCaptureState): void
     set_editable(editable: boolean): void
     set_input_method_context(context?: InputMethodContext | null): void
     set_is_muted(muted: boolean): void
+    set_microphone_capture_state(state: MediaCaptureState): void
     set_settings(settings: Settings): void
     set_zoom_level(zoom_level: number): void
     stop_loading(): void
+    terminate_web_process(): void
     try_close(): void
     /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
@@ -4242,9 +4387,9 @@ export class WebView {
     connect(sigName: "show-notification", callback: (($obj: WebView, notification: Notification) => boolean)): number
     connect_after(sigName: "show-notification", callback: (($obj: WebView, notification: Notification) => boolean)): number
     emit(sigName: "show-notification", notification: Notification): void
-    connect(sigName: "show-option-menu", callback: (($obj: WebView, object: OptionMenu, p0: Gdk.Event, p1: Gdk.Rectangle) => boolean)): number
-    connect_after(sigName: "show-option-menu", callback: (($obj: WebView, object: OptionMenu, p0: Gdk.Event, p1: Gdk.Rectangle) => boolean)): number
-    emit(sigName: "show-option-menu", object: OptionMenu, p0: Gdk.Event, p1: Gdk.Rectangle): void
+    connect(sigName: "show-option-menu", callback: (($obj: WebView, menu: OptionMenu, event: Gdk.Event, rectangle: Gdk.Rectangle) => boolean)): number
+    connect_after(sigName: "show-option-menu", callback: (($obj: WebView, menu: OptionMenu, event: Gdk.Event, rectangle: Gdk.Rectangle) => boolean)): number
+    emit(sigName: "show-option-menu", menu: OptionMenu, event: Gdk.Event, rectangle: Gdk.Rectangle): void
     connect(sigName: "submit-form", callback: (($obj: WebView, request: FormSubmissionRequest) => void)): number
     connect_after(sigName: "submit-form", callback: (($obj: WebView, request: FormSubmissionRequest) => void)): number
     emit(sigName: "submit-form", request: FormSubmissionRequest): void
@@ -4482,6 +4627,10 @@ export class WebView {
     connect(sigName: "notify", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::camera-capture-state", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::camera-capture-state", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::display-capture-state", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::display-capture-state", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::editable", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::editable", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::estimated-load-progress", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
@@ -4494,6 +4643,10 @@ export class WebView {
     connect_after(sigName: "notify::is-muted", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-playing-audio", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-playing-audio", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::is-web-process-responsive", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::is-web-process-responsive", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::microphone-capture-state", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::microphone-capture-state", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::page-id", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::page-id", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::settings", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
@@ -5559,6 +5712,7 @@ export class WebsiteDataManager {
     _init (config?: WebsiteDataManager_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new_ephemeral(): WebsiteDataManager
+    static set_memory_pressure_settings(settings: MemoryPressureSettings): void
     static $gtype: GObject.Type
 }
 export interface WebsitePolicies_ConstructProps extends GObject.Object_ConstructProps {
@@ -5766,6 +5920,7 @@ export class Credential {
     /* Methods of WebKit2-4.0.WebKit2.Credential */
     copy(): Credential
     free(): void
+    get_certificate(): Gio.TlsCertificate
     get_password(): string
     get_persistence(): CredentialPersistence
     get_username(): string
@@ -5775,6 +5930,8 @@ export class Credential {
     constructor(username: string, password: string, persistence: CredentialPersistence)
     /* Static methods and pseudo-constructors */
     static new(username: string, password: string, persistence: CredentialPersistence): Credential
+    static new_for_certificate(certificate: Gio.TlsCertificate | null, persistence: CredentialPersistence): Credential
+    static new_for_certificate_pin(pin: string, persistence: CredentialPersistence): Credential
 }
 export abstract class DeviceInfoPermissionRequestClass {
     /* Fields of WebKit2-4.0.WebKit2.DeviceInfoPermissionRequestClass */
@@ -5935,6 +6092,34 @@ export class JavascriptResult {
     ref(): JavascriptResult
     unref(): void
     static name: string
+}
+export abstract class MediaKeySystemPermissionRequestClass {
+    /* Fields of WebKit2-4.0.WebKit2.MediaKeySystemPermissionRequestClass */
+    parent_class: GObject.ObjectClass
+    static name: string
+}
+export class MediaKeySystemPermissionRequestPrivate {
+    static name: string
+}
+export class MemoryPressureSettings {
+    /* Methods of WebKit2-4.0.WebKit2.MemoryPressureSettings */
+    copy(): MemoryPressureSettings
+    free(): void
+    get_conservative_threshold(): number
+    get_kill_threshold(): number
+    get_memory_limit(): number
+    get_poll_interval(): number
+    get_strict_threshold(): number
+    set_conservative_threshold(value: number): void
+    set_kill_threshold(value: number): void
+    set_memory_limit(memory_limit: number): void
+    set_poll_interval(value: number): void
+    set_strict_threshold(value: number): void
+    static name: string
+    static new(): MemoryPressureSettings
+    constructor()
+    /* Static methods and pseudo-constructors */
+    static new(): MemoryPressureSettings
 }
 export class MimeInfo {
     /* Methods of WebKit2-4.0.WebKit2.MimeInfo */
@@ -6135,6 +6320,14 @@ export abstract class URISchemeRequestClass {
     static name: string
 }
 export class URISchemeRequestPrivate {
+    static name: string
+}
+export abstract class URISchemeResponseClass {
+    /* Fields of WebKit2-4.0.WebKit2.URISchemeResponseClass */
+    parent_class: GObject.ObjectClass
+    static name: string
+}
+export class URISchemeResponsePrivate {
     static name: string
 }
 export class UserContentFilter {

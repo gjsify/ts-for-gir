@@ -9,6 +9,11 @@ import type * as GObject from './GObject-2.0';
 import type * as GLib from './GLib-2.0';
 import type * as GModule from './GModule-2.0';
 
+export enum AppLeakyType {
+    NONE,
+    UPSTREAM,
+    DOWNSTREAM,
+}
 export enum AppStreamType {
     STREAM,
     SEEKABLE,
@@ -99,16 +104,16 @@ export class AppSink {
     get_max_buffers(): number
     get_wait_on_eos(): boolean
     is_eos(): boolean
-    pull_preroll(): Gst.Sample
-    pull_sample(): Gst.Sample
+    pull_preroll(): Gst.Sample | null
+    pull_sample(): Gst.Sample | null
     set_buffer_list_support(enable_lists: boolean): void
     set_caps(caps?: Gst.Caps | null): void
     set_drop(drop: boolean): void
     set_emit_signals(emit: boolean): void
     set_max_buffers(max: number): void
     set_wait_on_eos(wait: boolean): void
-    try_pull_preroll(timeout: Gst.ClockTime): Gst.Sample
-    try_pull_sample(timeout: Gst.ClockTime): Gst.Sample
+    try_pull_preroll(timeout: Gst.ClockTime): Gst.Sample | null
+    try_pull_sample(timeout: Gst.ClockTime): Gst.Sample | null
     /* Methods of GstBase-1.0.GstBase.BaseSink */
     do_preroll(obj: Gst.MiniObject): Gst.FlowReturn
     get_blocksize(): number
@@ -195,6 +200,7 @@ export class AppSink {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -263,10 +269,10 @@ export class AppSink {
     vfunc_eos(): void
     vfunc_new_preroll(): Gst.FlowReturn
     vfunc_new_sample(): Gst.FlowReturn
-    vfunc_pull_preroll(): Gst.Sample
-    vfunc_pull_sample(): Gst.Sample
-    vfunc_try_pull_preroll(timeout: Gst.ClockTime): Gst.Sample
-    vfunc_try_pull_sample(timeout: Gst.ClockTime): Gst.Sample
+    vfunc_pull_preroll(): Gst.Sample | null
+    vfunc_pull_sample(): Gst.Sample | null
+    vfunc_try_pull_preroll(timeout: Gst.ClockTime): Gst.Sample | null
+    vfunc_try_pull_sample(timeout: Gst.ClockTime): Gst.Sample | null
     vfunc_get_uri(): string | null
     vfunc_set_uri(uri: string): boolean
     /* Virtual methods of GstBase-1.0.GstBase.BaseSink */
@@ -325,12 +331,18 @@ export class AppSink {
     connect(sigName: "new-sample", callback: (($obj: AppSink) => Gst.FlowReturn)): number
     connect_after(sigName: "new-sample", callback: (($obj: AppSink) => Gst.FlowReturn)): number
     emit(sigName: "new-sample"): void
+    connect(sigName: "new-serialized-event", callback: (($obj: AppSink) => boolean)): number
+    connect_after(sigName: "new-serialized-event", callback: (($obj: AppSink) => boolean)): number
+    emit(sigName: "new-serialized-event"): void
     connect(sigName: "pull-preroll", callback: (($obj: AppSink) => Gst.Sample)): number
     connect_after(sigName: "pull-preroll", callback: (($obj: AppSink) => Gst.Sample)): number
     emit(sigName: "pull-preroll"): void
     connect(sigName: "pull-sample", callback: (($obj: AppSink) => Gst.Sample)): number
     connect_after(sigName: "pull-sample", callback: (($obj: AppSink) => Gst.Sample)): number
     emit(sigName: "pull-sample"): void
+    connect(sigName: "try-pull-object", callback: (($obj: AppSink, timeout: number) => Gst.MiniObject)): number
+    connect_after(sigName: "try-pull-object", callback: (($obj: AppSink, timeout: number) => Gst.MiniObject)): number
+    emit(sigName: "try-pull-object", timeout: number): void
     connect(sigName: "try-pull-preroll", callback: (($obj: AppSink, timeout: number) => Gst.Sample)): number
     connect_after(sigName: "try-pull-preroll", callback: (($obj: AppSink, timeout: number) => Gst.Sample)): number
     emit(sigName: "try-pull-preroll", timeout: number): void
@@ -416,8 +428,11 @@ export interface AppSrc_ConstructProps extends GstBase.BaseSrc_ConstructProps {
     format?: Gst.Format
     handle_segment_change?: boolean
     is_live?: boolean
+    leaky_type?: AppLeakyType
+    max_buffers?: number
     max_bytes?: number
     max_latency?: number
+    max_time?: number
     min_latency?: number
     min_percent?: number
     size?: number
@@ -427,14 +442,19 @@ export class AppSrc {
     /* Properties of GstApp-1.0.GstApp.AppSrc */
     block: boolean
     caps: Gst.Caps
+    readonly current_level_buffers: number
     readonly current_level_bytes: number
+    readonly current_level_time: number
     duration: number
     emit_signals: boolean
     format: Gst.Format
     handle_segment_change: boolean
     is_live: boolean
+    leaky_type: AppLeakyType
+    max_buffers: number
     max_bytes: number
     max_latency: number
+    max_time: number
     min_latency: number
     min_percent: number
     size: number
@@ -494,11 +514,16 @@ export class AppSrc {
     /* Methods of GstApp-1.0.GstApp.AppSrc */
     end_of_stream(): Gst.FlowReturn
     get_caps(): Gst.Caps
+    get_current_level_buffers(): number
     get_current_level_bytes(): number
+    get_current_level_time(): Gst.ClockTime
     get_duration(): Gst.ClockTime
     get_emit_signals(): boolean
     get_latency(): [ /* min */ number, /* max */ number ]
+    get_leaky_type(): AppLeakyType
+    get_max_buffers(): number
     get_max_bytes(): number
+    get_max_time(): Gst.ClockTime
     get_size(): number
     get_stream_type(): AppStreamType
     push_buffer(buffer: Gst.Buffer): Gst.FlowReturn
@@ -508,7 +533,10 @@ export class AppSrc {
     set_duration(duration: Gst.ClockTime): void
     set_emit_signals(emit: boolean): void
     set_latency(min: number, max: number): void
+    set_leaky_type(leaky: AppLeakyType): void
+    set_max_buffers(max: number): void
     set_max_bytes(max: number): void
+    set_max_time(max: Gst.ClockTime): void
     set_size(size: number): void
     set_stream_type(type: AppStreamType): void
     /* Methods of GstBase-1.0.GstBase.BaseSrc */
@@ -586,6 +614,7 @@ export class AppSrc {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -661,15 +690,15 @@ export class AppSrc {
     vfunc_get_uri(): string | null
     vfunc_set_uri(uri: string): boolean
     /* Virtual methods of GstBase-1.0.GstBase.BaseSrc */
-    vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(offset: number, size: number, buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_decide_allocation(query: Gst.Query): boolean
     vfunc_do_seek(segment: Gst.Segment): boolean
     vfunc_event(event: Gst.Event): boolean
     vfunc_fill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
     vfunc_fixate(caps: Gst.Caps): Gst.Caps
     vfunc_get_caps(filter?: Gst.Caps | null): Gst.Caps
-    vfunc_get_size(size: number): boolean
+    vfunc_get_size(): [ /* returnType */ boolean, /* size */ number ]
     vfunc_get_times(buffer: Gst.Buffer): [ /* start */ Gst.ClockTime, /* end */ Gst.ClockTime ]
     vfunc_is_seekable(): boolean
     vfunc_negotiate(): boolean
@@ -751,8 +780,12 @@ export class AppSrc {
     connect_after(sigName: "notify::block", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::caps", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::caps", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::current-level-buffers", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::current-level-buffers", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::current-level-bytes", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::current-level-bytes", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::current-level-time", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::current-level-time", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::duration", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::emit-signals", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
@@ -763,10 +796,16 @@ export class AppSrc {
     connect_after(sigName: "notify::handle-segment-change", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-live", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-live", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::leaky-type", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::leaky-type", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::max-buffers", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::max-buffers", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::max-bytes", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-bytes", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::max-latency", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-latency", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::max-time", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::max-time", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::min-latency", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::min-latency", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::min-percent", callback: (($obj: AppSrc, pspec: GObject.ParamSpec) => void)): number
@@ -801,6 +840,7 @@ export class AppSinkCallbacks {
     eos: (appsink: AppSink) => void
     new_preroll: (appsink: AppSink) => Gst.FlowReturn
     new_sample: (appsink: AppSink) => Gst.FlowReturn
+    new_event: (appsink: AppSink) => boolean
     static name: string
 }
 export abstract class AppSinkClass {
@@ -809,10 +849,11 @@ export abstract class AppSinkClass {
     eos: (appsink: AppSink) => void
     new_preroll: (appsink: AppSink) => Gst.FlowReturn
     new_sample: (appsink: AppSink) => Gst.FlowReturn
-    pull_preroll: (appsink: AppSink) => Gst.Sample
-    pull_sample: (appsink: AppSink) => Gst.Sample
-    try_pull_preroll: (appsink: AppSink, timeout: Gst.ClockTime) => Gst.Sample
-    try_pull_sample: (appsink: AppSink, timeout: Gst.ClockTime) => Gst.Sample
+    pull_preroll: (appsink: AppSink) => Gst.Sample | null
+    pull_sample: (appsink: AppSink) => Gst.Sample | null
+    try_pull_preroll: (appsink: AppSink, timeout: Gst.ClockTime) => Gst.Sample | null
+    try_pull_sample: (appsink: AppSink, timeout: Gst.ClockTime) => Gst.Sample | null
+    try_pull_object: (appsink: AppSink, timeout: Gst.ClockTime) => Gst.MiniObject
     static name: string
 }
 export class AppSinkPrivate {

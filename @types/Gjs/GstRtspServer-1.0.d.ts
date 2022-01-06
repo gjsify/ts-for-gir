@@ -1902,6 +1902,7 @@ export class RTSPSession {
     g_type_instance: GObject.TypeInstance
     /* Methods of GstRtspServer-1.0.GstRtspServer.RTSPSession */
     allow_expire(): void
+    dup_media(path: string): [ /* returnType */ RTSPSessionMedia | null, /* matched */ number ]
     filter(func?: RTSPSessionFilterFunc | null): RTSPSessionMedia[]
     get_header(): string | null
     get_media(path: string): [ /* returnType */ RTSPSessionMedia | null, /* matched */ number ]
@@ -2203,6 +2204,7 @@ export class RTSPStream {
     set_ulpfec_pt(pt: number): void
     transport_filter(func?: RTSPStreamTransportFilterFunc | null): RTSPStreamTransport[]
     unblock_linked(): boolean
+    unblock_rtcp(): void
     update_crypto(ssrc: number, crypto?: Gst.Caps | null): boolean
     verify_mcast_ttl(ttl: number): boolean
     /* Methods of GObject-2.0.GObject.Object */

@@ -10,6 +10,7 @@ import type { GLib } from './GLib-2.0';
 export declare namespace GnomeAutoar {
 
 export enum ConflictAction {
+    UNHANDLED,
     SKIP,
     OVERWRITE,
     CHANGE_DESTINATION,
@@ -98,6 +99,7 @@ export class Compressor {
     getSourceFiles(): Gio.File[]
     setNotifyInterval(notifyInterval: number): void
     setOutputIsDest(outputIsDest: boolean): void
+    setPassphrase(passphrase: string): void
     start(cancellable?: Gio.Cancellable | null): void
     startAsync(cancellable?: Gio.Cancellable | null): void
     /* Methods of GObject-2.0.GObject.Object */

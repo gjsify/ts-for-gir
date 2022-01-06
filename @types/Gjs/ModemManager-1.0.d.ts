@@ -13,6 +13,12 @@ export enum BearerIpMethod {
     STATIC,
     DHCP,
 }
+export enum BearerMultiplexSupport {
+    UNKNOWN,
+    NONE,
+    REQUESTED,
+    REQUIRED,
+}
 export enum BearerType {
     UNKNOWN,
     DEFAULT,
@@ -151,50 +157,130 @@ export enum MobileEquipmentError {
     HIDDENKEYREQUIRED,
     EAPMETHODNOTSUPPORTED,
     INCORRECTPARAMETERS,
+    COMMANDDISABLED,
+    COMMANDABORTED,
+    NOTATTACHEDRESTRICTED,
+    NOTALLOWEDEMERGENCYONLY,
+    NOTALLOWEDRESTRICTED,
+    FIXEDDIALNUMBERONLY,
+    TEMPORARILYOUTOFSERVICE,
+    LANGUAGEORALPHABETNOTSUPPORTED,
+    UNEXPECTEDDATAVALUE,
+    SYSTEMFAILURE,
+    DATAMISSING,
+    CALLBARRED,
+    MESSAGEWAITINGINDICATIONSUBSCRIPTIONFAILURE,
     UNKNOWN,
-    GPRSIMSIUNKNOWNINHLR,
-    GPRSILLEGALMS,
-    GPRSIMSIUNKNOWNINVLR,
-    GPRSILLEGALME,
-    GPRSSERVICENOTALLOWED,
-    GPRSANDNONGPRSSERVICESNOTALLOWED,
-    GPRSPLMNNOTALLOWED,
-    GPRSLOCATIONNOTALLOWED,
-    GPRSROMAINGNOTALLOWED,
-    GPRSNOCELLSINLOCATIONAREA,
-    GPRSNETWORKFAILURE,
-    GPRSCONGESTION,
+    IMSIUNKNOWNINHSS,
+    ILLEGALUE,
+    IMSIUNKNOWNINVLR,
+    IMEINOTACCEPTED,
+    ILLEGALME,
+    PSSERVICESNOTALLOWED,
+    PSANDNONPSSERVICESNOTALLOWED,
+    UEIDENTITYNOTDERIVEDFROMNETWORK,
+    IMPLICITLYDETACHED,
+    PLMNNOTALLOWED,
+    AREANOTALLOWED,
+    ROAMINGNOTALLOWEDINAREA,
+    PSSERVICESNOTALLOWEDINPLMN,
+    NOCELLSINAREA,
+    MSCTEMPORARILYNOTREACHABLE,
+    NETWORKFAILUREATTACH,
+    CSDOMAINUNAVAILABLE,
+    ESMFAILURE,
+    CONGESTION,
+    MBMSBEARERCAPABILITIESINSUFFICIENTFORSERVICE,
     NOTAUTHORIZEDFORCSG,
-    GPRSINSUFFICIENTRESOURCES,
-    GPRSMISSINGORUNKNOWNAPN,
-    GPRSUNKNOWNPDPADDRESSORTYPE,
-    GPRSUSERAUTHENTICATIONFAILED,
-    GPRSACTIVATIONREJECTEDBYGGSNORGW,
-    GPRSACTIVATIONREJECTEDUNSPECIFIED,
-    GPRSSERVICEOPTIONNOTSUPPORTED,
-    GPRSSERVICEOPTIONNOTSUBSCRIBED,
-    GPRSSERVICEOPTIONOUTOFORDER,
-    GPRSFEATURENOTSUPPORTED,
-    GPRSSEMANTICERRORINTFTOPERATION,
-    GPRSSYNTACTICALERRORINTFTOPERATION,
-    GPRSUNKNOWNPDPCONTEXT,
-    GPRSSEMANTICERRORSINPACKETFILTER,
-    GPRSSYNTACTICALERRORSINPACKETFILTER,
-    GPRSPDPCONTEXTWITHOUTTFTALREADYACTIVATED,
+    INSUFFICIENTRESOURCES,
+    MISSINGORUNKNOWNAPN,
+    UNKNOWNPDPADDRESSORTYPE,
+    USERAUTHENTICATIONFAILED,
+    ACTIVATIONREJECTEDBYGGSNORGW,
+    ACTIVATIONREJECTEDUNSPECIFIED,
+    SERVICEOPTIONNOTSUPPORTED,
+    SERVICEOPTIONNOTSUBSCRIBED,
+    SERVICEOPTIONOUTOFORDER,
+    NSAPIORPTIALREADYINUSE,
+    REGULARDEACTIVATION,
+    QOSNOTACCEPTED,
+    CALLCANNOTBEIDENTIFIED,
+    CSSERVICETEMPORARILYUNAVAILABLE,
+    FEATURENOTSUPPORTED,
+    SEMANTICERRORINTFTOPERATION,
+    SYNTACTICALERRORINTFTOPERATION,
+    UNKNOWNPDPCONTEXT,
+    SEMANTICERRORSINPACKETFILTER,
+    SYNTACTICALERRORSINPACKETFILTER,
+    PDPCONTEXTWITHOUTTFTALREADYACTIVATED,
+    MULTICASTGROUPMEMBERSHIPTIMEOUT,
     GPRSUNKNOWN,
-    GPRSPDPAUTHFAILURE,
-    GPRSINVALIDMOBILECLASS,
-    GPRSLASTPDNDISCONNECTIONNOTALLOWEDLEGACY,
-    GPRSLASTPDNDISCONNECTIONNOTALLOWED,
-    GPRSSEMANTICALLYINCORRECTMESSAGE,
-    GPRSMANDATORYIEERROR,
-    GPRSIENOTIMPLEMENTED,
-    GPRSCONDITIONALIEERROR,
-    GPRSUNSPECIFIEDPROTOCOLERROR,
-    GPRSOPERATORDETERMINEDBARRING,
-    GPRSMAXIMUMNUMBEROFPDPCONTEXTSREACHED,
-    GPRSREQUESTEDAPNNOTSUPPORTED,
-    GPRSREQUESTREJECTEDBCMVIOLATION,
+    PDPAUTHFAILURE,
+    INVALIDMOBILECLASS,
+    LASTPDNDISCONNECTIONNOTALLOWEDLEGACY,
+    LASTPDNDISCONNECTIONNOTALLOWED,
+    SEMANTICALLYINCORRECTMESSAGE,
+    INVALIDMANDATORYINFORMATION,
+    MESSAGETYPENOTIMPLEMENTED,
+    CONDITIONALIEERROR,
+    UNSPECIFIEDPROTOCOLERROR,
+    OPERATORDETERMINEDBARRING,
+    MAXIMUMNUMBEROFBEARERSREACHED,
+    REQUESTEDAPNNOTSUPPORTED,
+    REQUESTREJECTEDBCMVIOLATION,
+    UNSUPPORTEDQCIOR5QIVALUE,
+    USERDATAVIACONTROLPLANECONGESTED,
+    SMSPROVIDEDVIAGPRSINROUTINGAREA,
+    INVALIDPTIVALUE,
+    NOBEARERACTIVATED,
+    MESSAGENOTCOMPATIBLEWITHPROTOCOLSTATE,
+    RECOVERYONTIMEREXPIRY,
+    INVALIDTRANSACTIONIDVALUE,
+    SERVICEOPTIONNOTAUTHORIZEDINPLMN,
+    NETWORKFAILUREACTIVATION,
+    REACTIVATIONREQUESTED,
+    IPV4ONLYALLOWED,
+    IPV6ONLYALLOWED,
+    SINGLEADDRESSBEARERSONLYALLOWED,
+    COLLISIONWITHNETWORKINITIATEDREQUEST,
+    IPV4V6ONLYALLOWED,
+    NONIPONLYALLOWED,
+    BEARERHANDLINGUNSUPPORTED,
+    APNRESTRICTIONINCOMPATIBLE,
+    MULTIPLEACCESSTOPDNCONNECTIONNOTALLOWED,
+    ESMINFORMATIONNOTRECEIVED,
+    PDNCONNECTIONNONEXISTENT,
+    MULTIPLEPDNCONNECTIONSAMEAPNNOTALLOWED,
+    SEVERENETWORKFAILURE,
+    INSUFFICIENTRESOURCESFORSLICEANDDNN,
+    UNSUPPORTEDSSCMODE,
+    INSUFFICIENTRESOURCESFORSLICE,
+    MESSAGETYPENOTCOMPATIBLEWITHPROTOCOLSTATE,
+    IENOTIMPLEMENTED,
+    N1MODENOTALLOWED,
+    RESTRICTEDSERVICEAREA,
+    LADNUNAVAILABLE,
+    MISSINGORUNKNOWNDNNINSLICE,
+    NKGSIALREADYINUSE,
+    PAYLOADNOTFORWARDED,
+    NON3GPPACCESSTO5GCNNOTALLOWED,
+    SERVINGNETWORKNOTAUTHORIZED,
+    DNNNOTSUPPORTEDINSLICE,
+    INSUFFICIENTUSERPLANERESOURCESFORPDUSESSION,
+    OUTOFLADNSERVICEAREA,
+    PTIMISMATCH,
+    MAXDATARATEFORUSERPLANEINTEGRITYTOOLOW,
+    SEMANTICERRORINQOSOPERATION,
+    SYNTACTICALERRORINQOSOPERATION,
+    INVALIDMAPPEDEPSBEARERIDENTITY,
+    REDIRECTIONTO5GCNREQUIRED,
+    REDIRECTIONTOEPCREQUIRED,
+    TEMPORARILYUNAUTHORIZEDFORSNPN,
+    PERMANENTLYUNAUTHORIZEDFORSNPN,
+    ETHERNETONLYALLOWED,
+    UNAUTHORIZEDFORCAG,
+    NONETWORKSLICESAVAILABLE,
+    WIRELINEACCESSAREANOTALLOWED,
 }
 export enum Modem3gppEpsUeModeOperation {
     UNKNOWN,
@@ -208,6 +294,11 @@ export enum Modem3gppNetworkAvailability {
     AVAILABLE,
     CURRENT,
     FORBIDDEN,
+}
+export enum Modem3gppPacketServiceState {
+    UNKNOWN,
+    DETACHED,
+    ATTACHED,
 }
 export enum Modem3gppRegistrationState {
     IDLE,
@@ -359,6 +450,55 @@ export enum ModemBand {
     UTRAN_26,
     UTRAN_32,
     ANY,
+    NGRAN_1,
+    NGRAN_2,
+    NGRAN_3,
+    NGRAN_5,
+    NGRAN_7,
+    NGRAN_8,
+    NGRAN_12,
+    NGRAN_14,
+    NGRAN_18,
+    NGRAN_20,
+    NGRAN_25,
+    NGRAN_28,
+    NGRAN_29,
+    NGRAN_30,
+    NGRAN_34,
+    NGRAN_38,
+    NGRAN_39,
+    NGRAN_40,
+    NGRAN_41,
+    NGRAN_48,
+    NGRAN_50,
+    NGRAN_51,
+    NGRAN_65,
+    NGRAN_66,
+    NGRAN_70,
+    NGRAN_71,
+    NGRAN_74,
+    NGRAN_75,
+    NGRAN_76,
+    NGRAN_77,
+    NGRAN_78,
+    NGRAN_79,
+    NGRAN_80,
+    NGRAN_81,
+    NGRAN_82,
+    NGRAN_83,
+    NGRAN_84,
+    NGRAN_86,
+    NGRAN_89,
+    NGRAN_90,
+    NGRAN_91,
+    NGRAN_92,
+    NGRAN_93,
+    NGRAN_94,
+    NGRAN_95,
+    NGRAN_257,
+    NGRAN_258,
+    NGRAN_260,
+    NGRAN_261,
 }
 export enum ModemCdmaActivationState {
     UNKNOWN,
@@ -492,6 +632,21 @@ export enum SerialError {
     NOTOPEN,
     PARSEFAILED,
     FRAMENOTFOUND,
+}
+export enum SimEsimStatus {
+    UNKNOWN,
+    NO_PROFILES,
+    WITH_PROFILES,
+}
+export enum SimRemovability {
+    UNKNOWN,
+    REMOVABLE,
+    NOT_REMOVABLE,
+}
+export enum SimType {
+    UNKNOWN,
+    PHYSICAL,
+    ESIM,
 }
 export enum SmsCdmaServiceCategory {
     UNKNOWN,
@@ -662,6 +817,14 @@ export enum SmsValidityType {
     ABSOLUTE,
     ENHANCED,
 }
+export enum TODO_3gppProfileCmpFlags {
+    NONE,
+    NO_PROFILE_ID,
+    NO_PROFILE_NAME,
+    NO_AUTH,
+    NO_APN_TYPE,
+    NO_IP_TYPE,
+}
 export enum BearerAllowedAuth {
     UNKNOWN,
     NONE,
@@ -670,6 +833,23 @@ export enum BearerAllowedAuth {
     MSCHAP,
     MSCHAPV2,
     EAP,
+}
+export enum BearerApnType {
+    NONE,
+    INITIAL,
+    DEFAULT,
+    IMS,
+    MMS,
+    MANAGEMENT,
+    VOICE,
+    EMERGENCY,
+    PRIVATE,
+    PURCHASE,
+    VIDEO_SHARE,
+    LOCAL,
+    APP,
+    XCAP,
+    TETHERING,
 }
 export enum BearerIpFamily {
     NONE,
@@ -684,6 +864,9 @@ export enum BearerPropertiesCmpFlags {
     NO_PASSWORD,
     NO_ALLOW_ROAMING,
     NO_RM_PROTOCOL,
+    NO_APN_TYPE,
+    NO_PROFILE_ID,
+    NO_PROFILE_NAME,
 }
 export enum Modem3gppFacility {
     NONE,
@@ -724,12 +907,15 @@ export enum ModemCapability {
     LTE,
     IRIDIUM,
     /* 5GNR (invalid, starts with a number) */
+    TDS,
     ANY,
 }
 export enum ModemFirmwareUpdateMethod {
     NONE,
     FASTBOOT,
     QMI_PDC,
+    MBIM_QDU,
+    FIREHOSE,
 }
 export enum ModemLocationAssistanceDataType {
     NONE,
@@ -760,15 +946,20 @@ export enum OmaFeature {
     PRL_UPDATE,
     HANDS_FREE_ACTIVATION,
 }
+export const TODO_3GPP_PROFILE_ID_UNKNOWN: number
 export const BEARER_METHOD_CONNECT: string
 export const BEARER_METHOD_DISCONNECT: string
 export const BEARER_PROPERTY_BEARERTYPE: string
 export const BEARER_PROPERTY_CONNECTED: string
+export const BEARER_PROPERTY_CONNECTIONERROR: string
 export const BEARER_PROPERTY_INTERFACE: string
 export const BEARER_PROPERTY_IP4CONFIG: string
 export const BEARER_PROPERTY_IP6CONFIG: string
 export const BEARER_PROPERTY_IPTIMEOUT: string
+export const BEARER_PROPERTY_MULTIPLEXED: string
+export const BEARER_PROPERTY_PROFILEID: string
 export const BEARER_PROPERTY_PROPERTIES: string
+export const BEARER_PROPERTY_RELOADSTATSSUPPORTED: string
 export const BEARER_PROPERTY_STATS: string
 export const BEARER_PROPERTY_SUSPENDED: string
 export const CALL_METHOD_ACCEPT: string
@@ -796,9 +987,11 @@ export const DBUS_INTERFACE_MODEM_FIRMWARE: string
 export const DBUS_INTERFACE_MODEM_LOCATION: string
 export const DBUS_INTERFACE_MODEM_MESSAGING: string
 export const DBUS_INTERFACE_MODEM_MODEM3GPP: string
+export const DBUS_INTERFACE_MODEM_MODEM3GPP_PROFILEMANAGER: string
 export const DBUS_INTERFACE_MODEM_MODEM3GPP_USSD: string
 export const DBUS_INTERFACE_MODEM_MODEMCDMA: string
 export const DBUS_INTERFACE_MODEM_OMA: string
+export const DBUS_INTERFACE_MODEM_SAR: string
 export const DBUS_INTERFACE_MODEM_SIGNAL: string
 export const DBUS_INTERFACE_MODEM_TIME: string
 export const DBUS_INTERFACE_MODEM_VOICE: string
@@ -852,10 +1045,16 @@ export const MODEM_METHOD_SETCURRENTCAPABILITIES: string
 export const MODEM_METHOD_SETCURRENTMODES: string
 export const MODEM_METHOD_SETPOWERSTATE: string
 export const MODEM_METHOD_SETPRIMARYSIMSLOT: string
+export const MODEM_MODEM3GPP_METHOD_DISABLEFACILITYLOCK: string
 export const MODEM_MODEM3GPP_METHOD_REGISTER: string
 export const MODEM_MODEM3GPP_METHOD_SCAN: string
 export const MODEM_MODEM3GPP_METHOD_SETEPSUEMODEOPERATION: string
 export const MODEM_MODEM3GPP_METHOD_SETINITIALEPSBEARERSETTINGS: string
+export const MODEM_MODEM3GPP_METHOD_SETPACKETSERVICESTATE: string
+export const MODEM_MODEM3GPP_PROFILEMANAGER_METHOD_DELETE: string
+export const MODEM_MODEM3GPP_PROFILEMANAGER_METHOD_LIST: string
+export const MODEM_MODEM3GPP_PROFILEMANAGER_METHOD_SET: string
+export const MODEM_MODEM3GPP_PROFILEMANAGER_SIGNAL_UPDATED: string
 export const MODEM_MODEM3GPP_PROPERTY_ENABLEDFACILITYLOCKS: string
 export const MODEM_MODEM3GPP_PROPERTY_EPSUEMODEOPERATION: string
 export const MODEM_MODEM3GPP_PROPERTY_IMEI: string
@@ -863,6 +1062,7 @@ export const MODEM_MODEM3GPP_PROPERTY_INITIALEPSBEARER: string
 export const MODEM_MODEM3GPP_PROPERTY_INITIALEPSBEARERSETTINGS: string
 export const MODEM_MODEM3GPP_PROPERTY_OPERATORCODE: string
 export const MODEM_MODEM3GPP_PROPERTY_OPERATORNAME: string
+export const MODEM_MODEM3GPP_PROPERTY_PACKETSERVICESTATE: string
 export const MODEM_MODEM3GPP_PROPERTY_PCO: string
 export const MODEM_MODEM3GPP_PROPERTY_REGISTRATIONSTATE: string
 export const MODEM_MODEM3GPP_PROPERTY_SUBSCRIPTIONSTATE: string
@@ -905,6 +1105,7 @@ export const MODEM_PROPERTY_EQUIPMENTIDENTIFIER: string
 export const MODEM_PROPERTY_HARDWAREREVISION: string
 export const MODEM_PROPERTY_MANUFACTURER: string
 export const MODEM_PROPERTY_MAXACTIVEBEARERS: string
+export const MODEM_PROPERTY_MAXACTIVEMULTIPLEXEDBEARERS: string
 export const MODEM_PROPERTY_MAXBEARERS: string
 export const MODEM_PROPERTY_MODEL: string
 export const MODEM_PROPERTY_OWNNUMBERS: string
@@ -925,13 +1126,20 @@ export const MODEM_PROPERTY_SUPPORTEDIPFAMILIES: string
 export const MODEM_PROPERTY_SUPPORTEDMODES: string
 export const MODEM_PROPERTY_UNLOCKREQUIRED: string
 export const MODEM_PROPERTY_UNLOCKRETRIES: string
+export const MODEM_SAR_METHOD_ENABLE: string
+export const MODEM_SAR_METHOD_SETPOWERLEVEL: string
+export const MODEM_SAR_PROPERTY_POWERLEVEL: string
+export const MODEM_SAR_PROPERTY_STATE: string
 export const MODEM_SIGNAL_METHOD_SETUP: string
+export const MODEM_SIGNAL_METHOD_SETUPTHRESHOLDS: string
 export const MODEM_SIGNAL_PROPERTY_CDMA: string
+export const MODEM_SIGNAL_PROPERTY_ERRORRATETHRESHOLD: string
 export const MODEM_SIGNAL_PROPERTY_EVDO: string
 export const MODEM_SIGNAL_PROPERTY_GSM: string
 export const MODEM_SIGNAL_PROPERTY_LTE: string
 export const MODEM_SIGNAL_PROPERTY_NR5G: string
 export const MODEM_SIGNAL_PROPERTY_RATE: string
+export const MODEM_SIGNAL_PROPERTY_RSSITHRESHOLD: string
 export const MODEM_SIGNAL_PROPERTY_UMTS: string
 export const MODEM_SIGNAL_STATECHANGED: string
 export const MODEM_TIME_METHOD_GETNETWORKTIME: string
@@ -966,13 +1174,18 @@ export const SIM_METHOD_CHANGEPIN: string
 export const SIM_METHOD_ENABLEPIN: string
 export const SIM_METHOD_SENDPIN: string
 export const SIM_METHOD_SENDPUK: string
+export const SIM_METHOD_SETPREFERREDNETWORKS: string
 export const SIM_PROPERTY_ACTIVE: string
 export const SIM_PROPERTY_EID: string
 export const SIM_PROPERTY_EMERGENCYNUMBERS: string
+export const SIM_PROPERTY_ESIMSTATUS: string
 export const SIM_PROPERTY_IMSI: string
 export const SIM_PROPERTY_OPERATORIDENTIFIER: string
 export const SIM_PROPERTY_OPERATORNAME: string
+export const SIM_PROPERTY_PREFERREDNETWORKS: string
+export const SIM_PROPERTY_REMOVABILITY: string
 export const SIM_PROPERTY_SIMIDENTIFIER: string
+export const SIM_PROPERTY_SIMTYPE: string
 export const SMS_METHOD_SEND: string
 export const SMS_METHOD_STORE: string
 export const SMS_PROPERTY_CLASS: string
@@ -993,8 +1206,10 @@ export const SMS_PROPERTY_TIMESTAMP: string
 export const SMS_PROPERTY_VALIDITY: string
 export const UNLOCK_RETRIES_UNKNOWN: number
 export function bearer_allowed_auth_build_string_from_mask(mask: BearerAllowedAuth): string
+export function bearer_apn_type_build_string_from_mask(mask: BearerApnType): string
 export function bearer_ip_family_build_string_from_mask(mask: BearerIpFamily): string
 export function bearer_ip_method_get_string(val: BearerIpMethod): string
+export function bearer_multiplex_support_get_string(val: BearerMultiplexSupport): string
 export function bearer_type_get_string(val: BearerType): string
 export function call_direction_get_string(val: CallDirection): string
 export function call_state_get_string(val: CallState): string
@@ -1005,8 +1220,12 @@ export function core_error_quark(): GLib.Quark
 export function firmware_image_type_get_string(val: FirmwareImageType): string
 export function gdbus_bearer_interface_info(): Gio.DBusInterfaceInfo
 export function gdbus_bearer_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
+export function gdbus_call_interface_info(): Gio.DBusInterfaceInfo
+export function gdbus_call_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
 export function gdbus_modem3gpp_interface_info(): Gio.DBusInterfaceInfo
 export function gdbus_modem3gpp_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
+export function gdbus_modem3gpp_profile_manager_interface_info(): Gio.DBusInterfaceInfo
+export function gdbus_modem3gpp_profile_manager_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
 export function gdbus_modem3gpp_ussd_interface_info(): Gio.DBusInterfaceInfo
 export function gdbus_modem3gpp_ussd_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
 export function gdbus_modem_cdma_interface_info(): Gio.DBusInterfaceInfo
@@ -1021,6 +1240,8 @@ export function gdbus_modem_messaging_override_properties(klass: GObject.ObjectC
 export function gdbus_modem_oma_interface_info(): Gio.DBusInterfaceInfo
 export function gdbus_modem_oma_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
 export function gdbus_modem_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
+export function gdbus_modem_sar_interface_info(): Gio.DBusInterfaceInfo
+export function gdbus_modem_sar_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
 export function gdbus_modem_signal_interface_info(): Gio.DBusInterfaceInfo
 export function gdbus_modem_signal_override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
 export function gdbus_modem_simple_interface_info(): Gio.DBusInterfaceInfo
@@ -1040,6 +1261,7 @@ export function mobile_equipment_error_quark(): GLib.Quark
 export function modem_3gpp_eps_ue_mode_operation_get_string(val: Modem3gppEpsUeModeOperation): string
 export function modem_3gpp_facility_build_string_from_mask(mask: Modem3gppFacility): string
 export function modem_3gpp_network_availability_get_string(val: Modem3gppNetworkAvailability): string
+export function modem_3gpp_packet_service_state_get_string(val: Modem3gppPacketServiceState): string
 export function modem_3gpp_registration_state_get_string(val: Modem3gppRegistrationState): string
 export function modem_3gpp_subscription_state_get_string(val: Modem3gppSubscriptionState): string
 export function modem_3gpp_ussd_session_state_get_string(val: Modem3gppUssdSessionState): string
@@ -1065,6 +1287,9 @@ export function oma_session_state_failed_reason_get_string(val: OmaSessionStateF
 export function oma_session_state_get_string(val: OmaSessionState): string
 export function oma_session_type_get_string(val: OmaSessionType): string
 export function serial_error_quark(): GLib.Quark
+export function sim_esim_status_get_string(val: SimEsimStatus): string
+export function sim_removability_get_string(val: SimRemovability): string
+export function sim_type_get_string(val: SimType): string
 export function sms_cdma_service_category_get_string(val: SmsCdmaServiceCategory): string
 export function sms_cdma_teleservice_id_get_string(val: SmsCdmaTeleserviceId): string
 export function sms_delivery_state_get_string(val: SmsDeliveryState): string
@@ -1079,11 +1304,15 @@ export class GdbusBearer {
     /* Properties of ModemManager-1.0.ModemManager.GdbusBearer */
     bearer_type: number
     connected: boolean
+    connection_error: GLib.Variant
     interface: string
     ip_timeout: number
     ip4_config: GLib.Variant
     ip6_config: GLib.Variant
+    multiplexed: boolean
+    profile_id: number
     properties: GLib.Variant
+    reload_stats_supported: boolean
     stats: GLib.Variant
     suspended: boolean
     /* Methods of ModemManager-1.0.ModemManager.GdbusBearer */
@@ -1110,6 +1339,89 @@ export class GdbusBearer {
     static interface_info(): Gio.DBusInterfaceInfo
     static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
 }
+export class GdbusCall {
+    /* Properties of ModemManager-1.0.ModemManager.GdbusCall */
+    audio_format: GLib.Variant
+    audio_port: string
+    direction: number
+    multiparty: boolean
+    number: string
+    state: number
+    state_reason: number
+    /* Methods of ModemManager-1.0.ModemManager.GdbusCall */
+    call_accept(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_accept_finish(res: Gio.AsyncResult): boolean
+    call_accept_sync(cancellable?: Gio.Cancellable | null): boolean
+    call_deflect(arg_number: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_deflect_finish(res: Gio.AsyncResult): boolean
+    call_deflect_sync(arg_number: string, cancellable?: Gio.Cancellable | null): boolean
+    call_hangup(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_hangup_finish(res: Gio.AsyncResult): boolean
+    call_hangup_sync(cancellable?: Gio.Cancellable | null): boolean
+    call_join_multiparty(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_join_multiparty_finish(res: Gio.AsyncResult): boolean
+    call_join_multiparty_sync(cancellable?: Gio.Cancellable | null): boolean
+    call_leave_multiparty(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_leave_multiparty_finish(res: Gio.AsyncResult): boolean
+    call_leave_multiparty_sync(cancellable?: Gio.Cancellable | null): boolean
+    call_send_dtmf(arg_dtmf: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_send_dtmf_finish(res: Gio.AsyncResult): boolean
+    call_send_dtmf_sync(arg_dtmf: string, cancellable?: Gio.Cancellable | null): boolean
+    call_start(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_start_finish(res: Gio.AsyncResult): boolean
+    call_start_sync(cancellable?: Gio.Cancellable | null): boolean
+    complete_accept(invocation: Gio.DBusMethodInvocation): void
+    complete_deflect(invocation: Gio.DBusMethodInvocation): void
+    complete_hangup(invocation: Gio.DBusMethodInvocation): void
+    complete_join_multiparty(invocation: Gio.DBusMethodInvocation): void
+    complete_leave_multiparty(invocation: Gio.DBusMethodInvocation): void
+    complete_send_dtmf(invocation: Gio.DBusMethodInvocation): void
+    complete_start(invocation: Gio.DBusMethodInvocation): void
+    emit_dtmf_received(arg_dtmf: string): void
+    emit_state_changed(arg_old: number, arg_new: number, arg_reason: number): void
+    /* Virtual methods of ModemManager-1.0.ModemManager.GdbusCall */
+    vfunc_dtmf_received(arg_dtmf: string): void
+    vfunc_handle_accept(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_handle_deflect(invocation: Gio.DBusMethodInvocation, arg_number: string): boolean
+    vfunc_handle_hangup(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_handle_join_multiparty(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_handle_leave_multiparty(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_handle_send_dtmf(invocation: Gio.DBusMethodInvocation, arg_dtmf: string): boolean
+    vfunc_handle_start(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_state_changed(arg_old: number, arg_new: number, arg_reason: number): void
+    /* Signals of ModemManager-1.0.ModemManager.GdbusCall */
+    connect(sigName: "dtmf-received", callback: (($obj: GdbusCall, arg_dtmf: string) => void)): number
+    connect_after(sigName: "dtmf-received", callback: (($obj: GdbusCall, arg_dtmf: string) => void)): number
+    emit(sigName: "dtmf-received", arg_dtmf: string): void
+    connect(sigName: "handle-accept", callback: (($obj: GdbusCall, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "handle-accept", callback: (($obj: GdbusCall, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "handle-accept", invocation: Gio.DBusMethodInvocation): void
+    connect(sigName: "handle-deflect", callback: (($obj: GdbusCall, invocation: Gio.DBusMethodInvocation, arg_number: string) => boolean)): number
+    connect_after(sigName: "handle-deflect", callback: (($obj: GdbusCall, invocation: Gio.DBusMethodInvocation, arg_number: string) => boolean)): number
+    emit(sigName: "handle-deflect", invocation: Gio.DBusMethodInvocation, arg_number: string): void
+    connect(sigName: "handle-hangup", callback: (($obj: GdbusCall, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "handle-hangup", callback: (($obj: GdbusCall, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "handle-hangup", invocation: Gio.DBusMethodInvocation): void
+    connect(sigName: "handle-join-multiparty", callback: (($obj: GdbusCall, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "handle-join-multiparty", callback: (($obj: GdbusCall, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "handle-join-multiparty", invocation: Gio.DBusMethodInvocation): void
+    connect(sigName: "handle-leave-multiparty", callback: (($obj: GdbusCall, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "handle-leave-multiparty", callback: (($obj: GdbusCall, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "handle-leave-multiparty", invocation: Gio.DBusMethodInvocation): void
+    connect(sigName: "handle-send-dtmf", callback: (($obj: GdbusCall, invocation: Gio.DBusMethodInvocation, arg_dtmf: string) => boolean)): number
+    connect_after(sigName: "handle-send-dtmf", callback: (($obj: GdbusCall, invocation: Gio.DBusMethodInvocation, arg_dtmf: string) => boolean)): number
+    emit(sigName: "handle-send-dtmf", invocation: Gio.DBusMethodInvocation, arg_dtmf: string): void
+    connect(sigName: "handle-start", callback: (($obj: GdbusCall, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "handle-start", callback: (($obj: GdbusCall, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "handle-start", invocation: Gio.DBusMethodInvocation): void
+    connect(sigName: "state-changed", callback: (($obj: GdbusCall, arg_old: number, arg_new: number, arg_reason: number) => void)): number
+    connect_after(sigName: "state-changed", callback: (($obj: GdbusCall, arg_old: number, arg_new: number, arg_reason: number) => void)): number
+    emit(sigName: "state-changed", arg_old: number, arg_new: number, arg_reason: number): void
+    static name: string
+    /* Static methods and pseudo-constructors */
+    static interface_info(): Gio.DBusInterfaceInfo
+    static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
+}
 export class GdbusModem {
     /* Properties of ModemManager-1.0.ModemManager.GdbusModem */
     access_technologies: number
@@ -1126,6 +1438,7 @@ export class GdbusModem {
     hardware_revision: string
     manufacturer: string
     max_active_bearers: number
+    max_active_multiplexed_bearers: number
     max_bearers: number
     model: string
     own_numbers: string[]
@@ -1264,10 +1577,14 @@ export class GdbusModem3gpp {
     initial_eps_bearer_settings: GLib.Variant
     operator_code: string
     operator_name: string
+    packet_service_state: number
     pco: GLib.Variant
     registration_state: number
     subscription_state: number
     /* Methods of ModemManager-1.0.ModemManager.GdbusModem3gpp */
+    call_disable_facility_lock(arg_properties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_disable_facility_lock_finish(res: Gio.AsyncResult): boolean
+    call_disable_facility_lock_sync(arg_properties: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     call_register(arg_operator_id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_register_finish(res: Gio.AsyncResult): boolean
     call_register_sync(arg_operator_id: string, cancellable?: Gio.Cancellable | null): boolean
@@ -1280,16 +1597,26 @@ export class GdbusModem3gpp {
     call_set_initial_eps_bearer_settings(arg_settings: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_set_initial_eps_bearer_settings_finish(res: Gio.AsyncResult): boolean
     call_set_initial_eps_bearer_settings_sync(arg_settings: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
+    call_set_packet_service_state(arg_state: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_set_packet_service_state_finish(res: Gio.AsyncResult): boolean
+    call_set_packet_service_state_sync(arg_state: number, cancellable?: Gio.Cancellable | null): boolean
+    complete_disable_facility_lock(invocation: Gio.DBusMethodInvocation): void
     complete_register(invocation: Gio.DBusMethodInvocation): void
     complete_scan(invocation: Gio.DBusMethodInvocation, results: GLib.Variant): void
     complete_set_eps_ue_mode_operation(invocation: Gio.DBusMethodInvocation): void
     complete_set_initial_eps_bearer_settings(invocation: Gio.DBusMethodInvocation): void
+    complete_set_packet_service_state(invocation: Gio.DBusMethodInvocation): void
     /* Virtual methods of ModemManager-1.0.ModemManager.GdbusModem3gpp */
+    vfunc_handle_disable_facility_lock(invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant): boolean
     vfunc_handle_register(invocation: Gio.DBusMethodInvocation, arg_operator_id: string): boolean
     vfunc_handle_scan(invocation: Gio.DBusMethodInvocation): boolean
     vfunc_handle_set_eps_ue_mode_operation(invocation: Gio.DBusMethodInvocation, arg_mode: number): boolean
     vfunc_handle_set_initial_eps_bearer_settings(invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant): boolean
+    vfunc_handle_set_packet_service_state(invocation: Gio.DBusMethodInvocation, arg_state: number): boolean
     /* Signals of ModemManager-1.0.ModemManager.GdbusModem3gpp */
+    connect(sigName: "handle-disable-facility-lock", callback: (($obj: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant) => boolean)): number
+    connect_after(sigName: "handle-disable-facility-lock", callback: (($obj: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant) => boolean)): number
+    emit(sigName: "handle-disable-facility-lock", invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant): void
     connect(sigName: "handle-register", callback: (($obj: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation, arg_operator_id: string) => boolean)): number
     connect_after(sigName: "handle-register", callback: (($obj: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation, arg_operator_id: string) => boolean)): number
     emit(sigName: "handle-register", invocation: Gio.DBusMethodInvocation, arg_operator_id: string): void
@@ -1302,6 +1629,47 @@ export class GdbusModem3gpp {
     connect(sigName: "handle-set-initial-eps-bearer-settings", callback: (($obj: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant) => boolean)): number
     connect_after(sigName: "handle-set-initial-eps-bearer-settings", callback: (($obj: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant) => boolean)): number
     emit(sigName: "handle-set-initial-eps-bearer-settings", invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant): void
+    connect(sigName: "handle-set-packet-service-state", callback: (($obj: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation, arg_state: number) => boolean)): number
+    connect_after(sigName: "handle-set-packet-service-state", callback: (($obj: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation, arg_state: number) => boolean)): number
+    emit(sigName: "handle-set-packet-service-state", invocation: Gio.DBusMethodInvocation, arg_state: number): void
+    static name: string
+    /* Static methods and pseudo-constructors */
+    static interface_info(): Gio.DBusInterfaceInfo
+    static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
+}
+export class GdbusModem3gppProfileManager {
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModem3gppProfileManager */
+    call_delete(arg_properties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_delete_finish(res: Gio.AsyncResult): boolean
+    call_delete_sync(arg_properties: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
+    call_list(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_list_finish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* out_profiles */ GLib.Variant | null ]
+    call_list_sync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_profiles */ GLib.Variant | null ]
+    call_set(arg_requested_properties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_set_finish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* out_stored_properties */ GLib.Variant | null ]
+    call_set_sync(arg_requested_properties: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_stored_properties */ GLib.Variant | null ]
+    complete_delete(invocation: Gio.DBusMethodInvocation): void
+    complete_list(invocation: Gio.DBusMethodInvocation, profiles: GLib.Variant): void
+    complete_set(invocation: Gio.DBusMethodInvocation, stored_properties: GLib.Variant): void
+    emit_updated(): void
+    /* Virtual methods of ModemManager-1.0.ModemManager.GdbusModem3gppProfileManager */
+    vfunc_handle_delete(invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant): boolean
+    vfunc_handle_list(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_handle_set(invocation: Gio.DBusMethodInvocation, arg_requested_properties: GLib.Variant): boolean
+    vfunc_updated(): void
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModem3gppProfileManager */
+    connect(sigName: "handle-delete", callback: (($obj: GdbusModem3gppProfileManager, invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant) => boolean)): number
+    connect_after(sigName: "handle-delete", callback: (($obj: GdbusModem3gppProfileManager, invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant) => boolean)): number
+    emit(sigName: "handle-delete", invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant): void
+    connect(sigName: "handle-list", callback: (($obj: GdbusModem3gppProfileManager, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "handle-list", callback: (($obj: GdbusModem3gppProfileManager, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "handle-list", invocation: Gio.DBusMethodInvocation): void
+    connect(sigName: "handle-set", callback: (($obj: GdbusModem3gppProfileManager, invocation: Gio.DBusMethodInvocation, arg_requested_properties: GLib.Variant) => boolean)): number
+    connect_after(sigName: "handle-set", callback: (($obj: GdbusModem3gppProfileManager, invocation: Gio.DBusMethodInvocation, arg_requested_properties: GLib.Variant) => boolean)): number
+    emit(sigName: "handle-set", invocation: Gio.DBusMethodInvocation, arg_requested_properties: GLib.Variant): void
+    connect(sigName: "updated", callback: (($obj: GdbusModem3gppProfileManager) => void)): number
+    connect_after(sigName: "updated", callback: (($obj: GdbusModem3gppProfileManager) => void)): number
+    emit(sigName: "updated"): void
     static name: string
     /* Static methods and pseudo-constructors */
     static interface_info(): Gio.DBusInterfaceInfo
@@ -1565,26 +1933,64 @@ export class GdbusModemOma {
     static interface_info(): Gio.DBusInterfaceInfo
     static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
 }
+export class GdbusModemSar {
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemSar */
+    power_level: number
+    state: boolean
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemSar */
+    call_enable(arg_enable: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_enable_finish(res: Gio.AsyncResult): boolean
+    call_enable_sync(arg_enable: boolean, cancellable?: Gio.Cancellable | null): boolean
+    call_set_power_level(arg_level: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_set_power_level_finish(res: Gio.AsyncResult): boolean
+    call_set_power_level_sync(arg_level: number, cancellable?: Gio.Cancellable | null): boolean
+    complete_enable(invocation: Gio.DBusMethodInvocation): void
+    complete_set_power_level(invocation: Gio.DBusMethodInvocation): void
+    /* Virtual methods of ModemManager-1.0.ModemManager.GdbusModemSar */
+    vfunc_handle_enable(invocation: Gio.DBusMethodInvocation, arg_enable: boolean): boolean
+    vfunc_handle_set_power_level(invocation: Gio.DBusMethodInvocation, arg_level: number): boolean
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemSar */
+    connect(sigName: "handle-enable", callback: (($obj: GdbusModemSar, invocation: Gio.DBusMethodInvocation, arg_enable: boolean) => boolean)): number
+    connect_after(sigName: "handle-enable", callback: (($obj: GdbusModemSar, invocation: Gio.DBusMethodInvocation, arg_enable: boolean) => boolean)): number
+    emit(sigName: "handle-enable", invocation: Gio.DBusMethodInvocation, arg_enable: boolean): void
+    connect(sigName: "handle-set-power-level", callback: (($obj: GdbusModemSar, invocation: Gio.DBusMethodInvocation, arg_level: number) => boolean)): number
+    connect_after(sigName: "handle-set-power-level", callback: (($obj: GdbusModemSar, invocation: Gio.DBusMethodInvocation, arg_level: number) => boolean)): number
+    emit(sigName: "handle-set-power-level", invocation: Gio.DBusMethodInvocation, arg_level: number): void
+    static name: string
+    /* Static methods and pseudo-constructors */
+    static interface_info(): Gio.DBusInterfaceInfo
+    static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
+}
 export class GdbusModemSignal {
     /* Properties of ModemManager-1.0.ModemManager.GdbusModemSignal */
     cdma: GLib.Variant
+    error_rate_threshold: boolean
     evdo: GLib.Variant
     gsm: GLib.Variant
     lte: GLib.Variant
     nr5g: GLib.Variant
     rate: number
+    rssi_threshold: number
     umts: GLib.Variant
     /* Methods of ModemManager-1.0.ModemManager.GdbusModemSignal */
     call_setup(arg_rate: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_setup_finish(res: Gio.AsyncResult): boolean
     call_setup_sync(arg_rate: number, cancellable?: Gio.Cancellable | null): boolean
+    call_setup_thresholds(arg_settings: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_setup_thresholds_finish(res: Gio.AsyncResult): boolean
+    call_setup_thresholds_sync(arg_settings: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     complete_setup(invocation: Gio.DBusMethodInvocation): void
+    complete_setup_thresholds(invocation: Gio.DBusMethodInvocation): void
     /* Virtual methods of ModemManager-1.0.ModemManager.GdbusModemSignal */
     vfunc_handle_setup(invocation: Gio.DBusMethodInvocation, arg_rate: number): boolean
+    vfunc_handle_setup_thresholds(invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant): boolean
     /* Signals of ModemManager-1.0.ModemManager.GdbusModemSignal */
     connect(sigName: "handle-setup", callback: (($obj: GdbusModemSignal, invocation: Gio.DBusMethodInvocation, arg_rate: number) => boolean)): number
     connect_after(sigName: "handle-setup", callback: (($obj: GdbusModemSignal, invocation: Gio.DBusMethodInvocation, arg_rate: number) => boolean)): number
     emit(sigName: "handle-setup", invocation: Gio.DBusMethodInvocation, arg_rate: number): void
+    connect(sigName: "handle-setup-thresholds", callback: (($obj: GdbusModemSignal, invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant) => boolean)): number
+    connect_after(sigName: "handle-setup-thresholds", callback: (($obj: GdbusModemSignal, invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant) => boolean)): number
+    emit(sigName: "handle-setup-thresholds", invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant): void
     static name: string
     /* Static methods and pseudo-constructors */
     static interface_info(): Gio.DBusInterfaceInfo
@@ -1749,21 +2155,25 @@ export class GdbusObject {
     modem_location: GdbusModemLocation
     modem_messaging: GdbusModemMessaging
     modem_oma: GdbusModemOma
+    modem_sar: GdbusModemSar
     modem_signal: GdbusModemSignal
     modem_simple: GdbusModemSimple
     modem_time: GdbusModemTime
     modem_voice: GdbusModemVoice
     modem3gpp: GdbusModem3gpp
+    modem3gpp_profile_manager: GdbusModem3gppProfileManager
     modem3gpp_ussd: GdbusModem3gppUssd
     /* Methods of ModemManager-1.0.ModemManager.GdbusObject */
     get_modem(): GdbusModem | null
     get_modem3gpp(): GdbusModem3gpp | null
+    get_modem3gpp_profile_manager(): GdbusModem3gppProfileManager | null
     get_modem3gpp_ussd(): GdbusModem3gppUssd | null
     get_modem_cdma(): GdbusModemCdma | null
     get_modem_firmware(): GdbusModemFirmware | null
     get_modem_location(): GdbusModemLocation | null
     get_modem_messaging(): GdbusModemMessaging | null
     get_modem_oma(): GdbusModemOma | null
+    get_modem_sar(): GdbusModemSar | null
     get_modem_signal(): GdbusModemSignal | null
     get_modem_simple(): GdbusModemSimple | null
     get_modem_time(): GdbusModemTime | null
@@ -1835,10 +2245,14 @@ export class GdbusSim {
     active: boolean
     eid: string
     emergency_numbers: string[]
+    esim_status: number
     imsi: string
     operator_identifier: string
     operator_name: string
+    preferred_networks: GLib.Variant
+    removability: number
     sim_identifier: string
+    sim_type: number
     /* Methods of ModemManager-1.0.ModemManager.GdbusSim */
     call_change_pin(arg_old_pin: string, arg_new_pin: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_change_pin_finish(res: Gio.AsyncResult): boolean
@@ -1852,15 +2266,20 @@ export class GdbusSim {
     call_send_puk(arg_puk: string, arg_pin: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_send_puk_finish(res: Gio.AsyncResult): boolean
     call_send_puk_sync(arg_puk: string, arg_pin: string, cancellable?: Gio.Cancellable | null): boolean
+    call_set_preferred_networks(arg_preferred_networks: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_set_preferred_networks_finish(res: Gio.AsyncResult): boolean
+    call_set_preferred_networks_sync(arg_preferred_networks: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     complete_change_pin(invocation: Gio.DBusMethodInvocation): void
     complete_enable_pin(invocation: Gio.DBusMethodInvocation): void
     complete_send_pin(invocation: Gio.DBusMethodInvocation): void
     complete_send_puk(invocation: Gio.DBusMethodInvocation): void
+    complete_set_preferred_networks(invocation: Gio.DBusMethodInvocation): void
     /* Virtual methods of ModemManager-1.0.ModemManager.GdbusSim */
     vfunc_handle_change_pin(invocation: Gio.DBusMethodInvocation, arg_old_pin: string, arg_new_pin: string): boolean
     vfunc_handle_enable_pin(invocation: Gio.DBusMethodInvocation, arg_pin: string, arg_enabled: boolean): boolean
     vfunc_handle_send_pin(invocation: Gio.DBusMethodInvocation, arg_pin: string): boolean
     vfunc_handle_send_puk(invocation: Gio.DBusMethodInvocation, arg_puk: string, arg_pin: string): boolean
+    vfunc_handle_set_preferred_networks(invocation: Gio.DBusMethodInvocation, arg_preferred_networks: GLib.Variant): boolean
     /* Signals of ModemManager-1.0.ModemManager.GdbusSim */
     connect(sigName: "handle-change-pin", callback: (($obj: GdbusSim, invocation: Gio.DBusMethodInvocation, arg_old_pin: string, arg_new_pin: string) => boolean)): number
     connect_after(sigName: "handle-change-pin", callback: (($obj: GdbusSim, invocation: Gio.DBusMethodInvocation, arg_old_pin: string, arg_new_pin: string) => boolean)): number
@@ -1874,6 +2293,9 @@ export class GdbusSim {
     connect(sigName: "handle-send-puk", callback: (($obj: GdbusSim, invocation: Gio.DBusMethodInvocation, arg_puk: string, arg_pin: string) => boolean)): number
     connect_after(sigName: "handle-send-puk", callback: (($obj: GdbusSim, invocation: Gio.DBusMethodInvocation, arg_puk: string, arg_pin: string) => boolean)): number
     emit(sigName: "handle-send-puk", invocation: Gio.DBusMethodInvocation, arg_puk: string, arg_pin: string): void
+    connect(sigName: "handle-set-preferred-networks", callback: (($obj: GdbusSim, invocation: Gio.DBusMethodInvocation, arg_preferred_networks: GLib.Variant) => boolean)): number
+    connect_after(sigName: "handle-set-preferred-networks", callback: (($obj: GdbusSim, invocation: Gio.DBusMethodInvocation, arg_preferred_networks: GLib.Variant) => boolean)): number
+    emit(sigName: "handle-set-preferred-networks", invocation: Gio.DBusMethodInvocation, arg_preferred_networks: GLib.Variant): void
     static name: string
     /* Static methods and pseudo-constructors */
     static interface_info(): Gio.DBusInterfaceInfo
@@ -1921,14 +2343,87 @@ export class GdbusSms {
     static interface_info(): Gio.DBusInterfaceInfo
     static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
 }
+export interface TODO_3gppProfile_ConstructProps extends GObject.Object_ConstructProps {
+}
+export class TODO_3gppProfile {
+    /* Fields of GObject-2.0.GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of ModemManager-1.0.ModemManager.3gppProfile */
+    consume_string(key: string, value: string): boolean
+    consume_variant(key: string, value: GLib.Variant): boolean
+    get_allowed_auth(): BearerAllowedAuth
+    get_apn(): string
+    get_apn_type(): BearerApnType
+    get_ip_type(): BearerIpFamily
+    get_password(): string
+    get_profile_id(): number
+    get_profile_name(): string
+    get_user(): string
+    set_allowed_auth(allowed_auth: BearerAllowedAuth): void
+    set_apn(apn: string): void
+    set_apn_type(apn_type: BearerApnType): void
+    set_ip_type(ip_type: BearerIpFamily): void
+    set_password(password: string): void
+    set_profile_id(profile_id: number): void
+    set_profile_name(profile_name: string): void
+    set_user(user: string): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: any): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: any): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: Function): void
+    /* Virtual methods of GObject-2.0.GObject.Object */
+    vfunc_constructed(): void
+    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose(): void
+    vfunc_finalize(): void
+    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: TODO_3gppProfile, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: TODO_3gppProfile, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    static name: string
+    constructor (config?: TODO_3gppProfile_ConstructProps)
+    _init (config?: TODO_3gppProfile_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): TODO_3gppProfile
+    static $gtype: GObject.Type
+}
 export interface Bearer_ConstructProps extends GdbusBearerProxy_ConstructProps {
     bearer_type?: number
     connected?: boolean
+    connection_error?: GLib.Variant
     interface?: string
     ip_timeout?: number
     ip4_config?: GLib.Variant
     ip6_config?: GLib.Variant
+    multiplexed?: boolean
+    profile_id?: number
     properties?: GLib.Variant
+    reload_stats_supported?: boolean
     stats?: GLib.Variant
     suspended?: boolean
 }
@@ -1940,11 +2435,15 @@ export class Bearer {
     /* Properties of ModemManager-1.0.ModemManager.GdbusBearer */
     bearer_type: number
     connected: boolean
+    connection_error: GLib.Variant
     interface: string
     ip_timeout: number
     ip4_config: GLib.Variant
     ip6_config: GLib.Variant
+    multiplexed: boolean
+    profile_id: number
     properties: GLib.Variant
+    reload_stats_supported: boolean
     stats: GLib.Variant
     suspended: boolean
     /* Fields of GObject-2.0.GObject.Object */
@@ -1960,14 +2459,19 @@ export class Bearer {
     dup_path(): string
     get_bearer_type(): BearerType
     get_connected(): boolean
+    get_connection_error(): GLib.Error
     get_interface(): string
     get_ip_timeout(): number
     get_ipv4_config(): BearerIpConfig
     get_ipv6_config(): BearerIpConfig
+    get_multiplexed(): boolean
     get_path(): string
+    get_profile_id(): number
     get_properties(): BearerProperties
+    get_reload_stats_supported(): boolean
     get_stats(): BearerStats
     get_suspended(): boolean
+    peek_connection_error(): GLib.Error
     peek_ipv4_config(): BearerIpConfig
     peek_ipv6_config(): BearerIpConfig
     peek_properties(): BearerProperties
@@ -1986,7 +2490,7 @@ export class Bearer {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -2081,6 +2585,8 @@ export class Bearer {
     connect_after(sigName: "notify::bearer-type", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::connected", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::connected", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::connection-error", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::connection-error", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::interface", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::interface", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ip-timeout", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
@@ -2089,8 +2595,14 @@ export class Bearer {
     connect_after(sigName: "notify::ip4-config", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ip6-config", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ip6-config", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::multiplexed", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::multiplexed", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::profile-id", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::profile-id", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::properties", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::properties", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::reload-stats-supported", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::reload-stats-supported", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::stats", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::stats", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::suspended", callback: (($obj: Bearer, pspec: GObject.ParamSpec) => void)): number
@@ -2175,17 +2687,25 @@ export class BearerProperties {
     get_allow_roaming(): boolean
     get_allowed_auth(): BearerAllowedAuth
     get_apn(): string
+    get_apn_type(): BearerApnType
     get_ip_type(): BearerIpFamily
+    get_multiplex(): BearerMultiplexSupport
     get_number(): string
     get_password(): string
+    get_profile_id(): number
+    get_profile_name(): string
     get_rm_protocol(): ModemCdmaRmProtocol
     get_user(): string
     set_allow_roaming(allow_roaming: boolean): void
     set_allowed_auth(allowed_auth: BearerAllowedAuth): void
     set_apn(apn: string): void
+    set_apn_type(apn_type: BearerApnType): void
     set_ip_type(ip_type: BearerIpFamily): void
+    set_multiplex(multiplex: BearerMultiplexSupport): void
     set_number(number: string): void
     set_password(password: string): void
+    set_profile_id(profile_id: number): void
+    set_profile_name(profile_name: string): void
     set_rm_protocol(protocol: ModemCdmaRmProtocol): void
     set_user(user: string): void
     /* Methods of GObject-2.0.GObject.Object */
@@ -2240,13 +2760,16 @@ export class BearerStats {
     g_type_instance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.BearerStats */
     get_attempts(): number
+    get_downlink_speed(): number
     get_duration(): number
     get_failed_attempts(): number
     get_rx_bytes(): number
+    get_start_date(): number
     get_total_duration(): number
     get_total_rx_bytes(): number
     get_total_tx_bytes(): number
     get_tx_bytes(): number
+    get_uplink_speed(): number
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -2290,13 +2813,28 @@ export class BearerStats {
     _init (config?: BearerStats_ConstructProps): void
     static $gtype: GObject.Type
 }
-export interface Call_ConstructProps extends Gio.DBusProxy_ConstructProps {
+export interface Call_ConstructProps extends GdbusCallProxy_ConstructProps {
+    audio_format?: GLib.Variant
+    audio_port?: string
+    direction?: number
+    multiparty?: boolean
+    number?: string
+    state?: number
+    state_reason?: number
 }
 export class Call {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     g_default_timeout: number
     g_interface_info: Gio.DBusInterfaceInfo
     readonly g_name_owner: string
+    /* Properties of ModemManager-1.0.ModemManager.GdbusCall */
+    audio_format: GLib.Variant
+    audio_port: string
+    direction: number
+    multiparty: boolean
+    number: string
+    state: number
+    state_reason: number
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.Call */
@@ -2347,7 +2885,7 @@ export class Call {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -2385,13 +2923,53 @@ export class Call {
     set_object(object?: Gio.DBusObject | null): void
     /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
-    /* Virtual methods of ModemManager-1.0.ModemManager.Call */
+    /* Methods of ModemManager-1.0.ModemManager.GdbusCall */
+    call_accept(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_accept_finish(res: Gio.AsyncResult): boolean
+    call_accept_sync(cancellable?: Gio.Cancellable | null): boolean
+    call_deflect(arg_number: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_deflect_finish(res: Gio.AsyncResult): boolean
+    call_deflect_sync(arg_number: string, cancellable?: Gio.Cancellable | null): boolean
+    call_hangup(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_hangup_finish(res: Gio.AsyncResult): boolean
+    call_hangup_sync(cancellable?: Gio.Cancellable | null): boolean
+    call_join_multiparty(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_join_multiparty_finish(res: Gio.AsyncResult): boolean
+    call_join_multiparty_sync(cancellable?: Gio.Cancellable | null): boolean
+    call_leave_multiparty(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_leave_multiparty_finish(res: Gio.AsyncResult): boolean
+    call_leave_multiparty_sync(cancellable?: Gio.Cancellable | null): boolean
+    call_send_dtmf(arg_dtmf: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_send_dtmf_finish(res: Gio.AsyncResult): boolean
+    call_send_dtmf_sync(arg_dtmf: string, cancellable?: Gio.Cancellable | null): boolean
+    call_start(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_start_finish(res: Gio.AsyncResult): boolean
+    call_start_sync(cancellable?: Gio.Cancellable | null): boolean
+    complete_accept(invocation: Gio.DBusMethodInvocation): void
+    complete_deflect(invocation: Gio.DBusMethodInvocation): void
+    complete_hangup(invocation: Gio.DBusMethodInvocation): void
+    complete_join_multiparty(invocation: Gio.DBusMethodInvocation): void
+    complete_leave_multiparty(invocation: Gio.DBusMethodInvocation): void
+    complete_send_dtmf(invocation: Gio.DBusMethodInvocation): void
+    complete_start(invocation: Gio.DBusMethodInvocation): void
+    emit_dtmf_received(arg_dtmf: string): void
+    emit_state_changed(arg_old: number, arg_new: number, arg_reason: number): void
+    /* Virtual methods of ModemManager-1.0.ModemManager.GdbusCallProxy */
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
     vfunc_dup_object(): Gio.DBusObject | null
     vfunc_get_info(): Gio.DBusInterfaceInfo
     vfunc_set_object(object?: Gio.DBusObject | null): void
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
+    vfunc_dtmf_received(arg_dtmf: string): void
+    vfunc_handle_accept(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_handle_deflect(invocation: Gio.DBusMethodInvocation, arg_number: string): boolean
+    vfunc_handle_hangup(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_handle_join_multiparty(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_handle_leave_multiparty(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_handle_send_dtmf(invocation: Gio.DBusMethodInvocation, arg_dtmf: string): boolean
+    vfunc_handle_start(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_state_changed(arg_old: number, arg_new: number, arg_reason: number): void
     /* Virtual methods of Gio-2.0.Gio.DBusProxy */
     vfunc_g_properties_changed(changed_properties: GLib.Variant, invalidated_properties: string): void
     vfunc_g_signal(sender_name: string, signal_name: string, parameters: GLib.Variant): void
@@ -2414,12 +2992,54 @@ export class Call {
     connect(sigName: "notify", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    /* Signals of ModemManager-1.0.ModemManager.GdbusCall */
+    connect(sigName: "dtmf-received", callback: (($obj: Call, arg_dtmf: string) => void)): number
+    connect_after(sigName: "dtmf-received", callback: (($obj: Call, arg_dtmf: string) => void)): number
+    emit(sigName: "dtmf-received", arg_dtmf: string): void
+    connect(sigName: "handle-accept", callback: (($obj: Call, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "handle-accept", callback: (($obj: Call, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "handle-accept", invocation: Gio.DBusMethodInvocation): void
+    connect(sigName: "handle-deflect", callback: (($obj: Call, invocation: Gio.DBusMethodInvocation, arg_number: string) => boolean)): number
+    connect_after(sigName: "handle-deflect", callback: (($obj: Call, invocation: Gio.DBusMethodInvocation, arg_number: string) => boolean)): number
+    emit(sigName: "handle-deflect", invocation: Gio.DBusMethodInvocation, arg_number: string): void
+    connect(sigName: "handle-hangup", callback: (($obj: Call, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "handle-hangup", callback: (($obj: Call, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "handle-hangup", invocation: Gio.DBusMethodInvocation): void
+    connect(sigName: "handle-join-multiparty", callback: (($obj: Call, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "handle-join-multiparty", callback: (($obj: Call, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "handle-join-multiparty", invocation: Gio.DBusMethodInvocation): void
+    connect(sigName: "handle-leave-multiparty", callback: (($obj: Call, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "handle-leave-multiparty", callback: (($obj: Call, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "handle-leave-multiparty", invocation: Gio.DBusMethodInvocation): void
+    connect(sigName: "handle-send-dtmf", callback: (($obj: Call, invocation: Gio.DBusMethodInvocation, arg_dtmf: string) => boolean)): number
+    connect_after(sigName: "handle-send-dtmf", callback: (($obj: Call, invocation: Gio.DBusMethodInvocation, arg_dtmf: string) => boolean)): number
+    emit(sigName: "handle-send-dtmf", invocation: Gio.DBusMethodInvocation, arg_dtmf: string): void
+    connect(sigName: "handle-start", callback: (($obj: Call, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "handle-start", callback: (($obj: Call, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "handle-start", invocation: Gio.DBusMethodInvocation): void
+    connect(sigName: "state-changed", callback: (($obj: Call, arg_old: number, arg_new: number, arg_reason: number) => void)): number
+    connect_after(sigName: "state-changed", callback: (($obj: Call, arg_old: number, arg_new: number, arg_reason: number) => void)): number
+    emit(sigName: "state-changed", arg_old: number, arg_new: number, arg_reason: number): void
     connect(sigName: "notify::g-default-timeout", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::g-interface-info", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-interface-info", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::g-name-owner", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-name-owner", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::audio-format", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::audio-format", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::audio-port", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::audio-port", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::direction", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::direction", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::multiparty", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::multiparty", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::number", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::number", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::state", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::state", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::state-reason", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::state-reason", callback: (($obj: Call, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2428,8 +3048,12 @@ export class Call {
     constructor (config?: Call_ConstructProps)
     _init (config?: Call_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static newv_async(object_type: GObject.Type, n_parameters: number, parameters: GObject.Parameter, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    static newv(object_type: GObject.Type, parameters: GObject.Parameter[], cancellable?: Gio.Cancellable | null): GObject.Object
+    static new_for_bus_sync(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, name: string, object_path: string, cancellable?: Gio.Cancellable | null): Call
+    static new_for_bus_sync(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string, object_path: string, interface_name: string, cancellable?: Gio.Cancellable | null): Call
+    static new_sync(connection: Gio.DBusConnection, flags: Gio.DBusProxyFlags, name: string | null, object_path: string, cancellable?: Gio.Cancellable | null): Call
+    static new_sync(connection: Gio.DBusConnection, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string | null, object_path: string, interface_name: string, cancellable?: Gio.Cancellable | null): Call
+    static new_for_bus(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, name: string, object_path: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    static new_for_bus(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string, object_path: string, interface_name: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     static $gtype: GObject.Type
 }
 export interface CallAudioFormat_ConstructProps extends GObject.Object_ConstructProps {
@@ -2735,11 +3359,15 @@ export class FirmwareUpdateSettings {
 export interface GdbusBearerProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
     bearer_type?: number
     connected?: boolean
+    connection_error?: GLib.Variant
     interface?: string
     ip_timeout?: number
     ip4_config?: GLib.Variant
     ip6_config?: GLib.Variant
+    multiplexed?: boolean
+    profile_id?: number
     properties?: GLib.Variant
+    reload_stats_supported?: boolean
     stats?: GLib.Variant
     suspended?: boolean
 }
@@ -2751,11 +3379,15 @@ export class GdbusBearerProxy {
     /* Properties of ModemManager-1.0.ModemManager.GdbusBearer */
     bearer_type: number
     connected: boolean
+    connection_error: GLib.Variant
     interface: string
     ip_timeout: number
     ip4_config: GLib.Variant
     ip6_config: GLib.Variant
+    multiplexed: boolean
+    profile_id: number
     properties: GLib.Variant
+    reload_stats_supported: boolean
     stats: GLib.Variant
     suspended: boolean
     /* Fields of GObject-2.0.GObject.Object */
@@ -2774,7 +3406,7 @@ export class GdbusBearerProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -2869,6 +3501,8 @@ export class GdbusBearerProxy {
     connect_after(sigName: "notify::bearer-type", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::connected", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::connected", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::connection-error", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::connection-error", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::interface", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::interface", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ip-timeout", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
@@ -2877,8 +3511,14 @@ export class GdbusBearerProxy {
     connect_after(sigName: "notify::ip4-config", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ip6-config", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ip6-config", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::multiplexed", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::multiplexed", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::profile-id", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::profile-id", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::properties", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::properties", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::reload-stats-supported", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::reload-stats-supported", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::stats", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::stats", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::suspended", callback: (($obj: GdbusBearerProxy, pspec: GObject.ParamSpec) => void)): number
@@ -2908,11 +3548,15 @@ export class GdbusBearerProxy {
 export interface GdbusBearerSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
     bearer_type?: number
     connected?: boolean
+    connection_error?: GLib.Variant
     interface?: string
     ip_timeout?: number
     ip4_config?: GLib.Variant
     ip6_config?: GLib.Variant
+    multiplexed?: boolean
+    profile_id?: number
     properties?: GLib.Variant
+    reload_stats_supported?: boolean
     stats?: GLib.Variant
     suspended?: boolean
 }
@@ -2922,11 +3566,15 @@ export class GdbusBearerSkeleton {
     /* Properties of ModemManager-1.0.ModemManager.GdbusBearer */
     bearer_type: number
     connected: boolean
+    connection_error: GLib.Variant
     interface: string
     ip_timeout: number
     ip4_config: GLib.Variant
     ip6_config: GLib.Variant
+    multiplexed: boolean
+    profile_id: number
     properties: GLib.Variant
+    reload_stats_supported: boolean
     stats: GLib.Variant
     suspended: boolean
     /* Fields of GObject-2.0.GObject.Object */
@@ -3018,6 +3666,8 @@ export class GdbusBearerSkeleton {
     connect_after(sigName: "notify::bearer-type", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::connected", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::connected", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::connection-error", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::connection-error", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::interface", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::interface", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ip-timeout", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
@@ -3026,8 +3676,14 @@ export class GdbusBearerSkeleton {
     connect_after(sigName: "notify::ip4-config", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ip6-config", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ip6-config", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::multiplexed", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::multiplexed", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::profile-id", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::profile-id", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::properties", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::properties", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::reload-stats-supported", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::reload-stats-supported", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::stats", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::stats", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::suspended", callback: (($obj: GdbusBearerSkeleton, pspec: GObject.ParamSpec) => void)): number
@@ -3045,6 +3701,668 @@ export class GdbusBearerSkeleton {
     static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
     static $gtype: GObject.Type
 }
+export interface GdbusCallProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
+    audio_format?: GLib.Variant
+    audio_port?: string
+    direction?: number
+    multiparty?: boolean
+    number?: string
+    state?: number
+    state_reason?: number
+}
+export class GdbusCallProxy {
+    /* Properties of Gio-2.0.Gio.DBusProxy */
+    g_default_timeout: number
+    g_interface_info: Gio.DBusInterfaceInfo
+    readonly g_name_owner: string
+    /* Properties of ModemManager-1.0.ModemManager.GdbusCall */
+    audio_format: GLib.Variant
+    audio_port: string
+    direction: number
+    multiparty: boolean
+    number: string
+    state: number
+    state_reason: number
+    /* Fields of GObject-2.0.GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of Gio-2.0.Gio.DBusProxy */
+    call(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_finish(res: Gio.AsyncResult): GLib.Variant
+    call_sync(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
+    call_with_unix_fd_list(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, fd_list?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_with_unix_fd_list_finish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* out_fd_list */ Gio.UnixFDList | null ]
+    call_with_unix_fd_list_sync(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, fd_list?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* out_fd_list */ Gio.UnixFDList | null ]
+    get_cached_property(property_name: string): GLib.Variant | null
+    get_cached_property_names(): string[] | null
+    get_connection(): Gio.DBusConnection
+    get_default_timeout(): number
+    get_flags(): Gio.DBusProxyFlags
+    get_interface_info(): Gio.DBusInterfaceInfo | null
+    get_interface_name(): string
+    get_name(): string | null
+    get_name_owner(): string | null
+    get_object_path(): string
+    set_cached_property(property_name: string, value?: GLib.Variant | null): void
+    set_default_timeout(timeout_msec: number): void
+    set_interface_info(info?: Gio.DBusInterfaceInfo | null): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: any): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: any): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: Function): void
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
+    init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    init_finish(res: Gio.AsyncResult): boolean
+    new_finish(res: Gio.AsyncResult): GObject.Object
+    /* Methods of Gio-2.0.Gio.DBusInterface */
+    get_object(): Gio.DBusObject | null
+    get_info(): Gio.DBusInterfaceInfo
+    set_object(object?: Gio.DBusObject | null): void
+    /* Methods of Gio-2.0.Gio.Initable */
+    init(cancellable?: Gio.Cancellable | null): boolean
+    /* Methods of ModemManager-1.0.ModemManager.GdbusCall */
+    call_accept(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_accept_finish(res: Gio.AsyncResult): boolean
+    call_accept_sync(cancellable?: Gio.Cancellable | null): boolean
+    call_deflect(arg_number: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_deflect_finish(res: Gio.AsyncResult): boolean
+    call_deflect_sync(arg_number: string, cancellable?: Gio.Cancellable | null): boolean
+    call_hangup(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_hangup_finish(res: Gio.AsyncResult): boolean
+    call_hangup_sync(cancellable?: Gio.Cancellable | null): boolean
+    call_join_multiparty(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_join_multiparty_finish(res: Gio.AsyncResult): boolean
+    call_join_multiparty_sync(cancellable?: Gio.Cancellable | null): boolean
+    call_leave_multiparty(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_leave_multiparty_finish(res: Gio.AsyncResult): boolean
+    call_leave_multiparty_sync(cancellable?: Gio.Cancellable | null): boolean
+    call_send_dtmf(arg_dtmf: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_send_dtmf_finish(res: Gio.AsyncResult): boolean
+    call_send_dtmf_sync(arg_dtmf: string, cancellable?: Gio.Cancellable | null): boolean
+    call_start(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_start_finish(res: Gio.AsyncResult): boolean
+    call_start_sync(cancellable?: Gio.Cancellable | null): boolean
+    complete_accept(invocation: Gio.DBusMethodInvocation): void
+    complete_deflect(invocation: Gio.DBusMethodInvocation): void
+    complete_hangup(invocation: Gio.DBusMethodInvocation): void
+    complete_join_multiparty(invocation: Gio.DBusMethodInvocation): void
+    complete_leave_multiparty(invocation: Gio.DBusMethodInvocation): void
+    complete_send_dtmf(invocation: Gio.DBusMethodInvocation): void
+    complete_start(invocation: Gio.DBusMethodInvocation): void
+    emit_dtmf_received(arg_dtmf: string): void
+    emit_state_changed(arg_old: number, arg_new: number, arg_reason: number): void
+    /* Virtual methods of ModemManager-1.0.ModemManager.GdbusCallProxy */
+    vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfunc_init_finish(res: Gio.AsyncResult): boolean
+    vfunc_dup_object(): Gio.DBusObject | null
+    vfunc_get_info(): Gio.DBusInterfaceInfo
+    vfunc_set_object(object?: Gio.DBusObject | null): void
+    vfunc_init(cancellable?: Gio.Cancellable | null): boolean
+    vfunc_dtmf_received(arg_dtmf: string): void
+    vfunc_handle_accept(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_handle_deflect(invocation: Gio.DBusMethodInvocation, arg_number: string): boolean
+    vfunc_handle_hangup(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_handle_join_multiparty(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_handle_leave_multiparty(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_handle_send_dtmf(invocation: Gio.DBusMethodInvocation, arg_dtmf: string): boolean
+    vfunc_handle_start(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_state_changed(arg_old: number, arg_new: number, arg_reason: number): void
+    /* Virtual methods of Gio-2.0.Gio.DBusProxy */
+    vfunc_g_properties_changed(changed_properties: GLib.Variant, invalidated_properties: string): void
+    vfunc_g_signal(sender_name: string, signal_name: string, parameters: GLib.Variant): void
+    /* Virtual methods of GObject-2.0.GObject.Object */
+    vfunc_constructed(): void
+    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose(): void
+    vfunc_finalize(): void
+    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    /* Signals of Gio-2.0.Gio.DBusProxy */
+    connect(sigName: "g-properties-changed", callback: (($obj: GdbusCallProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): number
+    connect_after(sigName: "g-properties-changed", callback: (($obj: GdbusCallProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): number
+    emit(sigName: "g-properties-changed", changed_properties: GLib.Variant, invalidated_properties: string[]): void
+    connect(sigName: "g-signal", callback: (($obj: GdbusCallProxy, sender_name: string | null, signal_name: string, parameters: GLib.Variant) => void)): number
+    connect_after(sigName: "g-signal", callback: (($obj: GdbusCallProxy, sender_name: string | null, signal_name: string, parameters: GLib.Variant) => void)): number
+    emit(sigName: "g-signal", sender_name: string | null, signal_name: string, parameters: GLib.Variant): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: GdbusCallProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: GdbusCallProxy, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    /* Signals of ModemManager-1.0.ModemManager.GdbusCall */
+    connect(sigName: "dtmf-received", callback: (($obj: GdbusCallProxy, arg_dtmf: string) => void)): number
+    connect_after(sigName: "dtmf-received", callback: (($obj: GdbusCallProxy, arg_dtmf: string) => void)): number
+    emit(sigName: "dtmf-received", arg_dtmf: string): void
+    connect(sigName: "handle-accept", callback: (($obj: GdbusCallProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "handle-accept", callback: (($obj: GdbusCallProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "handle-accept", invocation: Gio.DBusMethodInvocation): void
+    connect(sigName: "handle-deflect", callback: (($obj: GdbusCallProxy, invocation: Gio.DBusMethodInvocation, arg_number: string) => boolean)): number
+    connect_after(sigName: "handle-deflect", callback: (($obj: GdbusCallProxy, invocation: Gio.DBusMethodInvocation, arg_number: string) => boolean)): number
+    emit(sigName: "handle-deflect", invocation: Gio.DBusMethodInvocation, arg_number: string): void
+    connect(sigName: "handle-hangup", callback: (($obj: GdbusCallProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "handle-hangup", callback: (($obj: GdbusCallProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "handle-hangup", invocation: Gio.DBusMethodInvocation): void
+    connect(sigName: "handle-join-multiparty", callback: (($obj: GdbusCallProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "handle-join-multiparty", callback: (($obj: GdbusCallProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "handle-join-multiparty", invocation: Gio.DBusMethodInvocation): void
+    connect(sigName: "handle-leave-multiparty", callback: (($obj: GdbusCallProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "handle-leave-multiparty", callback: (($obj: GdbusCallProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "handle-leave-multiparty", invocation: Gio.DBusMethodInvocation): void
+    connect(sigName: "handle-send-dtmf", callback: (($obj: GdbusCallProxy, invocation: Gio.DBusMethodInvocation, arg_dtmf: string) => boolean)): number
+    connect_after(sigName: "handle-send-dtmf", callback: (($obj: GdbusCallProxy, invocation: Gio.DBusMethodInvocation, arg_dtmf: string) => boolean)): number
+    emit(sigName: "handle-send-dtmf", invocation: Gio.DBusMethodInvocation, arg_dtmf: string): void
+    connect(sigName: "handle-start", callback: (($obj: GdbusCallProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "handle-start", callback: (($obj: GdbusCallProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "handle-start", invocation: Gio.DBusMethodInvocation): void
+    connect(sigName: "state-changed", callback: (($obj: GdbusCallProxy, arg_old: number, arg_new: number, arg_reason: number) => void)): number
+    connect_after(sigName: "state-changed", callback: (($obj: GdbusCallProxy, arg_old: number, arg_new: number, arg_reason: number) => void)): number
+    emit(sigName: "state-changed", arg_old: number, arg_new: number, arg_reason: number): void
+    connect(sigName: "notify::g-default-timeout", callback: (($obj: GdbusCallProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::g-default-timeout", callback: (($obj: GdbusCallProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::g-interface-info", callback: (($obj: GdbusCallProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::g-interface-info", callback: (($obj: GdbusCallProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::g-name-owner", callback: (($obj: GdbusCallProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::g-name-owner", callback: (($obj: GdbusCallProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::audio-format", callback: (($obj: GdbusCallProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::audio-format", callback: (($obj: GdbusCallProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::audio-port", callback: (($obj: GdbusCallProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::audio-port", callback: (($obj: GdbusCallProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::direction", callback: (($obj: GdbusCallProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::direction", callback: (($obj: GdbusCallProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::multiparty", callback: (($obj: GdbusCallProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::multiparty", callback: (($obj: GdbusCallProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::number", callback: (($obj: GdbusCallProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::number", callback: (($obj: GdbusCallProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::state", callback: (($obj: GdbusCallProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::state", callback: (($obj: GdbusCallProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::state-reason", callback: (($obj: GdbusCallProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::state-reason", callback: (($obj: GdbusCallProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    static name: string
+    constructor (config?: GdbusCallProxy_ConstructProps)
+    _init (config?: GdbusCallProxy_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new_finish(res: Gio.AsyncResult): GdbusCallProxy
+    static new_for_bus_finish(res: Gio.AsyncResult): GdbusCallProxy
+    static new_for_bus_sync(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, name: string, object_path: string, cancellable?: Gio.Cancellable | null): GdbusCallProxy
+    static new_for_bus_sync(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string, object_path: string, interface_name: string, cancellable?: Gio.Cancellable | null): GdbusCallProxy
+    static new_sync(connection: Gio.DBusConnection, flags: Gio.DBusProxyFlags, name: string | null, object_path: string, cancellable?: Gio.Cancellable | null): GdbusCallProxy
+    static new_sync(connection: Gio.DBusConnection, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string | null, object_path: string, interface_name: string, cancellable?: Gio.Cancellable | null): GdbusCallProxy
+    static new_for_bus(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, name: string, object_path: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    static new_for_bus(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string, object_path: string, interface_name: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    static newv_async(object_type: GObject.Type, n_parameters: number, parameters: GObject.Parameter, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    static newv(object_type: GObject.Type, parameters: GObject.Parameter[], cancellable?: Gio.Cancellable | null): GObject.Object
+    static interface_info(): Gio.DBusInterfaceInfo
+    static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
+    static $gtype: GObject.Type
+}
+export interface GdbusCallSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
+    audio_format?: GLib.Variant
+    audio_port?: string
+    direction?: number
+    multiparty?: boolean
+    number?: string
+    state?: number
+    state_reason?: number
+}
+export class GdbusCallSkeleton {
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
+    g_flags: Gio.DBusInterfaceSkeletonFlags
+    /* Properties of ModemManager-1.0.ModemManager.GdbusCall */
+    audio_format: GLib.Variant
+    audio_port: string
+    direction: number
+    multiparty: boolean
+    number: string
+    state: number
+    state_reason: number
+    /* Fields of GObject-2.0.GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
+    export(connection: Gio.DBusConnection, object_path: string): boolean
+    flush(): void
+    get_connection(): Gio.DBusConnection | null
+    get_connections(): Gio.DBusConnection[]
+    get_flags(): Gio.DBusInterfaceSkeletonFlags
+    get_info(): Gio.DBusInterfaceInfo
+    get_object_path(): string | null
+    get_properties(): GLib.Variant
+    has_connection(connection: Gio.DBusConnection): boolean
+    set_flags(flags: Gio.DBusInterfaceSkeletonFlags): void
+    unexport(): void
+    unexport_from_connection(connection: Gio.DBusConnection): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: any): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: any): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: Function): void
+    /* Methods of Gio-2.0.Gio.DBusInterface */
+    get_object(): Gio.DBusObject | null
+    set_object(object?: Gio.DBusObject | null): void
+    /* Methods of ModemManager-1.0.ModemManager.GdbusCall */
+    call_accept(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_accept_finish(res: Gio.AsyncResult): boolean
+    call_accept_sync(cancellable?: Gio.Cancellable | null): boolean
+    call_deflect(arg_number: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_deflect_finish(res: Gio.AsyncResult): boolean
+    call_deflect_sync(arg_number: string, cancellable?: Gio.Cancellable | null): boolean
+    call_hangup(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_hangup_finish(res: Gio.AsyncResult): boolean
+    call_hangup_sync(cancellable?: Gio.Cancellable | null): boolean
+    call_join_multiparty(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_join_multiparty_finish(res: Gio.AsyncResult): boolean
+    call_join_multiparty_sync(cancellable?: Gio.Cancellable | null): boolean
+    call_leave_multiparty(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_leave_multiparty_finish(res: Gio.AsyncResult): boolean
+    call_leave_multiparty_sync(cancellable?: Gio.Cancellable | null): boolean
+    call_send_dtmf(arg_dtmf: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_send_dtmf_finish(res: Gio.AsyncResult): boolean
+    call_send_dtmf_sync(arg_dtmf: string, cancellable?: Gio.Cancellable | null): boolean
+    call_start(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_start_finish(res: Gio.AsyncResult): boolean
+    call_start_sync(cancellable?: Gio.Cancellable | null): boolean
+    complete_accept(invocation: Gio.DBusMethodInvocation): void
+    complete_deflect(invocation: Gio.DBusMethodInvocation): void
+    complete_hangup(invocation: Gio.DBusMethodInvocation): void
+    complete_join_multiparty(invocation: Gio.DBusMethodInvocation): void
+    complete_leave_multiparty(invocation: Gio.DBusMethodInvocation): void
+    complete_send_dtmf(invocation: Gio.DBusMethodInvocation): void
+    complete_start(invocation: Gio.DBusMethodInvocation): void
+    emit_dtmf_received(arg_dtmf: string): void
+    emit_state_changed(arg_old: number, arg_new: number, arg_reason: number): void
+    /* Virtual methods of ModemManager-1.0.ModemManager.GdbusCallSkeleton */
+    vfunc_dup_object(): Gio.DBusObject | null
+    vfunc_get_info(): Gio.DBusInterfaceInfo
+    vfunc_set_object(object?: Gio.DBusObject | null): void
+    vfunc_dtmf_received(arg_dtmf: string): void
+    vfunc_handle_accept(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_handle_deflect(invocation: Gio.DBusMethodInvocation, arg_number: string): boolean
+    vfunc_handle_hangup(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_handle_join_multiparty(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_handle_leave_multiparty(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_handle_send_dtmf(invocation: Gio.DBusMethodInvocation, arg_dtmf: string): boolean
+    vfunc_handle_start(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_state_changed(arg_old: number, arg_new: number, arg_reason: number): void
+    /* Virtual methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
+    vfunc_flush(): void
+    vfunc_g_authorize_method(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_get_info(): Gio.DBusInterfaceInfo
+    vfunc_get_properties(): GLib.Variant
+    /* Virtual methods of GObject-2.0.GObject.Object */
+    vfunc_constructed(): void
+    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose(): void
+    vfunc_finalize(): void
+    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
+    connect(sigName: "g-authorize-method", callback: (($obj: GdbusCallSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "g-authorize-method", callback: (($obj: GdbusCallSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: GdbusCallSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: GdbusCallSkeleton, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    /* Signals of ModemManager-1.0.ModemManager.GdbusCall */
+    connect(sigName: "dtmf-received", callback: (($obj: GdbusCallSkeleton, arg_dtmf: string) => void)): number
+    connect_after(sigName: "dtmf-received", callback: (($obj: GdbusCallSkeleton, arg_dtmf: string) => void)): number
+    emit(sigName: "dtmf-received", arg_dtmf: string): void
+    connect(sigName: "handle-accept", callback: (($obj: GdbusCallSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "handle-accept", callback: (($obj: GdbusCallSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "handle-accept", invocation: Gio.DBusMethodInvocation): void
+    connect(sigName: "handle-deflect", callback: (($obj: GdbusCallSkeleton, invocation: Gio.DBusMethodInvocation, arg_number: string) => boolean)): number
+    connect_after(sigName: "handle-deflect", callback: (($obj: GdbusCallSkeleton, invocation: Gio.DBusMethodInvocation, arg_number: string) => boolean)): number
+    emit(sigName: "handle-deflect", invocation: Gio.DBusMethodInvocation, arg_number: string): void
+    connect(sigName: "handle-hangup", callback: (($obj: GdbusCallSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "handle-hangup", callback: (($obj: GdbusCallSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "handle-hangup", invocation: Gio.DBusMethodInvocation): void
+    connect(sigName: "handle-join-multiparty", callback: (($obj: GdbusCallSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "handle-join-multiparty", callback: (($obj: GdbusCallSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "handle-join-multiparty", invocation: Gio.DBusMethodInvocation): void
+    connect(sigName: "handle-leave-multiparty", callback: (($obj: GdbusCallSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "handle-leave-multiparty", callback: (($obj: GdbusCallSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "handle-leave-multiparty", invocation: Gio.DBusMethodInvocation): void
+    connect(sigName: "handle-send-dtmf", callback: (($obj: GdbusCallSkeleton, invocation: Gio.DBusMethodInvocation, arg_dtmf: string) => boolean)): number
+    connect_after(sigName: "handle-send-dtmf", callback: (($obj: GdbusCallSkeleton, invocation: Gio.DBusMethodInvocation, arg_dtmf: string) => boolean)): number
+    emit(sigName: "handle-send-dtmf", invocation: Gio.DBusMethodInvocation, arg_dtmf: string): void
+    connect(sigName: "handle-start", callback: (($obj: GdbusCallSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "handle-start", callback: (($obj: GdbusCallSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "handle-start", invocation: Gio.DBusMethodInvocation): void
+    connect(sigName: "state-changed", callback: (($obj: GdbusCallSkeleton, arg_old: number, arg_new: number, arg_reason: number) => void)): number
+    connect_after(sigName: "state-changed", callback: (($obj: GdbusCallSkeleton, arg_old: number, arg_new: number, arg_reason: number) => void)): number
+    emit(sigName: "state-changed", arg_old: number, arg_new: number, arg_reason: number): void
+    connect(sigName: "notify::g-flags", callback: (($obj: GdbusCallSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::g-flags", callback: (($obj: GdbusCallSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::audio-format", callback: (($obj: GdbusCallSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::audio-format", callback: (($obj: GdbusCallSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::audio-port", callback: (($obj: GdbusCallSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::audio-port", callback: (($obj: GdbusCallSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::direction", callback: (($obj: GdbusCallSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::direction", callback: (($obj: GdbusCallSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::multiparty", callback: (($obj: GdbusCallSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::multiparty", callback: (($obj: GdbusCallSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::number", callback: (($obj: GdbusCallSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::number", callback: (($obj: GdbusCallSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::state", callback: (($obj: GdbusCallSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::state", callback: (($obj: GdbusCallSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::state-reason", callback: (($obj: GdbusCallSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::state-reason", callback: (($obj: GdbusCallSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    static name: string
+    constructor (config?: GdbusCallSkeleton_ConstructProps)
+    _init (config?: GdbusCallSkeleton_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): GdbusCallSkeleton
+    static interface_info(): Gio.DBusInterfaceInfo
+    static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
+    static $gtype: GObject.Type
+}
+export interface GdbusModem3gppProfileManagerProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
+}
+export class GdbusModem3gppProfileManagerProxy {
+    /* Properties of Gio-2.0.Gio.DBusProxy */
+    g_default_timeout: number
+    g_interface_info: Gio.DBusInterfaceInfo
+    readonly g_name_owner: string
+    /* Fields of GObject-2.0.GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of Gio-2.0.Gio.DBusProxy */
+    call(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_finish(res: Gio.AsyncResult): GLib.Variant
+    call_sync(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
+    call_with_unix_fd_list(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, fd_list?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_with_unix_fd_list_finish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* out_fd_list */ Gio.UnixFDList | null ]
+    call_with_unix_fd_list_sync(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, fd_list?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* out_fd_list */ Gio.UnixFDList | null ]
+    get_cached_property(property_name: string): GLib.Variant | null
+    get_cached_property_names(): string[] | null
+    get_connection(): Gio.DBusConnection
+    get_default_timeout(): number
+    get_flags(): Gio.DBusProxyFlags
+    get_interface_info(): Gio.DBusInterfaceInfo | null
+    get_interface_name(): string
+    get_name(): string | null
+    get_name_owner(): string | null
+    get_object_path(): string
+    set_cached_property(property_name: string, value?: GLib.Variant | null): void
+    set_default_timeout(timeout_msec: number): void
+    set_interface_info(info?: Gio.DBusInterfaceInfo | null): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: any): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: any): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: Function): void
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
+    init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    init_finish(res: Gio.AsyncResult): boolean
+    new_finish(res: Gio.AsyncResult): GObject.Object
+    /* Methods of Gio-2.0.Gio.DBusInterface */
+    get_object(): Gio.DBusObject | null
+    get_info(): Gio.DBusInterfaceInfo
+    set_object(object?: Gio.DBusObject | null): void
+    /* Methods of Gio-2.0.Gio.Initable */
+    init(cancellable?: Gio.Cancellable | null): boolean
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModem3gppProfileManager */
+    call_delete(arg_properties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_delete_finish(res: Gio.AsyncResult): boolean
+    call_delete_sync(arg_properties: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
+    call_list(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_list_finish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* out_profiles */ GLib.Variant | null ]
+    call_list_sync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_profiles */ GLib.Variant | null ]
+    call_set(arg_requested_properties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_set_finish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* out_stored_properties */ GLib.Variant | null ]
+    call_set_sync(arg_requested_properties: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_stored_properties */ GLib.Variant | null ]
+    complete_delete(invocation: Gio.DBusMethodInvocation): void
+    complete_list(invocation: Gio.DBusMethodInvocation, profiles: GLib.Variant): void
+    complete_set(invocation: Gio.DBusMethodInvocation, stored_properties: GLib.Variant): void
+    emit_updated(): void
+    /* Virtual methods of ModemManager-1.0.ModemManager.GdbusModem3gppProfileManagerProxy */
+    vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfunc_init_finish(res: Gio.AsyncResult): boolean
+    vfunc_dup_object(): Gio.DBusObject | null
+    vfunc_get_info(): Gio.DBusInterfaceInfo
+    vfunc_set_object(object?: Gio.DBusObject | null): void
+    vfunc_init(cancellable?: Gio.Cancellable | null): boolean
+    vfunc_handle_delete(invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant): boolean
+    vfunc_handle_list(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_handle_set(invocation: Gio.DBusMethodInvocation, arg_requested_properties: GLib.Variant): boolean
+    vfunc_updated(): void
+    /* Virtual methods of Gio-2.0.Gio.DBusProxy */
+    vfunc_g_properties_changed(changed_properties: GLib.Variant, invalidated_properties: string): void
+    vfunc_g_signal(sender_name: string, signal_name: string, parameters: GLib.Variant): void
+    /* Virtual methods of GObject-2.0.GObject.Object */
+    vfunc_constructed(): void
+    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose(): void
+    vfunc_finalize(): void
+    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    /* Signals of Gio-2.0.Gio.DBusProxy */
+    connect(sigName: "g-properties-changed", callback: (($obj: GdbusModem3gppProfileManagerProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): number
+    connect_after(sigName: "g-properties-changed", callback: (($obj: GdbusModem3gppProfileManagerProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): number
+    emit(sigName: "g-properties-changed", changed_properties: GLib.Variant, invalidated_properties: string[]): void
+    connect(sigName: "g-signal", callback: (($obj: GdbusModem3gppProfileManagerProxy, sender_name: string | null, signal_name: string, parameters: GLib.Variant) => void)): number
+    connect_after(sigName: "g-signal", callback: (($obj: GdbusModem3gppProfileManagerProxy, sender_name: string | null, signal_name: string, parameters: GLib.Variant) => void)): number
+    emit(sigName: "g-signal", sender_name: string | null, signal_name: string, parameters: GLib.Variant): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: GdbusModem3gppProfileManagerProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: GdbusModem3gppProfileManagerProxy, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModem3gppProfileManager */
+    connect(sigName: "handle-delete", callback: (($obj: GdbusModem3gppProfileManagerProxy, invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant) => boolean)): number
+    connect_after(sigName: "handle-delete", callback: (($obj: GdbusModem3gppProfileManagerProxy, invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant) => boolean)): number
+    emit(sigName: "handle-delete", invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant): void
+    connect(sigName: "handle-list", callback: (($obj: GdbusModem3gppProfileManagerProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "handle-list", callback: (($obj: GdbusModem3gppProfileManagerProxy, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "handle-list", invocation: Gio.DBusMethodInvocation): void
+    connect(sigName: "handle-set", callback: (($obj: GdbusModem3gppProfileManagerProxy, invocation: Gio.DBusMethodInvocation, arg_requested_properties: GLib.Variant) => boolean)): number
+    connect_after(sigName: "handle-set", callback: (($obj: GdbusModem3gppProfileManagerProxy, invocation: Gio.DBusMethodInvocation, arg_requested_properties: GLib.Variant) => boolean)): number
+    emit(sigName: "handle-set", invocation: Gio.DBusMethodInvocation, arg_requested_properties: GLib.Variant): void
+    connect(sigName: "updated", callback: (($obj: GdbusModem3gppProfileManagerProxy) => void)): number
+    connect_after(sigName: "updated", callback: (($obj: GdbusModem3gppProfileManagerProxy) => void)): number
+    emit(sigName: "updated"): void
+    connect(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModem3gppProfileManagerProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModem3gppProfileManagerProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::g-interface-info", callback: (($obj: GdbusModem3gppProfileManagerProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::g-interface-info", callback: (($obj: GdbusModem3gppProfileManagerProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::g-name-owner", callback: (($obj: GdbusModem3gppProfileManagerProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::g-name-owner", callback: (($obj: GdbusModem3gppProfileManagerProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    static name: string
+    constructor (config?: GdbusModem3gppProfileManagerProxy_ConstructProps)
+    _init (config?: GdbusModem3gppProfileManagerProxy_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new_finish(res: Gio.AsyncResult): GdbusModem3gppProfileManagerProxy
+    static new_for_bus_finish(res: Gio.AsyncResult): GdbusModem3gppProfileManagerProxy
+    static new_for_bus_sync(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, name: string, object_path: string, cancellable?: Gio.Cancellable | null): GdbusModem3gppProfileManagerProxy
+    static new_for_bus_sync(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string, object_path: string, interface_name: string, cancellable?: Gio.Cancellable | null): GdbusModem3gppProfileManagerProxy
+    static new_sync(connection: Gio.DBusConnection, flags: Gio.DBusProxyFlags, name: string | null, object_path: string, cancellable?: Gio.Cancellable | null): GdbusModem3gppProfileManagerProxy
+    static new_sync(connection: Gio.DBusConnection, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string | null, object_path: string, interface_name: string, cancellable?: Gio.Cancellable | null): GdbusModem3gppProfileManagerProxy
+    static new_for_bus(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, name: string, object_path: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    static new_for_bus(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string, object_path: string, interface_name: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    static newv_async(object_type: GObject.Type, n_parameters: number, parameters: GObject.Parameter, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    static newv(object_type: GObject.Type, parameters: GObject.Parameter[], cancellable?: Gio.Cancellable | null): GObject.Object
+    static interface_info(): Gio.DBusInterfaceInfo
+    static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
+    static $gtype: GObject.Type
+}
+export interface GdbusModem3gppProfileManagerSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
+}
+export class GdbusModem3gppProfileManagerSkeleton {
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
+    g_flags: Gio.DBusInterfaceSkeletonFlags
+    /* Fields of GObject-2.0.GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
+    export(connection: Gio.DBusConnection, object_path: string): boolean
+    flush(): void
+    get_connection(): Gio.DBusConnection | null
+    get_connections(): Gio.DBusConnection[]
+    get_flags(): Gio.DBusInterfaceSkeletonFlags
+    get_info(): Gio.DBusInterfaceInfo
+    get_object_path(): string | null
+    get_properties(): GLib.Variant
+    has_connection(connection: Gio.DBusConnection): boolean
+    set_flags(flags: Gio.DBusInterfaceSkeletonFlags): void
+    unexport(): void
+    unexport_from_connection(connection: Gio.DBusConnection): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: any): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: any): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: Function): void
+    /* Methods of Gio-2.0.Gio.DBusInterface */
+    get_object(): Gio.DBusObject | null
+    set_object(object?: Gio.DBusObject | null): void
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModem3gppProfileManager */
+    call_delete(arg_properties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_delete_finish(res: Gio.AsyncResult): boolean
+    call_delete_sync(arg_properties: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
+    call_list(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_list_finish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* out_profiles */ GLib.Variant | null ]
+    call_list_sync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_profiles */ GLib.Variant | null ]
+    call_set(arg_requested_properties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_set_finish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* out_stored_properties */ GLib.Variant | null ]
+    call_set_sync(arg_requested_properties: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_stored_properties */ GLib.Variant | null ]
+    complete_delete(invocation: Gio.DBusMethodInvocation): void
+    complete_list(invocation: Gio.DBusMethodInvocation, profiles: GLib.Variant): void
+    complete_set(invocation: Gio.DBusMethodInvocation, stored_properties: GLib.Variant): void
+    emit_updated(): void
+    /* Virtual methods of ModemManager-1.0.ModemManager.GdbusModem3gppProfileManagerSkeleton */
+    vfunc_dup_object(): Gio.DBusObject | null
+    vfunc_get_info(): Gio.DBusInterfaceInfo
+    vfunc_set_object(object?: Gio.DBusObject | null): void
+    vfunc_handle_delete(invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant): boolean
+    vfunc_handle_list(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_handle_set(invocation: Gio.DBusMethodInvocation, arg_requested_properties: GLib.Variant): boolean
+    vfunc_updated(): void
+    /* Virtual methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
+    vfunc_flush(): void
+    vfunc_g_authorize_method(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_get_info(): Gio.DBusInterfaceInfo
+    vfunc_get_properties(): GLib.Variant
+    /* Virtual methods of GObject-2.0.GObject.Object */
+    vfunc_constructed(): void
+    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose(): void
+    vfunc_finalize(): void
+    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
+    connect(sigName: "g-authorize-method", callback: (($obj: GdbusModem3gppProfileManagerSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "g-authorize-method", callback: (($obj: GdbusModem3gppProfileManagerSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: GdbusModem3gppProfileManagerSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: GdbusModem3gppProfileManagerSkeleton, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModem3gppProfileManager */
+    connect(sigName: "handle-delete", callback: (($obj: GdbusModem3gppProfileManagerSkeleton, invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant) => boolean)): number
+    connect_after(sigName: "handle-delete", callback: (($obj: GdbusModem3gppProfileManagerSkeleton, invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant) => boolean)): number
+    emit(sigName: "handle-delete", invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant): void
+    connect(sigName: "handle-list", callback: (($obj: GdbusModem3gppProfileManagerSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "handle-list", callback: (($obj: GdbusModem3gppProfileManagerSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "handle-list", invocation: Gio.DBusMethodInvocation): void
+    connect(sigName: "handle-set", callback: (($obj: GdbusModem3gppProfileManagerSkeleton, invocation: Gio.DBusMethodInvocation, arg_requested_properties: GLib.Variant) => boolean)): number
+    connect_after(sigName: "handle-set", callback: (($obj: GdbusModem3gppProfileManagerSkeleton, invocation: Gio.DBusMethodInvocation, arg_requested_properties: GLib.Variant) => boolean)): number
+    emit(sigName: "handle-set", invocation: Gio.DBusMethodInvocation, arg_requested_properties: GLib.Variant): void
+    connect(sigName: "updated", callback: (($obj: GdbusModem3gppProfileManagerSkeleton) => void)): number
+    connect_after(sigName: "updated", callback: (($obj: GdbusModem3gppProfileManagerSkeleton) => void)): number
+    emit(sigName: "updated"): void
+    connect(sigName: "notify::g-flags", callback: (($obj: GdbusModem3gppProfileManagerSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::g-flags", callback: (($obj: GdbusModem3gppProfileManagerSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    static name: string
+    constructor (config?: GdbusModem3gppProfileManagerSkeleton_ConstructProps)
+    _init (config?: GdbusModem3gppProfileManagerSkeleton_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): GdbusModem3gppProfileManagerSkeleton
+    static interface_info(): Gio.DBusInterfaceInfo
+    static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
+    static $gtype: GObject.Type
+}
 export interface GdbusModem3gppProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
     enabled_facility_locks?: number
     eps_ue_mode_operation?: number
@@ -3053,6 +4371,7 @@ export interface GdbusModem3gppProxy_ConstructProps extends Gio.DBusProxy_Constr
     initial_eps_bearer_settings?: GLib.Variant
     operator_code?: string
     operator_name?: string
+    packet_service_state?: number
     pco?: GLib.Variant
     registration_state?: number
     subscription_state?: number
@@ -3070,6 +4389,7 @@ export class GdbusModem3gppProxy {
     initial_eps_bearer_settings: GLib.Variant
     operator_code: string
     operator_name: string
+    packet_service_state: number
     pco: GLib.Variant
     registration_state: number
     subscription_state: number
@@ -3089,7 +4409,7 @@ export class GdbusModem3gppProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -3128,6 +4448,9 @@ export class GdbusModem3gppProxy {
     /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
     /* Methods of ModemManager-1.0.ModemManager.GdbusModem3gpp */
+    call_disable_facility_lock(arg_properties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_disable_facility_lock_finish(res: Gio.AsyncResult): boolean
+    call_disable_facility_lock_sync(arg_properties: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     call_register(arg_operator_id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_register_finish(res: Gio.AsyncResult): boolean
     call_register_sync(arg_operator_id: string, cancellable?: Gio.Cancellable | null): boolean
@@ -3140,10 +4463,15 @@ export class GdbusModem3gppProxy {
     call_set_initial_eps_bearer_settings(arg_settings: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_set_initial_eps_bearer_settings_finish(res: Gio.AsyncResult): boolean
     call_set_initial_eps_bearer_settings_sync(arg_settings: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
+    call_set_packet_service_state(arg_state: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_set_packet_service_state_finish(res: Gio.AsyncResult): boolean
+    call_set_packet_service_state_sync(arg_state: number, cancellable?: Gio.Cancellable | null): boolean
+    complete_disable_facility_lock(invocation: Gio.DBusMethodInvocation): void
     complete_register(invocation: Gio.DBusMethodInvocation): void
     complete_scan(invocation: Gio.DBusMethodInvocation, results: GLib.Variant): void
     complete_set_eps_ue_mode_operation(invocation: Gio.DBusMethodInvocation): void
     complete_set_initial_eps_bearer_settings(invocation: Gio.DBusMethodInvocation): void
+    complete_set_packet_service_state(invocation: Gio.DBusMethodInvocation): void
     /* Virtual methods of ModemManager-1.0.ModemManager.GdbusModem3gppProxy */
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
@@ -3151,10 +4479,12 @@ export class GdbusModem3gppProxy {
     vfunc_get_info(): Gio.DBusInterfaceInfo
     vfunc_set_object(object?: Gio.DBusObject | null): void
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
+    vfunc_handle_disable_facility_lock(invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant): boolean
     vfunc_handle_register(invocation: Gio.DBusMethodInvocation, arg_operator_id: string): boolean
     vfunc_handle_scan(invocation: Gio.DBusMethodInvocation): boolean
     vfunc_handle_set_eps_ue_mode_operation(invocation: Gio.DBusMethodInvocation, arg_mode: number): boolean
     vfunc_handle_set_initial_eps_bearer_settings(invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant): boolean
+    vfunc_handle_set_packet_service_state(invocation: Gio.DBusMethodInvocation, arg_state: number): boolean
     /* Virtual methods of Gio-2.0.Gio.DBusProxy */
     vfunc_g_properties_changed(changed_properties: GLib.Variant, invalidated_properties: string): void
     vfunc_g_signal(sender_name: string, signal_name: string, parameters: GLib.Variant): void
@@ -3178,6 +4508,9 @@ export class GdbusModem3gppProxy {
     connect_after(sigName: "notify", callback: (($obj: GdbusModem3gppProxy, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of ModemManager-1.0.ModemManager.GdbusModem3gpp */
+    connect(sigName: "handle-disable-facility-lock", callback: (($obj: GdbusModem3gppProxy, invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant) => boolean)): number
+    connect_after(sigName: "handle-disable-facility-lock", callback: (($obj: GdbusModem3gppProxy, invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant) => boolean)): number
+    emit(sigName: "handle-disable-facility-lock", invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant): void
     connect(sigName: "handle-register", callback: (($obj: GdbusModem3gppProxy, invocation: Gio.DBusMethodInvocation, arg_operator_id: string) => boolean)): number
     connect_after(sigName: "handle-register", callback: (($obj: GdbusModem3gppProxy, invocation: Gio.DBusMethodInvocation, arg_operator_id: string) => boolean)): number
     emit(sigName: "handle-register", invocation: Gio.DBusMethodInvocation, arg_operator_id: string): void
@@ -3190,6 +4523,9 @@ export class GdbusModem3gppProxy {
     connect(sigName: "handle-set-initial-eps-bearer-settings", callback: (($obj: GdbusModem3gppProxy, invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant) => boolean)): number
     connect_after(sigName: "handle-set-initial-eps-bearer-settings", callback: (($obj: GdbusModem3gppProxy, invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant) => boolean)): number
     emit(sigName: "handle-set-initial-eps-bearer-settings", invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant): void
+    connect(sigName: "handle-set-packet-service-state", callback: (($obj: GdbusModem3gppProxy, invocation: Gio.DBusMethodInvocation, arg_state: number) => boolean)): number
+    connect_after(sigName: "handle-set-packet-service-state", callback: (($obj: GdbusModem3gppProxy, invocation: Gio.DBusMethodInvocation, arg_state: number) => boolean)): number
+    emit(sigName: "handle-set-packet-service-state", invocation: Gio.DBusMethodInvocation, arg_state: number): void
     connect(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModem3gppProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModem3gppProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::g-interface-info", callback: (($obj: GdbusModem3gppProxy, pspec: GObject.ParamSpec) => void)): number
@@ -3210,6 +4546,8 @@ export class GdbusModem3gppProxy {
     connect_after(sigName: "notify::operator-code", callback: (($obj: GdbusModem3gppProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::operator-name", callback: (($obj: GdbusModem3gppProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::operator-name", callback: (($obj: GdbusModem3gppProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::packet-service-state", callback: (($obj: GdbusModem3gppProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::packet-service-state", callback: (($obj: GdbusModem3gppProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::pco", callback: (($obj: GdbusModem3gppProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::pco", callback: (($obj: GdbusModem3gppProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::registration-state", callback: (($obj: GdbusModem3gppProxy, pspec: GObject.ParamSpec) => void)): number
@@ -3246,6 +4584,7 @@ export interface GdbusModem3gppSkeleton_ConstructProps extends Gio.DBusInterface
     initial_eps_bearer_settings?: GLib.Variant
     operator_code?: string
     operator_name?: string
+    packet_service_state?: number
     pco?: GLib.Variant
     registration_state?: number
     subscription_state?: number
@@ -3261,6 +4600,7 @@ export class GdbusModem3gppSkeleton {
     initial_eps_bearer_settings: GLib.Variant
     operator_code: string
     operator_name: string
+    packet_service_state: number
     pco: GLib.Variant
     registration_state: number
     subscription_state: number
@@ -3305,6 +4645,9 @@ export class GdbusModem3gppSkeleton {
     get_object(): Gio.DBusObject | null
     set_object(object?: Gio.DBusObject | null): void
     /* Methods of ModemManager-1.0.ModemManager.GdbusModem3gpp */
+    call_disable_facility_lock(arg_properties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_disable_facility_lock_finish(res: Gio.AsyncResult): boolean
+    call_disable_facility_lock_sync(arg_properties: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     call_register(arg_operator_id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_register_finish(res: Gio.AsyncResult): boolean
     call_register_sync(arg_operator_id: string, cancellable?: Gio.Cancellable | null): boolean
@@ -3317,18 +4660,25 @@ export class GdbusModem3gppSkeleton {
     call_set_initial_eps_bearer_settings(arg_settings: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_set_initial_eps_bearer_settings_finish(res: Gio.AsyncResult): boolean
     call_set_initial_eps_bearer_settings_sync(arg_settings: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
+    call_set_packet_service_state(arg_state: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_set_packet_service_state_finish(res: Gio.AsyncResult): boolean
+    call_set_packet_service_state_sync(arg_state: number, cancellable?: Gio.Cancellable | null): boolean
+    complete_disable_facility_lock(invocation: Gio.DBusMethodInvocation): void
     complete_register(invocation: Gio.DBusMethodInvocation): void
     complete_scan(invocation: Gio.DBusMethodInvocation, results: GLib.Variant): void
     complete_set_eps_ue_mode_operation(invocation: Gio.DBusMethodInvocation): void
     complete_set_initial_eps_bearer_settings(invocation: Gio.DBusMethodInvocation): void
+    complete_set_packet_service_state(invocation: Gio.DBusMethodInvocation): void
     /* Virtual methods of ModemManager-1.0.ModemManager.GdbusModem3gppSkeleton */
     vfunc_dup_object(): Gio.DBusObject | null
     vfunc_get_info(): Gio.DBusInterfaceInfo
     vfunc_set_object(object?: Gio.DBusObject | null): void
+    vfunc_handle_disable_facility_lock(invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant): boolean
     vfunc_handle_register(invocation: Gio.DBusMethodInvocation, arg_operator_id: string): boolean
     vfunc_handle_scan(invocation: Gio.DBusMethodInvocation): boolean
     vfunc_handle_set_eps_ue_mode_operation(invocation: Gio.DBusMethodInvocation, arg_mode: number): boolean
     vfunc_handle_set_initial_eps_bearer_settings(invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant): boolean
+    vfunc_handle_set_packet_service_state(invocation: Gio.DBusMethodInvocation, arg_state: number): boolean
     /* Virtual methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     vfunc_flush(): void
     vfunc_g_authorize_method(invocation: Gio.DBusMethodInvocation): boolean
@@ -3351,6 +4701,9 @@ export class GdbusModem3gppSkeleton {
     connect_after(sigName: "notify", callback: (($obj: GdbusModem3gppSkeleton, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of ModemManager-1.0.ModemManager.GdbusModem3gpp */
+    connect(sigName: "handle-disable-facility-lock", callback: (($obj: GdbusModem3gppSkeleton, invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant) => boolean)): number
+    connect_after(sigName: "handle-disable-facility-lock", callback: (($obj: GdbusModem3gppSkeleton, invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant) => boolean)): number
+    emit(sigName: "handle-disable-facility-lock", invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant): void
     connect(sigName: "handle-register", callback: (($obj: GdbusModem3gppSkeleton, invocation: Gio.DBusMethodInvocation, arg_operator_id: string) => boolean)): number
     connect_after(sigName: "handle-register", callback: (($obj: GdbusModem3gppSkeleton, invocation: Gio.DBusMethodInvocation, arg_operator_id: string) => boolean)): number
     emit(sigName: "handle-register", invocation: Gio.DBusMethodInvocation, arg_operator_id: string): void
@@ -3363,6 +4716,9 @@ export class GdbusModem3gppSkeleton {
     connect(sigName: "handle-set-initial-eps-bearer-settings", callback: (($obj: GdbusModem3gppSkeleton, invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant) => boolean)): number
     connect_after(sigName: "handle-set-initial-eps-bearer-settings", callback: (($obj: GdbusModem3gppSkeleton, invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant) => boolean)): number
     emit(sigName: "handle-set-initial-eps-bearer-settings", invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant): void
+    connect(sigName: "handle-set-packet-service-state", callback: (($obj: GdbusModem3gppSkeleton, invocation: Gio.DBusMethodInvocation, arg_state: number) => boolean)): number
+    connect_after(sigName: "handle-set-packet-service-state", callback: (($obj: GdbusModem3gppSkeleton, invocation: Gio.DBusMethodInvocation, arg_state: number) => boolean)): number
+    emit(sigName: "handle-set-packet-service-state", invocation: Gio.DBusMethodInvocation, arg_state: number): void
     connect(sigName: "notify::g-flags", callback: (($obj: GdbusModem3gppSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: GdbusModem3gppSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::enabled-facility-locks", callback: (($obj: GdbusModem3gppSkeleton, pspec: GObject.ParamSpec) => void)): number
@@ -3379,6 +4735,8 @@ export class GdbusModem3gppSkeleton {
     connect_after(sigName: "notify::operator-code", callback: (($obj: GdbusModem3gppSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::operator-name", callback: (($obj: GdbusModem3gppSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::operator-name", callback: (($obj: GdbusModem3gppSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::packet-service-state", callback: (($obj: GdbusModem3gppSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::packet-service-state", callback: (($obj: GdbusModem3gppSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::pco", callback: (($obj: GdbusModem3gppSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::pco", callback: (($obj: GdbusModem3gppSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::registration-state", callback: (($obj: GdbusModem3gppSkeleton, pspec: GObject.ParamSpec) => void)): number
@@ -3428,7 +4786,7 @@ export class GdbusModem3gppUssdProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -3717,7 +5075,7 @@ export class GdbusModemCdmaProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -4012,7 +5370,7 @@ export class GdbusModemFirmwareProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -4275,7 +5633,7 @@ export class GdbusModemLocationProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -4618,7 +5976,7 @@ export class GdbusModemMessagingProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -4921,7 +6279,7 @@ export class GdbusModemOmaProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -5219,6 +6577,7 @@ export interface GdbusModemProxy_ConstructProps extends Gio.DBusProxy_ConstructP
     hardware_revision?: string
     manufacturer?: string
     max_active_bearers?: number
+    max_active_multiplexed_bearers?: number
     max_bearers?: number
     model?: string
     own_numbers?: string[]
@@ -5260,6 +6619,7 @@ export class GdbusModemProxy {
     hardware_revision: string
     manufacturer: string
     max_active_bearers: number
+    max_active_multiplexed_bearers: number
     max_bearers: number
     model: string
     own_numbers: string[]
@@ -5296,7 +6656,7 @@ export class GdbusModemProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -5500,6 +6860,8 @@ export class GdbusModemProxy {
     connect_after(sigName: "notify::manufacturer", callback: (($obj: GdbusModemProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::max-active-bearers", callback: (($obj: GdbusModemProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-active-bearers", callback: (($obj: GdbusModemProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::max-active-multiplexed-bearers", callback: (($obj: GdbusModemProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::max-active-multiplexed-bearers", callback: (($obj: GdbusModemProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::max-bearers", callback: (($obj: GdbusModemProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-bearers", callback: (($obj: GdbusModemProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::model", callback: (($obj: GdbusModemProxy, pspec: GObject.ParamSpec) => void)): number
@@ -5562,13 +6924,272 @@ export class GdbusModemProxy {
     static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
     static $gtype: GObject.Type
 }
+export interface GdbusModemSarProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
+    power_level?: number
+    state?: boolean
+}
+export class GdbusModemSarProxy {
+    /* Properties of Gio-2.0.Gio.DBusProxy */
+    g_default_timeout: number
+    g_interface_info: Gio.DBusInterfaceInfo
+    readonly g_name_owner: string
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemSar */
+    power_level: number
+    state: boolean
+    /* Fields of GObject-2.0.GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of Gio-2.0.Gio.DBusProxy */
+    call(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_finish(res: Gio.AsyncResult): GLib.Variant
+    call_sync(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
+    call_with_unix_fd_list(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, fd_list?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_with_unix_fd_list_finish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* out_fd_list */ Gio.UnixFDList | null ]
+    call_with_unix_fd_list_sync(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, fd_list?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* out_fd_list */ Gio.UnixFDList | null ]
+    get_cached_property(property_name: string): GLib.Variant | null
+    get_cached_property_names(): string[] | null
+    get_connection(): Gio.DBusConnection
+    get_default_timeout(): number
+    get_flags(): Gio.DBusProxyFlags
+    get_interface_info(): Gio.DBusInterfaceInfo | null
+    get_interface_name(): string
+    get_name(): string | null
+    get_name_owner(): string | null
+    get_object_path(): string
+    set_cached_property(property_name: string, value?: GLib.Variant | null): void
+    set_default_timeout(timeout_msec: number): void
+    set_interface_info(info?: Gio.DBusInterfaceInfo | null): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: any): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: any): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: Function): void
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
+    init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    init_finish(res: Gio.AsyncResult): boolean
+    new_finish(res: Gio.AsyncResult): GObject.Object
+    /* Methods of Gio-2.0.Gio.DBusInterface */
+    get_object(): Gio.DBusObject | null
+    get_info(): Gio.DBusInterfaceInfo
+    set_object(object?: Gio.DBusObject | null): void
+    /* Methods of Gio-2.0.Gio.Initable */
+    init(cancellable?: Gio.Cancellable | null): boolean
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemSar */
+    call_enable(arg_enable: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_enable_finish(res: Gio.AsyncResult): boolean
+    call_enable_sync(arg_enable: boolean, cancellable?: Gio.Cancellable | null): boolean
+    call_set_power_level(arg_level: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_set_power_level_finish(res: Gio.AsyncResult): boolean
+    call_set_power_level_sync(arg_level: number, cancellable?: Gio.Cancellable | null): boolean
+    complete_enable(invocation: Gio.DBusMethodInvocation): void
+    complete_set_power_level(invocation: Gio.DBusMethodInvocation): void
+    /* Virtual methods of ModemManager-1.0.ModemManager.GdbusModemSarProxy */
+    vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfunc_init_finish(res: Gio.AsyncResult): boolean
+    vfunc_dup_object(): Gio.DBusObject | null
+    vfunc_get_info(): Gio.DBusInterfaceInfo
+    vfunc_set_object(object?: Gio.DBusObject | null): void
+    vfunc_init(cancellable?: Gio.Cancellable | null): boolean
+    vfunc_handle_enable(invocation: Gio.DBusMethodInvocation, arg_enable: boolean): boolean
+    vfunc_handle_set_power_level(invocation: Gio.DBusMethodInvocation, arg_level: number): boolean
+    /* Virtual methods of Gio-2.0.Gio.DBusProxy */
+    vfunc_g_properties_changed(changed_properties: GLib.Variant, invalidated_properties: string): void
+    vfunc_g_signal(sender_name: string, signal_name: string, parameters: GLib.Variant): void
+    /* Virtual methods of GObject-2.0.GObject.Object */
+    vfunc_constructed(): void
+    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose(): void
+    vfunc_finalize(): void
+    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    /* Signals of Gio-2.0.Gio.DBusProxy */
+    connect(sigName: "g-properties-changed", callback: (($obj: GdbusModemSarProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): number
+    connect_after(sigName: "g-properties-changed", callback: (($obj: GdbusModemSarProxy, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): number
+    emit(sigName: "g-properties-changed", changed_properties: GLib.Variant, invalidated_properties: string[]): void
+    connect(sigName: "g-signal", callback: (($obj: GdbusModemSarProxy, sender_name: string | null, signal_name: string, parameters: GLib.Variant) => void)): number
+    connect_after(sigName: "g-signal", callback: (($obj: GdbusModemSarProxy, sender_name: string | null, signal_name: string, parameters: GLib.Variant) => void)): number
+    emit(sigName: "g-signal", sender_name: string | null, signal_name: string, parameters: GLib.Variant): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: GdbusModemSarProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: GdbusModemSarProxy, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemSar */
+    connect(sigName: "handle-enable", callback: (($obj: GdbusModemSarProxy, invocation: Gio.DBusMethodInvocation, arg_enable: boolean) => boolean)): number
+    connect_after(sigName: "handle-enable", callback: (($obj: GdbusModemSarProxy, invocation: Gio.DBusMethodInvocation, arg_enable: boolean) => boolean)): number
+    emit(sigName: "handle-enable", invocation: Gio.DBusMethodInvocation, arg_enable: boolean): void
+    connect(sigName: "handle-set-power-level", callback: (($obj: GdbusModemSarProxy, invocation: Gio.DBusMethodInvocation, arg_level: number) => boolean)): number
+    connect_after(sigName: "handle-set-power-level", callback: (($obj: GdbusModemSarProxy, invocation: Gio.DBusMethodInvocation, arg_level: number) => boolean)): number
+    emit(sigName: "handle-set-power-level", invocation: Gio.DBusMethodInvocation, arg_level: number): void
+    connect(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModemSarProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModemSarProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::g-interface-info", callback: (($obj: GdbusModemSarProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::g-interface-info", callback: (($obj: GdbusModemSarProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::g-name-owner", callback: (($obj: GdbusModemSarProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::g-name-owner", callback: (($obj: GdbusModemSarProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::power-level", callback: (($obj: GdbusModemSarProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::power-level", callback: (($obj: GdbusModemSarProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::state", callback: (($obj: GdbusModemSarProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::state", callback: (($obj: GdbusModemSarProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    static name: string
+    constructor (config?: GdbusModemSarProxy_ConstructProps)
+    _init (config?: GdbusModemSarProxy_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new_finish(res: Gio.AsyncResult): GdbusModemSarProxy
+    static new_for_bus_finish(res: Gio.AsyncResult): GdbusModemSarProxy
+    static new_for_bus_sync(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, name: string, object_path: string, cancellable?: Gio.Cancellable | null): GdbusModemSarProxy
+    static new_for_bus_sync(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string, object_path: string, interface_name: string, cancellable?: Gio.Cancellable | null): GdbusModemSarProxy
+    static new_sync(connection: Gio.DBusConnection, flags: Gio.DBusProxyFlags, name: string | null, object_path: string, cancellable?: Gio.Cancellable | null): GdbusModemSarProxy
+    static new_sync(connection: Gio.DBusConnection, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string | null, object_path: string, interface_name: string, cancellable?: Gio.Cancellable | null): GdbusModemSarProxy
+    static new_for_bus(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, name: string, object_path: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    static new_for_bus(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string, object_path: string, interface_name: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    static newv_async(object_type: GObject.Type, n_parameters: number, parameters: GObject.Parameter, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    static newv(object_type: GObject.Type, parameters: GObject.Parameter[], cancellable?: Gio.Cancellable | null): GObject.Object
+    static interface_info(): Gio.DBusInterfaceInfo
+    static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
+    static $gtype: GObject.Type
+}
+export interface GdbusModemSarSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
+    power_level?: number
+    state?: boolean
+}
+export class GdbusModemSarSkeleton {
+    /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
+    g_flags: Gio.DBusInterfaceSkeletonFlags
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemSar */
+    power_level: number
+    state: boolean
+    /* Fields of GObject-2.0.GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
+    export(connection: Gio.DBusConnection, object_path: string): boolean
+    flush(): void
+    get_connection(): Gio.DBusConnection | null
+    get_connections(): Gio.DBusConnection[]
+    get_flags(): Gio.DBusInterfaceSkeletonFlags
+    get_info(): Gio.DBusInterfaceInfo
+    get_object_path(): string | null
+    get_properties(): GLib.Variant
+    has_connection(connection: Gio.DBusConnection): boolean
+    set_flags(flags: Gio.DBusInterfaceSkeletonFlags): void
+    unexport(): void
+    unexport_from_connection(connection: Gio.DBusConnection): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: any): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: any): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: Function): void
+    /* Methods of Gio-2.0.Gio.DBusInterface */
+    get_object(): Gio.DBusObject | null
+    set_object(object?: Gio.DBusObject | null): void
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemSar */
+    call_enable(arg_enable: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_enable_finish(res: Gio.AsyncResult): boolean
+    call_enable_sync(arg_enable: boolean, cancellable?: Gio.Cancellable | null): boolean
+    call_set_power_level(arg_level: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_set_power_level_finish(res: Gio.AsyncResult): boolean
+    call_set_power_level_sync(arg_level: number, cancellable?: Gio.Cancellable | null): boolean
+    complete_enable(invocation: Gio.DBusMethodInvocation): void
+    complete_set_power_level(invocation: Gio.DBusMethodInvocation): void
+    /* Virtual methods of ModemManager-1.0.ModemManager.GdbusModemSarSkeleton */
+    vfunc_dup_object(): Gio.DBusObject | null
+    vfunc_get_info(): Gio.DBusInterfaceInfo
+    vfunc_set_object(object?: Gio.DBusObject | null): void
+    vfunc_handle_enable(invocation: Gio.DBusMethodInvocation, arg_enable: boolean): boolean
+    vfunc_handle_set_power_level(invocation: Gio.DBusMethodInvocation, arg_level: number): boolean
+    /* Virtual methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
+    vfunc_flush(): void
+    vfunc_g_authorize_method(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_get_info(): Gio.DBusInterfaceInfo
+    vfunc_get_properties(): GLib.Variant
+    /* Virtual methods of GObject-2.0.GObject.Object */
+    vfunc_constructed(): void
+    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose(): void
+    vfunc_finalize(): void
+    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    /* Signals of Gio-2.0.Gio.DBusInterfaceSkeleton */
+    connect(sigName: "g-authorize-method", callback: (($obj: GdbusModemSarSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "g-authorize-method", callback: (($obj: GdbusModemSarSkeleton, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "g-authorize-method", invocation: Gio.DBusMethodInvocation): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: GdbusModemSarSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: GdbusModemSarSkeleton, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemSar */
+    connect(sigName: "handle-enable", callback: (($obj: GdbusModemSarSkeleton, invocation: Gio.DBusMethodInvocation, arg_enable: boolean) => boolean)): number
+    connect_after(sigName: "handle-enable", callback: (($obj: GdbusModemSarSkeleton, invocation: Gio.DBusMethodInvocation, arg_enable: boolean) => boolean)): number
+    emit(sigName: "handle-enable", invocation: Gio.DBusMethodInvocation, arg_enable: boolean): void
+    connect(sigName: "handle-set-power-level", callback: (($obj: GdbusModemSarSkeleton, invocation: Gio.DBusMethodInvocation, arg_level: number) => boolean)): number
+    connect_after(sigName: "handle-set-power-level", callback: (($obj: GdbusModemSarSkeleton, invocation: Gio.DBusMethodInvocation, arg_level: number) => boolean)): number
+    emit(sigName: "handle-set-power-level", invocation: Gio.DBusMethodInvocation, arg_level: number): void
+    connect(sigName: "notify::g-flags", callback: (($obj: GdbusModemSarSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::g-flags", callback: (($obj: GdbusModemSarSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::power-level", callback: (($obj: GdbusModemSarSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::power-level", callback: (($obj: GdbusModemSarSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::state", callback: (($obj: GdbusModemSarSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::state", callback: (($obj: GdbusModemSarSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    static name: string
+    constructor (config?: GdbusModemSarSkeleton_ConstructProps)
+    _init (config?: GdbusModemSarSkeleton_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): GdbusModemSarSkeleton
+    static interface_info(): Gio.DBusInterfaceInfo
+    static override_properties(klass: GObject.ObjectClass, property_id_begin: number): number
+    static $gtype: GObject.Type
+}
 export interface GdbusModemSignalProxy_ConstructProps extends Gio.DBusProxy_ConstructProps {
     cdma?: GLib.Variant
+    error_rate_threshold?: boolean
     evdo?: GLib.Variant
     gsm?: GLib.Variant
     lte?: GLib.Variant
     nr5g?: GLib.Variant
     rate?: number
+    rssi_threshold?: number
     umts?: GLib.Variant
 }
 export class GdbusModemSignalProxy {
@@ -5578,11 +7199,13 @@ export class GdbusModemSignalProxy {
     readonly g_name_owner: string
     /* Properties of ModemManager-1.0.ModemManager.GdbusModemSignal */
     cdma: GLib.Variant
+    error_rate_threshold: boolean
     evdo: GLib.Variant
     gsm: GLib.Variant
     lte: GLib.Variant
     nr5g: GLib.Variant
     rate: number
+    rssi_threshold: number
     umts: GLib.Variant
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
@@ -5600,7 +7223,7 @@ export class GdbusModemSignalProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -5642,7 +7265,11 @@ export class GdbusModemSignalProxy {
     call_setup(arg_rate: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_setup_finish(res: Gio.AsyncResult): boolean
     call_setup_sync(arg_rate: number, cancellable?: Gio.Cancellable | null): boolean
+    call_setup_thresholds(arg_settings: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_setup_thresholds_finish(res: Gio.AsyncResult): boolean
+    call_setup_thresholds_sync(arg_settings: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     complete_setup(invocation: Gio.DBusMethodInvocation): void
+    complete_setup_thresholds(invocation: Gio.DBusMethodInvocation): void
     /* Virtual methods of ModemManager-1.0.ModemManager.GdbusModemSignalProxy */
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
@@ -5651,6 +7278,7 @@ export class GdbusModemSignalProxy {
     vfunc_set_object(object?: Gio.DBusObject | null): void
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
     vfunc_handle_setup(invocation: Gio.DBusMethodInvocation, arg_rate: number): boolean
+    vfunc_handle_setup_thresholds(invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant): boolean
     /* Virtual methods of Gio-2.0.Gio.DBusProxy */
     vfunc_g_properties_changed(changed_properties: GLib.Variant, invalidated_properties: string): void
     vfunc_g_signal(sender_name: string, signal_name: string, parameters: GLib.Variant): void
@@ -5677,6 +7305,9 @@ export class GdbusModemSignalProxy {
     connect(sigName: "handle-setup", callback: (($obj: GdbusModemSignalProxy, invocation: Gio.DBusMethodInvocation, arg_rate: number) => boolean)): number
     connect_after(sigName: "handle-setup", callback: (($obj: GdbusModemSignalProxy, invocation: Gio.DBusMethodInvocation, arg_rate: number) => boolean)): number
     emit(sigName: "handle-setup", invocation: Gio.DBusMethodInvocation, arg_rate: number): void
+    connect(sigName: "handle-setup-thresholds", callback: (($obj: GdbusModemSignalProxy, invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant) => boolean)): number
+    connect_after(sigName: "handle-setup-thresholds", callback: (($obj: GdbusModemSignalProxy, invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant) => boolean)): number
+    emit(sigName: "handle-setup-thresholds", invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant): void
     connect(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModemSignalProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: GdbusModemSignalProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::g-interface-info", callback: (($obj: GdbusModemSignalProxy, pspec: GObject.ParamSpec) => void)): number
@@ -5685,6 +7316,8 @@ export class GdbusModemSignalProxy {
     connect_after(sigName: "notify::g-name-owner", callback: (($obj: GdbusModemSignalProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::cdma", callback: (($obj: GdbusModemSignalProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::cdma", callback: (($obj: GdbusModemSignalProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::error-rate-threshold", callback: (($obj: GdbusModemSignalProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::error-rate-threshold", callback: (($obj: GdbusModemSignalProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::evdo", callback: (($obj: GdbusModemSignalProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::evdo", callback: (($obj: GdbusModemSignalProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::gsm", callback: (($obj: GdbusModemSignalProxy, pspec: GObject.ParamSpec) => void)): number
@@ -5695,6 +7328,8 @@ export class GdbusModemSignalProxy {
     connect_after(sigName: "notify::nr5g", callback: (($obj: GdbusModemSignalProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::rate", callback: (($obj: GdbusModemSignalProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::rate", callback: (($obj: GdbusModemSignalProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::rssi-threshold", callback: (($obj: GdbusModemSignalProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::rssi-threshold", callback: (($obj: GdbusModemSignalProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::umts", callback: (($obj: GdbusModemSignalProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::umts", callback: (($obj: GdbusModemSignalProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -5721,11 +7356,13 @@ export class GdbusModemSignalProxy {
 }
 export interface GdbusModemSignalSkeleton_ConstructProps extends Gio.DBusInterfaceSkeleton_ConstructProps {
     cdma?: GLib.Variant
+    error_rate_threshold?: boolean
     evdo?: GLib.Variant
     gsm?: GLib.Variant
     lte?: GLib.Variant
     nr5g?: GLib.Variant
     rate?: number
+    rssi_threshold?: number
     umts?: GLib.Variant
 }
 export class GdbusModemSignalSkeleton {
@@ -5733,11 +7370,13 @@ export class GdbusModemSignalSkeleton {
     g_flags: Gio.DBusInterfaceSkeletonFlags
     /* Properties of ModemManager-1.0.ModemManager.GdbusModemSignal */
     cdma: GLib.Variant
+    error_rate_threshold: boolean
     evdo: GLib.Variant
     gsm: GLib.Variant
     lte: GLib.Variant
     nr5g: GLib.Variant
     rate: number
+    rssi_threshold: number
     umts: GLib.Variant
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
@@ -5783,12 +7422,17 @@ export class GdbusModemSignalSkeleton {
     call_setup(arg_rate: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_setup_finish(res: Gio.AsyncResult): boolean
     call_setup_sync(arg_rate: number, cancellable?: Gio.Cancellable | null): boolean
+    call_setup_thresholds(arg_settings: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_setup_thresholds_finish(res: Gio.AsyncResult): boolean
+    call_setup_thresholds_sync(arg_settings: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     complete_setup(invocation: Gio.DBusMethodInvocation): void
+    complete_setup_thresholds(invocation: Gio.DBusMethodInvocation): void
     /* Virtual methods of ModemManager-1.0.ModemManager.GdbusModemSignalSkeleton */
     vfunc_dup_object(): Gio.DBusObject | null
     vfunc_get_info(): Gio.DBusInterfaceInfo
     vfunc_set_object(object?: Gio.DBusObject | null): void
     vfunc_handle_setup(invocation: Gio.DBusMethodInvocation, arg_rate: number): boolean
+    vfunc_handle_setup_thresholds(invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant): boolean
     /* Virtual methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     vfunc_flush(): void
     vfunc_g_authorize_method(invocation: Gio.DBusMethodInvocation): boolean
@@ -5814,10 +7458,15 @@ export class GdbusModemSignalSkeleton {
     connect(sigName: "handle-setup", callback: (($obj: GdbusModemSignalSkeleton, invocation: Gio.DBusMethodInvocation, arg_rate: number) => boolean)): number
     connect_after(sigName: "handle-setup", callback: (($obj: GdbusModemSignalSkeleton, invocation: Gio.DBusMethodInvocation, arg_rate: number) => boolean)): number
     emit(sigName: "handle-setup", invocation: Gio.DBusMethodInvocation, arg_rate: number): void
+    connect(sigName: "handle-setup-thresholds", callback: (($obj: GdbusModemSignalSkeleton, invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant) => boolean)): number
+    connect_after(sigName: "handle-setup-thresholds", callback: (($obj: GdbusModemSignalSkeleton, invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant) => boolean)): number
+    emit(sigName: "handle-setup-thresholds", invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant): void
     connect(sigName: "notify::g-flags", callback: (($obj: GdbusModemSignalSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: GdbusModemSignalSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::cdma", callback: (($obj: GdbusModemSignalSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::cdma", callback: (($obj: GdbusModemSignalSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::error-rate-threshold", callback: (($obj: GdbusModemSignalSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::error-rate-threshold", callback: (($obj: GdbusModemSignalSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::evdo", callback: (($obj: GdbusModemSignalSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::evdo", callback: (($obj: GdbusModemSignalSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::gsm", callback: (($obj: GdbusModemSignalSkeleton, pspec: GObject.ParamSpec) => void)): number
@@ -5828,6 +7477,8 @@ export class GdbusModemSignalSkeleton {
     connect_after(sigName: "notify::nr5g", callback: (($obj: GdbusModemSignalSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::rate", callback: (($obj: GdbusModemSignalSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::rate", callback: (($obj: GdbusModemSignalSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::rssi-threshold", callback: (($obj: GdbusModemSignalSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::rssi-threshold", callback: (($obj: GdbusModemSignalSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::umts", callback: (($obj: GdbusModemSignalSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::umts", callback: (($obj: GdbusModemSignalSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -5866,7 +7517,7 @@ export class GdbusModemSimpleProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -6113,6 +7764,7 @@ export interface GdbusModemSkeleton_ConstructProps extends Gio.DBusInterfaceSkel
     hardware_revision?: string
     manufacturer?: string
     max_active_bearers?: number
+    max_active_multiplexed_bearers?: number
     max_bearers?: number
     model?: string
     own_numbers?: string[]
@@ -6152,6 +7804,7 @@ export class GdbusModemSkeleton {
     hardware_revision: string
     manufacturer: string
     max_active_bearers: number
+    max_active_multiplexed_bearers: number
     max_bearers: number
     model: string
     own_numbers: string[]
@@ -6370,6 +8023,8 @@ export class GdbusModemSkeleton {
     connect_after(sigName: "notify::manufacturer", callback: (($obj: GdbusModemSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::max-active-bearers", callback: (($obj: GdbusModemSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-active-bearers", callback: (($obj: GdbusModemSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::max-active-multiplexed-bearers", callback: (($obj: GdbusModemSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::max-active-multiplexed-bearers", callback: (($obj: GdbusModemSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::max-bearers", callback: (($obj: GdbusModemSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-bearers", callback: (($obj: GdbusModemSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::model", callback: (($obj: GdbusModemSkeleton, pspec: GObject.ParamSpec) => void)): number
@@ -6449,7 +8104,7 @@ export class GdbusModemTimeProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -6694,7 +8349,7 @@ export class GdbusModemVoiceProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -7094,8 +8749,8 @@ export class GdbusObjectManagerClient {
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
     /* Methods of Gio-2.0.Gio.DBusObjectManager */
-    get_interface(object_path: string, interface_name: string): Gio.DBusInterface
-    get_object(object_path: string): Gio.DBusObject
+    get_interface(object_path: string, interface_name: string): Gio.DBusInterface | null
+    get_object(object_path: string): Gio.DBusObject | null
     get_object_path(): string
     get_objects(): Gio.DBusObject[]
     /* Methods of Gio-2.0.Gio.Initable */
@@ -7103,8 +8758,8 @@ export class GdbusObjectManagerClient {
     /* Virtual methods of ModemManager-1.0.ModemManager.GdbusObjectManagerClient */
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
-    vfunc_get_interface(object_path: string, interface_name: string): Gio.DBusInterface
-    vfunc_get_object(object_path: string): Gio.DBusObject
+    vfunc_get_interface(object_path: string, interface_name: string): Gio.DBusInterface | null
+    vfunc_get_object(object_path: string): Gio.DBusObject | null
     vfunc_get_object_path(): string
     vfunc_get_objects(): Gio.DBusObject[]
     vfunc_interface_added(object: Gio.DBusObject, interface_: Gio.DBusInterface): void
@@ -7177,11 +8832,13 @@ export interface GdbusObjectProxy_ConstructProps extends Gio.DBusObjectProxy_Con
     modem_location?: GdbusModemLocation
     modem_messaging?: GdbusModemMessaging
     modem_oma?: GdbusModemOma
+    modem_sar?: GdbusModemSar
     modem_signal?: GdbusModemSignal
     modem_simple?: GdbusModemSimple
     modem_time?: GdbusModemTime
     modem_voice?: GdbusModemVoice
     modem3gpp?: GdbusModem3gpp
+    modem3gpp_profile_manager?: GdbusModem3gppProfileManager
     modem3gpp_ussd?: GdbusModem3gppUssd
 }
 export class GdbusObjectProxy {
@@ -7192,11 +8849,13 @@ export class GdbusObjectProxy {
     modem_location: GdbusModemLocation
     modem_messaging: GdbusModemMessaging
     modem_oma: GdbusModemOma
+    modem_sar: GdbusModemSar
     modem_signal: GdbusModemSignal
     modem_simple: GdbusModemSimple
     modem_time: GdbusModemTime
     modem_voice: GdbusModemVoice
     modem3gpp: GdbusModem3gpp
+    modem3gpp_profile_manager: GdbusModem3gppProfileManager
     modem3gpp_ussd: GdbusModem3gppUssd
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
@@ -7231,12 +8890,14 @@ export class GdbusObjectProxy {
     /* Methods of ModemManager-1.0.ModemManager.GdbusObject */
     get_modem(): GdbusModem | null
     get_modem3gpp(): GdbusModem3gpp | null
+    get_modem3gpp_profile_manager(): GdbusModem3gppProfileManager | null
     get_modem3gpp_ussd(): GdbusModem3gppUssd | null
     get_modem_cdma(): GdbusModemCdma | null
     get_modem_firmware(): GdbusModemFirmware | null
     get_modem_location(): GdbusModemLocation | null
     get_modem_messaging(): GdbusModemMessaging | null
     get_modem_oma(): GdbusModemOma | null
+    get_modem_sar(): GdbusModemSar | null
     get_modem_signal(): GdbusModemSignal | null
     get_modem_simple(): GdbusModemSimple | null
     get_modem_time(): GdbusModemTime | null
@@ -7278,6 +8939,8 @@ export class GdbusObjectProxy {
     connect_after(sigName: "notify::modem-messaging", callback: (($obj: GdbusObjectProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::modem-oma", callback: (($obj: GdbusObjectProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::modem-oma", callback: (($obj: GdbusObjectProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::modem-sar", callback: (($obj: GdbusObjectProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::modem-sar", callback: (($obj: GdbusObjectProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::modem-signal", callback: (($obj: GdbusObjectProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::modem-signal", callback: (($obj: GdbusObjectProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::modem-simple", callback: (($obj: GdbusObjectProxy, pspec: GObject.ParamSpec) => void)): number
@@ -7288,6 +8951,8 @@ export class GdbusObjectProxy {
     connect_after(sigName: "notify::modem-voice", callback: (($obj: GdbusObjectProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::modem3gpp", callback: (($obj: GdbusObjectProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::modem3gpp", callback: (($obj: GdbusObjectProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::modem3gpp-profile-manager", callback: (($obj: GdbusObjectProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::modem3gpp-profile-manager", callback: (($obj: GdbusObjectProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::modem3gpp-ussd", callback: (($obj: GdbusObjectProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::modem3gpp-ussd", callback: (($obj: GdbusObjectProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -7308,11 +8973,13 @@ export interface GdbusObjectSkeleton_ConstructProps extends Gio.DBusObjectSkelet
     modem_location?: GdbusModemLocation
     modem_messaging?: GdbusModemMessaging
     modem_oma?: GdbusModemOma
+    modem_sar?: GdbusModemSar
     modem_signal?: GdbusModemSignal
     modem_simple?: GdbusModemSimple
     modem_time?: GdbusModemTime
     modem_voice?: GdbusModemVoice
     modem3gpp?: GdbusModem3gpp
+    modem3gpp_profile_manager?: GdbusModem3gppProfileManager
     modem3gpp_ussd?: GdbusModem3gppUssd
 }
 export class GdbusObjectSkeleton {
@@ -7325,23 +8992,27 @@ export class GdbusObjectSkeleton {
     modem_location: GdbusModemLocation
     modem_messaging: GdbusModemMessaging
     modem_oma: GdbusModemOma
+    modem_sar: GdbusModemSar
     modem_signal: GdbusModemSignal
     modem_simple: GdbusModemSimple
     modem_time: GdbusModemTime
     modem_voice: GdbusModemVoice
     modem3gpp: GdbusModem3gpp
+    modem3gpp_profile_manager: GdbusModem3gppProfileManager
     modem3gpp_ussd: GdbusModem3gppUssd
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.GdbusObjectSkeleton */
     set_modem(interface_?: GdbusModem | null): void
     set_modem3gpp(interface_?: GdbusModem3gpp | null): void
+    set_modem3gpp_profile_manager(interface_?: GdbusModem3gppProfileManager | null): void
     set_modem3gpp_ussd(interface_?: GdbusModem3gppUssd | null): void
     set_modem_cdma(interface_?: GdbusModemCdma | null): void
     set_modem_firmware(interface_?: GdbusModemFirmware | null): void
     set_modem_location(interface_?: GdbusModemLocation | null): void
     set_modem_messaging(interface_?: GdbusModemMessaging | null): void
     set_modem_oma(interface_?: GdbusModemOma | null): void
+    set_modem_sar(interface_?: GdbusModemSar | null): void
     set_modem_signal(interface_?: GdbusModemSignal | null): void
     set_modem_simple(interface_?: GdbusModemSimple | null): void
     set_modem_time(interface_?: GdbusModemTime | null): void
@@ -7381,12 +9052,14 @@ export class GdbusObjectSkeleton {
     /* Methods of ModemManager-1.0.ModemManager.GdbusObject */
     get_modem(): GdbusModem | null
     get_modem3gpp(): GdbusModem3gpp | null
+    get_modem3gpp_profile_manager(): GdbusModem3gppProfileManager | null
     get_modem3gpp_ussd(): GdbusModem3gppUssd | null
     get_modem_cdma(): GdbusModemCdma | null
     get_modem_firmware(): GdbusModemFirmware | null
     get_modem_location(): GdbusModemLocation | null
     get_modem_messaging(): GdbusModemMessaging | null
     get_modem_oma(): GdbusModemOma | null
+    get_modem_sar(): GdbusModemSar | null
     get_modem_signal(): GdbusModemSignal | null
     get_modem_simple(): GdbusModemSimple | null
     get_modem_time(): GdbusModemTime | null
@@ -7436,6 +9109,8 @@ export class GdbusObjectSkeleton {
     connect_after(sigName: "notify::modem-messaging", callback: (($obj: GdbusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::modem-oma", callback: (($obj: GdbusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::modem-oma", callback: (($obj: GdbusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::modem-sar", callback: (($obj: GdbusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::modem-sar", callback: (($obj: GdbusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::modem-signal", callback: (($obj: GdbusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::modem-signal", callback: (($obj: GdbusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::modem-simple", callback: (($obj: GdbusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
@@ -7446,6 +9121,8 @@ export class GdbusObjectSkeleton {
     connect_after(sigName: "notify::modem-voice", callback: (($obj: GdbusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::modem3gpp", callback: (($obj: GdbusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::modem3gpp", callback: (($obj: GdbusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::modem3gpp-profile-manager", callback: (($obj: GdbusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::modem3gpp-profile-manager", callback: (($obj: GdbusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::modem3gpp-ussd", callback: (($obj: GdbusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::modem3gpp-ussd", callback: (($obj: GdbusObjectSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -7485,7 +9162,7 @@ export class GdbusOrgFreedesktopModemManager1Proxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -7744,10 +9421,14 @@ export interface GdbusSimProxy_ConstructProps extends Gio.DBusProxy_ConstructPro
     active?: boolean
     eid?: string
     emergency_numbers?: string[]
+    esim_status?: number
     imsi?: string
     operator_identifier?: string
     operator_name?: string
+    preferred_networks?: GLib.Variant
+    removability?: number
     sim_identifier?: string
+    sim_type?: number
 }
 export class GdbusSimProxy {
     /* Properties of Gio-2.0.Gio.DBusProxy */
@@ -7758,10 +9439,14 @@ export class GdbusSimProxy {
     active: boolean
     eid: string
     emergency_numbers: string[]
+    esim_status: number
     imsi: string
     operator_identifier: string
     operator_name: string
+    preferred_networks: GLib.Variant
+    removability: number
     sim_identifier: string
+    sim_type: number
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.DBusProxy */
@@ -7778,7 +9463,7 @@ export class GdbusSimProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -7829,10 +9514,14 @@ export class GdbusSimProxy {
     call_send_puk(arg_puk: string, arg_pin: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_send_puk_finish(res: Gio.AsyncResult): boolean
     call_send_puk_sync(arg_puk: string, arg_pin: string, cancellable?: Gio.Cancellable | null): boolean
+    call_set_preferred_networks(arg_preferred_networks: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_set_preferred_networks_finish(res: Gio.AsyncResult): boolean
+    call_set_preferred_networks_sync(arg_preferred_networks: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     complete_change_pin(invocation: Gio.DBusMethodInvocation): void
     complete_enable_pin(invocation: Gio.DBusMethodInvocation): void
     complete_send_pin(invocation: Gio.DBusMethodInvocation): void
     complete_send_puk(invocation: Gio.DBusMethodInvocation): void
+    complete_set_preferred_networks(invocation: Gio.DBusMethodInvocation): void
     /* Virtual methods of ModemManager-1.0.ModemManager.GdbusSimProxy */
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
@@ -7844,6 +9533,7 @@ export class GdbusSimProxy {
     vfunc_handle_enable_pin(invocation: Gio.DBusMethodInvocation, arg_pin: string, arg_enabled: boolean): boolean
     vfunc_handle_send_pin(invocation: Gio.DBusMethodInvocation, arg_pin: string): boolean
     vfunc_handle_send_puk(invocation: Gio.DBusMethodInvocation, arg_puk: string, arg_pin: string): boolean
+    vfunc_handle_set_preferred_networks(invocation: Gio.DBusMethodInvocation, arg_preferred_networks: GLib.Variant): boolean
     /* Virtual methods of Gio-2.0.Gio.DBusProxy */
     vfunc_g_properties_changed(changed_properties: GLib.Variant, invalidated_properties: string): void
     vfunc_g_signal(sender_name: string, signal_name: string, parameters: GLib.Variant): void
@@ -7879,6 +9569,9 @@ export class GdbusSimProxy {
     connect(sigName: "handle-send-puk", callback: (($obj: GdbusSimProxy, invocation: Gio.DBusMethodInvocation, arg_puk: string, arg_pin: string) => boolean)): number
     connect_after(sigName: "handle-send-puk", callback: (($obj: GdbusSimProxy, invocation: Gio.DBusMethodInvocation, arg_puk: string, arg_pin: string) => boolean)): number
     emit(sigName: "handle-send-puk", invocation: Gio.DBusMethodInvocation, arg_puk: string, arg_pin: string): void
+    connect(sigName: "handle-set-preferred-networks", callback: (($obj: GdbusSimProxy, invocation: Gio.DBusMethodInvocation, arg_preferred_networks: GLib.Variant) => boolean)): number
+    connect_after(sigName: "handle-set-preferred-networks", callback: (($obj: GdbusSimProxy, invocation: Gio.DBusMethodInvocation, arg_preferred_networks: GLib.Variant) => boolean)): number
+    emit(sigName: "handle-set-preferred-networks", invocation: Gio.DBusMethodInvocation, arg_preferred_networks: GLib.Variant): void
     connect(sigName: "notify::g-default-timeout", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::g-interface-info", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
@@ -7891,14 +9584,22 @@ export class GdbusSimProxy {
     connect_after(sigName: "notify::eid", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::emergency-numbers", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::emergency-numbers", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::esim-status", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::esim-status", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::imsi", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::imsi", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::operator-identifier", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::operator-identifier", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::operator-name", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::operator-name", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::preferred-networks", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::preferred-networks", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::removability", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::removability", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::sim-identifier", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::sim-identifier", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::sim-type", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::sim-type", callback: (($obj: GdbusSimProxy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7925,10 +9626,14 @@ export interface GdbusSimSkeleton_ConstructProps extends Gio.DBusInterfaceSkelet
     active?: boolean
     eid?: string
     emergency_numbers?: string[]
+    esim_status?: number
     imsi?: string
     operator_identifier?: string
     operator_name?: string
+    preferred_networks?: GLib.Variant
+    removability?: number
     sim_identifier?: string
+    sim_type?: number
 }
 export class GdbusSimSkeleton {
     /* Properties of Gio-2.0.Gio.DBusInterfaceSkeleton */
@@ -7937,10 +9642,14 @@ export class GdbusSimSkeleton {
     active: boolean
     eid: string
     emergency_numbers: string[]
+    esim_status: number
     imsi: string
     operator_identifier: string
     operator_name: string
+    preferred_networks: GLib.Variant
+    removability: number
     sim_identifier: string
+    sim_type: number
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
@@ -7994,10 +9703,14 @@ export class GdbusSimSkeleton {
     call_send_puk(arg_puk: string, arg_pin: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_send_puk_finish(res: Gio.AsyncResult): boolean
     call_send_puk_sync(arg_puk: string, arg_pin: string, cancellable?: Gio.Cancellable | null): boolean
+    call_set_preferred_networks(arg_preferred_networks: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_set_preferred_networks_finish(res: Gio.AsyncResult): boolean
+    call_set_preferred_networks_sync(arg_preferred_networks: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     complete_change_pin(invocation: Gio.DBusMethodInvocation): void
     complete_enable_pin(invocation: Gio.DBusMethodInvocation): void
     complete_send_pin(invocation: Gio.DBusMethodInvocation): void
     complete_send_puk(invocation: Gio.DBusMethodInvocation): void
+    complete_set_preferred_networks(invocation: Gio.DBusMethodInvocation): void
     /* Virtual methods of ModemManager-1.0.ModemManager.GdbusSimSkeleton */
     vfunc_dup_object(): Gio.DBusObject | null
     vfunc_get_info(): Gio.DBusInterfaceInfo
@@ -8006,6 +9719,7 @@ export class GdbusSimSkeleton {
     vfunc_handle_enable_pin(invocation: Gio.DBusMethodInvocation, arg_pin: string, arg_enabled: boolean): boolean
     vfunc_handle_send_pin(invocation: Gio.DBusMethodInvocation, arg_pin: string): boolean
     vfunc_handle_send_puk(invocation: Gio.DBusMethodInvocation, arg_puk: string, arg_pin: string): boolean
+    vfunc_handle_set_preferred_networks(invocation: Gio.DBusMethodInvocation, arg_preferred_networks: GLib.Variant): boolean
     /* Virtual methods of Gio-2.0.Gio.DBusInterfaceSkeleton */
     vfunc_flush(): void
     vfunc_g_authorize_method(invocation: Gio.DBusMethodInvocation): boolean
@@ -8040,6 +9754,9 @@ export class GdbusSimSkeleton {
     connect(sigName: "handle-send-puk", callback: (($obj: GdbusSimSkeleton, invocation: Gio.DBusMethodInvocation, arg_puk: string, arg_pin: string) => boolean)): number
     connect_after(sigName: "handle-send-puk", callback: (($obj: GdbusSimSkeleton, invocation: Gio.DBusMethodInvocation, arg_puk: string, arg_pin: string) => boolean)): number
     emit(sigName: "handle-send-puk", invocation: Gio.DBusMethodInvocation, arg_puk: string, arg_pin: string): void
+    connect(sigName: "handle-set-preferred-networks", callback: (($obj: GdbusSimSkeleton, invocation: Gio.DBusMethodInvocation, arg_preferred_networks: GLib.Variant) => boolean)): number
+    connect_after(sigName: "handle-set-preferred-networks", callback: (($obj: GdbusSimSkeleton, invocation: Gio.DBusMethodInvocation, arg_preferred_networks: GLib.Variant) => boolean)): number
+    emit(sigName: "handle-set-preferred-networks", invocation: Gio.DBusMethodInvocation, arg_preferred_networks: GLib.Variant): void
     connect(sigName: "notify::g-flags", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-flags", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::active", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
@@ -8048,14 +9765,22 @@ export class GdbusSimSkeleton {
     connect_after(sigName: "notify::eid", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::emergency-numbers", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::emergency-numbers", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::esim-status", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::esim-status", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::imsi", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::imsi", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::operator-identifier", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::operator-identifier", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::operator-name", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::operator-name", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::preferred-networks", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::preferred-networks", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::removability", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::removability", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::sim-identifier", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::sim-identifier", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::sim-type", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::sim-type", callback: (($obj: GdbusSimSkeleton, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8125,7 +9850,7 @@ export class GdbusSmsProxy {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -8507,6 +10232,7 @@ export class Location3gpp {
     get_location_area_code(): number
     get_mobile_country_code(): number
     get_mobile_network_code(): number
+    get_operator_code(): string
     get_tracking_area_code(): number
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -8765,8 +10491,8 @@ export class Manager {
     init_finish(res: Gio.AsyncResult): boolean
     new_finish(res: Gio.AsyncResult): GObject.Object
     /* Methods of Gio-2.0.Gio.DBusObjectManager */
-    get_interface(object_path: string, interface_name: string): Gio.DBusInterface
-    get_object(object_path: string): Gio.DBusObject
+    get_interface(object_path: string, interface_name: string): Gio.DBusInterface | null
+    get_object(object_path: string): Gio.DBusObject | null
     get_object_path(): string
     get_objects(): Gio.DBusObject[]
     /* Methods of Gio-2.0.Gio.Initable */
@@ -8774,8 +10500,8 @@ export class Manager {
     /* Virtual methods of ModemManager-1.0.ModemManager.GdbusObjectManagerClient */
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
-    vfunc_get_interface(object_path: string, interface_name: string): Gio.DBusInterface
-    vfunc_get_object(object_path: string): Gio.DBusObject
+    vfunc_get_interface(object_path: string, interface_name: string): Gio.DBusInterface | null
+    vfunc_get_object(object_path: string): Gio.DBusObject | null
     vfunc_get_object_path(): string
     vfunc_get_objects(): Gio.DBusObject[]
     vfunc_interface_added(object: Gio.DBusObject, interface_: Gio.DBusInterface): void
@@ -8853,6 +10579,7 @@ export interface Modem_ConstructProps extends GdbusModemProxy_ConstructProps {
     hardware_revision?: string
     manufacturer?: string
     max_active_bearers?: number
+    max_active_multiplexed_bearers?: number
     max_bearers?: number
     model?: string
     own_numbers?: string[]
@@ -8894,6 +10621,7 @@ export class Modem {
     hardware_revision: string
     manufacturer: string
     max_active_bearers: number
+    max_active_multiplexed_bearers: number
     max_bearers: number
     model: string
     own_numbers: string[]
@@ -8966,6 +10694,7 @@ export class Modem {
     get_hardware_revision(): string
     get_manufacturer(): string
     get_max_active_bearers(): number
+    get_max_active_multiplexed_bearers(): number
     get_max_bearers(): number
     get_model(): string
     get_plugin(): string
@@ -9031,7 +10760,7 @@ export class Modem {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -9235,6 +10964,8 @@ export class Modem {
     connect_after(sigName: "notify::manufacturer", callback: (($obj: Modem, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::max-active-bearers", callback: (($obj: Modem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-active-bearers", callback: (($obj: Modem, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::max-active-multiplexed-bearers", callback: (($obj: Modem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::max-active-multiplexed-bearers", callback: (($obj: Modem, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::max-bearers", callback: (($obj: Modem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-bearers", callback: (($obj: Modem, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::model", callback: (($obj: Modem, pspec: GObject.ParamSpec) => void)): number
@@ -9301,6 +11032,7 @@ export interface Modem3gpp_ConstructProps extends GdbusModem3gppProxy_ConstructP
     initial_eps_bearer_settings?: GLib.Variant
     operator_code?: string
     operator_name?: string
+    packet_service_state?: number
     pco?: GLib.Variant
     registration_state?: number
     subscription_state?: number
@@ -9318,12 +11050,16 @@ export class Modem3gpp {
     initial_eps_bearer_settings: GLib.Variant
     operator_code: string
     operator_name: string
+    packet_service_state: number
     pco: GLib.Variant
     registration_state: number
     subscription_state: number
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.Modem3gpp */
+    disable_facility_lock(facility: Modem3gppFacility, control_key: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    disable_facility_lock_finish(res: Gio.AsyncResult): boolean
+    disable_facility_lock_sync(facility: Modem3gppFacility, control_key: string, cancellable?: Gio.Cancellable | null): boolean
     dup_imei(): string
     dup_initial_eps_bearer_path(): string
     dup_operator_code(): string
@@ -9338,6 +11074,7 @@ export class Modem3gpp {
     get_initial_eps_bearer_sync(cancellable?: Gio.Cancellable | null): Bearer
     get_operator_code(): string
     get_operator_name(): string
+    get_packet_service_state(): Modem3gppPacketServiceState
     get_path(): string
     get_pco(): Pco[]
     get_registration_state(): Modem3gppRegistrationState
@@ -9355,6 +11092,9 @@ export class Modem3gpp {
     set_initial_eps_bearer_settings(config: BearerProperties, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     set_initial_eps_bearer_settings_finish(res: Gio.AsyncResult): boolean
     set_initial_eps_bearer_settings_sync(config: BearerProperties, cancellable?: Gio.Cancellable | null): boolean
+    set_packet_service_state(state: Modem3gppPacketServiceState, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    set_packet_service_state_finish(res: Gio.AsyncResult): boolean
+    set_packet_service_state_sync(state: Modem3gppPacketServiceState, cancellable?: Gio.Cancellable | null): boolean
     /* Methods of Gio-2.0.Gio.DBusProxy */
     call(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_finish(res: Gio.AsyncResult): GLib.Variant
@@ -9369,7 +11109,7 @@ export class Modem3gpp {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -9408,6 +11148,9 @@ export class Modem3gpp {
     /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
     /* Methods of ModemManager-1.0.ModemManager.GdbusModem3gpp */
+    call_disable_facility_lock(arg_properties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_disable_facility_lock_finish(res: Gio.AsyncResult): boolean
+    call_disable_facility_lock_sync(arg_properties: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     call_register(arg_operator_id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_register_finish(res: Gio.AsyncResult): boolean
     call_register_sync(arg_operator_id: string, cancellable?: Gio.Cancellable | null): boolean
@@ -9420,10 +11163,15 @@ export class Modem3gpp {
     call_set_initial_eps_bearer_settings(arg_settings: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_set_initial_eps_bearer_settings_finish(res: Gio.AsyncResult): boolean
     call_set_initial_eps_bearer_settings_sync(arg_settings: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
+    call_set_packet_service_state(arg_state: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_set_packet_service_state_finish(res: Gio.AsyncResult): boolean
+    call_set_packet_service_state_sync(arg_state: number, cancellable?: Gio.Cancellable | null): boolean
+    complete_disable_facility_lock(invocation: Gio.DBusMethodInvocation): void
     complete_register(invocation: Gio.DBusMethodInvocation): void
     complete_scan(invocation: Gio.DBusMethodInvocation, results: GLib.Variant): void
     complete_set_eps_ue_mode_operation(invocation: Gio.DBusMethodInvocation): void
     complete_set_initial_eps_bearer_settings(invocation: Gio.DBusMethodInvocation): void
+    complete_set_packet_service_state(invocation: Gio.DBusMethodInvocation): void
     /* Virtual methods of ModemManager-1.0.ModemManager.GdbusModem3gppProxy */
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
@@ -9431,10 +11179,12 @@ export class Modem3gpp {
     vfunc_get_info(): Gio.DBusInterfaceInfo
     vfunc_set_object(object?: Gio.DBusObject | null): void
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
+    vfunc_handle_disable_facility_lock(invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant): boolean
     vfunc_handle_register(invocation: Gio.DBusMethodInvocation, arg_operator_id: string): boolean
     vfunc_handle_scan(invocation: Gio.DBusMethodInvocation): boolean
     vfunc_handle_set_eps_ue_mode_operation(invocation: Gio.DBusMethodInvocation, arg_mode: number): boolean
     vfunc_handle_set_initial_eps_bearer_settings(invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant): boolean
+    vfunc_handle_set_packet_service_state(invocation: Gio.DBusMethodInvocation, arg_state: number): boolean
     /* Virtual methods of Gio-2.0.Gio.DBusProxy */
     vfunc_g_properties_changed(changed_properties: GLib.Variant, invalidated_properties: string): void
     vfunc_g_signal(sender_name: string, signal_name: string, parameters: GLib.Variant): void
@@ -9458,6 +11208,9 @@ export class Modem3gpp {
     connect_after(sigName: "notify", callback: (($obj: Modem3gpp, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of ModemManager-1.0.ModemManager.GdbusModem3gpp */
+    connect(sigName: "handle-disable-facility-lock", callback: (($obj: Modem3gpp, invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant) => boolean)): number
+    connect_after(sigName: "handle-disable-facility-lock", callback: (($obj: Modem3gpp, invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant) => boolean)): number
+    emit(sigName: "handle-disable-facility-lock", invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant): void
     connect(sigName: "handle-register", callback: (($obj: Modem3gpp, invocation: Gio.DBusMethodInvocation, arg_operator_id: string) => boolean)): number
     connect_after(sigName: "handle-register", callback: (($obj: Modem3gpp, invocation: Gio.DBusMethodInvocation, arg_operator_id: string) => boolean)): number
     emit(sigName: "handle-register", invocation: Gio.DBusMethodInvocation, arg_operator_id: string): void
@@ -9470,6 +11223,9 @@ export class Modem3gpp {
     connect(sigName: "handle-set-initial-eps-bearer-settings", callback: (($obj: Modem3gpp, invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant) => boolean)): number
     connect_after(sigName: "handle-set-initial-eps-bearer-settings", callback: (($obj: Modem3gpp, invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant) => boolean)): number
     emit(sigName: "handle-set-initial-eps-bearer-settings", invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant): void
+    connect(sigName: "handle-set-packet-service-state", callback: (($obj: Modem3gpp, invocation: Gio.DBusMethodInvocation, arg_state: number) => boolean)): number
+    connect_after(sigName: "handle-set-packet-service-state", callback: (($obj: Modem3gpp, invocation: Gio.DBusMethodInvocation, arg_state: number) => boolean)): number
+    emit(sigName: "handle-set-packet-service-state", invocation: Gio.DBusMethodInvocation, arg_state: number): void
     connect(sigName: "notify::g-default-timeout", callback: (($obj: Modem3gpp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: Modem3gpp, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::g-interface-info", callback: (($obj: Modem3gpp, pspec: GObject.ParamSpec) => void)): number
@@ -9490,6 +11246,8 @@ export class Modem3gpp {
     connect_after(sigName: "notify::operator-code", callback: (($obj: Modem3gpp, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::operator-name", callback: (($obj: Modem3gpp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::operator-name", callback: (($obj: Modem3gpp, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::packet-service-state", callback: (($obj: Modem3gpp, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::packet-service-state", callback: (($obj: Modem3gpp, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::pco", callback: (($obj: Modem3gpp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::pco", callback: (($obj: Modem3gpp, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::registration-state", callback: (($obj: Modem3gpp, pspec: GObject.ParamSpec) => void)): number
@@ -9508,6 +11266,161 @@ export class Modem3gpp {
     static new_for_bus_sync(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string, object_path: string, interface_name: string, cancellable?: Gio.Cancellable | null): Modem3gpp
     static new_sync(connection: Gio.DBusConnection, flags: Gio.DBusProxyFlags, name: string | null, object_path: string, cancellable?: Gio.Cancellable | null): Modem3gpp
     static new_sync(connection: Gio.DBusConnection, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string | null, object_path: string, interface_name: string, cancellable?: Gio.Cancellable | null): Modem3gpp
+    static new_for_bus(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, name: string, object_path: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    static new_for_bus(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string, object_path: string, interface_name: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    static $gtype: GObject.Type
+}
+export interface Modem3gppProfileManager_ConstructProps extends GdbusModem3gppProfileManagerProxy_ConstructProps {
+}
+export class Modem3gppProfileManager {
+    /* Properties of Gio-2.0.Gio.DBusProxy */
+    g_default_timeout: number
+    g_interface_info: Gio.DBusInterfaceInfo
+    readonly g_name_owner: string
+    /* Fields of GObject-2.0.GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of ModemManager-1.0.ModemManager.Modem3gppProfileManager */
+    delete(profile: TODO_3gppProfile, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    delete_finish(res: Gio.AsyncResult): boolean
+    delete_sync(profile: TODO_3gppProfile, cancellable?: Gio.Cancellable | null): boolean
+    dup_path(): string
+    get_path(): string
+    list(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    list_finish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* profiles */ TODO_3gppProfile[] | null ]
+    list_sync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* profiles */ TODO_3gppProfile[] | null ]
+    set(requested: TODO_3gppProfile, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    set_finish(res: Gio.AsyncResult): TODO_3gppProfile
+    set_sync(requested: TODO_3gppProfile, cancellable?: Gio.Cancellable | null): TODO_3gppProfile
+    /* Methods of Gio-2.0.Gio.DBusProxy */
+    call(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_finish(res: Gio.AsyncResult): GLib.Variant
+    call_sync(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
+    call_with_unix_fd_list(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, fd_list?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_with_unix_fd_list_finish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* out_fd_list */ Gio.UnixFDList | null ]
+    call_with_unix_fd_list_sync(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, fd_list?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* out_fd_list */ Gio.UnixFDList | null ]
+    get_cached_property(property_name: string): GLib.Variant | null
+    get_cached_property_names(): string[] | null
+    get_connection(): Gio.DBusConnection
+    get_default_timeout(): number
+    get_flags(): Gio.DBusProxyFlags
+    get_interface_info(): Gio.DBusInterfaceInfo | null
+    get_interface_name(): string
+    get_name(): string | null
+    get_name_owner(): string | null
+    get_object_path(): string
+    set_cached_property(property_name: string, value?: GLib.Variant | null): void
+    set_default_timeout(timeout_msec: number): void
+    set_interface_info(info?: Gio.DBusInterfaceInfo | null): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: any): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: any): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: Function): void
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
+    init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    init_finish(res: Gio.AsyncResult): boolean
+    new_finish(res: Gio.AsyncResult): GObject.Object
+    /* Methods of Gio-2.0.Gio.DBusInterface */
+    get_object(): Gio.DBusObject | null
+    get_info(): Gio.DBusInterfaceInfo
+    set_object(object?: Gio.DBusObject | null): void
+    /* Methods of Gio-2.0.Gio.Initable */
+    init(cancellable?: Gio.Cancellable | null): boolean
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModem3gppProfileManager */
+    call_delete(arg_properties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_delete_finish(res: Gio.AsyncResult): boolean
+    call_delete_sync(arg_properties: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
+    call_list(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_list_finish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* out_profiles */ GLib.Variant | null ]
+    call_list_sync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_profiles */ GLib.Variant | null ]
+    call_set(arg_requested_properties: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_set_finish(res: Gio.AsyncResult): [ /* returnType */ boolean, /* out_stored_properties */ GLib.Variant | null ]
+    call_set_sync(arg_requested_properties: GLib.Variant, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_stored_properties */ GLib.Variant | null ]
+    complete_delete(invocation: Gio.DBusMethodInvocation): void
+    complete_list(invocation: Gio.DBusMethodInvocation, profiles: GLib.Variant): void
+    complete_set(invocation: Gio.DBusMethodInvocation, stored_properties: GLib.Variant): void
+    emit_updated(): void
+    /* Virtual methods of ModemManager-1.0.ModemManager.GdbusModem3gppProfileManagerProxy */
+    vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfunc_init_finish(res: Gio.AsyncResult): boolean
+    vfunc_dup_object(): Gio.DBusObject | null
+    vfunc_get_info(): Gio.DBusInterfaceInfo
+    vfunc_set_object(object?: Gio.DBusObject | null): void
+    vfunc_init(cancellable?: Gio.Cancellable | null): boolean
+    vfunc_handle_delete(invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant): boolean
+    vfunc_handle_list(invocation: Gio.DBusMethodInvocation): boolean
+    vfunc_handle_set(invocation: Gio.DBusMethodInvocation, arg_requested_properties: GLib.Variant): boolean
+    vfunc_updated(): void
+    /* Virtual methods of Gio-2.0.Gio.DBusProxy */
+    vfunc_g_properties_changed(changed_properties: GLib.Variant, invalidated_properties: string): void
+    vfunc_g_signal(sender_name: string, signal_name: string, parameters: GLib.Variant): void
+    /* Virtual methods of GObject-2.0.GObject.Object */
+    vfunc_constructed(): void
+    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose(): void
+    vfunc_finalize(): void
+    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    /* Signals of Gio-2.0.Gio.DBusProxy */
+    connect(sigName: "g-properties-changed", callback: (($obj: Modem3gppProfileManager, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): number
+    connect_after(sigName: "g-properties-changed", callback: (($obj: Modem3gppProfileManager, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): number
+    emit(sigName: "g-properties-changed", changed_properties: GLib.Variant, invalidated_properties: string[]): void
+    connect(sigName: "g-signal", callback: (($obj: Modem3gppProfileManager, sender_name: string | null, signal_name: string, parameters: GLib.Variant) => void)): number
+    connect_after(sigName: "g-signal", callback: (($obj: Modem3gppProfileManager, sender_name: string | null, signal_name: string, parameters: GLib.Variant) => void)): number
+    emit(sigName: "g-signal", sender_name: string | null, signal_name: string, parameters: GLib.Variant): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: Modem3gppProfileManager, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: Modem3gppProfileManager, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModem3gppProfileManager */
+    connect(sigName: "handle-delete", callback: (($obj: Modem3gppProfileManager, invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant) => boolean)): number
+    connect_after(sigName: "handle-delete", callback: (($obj: Modem3gppProfileManager, invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant) => boolean)): number
+    emit(sigName: "handle-delete", invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant): void
+    connect(sigName: "handle-list", callback: (($obj: Modem3gppProfileManager, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    connect_after(sigName: "handle-list", callback: (($obj: Modem3gppProfileManager, invocation: Gio.DBusMethodInvocation) => boolean)): number
+    emit(sigName: "handle-list", invocation: Gio.DBusMethodInvocation): void
+    connect(sigName: "handle-set", callback: (($obj: Modem3gppProfileManager, invocation: Gio.DBusMethodInvocation, arg_requested_properties: GLib.Variant) => boolean)): number
+    connect_after(sigName: "handle-set", callback: (($obj: Modem3gppProfileManager, invocation: Gio.DBusMethodInvocation, arg_requested_properties: GLib.Variant) => boolean)): number
+    emit(sigName: "handle-set", invocation: Gio.DBusMethodInvocation, arg_requested_properties: GLib.Variant): void
+    connect(sigName: "updated", callback: (($obj: Modem3gppProfileManager) => void)): number
+    connect_after(sigName: "updated", callback: (($obj: Modem3gppProfileManager) => void)): number
+    emit(sigName: "updated"): void
+    connect(sigName: "notify::g-default-timeout", callback: (($obj: Modem3gppProfileManager, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::g-default-timeout", callback: (($obj: Modem3gppProfileManager, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::g-interface-info", callback: (($obj: Modem3gppProfileManager, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::g-interface-info", callback: (($obj: Modem3gppProfileManager, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::g-name-owner", callback: (($obj: Modem3gppProfileManager, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::g-name-owner", callback: (($obj: Modem3gppProfileManager, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    static name: string
+    constructor (config?: Modem3gppProfileManager_ConstructProps)
+    _init (config?: Modem3gppProfileManager_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new_for_bus_sync(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, name: string, object_path: string, cancellable?: Gio.Cancellable | null): Modem3gppProfileManager
+    static new_for_bus_sync(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string, object_path: string, interface_name: string, cancellable?: Gio.Cancellable | null): Modem3gppProfileManager
+    static new_sync(connection: Gio.DBusConnection, flags: Gio.DBusProxyFlags, name: string | null, object_path: string, cancellable?: Gio.Cancellable | null): Modem3gppProfileManager
+    static new_sync(connection: Gio.DBusConnection, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string | null, object_path: string, interface_name: string, cancellable?: Gio.Cancellable | null): Modem3gppProfileManager
     static new_for_bus(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, name: string, object_path: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     static new_for_bus(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string, object_path: string, interface_name: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     static $gtype: GObject.Type
@@ -9559,7 +11472,7 @@ export class Modem3gppUssd {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -9736,7 +11649,7 @@ export class ModemCdma {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -9899,7 +11812,7 @@ export class ModemFirmware {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -10058,11 +11971,19 @@ export class ModemLocation {
     get_gps_raw_sync(cancellable?: Gio.Cancellable | null): LocationGpsRaw
     get_gps_refresh_rate(): number
     get_path(): string
+    get_signaled_3gpp(): Location3gpp
+    get_signaled_cdma_bs(): LocationCdmaBs
+    get_signaled_gps_nmea(): LocationGpsNmea
+    get_signaled_gps_raw(): LocationGpsRaw
     get_supl_server(): string
     get_supported_assistance_data(): ModemLocationAssistanceDataType
     inject_assistance_data(data: Uint8Array[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     inject_assistance_data_finish(res: Gio.AsyncResult): boolean
     inject_assistance_data_sync(data: Uint8Array[], cancellable?: Gio.Cancellable | null): boolean
+    peek_signaled_3gpp(): Location3gpp
+    peek_signaled_cdma_bs(): LocationCdmaBs
+    peek_signaled_gps_nmea(): LocationGpsNmea
+    peek_signaled_gps_raw(): LocationGpsRaw
     set_gps_refresh_rate(rate: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     set_gps_refresh_rate_finish(res: Gio.AsyncResult): boolean
     set_gps_refresh_rate_sync(rate: number, cancellable?: Gio.Cancellable | null): boolean
@@ -10086,7 +12007,7 @@ export class ModemLocation {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -10278,7 +12199,7 @@ export class ModemMessaging {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -10437,8 +12358,10 @@ export class ModemOma {
     dup_path(): string
     get_features(): OmaFeature
     get_path(): string
+    get_pending_network_initiated_sessions(): [ /* returnType */ boolean, /* sessions */ OmaPendingNetworkInitiatedSession[] ]
     get_session_state(): OmaSessionState
     get_session_type(): OmaSessionType
+    peek_pending_network_initiated_sessions(): [ /* returnType */ boolean, /* sessions */ OmaPendingNetworkInitiatedSession[] ]
     setup(features: OmaFeature, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     setup_finish(res: Gio.AsyncResult): boolean
     setup_sync(features: OmaFeature, cancellable?: Gio.Cancellable | null): boolean
@@ -10459,7 +12382,7 @@ export class ModemOma {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -10595,49 +12518,31 @@ export class ModemOma {
     static new_for_bus(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string, object_path: string, interface_name: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     static $gtype: GObject.Type
 }
-export interface ModemSignal_ConstructProps extends GdbusModemSignalProxy_ConstructProps {
-    cdma?: GLib.Variant
-    evdo?: GLib.Variant
-    gsm?: GLib.Variant
-    lte?: GLib.Variant
-    nr5g?: GLib.Variant
-    rate?: number
-    umts?: GLib.Variant
+export interface ModemSar_ConstructProps extends GdbusModemSarProxy_ConstructProps {
+    power_level?: number
+    state?: boolean
 }
-export class ModemSignal {
+export class ModemSar {
     /* Properties of Gio-2.0.Gio.DBusProxy */
     g_default_timeout: number
     g_interface_info: Gio.DBusInterfaceInfo
     readonly g_name_owner: string
-    /* Properties of ModemManager-1.0.ModemManager.GdbusModemSignal */
-    cdma: GLib.Variant
-    evdo: GLib.Variant
-    gsm: GLib.Variant
-    lte: GLib.Variant
-    nr5g: GLib.Variant
-    rate: number
-    umts: GLib.Variant
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemSar */
+    power_level: number
+    state: boolean
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of ModemManager-1.0.ModemManager.ModemSignal */
+    /* Methods of ModemManager-1.0.ModemManager.ModemSar */
     dup_path(): string
-    get_cdma(): Signal
-    get_evdo(): Signal
-    get_gsm(): Signal
-    get_lte(): Signal
-    get_nr5g(): Signal
+    enable(enable: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    enable_finish(res: Gio.AsyncResult): boolean
+    enable_sync(enable: boolean, cancellable?: Gio.Cancellable | null): boolean
     get_path(): string
-    get_rate(): number
-    get_umts(): Signal
-    peek_cdma(): Signal
-    peek_evdo(): Signal
-    peek_gsm(): Signal
-    peek_lte(): Signal
-    peek_nr5g(): Signal
-    peek_umts(): Signal
-    setup(rate: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    setup_finish(res: Gio.AsyncResult): boolean
-    setup_sync(rate: number, cancellable?: Gio.Cancellable | null): boolean
+    get_power_level(): number
+    get_state(): boolean
+    set_power_level(level: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    set_power_level_finish(res: Gio.AsyncResult): boolean
+    set_power_level_sync(level: number, cancellable?: Gio.Cancellable | null): boolean
     /* Methods of Gio-2.0.Gio.DBusProxy */
     call(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_finish(res: Gio.AsyncResult): GLib.Variant
@@ -10652,7 +12557,184 @@ export class ModemSignal {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
+    get_name_owner(): string | null
+    get_object_path(): string
+    set_cached_property(property_name: string, value?: GLib.Variant | null): void
+    set_default_timeout(timeout_msec: number): void
+    set_interface_info(info?: Gio.DBusInterfaceInfo | null): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: any): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: any): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: Function): void
+    /* Methods of Gio-2.0.Gio.AsyncInitable */
+    init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    init_finish(res: Gio.AsyncResult): boolean
+    new_finish(res: Gio.AsyncResult): GObject.Object
+    /* Methods of Gio-2.0.Gio.DBusInterface */
+    get_object(): Gio.DBusObject | null
+    get_info(): Gio.DBusInterfaceInfo
+    set_object(object?: Gio.DBusObject | null): void
+    /* Methods of Gio-2.0.Gio.Initable */
+    init(cancellable?: Gio.Cancellable | null): boolean
+    /* Methods of ModemManager-1.0.ModemManager.GdbusModemSar */
+    call_enable(arg_enable: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_enable_finish(res: Gio.AsyncResult): boolean
+    call_enable_sync(arg_enable: boolean, cancellable?: Gio.Cancellable | null): boolean
+    call_set_power_level(arg_level: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_set_power_level_finish(res: Gio.AsyncResult): boolean
+    call_set_power_level_sync(arg_level: number, cancellable?: Gio.Cancellable | null): boolean
+    complete_enable(invocation: Gio.DBusMethodInvocation): void
+    complete_set_power_level(invocation: Gio.DBusMethodInvocation): void
+    /* Virtual methods of ModemManager-1.0.ModemManager.GdbusModemSarProxy */
+    vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfunc_init_finish(res: Gio.AsyncResult): boolean
+    vfunc_dup_object(): Gio.DBusObject | null
+    vfunc_get_info(): Gio.DBusInterfaceInfo
+    vfunc_set_object(object?: Gio.DBusObject | null): void
+    vfunc_init(cancellable?: Gio.Cancellable | null): boolean
+    vfunc_handle_enable(invocation: Gio.DBusMethodInvocation, arg_enable: boolean): boolean
+    vfunc_handle_set_power_level(invocation: Gio.DBusMethodInvocation, arg_level: number): boolean
+    /* Virtual methods of Gio-2.0.Gio.DBusProxy */
+    vfunc_g_properties_changed(changed_properties: GLib.Variant, invalidated_properties: string): void
+    vfunc_g_signal(sender_name: string, signal_name: string, parameters: GLib.Variant): void
+    /* Virtual methods of GObject-2.0.GObject.Object */
+    vfunc_constructed(): void
+    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose(): void
+    vfunc_finalize(): void
+    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    /* Signals of Gio-2.0.Gio.DBusProxy */
+    connect(sigName: "g-properties-changed", callback: (($obj: ModemSar, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): number
+    connect_after(sigName: "g-properties-changed", callback: (($obj: ModemSar, changed_properties: GLib.Variant, invalidated_properties: string[]) => void)): number
+    emit(sigName: "g-properties-changed", changed_properties: GLib.Variant, invalidated_properties: string[]): void
+    connect(sigName: "g-signal", callback: (($obj: ModemSar, sender_name: string | null, signal_name: string, parameters: GLib.Variant) => void)): number
+    connect_after(sigName: "g-signal", callback: (($obj: ModemSar, sender_name: string | null, signal_name: string, parameters: GLib.Variant) => void)): number
+    emit(sigName: "g-signal", sender_name: string | null, signal_name: string, parameters: GLib.Variant): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ModemSar, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: ModemSar, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    /* Signals of ModemManager-1.0.ModemManager.GdbusModemSar */
+    connect(sigName: "handle-enable", callback: (($obj: ModemSar, invocation: Gio.DBusMethodInvocation, arg_enable: boolean) => boolean)): number
+    connect_after(sigName: "handle-enable", callback: (($obj: ModemSar, invocation: Gio.DBusMethodInvocation, arg_enable: boolean) => boolean)): number
+    emit(sigName: "handle-enable", invocation: Gio.DBusMethodInvocation, arg_enable: boolean): void
+    connect(sigName: "handle-set-power-level", callback: (($obj: ModemSar, invocation: Gio.DBusMethodInvocation, arg_level: number) => boolean)): number
+    connect_after(sigName: "handle-set-power-level", callback: (($obj: ModemSar, invocation: Gio.DBusMethodInvocation, arg_level: number) => boolean)): number
+    emit(sigName: "handle-set-power-level", invocation: Gio.DBusMethodInvocation, arg_level: number): void
+    connect(sigName: "notify::g-default-timeout", callback: (($obj: ModemSar, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::g-default-timeout", callback: (($obj: ModemSar, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::g-interface-info", callback: (($obj: ModemSar, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::g-interface-info", callback: (($obj: ModemSar, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::g-name-owner", callback: (($obj: ModemSar, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::g-name-owner", callback: (($obj: ModemSar, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::power-level", callback: (($obj: ModemSar, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::power-level", callback: (($obj: ModemSar, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::state", callback: (($obj: ModemSar, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::state", callback: (($obj: ModemSar, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    static name: string
+    constructor (config?: ModemSar_ConstructProps)
+    _init (config?: ModemSar_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new_for_bus_sync(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, name: string, object_path: string, cancellable?: Gio.Cancellable | null): ModemSar
+    static new_for_bus_sync(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string, object_path: string, interface_name: string, cancellable?: Gio.Cancellable | null): ModemSar
+    static new_sync(connection: Gio.DBusConnection, flags: Gio.DBusProxyFlags, name: string | null, object_path: string, cancellable?: Gio.Cancellable | null): ModemSar
+    static new_sync(connection: Gio.DBusConnection, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string | null, object_path: string, interface_name: string, cancellable?: Gio.Cancellable | null): ModemSar
+    static new_for_bus(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, name: string, object_path: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    static new_for_bus(bus_type: Gio.BusType, flags: Gio.DBusProxyFlags, info: Gio.DBusInterfaceInfo | null, name: string, object_path: string, interface_name: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    static $gtype: GObject.Type
+}
+export interface ModemSignal_ConstructProps extends GdbusModemSignalProxy_ConstructProps {
+    cdma?: GLib.Variant
+    error_rate_threshold?: boolean
+    evdo?: GLib.Variant
+    gsm?: GLib.Variant
+    lte?: GLib.Variant
+    nr5g?: GLib.Variant
+    rate?: number
+    rssi_threshold?: number
+    umts?: GLib.Variant
+}
+export class ModemSignal {
+    /* Properties of Gio-2.0.Gio.DBusProxy */
+    g_default_timeout: number
+    g_interface_info: Gio.DBusInterfaceInfo
+    readonly g_name_owner: string
+    /* Properties of ModemManager-1.0.ModemManager.GdbusModemSignal */
+    cdma: GLib.Variant
+    error_rate_threshold: boolean
+    evdo: GLib.Variant
+    gsm: GLib.Variant
+    lte: GLib.Variant
+    nr5g: GLib.Variant
+    rate: number
+    rssi_threshold: number
+    umts: GLib.Variant
+    /* Fields of GObject-2.0.GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of ModemManager-1.0.ModemManager.ModemSignal */
+    dup_path(): string
+    get_cdma(): Signal
+    get_error_rate_threshold(): boolean
+    get_evdo(): Signal
+    get_gsm(): Signal
+    get_lte(): Signal
+    get_nr5g(): Signal
+    get_path(): string
+    get_rate(): number
+    get_rssi_threshold(): number
+    get_umts(): Signal
+    peek_cdma(): Signal
+    peek_evdo(): Signal
+    peek_gsm(): Signal
+    peek_lte(): Signal
+    peek_nr5g(): Signal
+    peek_umts(): Signal
+    setup(rate: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    setup_finish(res: Gio.AsyncResult): boolean
+    setup_sync(rate: number, cancellable?: Gio.Cancellable | null): boolean
+    setup_thresholds(properties: SignalThresholdProperties, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    setup_thresholds_finish(res: Gio.AsyncResult): boolean
+    setup_thresholds_sync(properties: SignalThresholdProperties, cancellable?: Gio.Cancellable | null): boolean
+    /* Methods of Gio-2.0.Gio.DBusProxy */
+    call(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_finish(res: Gio.AsyncResult): GLib.Variant
+    call_sync(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, cancellable?: Gio.Cancellable | null): GLib.Variant
+    call_with_unix_fd_list(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, fd_list?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_with_unix_fd_list_finish(res: Gio.AsyncResult): [ /* returnType */ GLib.Variant, /* out_fd_list */ Gio.UnixFDList | null ]
+    call_with_unix_fd_list_sync(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, fd_list?: Gio.UnixFDList | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ GLib.Variant, /* out_fd_list */ Gio.UnixFDList | null ]
+    get_cached_property(property_name: string): GLib.Variant | null
+    get_cached_property_names(): string[] | null
+    get_connection(): Gio.DBusConnection
+    get_default_timeout(): number
+    get_flags(): Gio.DBusProxyFlags
+    get_interface_info(): Gio.DBusInterfaceInfo | null
+    get_interface_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -10694,7 +12776,11 @@ export class ModemSignal {
     call_setup(arg_rate: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_setup_finish(res: Gio.AsyncResult): boolean
     call_setup_sync(arg_rate: number, cancellable?: Gio.Cancellable | null): boolean
+    call_setup_thresholds(arg_settings: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_setup_thresholds_finish(res: Gio.AsyncResult): boolean
+    call_setup_thresholds_sync(arg_settings: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     complete_setup(invocation: Gio.DBusMethodInvocation): void
+    complete_setup_thresholds(invocation: Gio.DBusMethodInvocation): void
     /* Virtual methods of ModemManager-1.0.ModemManager.GdbusModemSignalProxy */
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
@@ -10703,6 +12789,7 @@ export class ModemSignal {
     vfunc_set_object(object?: Gio.DBusObject | null): void
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
     vfunc_handle_setup(invocation: Gio.DBusMethodInvocation, arg_rate: number): boolean
+    vfunc_handle_setup_thresholds(invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant): boolean
     /* Virtual methods of Gio-2.0.Gio.DBusProxy */
     vfunc_g_properties_changed(changed_properties: GLib.Variant, invalidated_properties: string): void
     vfunc_g_signal(sender_name: string, signal_name: string, parameters: GLib.Variant): void
@@ -10729,6 +12816,9 @@ export class ModemSignal {
     connect(sigName: "handle-setup", callback: (($obj: ModemSignal, invocation: Gio.DBusMethodInvocation, arg_rate: number) => boolean)): number
     connect_after(sigName: "handle-setup", callback: (($obj: ModemSignal, invocation: Gio.DBusMethodInvocation, arg_rate: number) => boolean)): number
     emit(sigName: "handle-setup", invocation: Gio.DBusMethodInvocation, arg_rate: number): void
+    connect(sigName: "handle-setup-thresholds", callback: (($obj: ModemSignal, invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant) => boolean)): number
+    connect_after(sigName: "handle-setup-thresholds", callback: (($obj: ModemSignal, invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant) => boolean)): number
+    emit(sigName: "handle-setup-thresholds", invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant): void
     connect(sigName: "notify::g-default-timeout", callback: (($obj: ModemSignal, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: ModemSignal, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::g-interface-info", callback: (($obj: ModemSignal, pspec: GObject.ParamSpec) => void)): number
@@ -10737,6 +12827,8 @@ export class ModemSignal {
     connect_after(sigName: "notify::g-name-owner", callback: (($obj: ModemSignal, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::cdma", callback: (($obj: ModemSignal, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::cdma", callback: (($obj: ModemSignal, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::error-rate-threshold", callback: (($obj: ModemSignal, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::error-rate-threshold", callback: (($obj: ModemSignal, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::evdo", callback: (($obj: ModemSignal, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::evdo", callback: (($obj: ModemSignal, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::gsm", callback: (($obj: ModemSignal, pspec: GObject.ParamSpec) => void)): number
@@ -10747,6 +12839,8 @@ export class ModemSignal {
     connect_after(sigName: "notify::nr5g", callback: (($obj: ModemSignal, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::rate", callback: (($obj: ModemSignal, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::rate", callback: (($obj: ModemSignal, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::rssi-threshold", callback: (($obj: ModemSignal, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::rssi-threshold", callback: (($obj: ModemSignal, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::umts", callback: (($obj: ModemSignal, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::umts", callback: (($obj: ModemSignal, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -10800,7 +12894,7 @@ export class ModemSimple {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -10949,7 +13043,7 @@ export class ModemTime {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -11114,7 +13208,7 @@ export class ModemVoice {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -11350,11 +13444,13 @@ export interface Object_ConstructProps extends GdbusObjectProxy_ConstructProps {
     modem_location?: GdbusModemLocation
     modem_messaging?: GdbusModemMessaging
     modem_oma?: GdbusModemOma
+    modem_sar?: GdbusModemSar
     modem_signal?: GdbusModemSignal
     modem_simple?: GdbusModemSimple
     modem_time?: GdbusModemTime
     modem_voice?: GdbusModemVoice
     modem3gpp?: GdbusModem3gpp
+    modem3gpp_profile_manager?: GdbusModem3gppProfileManager
     modem3gpp_ussd?: GdbusModem3gppUssd
 }
 export class Object {
@@ -11365,11 +13461,13 @@ export class Object {
     modem_location: GdbusModemLocation
     modem_messaging: GdbusModemMessaging
     modem_oma: GdbusModemOma
+    modem_sar: GdbusModemSar
     modem_signal: GdbusModemSignal
     modem_simple: GdbusModemSimple
     modem_time: GdbusModemTime
     modem_voice: GdbusModemVoice
     modem3gpp: GdbusModem3gpp
+    modem3gpp_profile_manager: GdbusModem3gppProfileManager
     modem3gpp_ussd: GdbusModem3gppUssd
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
@@ -11377,12 +13475,14 @@ export class Object {
     dup_path(): string
     get_modem(): Modem
     get_modem_3gpp(): Modem3gpp
+    get_modem_3gpp_profile_manager(): Modem3gppProfileManager
     get_modem_3gpp_ussd(): Modem3gppUssd
     get_modem_cdma(): ModemCdma
     get_modem_firmware(): ModemFirmware
     get_modem_location(): ModemLocation
     get_modem_messaging(): ModemMessaging
     get_modem_oma(): ModemOma
+    get_modem_sar(): ModemSar
     get_modem_signal(): ModemSignal
     get_modem_simple(): ModemSimple
     get_modem_time(): ModemTime
@@ -11418,12 +13518,14 @@ export class Object {
     /* Methods of ModemManager-1.0.ModemManager.GdbusObject */
     get_modem(): GdbusModem | null
     get_modem3gpp(): GdbusModem3gpp | null
+    get_modem3gpp_profile_manager(): GdbusModem3gppProfileManager | null
     get_modem3gpp_ussd(): GdbusModem3gppUssd | null
     get_modem_cdma(): GdbusModemCdma | null
     get_modem_firmware(): GdbusModemFirmware | null
     get_modem_location(): GdbusModemLocation | null
     get_modem_messaging(): GdbusModemMessaging | null
     get_modem_oma(): GdbusModemOma | null
+    get_modem_sar(): GdbusModemSar | null
     get_modem_signal(): GdbusModemSignal | null
     get_modem_simple(): GdbusModemSimple | null
     get_modem_time(): GdbusModemTime | null
@@ -11465,6 +13567,8 @@ export class Object {
     connect_after(sigName: "notify::modem-messaging", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::modem-oma", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::modem-oma", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::modem-sar", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::modem-sar", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::modem-signal", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::modem-signal", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::modem-simple", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
@@ -11475,6 +13579,8 @@ export class Object {
     connect_after(sigName: "notify::modem-voice", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::modem3gpp", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::modem3gpp", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::modem3gpp-profile-manager", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::modem3gpp-profile-manager", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::modem3gpp-ussd", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::modem3gpp-ussd", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -11547,6 +13653,7 @@ export class Signal {
     g_type_instance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.Signal */
     get_ecio(): number
+    get_error_rate(): number
     get_io(): number
     get_rscp(): number
     get_rsrp(): number
@@ -11597,14 +13704,73 @@ export class Signal {
     _init (config?: Signal_ConstructProps): void
     static $gtype: GObject.Type
 }
+export interface SignalThresholdProperties_ConstructProps extends GObject.Object_ConstructProps {
+}
+export class SignalThresholdProperties {
+    /* Fields of GObject-2.0.GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of ModemManager-1.0.ModemManager.SignalThresholdProperties */
+    get_error_rate(): boolean
+    get_rssi(): number
+    set_error_rate(error_rate_threshold: boolean): void
+    set_rssi(rssi_threshold: number): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: any): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: any): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: Function): void
+    /* Virtual methods of GObject-2.0.GObject.Object */
+    vfunc_constructed(): void
+    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose(): void
+    vfunc_finalize(): void
+    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SignalThresholdProperties, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: SignalThresholdProperties, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    static name: string
+    constructor (config?: SignalThresholdProperties_ConstructProps)
+    _init (config?: SignalThresholdProperties_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): SignalThresholdProperties
+    static $gtype: GObject.Type
+}
 export interface Sim_ConstructProps extends GdbusSimProxy_ConstructProps {
     active?: boolean
     eid?: string
     emergency_numbers?: string[]
+    esim_status?: number
     imsi?: string
     operator_identifier?: string
     operator_name?: string
+    preferred_networks?: GLib.Variant
+    removability?: number
     sim_identifier?: string
+    sim_type?: number
 }
 export class Sim {
     /* Properties of Gio-2.0.Gio.DBusProxy */
@@ -11615,10 +13781,14 @@ export class Sim {
     active: boolean
     eid: string
     emergency_numbers: string[]
+    esim_status: number
     imsi: string
     operator_identifier: string
     operator_name: string
+    preferred_networks: GLib.Variant
+    removability: number
     sim_identifier: string
+    sim_type: number
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of ModemManager-1.0.ModemManager.Sim */
@@ -11641,17 +13811,24 @@ export class Sim {
     get_active(): boolean
     get_eid(): string
     get_emergency_numbers(): string[]
+    get_esim_status(): SimEsimStatus
     get_identifier(): string
     get_imsi(): string
     get_operator_identifier(): string
     get_operator_name(): string
     get_path(): string
+    get_preferred_networks(): SimPreferredNetwork[]
+    get_removability(): SimRemovability
+    get_sim_type(): SimType
     send_pin(pin: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     send_pin_finish(res: Gio.AsyncResult): boolean
     send_pin_sync(pin: string, cancellable?: Gio.Cancellable | null): boolean
     send_puk(puk: string, pin: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     send_puk_finish(res: Gio.AsyncResult): boolean
     send_puk_sync(puk: string, pin: string, cancellable?: Gio.Cancellable | null): boolean
+    set_preferred_networks(preferred_networks: SimPreferredNetwork[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    set_preferred_networks_finish(res: Gio.AsyncResult): boolean
+    set_preferred_networks_sync(preferred_networks: SimPreferredNetwork[], cancellable?: Gio.Cancellable | null): boolean
     /* Methods of Gio-2.0.Gio.DBusProxy */
     call(method_name: string, parameters: GLib.Variant | null, flags: Gio.DBusCallFlags, timeout_msec: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_finish(res: Gio.AsyncResult): GLib.Variant
@@ -11666,7 +13843,7 @@ export class Sim {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -11717,10 +13894,14 @@ export class Sim {
     call_send_puk(arg_puk: string, arg_pin: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     call_send_puk_finish(res: Gio.AsyncResult): boolean
     call_send_puk_sync(arg_puk: string, arg_pin: string, cancellable?: Gio.Cancellable | null): boolean
+    call_set_preferred_networks(arg_preferred_networks: GLib.Variant, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    call_set_preferred_networks_finish(res: Gio.AsyncResult): boolean
+    call_set_preferred_networks_sync(arg_preferred_networks: GLib.Variant, cancellable?: Gio.Cancellable | null): boolean
     complete_change_pin(invocation: Gio.DBusMethodInvocation): void
     complete_enable_pin(invocation: Gio.DBusMethodInvocation): void
     complete_send_pin(invocation: Gio.DBusMethodInvocation): void
     complete_send_puk(invocation: Gio.DBusMethodInvocation): void
+    complete_set_preferred_networks(invocation: Gio.DBusMethodInvocation): void
     /* Virtual methods of ModemManager-1.0.ModemManager.GdbusSimProxy */
     vfunc_init_async(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_init_finish(res: Gio.AsyncResult): boolean
@@ -11732,6 +13913,7 @@ export class Sim {
     vfunc_handle_enable_pin(invocation: Gio.DBusMethodInvocation, arg_pin: string, arg_enabled: boolean): boolean
     vfunc_handle_send_pin(invocation: Gio.DBusMethodInvocation, arg_pin: string): boolean
     vfunc_handle_send_puk(invocation: Gio.DBusMethodInvocation, arg_puk: string, arg_pin: string): boolean
+    vfunc_handle_set_preferred_networks(invocation: Gio.DBusMethodInvocation, arg_preferred_networks: GLib.Variant): boolean
     /* Virtual methods of Gio-2.0.Gio.DBusProxy */
     vfunc_g_properties_changed(changed_properties: GLib.Variant, invalidated_properties: string): void
     vfunc_g_signal(sender_name: string, signal_name: string, parameters: GLib.Variant): void
@@ -11767,6 +13949,9 @@ export class Sim {
     connect(sigName: "handle-send-puk", callback: (($obj: Sim, invocation: Gio.DBusMethodInvocation, arg_puk: string, arg_pin: string) => boolean)): number
     connect_after(sigName: "handle-send-puk", callback: (($obj: Sim, invocation: Gio.DBusMethodInvocation, arg_puk: string, arg_pin: string) => boolean)): number
     emit(sigName: "handle-send-puk", invocation: Gio.DBusMethodInvocation, arg_puk: string, arg_pin: string): void
+    connect(sigName: "handle-set-preferred-networks", callback: (($obj: Sim, invocation: Gio.DBusMethodInvocation, arg_preferred_networks: GLib.Variant) => boolean)): number
+    connect_after(sigName: "handle-set-preferred-networks", callback: (($obj: Sim, invocation: Gio.DBusMethodInvocation, arg_preferred_networks: GLib.Variant) => boolean)): number
+    emit(sigName: "handle-set-preferred-networks", invocation: Gio.DBusMethodInvocation, arg_preferred_networks: GLib.Variant): void
     connect(sigName: "notify::g-default-timeout", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::g-default-timeout", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::g-interface-info", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
@@ -11779,14 +13964,22 @@ export class Sim {
     connect_after(sigName: "notify::eid", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::emergency-numbers", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::emergency-numbers", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::esim-status", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::esim-status", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::imsi", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::imsi", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::operator-identifier", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::operator-identifier", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::operator-name", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::operator-name", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::preferred-networks", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::preferred-networks", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::removability", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::removability", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::sim-identifier", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::sim-identifier", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::sim-type", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::sim-type", callback: (($obj: Sim, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11812,21 +14005,27 @@ export class SimpleConnectProperties {
     get_allow_roaming(): boolean
     get_allowed_auth(): BearerAllowedAuth
     get_apn(): string
+    get_apn_type(): BearerApnType
     get_ip_type(): BearerIpFamily
+    get_multiplex(): BearerMultiplexSupport
     get_number(): string
     get_operator_id(): string
     get_password(): string
     get_pin(): string
+    get_profile_id(): number
     get_rm_protocol(): ModemCdmaRmProtocol
     get_user(): string
     set_allow_roaming(allow_roaming: boolean): void
     set_allowed_auth(allowed_auth: BearerAllowedAuth): void
     set_apn(apn: string): void
+    set_apn_type(apn_type: BearerApnType): void
     set_ip_type(ip_type: BearerIpFamily): void
+    set_multiplex(multiplex: BearerMultiplexSupport): void
     set_number(number: string): void
     set_operator_id(operator_id: string): void
     set_password(password: string): void
     set_pin(pin: string): void
+    set_profile_id(profile_id: number): void
     set_rm_protocol(protocol: ModemCdmaRmProtocol): void
     set_user(user: string): void
     /* Methods of GObject-2.0.GObject.Object */
@@ -12072,7 +14271,7 @@ export class Sms {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -12335,6 +14534,12 @@ export class UnlockRetries {
     _init (config?: UnlockRetries_ConstructProps): void
     static $gtype: GObject.Type
 }
+export abstract class TODO_3gppProfileClass {
+    static name: string
+}
+export class TODO_3gppProfilePrivate {
+    static name: string
+}
 export abstract class BearerClass {
     static name: string
 }
@@ -12402,11 +14607,15 @@ export abstract class GdbusBearerIface {
     handle_disconnect: (object: GdbusBearer, invocation: Gio.DBusMethodInvocation) => boolean
     get_bearer_type: (object: GdbusBearer) => number
     get_connected: (object: GdbusBearer) => boolean
+    get_connection_error: (object: GdbusBearer) => GLib.Variant | null
     get_interface: (object: GdbusBearer) => string | null
     get_ip4_config: (object: GdbusBearer) => GLib.Variant | null
     get_ip6_config: (object: GdbusBearer) => GLib.Variant | null
     get_ip_timeout: (object: GdbusBearer) => number
+    get_multiplexed: (object: GdbusBearer) => boolean
+    get_profile_id: (object: GdbusBearer) => number
     get_properties: (object: GdbusBearer) => GLib.Variant | null
+    get_reload_stats_supported: (object: GdbusBearer) => boolean
     get_stats: (object: GdbusBearer) => GLib.Variant | null
     get_suspended: (object: GdbusBearer) => boolean
     static name: string
@@ -12427,13 +14636,52 @@ export abstract class GdbusBearerSkeletonClass {
 export class GdbusBearerSkeletonPrivate {
     static name: string
 }
+export abstract class GdbusCallIface {
+    /* Fields of ModemManager-1.0.ModemManager.GdbusCallIface */
+    parent_iface: GObject.TypeInterface
+    handle_accept: (object: GdbusCall, invocation: Gio.DBusMethodInvocation) => boolean
+    handle_deflect: (object: GdbusCall, invocation: Gio.DBusMethodInvocation, arg_number: string) => boolean
+    handle_hangup: (object: GdbusCall, invocation: Gio.DBusMethodInvocation) => boolean
+    handle_join_multiparty: (object: GdbusCall, invocation: Gio.DBusMethodInvocation) => boolean
+    handle_leave_multiparty: (object: GdbusCall, invocation: Gio.DBusMethodInvocation) => boolean
+    handle_send_dtmf: (object: GdbusCall, invocation: Gio.DBusMethodInvocation, arg_dtmf: string) => boolean
+    handle_start: (object: GdbusCall, invocation: Gio.DBusMethodInvocation) => boolean
+    get_audio_format: (object: GdbusCall) => GLib.Variant | null
+    get_audio_port: (object: GdbusCall) => string | null
+    get_direction: (object: GdbusCall) => number
+    get_multiparty: (object: GdbusCall) => boolean
+    get_number: (object: GdbusCall) => string | null
+    get_state: (object: GdbusCall) => number
+    get_state_reason: (object: GdbusCall) => number
+    dtmf_received: (object: GdbusCall, arg_dtmf: string) => void
+    state_changed: (object: GdbusCall, arg_old: number, arg_new: number, arg_reason: number) => void
+    static name: string
+}
+export abstract class GdbusCallProxyClass {
+    /* Fields of ModemManager-1.0.ModemManager.GdbusCallProxyClass */
+    parent_class: Gio.DBusProxyClass
+    static name: string
+}
+export class GdbusCallProxyPrivate {
+    static name: string
+}
+export abstract class GdbusCallSkeletonClass {
+    /* Fields of ModemManager-1.0.ModemManager.GdbusCallSkeletonClass */
+    parent_class: Gio.DBusInterfaceSkeletonClass
+    static name: string
+}
+export class GdbusCallSkeletonPrivate {
+    static name: string
+}
 export abstract class GdbusModem3gppIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModem3gppIface */
     parent_iface: GObject.TypeInterface
+    handle_disable_facility_lock: (object: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant) => boolean
     handle_register: (object: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation, arg_operator_id: string) => boolean
     handle_scan: (object: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation) => boolean
     handle_set_eps_ue_mode_operation: (object: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation, arg_mode: number) => boolean
     handle_set_initial_eps_bearer_settings: (object: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant) => boolean
+    handle_set_packet_service_state: (object: GdbusModem3gpp, invocation: Gio.DBusMethodInvocation, arg_state: number) => boolean
     get_enabled_facility_locks: (object: GdbusModem3gpp) => number
     get_eps_ue_mode_operation: (object: GdbusModem3gpp) => number
     get_imei: (object: GdbusModem3gpp) => string | null
@@ -12441,9 +14689,35 @@ export abstract class GdbusModem3gppIface {
     get_initial_eps_bearer_settings: (object: GdbusModem3gpp) => GLib.Variant | null
     get_operator_code: (object: GdbusModem3gpp) => string | null
     get_operator_name: (object: GdbusModem3gpp) => string | null
+    get_packet_service_state: (object: GdbusModem3gpp) => number
     get_pco: (object: GdbusModem3gpp) => GLib.Variant | null
     get_registration_state: (object: GdbusModem3gpp) => number
     get_subscription_state: (object: GdbusModem3gpp) => number
+    static name: string
+}
+export abstract class GdbusModem3gppProfileManagerIface {
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModem3gppProfileManagerIface */
+    parent_iface: GObject.TypeInterface
+    handle_delete: (object: GdbusModem3gppProfileManager, invocation: Gio.DBusMethodInvocation, arg_properties: GLib.Variant) => boolean
+    handle_list: (object: GdbusModem3gppProfileManager, invocation: Gio.DBusMethodInvocation) => boolean
+    handle_set: (object: GdbusModem3gppProfileManager, invocation: Gio.DBusMethodInvocation, arg_requested_properties: GLib.Variant) => boolean
+    updated: (object: GdbusModem3gppProfileManager) => void
+    static name: string
+}
+export abstract class GdbusModem3gppProfileManagerProxyClass {
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModem3gppProfileManagerProxyClass */
+    parent_class: Gio.DBusProxyClass
+    static name: string
+}
+export class GdbusModem3gppProfileManagerProxyPrivate {
+    static name: string
+}
+export abstract class GdbusModem3gppProfileManagerSkeletonClass {
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModem3gppProfileManagerSkeletonClass */
+    parent_class: Gio.DBusInterfaceSkeletonClass
+    static name: string
+}
+export class GdbusModem3gppProfileManagerSkeletonPrivate {
     static name: string
 }
 export abstract class GdbusModem3gppProxyClass {
@@ -12573,6 +14847,7 @@ export abstract class GdbusModemIface {
     get_hardware_revision: (object: GdbusModem) => string | null
     get_manufacturer: (object: GdbusModem) => string | null
     get_max_active_bearers: (object: GdbusModem) => number
+    get_max_active_multiplexed_bearers: (object: GdbusModem) => number
     get_max_bearers: (object: GdbusModem) => number
     get_model: (object: GdbusModem) => string | null
     get_own_numbers: (object: GdbusModem) => string[] | null
@@ -12697,16 +14972,44 @@ export abstract class GdbusModemProxyClass {
 export class GdbusModemProxyPrivate {
     static name: string
 }
+export abstract class GdbusModemSarIface {
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemSarIface */
+    parent_iface: GObject.TypeInterface
+    handle_enable: (object: GdbusModemSar, invocation: Gio.DBusMethodInvocation, arg_enable: boolean) => boolean
+    handle_set_power_level: (object: GdbusModemSar, invocation: Gio.DBusMethodInvocation, arg_level: number) => boolean
+    get_power_level: (object: GdbusModemSar) => number
+    get_state: (object: GdbusModemSar) => boolean
+    static name: string
+}
+export abstract class GdbusModemSarProxyClass {
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemSarProxyClass */
+    parent_class: Gio.DBusProxyClass
+    static name: string
+}
+export class GdbusModemSarProxyPrivate {
+    static name: string
+}
+export abstract class GdbusModemSarSkeletonClass {
+    /* Fields of ModemManager-1.0.ModemManager.GdbusModemSarSkeletonClass */
+    parent_class: Gio.DBusInterfaceSkeletonClass
+    static name: string
+}
+export class GdbusModemSarSkeletonPrivate {
+    static name: string
+}
 export abstract class GdbusModemSignalIface {
     /* Fields of ModemManager-1.0.ModemManager.GdbusModemSignalIface */
     parent_iface: GObject.TypeInterface
     handle_setup: (object: GdbusModemSignal, invocation: Gio.DBusMethodInvocation, arg_rate: number) => boolean
+    handle_setup_thresholds: (object: GdbusModemSignal, invocation: Gio.DBusMethodInvocation, arg_settings: GLib.Variant) => boolean
     get_cdma: (object: GdbusModemSignal) => GLib.Variant | null
+    get_error_rate_threshold: (object: GdbusModemSignal) => boolean
     get_evdo: (object: GdbusModemSignal) => GLib.Variant | null
     get_gsm: (object: GdbusModemSignal) => GLib.Variant | null
     get_lte: (object: GdbusModemSignal) => GLib.Variant | null
     get_nr5g: (object: GdbusModemSignal) => GLib.Variant | null
     get_rate: (object: GdbusModemSignal) => number
+    get_rssi_threshold: (object: GdbusModemSignal) => number
     get_umts: (object: GdbusModemSignal) => GLib.Variant | null
     static name: string
 }
@@ -12878,13 +15181,18 @@ export abstract class GdbusSimIface {
     handle_enable_pin: (object: GdbusSim, invocation: Gio.DBusMethodInvocation, arg_pin: string, arg_enabled: boolean) => boolean
     handle_send_pin: (object: GdbusSim, invocation: Gio.DBusMethodInvocation, arg_pin: string) => boolean
     handle_send_puk: (object: GdbusSim, invocation: Gio.DBusMethodInvocation, arg_puk: string, arg_pin: string) => boolean
+    handle_set_preferred_networks: (object: GdbusSim, invocation: Gio.DBusMethodInvocation, arg_preferred_networks: GLib.Variant) => boolean
     get_active: (object: GdbusSim) => boolean
     get_eid: (object: GdbusSim) => string | null
     get_emergency_numbers: (object: GdbusSim) => string[] | null
+    get_esim_status: (object: GdbusSim) => number
     get_imsi: (object: GdbusSim) => string | null
     get_operator_identifier: (object: GdbusSim) => string | null
     get_operator_name: (object: GdbusSim) => string | null
+    get_preferred_networks: (object: GdbusSim) => GLib.Variant | null
+    get_removability: (object: GdbusSim) => number
     get_sim_identifier: (object: GdbusSim) => string | null
+    get_sim_type: (object: GdbusSim) => number
     static name: string
 }
 export abstract class GdbusSimProxyClass {
@@ -12994,6 +15302,9 @@ export class Modem3gppNetwork {
 export class Modem3gppPrivate {
     static name: string
 }
+export abstract class Modem3gppProfileManagerClass {
+    static name: string
+}
 export abstract class Modem3gppUssdClass {
     static name: string
 }
@@ -13010,6 +15321,9 @@ export class ModemFirmwarePrivate {
     static name: string
 }
 export abstract class ModemLocationClass {
+    static name: string
+}
+export class ModemLocationPrivate {
     static name: string
 }
 export abstract class ModemMessagingClass {
@@ -13039,6 +15353,9 @@ export class ModemPortInfo {
     static name: string
 }
 export class ModemPrivate {
+    static name: string
+}
+export abstract class ModemSarClass {
     static name: string
 }
 export abstract class ModemSignalClass {
@@ -13089,8 +15406,27 @@ export abstract class SignalClass {
 export class SignalPrivate {
     static name: string
 }
+export abstract class SignalThresholdPropertiesClass {
+    static name: string
+}
+export class SignalThresholdPropertiesPrivate {
+    static name: string
+}
 export abstract class SimClass {
     static name: string
+}
+export class SimPreferredNetwork {
+    /* Methods of ModemManager-1.0.ModemManager.SimPreferredNetwork */
+    free(): void
+    get_access_technology(): ModemAccessTechnology
+    get_operator_code(): string
+    set_access_technology(access_technology: ModemAccessTechnology): void
+    set_operator_code(operator_code: string): void
+    static name: string
+    static new(): SimPreferredNetwork
+    constructor()
+    /* Static methods and pseudo-constructors */
+    static new(): SimPreferredNetwork
 }
 export abstract class SimpleConnectPropertiesClass {
     static name: string

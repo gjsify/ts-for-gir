@@ -7,9 +7,6 @@ import type * as Gio from './Gio-2.0';
 import type * as GObject from './GObject-2.0';
 import type * as GLib from './GLib-2.0';
 
-export enum ClientDownloadFlags {
-    NONE,
-}
 export enum Error {
     INTERNAL,
     VERSION_NEWER,
@@ -112,6 +109,10 @@ export enum VersionFormat {
     SURFACE,
     DELL_BIOS,
     HEX,
+}
+export enum ClientDownloadFlags {
+    NONE,
+    ONLY_IPFS,
 }
 export enum ClientUploadFlags {
     NONE,
@@ -248,6 +249,7 @@ export const RESULT_KEY_INSTALL_DURATION: string
 export const RESULT_KEY_INSTANCE_IDS: string
 export const RESULT_KEY_ISSUES: string
 export const RESULT_KEY_LICENSE: string
+export const RESULT_KEY_LOCATIONS: string
 export const RESULT_KEY_METADATA: string
 export const RESULT_KEY_MODIFIED: string
 export const RESULT_KEY_NAME: string
@@ -437,6 +439,8 @@ export class Client {
     install_bytes_finish(res: Gio.AsyncResult): boolean
     install_finish(res: Gio.AsyncResult): boolean
     install_release(device: Device, release: Release, install_flags: InstallFlags, cancellable?: Gio.Cancellable | null): boolean
+    install_release2(device: Device, release: Release, install_flags: InstallFlags, download_flags: ClientDownloadFlags, cancellable?: Gio.Cancellable | null): boolean
+    install_release2_async(device: Device, release: Release, install_flags: InstallFlags, download_flags: ClientDownloadFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     install_release_async(device: Device, release: Release, install_flags: InstallFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     install_release_finish(res: Gio.AsyncResult): boolean
     modify_config(key: string, value: string, cancellable?: Gio.Cancellable | null): boolean
@@ -572,6 +576,7 @@ export interface Device_ConstructProps extends GObject.Object_ConstructProps {
     parent?: Device
     protocol?: string
     status?: number
+    update_state?: number
     version_format?: number
 }
 export class Device {
@@ -580,6 +585,7 @@ export class Device {
     parent: Device
     protocol: string
     status: number
+    update_state: number
     version_format: number
     /* Fields of Fwupd-2.0.Fwupd.Device */
     parent_instance: GObject.Object
@@ -713,6 +719,8 @@ export class Device {
     connect_after(sigName: "notify::protocol", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::status", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::status", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::update-state", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::update-state", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::version-format", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::version-format", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -819,6 +827,7 @@ export class Release {
     add_checksum(checksum: string): void
     add_flag(flag: ReleaseFlags): void
     add_issue(issue: string): void
+    add_location(location: string): void
     add_metadata(hash: GLib.HashTable): void
     add_metadata_item(key: string, value: string): void
     get_appstream_id(): string
@@ -836,6 +845,7 @@ export class Release {
     get_install_duration(): number
     get_issues(): string[]
     get_license(): string
+    get_locations(): string[]
     get_metadata(): GLib.HashTable
     get_metadata_item(key: string): string
     get_name(): string

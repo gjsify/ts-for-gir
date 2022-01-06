@@ -3,14 +3,22 @@
  */
 
 import "node"
-import type { GCalc } from './GCalc-1';
+import type { GCalc } from './GCalc-2';
+import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
-import type { Gio } from './Gio-2.0';
 import type { Gee } from './Gee-0.8';
+import type { Json } from './Json-1.0';
+import type { GXml } from './GXml-0.20';
+import type { libxml2 } from './libxml2-2.0';
 
 export declare namespace Vda {
 
+export enum MoveDirection {
+    FORWARD,
+    BACKWARD,
+    RELATIVE,
+}
 export enum MetaObjectError {
     APPEND,
     UPDATE,
@@ -52,7 +60,7 @@ export enum RowModelError {
 export enum SqlCommandError {
     INVALID_STRUCTURE_ERROR,
 }
-export enum SqlSelectCommandError {
+export enum SqlCommandSelectError {
     INVALID_FIELDS_ERROR,
 }
 export enum SqlExpressionError {
@@ -316,18 +324,11 @@ export class Connection {
     openFinish(res: Gio.AsyncResult): ConnectionStatus
     openFromString(cncString: string, callback?: Gio.AsyncReadyCallback | null): void
     openFromStringFinish(res: Gio.AsyncResult): ConnectionStatus
-    addSavepoint(name?: string | null): boolean
-    deleteSavepoint(name?: string | null): boolean
-    rollbackSavepoint(name?: string | null): boolean
-    beginTransaction(name?: string | null): boolean
-    commitTransaction(name?: string | null): boolean
-    rollbackTransaction(name?: string | null): boolean
     parseString(sql: string): Query
     parseStringPrepared(name: string | null, sql: string): PreparedQuery | null
     getPreparedQuery(name: string): PreparedQuery | null
     queryFromCommand(cmd: SqlCommand, name?: string | null): PreparedQuery | null
     valueToQuotedString(v: SqlValue): string
-    currentUser(): Role | null
     locale(category: string): string
     getStatus(): ConnectionStatus
     getParameters(): ConnectionParameters
@@ -423,6 +424,154 @@ export class Connection {
     static name: string
     constructor (config?: Connection_ConstructProps)
     _init (config?: Connection_ConstructProps): void
+    static $gtype: GObject.Type
+}
+export interface ConnectionBlob_ConstructProps extends GObject.Object_ConstructProps {
+}
+export class ConnectionBlob {
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.ConnectionBlob */
+    create(stream: Gio.InputStream): SqlValueBlob
+    delete(val: SqlValueBlob): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ConnectionBlob, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: ConnectionBlob_ConstructProps)
+    _init (config?: ConnectionBlob_ConstructProps): void
+    static $gtype: GObject.Type
+}
+export interface ConnectionRolebased_ConstructProps extends GObject.Object_ConstructProps {
+}
+export class ConnectionRolebased {
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.ConnectionRolebased */
+    currentRole(): Role | null
+    createRole(name: string, params: Parameters): Role | null
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ConnectionRolebased, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: ConnectionRolebased_ConstructProps)
+    _init (config?: ConnectionRolebased_ConstructProps): void
+    static $gtype: GObject.Type
+}
+export interface ConnectionTransactional_ConstructProps extends GObject.Object_ConstructProps {
+}
+export class ConnectionTransactional {
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.ConnectionTransactional */
+    addSavepoint(name?: string | null): boolean
+    deleteSavepoint(name?: string | null): boolean
+    rollbackSavepoint(name?: string | null): boolean
+    beginTransaction(name?: string | null): boolean
+    commitTransaction(name?: string | null): boolean
+    rollbackTransaction(name?: string | null): boolean
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ConnectionTransactional, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: ConnectionTransactional_ConstructProps)
+    _init (config?: ConnectionTransactional_ConstructProps): void
     static $gtype: GObject.Type
 }
 export interface DataObject_ConstructProps extends GObject.Object_ConstructProps {
@@ -1650,7 +1799,7 @@ export class SqlExpression {
     addExpression(exp: SqlExpression): void
     removeExpression(exp: SqlExpression): void
     toString(): string
-    addMathExpression(str: string, cnc: Connection): void
+    addMathExpression(str: string, cnc: Connection, params?: SqlParameters | null): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -2756,6 +2905,51 @@ export class SqlExpressionOperatorLike {
     _init (config?: SqlExpressionOperatorLike_ConstructProps): void
     static $gtype: GObject.Type
 }
+export interface SqlExpressionOperatorNotLike_ConstructProps extends GObject.Object_ConstructProps {
+}
+export class SqlExpressionOperatorNotLike {
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorNotLike, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: SqlExpressionOperatorNotLike_ConstructProps)
+    _init (config?: SqlExpressionOperatorNotLike_ConstructProps): void
+    static $gtype: GObject.Type
+}
 export interface SqlExpressionOperatorIlike_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorIlike {
@@ -2799,6 +2993,51 @@ export class SqlExpressionOperatorIlike {
     static name: string
     constructor (config?: SqlExpressionOperatorIlike_ConstructProps)
     _init (config?: SqlExpressionOperatorIlike_ConstructProps): void
+    static $gtype: GObject.Type
+}
+export interface SqlExpressionOperatorNotIlike_ConstructProps extends GObject.Object_ConstructProps {
+}
+export class SqlExpressionOperatorNotIlike {
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorNotIlike, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: SqlExpressionOperatorNotIlike_ConstructProps)
+    _init (config?: SqlExpressionOperatorNotIlike_ConstructProps): void
     static $gtype: GObject.Type
 }
 export interface SqlExpressionOperatorBinaryUnaryterm_ConstructProps extends GObject.Object_ConstructProps {
@@ -3791,6 +4030,51 @@ export class SqlExpressionOperatorBetween {
     _init (config?: SqlExpressionOperatorBetween_ConstructProps): void
     static $gtype: GObject.Type
 }
+export interface SqlExpressionOperatorBetweenAnd_ConstructProps extends GObject.Object_ConstructProps {
+}
+export class SqlExpressionOperatorBetweenAnd {
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorBetweenAnd, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: SqlExpressionOperatorBetweenAnd_ConstructProps)
+    _init (config?: SqlExpressionOperatorBetweenAnd_ConstructProps): void
+    static $gtype: GObject.Type
+}
 export interface SqlExpressionOperatorNotBetween_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorNotBetween {
@@ -3834,6 +4118,51 @@ export class SqlExpressionOperatorNotBetween {
     static name: string
     constructor (config?: SqlExpressionOperatorNotBetween_ConstructProps)
     _init (config?: SqlExpressionOperatorNotBetween_ConstructProps): void
+    static $gtype: GObject.Type
+}
+export interface SqlExpressionOperatorNotBetweenAnd_ConstructProps extends GObject.Object_ConstructProps {
+}
+export class SqlExpressionOperatorNotBetweenAnd {
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorNotBetweenAnd, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: SqlExpressionOperatorNotBetweenAnd_ConstructProps)
+    _init (config?: SqlExpressionOperatorNotBetweenAnd_ConstructProps): void
     static $gtype: GObject.Type
 }
 export interface SqlExpressionOperatorBetweenSymmetric_ConstructProps extends GObject.Object_ConstructProps {
@@ -3881,6 +4210,51 @@ export class SqlExpressionOperatorBetweenSymmetric {
     _init (config?: SqlExpressionOperatorBetweenSymmetric_ConstructProps): void
     static $gtype: GObject.Type
 }
+export interface SqlExpressionOperatorBetweenSymmetricAnd_ConstructProps extends GObject.Object_ConstructProps {
+}
+export class SqlExpressionOperatorBetweenSymmetricAnd {
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: SqlExpressionOperatorBetweenSymmetricAnd_ConstructProps)
+    _init (config?: SqlExpressionOperatorBetweenSymmetricAnd_ConstructProps): void
+    static $gtype: GObject.Type
+}
 export interface SqlExpressionOperatorNotBetweenSymmetric_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlExpressionOperatorNotBetweenSymmetric {
@@ -3926,6 +4300,51 @@ export class SqlExpressionOperatorNotBetweenSymmetric {
     _init (config?: SqlExpressionOperatorNotBetweenSymmetric_ConstructProps): void
     static $gtype: GObject.Type
 }
+export interface SqlExpressionOperatorNotBetweenSymmetricAnd_ConstructProps extends GObject.Object_ConstructProps {
+}
+export class SqlExpressionOperatorNotBetweenSymmetricAnd {
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SqlExpressionOperatorNotBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: SqlExpressionOperatorNotBetweenSymmetricAnd_ConstructProps)
+    _init (config?: SqlExpressionOperatorNotBetweenSymmetricAnd_ConstructProps): void
+    static $gtype: GObject.Type
+}
 export interface SqlExpressionValue_ConstructProps extends GObject.Object_ConstructProps {
     connection?: Connection
     value?: SqlValue
@@ -3937,7 +4356,7 @@ export class SqlExpressionValue {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.SqlExpressionValue */
-    setMathExpressionValue(str: string): void
+    setMathExpressionValue(str: string, params?: SqlParameters | null): void
     getConnection(): Connection | null
     setConnection(value?: Connection | null): void
     getValue(): SqlValue
@@ -4079,6 +4498,7 @@ export class SqlParameters {
     getValue(name: string): any | null
     setSqlValue(name: string, val: SqlValue): void
     getSqlValue(name: string): SqlValue
+    hasParam(name: string): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -4522,6 +4942,114 @@ export class SqlValueString {
     _init (config?: SqlValueString_ConstructProps): void
     static $gtype: GObject.Type
 }
+export interface SqlValueXml_ConstructProps extends GObject.Object_ConstructProps {
+}
+export class SqlValueXml {
+    /* Properties of Vda-1.Vda.SqlValueXml */
+    readonly document: GXml.DomDocument
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.SqlValueXml */
+    getDocument(): GXml.DomDocument
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SqlValueXml, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::document", callback: (($obj: SqlValueXml, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::document", callback: (($obj: SqlValueXml, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::document", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::document", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::document", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: SqlValueXml_ConstructProps)
+    _init (config?: SqlValueXml_ConstructProps): void
+    static $gtype: GObject.Type
+}
+export interface SqlValueJson_ConstructProps extends GObject.Object_ConstructProps {
+}
+export class SqlValueJson {
+    /* Properties of Vda-1.Vda.SqlValueJson */
+    readonly document: Json.Node
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.SqlValueJson */
+    getDocument(): Json.Node
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SqlValueJson, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::document", callback: (($obj: SqlValueJson, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::document", callback: (($obj: SqlValueJson, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::document", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::document", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::document", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: SqlValueJson_ConstructProps)
+    _init (config?: SqlValueJson_ConstructProps): void
+    static $gtype: GObject.Type
+}
 export interface SqlValueText_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueText {
@@ -4655,6 +5183,51 @@ export class SqlValueInteger {
     static name: string
     constructor (config?: SqlValueInteger_ConstructProps)
     _init (config?: SqlValueInteger_ConstructProps): void
+    static $gtype: GObject.Type
+}
+export interface SqlValueByte_ConstructProps extends GObject.Object_ConstructProps {
+}
+export class SqlValueByte {
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SqlValueByte, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: SqlValueByte_ConstructProps)
+    _init (config?: SqlValueByte_ConstructProps): void
     static $gtype: GObject.Type
 }
 export interface SqlValueInt2_ConstructProps extends GObject.Object_ConstructProps {
@@ -4792,9 +5365,9 @@ export class SqlValueInt8 {
     _init (config?: SqlValueInt8_ConstructProps): void
     static $gtype: GObject.Type
 }
-export interface SqlValueInt16_ConstructProps extends GObject.Object_ConstructProps {
+export interface SqlValueUnsignedInteger_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueInt16 {
+export class SqlValueUnsignedInteger {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4820,7 +5393,7 @@ export class SqlValueInt16 {
     unref(): void
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: SqlValueInt16, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify", callback: (($obj: SqlValueUnsignedInteger, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
@@ -4833,13 +5406,13 @@ export class SqlValueInt16 {
     once(sigName: string, callback: any): NodeJS.EventEmitter
     off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
-    constructor (config?: SqlValueInt16_ConstructProps)
-    _init (config?: SqlValueInt16_ConstructProps): void
+    constructor (config?: SqlValueUnsignedInteger_ConstructProps)
+    _init (config?: SqlValueUnsignedInteger_ConstructProps): void
     static $gtype: GObject.Type
 }
-export interface SqlValueInt32_ConstructProps extends GObject.Object_ConstructProps {
+export interface SqlValueUnsignedByte_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueInt32 {
+export class SqlValueUnsignedByte {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4865,7 +5438,7 @@ export class SqlValueInt32 {
     unref(): void
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: SqlValueInt32, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify", callback: (($obj: SqlValueUnsignedByte, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
@@ -4878,13 +5451,13 @@ export class SqlValueInt32 {
     once(sigName: string, callback: any): NodeJS.EventEmitter
     off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
-    constructor (config?: SqlValueInt32_ConstructProps)
-    _init (config?: SqlValueInt32_ConstructProps): void
+    constructor (config?: SqlValueUnsignedByte_ConstructProps)
+    _init (config?: SqlValueUnsignedByte_ConstructProps): void
     static $gtype: GObject.Type
 }
-export interface SqlValueInt64_ConstructProps extends GObject.Object_ConstructProps {
+export interface SqlValueUnsignedInt2_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class SqlValueInt64 {
+export class SqlValueUnsignedInt2 {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4910,7 +5483,7 @@ export class SqlValueInt64 {
     unref(): void
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: SqlValueInt64, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify", callback: (($obj: SqlValueUnsignedInt2, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
@@ -4923,8 +5496,98 @@ export class SqlValueInt64 {
     once(sigName: string, callback: any): NodeJS.EventEmitter
     off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
-    constructor (config?: SqlValueInt64_ConstructProps)
-    _init (config?: SqlValueInt64_ConstructProps): void
+    constructor (config?: SqlValueUnsignedInt2_ConstructProps)
+    _init (config?: SqlValueUnsignedInt2_ConstructProps): void
+    static $gtype: GObject.Type
+}
+export interface SqlValueUnsignedInt4_ConstructProps extends GObject.Object_ConstructProps {
+}
+export class SqlValueUnsignedInt4 {
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SqlValueUnsignedInt4, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: SqlValueUnsignedInt4_ConstructProps)
+    _init (config?: SqlValueUnsignedInt4_ConstructProps): void
+    static $gtype: GObject.Type
+}
+export interface SqlValueUnsignedInt8_ConstructProps extends GObject.Object_ConstructProps {
+}
+export class SqlValueUnsignedInt8 {
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SqlValueUnsignedInt8, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: SqlValueUnsignedInt8_ConstructProps)
+    _init (config?: SqlValueUnsignedInt8_ConstructProps): void
     static $gtype: GObject.Type
 }
 export interface SqlValueOid_ConstructProps extends GObject.Object_ConstructProps {
@@ -5411,8 +6074,15 @@ export class SqlValueTimeNtz {
 export interface SqlValueBinary_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueBinary {
+    /* Properties of Vda-1.Vda.SqlValueBinary */
+    readonly size: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.SqlValueBinary */
+    getBytes(): any
+    getOutStream(): Gio.OutputStream | null
+    getInputStream(): Gio.InputStream | null
+    getSize(): number
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -5441,6 +6111,11 @@ export class SqlValueBinary {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::size", callback: (($obj: SqlValueBinary, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::size", callback: (($obj: SqlValueBinary, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5456,11 +6131,16 @@ export class SqlValueBinary {
 export interface SqlValueBlob_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SqlValueBlob {
+    /* Properties of Vda-1.Vda.SqlValueBlob */
+    readonly connection: Connection
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.SqlValueBlob */
-    save(file: Gio.File): void
-    load(file: Gio.File): void
+    create(stream: Gio.InputStream): void
+    delete(): void
+    write(file: Gio.File): void
+    read(file: Gio.File): void
+    getConnection(): Connection
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -5489,6 +6169,11 @@ export class SqlValueBlob {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::connection", callback: (($obj: SqlValueBlob, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::connection", callback: (($obj: SqlValueBlob, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::connection", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::connection", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::connection", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5499,6 +6184,60 @@ export class SqlValueBlob {
     static name: string
     constructor (config?: SqlValueBlob_ConstructProps)
     _init (config?: SqlValueBlob_ConstructProps): void
+    static $gtype: GObject.Type
+}
+export interface SqlValueBlobOid_ConstructProps extends GObject.Object_ConstructProps {
+}
+export class SqlValueBlobOid {
+    /* Properties of Vda-1.Vda.SqlValueBlobOid */
+    readonly identification: number
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.SqlValueBlobOid */
+    getIdentification(): number
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SqlValueBlobOid, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::identification", callback: (($obj: SqlValueBlobOid, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::identification", callback: (($obj: SqlValueBlobOid, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::identification", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::identification", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::identification", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: SqlValueBlobOid_ConstructProps)
+    _init (config?: SqlValueBlobOid_ConstructProps): void
     static $gtype: GObject.Type
 }
 export interface SqlValueGeometricPoint_ConstructProps extends GObject.Object_ConstructProps {
@@ -5667,14 +6406,62 @@ export class TableModel {
     _init (config?: TableModel_ConstructProps): void
     static $gtype: GObject.Type
 }
+export interface TableModelSequential_ConstructProps extends GObject.Object_ConstructProps {
+}
+export class TableModelSequential {
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.TableModelSequential */
+    current(): RowModel | null
+    next(): boolean
+    back(): boolean
+    move(direction: MoveDirection, relative: number): boolean
+    copyCurrent(): RowModel | null
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: TableModelSequential, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: TableModelSequential_ConstructProps)
+    _init (config?: TableModelSequential_ConstructProps): void
+    static $gtype: GObject.Type
+}
 export interface AffectedRows_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AffectedRows {
     /* Properties of Vda-1.Vda.SqlAffectedRows */
     readonly number: number
-    /* Fields of Vda-1.Vda.AffectedRows */
-    parentInstance: GObject.Object
-    priv: AffectedRowsPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5740,9 +6527,6 @@ export class CommandDelete {
     readonly condition: SqlExpression
     /* Properties of Vda-1.Vda.SqlCommandParametrized */
     readonly parameters: SqlParameters
-    /* Fields of Vda-1.Vda.CommandDelete */
-    parentInstance: GObject.Object
-    priv: CommandDeletePrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5832,9 +6616,6 @@ export class CommandDelete {
 export interface CommandInsert_ConstructProps extends CommandModification_ConstructProps {
 }
 export class CommandInsert {
-    /* Fields of Vda-1.Vda.CommandInsert */
-    parentInstance: CommandModification
-    priv: CommandInsertPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -5900,9 +6681,6 @@ export class CommandModification {
     readonly values: HashModel
     /* Properties of Vda-1.Vda.SqlCommandParametrized */
     readonly parameters: SqlParameters
-    /* Fields of Vda-1.Vda.CommandModification */
-    parentInstance: GObject.Object
-    priv: CommandModificationPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -6006,9 +6784,6 @@ export class CommandSelect {
     /* Properties of Vda-1.Vda.SqlCommandSelect */
     readonly fields: HashModel
     readonly tables: HashModel
-    /* Fields of Vda-1.Vda.CommandSelect */
-    parentInstance: GObject.Object
-    priv: CommandSelectPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -6101,9 +6876,6 @@ export interface CommandUpdate_ConstructProps extends CommandModification_Constr
 export class CommandUpdate {
     /* Properties of Vda-1.Vda.SqlCommandConditional */
     readonly condition: SqlExpression
-    /* Fields of Vda-1.Vda.CommandUpdate */
-    parentInstance: CommandModification
-    priv: CommandUpdatePrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -6169,9 +6941,6 @@ export class ConnectionParameter {
     /* Properties of Vda-1.Vda.ConnectionParameter */
     name: string
     value: string
-    /* Fields of Vda-1.Vda.ConnectionParameter */
-    parentInstance: GObject.Object
-    priv: ConnectionParameterPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.ConnectionParameter */
@@ -6237,9 +7006,6 @@ export class ConnectionParameterDbName {
     /* Properties of Vda-1.Vda.ConnectionParameter */
     name: string
     value: string
-    /* Fields of Vda-1.Vda.ConnectionParameterDbName */
-    parentInstance: ConnectionParameter
-    priv: ConnectionParameterDbNamePrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.ConnectionParameter */
@@ -6305,9 +7071,6 @@ export class ConnectionParameterHost {
     /* Properties of Vda-1.Vda.ConnectionParameter */
     name: string
     value: string
-    /* Fields of Vda-1.Vda.ConnectionParameterHost */
-    parentInstance: ConnectionParameter
-    priv: ConnectionParameterHostPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.ConnectionParameter */
@@ -6373,9 +7136,6 @@ export class ConnectionParameterPort {
     /* Properties of Vda-1.Vda.ConnectionParameter */
     name: string
     value: string
-    /* Fields of Vda-1.Vda.ConnectionParameterPort */
-    parentInstance: ConnectionParameter
-    priv: ConnectionParameterPortPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.ConnectionParameter */
@@ -6441,9 +7201,6 @@ export class ConnectionParameterUserName {
     /* Properties of Vda-1.Vda.ConnectionParameter */
     name: string
     value: string
-    /* Fields of Vda-1.Vda.ConnectionParameterUserName */
-    parentInstance: ConnectionParameter
-    priv: ConnectionParameterUserNamePrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.ConnectionParameter */
@@ -6509,9 +7266,6 @@ export class ConnectionParameterPassword {
     /* Properties of Vda-1.Vda.ConnectionParameter */
     name: string
     value: string
-    /* Fields of Vda-1.Vda.ConnectionParameterPassword */
-    parentInstance: ConnectionParameter
-    priv: ConnectionParameterPasswordPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.ConnectionParameter */
@@ -6581,14 +7335,12 @@ export class ConnectionParameters {
     readonly values: Gee.Collection
     readonly entries: Gee.Set
     readonly readOnlyView: Gee.Map
-    /* Fields of Vda-1.Vda.ConnectionParameters */
-    parentInstance: Gee.HashMap
-    priv: ConnectionParametersPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.ConnectionParameters */
     parse(cnstring: string): void
     toString(): string
+    hasParam(name: string): boolean
     /* Methods of Gee-0.8.Gee.HashMap */
     getKeyHashFunc(): { returnType: Gee.HashDataFunc, resultTarget: object | null }
     getKeyEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -6700,14 +7452,13 @@ export class Expression {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.Expression */
-    parentInstance: Gee.ArrayList
-    priv: ExpressionPrivate
     /* Fields of Gee-0.8.Gee.ArrayList */
     items: object[]
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -6773,8 +7524,7 @@ export class Expression {
     /* Methods of Vda-1.Vda.SqlExpression */
     addExpression(exp: SqlExpression): void
     removeExpression(exp: SqlExpression): void
-    toString(): string
-    addMathExpression(str: string, cnc: Connection): void
+    addMathExpression(str: string, cnc: Connection, params?: SqlParameters | null): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Expression, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -6833,14 +7583,13 @@ export class ExpressionField {
     tableRef: string
     name: string
     allias: string
-    /* Fields of Vda-1.Vda.ExpressionField */
-    parentInstance: Expression
-    priv: ExpressionFieldPrivate
     /* Fields of Gee-0.8.Gee.ArrayList */
     items: object[]
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -6966,14 +7715,13 @@ export class ExpressionOperator {
     readonly readOnly: boolean
     /* Properties of Vda-1.Vda.SqlExpressionOperator */
     readonly operatorType: SqlExpressionOperatorType
-    /* Fields of Vda-1.Vda.ExpressionOperator */
-    parentInstance: Expression
-    priv: ExpressionOperatorPrivate
     /* Fields of Gee-0.8.Gee.ArrayList */
     items: object[]
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -7117,9 +7865,6 @@ export class ExpressionOperatorGroup {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorGroup */
-    parentInstance: ExpressionOperator
-    priv: ExpressionOperatorGroupPrivate
     /* Fields of Vda-1.Vda.ExpressionOperator */
     operatorType: SqlExpressionOperatorType
     /* Fields of Gee-0.8.Gee.ArrayList */
@@ -7127,6 +7872,8 @@ export class ExpressionOperatorGroup {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -7229,8 +7976,6 @@ export class ExpressionOperatorMultiterm {
     readonly size: number
     readonly readOnly: boolean
     /* Fields of Vda-1.Vda.ExpressionOperatorMultiterm */
-    parentInstance: ExpressionOperator
-    priv: ExpressionOperatorMultitermPrivate
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
     operatorType: SqlExpressionOperatorType
@@ -7239,6 +7984,8 @@ export class ExpressionOperatorMultiterm {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -7340,9 +8087,6 @@ export class ExpressionOperatorAnd {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorAnd */
-    parentInstance: ExpressionOperatorMultiterm
-    priv: ExpressionOperatorAndPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorMultiterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -7352,6 +8096,8 @@ export class ExpressionOperatorAnd {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -7453,9 +8199,6 @@ export class ExpressionOperatorOr {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorOr */
-    parentInstance: ExpressionOperatorMultiterm
-    priv: ExpressionOperatorOrPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorMultiterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -7465,6 +8208,8 @@ export class ExpressionOperatorOr {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -7567,8 +8312,6 @@ export class ExpressionOperatorBinaryterm {
     readonly size: number
     readonly readOnly: boolean
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
-    parentInstance: ExpressionOperator
-    priv: ExpressionOperatorBinarytermPrivate
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
     operatorType: SqlExpressionOperatorType
@@ -7577,6 +8320,8 @@ export class ExpressionOperatorBinaryterm {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -7678,9 +8423,6 @@ export class ExpressionOperatorEq {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorEq */
-    parentInstance: ExpressionOperatorBinaryterm
-    priv: ExpressionOperatorEqPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -7690,6 +8432,8 @@ export class ExpressionOperatorEq {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -7791,9 +8535,6 @@ export class ExpressionOperatorNotEq {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorNotEq */
-    parentInstance: ExpressionOperatorBinaryterm
-    priv: ExpressionOperatorNotEqPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -7803,6 +8544,8 @@ export class ExpressionOperatorNotEq {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -7904,9 +8647,6 @@ export class ExpressionOperatorDiff {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorDiff */
-    parentInstance: ExpressionOperatorBinaryterm
-    priv: ExpressionOperatorDiffPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -7916,6 +8656,8 @@ export class ExpressionOperatorDiff {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -8017,9 +8759,6 @@ export class ExpressionOperatorGt {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorGt */
-    parentInstance: ExpressionOperatorBinaryterm
-    priv: ExpressionOperatorGtPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -8029,6 +8768,8 @@ export class ExpressionOperatorGt {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -8130,9 +8871,6 @@ export class ExpressionOperatorLt {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorLt */
-    parentInstance: ExpressionOperatorBinaryterm
-    priv: ExpressionOperatorLtPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -8142,6 +8880,8 @@ export class ExpressionOperatorLt {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -8243,9 +8983,6 @@ export class ExpressionOperatorGeq {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorGeq */
-    parentInstance: ExpressionOperatorBinaryterm
-    priv: ExpressionOperatorGeqPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -8255,6 +8992,8 @@ export class ExpressionOperatorGeq {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -8356,9 +9095,6 @@ export class ExpressionOperatorLeq {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorLeq */
-    parentInstance: ExpressionOperatorBinaryterm
-    priv: ExpressionOperatorLeqPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -8368,6 +9104,8 @@ export class ExpressionOperatorLeq {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -8469,9 +9207,6 @@ export class ExpressionOperatorRegexp {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorRegexp */
-    parentInstance: ExpressionOperatorBinaryterm
-    priv: ExpressionOperatorRegexpPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -8481,6 +9216,8 @@ export class ExpressionOperatorRegexp {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -8582,9 +9319,6 @@ export class ExpressionOperatorStar {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorStar */
-    parentInstance: ExpressionOperatorBinaryterm
-    priv: ExpressionOperatorStarPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -8594,6 +9328,8 @@ export class ExpressionOperatorStar {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -8695,9 +9431,6 @@ export class ExpressionOperatorDiv {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorDiv */
-    parentInstance: ExpressionOperatorBinaryterm
-    priv: ExpressionOperatorDivPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -8707,6 +9440,8 @@ export class ExpressionOperatorDiv {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -8808,9 +9543,6 @@ export class ExpressionOperatorIn {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorIn */
-    parentInstance: ExpressionOperatorBinaryterm
-    priv: ExpressionOperatorInPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -8820,6 +9552,8 @@ export class ExpressionOperatorIn {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -8921,9 +9655,6 @@ export class ExpressionOperatorNotIn {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorNotIn */
-    parentInstance: ExpressionOperatorBinaryterm
-    priv: ExpressionOperatorNotInPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -8933,6 +9664,8 @@ export class ExpressionOperatorNotIn {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -9034,9 +9767,6 @@ export class ExpressionOperatorConcatenate {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorConcatenate */
-    parentInstance: ExpressionOperatorBinaryterm
-    priv: ExpressionOperatorConcatenatePrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -9046,6 +9776,8 @@ export class ExpressionOperatorConcatenate {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -9147,9 +9879,6 @@ export class ExpressionOperatorSimilarTo {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorSimilarTo */
-    parentInstance: ExpressionOperatorBinaryterm
-    priv: ExpressionOperatorSimilarToPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -9159,6 +9888,8 @@ export class ExpressionOperatorSimilarTo {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -9260,9 +9991,6 @@ export class ExpressionOperatorLike {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorLike */
-    parentInstance: ExpressionOperatorBinaryterm
-    priv: ExpressionOperatorLikePrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -9272,6 +10000,8 @@ export class ExpressionOperatorLike {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -9365,17 +10095,14 @@ export class ExpressionOperatorLike {
     static new(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, equalFunc: Gee.EqualDataFunc | null): ExpressionOperatorLike
     static $gtype: GObject.Type
 }
-export interface ExpressionOperatorIlike_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
+export interface ExpressionOperatorNotLike_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
-export class ExpressionOperatorIlike {
+export class ExpressionOperatorNotLike {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly readOnlyView: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorIlike */
-    parentInstance: ExpressionOperatorBinaryterm
-    priv: ExpressionOperatorIlikePrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -9385,6 +10112,120 @@ export class ExpressionOperatorIlike {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
+    /* Methods of Gee-0.8.Gee.ArrayList */
+    addAll(collection: Gee.Collection): boolean
+    getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
+    bidirListIterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    getReadOnlyView(): Gee.BidirList
+    /* Methods of Gee-0.8.Gee.AbstractList */
+    listIterator(): Gee.ListIterator
+    get(index: number): object | null
+    set(index: number, item?: object | null): void
+    indexOf(item?: object | null): number
+    insert(index: number, item?: object | null): void
+    removeAt(index: number): object | null
+    slice(start: number, stop: number): Gee.List | null
+    getReadOnlyView(): Gee.List
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
+    contains(item?: object | null): boolean
+    add(item?: object | null): boolean
+    remove(item?: object | null): boolean
+    clear(): void
+    iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    getSize(): number
+    getReadOnly(): boolean
+    getReadOnlyView(): Gee.Collection
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ExpressionOperatorNotLike, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotLike, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotLike, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotLike, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotLike, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotLike, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotLike, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: ExpressionOperatorNotLike_ConstructProps)
+    _init (config?: ExpressionOperatorNotLike_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): ExpressionOperatorNotLike
+    static new(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, equalFunc: Gee.EqualDataFunc | null): ExpressionOperatorNotLike
+    static $gtype: GObject.Type
+}
+export interface ExpressionOperatorIlike_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
+}
+export class ExpressionOperatorIlike {
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
+    readonly readOnlyView: Gee.BidirList
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
+    readonly size: number
+    readonly readOnly: boolean
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
+    operatorName: string
+    /* Fields of Vda-1.Vda.ExpressionOperator */
+    operatorType: SqlExpressionOperatorType
+    /* Fields of Gee-0.8.Gee.ArrayList */
+    items: object[]
+    itemsLength1: number
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -9478,6 +10319,118 @@ export class ExpressionOperatorIlike {
     static new(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, equalFunc: Gee.EqualDataFunc | null): ExpressionOperatorIlike
     static $gtype: GObject.Type
 }
+export interface ExpressionOperatorNotIlike_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
+}
+export class ExpressionOperatorNotIlike {
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
+    readonly readOnlyView: Gee.BidirList
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
+    readonly size: number
+    readonly readOnly: boolean
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
+    operatorName: string
+    /* Fields of Vda-1.Vda.ExpressionOperator */
+    operatorType: SqlExpressionOperatorType
+    /* Fields of Gee-0.8.Gee.ArrayList */
+    items: object[]
+    itemsLength1: number
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
+    /* Methods of Gee-0.8.Gee.ArrayList */
+    addAll(collection: Gee.Collection): boolean
+    getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
+    bidirListIterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    getReadOnlyView(): Gee.BidirList
+    /* Methods of Gee-0.8.Gee.AbstractList */
+    listIterator(): Gee.ListIterator
+    get(index: number): object | null
+    set(index: number, item?: object | null): void
+    indexOf(item?: object | null): number
+    insert(index: number, item?: object | null): void
+    removeAt(index: number): object | null
+    slice(start: number, stop: number): Gee.List | null
+    getReadOnlyView(): Gee.List
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
+    contains(item?: object | null): boolean
+    add(item?: object | null): boolean
+    remove(item?: object | null): boolean
+    clear(): void
+    iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    getSize(): number
+    getReadOnly(): boolean
+    getReadOnlyView(): Gee.Collection
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ExpressionOperatorNotIlike, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotIlike, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotIlike, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotIlike, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotIlike, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotIlike, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotIlike, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: ExpressionOperatorNotIlike_ConstructProps)
+    _init (config?: ExpressionOperatorNotIlike_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): ExpressionOperatorNotIlike
+    static new(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, equalFunc: Gee.EqualDataFunc | null): ExpressionOperatorNotIlike
+    static $gtype: GObject.Type
+}
 export interface ExpressionOperatorBinaryUnaryterm_ConstructProps extends ExpressionOperator_ConstructProps {
 }
 export class ExpressionOperatorBinaryUnaryterm {
@@ -9487,8 +10440,6 @@ export class ExpressionOperatorBinaryUnaryterm {
     readonly size: number
     readonly readOnly: boolean
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryUnaryterm */
-    parentInstance: ExpressionOperator
-    priv: ExpressionOperatorBinaryUnarytermPrivate
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
     operatorType: SqlExpressionOperatorType
@@ -9497,6 +10448,8 @@ export class ExpressionOperatorBinaryUnaryterm {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -9598,9 +10551,6 @@ export class ExpressionOperatorMinus {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorMinus */
-    parentInstance: ExpressionOperatorBinaryUnaryterm
-    priv: ExpressionOperatorMinusPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryUnaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -9610,6 +10560,8 @@ export class ExpressionOperatorMinus {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -9711,9 +10663,6 @@ export class ExpressionOperatorPlus {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorPlus */
-    parentInstance: ExpressionOperatorBinaryUnaryterm
-    priv: ExpressionOperatorPlusPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorBinaryUnaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -9723,6 +10672,8 @@ export class ExpressionOperatorPlus {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -9825,8 +10776,6 @@ export class ExpressionOperatorInitialUnaryterm {
     readonly size: number
     readonly readOnly: boolean
     /* Fields of Vda-1.Vda.ExpressionOperatorInitialUnaryterm */
-    parentInstance: ExpressionOperator
-    priv: ExpressionOperatorInitialUnarytermPrivate
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
     operatorType: SqlExpressionOperatorType
@@ -9835,6 +10784,8 @@ export class ExpressionOperatorInitialUnaryterm {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -9936,9 +10887,6 @@ export class ExpressionOperatorNot {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorNot */
-    parentInstance: ExpressionOperatorInitialUnaryterm
-    priv: ExpressionOperatorNotPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorInitialUnaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -9948,6 +10896,8 @@ export class ExpressionOperatorNot {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -10050,8 +11000,6 @@ export class ExpressionOperatorFinalUnaryterm {
     readonly size: number
     readonly readOnly: boolean
     /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
-    parentInstance: ExpressionOperator
-    priv: ExpressionOperatorFinalUnarytermPrivate
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
     operatorType: SqlExpressionOperatorType
@@ -10060,6 +11008,8 @@ export class ExpressionOperatorFinalUnaryterm {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -10161,9 +11111,6 @@ export class ExpressionOperatorIs {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorIs */
-    parentInstance: ExpressionOperatorFinalUnaryterm
-    priv: ExpressionOperatorIsPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -10173,6 +11120,8 @@ export class ExpressionOperatorIs {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -10274,9 +11223,6 @@ export class ExpressionOperatorIsNot {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsNot */
-    parentInstance: ExpressionOperatorIs
-    priv: ExpressionOperatorIsNotPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -10286,6 +11232,8 @@ export class ExpressionOperatorIsNot {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -10387,9 +11335,6 @@ export class ExpressionOperatorIsNull {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsNull */
-    parentInstance: ExpressionOperatorIs
-    priv: ExpressionOperatorIsNullPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -10399,6 +11344,8 @@ export class ExpressionOperatorIsNull {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -10500,9 +11447,6 @@ export class ExpressionOperatorIsNotNull {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotNull */
-    parentInstance: ExpressionOperatorIsNot
-    priv: ExpressionOperatorIsNotNullPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -10512,6 +11456,8 @@ export class ExpressionOperatorIsNotNull {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -10613,9 +11559,6 @@ export class ExpressionOperatorIsTrue {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsTrue */
-    parentInstance: ExpressionOperatorIs
-    priv: ExpressionOperatorIsTruePrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -10625,6 +11568,8 @@ export class ExpressionOperatorIsTrue {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -10726,9 +11671,6 @@ export class ExpressionOperatorIsNotTrue {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotTrue */
-    parentInstance: ExpressionOperatorIsNot
-    priv: ExpressionOperatorIsNotTruePrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -10738,6 +11680,8 @@ export class ExpressionOperatorIsNotTrue {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -10839,9 +11783,6 @@ export class ExpressionOperatorIsFalse {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsFalse */
-    parentInstance: ExpressionOperatorIs
-    priv: ExpressionOperatorIsFalsePrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -10851,6 +11792,8 @@ export class ExpressionOperatorIsFalse {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -10952,9 +11895,6 @@ export class ExpressionOperatorIsNotFalse {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotFalse */
-    parentInstance: ExpressionOperatorIsNot
-    priv: ExpressionOperatorIsNotFalsePrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -10964,6 +11904,8 @@ export class ExpressionOperatorIsNotFalse {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -11065,9 +12007,6 @@ export class ExpressionOperatorIsNotUnknown {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotUnknown */
-    parentInstance: ExpressionOperatorIsNot
-    priv: ExpressionOperatorIsNotUnknownPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -11077,6 +12016,8 @@ export class ExpressionOperatorIsNotUnknown {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -11178,9 +12119,6 @@ export class ExpressionOperatorIsUnknown {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsUnknown */
-    parentInstance: ExpressionOperatorIs
-    priv: ExpressionOperatorIsUnknownPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -11190,6 +12128,8 @@ export class ExpressionOperatorIsUnknown {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -11283,7 +12223,7 @@ export class ExpressionOperatorIsUnknown {
     static new(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, equalFunc: Gee.EqualDataFunc | null): ExpressionOperatorIsUnknown
     static $gtype: GObject.Type
 }
-export interface ExpressionOperatorIsDistinct_ConstructProps extends ExpressionOperatorIs_ConstructProps {
+export interface ExpressionOperatorIsDistinct_ConstructProps extends ExpressionOperatorBinaryterm_ConstructProps {
 }
 export class ExpressionOperatorIsDistinct {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
@@ -11291,10 +12231,7 @@ export class ExpressionOperatorIsDistinct {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsDistinct */
-    parentInstance: ExpressionOperatorIs
-    priv: ExpressionOperatorIsDistinctPrivate
-    /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
     operatorType: SqlExpressionOperatorType
@@ -11303,6 +12240,8 @@ export class ExpressionOperatorIsDistinct {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -11396,7 +12335,7 @@ export class ExpressionOperatorIsDistinct {
     static new(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, equalFunc: Gee.EqualDataFunc | null): ExpressionOperatorIsDistinct
     static $gtype: GObject.Type
 }
-export interface ExpressionOperatorIsNotDistinct_ConstructProps extends ExpressionOperatorIsNot_ConstructProps {
+export interface ExpressionOperatorIsNotDistinct_ConstructProps extends ExpressionOperatorIsDistinct_ConstructProps {
 }
 export class ExpressionOperatorIsNotDistinct {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
@@ -11404,10 +12343,7 @@ export class ExpressionOperatorIsNotDistinct {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotDistinct */
-    parentInstance: ExpressionOperatorIsNot
-    priv: ExpressionOperatorIsNotDistinctPrivate
-    /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
     operatorType: SqlExpressionOperatorType
@@ -11416,6 +12352,8 @@ export class ExpressionOperatorIsNotDistinct {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -11517,10 +12455,7 @@ export class ExpressionOperatorIsDistinctFrom {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsDistinctFrom */
-    parentInstance: ExpressionOperatorIsDistinct
-    priv: ExpressionOperatorIsDistinctFromPrivate
-    /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
     operatorType: SqlExpressionOperatorType
@@ -11529,6 +12464,8 @@ export class ExpressionOperatorIsDistinctFrom {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -11630,10 +12567,7 @@ export class ExpressionOperatorIsNotDistinctFrom {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotDistinctFrom */
-    parentInstance: ExpressionOperatorIsNotDistinct
-    priv: ExpressionOperatorIsNotDistinctFromPrivate
-    /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnaryterm */
+    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryterm */
     operatorName: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
     operatorType: SqlExpressionOperatorType
@@ -11642,6 +12576,8 @@ export class ExpressionOperatorIsNotDistinctFrom {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -11744,8 +12680,6 @@ export class ExpressionOperatorThreeterm {
     readonly size: number
     readonly readOnly: boolean
     /* Fields of Vda-1.Vda.ExpressionOperatorThreeterm */
-    parentInstance: ExpressionOperator
-    priv: ExpressionOperatorThreetermPrivate
     operatorName: string
     operator2Name: string
     /* Fields of Vda-1.Vda.ExpressionOperator */
@@ -11755,6 +12689,8 @@ export class ExpressionOperatorThreeterm {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -11856,9 +12792,6 @@ export class ExpressionOperatorBetween {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorBetween */
-    parentInstance: ExpressionOperatorThreeterm
-    priv: ExpressionOperatorBetweenPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorThreeterm */
     operatorName: string
     operator2Name: string
@@ -11869,6 +12802,8 @@ export class ExpressionOperatorBetween {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -11962,17 +12897,14 @@ export class ExpressionOperatorBetween {
     static new(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, equalFunc: Gee.EqualDataFunc | null): ExpressionOperatorBetween
     static $gtype: GObject.Type
 }
-export interface ExpressionOperatorNotBetween_ConstructProps extends ExpressionOperatorThreeterm_ConstructProps {
+export interface ExpressionOperatorBetweenAnd_ConstructProps extends ExpressionOperatorBetween_ConstructProps {
 }
-export class ExpressionOperatorNotBetween {
+export class ExpressionOperatorBetweenAnd {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly readOnlyView: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorNotBetween */
-    parentInstance: ExpressionOperatorThreeterm
-    priv: ExpressionOperatorNotBetweenPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorThreeterm */
     operatorName: string
     operator2Name: string
@@ -11983,6 +12915,121 @@ export class ExpressionOperatorNotBetween {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
+    /* Methods of Gee-0.8.Gee.ArrayList */
+    addAll(collection: Gee.Collection): boolean
+    getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
+    bidirListIterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    getReadOnlyView(): Gee.BidirList
+    /* Methods of Gee-0.8.Gee.AbstractList */
+    listIterator(): Gee.ListIterator
+    get(index: number): object | null
+    set(index: number, item?: object | null): void
+    indexOf(item?: object | null): number
+    insert(index: number, item?: object | null): void
+    removeAt(index: number): object | null
+    slice(start: number, stop: number): Gee.List | null
+    getReadOnlyView(): Gee.List
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
+    contains(item?: object | null): boolean
+    add(item?: object | null): boolean
+    remove(item?: object | null): boolean
+    clear(): void
+    iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    getSize(): number
+    getReadOnly(): boolean
+    getReadOnlyView(): Gee.Collection
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ExpressionOperatorBetweenAnd, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetweenAnd, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetweenAnd, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorBetweenAnd, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorBetweenAnd, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorBetweenAnd, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorBetweenAnd, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: ExpressionOperatorBetweenAnd_ConstructProps)
+    _init (config?: ExpressionOperatorBetweenAnd_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): ExpressionOperatorBetweenAnd
+    static new(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, equalFunc: Gee.EqualDataFunc | null): ExpressionOperatorBetweenAnd
+    static $gtype: GObject.Type
+}
+export interface ExpressionOperatorNotBetween_ConstructProps extends ExpressionOperatorBetween_ConstructProps {
+}
+export class ExpressionOperatorNotBetween {
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
+    readonly readOnlyView: Gee.BidirList
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
+    readonly size: number
+    readonly readOnly: boolean
+    /* Fields of Vda-1.Vda.ExpressionOperatorThreeterm */
+    operatorName: string
+    operator2Name: string
+    /* Fields of Vda-1.Vda.ExpressionOperator */
+    operatorType: SqlExpressionOperatorType
+    /* Fields of Gee-0.8.Gee.ArrayList */
+    items: object[]
+    itemsLength1: number
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -12076,17 +13123,14 @@ export class ExpressionOperatorNotBetween {
     static new(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, equalFunc: Gee.EqualDataFunc | null): ExpressionOperatorNotBetween
     static $gtype: GObject.Type
 }
-export interface ExpressionOperatorBetweenSymmetric_ConstructProps extends ExpressionOperatorThreeterm_ConstructProps {
+export interface ExpressionOperatorNotBetweenAnd_ConstructProps extends ExpressionOperatorNotBetween_ConstructProps {
 }
-export class ExpressionOperatorBetweenSymmetric {
+export class ExpressionOperatorNotBetweenAnd {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly readOnlyView: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorBetweenSymmetric */
-    parentInstance: ExpressionOperatorThreeterm
-    priv: ExpressionOperatorBetweenSymmetricPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorThreeterm */
     operatorName: string
     operator2Name: string
@@ -12097,6 +13141,121 @@ export class ExpressionOperatorBetweenSymmetric {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
+    /* Methods of Gee-0.8.Gee.ArrayList */
+    addAll(collection: Gee.Collection): boolean
+    getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
+    bidirListIterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    getReadOnlyView(): Gee.BidirList
+    /* Methods of Gee-0.8.Gee.AbstractList */
+    listIterator(): Gee.ListIterator
+    get(index: number): object | null
+    set(index: number, item?: object | null): void
+    indexOf(item?: object | null): number
+    insert(index: number, item?: object | null): void
+    removeAt(index: number): object | null
+    slice(start: number, stop: number): Gee.List | null
+    getReadOnlyView(): Gee.List
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
+    contains(item?: object | null): boolean
+    add(item?: object | null): boolean
+    remove(item?: object | null): boolean
+    clear(): void
+    iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    getSize(): number
+    getReadOnly(): boolean
+    getReadOnlyView(): Gee.Collection
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ExpressionOperatorNotBetweenAnd, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetweenAnd, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetweenAnd, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotBetweenAnd, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotBetweenAnd, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotBetweenAnd, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotBetweenAnd, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: ExpressionOperatorNotBetweenAnd_ConstructProps)
+    _init (config?: ExpressionOperatorNotBetweenAnd_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): ExpressionOperatorNotBetweenAnd
+    static new(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, equalFunc: Gee.EqualDataFunc | null): ExpressionOperatorNotBetweenAnd
+    static $gtype: GObject.Type
+}
+export interface ExpressionOperatorBetweenSymmetric_ConstructProps extends ExpressionOperatorBetween_ConstructProps {
+}
+export class ExpressionOperatorBetweenSymmetric {
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
+    readonly readOnlyView: Gee.BidirList
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
+    readonly size: number
+    readonly readOnly: boolean
+    /* Fields of Vda-1.Vda.ExpressionOperatorThreeterm */
+    operatorName: string
+    operator2Name: string
+    /* Fields of Vda-1.Vda.ExpressionOperator */
+    operatorType: SqlExpressionOperatorType
+    /* Fields of Gee-0.8.Gee.ArrayList */
+    items: object[]
+    itemsLength1: number
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -12190,17 +13349,14 @@ export class ExpressionOperatorBetweenSymmetric {
     static new(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, equalFunc: Gee.EqualDataFunc | null): ExpressionOperatorBetweenSymmetric
     static $gtype: GObject.Type
 }
-export interface ExpressionOperatorNotBetweenSymmetric_ConstructProps extends ExpressionOperatorThreeterm_ConstructProps {
+export interface ExpressionOperatorBetweenSymmetricAnd_ConstructProps extends ExpressionOperatorBetweenSymmetric_ConstructProps {
 }
-export class ExpressionOperatorNotBetweenSymmetric {
+export class ExpressionOperatorBetweenSymmetricAnd {
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly readOnlyView: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.ExpressionOperatorNotBetweenSymmetric */
-    parentInstance: ExpressionOperatorThreeterm
-    priv: ExpressionOperatorNotBetweenSymmetricPrivate
     /* Fields of Vda-1.Vda.ExpressionOperatorThreeterm */
     operatorName: string
     operator2Name: string
@@ -12211,6 +13367,121 @@ export class ExpressionOperatorNotBetweenSymmetric {
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
+    /* Methods of Gee-0.8.Gee.ArrayList */
+    addAll(collection: Gee.Collection): boolean
+    getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
+    bidirListIterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    getReadOnlyView(): Gee.BidirList
+    /* Methods of Gee-0.8.Gee.AbstractList */
+    listIterator(): Gee.ListIterator
+    get(index: number): object | null
+    set(index: number, item?: object | null): void
+    indexOf(item?: object | null): number
+    insert(index: number, item?: object | null): void
+    removeAt(index: number): object | null
+    slice(start: number, stop: number): Gee.List | null
+    getReadOnlyView(): Gee.List
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
+    contains(item?: object | null): boolean
+    add(item?: object | null): boolean
+    remove(item?: object | null): boolean
+    clear(): void
+    iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    getSize(): number
+    getReadOnly(): boolean
+    getReadOnlyView(): Gee.Collection
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ExpressionOperatorBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: ExpressionOperatorBetweenSymmetricAnd_ConstructProps)
+    _init (config?: ExpressionOperatorBetweenSymmetricAnd_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): ExpressionOperatorBetweenSymmetricAnd
+    static new(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, equalFunc: Gee.EqualDataFunc | null): ExpressionOperatorBetweenSymmetricAnd
+    static $gtype: GObject.Type
+}
+export interface ExpressionOperatorNotBetweenSymmetric_ConstructProps extends ExpressionOperatorBetweenSymmetric_ConstructProps {
+}
+export class ExpressionOperatorNotBetweenSymmetric {
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
+    readonly readOnlyView: Gee.BidirList
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
+    readonly size: number
+    readonly readOnly: boolean
+    /* Fields of Vda-1.Vda.ExpressionOperatorThreeterm */
+    operatorName: string
+    operator2Name: string
+    /* Fields of Vda-1.Vda.ExpressionOperator */
+    operatorType: SqlExpressionOperatorType
+    /* Fields of Gee-0.8.Gee.ArrayList */
+    items: object[]
+    itemsLength1: number
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -12304,6 +13575,119 @@ export class ExpressionOperatorNotBetweenSymmetric {
     static new(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, equalFunc: Gee.EqualDataFunc | null): ExpressionOperatorNotBetweenSymmetric
     static $gtype: GObject.Type
 }
+export interface ExpressionOperatorNotBetweenSymmetricAnd_ConstructProps extends ExpressionOperatorNotBetweenSymmetric_ConstructProps {
+}
+export class ExpressionOperatorNotBetweenSymmetricAnd {
+    /* Properties of Gee-0.8.Gee.AbstractBidirList */
+    readonly readOnlyView: Gee.BidirList
+    /* Properties of Gee-0.8.Gee.AbstractCollection */
+    readonly size: number
+    readonly readOnly: boolean
+    /* Fields of Vda-1.Vda.ExpressionOperatorThreeterm */
+    operatorName: string
+    operator2Name: string
+    /* Fields of Vda-1.Vda.ExpressionOperator */
+    operatorType: SqlExpressionOperatorType
+    /* Fields of Gee-0.8.Gee.ArrayList */
+    items: object[]
+    itemsLength1: number
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
+    /* Methods of Gee-0.8.Gee.ArrayList */
+    addAll(collection: Gee.Collection): boolean
+    getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
+    /* Methods of Gee-0.8.Gee.AbstractBidirList */
+    bidirListIterator(): Gee.BidirListIterator
+    reserved0(): void
+    reserved1(): void
+    reserved2(): void
+    reserved3(): void
+    reserved4(): void
+    reserved5(): void
+    reserved6(): void
+    reserved7(): void
+    reserved8(): void
+    reserved9(): void
+    getReadOnlyView(): Gee.BidirList
+    /* Methods of Gee-0.8.Gee.AbstractList */
+    listIterator(): Gee.ListIterator
+    get(index: number): object | null
+    set(index: number, item?: object | null): void
+    indexOf(item?: object | null): number
+    insert(index: number, item?: object | null): void
+    removeAt(index: number): object | null
+    slice(start: number, stop: number): Gee.List | null
+    getReadOnlyView(): Gee.List
+    /* Methods of Gee-0.8.Gee.AbstractCollection */
+    contains(item?: object | null): boolean
+    add(item?: object | null): boolean
+    remove(item?: object | null): boolean
+    clear(): void
+    iterator(): Gee.Iterator
+    foreach(f: Gee.ForallFunc): boolean
+    getSize(): number
+    getReadOnly(): boolean
+    getReadOnlyView(): Gee.Collection
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ExpressionOperatorNotBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: ExpressionOperatorNotBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::size", callback: (($obj: ExpressionOperatorNotBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only", callback: (($obj: ExpressionOperatorNotBetweenSymmetricAnd, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: ExpressionOperatorNotBetweenSymmetricAnd_ConstructProps)
+    _init (config?: ExpressionOperatorNotBetweenSymmetricAnd_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): ExpressionOperatorNotBetweenSymmetricAnd
+    static new(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, equalFunc: Gee.EqualDataFunc | null): ExpressionOperatorNotBetweenSymmetricAnd
+    static $gtype: GObject.Type
+}
 export interface ExpressionValue_ConstructProps extends Expression_ConstructProps {
     connection?: Connection
     value?: SqlValue
@@ -12317,14 +13701,13 @@ export class ExpressionValue {
     /* Properties of Vda-1.Vda.SqlExpressionValue */
     connection: Connection
     value: SqlValue
-    /* Fields of Vda-1.Vda.ExpressionValue */
-    parentInstance: Expression
-    priv: ExpressionValuePrivate
     /* Fields of Gee-0.8.Gee.ArrayList */
     items: object[]
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -12383,7 +13766,7 @@ export class ExpressionValue {
     unref(): void
     watchClosure(closure: Function): void
     /* Methods of Vda-1.Vda.SqlExpressionValue */
-    setMathExpressionValue(str: string): void
+    setMathExpressionValue(str: string, params?: SqlParameters | null): void
     getConnection(): Connection | null
     setConnection(value?: Connection | null): void
     getValue(): SqlValue
@@ -12449,14 +13832,13 @@ export class ExpressionValueParameter {
     parameters: SqlParameters
     name: string
     gtype: GObject.Type
-    /* Fields of Vda-1.Vda.ExpressionValueParameter */
-    parentInstance: ExpressionValue
-    priv: ExpressionValueParameterPrivate
     /* Fields of Gee-0.8.Gee.ArrayList */
     items: object[]
     itemsLength1: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Expression */
+    toString(): string
     /* Methods of Gee-0.8.Gee.ArrayList */
     addAll(collection: Gee.Collection): boolean
     getEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
@@ -12582,9 +13964,6 @@ export class HashList {
     /* Properties of Gee-0.8.Gee.AbstractCollection */
     readonly size: number
     readonly readOnly: boolean
-    /* Fields of Vda-1.Vda.HashList */
-    parentInstance: Gee.ArrayList
-    priv: HashListPrivate
     /* Fields of Gee-0.8.Gee.ArrayList */
     items: object[]
     itemsLength1: number
@@ -12707,9 +14086,6 @@ export class InvalidQuery {
     /* Properties of Vda-1.Vda.Query */
     readonly sql: string
     readonly connection: Connection
-    /* Fields of Vda-1.Vda.InvalidQuery */
-    parentInstance: GObject.Object
-    priv: InvalidQueryPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.InvalidQuery */
@@ -12788,9 +14164,6 @@ export class InvalidPreparedQuery {
     /* Properties of Vda-1.Vda.PreparedQuery */
     readonly name: string
     readonly parameters: SqlParameters
-    /* Fields of Vda-1.Vda.InvalidPreparedQuery */
-    parentInstance: InvalidQuery
-    priv: InvalidPreparedQueryPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.InvalidQuery */
@@ -12862,9 +14235,6 @@ export interface InvalidResult_ConstructProps extends GObject.Object_ConstructPr
 export class InvalidResult {
     /* Properties of Vda-1.Vda.InvalidResult */
     message: string
-    /* Fields of Vda-1.Vda.InvalidResult */
-    parentInstance: GObject.Object
-    priv: InvalidResultPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.InvalidResult */
@@ -12927,9 +14297,6 @@ export class Parameters {
     readonly values: Gee.Collection
     readonly entries: Gee.Set
     readonly readOnlyView: Gee.Map
-    /* Fields of Vda-1.Vda.Parameters */
-    parentInstance: Gee.HashMap
-    priv: ParametersPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gee-0.8.Gee.HashMap */
@@ -12989,6 +14356,7 @@ export class Parameters {
     getValue(name: string): any | null
     setSqlValue(name: string, val: SqlValue): void
     getSqlValue(name: string): SqlValue
+    hasParam(name: string): boolean
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Parameters, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -13043,9 +14411,6 @@ export class Parameters {
 export interface Parser_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Parser {
-    /* Fields of Vda-1.Vda.Parser */
-    parentInstance: GObject.Object
-    priv: ParserPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -13100,9 +14465,6 @@ export class TableReference {
     /* Properties of Vda-1.Vda.SqlTableReference */
     name: string
     allias: string
-    /* Fields of Vda-1.Vda.TableReference */
-    parentInstance: GObject.Object
-    priv: TableReferencePrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -13168,13 +14530,19 @@ export class Value {
     /* Properties of Vda-1.Vda.SqlValue */
     readonly name: string
     /* Fields of Vda-1.Vda.Value */
-    parentInstance: GObject.Object
-    priv: ValuePrivate
     val: any
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.Value */
     forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -13197,16 +14565,7 @@ export class Value {
     thawNotify(): void
     unref(): void
     watchClosure(closure: Function): void
-    /* Methods of Vda-1.Vda.Stringifiable */
-    toString(): string
     /* Methods of Vda-1.Vda.SqlValue */
-    parse(str: string): boolean
-    fromValue(val: any): boolean
-    cast(type: GObject.Type): SqlValue | null
-    isCompatible(type: GObject.Type): boolean
-    toGvalue(): { result: any }
-    toStringQuoted(): string
-    toSqlExpression(): string
     getName(): string
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Value, pspec: GObject.ParamSpec) => void)): number
@@ -13238,9 +14597,6 @@ export class Value {
 export interface ValueNull_ConstructProps extends Value_ConstructProps {
 }
 export class ValueNull {
-    /* Fields of Vda-1.Vda.ValueNull */
-    parentInstance: Value
-    priv: ValueNullPrivate
     /* Fields of Vda-1.Vda.Value */
     name: string
     val: any
@@ -13248,6 +14604,14 @@ export class ValueNull {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.Value */
     forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -13293,9 +14657,6 @@ export class ValueNull {
 export interface ValueString_ConstructProps extends Value_ConstructProps {
 }
 export class ValueString {
-    /* Fields of Vda-1.Vda.ValueString */
-    parentInstance: Value
-    priv: ValueStringPrivate
     /* Fields of Vda-1.Vda.Value */
     name: string
     val: any
@@ -13303,6 +14664,14 @@ export class ValueString {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.Value */
     forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -13345,12 +14714,11 @@ export class ValueString {
     static new(): ValueString
     static $gtype: GObject.Type
 }
-export interface ValueText_ConstructProps extends ValueString_ConstructProps {
+export interface ValueXml_ConstructProps extends ValueString_ConstructProps {
 }
-export class ValueText {
-    /* Fields of Vda-1.Vda.ValueText */
-    parentInstance: ValueString
-    priv: ValueTextPrivate
+export class ValueXml {
+    /* Properties of Vda-1.Vda.SqlValueXml */
+    readonly document: GXml.DomDocument
     /* Fields of Vda-1.Vda.Value */
     name: string
     val: any
@@ -13358,6 +14726,150 @@ export class ValueText {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.Value */
     forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Methods of Vda-1.Vda.SqlValueXml */
+    getDocument(): GXml.DomDocument
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ValueXml, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::document", callback: (($obj: ValueXml, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::document", callback: (($obj: ValueXml, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::document", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::document", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::document", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: ValueXml_ConstructProps)
+    _init (config?: ValueXml_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): ValueXml
+    static $gtype: GObject.Type
+}
+export interface ValueJson_ConstructProps extends ValueString_ConstructProps {
+}
+export class ValueJson {
+    /* Properties of Vda-1.Vda.SqlValueJson */
+    readonly document: Json.Node
+    /* Fields of Vda-1.Vda.Value */
+    name: string
+    val: any
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Value */
+    forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Methods of Vda-1.Vda.SqlValueJson */
+    getDocument(): Json.Node
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ValueJson, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::document", callback: (($obj: ValueJson, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::document", callback: (($obj: ValueJson, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::document", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::document", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::document", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: ValueJson_ConstructProps)
+    _init (config?: ValueJson_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): ValueJson
+    static $gtype: GObject.Type
+}
+export interface ValueText_ConstructProps extends ValueString_ConstructProps {
+}
+export class ValueText {
+    /* Fields of Vda-1.Vda.Value */
+    name: string
+    val: any
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Value */
+    forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -13403,9 +14915,6 @@ export class ValueText {
 export interface ValueName_ConstructProps extends ValueString_ConstructProps {
 }
 export class ValueName {
-    /* Fields of Vda-1.Vda.ValueName */
-    parentInstance: ValueString
-    priv: ValueNamePrivate
     /* Fields of Vda-1.Vda.Value */
     name: string
     val: any
@@ -13413,6 +14922,14 @@ export class ValueName {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.Value */
     forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -13458,9 +14975,6 @@ export class ValueName {
 export interface ValueBool_ConstructProps extends Value_ConstructProps {
 }
 export class ValueBool {
-    /* Fields of Vda-1.Vda.ValueBool */
-    parentInstance: Value
-    priv: ValueBoolPrivate
     /* Fields of Vda-1.Vda.Value */
     name: string
     val: any
@@ -13468,6 +14982,14 @@ export class ValueBool {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.Value */
     forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -13513,9 +15035,6 @@ export class ValueBool {
 export interface ValueBit_ConstructProps extends ValueBool_ConstructProps {
 }
 export class ValueBit {
-    /* Fields of Vda-1.Vda.ValueBit */
-    parentInstance: ValueBool
-    priv: ValueBitPrivate
     /* Fields of Vda-1.Vda.Value */
     name: string
     val: any
@@ -13523,6 +15042,14 @@ export class ValueBit {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.Value */
     forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -13570,15 +15097,20 @@ export interface ValueInteger_ConstructProps extends Value_ConstructProps {
 export class ValueInteger {
     /* Properties of Vda-1.Vda.SqlValue */
     readonly name: string
-    /* Fields of Vda-1.Vda.ValueInteger */
-    parentInstance: Value
-    priv: ValueIntegerPrivate
     /* Fields of Vda-1.Vda.Value */
     val: any
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.Value */
     forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -13602,13 +15134,6 @@ export class ValueInteger {
     unref(): void
     watchClosure(closure: Function): void
     /* Methods of Vda-1.Vda.SqlValue */
-    parse(str: string): boolean
-    fromValue(val: any): boolean
-    cast(type: GObject.Type): SqlValue | null
-    isCompatible(type: GObject.Type): boolean
-    toGvalue(): { result: any }
-    toStringQuoted(): string
-    toSqlExpression(): string
     getName(): string
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ValueInteger, pspec: GObject.ParamSpec) => void)): number
@@ -13635,12 +15160,9 @@ export class ValueInteger {
     static new(): ValueInteger
     static $gtype: GObject.Type
 }
-export interface ValueInt2_ConstructProps extends ValueInteger_ConstructProps {
+export interface ValueByte_ConstructProps extends ValueInteger_ConstructProps {
 }
-export class ValueInt2 {
-    /* Fields of Vda-1.Vda.ValueInt2 */
-    parentInstance: ValueInteger
-    priv: ValueInt2Private
+export class ValueByte {
     /* Fields of Vda-1.Vda.Value */
     name: string
     val: any
@@ -13648,6 +15170,74 @@ export class ValueInt2 {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.Value */
     forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ValueByte, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: ValueByte_ConstructProps)
+    _init (config?: ValueByte_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): ValueByte
+    static $gtype: GObject.Type
+}
+export interface ValueInt2_ConstructProps extends ValueInteger_ConstructProps {
+}
+export class ValueInt2 {
+    /* Fields of Vda-1.Vda.Value */
+    name: string
+    val: any
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Value */
+    forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -13693,9 +15283,6 @@ export class ValueInt2 {
 export interface ValueInt4_ConstructProps extends ValueInteger_ConstructProps {
 }
 export class ValueInt4 {
-    /* Fields of Vda-1.Vda.ValueInt4 */
-    parentInstance: ValueInteger
-    priv: ValueInt4Private
     /* Fields of Vda-1.Vda.Value */
     name: string
     val: any
@@ -13703,6 +15290,14 @@ export class ValueInt4 {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.Value */
     forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -13748,9 +15343,6 @@ export class ValueInt4 {
 export interface ValueInt8_ConstructProps extends ValueInteger_ConstructProps {
 }
 export class ValueInt8 {
-    /* Fields of Vda-1.Vda.ValueInt8 */
-    parentInstance: ValueInteger
-    priv: ValueInt8Private
     /* Fields of Vda-1.Vda.Value */
     name: string
     val: any
@@ -13758,6 +15350,14 @@ export class ValueInt8 {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.Value */
     forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -13800,19 +15400,25 @@ export class ValueInt8 {
     static new(): ValueInt8
     static $gtype: GObject.Type
 }
-export interface ValueInt16_ConstructProps extends ValueInteger_ConstructProps {
+export interface ValueUnsignedInteger_ConstructProps extends Value_ConstructProps {
 }
-export class ValueInt16 {
-    /* Fields of Vda-1.Vda.ValueInt16 */
-    parentInstance: ValueInteger
-    priv: ValueInt16Private
+export class ValueUnsignedInteger {
+    /* Properties of Vda-1.Vda.SqlValue */
+    readonly name: string
     /* Fields of Vda-1.Vda.Value */
-    name: string
     val: any
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.Value */
     forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -13835,12 +15441,19 @@ export class ValueInt16 {
     thawNotify(): void
     unref(): void
     watchClosure(closure: Function): void
+    /* Methods of Vda-1.Vda.SqlValue */
+    getName(): string
     /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: ValueInt16, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify", callback: (($obj: ValueUnsignedInteger, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::name", callback: (($obj: ValueUnsignedInteger, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::name", callback: (($obj: ValueUnsignedInteger, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -13849,18 +15462,15 @@ export class ValueInt16 {
     once(sigName: string, callback: any): NodeJS.EventEmitter
     off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
-    constructor (config?: ValueInt16_ConstructProps)
-    _init (config?: ValueInt16_ConstructProps): void
+    constructor (config?: ValueUnsignedInteger_ConstructProps)
+    _init (config?: ValueUnsignedInteger_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(): ValueInt16
+    static new(): ValueUnsignedInteger
     static $gtype: GObject.Type
 }
-export interface ValueInt32_ConstructProps extends ValueInteger_ConstructProps {
+export interface ValueUnsignedByte_ConstructProps extends ValueUnsignedInteger_ConstructProps {
 }
-export class ValueInt32 {
-    /* Fields of Vda-1.Vda.ValueInt32 */
-    parentInstance: ValueInteger
-    priv: ValueInt32Private
+export class ValueUnsignedByte {
     /* Fields of Vda-1.Vda.Value */
     name: string
     val: any
@@ -13868,6 +15478,14 @@ export class ValueInt32 {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.Value */
     forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -13891,7 +15509,7 @@ export class ValueInt32 {
     unref(): void
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: ValueInt32, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify", callback: (($obj: ValueUnsignedByte, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
@@ -13904,18 +15522,15 @@ export class ValueInt32 {
     once(sigName: string, callback: any): NodeJS.EventEmitter
     off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
-    constructor (config?: ValueInt32_ConstructProps)
-    _init (config?: ValueInt32_ConstructProps): void
+    constructor (config?: ValueUnsignedByte_ConstructProps)
+    _init (config?: ValueUnsignedByte_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(): ValueInt32
+    static new(): ValueUnsignedByte
     static $gtype: GObject.Type
 }
-export interface ValueInt64_ConstructProps extends ValueInteger_ConstructProps {
+export interface ValueUnsignedInt2_ConstructProps extends ValueUnsignedInteger_ConstructProps {
 }
-export class ValueInt64 {
-    /* Fields of Vda-1.Vda.ValueInt64 */
-    parentInstance: ValueInteger
-    priv: ValueInt64Private
+export class ValueUnsignedInt2 {
     /* Fields of Vda-1.Vda.Value */
     name: string
     val: any
@@ -13923,6 +15538,14 @@ export class ValueInt64 {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.Value */
     forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -13946,7 +15569,7 @@ export class ValueInt64 {
     unref(): void
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: ValueInt64, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify", callback: (($obj: ValueUnsignedInt2, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
@@ -13959,18 +15582,135 @@ export class ValueInt64 {
     once(sigName: string, callback: any): NodeJS.EventEmitter
     off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
-    constructor (config?: ValueInt64_ConstructProps)
-    _init (config?: ValueInt64_ConstructProps): void
+    constructor (config?: ValueUnsignedInt2_ConstructProps)
+    _init (config?: ValueUnsignedInt2_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(): ValueInt64
+    static new(): ValueUnsignedInt2
+    static $gtype: GObject.Type
+}
+export interface ValueUnsignedInt4_ConstructProps extends ValueUnsignedInteger_ConstructProps {
+}
+export class ValueUnsignedInt4 {
+    /* Fields of Vda-1.Vda.Value */
+    name: string
+    val: any
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Value */
+    forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ValueUnsignedInt4, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: ValueUnsignedInt4_ConstructProps)
+    _init (config?: ValueUnsignedInt4_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): ValueUnsignedInt4
+    static $gtype: GObject.Type
+}
+export interface ValueUnsignedInt8_ConstructProps extends ValueUnsignedInteger_ConstructProps {
+}
+export class ValueUnsignedInt8 {
+    /* Fields of Vda-1.Vda.Value */
+    name: string
+    val: any
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Value */
+    forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ValueUnsignedInt8, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: ValueUnsignedInt8_ConstructProps)
+    _init (config?: ValueUnsignedInt8_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): ValueUnsignedInt8
     static $gtype: GObject.Type
 }
 export interface ValueOid_ConstructProps extends ValueInteger_ConstructProps {
 }
 export class ValueOid {
-    /* Fields of Vda-1.Vda.ValueOid */
-    parentInstance: ValueInteger
-    priv: ValueOidPrivate
     /* Fields of Vda-1.Vda.Value */
     name: string
     val: any
@@ -13978,6 +15718,14 @@ export class ValueOid {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.Value */
     forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -14023,16 +15771,23 @@ export class ValueOid {
 export interface ValueNumeric_ConstructProps extends Value_ConstructProps {
 }
 export class ValueNumeric {
-    /* Fields of Vda-1.Vda.ValueNumeric */
-    parentInstance: Value
-    priv: ValueNumericPrivate
     /* Fields of Vda-1.Vda.Value */
     name: string
     val: any
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.ValueNumeric */
+    format(str: string): string
     /* Methods of Vda-1.Vda.Value */
     forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -14058,7 +15813,6 @@ export class ValueNumeric {
     /* Methods of Vda-1.Vda.SqlValueNumeric */
     setPrecision(p: number): void
     getPrecision(): number
-    format(str: string): string
     getDouble(): number
     setDouble(v: number): void
     getReal(): number
@@ -14088,16 +15842,23 @@ export class ValueNumeric {
 export interface ValueFloat_ConstructProps extends ValueNumeric_ConstructProps {
 }
 export class ValueFloat {
-    /* Fields of Vda-1.Vda.ValueFloat */
-    parentInstance: ValueNumeric
-    priv: ValueFloatPrivate
     /* Fields of Vda-1.Vda.Value */
     name: string
     val: any
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.ValueNumeric */
+    format(str: string): string
     /* Methods of Vda-1.Vda.Value */
     forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -14145,16 +15906,23 @@ export class ValueFloat {
 export interface ValueDouble_ConstructProps extends ValueNumeric_ConstructProps {
 }
 export class ValueDouble {
-    /* Fields of Vda-1.Vda.ValueDouble */
-    parentInstance: ValueNumeric
-    priv: ValueDoublePrivate
     /* Fields of Vda-1.Vda.Value */
     name: string
     val: any
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.ValueNumeric */
+    format(str: string): string
     /* Methods of Vda-1.Vda.Value */
     forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -14200,16 +15968,23 @@ export class ValueDouble {
 export interface ValueMoney_ConstructProps extends ValueNumeric_ConstructProps {
 }
 export class ValueMoney {
-    /* Fields of Vda-1.Vda.ValueMoney */
-    parentInstance: ValueNumeric
-    priv: ValueMoneyPrivate
     /* Fields of Vda-1.Vda.Value */
     name: string
     val: any
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.ValueNumeric */
+    format(str: string): string
     /* Methods of Vda-1.Vda.Value */
     forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -14261,16 +16036,26 @@ export interface ValueTimestamp_ConstructProps extends Value_ConstructProps {
 }
 export class ValueTimestamp {
     /* Fields of Vda-1.Vda.ValueTimestamp */
-    parentInstance: Value
-    priv: ValueTimestampPrivate
     dt: GLib.DateTime
     /* Fields of Vda-1.Vda.Value */
     name: string
     val: any
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.ValueTimestamp */
+    formatLocal(): string
+    formatUtc(): string
+    formatLocale(): string
     /* Methods of Vda-1.Vda.Value */
     forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -14294,9 +16079,6 @@ export class ValueTimestamp {
     unref(): void
     watchClosure(closure: Function): void
     /* Methods of Vda-1.Vda.SqlValueTimestamp */
-    formatLocal(): string
-    formatUtc(): string
-    formatLocale(): string
     formatDate(): string
     formatDateLocale(): string
     formatTime(): string
@@ -14327,9 +16109,6 @@ export class ValueTimestamp {
 export interface ValueTimestampNtz_ConstructProps extends ValueTimestamp_ConstructProps {
 }
 export class ValueTimestampNtz {
-    /* Fields of Vda-1.Vda.ValueTimestampNtz */
-    parentInstance: ValueTimestamp
-    priv: ValueTimestampNtzPrivate
     /* Fields of Vda-1.Vda.ValueTimestamp */
     dt: GLib.DateTime
     /* Fields of Vda-1.Vda.Value */
@@ -14337,8 +16116,20 @@ export class ValueTimestampNtz {
     val: any
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.ValueTimestamp */
+    formatLocal(): string
+    formatUtc(): string
+    formatLocale(): string
     /* Methods of Vda-1.Vda.Value */
     forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -14384,9 +16175,6 @@ export class ValueTimestampNtz {
 export interface ValueTime_ConstructProps extends ValueTimestamp_ConstructProps {
 }
 export class ValueTime {
-    /* Fields of Vda-1.Vda.ValueTime */
-    parentInstance: ValueTimestamp
-    priv: ValueTimePrivate
     /* Fields of Vda-1.Vda.ValueTimestamp */
     dt: GLib.DateTime
     /* Fields of Vda-1.Vda.Value */
@@ -14394,8 +16182,20 @@ export class ValueTime {
     val: any
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.ValueTimestamp */
+    formatLocal(): string
+    formatUtc(): string
+    formatLocale(): string
     /* Methods of Vda-1.Vda.Value */
     forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -14438,12 +16238,9 @@ export class ValueTime {
     static new(): ValueTime
     static $gtype: GObject.Type
 }
-export interface ValueTimeNtz_ConstructProps extends ValueTimestamp_ConstructProps {
+export interface ValueTimeNtz_ConstructProps extends ValueTimestampNtz_ConstructProps {
 }
 export class ValueTimeNtz {
-    /* Fields of Vda-1.Vda.ValueTimeNtz */
-    parentInstance: ValueTimestamp
-    priv: ValueTimeNtzPrivate
     /* Fields of Vda-1.Vda.ValueTimestamp */
     dt: GLib.DateTime
     /* Fields of Vda-1.Vda.Value */
@@ -14451,8 +16248,20 @@ export class ValueTimeNtz {
     val: any
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.ValueTimestamp */
+    formatLocal(): string
+    formatUtc(): string
+    formatLocale(): string
     /* Methods of Vda-1.Vda.Value */
     forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -14499,8 +16308,6 @@ export interface ValueDate_ConstructProps extends Value_ConstructProps {
 }
 export class ValueDate {
     /* Fields of Vda-1.Vda.ValueDate */
-    parentInstance: Value
-    priv: ValueDatePrivate
     d: GLib.Date
     /* Fields of Vda-1.Vda.Value */
     name: string
@@ -14509,6 +16316,14 @@ export class ValueDate {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Vda-1.Vda.Value */
     forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -14554,19 +16369,96 @@ export class ValueDate {
     static new(): ValueDate
     static $gtype: GObject.Type
 }
+export interface ValueBinary_ConstructProps extends Value_ConstructProps {
+}
+export class ValueBinary {
+    /* Properties of Vda-1.Vda.SqlValueBinary */
+    readonly size: number
+    /* Fields of Vda-1.Vda.Value */
+    name: string
+    val: any
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.Value */
+    forceValue(val: any): boolean
+    fromValue(val: any): boolean
+    cast(type: GObject.Type): SqlValue | null
+    isCompatible(type: GObject.Type): boolean
+    parse(str: string): boolean
+    toGvalue(): { result: any }
+    toString(): string
+    toStringQuoted(): string
+    toSqlExpression(): string
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Methods of Vda-1.Vda.SqlValueBinary */
+    getBytes(): any
+    getOutStream(): Gio.OutputStream | null
+    getInputStream(): Gio.InputStream | null
+    getSize(): number
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ValueBinary, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::size", callback: (($obj: ValueBinary, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::size", callback: (($obj: ValueBinary, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: ValueBinary_ConstructProps)
+    _init (config?: ValueBinary_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static withData(d: any[]): ValueBinary
+    static take(d: any[]): ValueBinary
+    static new(): ValueBinary
+    static $gtype: GObject.Type
+}
 export interface ValueMathExp_ConstructProps extends GObject.Object_ConstructProps {
+    parameters?: SqlParameters
     math?: GCalc.MathEquationManager
 }
 export class ValueMathExp {
+    /* Properties of Vda-1.Vda.ValueMathExp */
+    parameters: SqlParameters
     /* Properties of Vda-1.Vda.SqlValue */
     readonly name: string
     /* Properties of Vda-1.Vda.SqlValueMathExp */
     math: GCalc.MathEquationManager
-    /* Fields of Vda-1.Vda.ValueMathExp */
-    parentInstance: GObject.Object
-    priv: ValueMathExpPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Vda-1.Vda.ValueMathExp */
+    getParameters(): SqlParameters
+    setParameters(value: SqlParameters): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -14609,6 +16501,11 @@ export class ValueMathExp {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::parameters", callback: (($obj: ValueMathExp, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parameters", callback: (($obj: ValueMathExp, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::parameters", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::parameters", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::parameters", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::name", callback: (($obj: ValueMathExp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::name", callback: (($obj: ValueMathExp, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -14636,96 +16533,72 @@ export class ValueMathExp {
     static $gtype: GObject.Type
 }
 export abstract class AffectedRowsClass {
-    /* Fields of Vda-1.Vda.AffectedRowsClass */
-    parentClass: GObject.ObjectClass
     static name: string
 }
 export class AffectedRowsPrivate {
     static name: string
 }
 export abstract class CommandDeleteClass {
-    /* Fields of Vda-1.Vda.CommandDeleteClass */
-    parentClass: GObject.ObjectClass
     static name: string
 }
 export class CommandDeletePrivate {
     static name: string
 }
 export abstract class CommandInsertClass {
-    /* Fields of Vda-1.Vda.CommandInsertClass */
-    parentClass: CommandModificationClass
     static name: string
 }
 export class CommandInsertPrivate {
     static name: string
 }
 export abstract class CommandModificationClass {
-    /* Fields of Vda-1.Vda.CommandModificationClass */
-    parentClass: GObject.ObjectClass
     static name: string
 }
 export class CommandModificationPrivate {
     static name: string
 }
 export abstract class CommandSelectClass {
-    /* Fields of Vda-1.Vda.CommandSelectClass */
-    parentClass: GObject.ObjectClass
     static name: string
 }
 export class CommandSelectPrivate {
     static name: string
 }
 export abstract class CommandUpdateClass {
-    /* Fields of Vda-1.Vda.CommandUpdateClass */
-    parentClass: CommandModificationClass
     static name: string
 }
 export class CommandUpdatePrivate {
     static name: string
 }
 export abstract class ConnectionParameterClass {
-    /* Fields of Vda-1.Vda.ConnectionParameterClass */
-    parentClass: GObject.ObjectClass
     static name: string
 }
 export class ConnectionParameterPrivate {
     static name: string
 }
 export abstract class ConnectionParameterDbNameClass {
-    /* Fields of Vda-1.Vda.ConnectionParameterDbNameClass */
-    parentClass: ConnectionParameterClass
     static name: string
 }
 export class ConnectionParameterDbNamePrivate {
     static name: string
 }
 export abstract class ConnectionParameterHostClass {
-    /* Fields of Vda-1.Vda.ConnectionParameterHostClass */
-    parentClass: ConnectionParameterClass
     static name: string
 }
 export class ConnectionParameterHostPrivate {
     static name: string
 }
 export abstract class ConnectionParameterPortClass {
-    /* Fields of Vda-1.Vda.ConnectionParameterPortClass */
-    parentClass: ConnectionParameterClass
     static name: string
 }
 export class ConnectionParameterPortPrivate {
     static name: string
 }
 export abstract class ConnectionParameterUserNameClass {
-    /* Fields of Vda-1.Vda.ConnectionParameterUserNameClass */
-    parentClass: ConnectionParameterClass
     static name: string
 }
 export class ConnectionParameterUserNamePrivate {
     static name: string
 }
 export abstract class ConnectionParameterPasswordClass {
-    /* Fields of Vda-1.Vda.ConnectionParameterPasswordClass */
-    parentClass: ConnectionParameterClass
     static name: string
 }
 export class ConnectionParameterPasswordPrivate {
@@ -14733,8 +16606,7 @@ export class ConnectionParameterPasswordPrivate {
 }
 export abstract class ConnectionParametersClass {
     /* Fields of Vda-1.Vda.ConnectionParametersClass */
-    parentClass: Gee.HashMapClass
-    parse: (self: ConnectionParameters, cnstring: string) => void
+    parse: (cnstring: string) => void
     static name: string
 }
 export class ConnectionParametersPrivate {
@@ -14742,464 +16614,385 @@ export class ConnectionParametersPrivate {
 }
 export abstract class ExpressionClass {
     /* Fields of Vda-1.Vda.ExpressionClass */
-    parentClass: Gee.ArrayListClass
-    toString: (self: Expression) => string
+    toString: () => string
     static name: string
 }
 export class ExpressionPrivate {
     static name: string
 }
 export abstract class ExpressionFieldClass {
-    /* Fields of Vda-1.Vda.ExpressionFieldClass */
-    parentClass: ExpressionClass
     static name: string
 }
 export class ExpressionFieldPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorClass */
-    parentClass: ExpressionClass
     static name: string
 }
 export class ExpressionOperatorPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorGroupClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorGroupClass */
-    parentClass: ExpressionOperatorClass
     static name: string
 }
 export class ExpressionOperatorGroupPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorMultitermClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorMultitermClass */
-    parentClass: ExpressionOperatorClass
     static name: string
 }
 export class ExpressionOperatorMultitermPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorAndClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorAndClass */
-    parentClass: ExpressionOperatorMultitermClass
     static name: string
 }
 export class ExpressionOperatorAndPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorOrClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorOrClass */
-    parentClass: ExpressionOperatorMultitermClass
     static name: string
 }
 export class ExpressionOperatorOrPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorBinarytermClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorBinarytermClass */
-    parentClass: ExpressionOperatorClass
     static name: string
 }
 export class ExpressionOperatorBinarytermPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorEqClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorEqClass */
-    parentClass: ExpressionOperatorBinarytermClass
     static name: string
 }
 export class ExpressionOperatorEqPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorNotEqClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorNotEqClass */
-    parentClass: ExpressionOperatorBinarytermClass
     static name: string
 }
 export class ExpressionOperatorNotEqPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorDiffClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorDiffClass */
-    parentClass: ExpressionOperatorBinarytermClass
     static name: string
 }
 export class ExpressionOperatorDiffPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorGtClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorGtClass */
-    parentClass: ExpressionOperatorBinarytermClass
     static name: string
 }
 export class ExpressionOperatorGtPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorLtClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorLtClass */
-    parentClass: ExpressionOperatorBinarytermClass
     static name: string
 }
 export class ExpressionOperatorLtPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorGeqClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorGeqClass */
-    parentClass: ExpressionOperatorBinarytermClass
     static name: string
 }
 export class ExpressionOperatorGeqPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorLeqClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorLeqClass */
-    parentClass: ExpressionOperatorBinarytermClass
     static name: string
 }
 export class ExpressionOperatorLeqPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorRegexpClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorRegexpClass */
-    parentClass: ExpressionOperatorBinarytermClass
     static name: string
 }
 export class ExpressionOperatorRegexpPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorStarClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorStarClass */
-    parentClass: ExpressionOperatorBinarytermClass
     static name: string
 }
 export class ExpressionOperatorStarPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorDivClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorDivClass */
-    parentClass: ExpressionOperatorBinarytermClass
     static name: string
 }
 export class ExpressionOperatorDivPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorInClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorInClass */
-    parentClass: ExpressionOperatorBinarytermClass
     static name: string
 }
 export class ExpressionOperatorInPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorNotInClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorNotInClass */
-    parentClass: ExpressionOperatorBinarytermClass
     static name: string
 }
 export class ExpressionOperatorNotInPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorConcatenateClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorConcatenateClass */
-    parentClass: ExpressionOperatorBinarytermClass
     static name: string
 }
 export class ExpressionOperatorConcatenatePrivate {
     static name: string
 }
 export abstract class ExpressionOperatorSimilarToClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorSimilarToClass */
-    parentClass: ExpressionOperatorBinarytermClass
     static name: string
 }
 export class ExpressionOperatorSimilarToPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorLikeClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorLikeClass */
-    parentClass: ExpressionOperatorBinarytermClass
     static name: string
 }
 export class ExpressionOperatorLikePrivate {
     static name: string
 }
+export abstract class ExpressionOperatorNotLikeClass {
+    static name: string
+}
+export class ExpressionOperatorNotLikePrivate {
+    static name: string
+}
 export abstract class ExpressionOperatorIlikeClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorIlikeClass */
-    parentClass: ExpressionOperatorBinarytermClass
     static name: string
 }
 export class ExpressionOperatorIlikePrivate {
     static name: string
 }
+export abstract class ExpressionOperatorNotIlikeClass {
+    static name: string
+}
+export class ExpressionOperatorNotIlikePrivate {
+    static name: string
+}
 export abstract class ExpressionOperatorBinaryUnarytermClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorBinaryUnarytermClass */
-    parentClass: ExpressionOperatorClass
     static name: string
 }
 export class ExpressionOperatorBinaryUnarytermPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorMinusClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorMinusClass */
-    parentClass: ExpressionOperatorBinaryUnarytermClass
     static name: string
 }
 export class ExpressionOperatorMinusPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorPlusClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorPlusClass */
-    parentClass: ExpressionOperatorBinaryUnarytermClass
     static name: string
 }
 export class ExpressionOperatorPlusPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorInitialUnarytermClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorInitialUnarytermClass */
-    parentClass: ExpressionOperatorClass
     static name: string
 }
 export class ExpressionOperatorInitialUnarytermPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorNotClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorNotClass */
-    parentClass: ExpressionOperatorInitialUnarytermClass
     static name: string
 }
 export class ExpressionOperatorNotPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorFinalUnarytermClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorFinalUnarytermClass */
-    parentClass: ExpressionOperatorClass
     static name: string
 }
 export class ExpressionOperatorFinalUnarytermPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsClass */
-    parentClass: ExpressionOperatorFinalUnarytermClass
     static name: string
 }
 export class ExpressionOperatorIsPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsNotClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotClass */
-    parentClass: ExpressionOperatorIsClass
     static name: string
 }
 export class ExpressionOperatorIsNotPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsNullClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsNullClass */
-    parentClass: ExpressionOperatorIsClass
     static name: string
 }
 export class ExpressionOperatorIsNullPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsNotNullClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotNullClass */
-    parentClass: ExpressionOperatorIsNotClass
     static name: string
 }
 export class ExpressionOperatorIsNotNullPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsTrueClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsTrueClass */
-    parentClass: ExpressionOperatorIsClass
     static name: string
 }
 export class ExpressionOperatorIsTruePrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsNotTrueClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotTrueClass */
-    parentClass: ExpressionOperatorIsNotClass
     static name: string
 }
 export class ExpressionOperatorIsNotTruePrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsFalseClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsFalseClass */
-    parentClass: ExpressionOperatorIsClass
     static name: string
 }
 export class ExpressionOperatorIsFalsePrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsNotFalseClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotFalseClass */
-    parentClass: ExpressionOperatorIsNotClass
     static name: string
 }
 export class ExpressionOperatorIsNotFalsePrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsNotUnknownClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotUnknownClass */
-    parentClass: ExpressionOperatorIsNotClass
     static name: string
 }
 export class ExpressionOperatorIsNotUnknownPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsUnknownClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsUnknownClass */
-    parentClass: ExpressionOperatorIsClass
     static name: string
 }
 export class ExpressionOperatorIsUnknownPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsDistinctClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsDistinctClass */
-    parentClass: ExpressionOperatorIsClass
     static name: string
 }
 export class ExpressionOperatorIsDistinctPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsNotDistinctClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotDistinctClass */
-    parentClass: ExpressionOperatorIsNotClass
     static name: string
 }
 export class ExpressionOperatorIsNotDistinctPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsDistinctFromClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsDistinctFromClass */
-    parentClass: ExpressionOperatorIsDistinctClass
     static name: string
 }
 export class ExpressionOperatorIsDistinctFromPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorIsNotDistinctFromClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorIsNotDistinctFromClass */
-    parentClass: ExpressionOperatorIsNotDistinctClass
     static name: string
 }
 export class ExpressionOperatorIsNotDistinctFromPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorThreetermClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorThreetermClass */
-    parentClass: ExpressionOperatorClass
     static name: string
 }
 export class ExpressionOperatorThreetermPrivate {
     static name: string
 }
 export abstract class ExpressionOperatorBetweenClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorBetweenClass */
-    parentClass: ExpressionOperatorThreetermClass
     static name: string
 }
 export class ExpressionOperatorBetweenPrivate {
     static name: string
 }
+export abstract class ExpressionOperatorBetweenAndClass {
+    static name: string
+}
+export class ExpressionOperatorBetweenAndPrivate {
+    static name: string
+}
 export abstract class ExpressionOperatorNotBetweenClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorNotBetweenClass */
-    parentClass: ExpressionOperatorThreetermClass
     static name: string
 }
 export class ExpressionOperatorNotBetweenPrivate {
     static name: string
 }
+export abstract class ExpressionOperatorNotBetweenAndClass {
+    static name: string
+}
+export class ExpressionOperatorNotBetweenAndPrivate {
+    static name: string
+}
 export abstract class ExpressionOperatorBetweenSymmetricClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorBetweenSymmetricClass */
-    parentClass: ExpressionOperatorThreetermClass
     static name: string
 }
 export class ExpressionOperatorBetweenSymmetricPrivate {
     static name: string
 }
+export abstract class ExpressionOperatorBetweenSymmetricAndClass {
+    static name: string
+}
+export class ExpressionOperatorBetweenSymmetricAndPrivate {
+    static name: string
+}
 export abstract class ExpressionOperatorNotBetweenSymmetricClass {
-    /* Fields of Vda-1.Vda.ExpressionOperatorNotBetweenSymmetricClass */
-    parentClass: ExpressionOperatorThreetermClass
     static name: string
 }
 export class ExpressionOperatorNotBetweenSymmetricPrivate {
     static name: string
 }
+export abstract class ExpressionOperatorNotBetweenSymmetricAndClass {
+    static name: string
+}
+export class ExpressionOperatorNotBetweenSymmetricAndPrivate {
+    static name: string
+}
 export abstract class ExpressionValueClass {
-    /* Fields of Vda-1.Vda.ExpressionValueClass */
-    parentClass: ExpressionClass
     static name: string
 }
 export class ExpressionValuePrivate {
     static name: string
 }
 export abstract class ExpressionValueParameterClass {
-    /* Fields of Vda-1.Vda.ExpressionValueParameterClass */
-    parentClass: ExpressionValueClass
     static name: string
 }
 export class ExpressionValueParameterPrivate {
     static name: string
 }
 export abstract class HashListClass {
-    /* Fields of Vda-1.Vda.HashListClass */
-    parentClass: Gee.ArrayListClass
     static name: string
 }
 export class HashListPrivate {
     static name: string
 }
 export abstract class InvalidQueryClass {
-    /* Fields of Vda-1.Vda.InvalidQueryClass */
-    parentClass: GObject.ObjectClass
     static name: string
 }
 export class InvalidQueryPrivate {
     static name: string
 }
 export abstract class InvalidPreparedQueryClass {
-    /* Fields of Vda-1.Vda.InvalidPreparedQueryClass */
-    parentClass: InvalidQueryClass
     static name: string
 }
 export class InvalidPreparedQueryPrivate {
     static name: string
 }
 export abstract class InvalidResultClass {
-    /* Fields of Vda-1.Vda.InvalidResultClass */
-    parentClass: GObject.ObjectClass
     static name: string
 }
 export class InvalidResultPrivate {
     static name: string
 }
 export abstract class ParametersClass {
-    /* Fields of Vda-1.Vda.ParametersClass */
-    parentClass: Gee.HashMapClass
     static name: string
 }
 export class ParametersPrivate {
     static name: string
 }
 export abstract class ParserClass {
-    /* Fields of Vda-1.Vda.ParserClass */
-    parentClass: GObject.ObjectClass
     static name: string
 }
 export class ParserPrivate {
     static name: string
 }
 export abstract class TableReferenceClass {
-    /* Fields of Vda-1.Vda.TableReferenceClass */
-    parentClass: GObject.ObjectClass
     static name: string
 }
 export class TableReferencePrivate {
@@ -15207,128 +17000,129 @@ export class TableReferencePrivate {
 }
 export abstract class ValueClass {
     /* Fields of Vda-1.Vda.ValueClass */
-    parentClass: GObject.ObjectClass
-    forceValue: (self: Value, val: any) => boolean
-    fromValue: (self: Value, val: any) => boolean
-    cast: (self: Value, type: GObject.Type) => SqlValue | null
-    isCompatible: (self: Value, type: GObject.Type) => boolean
-    parse: (self: Value, str: string) => boolean
-    toGvalue: (self: Value) => { result: any }
-    toString: (self: Value) => string
-    toStringQuoted: (self: Value) => string
-    toSqlExpression: (self: Value) => string
+    forceValue: (val: any) => boolean
+    fromValue: (val: any) => boolean
+    cast: (type: GObject.Type) => SqlValue | null
+    isCompatible: (type: GObject.Type) => boolean
+    parse: (str: string) => boolean
+    toGvalue: () => { result: any }
+    toString: () => string
+    toStringQuoted: () => string
+    toSqlExpression: () => string
     static name: string
 }
 export class ValuePrivate {
     static name: string
 }
 export abstract class ValueNullClass {
-    /* Fields of Vda-1.Vda.ValueNullClass */
-    parentClass: ValueClass
     static name: string
 }
 export class ValueNullPrivate {
     static name: string
 }
 export abstract class ValueStringClass {
-    /* Fields of Vda-1.Vda.ValueStringClass */
-    parentClass: ValueClass
     static name: string
 }
 export class ValueStringPrivate {
     static name: string
 }
+export abstract class ValueXmlClass {
+    static name: string
+}
+export class ValueXmlPrivate {
+    static name: string
+}
+export abstract class ValueJsonClass {
+    static name: string
+}
+export class ValueJsonPrivate {
+    static name: string
+}
 export abstract class ValueTextClass {
-    /* Fields of Vda-1.Vda.ValueTextClass */
-    parentClass: ValueStringClass
     static name: string
 }
 export class ValueTextPrivate {
     static name: string
 }
 export abstract class ValueNameClass {
-    /* Fields of Vda-1.Vda.ValueNameClass */
-    parentClass: ValueStringClass
     static name: string
 }
 export class ValueNamePrivate {
     static name: string
 }
 export abstract class ValueBoolClass {
-    /* Fields of Vda-1.Vda.ValueBoolClass */
-    parentClass: ValueClass
     static name: string
 }
 export class ValueBoolPrivate {
     static name: string
 }
 export abstract class ValueBitClass {
-    /* Fields of Vda-1.Vda.ValueBitClass */
-    parentClass: ValueBoolClass
     static name: string
 }
 export class ValueBitPrivate {
     static name: string
 }
 export abstract class ValueIntegerClass {
-    /* Fields of Vda-1.Vda.ValueIntegerClass */
-    parentClass: ValueClass
     static name: string
 }
 export class ValueIntegerPrivate {
     static name: string
 }
+export abstract class ValueByteClass {
+    static name: string
+}
+export class ValueBytePrivate {
+    static name: string
+}
 export abstract class ValueInt2Class {
-    /* Fields of Vda-1.Vda.ValueInt2Class */
-    parentClass: ValueIntegerClass
     static name: string
 }
 export class ValueInt2Private {
     static name: string
 }
 export abstract class ValueInt4Class {
-    /* Fields of Vda-1.Vda.ValueInt4Class */
-    parentClass: ValueIntegerClass
     static name: string
 }
 export class ValueInt4Private {
     static name: string
 }
 export abstract class ValueInt8Class {
-    /* Fields of Vda-1.Vda.ValueInt8Class */
-    parentClass: ValueIntegerClass
     static name: string
 }
 export class ValueInt8Private {
     static name: string
 }
-export abstract class ValueInt16Class {
-    /* Fields of Vda-1.Vda.ValueInt16Class */
-    parentClass: ValueIntegerClass
+export abstract class ValueUnsignedIntegerClass {
     static name: string
 }
-export class ValueInt16Private {
+export class ValueUnsignedIntegerPrivate {
     static name: string
 }
-export abstract class ValueInt32Class {
-    /* Fields of Vda-1.Vda.ValueInt32Class */
-    parentClass: ValueIntegerClass
+export abstract class ValueUnsignedByteClass {
     static name: string
 }
-export class ValueInt32Private {
+export class ValueUnsignedBytePrivate {
     static name: string
 }
-export abstract class ValueInt64Class {
-    /* Fields of Vda-1.Vda.ValueInt64Class */
-    parentClass: ValueIntegerClass
+export abstract class ValueUnsignedInt2Class {
     static name: string
 }
-export class ValueInt64Private {
+export class ValueUnsignedInt2Private {
+    static name: string
+}
+export abstract class ValueUnsignedInt4Class {
+    static name: string
+}
+export class ValueUnsignedInt4Private {
+    static name: string
+}
+export abstract class ValueUnsignedInt8Class {
+    static name: string
+}
+export class ValueUnsignedInt8Private {
     static name: string
 }
 export abstract class ValueOidClass {
-    /* Fields of Vda-1.Vda.ValueOidClass */
-    parentClass: ValueIntegerClass
     static name: string
 }
 export class ValueOidPrivate {
@@ -15336,32 +17130,25 @@ export class ValueOidPrivate {
 }
 export abstract class ValueNumericClass {
     /* Fields of Vda-1.Vda.ValueNumericClass */
-    parentClass: ValueClass
-    format: (self: ValueNumeric, str: string) => string
+    format: (str: string) => string
     static name: string
 }
 export class ValueNumericPrivate {
     static name: string
 }
 export abstract class ValueFloatClass {
-    /* Fields of Vda-1.Vda.ValueFloatClass */
-    parentClass: ValueNumericClass
     static name: string
 }
 export class ValueFloatPrivate {
     static name: string
 }
 export abstract class ValueDoubleClass {
-    /* Fields of Vda-1.Vda.ValueDoubleClass */
-    parentClass: ValueNumericClass
     static name: string
 }
 export class ValueDoublePrivate {
     static name: string
 }
 export abstract class ValueMoneyClass {
-    /* Fields of Vda-1.Vda.ValueMoneyClass */
-    parentClass: ValueNumericClass
     static name: string
 }
 export class ValueMoneyPrivate {
@@ -15369,50 +17156,45 @@ export class ValueMoneyPrivate {
 }
 export abstract class ValueTimestampClass {
     /* Fields of Vda-1.Vda.ValueTimestampClass */
-    parentClass: ValueClass
-    formatLocal: (self: ValueTimestamp) => string
-    formatUtc: (self: ValueTimestamp) => string
-    formatLocale: (self: ValueTimestamp) => string
+    formatLocal: () => string
+    formatUtc: () => string
+    formatLocale: () => string
     static name: string
 }
 export class ValueTimestampPrivate {
     static name: string
 }
 export abstract class ValueTimestampNtzClass {
-    /* Fields of Vda-1.Vda.ValueTimestampNtzClass */
-    parentClass: ValueTimestampClass
     static name: string
 }
 export class ValueTimestampNtzPrivate {
     static name: string
 }
 export abstract class ValueTimeClass {
-    /* Fields of Vda-1.Vda.ValueTimeClass */
-    parentClass: ValueTimestampClass
     static name: string
 }
 export class ValueTimePrivate {
     static name: string
 }
 export abstract class ValueTimeNtzClass {
-    /* Fields of Vda-1.Vda.ValueTimeNtzClass */
-    parentClass: ValueTimestampClass
     static name: string
 }
 export class ValueTimeNtzPrivate {
     static name: string
 }
 export abstract class ValueDateClass {
-    /* Fields of Vda-1.Vda.ValueDateClass */
-    parentClass: ValueClass
     static name: string
 }
 export class ValueDatePrivate {
     static name: string
 }
+export abstract class ValueBinaryClass {
+    static name: string
+}
+export class ValueBinaryPrivate {
+    static name: string
+}
 export abstract class ValueMathExpClass {
-    /* Fields of Vda-1.Vda.ValueMathExpClass */
-    parentClass: GObject.ObjectClass
     static name: string
 }
 export class ValueMathExpPrivate {
@@ -15420,783 +17202,683 @@ export class ValueMathExpPrivate {
 }
 export abstract class MetaObjectIface {
     /* Fields of Vda-1.Vda.MetaObjectIface */
-    parentIface: GObject.TypeInterface
-    getConnection: (self: MetaObject) => Connection
-    setConnection: (self: MetaObject, value: Connection) => void
+    getConnection: () => Connection
+    setConnection: (value: Connection) => void
     static name: string
 }
 export abstract class MetaNamedObjectIface {
     /* Fields of Vda-1.Vda.MetaNamedObjectIface */
-    parentIface: GObject.TypeInterface
-    getName: (self: MetaNamedObject) => string
-    setName: (self: MetaNamedObject, value: string) => void
+    getName: () => string
+    setName: (value: string) => void
     static name: string
 }
 export abstract class ColumnModelIface {
     /* Fields of Vda-1.Vda.ColumnModelIface */
-    parentIface: GObject.TypeInterface
-    getName: (self: ColumnModel) => string
-    getDataType: (self: ColumnModel) => GObject.Type
+    getName: () => string
+    getDataType: () => GObject.Type
     static name: string
 }
 export abstract class ConnectionIface {
     /* Fields of Vda-1.Vda.ConnectionIface */
-    parentIface: GObject.TypeInterface
-    close: (self: Connection, callback?: Gio.AsyncReadyCallback | null) => void
-    closeFinish: (self: Connection, res: Gio.AsyncResult) => void
-    open: (self: Connection, callback?: Gio.AsyncReadyCallback | null) => void
-    openFinish: (self: Connection, res: Gio.AsyncResult) => ConnectionStatus
-    openFromString: (self: Connection, cncString: string, callback?: Gio.AsyncReadyCallback | null) => void
-    openFromStringFinish: (self: Connection, res: Gio.AsyncResult) => ConnectionStatus
-    addSavepoint: (self: Connection, name?: string | null) => boolean
-    deleteSavepoint: (self: Connection, name?: string | null) => boolean
-    rollbackSavepoint: (self: Connection, name?: string | null) => boolean
-    beginTransaction: (self: Connection, name?: string | null) => boolean
-    commitTransaction: (self: Connection, name?: string | null) => boolean
-    rollbackTransaction: (self: Connection, name?: string | null) => boolean
-    parseString: (self: Connection, sql: string) => Query
-    parseStringPrepared: (self: Connection, name: string | null, sql: string) => PreparedQuery | null
-    getPreparedQuery: (self: Connection, name: string) => PreparedQuery | null
-    queryFromCommand: (self: Connection, cmd: SqlCommand, name?: string | null) => PreparedQuery | null
-    valueToQuotedString: (self: Connection, v: SqlValue) => string
-    currentUser: (self: Connection) => Role | null
-    locale: (self: Connection, category: string) => string
-    getStatus: (self: Connection) => ConnectionStatus
-    getParameters: (self: Connection) => ConnectionParameters
-    setParameters: (self: Connection, value: ConnectionParameters) => void
-    getIsOpened: (self: Connection) => boolean
-    getConnectionString: (self: Connection) => string
+    close: (callback?: Gio.AsyncReadyCallback | null) => void
+    closeFinish: (res: Gio.AsyncResult) => void
+    open: (callback?: Gio.AsyncReadyCallback | null) => void
+    openFinish: (res: Gio.AsyncResult) => ConnectionStatus
+    openFromString: (cncString: string, callback?: Gio.AsyncReadyCallback | null) => void
+    openFromStringFinish: (res: Gio.AsyncResult) => ConnectionStatus
+    parseString: (sql: string) => Query
+    parseStringPrepared: (name: string | null, sql: string) => PreparedQuery | null
+    getPreparedQuery: (name: string) => PreparedQuery | null
+    queryFromCommand: (cmd: SqlCommand, name?: string | null) => PreparedQuery | null
+    valueToQuotedString: (v: SqlValue) => string
+    locale: (category: string) => string
+    getStatus: () => ConnectionStatus
+    getParameters: () => ConnectionParameters
+    setParameters: (value: ConnectionParameters) => void
+    getIsOpened: () => boolean
+    getConnectionString: () => string
+    static name: string
+}
+export abstract class ConnectionBlobIface {
+    /* Fields of Vda-1.Vda.ConnectionBlobIface */
+    create: (stream: Gio.InputStream) => SqlValueBlob
+    delete_: (val: SqlValueBlob) => void
+    static name: string
+}
+export abstract class ConnectionRolebasedIface {
+    /* Fields of Vda-1.Vda.ConnectionRolebasedIface */
+    currentRole: () => Role | null
+    createRole: (name: string, params: Parameters) => Role | null
+    static name: string
+}
+export abstract class ConnectionTransactionalIface {
+    /* Fields of Vda-1.Vda.ConnectionTransactionalIface */
+    addSavepoint: (name?: string | null) => boolean
+    deleteSavepoint: (name?: string | null) => boolean
+    rollbackSavepoint: (name?: string | null) => boolean
+    beginTransaction: (name?: string | null) => boolean
+    commitTransaction: (name?: string | null) => boolean
+    rollbackTransaction: (name?: string | null) => boolean
     static name: string
 }
 export abstract class DataObjectIface {
     /* Fields of Vda-1.Vda.DataObjectIface */
-    parentIface: GObject.TypeInterface
-    updateDataFromDb: (self: DataObject, callback?: Gio.AsyncReadyCallback | null) => void
-    updateDataFromDbFinish: (self: DataObject, res: Gio.AsyncResult) => void
-    updateDataFromDbPkey: (self: DataObject, callback?: Gio.AsyncReadyCallback | null) => void
-    updateDataFromDbPkeyFinish: (self: DataObject, res: Gio.AsyncResult) => void
-    updateDataFromDbFull: (self: DataObject, usePkey: boolean, callback?: Gio.AsyncReadyCallback | null) => void
-    updateDataFromDbFullFinish: (self: DataObject, res: Gio.AsyncResult) => void
-    insertDataIntoDb: (self: DataObject, callback?: Gio.AsyncReadyCallback | null) => void
-    insertDataIntoDbFinish: (self: DataObject, res: Gio.AsyncResult) => void
-    deleteDataFromDb: (self: DataObject, callback?: Gio.AsyncReadyCallback | null) => void
-    deleteDataFromDbFinish: (self: DataObject, res: Gio.AsyncResult) => void
-    deleteDataFromDbPkey: (self: DataObject, callback?: Gio.AsyncReadyCallback | null) => void
-    deleteDataFromDbPkeyFinish: (self: DataObject, res: Gio.AsyncResult) => void
-    deleteDataFromDbFull: (self: DataObject, usePkey: boolean, callback?: Gio.AsyncReadyCallback | null) => void
-    deleteDataFromDbFullFinish: (self: DataObject, res: Gio.AsyncResult) => void
-    updateDataIntoDb: (self: DataObject, callback?: Gio.AsyncReadyCallback | null) => void
-    updateDataIntoDbFinish: (self: DataObject, res: Gio.AsyncResult) => void
-    updateDataIntoDbPkey: (self: DataObject, callback?: Gio.AsyncReadyCallback | null) => void
-    updateDataIntoDbPkeyFinish: (self: DataObject, res: Gio.AsyncResult) => void
-    updateDataIntoDbFull: (self: DataObject, usePkey: boolean, callback?: Gio.AsyncReadyCallback | null) => void
-    updateDataIntoDbFullFinish: (self: DataObject, res: Gio.AsyncResult) => void
-    updateFromRow: (self: DataObject, table: TableModel, nrow: number) => void
-    getDatabaseConnection: (self: DataObject) => Connection
-    setDatabaseConnection: (self: DataObject, value: Connection) => void
-    getDatabaseTableName: (self: DataObject) => string
-    setDatabaseTableName: (self: DataObject, value: string) => void
-    getCancellable: (self: DataObject) => Gio.Cancellable
-    setCancellable: (self: DataObject, value: Gio.Cancellable) => void
+    updateDataFromDb: (callback?: Gio.AsyncReadyCallback | null) => void
+    updateDataFromDbFinish: (res: Gio.AsyncResult) => void
+    updateDataFromDbPkey: (callback?: Gio.AsyncReadyCallback | null) => void
+    updateDataFromDbPkeyFinish: (res: Gio.AsyncResult) => void
+    updateDataFromDbFull: (usePkey: boolean, callback?: Gio.AsyncReadyCallback | null) => void
+    updateDataFromDbFullFinish: (res: Gio.AsyncResult) => void
+    insertDataIntoDb: (callback?: Gio.AsyncReadyCallback | null) => void
+    insertDataIntoDbFinish: (res: Gio.AsyncResult) => void
+    deleteDataFromDb: (callback?: Gio.AsyncReadyCallback | null) => void
+    deleteDataFromDbFinish: (res: Gio.AsyncResult) => void
+    deleteDataFromDbPkey: (callback?: Gio.AsyncReadyCallback | null) => void
+    deleteDataFromDbPkeyFinish: (res: Gio.AsyncResult) => void
+    deleteDataFromDbFull: (usePkey: boolean, callback?: Gio.AsyncReadyCallback | null) => void
+    deleteDataFromDbFullFinish: (res: Gio.AsyncResult) => void
+    updateDataIntoDb: (callback?: Gio.AsyncReadyCallback | null) => void
+    updateDataIntoDbFinish: (res: Gio.AsyncResult) => void
+    updateDataIntoDbPkey: (callback?: Gio.AsyncReadyCallback | null) => void
+    updateDataIntoDbPkeyFinish: (res: Gio.AsyncResult) => void
+    updateDataIntoDbFull: (usePkey: boolean, callback?: Gio.AsyncReadyCallback | null) => void
+    updateDataIntoDbFullFinish: (res: Gio.AsyncResult) => void
+    updateFromRow: (table: TableModel, nrow: number) => void
+    getDatabaseConnection: () => Connection
+    setDatabaseConnection: (value: Connection) => void
+    getDatabaseTableName: () => string
+    setDatabaseTableName: (value: string) => void
+    getCancellable: () => Gio.Cancellable
+    setCancellable: (value: Gio.Cancellable) => void
     static name: string
 }
 export abstract class DataCollectionIface {
     /* Fields of Vda-1.Vda.DataCollectionIface */
-    parentIface: GObject.TypeInterface
-    getObjects: (self: DataCollection, callback?: Gio.AsyncReadyCallback | null) => void
-    getObjectsFinish: (self: DataCollection, res: Gio.AsyncResult) => TableModel
-    getDatabaseConnection: (self: DataCollection) => Connection
-    setDatabaseConnection: (self: DataCollection, value: Connection) => void
-    getParentProperty: (self: DataCollection) => string
-    getParent: (self: DataCollection) => DataObject
-    getObjectType: (self: DataCollection) => GObject.Type
-    getRefField: (self: DataCollection) => string
-    getCancellable: (self: DataCollection) => Gio.Cancellable
-    setCancellable: (self: DataCollection, value: Gio.Cancellable) => void
+    getObjects: (callback?: Gio.AsyncReadyCallback | null) => void
+    getObjectsFinish: (res: Gio.AsyncResult) => TableModel
+    getDatabaseConnection: () => Connection
+    setDatabaseConnection: (value: Connection) => void
+    getParentProperty: () => string
+    getParent: () => DataObject
+    getObjectType: () => GObject.Type
+    getRefField: () => string
+    getCancellable: () => Gio.Cancellable
+    setCancellable: (value: Gio.Cancellable) => void
     static name: string
 }
 export abstract class HashModelIface {
     /* Fields of Vda-1.Vda.HashModelIface */
-    parentIface: GObject.TypeInterface
-    add: (self: HashModel, object: GObject.Object) => void
-    find: (self: HashModel, key: GObject.Object) => GObject.Object | null
-    remove: (self: HashModel, object: GObject.Object) => void
+    add: (object: GObject.Object) => void
+    find: (key: GObject.Object) => GObject.Object | null
+    remove: (object: GObject.Object) => void
     static name: string
 }
 export abstract class InsertedIface {
     /* Fields of Vda-1.Vda.InsertedIface */
-    parentIface: GObject.TypeInterface
-    getNumber: (self: Inserted) => number
-    getLastInserted: (self: Inserted) => RowModel
+    getNumber: () => number
+    getLastInserted: () => RowModel
     static name: string
 }
 export abstract class ParsedQueryIface {
     /* Fields of Vda-1.Vda.ParsedQueryIface */
-    parentIface: GObject.TypeInterface
-    getCommand: (self: ParsedQuery) => SqlCommand
+    getCommand: () => SqlCommand
     static name: string
 }
 export abstract class PreparedQueryIface {
     /* Fields of Vda-1.Vda.PreparedQueryIface */
-    parentIface: GObject.TypeInterface
-    getName: (self: PreparedQuery) => string
-    getParameters: (self: PreparedQuery) => SqlParameters
+    getName: () => string
+    getParameters: () => SqlParameters
     static name: string
 }
 export abstract class QueryIface {
     /* Fields of Vda-1.Vda.QueryIface */
-    parentIface: GObject.TypeInterface
-    execute: (self: Query, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    executeFinish: (self: Query, res: Gio.AsyncResult) => Result | null
-    cancel: (self: Query, callback?: Gio.AsyncReadyCallback | null) => void
-    cancelFinish: (self: Query, res: Gio.AsyncResult) => void
-    renderSql: (self: Query) => string
-    getSql: (self: Query) => string
-    getConnection: (self: Query) => Connection
+    execute: (cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    executeFinish: (res: Gio.AsyncResult) => Result | null
+    cancel: (callback?: Gio.AsyncReadyCallback | null) => void
+    cancelFinish: (res: Gio.AsyncResult) => void
+    renderSql: () => string
+    getSql: () => string
+    getConnection: () => Connection
     static name: string
 }
 export abstract class ResultIface {
-    /* Fields of Vda-1.Vda.ResultIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class RoleIface {
     /* Fields of Vda-1.Vda.RoleIface */
-    parentIface: GObject.TypeInterface
-    name: (self: Role, callback?: Gio.AsyncReadyCallback | null) => void
-    nameFinish: (self: Role, res: Gio.AsyncResult) => string
-    membership: (self: Role, callback?: Gio.AsyncReadyCallback | null) => void
-    membershipFinish: (self: Role, res: Gio.AsyncResult) => HashModel
-    privilages: (self: Role, object: MetaObject, callback?: Gio.AsyncReadyCallback | null) => void
-    privilagesFinish: (self: Role, res: Gio.AsyncResult) => RoleGrant
-    changePrivilages: (self: Role, object: MetaObject, grant: RoleGrant, callback?: Gio.AsyncReadyCallback | null) => void
-    changePrivilagesFinish: (self: Role, res: Gio.AsyncResult) => void
-    getConnection: (self: Role) => Connection
+    name: (callback?: Gio.AsyncReadyCallback | null) => void
+    nameFinish: (res: Gio.AsyncResult) => string
+    membership: (callback?: Gio.AsyncReadyCallback | null) => void
+    membershipFinish: (res: Gio.AsyncResult) => HashModel
+    privilages: (object: MetaObject, callback?: Gio.AsyncReadyCallback | null) => void
+    privilagesFinish: (res: Gio.AsyncResult) => RoleGrant
+    changePrivilages: (object: MetaObject, grant: RoleGrant, callback?: Gio.AsyncReadyCallback | null) => void
+    changePrivilagesFinish: (res: Gio.AsyncResult) => void
+    getConnection: () => Connection
     static name: string
 }
 export abstract class RowModelIface {
     /* Fields of Vda-1.Vda.RowModelIface */
-    parentIface: GObject.TypeInterface
-    getColumn: (self: RowModel, name: string) => ColumnModel | null
-    getColumnAt: (self: RowModel, col: number) => ColumnModel | null
-    getValue: (self: RowModel, name: string) => SqlValue | null
-    getValueAt: (self: RowModel, col: number) => SqlValue | null
-    getString: (self: RowModel, name: string) => string | null
-    getStringAt: (self: RowModel, col: number) => string | null
-    getNColumns: (self: RowModel) => number
+    getColumn: (name: string) => ColumnModel | null
+    getColumnAt: (col: number) => ColumnModel | null
+    getValue: (name: string) => SqlValue | null
+    getValueAt: (col: number) => SqlValue | null
+    getString: (name: string) => string | null
+    getStringAt: (col: number) => string | null
+    getNColumns: () => number
     static name: string
 }
 export abstract class SqlAffectedRowsIface {
     /* Fields of Vda-1.Vda.SqlAffectedRowsIface */
-    parentIface: GObject.TypeInterface
-    getNumber: (self: SqlAffectedRows) => number
+    getNumber: () => number
     static name: string
 }
 export abstract class SqlCommandIface {
     /* Fields of Vda-1.Vda.SqlCommandIface */
-    parentIface: GObject.TypeInterface
-    getConnection: (self: SqlCommand) => Connection
+    getConnection: () => Connection
     static name: string
 }
 export abstract class SqlCommandConditionalIface {
     /* Fields of Vda-1.Vda.SqlCommandConditionalIface */
-    parentIface: GObject.TypeInterface
-    getCondition: (self: SqlCommandConditional) => SqlExpression
+    getCondition: () => SqlExpression
     static name: string
 }
 export abstract class SqlCommandDeleteIface {
     /* Fields of Vda-1.Vda.SqlCommandDeleteIface */
-    parentIface: GObject.TypeInterface
-    stringify: (self: SqlCommandDelete) => string
-    toQuery: (self: SqlCommandDelete, name?: string | null) => Query
-    parse: (self: SqlCommandDelete, sql: string) => void
+    stringify: () => string
+    toQuery: (name?: string | null) => Query
+    parse: (sql: string) => void
     static name: string
 }
 export abstract class SqlCommandInsertIface {
     /* Fields of Vda-1.Vda.SqlCommandInsertIface */
-    parentIface: GObject.TypeInterface
-    stringify: (self: SqlCommandInsert) => string
-    toQuery: (self: SqlCommandInsert, name?: string | null) => Query
-    parse: (self: SqlCommandInsert, sql: string) => void
+    stringify: () => string
+    toQuery: (name?: string | null) => Query
+    parse: (sql: string) => void
     static name: string
 }
 export abstract class SqlCommandModificationIface {
     /* Fields of Vda-1.Vda.SqlCommandModificationIface */
-    parentIface: GObject.TypeInterface
-    addFieldValue: (self: SqlCommandModification, name: string, val?: any | null) => void
-    addField: (self: SqlCommandModification, name: string) => void
-    addValue: (self: SqlCommandModification, val?: any | null) => void
-    addFieldParameterValue: (self: SqlCommandModification, field: string, par: string, gtype: GObject.Type) => void
-    addParameter: (self: SqlCommandModification, par: string, gtype: GObject.Type) => void
-    getFields: (self: SqlCommandModification) => HashModel
-    getValues: (self: SqlCommandModification) => HashModel
+    addFieldValue: (name: string, val?: any | null) => void
+    addField: (name: string) => void
+    addValue: (val?: any | null) => void
+    addFieldParameterValue: (field: string, par: string, gtype: GObject.Type) => void
+    addParameter: (par: string, gtype: GObject.Type) => void
+    getFields: () => HashModel
+    getValues: () => HashModel
     static name: string
 }
 export abstract class SqlCommandParametrizedIface {
     /* Fields of Vda-1.Vda.SqlCommandParametrizedIface */
-    parentIface: GObject.TypeInterface
-    getParameters: (self: SqlCommandParametrized) => SqlParameters
+    getParameters: () => SqlParameters
     static name: string
 }
 export abstract class SqlCommandSelectIface {
     /* Fields of Vda-1.Vda.SqlCommandSelectIface */
-    parentIface: GObject.TypeInterface
-    addField: (self: SqlCommandSelect, field: string, tableRef?: string | null, alias?: string | null) => void
-    addTable: (self: SqlCommandSelect, name: string, allias?: string | null) => void
-    addValueField: (self: SqlCommandSelect, val: any, allias?: string | null) => void
-    addMathExpField: (self: SqlCommandSelect, exp: string, allias?: string | null) => void
-    stringify: (self: SqlCommandSelect) => string
-    toQuery: (self: SqlCommandSelect, name?: string | null) => PreparedQuery
-    parse: (self: SqlCommandSelect, sql: string) => void
-    getFields: (self: SqlCommandSelect) => HashModel
-    getTables: (self: SqlCommandSelect) => HashModel
+    addField: (field: string, tableRef?: string | null, alias?: string | null) => void
+    addTable: (name: string, allias?: string | null) => void
+    addValueField: (val: any, allias?: string | null) => void
+    addMathExpField: (exp: string, allias?: string | null) => void
+    stringify: () => string
+    toQuery: (name?: string | null) => PreparedQuery
+    parse: (sql: string) => void
+    getFields: () => HashModel
+    getTables: () => HashModel
     static name: string
 }
 export abstract class SqlCommandTableRelatedIface {
     /* Fields of Vda-1.Vda.SqlCommandTableRelatedIface */
-    parentIface: GObject.TypeInterface
-    getTable: (self: SqlCommandTableRelated) => string
-    setTable: (self: SqlCommandTableRelated, value: string) => void
-    getAllias: (self: SqlCommandTableRelated) => string
-    setAllias: (self: SqlCommandTableRelated, value: string) => void
+    getTable: () => string
+    setTable: (value: string) => void
+    getAllias: () => string
+    setAllias: (value: string) => void
     static name: string
 }
 export abstract class SqlCommandUpdateIface {
     /* Fields of Vda-1.Vda.SqlCommandUpdateIface */
-    parentIface: GObject.TypeInterface
-    stringify: (self: SqlCommandUpdate) => string
-    toQuery: (self: SqlCommandUpdate, name?: string | null) => Query
-    parse: (self: SqlCommandUpdate, sql: string) => void
+    stringify: () => string
+    toQuery: (name?: string | null) => Query
+    parse: (sql: string) => void
     static name: string
 }
 export abstract class SqlExpressionIface {
     /* Fields of Vda-1.Vda.SqlExpressionIface */
-    parentIface: GObject.TypeInterface
-    addExpression: (self: SqlExpression, exp: SqlExpression) => void
-    removeExpression: (self: SqlExpression, exp: SqlExpression) => void
-    toString: (self: SqlExpression) => string
-    addMathExpression: (self: SqlExpression, str: string, cnc: Connection) => void
+    addExpression: (exp: SqlExpression) => void
+    removeExpression: (exp: SqlExpression) => void
+    toString: () => string
+    addMathExpression: (str: string, cnc: Connection, params?: SqlParameters | null) => void
     static name: string
 }
 export abstract class SqlExpressionFieldIface {
     /* Fields of Vda-1.Vda.SqlExpressionFieldIface */
-    parentIface: GObject.TypeInterface
-    getTableRef: (self: SqlExpressionField) => string
-    setTableRef: (self: SqlExpressionField, value: string) => void
-    getName: (self: SqlExpressionField) => string
-    setName: (self: SqlExpressionField, value: string) => void
-    getAllias: (self: SqlExpressionField) => string | null
-    setAllias: (self: SqlExpressionField, value?: string | null) => void
+    getTableRef: () => string
+    setTableRef: (value: string) => void
+    getName: () => string
+    setName: (value: string) => void
+    getAllias: () => string | null
+    setAllias: (value?: string | null) => void
     static name: string
 }
 export abstract class SqlExpressionOperatorIface {
     /* Fields of Vda-1.Vda.SqlExpressionOperatorIface */
-    parentIface: GObject.TypeInterface
-    createFieldExpression: (self: SqlExpressionOperator, name: string) => SqlExpressionField
-    createValueExpression: (self: SqlExpressionOperator, val: any | null, cnc: Connection) => SqlExpressionValue
-    createParameterExpression: (self: SqlExpressionOperator, name: string, gtype: GObject.Type) => SqlExpressionValueParameter
-    addAndOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
-    addOrOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
-    addEqOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
-    addDiffOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
-    addLikeOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
-    addGtOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
-    addGeqOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
-    addLeqOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
-    addSimilarToOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
-    addIsNullOperator: (self: SqlExpressionOperator, exp1: SqlExpression) => SqlExpressionOperator
-    addIsNotNullOperator: (self: SqlExpressionOperator, exp1: SqlExpression) => SqlExpressionOperator
-    addNotOperator: (self: SqlExpressionOperator, exp: SqlExpression) => SqlExpressionOperator
-    addIsTrueOperator: (self: SqlExpressionOperator, exp1: SqlExpression) => SqlExpressionOperator
-    addIsNotTrueOperator: (self: SqlExpressionOperator, exp1: SqlExpression) => SqlExpressionOperator
-    addIsFalseOperator: (self: SqlExpressionOperator, exp1: SqlExpression) => SqlExpressionOperator
-    addIsNotFalseOperator: (self: SqlExpressionOperator, exp1: SqlExpression) => SqlExpressionOperator
-    addIsUnknownOperator: (self: SqlExpressionOperator, exp1: SqlExpression) => SqlExpressionOperator
-    addIsNotUnknownOperator: (self: SqlExpressionOperator, exp1: SqlExpression) => SqlExpressionOperator
-    addInOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
-    addNotInOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
-    addConcatenateOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
-    addPlusOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2?: SqlExpression | null) => SqlExpressionOperator
-    addMinusOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2?: SqlExpression | null) => SqlExpressionOperator
-    addStarOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
-    addDivOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
-    addRegexpOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
-    addBetweenOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression, exp3: SqlExpression) => SqlExpressionOperator
-    addNotBetweenOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression, exp3: SqlExpression) => SqlExpressionOperator
-    addBetweenSymmetricOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression, exp3: SqlExpression) => SqlExpressionOperator
-    addNotBetweenSymmetricOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression, exp3: SqlExpression) => SqlExpressionOperator
-    addIsDistinctFromOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
-    addIsNotDistinctFromOperator: (self: SqlExpressionOperator, exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
-    getOperatorType: (self: SqlExpressionOperator) => SqlExpressionOperatorType
+    createFieldExpression: (name: string) => SqlExpressionField
+    createValueExpression: (val: any | null, cnc: Connection) => SqlExpressionValue
+    createParameterExpression: (name: string, gtype: GObject.Type) => SqlExpressionValueParameter
+    addAndOperator: (exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
+    addOrOperator: (exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
+    addEqOperator: (exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
+    addDiffOperator: (exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
+    addLikeOperator: (exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
+    addGtOperator: (exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
+    addGeqOperator: (exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
+    addLeqOperator: (exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
+    addSimilarToOperator: (exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
+    addIsNullOperator: (exp1: SqlExpression) => SqlExpressionOperator
+    addIsNotNullOperator: (exp1: SqlExpression) => SqlExpressionOperator
+    addNotOperator: (exp: SqlExpression) => SqlExpressionOperator
+    addIsTrueOperator: (exp1: SqlExpression) => SqlExpressionOperator
+    addIsNotTrueOperator: (exp1: SqlExpression) => SqlExpressionOperator
+    addIsFalseOperator: (exp1: SqlExpression) => SqlExpressionOperator
+    addIsNotFalseOperator: (exp1: SqlExpression) => SqlExpressionOperator
+    addIsUnknownOperator: (exp1: SqlExpression) => SqlExpressionOperator
+    addIsNotUnknownOperator: (exp1: SqlExpression) => SqlExpressionOperator
+    addInOperator: (exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
+    addNotInOperator: (exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
+    addConcatenateOperator: (exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
+    addPlusOperator: (exp1: SqlExpression, exp2?: SqlExpression | null) => SqlExpressionOperator
+    addMinusOperator: (exp1: SqlExpression, exp2?: SqlExpression | null) => SqlExpressionOperator
+    addStarOperator: (exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
+    addDivOperator: (exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
+    addRegexpOperator: (exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
+    addBetweenOperator: (exp1: SqlExpression, exp2: SqlExpression, exp3: SqlExpression) => SqlExpressionOperator
+    addNotBetweenOperator: (exp1: SqlExpression, exp2: SqlExpression, exp3: SqlExpression) => SqlExpressionOperator
+    addBetweenSymmetricOperator: (exp1: SqlExpression, exp2: SqlExpression, exp3: SqlExpression) => SqlExpressionOperator
+    addNotBetweenSymmetricOperator: (exp1: SqlExpression, exp2: SqlExpression, exp3: SqlExpression) => SqlExpressionOperator
+    addIsDistinctFromOperator: (exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
+    addIsNotDistinctFromOperator: (exp1: SqlExpression, exp2: SqlExpression) => SqlExpressionOperator
+    getOperatorType: () => SqlExpressionOperatorType
     static name: string
 }
 export abstract class SqlExpressionOperatorGroupIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorGroupIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorMultitermIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorMultitermIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorAndIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorAndIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorOrIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorOrIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorBinarytermIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorBinarytermIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorEqIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorEqIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorNotEqIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorNotEqIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorDiffIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorDiffIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorGtIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorGtIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorLtIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorLtIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorGeqIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorGeqIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorLeqIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorLeqIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorRegexpIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorRegexpIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorStarIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorStarIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorDivIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorDivIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorInIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorInIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorNotInIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorNotInIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorConcatenateIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorConcatenateIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorSimilarToIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorSimilarToIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorLikeIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorLikeIface */
-    parentIface: GObject.TypeInterface
+    static name: string
+}
+export abstract class SqlExpressionOperatorNotLikeIface {
     static name: string
 }
 export abstract class SqlExpressionOperatorIlikeIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorIlikeIface */
-    parentIface: GObject.TypeInterface
+    static name: string
+}
+export abstract class SqlExpressionOperatorNotIlikeIface {
     static name: string
 }
 export abstract class SqlExpressionOperatorBinaryUnarytermIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorBinaryUnarytermIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorMinusIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorMinusIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorPlusIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorPlusIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorInitialUnarytermIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorInitialUnarytermIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorNotIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorNotIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorFinalUnarytermIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorFinalUnarytermIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsNotIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsNotIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsNullIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsNullIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsNotNullIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsNotNullIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsTrueIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsTrueIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsNotTrueIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsNotTrueIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsFalseIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsFalseIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsNotFalseIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsNotFalseIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsUnknownIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsUnknownIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsNotUnknownIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsNotUnknownIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsDistinctIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsDistinctIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsNotDistinctIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsNotDistinctIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsDistinctFromIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsDistinctFromIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorIsNotDistinctFromIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorIsNotDistinctFromIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorThreetermIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorThreetermIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlExpressionOperatorBetweenIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorBetweenIface */
-    parentIface: GObject.TypeInterface
+    static name: string
+}
+export abstract class SqlExpressionOperatorBetweenAndIface {
     static name: string
 }
 export abstract class SqlExpressionOperatorNotBetweenIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorNotBetweenIface */
-    parentIface: GObject.TypeInterface
+    static name: string
+}
+export abstract class SqlExpressionOperatorNotBetweenAndIface {
     static name: string
 }
 export abstract class SqlExpressionOperatorBetweenSymmetricIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorBetweenSymmetricIface */
-    parentIface: GObject.TypeInterface
+    static name: string
+}
+export abstract class SqlExpressionOperatorBetweenSymmetricAndIface {
     static name: string
 }
 export abstract class SqlExpressionOperatorNotBetweenSymmetricIface {
-    /* Fields of Vda-1.Vda.SqlExpressionOperatorNotBetweenSymmetricIface */
-    parentIface: GObject.TypeInterface
+    static name: string
+}
+export abstract class SqlExpressionOperatorNotBetweenSymmetricAndIface {
     static name: string
 }
 export abstract class SqlExpressionValueIface {
     /* Fields of Vda-1.Vda.SqlExpressionValueIface */
-    parentIface: GObject.TypeInterface
-    setMathExpressionValue: (self: SqlExpressionValue, str: string) => void
-    getConnection: (self: SqlExpressionValue) => Connection | null
-    setConnection: (self: SqlExpressionValue, value?: Connection | null) => void
-    getValue: (self: SqlExpressionValue) => SqlValue
-    setValue: (self: SqlExpressionValue, value: SqlValue) => void
+    setMathExpressionValue: (str: string, params?: SqlParameters | null) => void
+    getConnection: () => Connection | null
+    setConnection: (value?: Connection | null) => void
+    getValue: () => SqlValue
+    setValue: (value: SqlValue) => void
     static name: string
 }
 export abstract class SqlExpressionValueParameterIface {
     /* Fields of Vda-1.Vda.SqlExpressionValueParameterIface */
-    parentIface: GObject.TypeInterface
-    parse: (self: SqlExpressionValueParameter, str: string) => void
-    getParameters: (self: SqlExpressionValueParameter) => SqlParameters
-    setParameters: (self: SqlExpressionValueParameter, value: SqlParameters) => void
-    getName: (self: SqlExpressionValueParameter) => string
-    setName: (self: SqlExpressionValueParameter, value: string) => void
-    getGtype: (self: SqlExpressionValueParameter) => GObject.Type
-    setGtype: (self: SqlExpressionValueParameter, value: GObject.Type) => void
+    parse: (str: string) => void
+    getParameters: () => SqlParameters
+    setParameters: (value: SqlParameters) => void
+    getName: () => string
+    setName: (value: string) => void
+    getGtype: () => GObject.Type
+    setGtype: (value: GObject.Type) => void
     static name: string
 }
 export abstract class SqlParametersIface {
     /* Fields of Vda-1.Vda.SqlParametersIface */
-    parentIface: GObject.TypeInterface
-    setValue: (self: SqlParameters, name: string, val: any) => void
-    getValue: (self: SqlParameters, name: string) => any | null
-    setSqlValue: (self: SqlParameters, name: string, val: SqlValue) => void
-    getSqlValue: (self: SqlParameters, name: string) => SqlValue
+    setValue: (name: string, val: any) => void
+    getValue: (name: string) => any | null
+    setSqlValue: (name: string, val: SqlValue) => void
+    getSqlValue: (name: string) => SqlValue
+    hasParam: (name: string) => boolean
     static name: string
 }
 export abstract class SqlParserIface {
     /* Fields of Vda-1.Vda.SqlParserIface */
-    parentIface: GObject.TypeInterface
-    parse: (self: SqlParser, str: string, cnc: Connection) => SqlCommandParametrized
+    parse: (str: string, cnc: Connection) => SqlCommandParametrized
     static name: string
 }
 export abstract class SqlTableReferenceIface {
     /* Fields of Vda-1.Vda.SqlTableReferenceIface */
-    parentIface: GObject.TypeInterface
-    getName: (self: SqlTableReference) => string
-    setName: (self: SqlTableReference, value: string) => void
-    getAllias: (self: SqlTableReference) => string | null
-    setAllias: (self: SqlTableReference, value?: string | null) => void
+    getName: () => string
+    setName: (value: string) => void
+    getAllias: () => string | null
+    setAllias: (value?: string | null) => void
     static name: string
 }
 export abstract class StringifiableIface {
     /* Fields of Vda-1.Vda.StringifiableIface */
-    parentIface: GObject.TypeInterface
-    toString: (self: Stringifiable) => string
+    toString: () => string
     static name: string
 }
 export abstract class SqlValueIface {
     /* Fields of Vda-1.Vda.SqlValueIface */
-    parentIface: GObject.TypeInterface
-    parse: (self: SqlValue, str: string) => boolean
-    fromValue: (self: SqlValue, val: any) => boolean
-    cast: (self: SqlValue, type: GObject.Type) => SqlValue | null
-    isCompatible: (self: SqlValue, type: GObject.Type) => boolean
-    toGvalue: (self: SqlValue) => { result: any }
-    toStringQuoted: (self: SqlValue) => string
-    toSqlExpression: (self: SqlValue) => string
-    getName: (self: SqlValue) => string
+    parse: (str: string) => boolean
+    fromValue: (val: any) => boolean
+    cast: (type: GObject.Type) => SqlValue | null
+    isCompatible: (type: GObject.Type) => boolean
+    toGvalue: () => { result: any }
+    toStringQuoted: () => string
+    toSqlExpression: () => string
+    getName: () => string
     static name: string
 }
 export abstract class SqlValueNullIface {
-    /* Fields of Vda-1.Vda.SqlValueNullIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueBoolIface {
-    /* Fields of Vda-1.Vda.SqlValueBoolIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueBitIface {
-    /* Fields of Vda-1.Vda.SqlValueBitIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueStringIface {
-    /* Fields of Vda-1.Vda.SqlValueStringIface */
-    parentIface: GObject.TypeInterface
+    static name: string
+}
+export abstract class SqlValueXmlIface {
+    /* Fields of Vda-1.Vda.SqlValueXmlIface */
+    getDocument: () => GXml.DomDocument
+    static name: string
+}
+export abstract class SqlValueJsonIface {
+    /* Fields of Vda-1.Vda.SqlValueJsonIface */
+    getDocument: () => Json.Node
     static name: string
 }
 export abstract class SqlValueTextIface {
-    /* Fields of Vda-1.Vda.SqlValueTextIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueNameIface {
-    /* Fields of Vda-1.Vda.SqlValueNameIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueIntegerIface {
-    /* Fields of Vda-1.Vda.SqlValueIntegerIface */
-    parentIface: GObject.TypeInterface
+    static name: string
+}
+export abstract class SqlValueByteIface {
     static name: string
 }
 export abstract class SqlValueInt2Iface {
-    /* Fields of Vda-1.Vda.SqlValueInt2Iface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueInt4Iface {
-    /* Fields of Vda-1.Vda.SqlValueInt4Iface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueInt8Iface {
-    /* Fields of Vda-1.Vda.SqlValueInt8Iface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
-export abstract class SqlValueInt16Iface {
-    /* Fields of Vda-1.Vda.SqlValueInt16Iface */
-    parentIface: GObject.TypeInterface
+export abstract class SqlValueUnsignedIntegerIface {
     static name: string
 }
-export abstract class SqlValueInt32Iface {
-    /* Fields of Vda-1.Vda.SqlValueInt32Iface */
-    parentIface: GObject.TypeInterface
+export abstract class SqlValueUnsignedByteIface {
     static name: string
 }
-export abstract class SqlValueInt64Iface {
-    /* Fields of Vda-1.Vda.SqlValueInt64Iface */
-    parentIface: GObject.TypeInterface
+export abstract class SqlValueUnsignedInt2Iface {
+    static name: string
+}
+export abstract class SqlValueUnsignedInt4Iface {
+    static name: string
+}
+export abstract class SqlValueUnsignedInt8Iface {
     static name: string
 }
 export abstract class SqlValueOidIface {
-    /* Fields of Vda-1.Vda.SqlValueOidIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueNumericIface {
     /* Fields of Vda-1.Vda.SqlValueNumericIface */
-    parentIface: GObject.TypeInterface
-    setPrecision: (self: SqlValueNumeric, p: number) => void
-    getPrecision: (self: SqlValueNumeric) => number
-    format: (self: SqlValueNumeric, str: string) => string
-    getDouble: (self: SqlValueNumeric) => number
-    setDouble: (self: SqlValueNumeric, v: number) => void
-    getReal: (self: SqlValueNumeric) => number
-    setReal: (self: SqlValueNumeric, r: number) => void
-    getImaginary: (self: SqlValueNumeric) => number
-    setImaginary: (self: SqlValueNumeric, img: number) => void
+    setPrecision: (p: number) => void
+    getPrecision: () => number
+    format: (str: string) => string
+    getDouble: () => number
+    setDouble: (v: number) => void
+    getReal: () => number
+    setReal: (r: number) => void
+    getImaginary: () => number
+    setImaginary: (img: number) => void
     static name: string
 }
 export abstract class SqlValueFloatIface {
     /* Fields of Vda-1.Vda.SqlValueFloatIface */
-    parentIface: GObject.TypeInterface
-    getFloat: (self: SqlValueFloat) => number
+    getFloat: () => number
     static name: string
 }
 export abstract class SqlValueDoubleIface {
-    /* Fields of Vda-1.Vda.SqlValueDoubleIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueMoneyIface {
     /* Fields of Vda-1.Vda.SqlValueMoneyIface */
-    parentIface: GObject.TypeInterface
-    locale: (self: SqlValueMoney) => string
-    intLocale: (self: SqlValueMoney) => string
-    getIntPrecision: (self: SqlValueMoney) => number
-    setIntPrecision: (self: SqlValueMoney, p: number) => void
+    locale: () => string
+    intLocale: () => string
+    getIntPrecision: () => number
+    setIntPrecision: (p: number) => void
     static name: string
 }
 export abstract class SqlValueDateIface {
     /* Fields of Vda-1.Vda.SqlValueDateIface */
-    parentIface: GObject.TypeInterface
-    getDate: (self: SqlValueDate) => { result: GLib.Date }
-    setDate: (self: SqlValueDate, ts: GLib.Date) => void
+    getDate: () => { result: GLib.Date }
+    setDate: (ts: GLib.Date) => void
     static name: string
 }
 export abstract class SqlValueTimestampIface {
     /* Fields of Vda-1.Vda.SqlValueTimestampIface */
-    parentIface: GObject.TypeInterface
-    formatLocal: (self: SqlValueTimestamp) => string
-    formatUtc: (self: SqlValueTimestamp) => string
-    formatLocale: (self: SqlValueTimestamp) => string
-    formatDate: (self: SqlValueTimestamp) => string
-    formatDateLocale: (self: SqlValueTimestamp) => string
-    formatTime: (self: SqlValueTimestamp) => string
-    formatTimeLocal: (self: SqlValueTimestamp) => string
-    formatTimeLocalNtz: (self: SqlValueTimestamp) => string
-    getTimestamp: (self: SqlValueTimestamp) => GLib.DateTime
-    setTimestamp: (self: SqlValueTimestamp, ts: GLib.DateTime) => void
+    formatLocal: () => string
+    formatUtc: () => string
+    formatLocale: () => string
+    formatDate: () => string
+    formatDateLocale: () => string
+    formatTime: () => string
+    formatTimeLocal: () => string
+    formatTimeLocalNtz: () => string
+    getTimestamp: () => GLib.DateTime
+    setTimestamp: (ts: GLib.DateTime) => void
     static name: string
 }
 export abstract class SqlValueTimestampNtzIface {
-    /* Fields of Vda-1.Vda.SqlValueTimestampNtzIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueTimeIface {
-    /* Fields of Vda-1.Vda.SqlValueTimeIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueTimeNtzIface {
-    /* Fields of Vda-1.Vda.SqlValueTimeNtzIface */
-    parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class SqlValueBinaryIface {
     /* Fields of Vda-1.Vda.SqlValueBinaryIface */
-    parentIface: GObject.TypeInterface
+    getBytes: () => any
+    getOutStream: () => Gio.OutputStream | null
+    getInputStream: () => Gio.InputStream | null
+    getSize: () => number
     static name: string
 }
 export abstract class SqlValueBlobIface {
     /* Fields of Vda-1.Vda.SqlValueBlobIface */
-    parentIface: GObject.TypeInterface
-    save: (self: SqlValueBlob, file: Gio.File) => void
-    load: (self: SqlValueBlob, file: Gio.File) => void
+    create: (stream: Gio.InputStream) => void
+    delete_: () => void
+    write: (file: Gio.File) => void
+    read: (file: Gio.File) => void
+    getConnection: () => Connection
+    static name: string
+}
+export abstract class SqlValueBlobOidIface {
+    /* Fields of Vda-1.Vda.SqlValueBlobOidIface */
+    getIdentification: () => number
     static name: string
 }
 export abstract class SqlValueGeometricPointIface {
     /* Fields of Vda-1.Vda.SqlValueGeometricPointIface */
-    parentIface: GObject.TypeInterface
-    getX: (self: SqlValueGeometricPoint) => number
-    setX: (self: SqlValueGeometricPoint, value: number) => void
-    getY: (self: SqlValueGeometricPoint) => number
-    setY: (self: SqlValueGeometricPoint, value: number) => void
+    getX: () => number
+    setX: (value: number) => void
+    getY: () => number
+    setY: (value: number) => void
     static name: string
 }
 export abstract class SqlValueMathExpIface {
     /* Fields of Vda-1.Vda.SqlValueMathExpIface */
-    parentIface: GObject.TypeInterface
-    getMath: (self: SqlValueMathExp) => GCalc.MathEquationManager
-    setMath: (self: SqlValueMathExp, value: GCalc.MathEquationManager) => void
+    getMath: () => GCalc.MathEquationManager
+    setMath: (value: GCalc.MathEquationManager) => void
     static name: string
 }
 export abstract class TableModelIface {
-    /* Fields of Vda-1.Vda.TableModelIface */
-    parentIface: GObject.TypeInterface
+    static name: string
+}
+export abstract class TableModelSequentialIface {
+    /* Fields of Vda-1.Vda.TableModelSequentialIface */
+    current: () => RowModel | null
+    next: () => boolean
+    back: () => boolean
+    move: (direction: MoveDirection, relative: number) => boolean
+    copyCurrent: () => RowModel | null
     static name: string
 }
 }

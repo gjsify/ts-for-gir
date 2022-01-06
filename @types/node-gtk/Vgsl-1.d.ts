@@ -5,20 +5,20 @@
 import "node"
 import type { Vgda } from './Vgda-1';
 import type { Vda } from './Vda-1';
-import type { GCalc } from './GCalc-1';
+import type { GCalc } from './GCalc-2';
+import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
-import type { Gio } from './Gio-2.0';
 import type { Gee } from './Gee-0.8';
+import type { Json } from './Json-1.0';
+import type { GXml } from './GXml-0.20';
+import type { libxml2 } from './libxml2-2.0';
 
 export declare namespace Vgsl {
 
 export interface Connection_ConstructProps extends Vgda.GProvider_ConstructProps {
 }
 export class Connection {
-    /* Fields of Vgsl-1.Vgsl.Connection */
-    parentInstance: Vgda.GProvider
-    priv: ConnectionPrivate
     /* Fields of Vgda-1.Vgda.GProvider */
     provider: string
     cncString: string
@@ -67,8 +67,6 @@ export class Connection {
     static $gtype: GObject.Type
 }
 export abstract class ConnectionClass {
-    /* Fields of Vgsl-1.Vgsl.ConnectionClass */
-    parentClass: Vgda.GProviderClass
     static name: string
 }
 export class ConnectionPrivate {

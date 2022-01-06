@@ -2,6 +2,7 @@
  * RygelRenderer-2.4
  */
 
+<<<<<<< HEAD
 import type * as Gjs from './Gjs';
 import type * as RygelCore from './RygelCore-2.4';
 import type * as GLib from './GLib-2.0';
@@ -13,6 +14,20 @@ import type * as libxml2 from './libxml2-2.0';
 import type * as Soup from './Soup-2.4';
 import type * as GSSDP from './GSSDP-1.0';
 import type * as GUPnPAV from './GUPnPAV-1.0';
+=======
+import * as Gjs from './Gjs';
+import * as RygelCore from './RygelCore-2.4';
+import * as GLib from './GLib-2.0';
+import * as Gio from './Gio-2.0';
+import * as GObject from './GObject-2.0';
+import * as Gee from './Gee-0.8';
+import * as GUPnP from './GUPnP-1.0';
+import * as libxml2 from './libxml2-2.0';
+// WARN: Dependency not found: 'GstPbutils-0.10'
+// WARN: Dependency not found: 'Gst-0.10'
+import * as GModule from './GModule-2.0';
+import * as GUPnPAV from './GUPnPAV-1.0';
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
 
 export interface MediaPlayer_ConstructProps extends GObject.Object_ConstructProps {
     playback_state?: string
@@ -24,7 +39,11 @@ export interface MediaPlayer_ConstructProps extends GObject.Object_ConstructProp
     content_features?: string
 }
 export class MediaPlayer {
+<<<<<<< HEAD
     /* Properties of RygelRenderer-2.4.RygelRenderer.MediaPlayer */
+=======
+    /* Properties of RygelRenderer.MediaPlayer */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     playback_state: string
     readonly allowed_playback_speeds: string[]
     playback_speed: string
@@ -42,9 +61,15 @@ export class MediaPlayer {
     readonly byte_position: number
     readonly position_as_str: string
     readonly protocol_info: string
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelRenderer-2.4.RygelRenderer.MediaPlayer */
+=======
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of RygelRenderer.MediaPlayer */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     seek(time: number): boolean
     seek_bytes(bytes: number): boolean
     get_protocols(): string[]
@@ -74,6 +99,7 @@ export class MediaPlayer {
     get_byte_position(): number
     get_position_as_str(): string
     get_protocol_info(): string
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -83,6 +109,17 @@ export class MediaPlayer {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -90,13 +127,22 @@ export class MediaPlayer {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of RygelRenderer-2.4.RygelRenderer.MediaPlayer */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of RygelRenderer.MediaPlayer */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_seek(time: number): boolean
     vfunc_seek_bytes(bytes: number): boolean
     vfunc_get_protocols(): string[]
@@ -122,15 +168,26 @@ export class MediaPlayer {
     vfunc_set_content_features(value?: string | null): void
     vfunc_get_position(): number
     vfunc_get_byte_position(): number
+<<<<<<< HEAD
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: MediaPlayer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MediaPlayer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -189,7 +246,11 @@ export interface PlayerController_ConstructProps extends GObject.Object_Construc
     next_metadata?: string
 }
 export class PlayerController {
+<<<<<<< HEAD
     /* Properties of RygelRenderer-2.4.RygelRenderer.PlayerController */
+=======
+    /* Properties of RygelRenderer.PlayerController */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     playback_state: string
     n_tracks: number
     track: number
@@ -200,9 +261,15 @@ export class PlayerController {
     next_uri: string
     next_metadata: string
     readonly current_transport_actions: string
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelRenderer-2.4.RygelRenderer.PlayerController */
+=======
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of RygelRenderer.PlayerController */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     next(): boolean
     previous(): boolean
     set_single_play_uri(uri: string, metadata: string, mime?: string | null, features?: string | null): void
@@ -229,6 +296,7 @@ export class PlayerController {
     get_next_metadata(): string
     set_next_metadata(value: string): void
     get_current_transport_actions(): string
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -238,6 +306,17 @@ export class PlayerController {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -245,13 +324,22 @@ export class PlayerController {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of RygelRenderer-2.4.RygelRenderer.PlayerController */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of RygelRenderer.PlayerController */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_next(): boolean
     vfunc_previous(): boolean
     vfunc_set_single_play_uri(uri: string, metadata: string, mime?: string | null, features?: string | null): void
@@ -277,15 +365,26 @@ export class PlayerController {
     vfunc_get_next_metadata(): string
     vfunc_set_next_metadata(value: string): void
     vfunc_get_current_transport_actions(): string
+<<<<<<< HEAD
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: PlayerController, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PlayerController, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -322,15 +421,22 @@ export interface MediaRendererPlugin_ConstructProps extends RygelCore.Plugin_Con
     supported_profiles?: any[]
 }
 export class MediaRendererPlugin {
+<<<<<<< HEAD
     /* Properties of RygelRenderer-2.4.RygelRenderer.MediaRendererPlugin */
     supported_profiles: any[]
     /* Properties of RygelCore-2.4.RygelCore.Plugin */
+=======
+    /* Properties of RygelRenderer.MediaRendererPlugin */
+    supported_profiles: any[]
+    /* Properties of RygelCore.Plugin */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     capabilities: RygelCore.PluginCapabilities
     title: string
     active: boolean
     resource_infos: Gee.ArrayList
     icon_infos: Gee.ArrayList
     default_icons: Gee.ArrayList
+<<<<<<< HEAD
     /* Fields of RygelRenderer-2.4.RygelRenderer.MediaRendererPlugin */
     parent_instance: RygelCore.Plugin
     priv: MediaRendererPluginPrivate
@@ -339,11 +445,23 @@ export class MediaRendererPlugin {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelRenderer-2.4.RygelRenderer.MediaRendererPlugin */
+=======
+    /* Fields of RygelRenderer.MediaRendererPlugin */
+    parent_instance: RygelCore.Plugin
+    priv: MediaRendererPluginPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of RygelRenderer.MediaRendererPlugin */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_player(): MediaPlayer | null
     get_protocol_info(): string
     get_supported_profiles(): any[]
     set_supported_profiles(value: any[]): void
+<<<<<<< HEAD
     /* Methods of RygelCore-2.4.RygelCore.Plugin */
+=======
+    /* Methods of RygelCore.Plugin */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     add_resource(resource_info: RygelCore.ResourceInfo): void
     add_icon(icon_info: RygelCore.IconInfo): void
     apply_hacks(device: RygelCore.RootDevice, description_path: string): void
@@ -359,11 +477,16 @@ export class MediaRendererPlugin {
     get_resource_infos(): Gee.ArrayList
     get_icon_infos(): Gee.ArrayList
     get_default_icons(): Gee.ArrayList
+<<<<<<< HEAD
     /* Methods of GUPnP-1.0.GUPnP.ResourceFactory */
+=======
+    /* Methods of GUPnP.ResourceFactory */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     register_resource_proxy_type(upnp_type: string, type: GObject.Type): void
     register_resource_type(upnp_type: string, type: GObject.Type): void
     unregister_resource_proxy_type(upnp_type: string): boolean
     unregister_resource_type(upnp_type: string): boolean
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -373,6 +496,17 @@ export class MediaRendererPlugin {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -380,25 +514,45 @@ export class MediaRendererPlugin {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of RygelRenderer-2.4.RygelRenderer.MediaRendererPlugin */
     vfunc_get_player(): MediaPlayer | null
     /* Virtual methods of RygelCore-2.4.RygelCore.Plugin */
     vfunc_apply_hacks(device: RygelCore.RootDevice, description_path: string): void
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of RygelRenderer.MediaRendererPlugin */
+    vfunc_get_player(): MediaPlayer | null
+    /* Virtual methods of RygelCore.Plugin */
+    vfunc_apply_hacks(device: RygelCore.RootDevice, description_path: string): void
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: MediaRendererPlugin, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MediaRendererPlugin, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -433,6 +587,7 @@ export interface MediaRenderer_ConstructProps extends RygelCore.MediaDevice_Cons
     player?: MediaPlayer
 }
 export class MediaRenderer {
+<<<<<<< HEAD
     /* Properties of RygelCore-2.4.RygelCore.MediaDevice */
     plugin: RygelCore.Plugin
     /* Fields of RygelRenderer-2.4.RygelRenderer.MediaRenderer */
@@ -441,6 +596,16 @@ export class MediaRenderer {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelCore-2.4.RygelCore.MediaDevice */
+=======
+    /* Properties of RygelCore.MediaDevice */
+    plugin: RygelCore.Plugin
+    /* Fields of RygelRenderer.MediaRenderer */
+    parent_instance: RygelCore.MediaDevice
+    priv: MediaRendererPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of RygelCore.MediaDevice */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     add_interface(iface: string): void
     remove_interface(iface: string): void
     get_interfaces(): string[]
@@ -448,6 +613,7 @@ export class MediaRenderer {
     set_plugin(value: RygelCore.Plugin): void
     get_title(): string
     get_capabilities(): RygelCore.PluginCapabilities
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -457,6 +623,17 @@ export class MediaRenderer {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -464,21 +641,37 @@ export class MediaRenderer {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: MediaRenderer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MediaRenderer, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -496,7 +689,11 @@ export class MediaRenderer {
     static $gtype: GObject.Type
 }
 export abstract class MediaRendererPluginClass {
+<<<<<<< HEAD
     /* Fields of RygelRenderer-2.4.RygelRenderer.MediaRendererPluginClass */
+=======
+    /* Fields of RygelRenderer.MediaRendererPluginClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: RygelCore.PluginClass
     get_player: (self: MediaRendererPlugin) => MediaPlayer | null
     get_controller: (self: MediaRendererPlugin) => PlayerController
@@ -506,7 +703,11 @@ export class MediaRendererPluginPrivate {
     static name: string
 }
 export abstract class MediaRendererClass {
+<<<<<<< HEAD
     /* Fields of RygelRenderer-2.4.RygelRenderer.MediaRendererClass */
+=======
+    /* Fields of RygelRenderer.MediaRendererClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: RygelCore.MediaDeviceClass
     static name: string
 }
@@ -514,7 +715,11 @@ export class MediaRendererPrivate {
     static name: string
 }
 export abstract class MediaPlayerIface {
+<<<<<<< HEAD
     /* Fields of RygelRenderer-2.4.RygelRenderer.MediaPlayerIface */
+=======
+    /* Fields of RygelRenderer.MediaPlayerIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_iface: GObject.TypeInterface
     seek: (self: MediaPlayer, time: number) => boolean
     seek_bytes: (self: MediaPlayer, bytes: number) => boolean
@@ -544,7 +749,11 @@ export abstract class MediaPlayerIface {
     static name: string
 }
 export abstract class PlayerControllerIface {
+<<<<<<< HEAD
     /* Fields of RygelRenderer-2.4.RygelRenderer.PlayerControllerIface */
+=======
+    /* Fields of RygelRenderer.PlayerControllerIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_iface: GObject.TypeInterface
     next: (self: PlayerController) => boolean
     previous: (self: PlayerController) => boolean

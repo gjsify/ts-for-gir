@@ -17,6 +17,11 @@ export enum GLBaseMemoryError {
     OLD_LIBS,
     RESOURCE_UNAVAILABLE,
 }
+export enum GLConfigCaveat {
+    NONE,
+    SLOW,
+    NON_CONFORMANT,
+}
 export enum GLContextError {
     FAILED,
     WRONG_CONFIG,
@@ -110,6 +115,12 @@ export enum GLBaseMemoryTransfer {
     DOWNLOAD,
     UPLOAD,
 }
+export enum GLConfigSurfaceType {
+    NONE,
+    WINDOW,
+    PBUFFER,
+    PIXMAP,
+}
 export enum GLDisplayType {
     NONE,
     X11,
@@ -121,6 +132,9 @@ export enum GLDisplayType {
     VIV_FB,
     GBM,
     EGL_DEVICE,
+    EAGL,
+    WINRT,
+    ANDROID,
     ANY,
 }
 export enum GLPlatform {
@@ -159,6 +173,7 @@ export const GL_BASE_MEMORY_ALLOCATOR_NAME: string
 export const GL_BUFFER_ALLOCATOR_NAME: string
 export const GL_COLOR_CONVERT_FORMATS: string
 export const GL_COLOR_CONVERT_VIDEO_CAPS: string
+export const GL_CONFIG_STRUCTURE_NAME: string
 export const GL_CONTEXT_TYPE_CGL: string
 export const GL_CONTEXT_TYPE_EAGL: string
 export const GL_CONTEXT_TYPE_EGL: string
@@ -186,6 +201,8 @@ export function glBaseMemoryErrorQuark(): GLib.Quark
 export function glBaseMemoryInitOnce(): void
 export function glBufferInitOnce(): void
 export function glCheckExtension(name: string, ext: string): boolean
+export function glConfigCaveatToString(caveat: GLConfigCaveat): string | null
+export function glConfigSurfaceTypeToString(surfaceType: GLConfigSurfaceType): string | null
 export function glContextErrorQuark(): GLib.Quark
 export function glElementPropagateDisplayContext(element: Gst.Element, display: GLDisplay): void
 export function glEnsureElementData(element: object | null, displayPtr: GLDisplay, otherContextPtr: GLContext): { returnType: boolean, displayPtr: GLDisplay, otherContextPtr: GLContext }
@@ -193,16 +210,19 @@ export function glFormatFromVideoInfo(context: GLContext, vinfo: GstVideo.VideoI
 export function glFormatIsSupported(context: GLContext, format: GLFormat): boolean
 export function glFormatTypeFromSizedGlFormat(format: GLFormat): { unsizedFormat: GLFormat, glType: number }
 export function glFormatTypeNBytes(format: number, type: number): number
+export function glGetAffineTransformationMetaAsNdc(meta?: GstVideo.VideoAffineTransformationMeta | null): { matrix: number[] }
 export function glGetPlaneDataSize(info: GstVideo.VideoInfo, align: GstVideo.VideoAlignment, plane: number): number
 export function glGetPlaneStart(info: GstVideo.VideoInfo, valign: GstVideo.VideoAlignment, plane: number): number
 export function glHandleContextQuery(element: Gst.Element, query: Gst.Query, display?: GLDisplay | null, context?: GLContext | null, otherContext?: GLContext | null): boolean
 export function glHandleSetContext(element: Gst.Element, context: Gst.Context, display: GLDisplay, otherContext: GLContext): { returnType: boolean, display: GLDisplay, otherContext: GLContext }
 export function glMemoryInitOnce(): void
 export function glMemoryPboInitOnce(): void
+export function glMultiplyMatrix4(a: number[], b: number[]): { result: number[] }
 export function glPlatformFromString(platformS: string): GLPlatform
 export function glPlatformToString(platform: GLPlatform): string
 export function glQueryLocalGlContext(element: Gst.Element, direction: Gst.PadDirection, contextPtr: GLContext): { returnType: boolean, contextPtr: GLContext }
 export function glRenderbufferInitOnce(): void
+export function glSetAffineTransformationMetaFromNdc(meta: GstVideo.VideoAffineTransformationMeta, matrix: number[]): void
 export function glSizedGlFormatFromGlFormatType(context: GLContext, format: number, type: number): number
 export function glStereoDownmixModeGetType(): GObject.Type
 export function glSyncMetaApiGetType(): GObject.Type
@@ -392,6 +412,7 @@ export class GLBaseFilter {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -754,6 +775,7 @@ export class GLBaseSrc {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -1010,6 +1032,8 @@ export class GLBufferPool {
     flags: number
     /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of GstGL-1.0.GstGL.GLBufferPool */
+    getGlAllocationParams(): GLAllocationParams
     /* Methods of Gst-1.0.Gst.BufferPool */
     acquireBuffer(params?: Gst.BufferPoolAcquireParams | null): { returnType: Gst.FlowReturn, buffer: Gst.Buffer }
     getConfig(): Gst.Structure
@@ -1228,6 +1252,7 @@ export class GLContext {
     create(otherContext?: GLContext | null): boolean
     destroy(): void
     fillInfo(): boolean
+    getConfig(): Gst.Structure | null
     getDisplay(): GLDisplay
     getGlApi(): GLAPI
     getGlContext(): number
@@ -1238,6 +1263,7 @@ export class GLContext {
     getThread(): GLib.Thread
     getWindow(): GLWindow | null
     isShared(): boolean
+    requestConfig(glConfig?: Gst.Structure | null): boolean
     setSharedWith(share: GLContext): void
     setWindow(window: GLWindow): boolean
     supportsGlslProfileVersion(version: GLSLVersion, profile: GLSLProfile): boolean
@@ -1445,6 +1471,7 @@ export class GLDisplay {
     _init (config?: GLDisplay_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): GLDisplay
+    static newWithType(type: GLDisplayType): GLDisplay
     static $gtype: GObject.Type
 }
 export interface GLFilter_ConstructProps extends GLBaseFilter_ConstructProps {
@@ -1578,6 +1605,7 @@ export class GLFilter {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -2829,6 +2857,11 @@ export class GLWindow {
     once(sigName: "scroll-event", callback: (x: number, y: number, deltaX: number, deltaY: number) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "scroll-event", callback: (x: number, y: number, deltaX: number, deltaY: number) => void): NodeJS.EventEmitter
     emit(sigName: "scroll-event", x: number, y: number, deltaX: number, deltaY: number): void
+    connect(sigName: "window-handle-changed", callback: (($obj: GLWindow) => void)): number
+    on(sigName: "window-handle-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "window-handle-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "window-handle-changed", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "window-handle-changed"): void
     /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: GLWindow, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
     on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -3002,6 +3035,8 @@ export abstract class GLContextClass {
     swapBuffers: (context: GLContext) => void
     checkFeature: (context: GLContext, feature: string) => boolean
     getGlPlatformVersion: (context: GLContext) => { major: number, minor: number }
+    getConfig: (context: GLContext) => Gst.Structure | null
+    requestConfig: (context: GLContext, glConfig?: Gst.Structure | null) => boolean
     static name: string
 }
 export class GLContextPrivate {

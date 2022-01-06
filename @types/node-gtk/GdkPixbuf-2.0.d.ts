@@ -43,7 +43,6 @@ export enum PixbufFormatFlags {
     SCALABLE,
     THREADSAFE,
 }
-export const PIXBUF_FEATURES_H: number
 export const PIXBUF_MAJOR: number
 export const PIXBUF_MICRO: number
 export const PIXBUF_MINOR: number
@@ -86,7 +85,7 @@ export class Pixbuf {
     gTypeInstance: GObject.TypeInstance
     /* Methods of GdkPixbuf-2.0.GdkPixbuf.Pixbuf */
     addAlpha(substituteColor: boolean, r: number, g: number, b: number): Pixbuf
-    applyEmbeddedOrientation(): Pixbuf
+    applyEmbeddedOrientation(): Pixbuf | null
     composite(dest: Pixbuf, destX: number, destY: number, destWidth: number, destHeight: number, offsetX: number, offsetY: number, scaleX: number, scaleY: number, interpType: InterpType, overallAlpha: number): void
     compositeColor(dest: Pixbuf, destX: number, destY: number, destWidth: number, destHeight: number, offsetX: number, offsetY: number, scaleX: number, scaleY: number, interpType: InterpType, overallAlpha: number, checkX: number, checkY: number, checkSize: number, color1: number, color2: number): void
     compositeColorSimple(destWidth: number, destHeight: number, interpType: InterpType, overallAlpha: number, checkSize: number, color1: number, color2: number): Pixbuf | null
@@ -101,7 +100,7 @@ export class Pixbuf {
     getHasAlpha(): boolean
     getHeight(): number
     getNChannels(): number
-    getOption(key: string): string
+    getOption(key: string): string | null
     getOptions(): GLib.HashTable
     getPixels(): any[]
     getRowstride(): number
@@ -112,11 +111,11 @@ export class Pixbuf {
     removeOption(key: string): boolean
     rotateSimple(angle: PixbufRotation): Pixbuf | null
     saturateAndPixelate(dest: Pixbuf, saturation: number, pixelate: boolean): void
-    saveToBufferv(type: string, optionKeys: string[], optionValues: string[]): { returnType: boolean, buffer: any[] }
-    saveToCallbackv(saveFunc: PixbufSaveFunc, type: string, optionKeys: string[], optionValues: string[]): boolean
-    saveToStreamv(stream: Gio.OutputStream, type: string, optionKeys: string[], optionValues: string[], cancellable?: Gio.Cancellable | null): boolean
-    saveToStreamvAsync(stream: Gio.OutputStream, type: string, optionKeys: string[], optionValues: string[], cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    savev(filename: string, type: string, optionKeys: string[], optionValues: string[]): boolean
+    saveToBufferv(type: string, optionKeys?: string[] | null, optionValues?: string[] | null): { returnType: boolean, buffer: any[] }
+    saveToCallbackv(saveFunc: PixbufSaveFunc, type: string, optionKeys?: string[] | null, optionValues?: string[] | null): boolean
+    saveToStreamv(stream: Gio.OutputStream, type: string, optionKeys?: string[] | null, optionValues?: string[] | null, cancellable?: Gio.Cancellable | null): boolean
+    saveToStreamvAsync(stream: Gio.OutputStream, type: string, optionKeys?: string[] | null, optionValues?: string[] | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    savev(filename: string, type: string, optionKeys?: string[] | null, optionValues?: string[] | null): boolean
     scale(dest: Pixbuf, destX: number, destY: number, destWidth: number, destHeight: number, offsetX: number, offsetY: number, scaleX: number, scaleY: number, interpType: InterpType): void
     scaleSimple(destWidth: number, destHeight: number, interpType: InterpType): Pixbuf | null
     setOption(key: string, value: string): boolean
@@ -183,7 +182,7 @@ export class Pixbuf {
     static calculateRowstride(colorspace: Colorspace, hasAlpha: boolean, bitsPerSample: number, width: number, height: number): number
     static getFileInfo(filename: string): { returnType: PixbufFormat | null, width: number | null, height: number | null }
     static getFileInfoAsync(filename: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    static getFileInfoFinish(asyncResult: Gio.AsyncResult): { returnType: PixbufFormat, width: number, height: number }
+    static getFileInfoFinish(asyncResult: Gio.AsyncResult): { returnType: PixbufFormat | null, width: number, height: number }
     static getFormats(): PixbufFormat[]
     static initModules(path: string): boolean
     static newFromStreamAsync(stream: Gio.InputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -308,15 +307,13 @@ export class PixbufAnimationIter {
 export interface PixbufLoader_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PixbufLoader {
-    /* Fields of GdkPixbuf-2.0.GdkPixbuf.PixbufLoader */
-    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GdkPixbuf-2.0.GdkPixbuf.PixbufLoader */
     close(): boolean
-    getAnimation(): PixbufAnimation
+    getAnimation(): PixbufAnimation | null
     getFormat(): PixbufFormat | null
-    getPixbuf(): Pixbuf
+    getPixbuf(): Pixbuf | null
     setSize(width: number, height: number): void
     write(buf: any[]): boolean
     writeBytes(buffer: any): boolean
@@ -583,8 +580,8 @@ export class PixbufFormat {
     signature: PixbufModulePattern
     domain: string
     description: string
-    mimeTypes: string
-    extensions: string
+    mimeTypes: string[]
+    extensions: string[]
     flags: number
     disabled: boolean
     license: string

@@ -25,6 +25,8 @@ export enum SparqlError {
     ERROR_UNKNOWN_GRAPH,
     ERROR_UNKNOWN_PROPERTY,
     ERROR_UNSUPPORTED,
+    ERROR_MISSING_LAST_MODIFIED_HEADER,
+    ERROR_INCOMPLETE_PROPERTY_DEFINITION,
     N_ERRORS,
 }
 export enum SparqlValueType {
@@ -44,6 +46,7 @@ export enum SparqlConnectionFlags {
     FTS_ENABLE_UNACCENT,
     FTS_ENABLE_STOP_WORDS,
     FTS_IGNORE_NUMBERS,
+    ANONYMOUS_BNODES,
 }
 export const PREFIX_DC: string
 export const PREFIX_MFO: string
@@ -283,9 +286,9 @@ export class EndpointHttp {
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of Tracker-3.0.Tracker.EndpointHttp */
-    connect(sigName: "block-remote-address", callback: (($obj: EndpointHttp, address: Gio.SocketAddress) => boolean)): number
-    connect_after(sigName: "block-remote-address", callback: (($obj: EndpointHttp, address: Gio.SocketAddress) => boolean)): number
-    emit(sigName: "block-remote-address", address: Gio.SocketAddress): void
+    connect(sigName: "block-remote-address", callback: (($obj: EndpointHttp, object: Gio.SocketAddress) => boolean)): number
+    connect_after(sigName: "block-remote-address", callback: (($obj: EndpointHttp, object: Gio.SocketAddress) => boolean)): number
+    emit(sigName: "block-remote-address", object: Gio.SocketAddress): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EndpointHttp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EndpointHttp, pspec: GObject.ParamSpec) => void)): number
@@ -298,7 +301,7 @@ export class EndpointHttp {
     constructor (config?: EndpointHttp_ConstructProps)
     _init (config?: EndpointHttp_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(sparql_connection: SparqlConnection, port: number, certificate?: Gio.TlsCertificate | null, cancellable?: Gio.Cancellable | null): EndpointHttp
+    static new(sparql_connection: SparqlConnection, port: number, certificate: Gio.TlsCertificate, cancellable?: Gio.Cancellable | null): EndpointHttp
     static newv(object_type: GObject.Type, parameters: GObject.Parameter[], cancellable?: Gio.Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
@@ -309,6 +312,7 @@ export class NamespaceManager {
     g_type_instance: GObject.TypeInstance
     /* Methods of Tracker-3.0.Tracker.NamespaceManager */
     add_prefix(prefix: string, ns: string): void
+    compress_uri(uri: string): string
     expand_uri(compact_uri: string): string
     foreach(func: GLib.HFunc): void
     has_prefix(prefix: string): boolean
@@ -430,6 +434,7 @@ export class Resource {
     g_type_instance: GObject.TypeInstance
     /* Methods of Tracker-3.0.Tracker.Resource */
     add_boolean(property_uri: string, value: boolean): void
+    add_datetime(property_uri: string, value: GLib.DateTime): void
     add_double(property_uri: string, value: number): void
     add_gvalue(property_uri: string, value: any): void
     add_int(property_uri: string, value: number): void
@@ -438,6 +443,7 @@ export class Resource {
     add_string(property_uri: string, value: string): void
     add_uri(property_uri: string, value: string): void
     get_first_boolean(property_uri: string): boolean
+    get_first_datetime(property_uri: string): GLib.DateTime
     get_first_double(property_uri: string): number
     get_first_int(property_uri: string): number
     get_first_int64(property_uri: string): number
@@ -454,6 +460,7 @@ export class Resource {
     print_turtle(namespaces?: NamespaceManager | null): string
     serialize(): GLib.Variant
     set_boolean(property_uri: string, value: boolean): void
+    set_datetime(property_uri: string, value: GLib.DateTime): void
     set_double(property_uri: string, value: number): void
     set_gvalue(property_uri: string, value: any): void
     set_identifier(identifier?: string | null): void
@@ -582,9 +589,11 @@ export class SparqlConnection {
     _init (config?: SparqlConnection_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static bus_new(service_name: string, object_path?: string | null, dbus_connection?: Gio.DBusConnection | null): SparqlConnection
+    static bus_new_finish(result: Gio.AsyncResult): SparqlConnection
     static new(flags: SparqlConnectionFlags, store?: Gio.File | null, ontology?: Gio.File | null, cancellable?: Gio.Cancellable | null): SparqlConnection
     static new_finish(result: Gio.AsyncResult): SparqlConnection
     static remote_new(uri_base: string): SparqlConnection
+    static bus_new_async(service_name: string, object_path?: string | null, dbus_connection?: Gio.DBusConnection | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     static new_async(flags: SparqlConnectionFlags, store?: Gio.File | null, ontology?: Gio.File | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     static $gtype: GObject.Type
 }
@@ -602,6 +611,7 @@ export class SparqlCursor {
     close(): void
     get_boolean(column: number): boolean
     get_connection(): SparqlConnection
+    get_datetime(column: number): GLib.DateTime | null
     get_double(column: number): number
     get_integer(column: number): number
     get_n_columns(): number
@@ -669,6 +679,7 @@ export class SparqlStatement {
     g_type_instance: GObject.TypeInstance
     /* Methods of Tracker-3.0.Tracker.SparqlStatement */
     bind_boolean(name: string, value: boolean): void
+    bind_datetime(name: string, value: GLib.DateTime): void
     bind_double(name: string, value: number): void
     bind_int(name: string, value: number): void
     bind_string(name: string, value: string): void

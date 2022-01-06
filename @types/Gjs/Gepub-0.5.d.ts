@@ -112,12 +112,16 @@ export class Widget {
     /* Properties of Gepub-0.5.Gepub.Widget */
     doc: Doc
     /* Properties of WebKit2-4.0.WebKit2.WebView */
+    camera_capture_state: WebKit2.MediaCaptureState
+    display_capture_state: WebKit2.MediaCaptureState
     editable: boolean
     readonly estimated_load_progress: number
     readonly favicon: object
     readonly is_loading: boolean
     is_muted: boolean
     readonly is_playing_audio: boolean
+    readonly is_web_process_responsive: boolean
+    microphone_capture_state: WebKit2.MediaCaptureState
     readonly page_id: number
     settings: WebKit2.Settings
     readonly title: string
@@ -190,8 +194,10 @@ export class Widget {
     get_automation_presentation_type(): WebKit2.AutomationBrowsingContextPresentation
     get_back_forward_list(): WebKit2.BackForwardList
     get_background_color(): /* rgba */ Gdk.RGBA
+    get_camera_capture_state(): WebKit2.MediaCaptureState
     get_context(): WebKit2.WebContext
     get_custom_charset(): string
+    get_display_capture_state(): WebKit2.MediaCaptureState
     get_editor_state(): WebKit2.EditorState
     get_estimated_load_progress(): number
     get_favicon(): cairo.Surface
@@ -199,7 +205,9 @@ export class Widget {
     get_input_method_context(): WebKit2.InputMethodContext | null
     get_inspector(): WebKit2.WebInspector
     get_is_muted(): boolean
+    get_is_web_process_responsive(): boolean
     get_main_resource(): WebKit2.WebResource
+    get_microphone_capture_state(): WebKit2.MediaCaptureState
     get_page_id(): number
     get_session_state(): WebKit2.WebViewSessionState
     get_settings(): WebKit2.Settings
@@ -241,13 +249,18 @@ export class Widget {
     send_message_to_page(message: WebKit2.UserMessage, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     send_message_to_page_finish(result: Gio.AsyncResult): WebKit2.UserMessage
     set_background_color(rgba: Gdk.RGBA): void
+    set_camera_capture_state(state: WebKit2.MediaCaptureState): void
+    set_cors_allowlist(allowlist?: string[] | null): void
     set_custom_charset(charset?: string | null): void
+    set_display_capture_state(state: WebKit2.MediaCaptureState): void
     set_editable(editable: boolean): void
     set_input_method_context(context?: WebKit2.InputMethodContext | null): void
     set_is_muted(muted: boolean): void
+    set_microphone_capture_state(state: WebKit2.MediaCaptureState): void
     set_settings(settings: WebKit2.Settings): void
     set_zoom_level(zoom_level: number): void
     stop_loading(): void
+    terminate_web_process(): void
     try_close(): void
     /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
@@ -775,9 +788,9 @@ export class Widget {
     connect(sigName: "show-notification", callback: (($obj: Widget, notification: WebKit2.Notification) => boolean)): number
     connect_after(sigName: "show-notification", callback: (($obj: Widget, notification: WebKit2.Notification) => boolean)): number
     emit(sigName: "show-notification", notification: WebKit2.Notification): void
-    connect(sigName: "show-option-menu", callback: (($obj: Widget, object: WebKit2.OptionMenu, p0: Gdk.Event, p1: Gdk.Rectangle) => boolean)): number
-    connect_after(sigName: "show-option-menu", callback: (($obj: Widget, object: WebKit2.OptionMenu, p0: Gdk.Event, p1: Gdk.Rectangle) => boolean)): number
-    emit(sigName: "show-option-menu", object: WebKit2.OptionMenu, p0: Gdk.Event, p1: Gdk.Rectangle): void
+    connect(sigName: "show-option-menu", callback: (($obj: Widget, menu: WebKit2.OptionMenu, event: Gdk.Event, rectangle: Gdk.Rectangle) => boolean)): number
+    connect_after(sigName: "show-option-menu", callback: (($obj: Widget, menu: WebKit2.OptionMenu, event: Gdk.Event, rectangle: Gdk.Rectangle) => boolean)): number
+    emit(sigName: "show-option-menu", menu: WebKit2.OptionMenu, event: Gdk.Event, rectangle: Gdk.Rectangle): void
     connect(sigName: "submit-form", callback: (($obj: Widget, request: WebKit2.FormSubmissionRequest) => void)): number
     connect_after(sigName: "submit-form", callback: (($obj: Widget, request: WebKit2.FormSubmissionRequest) => void)): number
     emit(sigName: "submit-form", request: WebKit2.FormSubmissionRequest): void
@@ -1017,6 +1030,10 @@ export class Widget {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::doc", callback: (($obj: Widget, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::doc", callback: (($obj: Widget, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::camera-capture-state", callback: (($obj: Widget, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::camera-capture-state", callback: (($obj: Widget, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::display-capture-state", callback: (($obj: Widget, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::display-capture-state", callback: (($obj: Widget, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::editable", callback: (($obj: Widget, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::editable", callback: (($obj: Widget, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::estimated-load-progress", callback: (($obj: Widget, pspec: GObject.ParamSpec) => void)): number
@@ -1029,6 +1046,10 @@ export class Widget {
     connect_after(sigName: "notify::is-muted", callback: (($obj: Widget, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-playing-audio", callback: (($obj: Widget, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-playing-audio", callback: (($obj: Widget, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::is-web-process-responsive", callback: (($obj: Widget, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::is-web-process-responsive", callback: (($obj: Widget, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::microphone-capture-state", callback: (($obj: Widget, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::microphone-capture-state", callback: (($obj: Widget, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::page-id", callback: (($obj: Widget, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::page-id", callback: (($obj: Widget, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::settings", callback: (($obj: Widget, pspec: GObject.ParamSpec) => void)): number

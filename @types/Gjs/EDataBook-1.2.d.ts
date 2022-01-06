@@ -121,6 +121,9 @@ export class BookBackend {
     /* Methods of EDataBook-1.2.EDataBook.BookBackend */
     add_view(view: DataBookView): void
     configure_direct(config: string): void
+    contains_email(email_address: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    contains_email_finish(result: Gio.AsyncResult): boolean
+    contains_email_sync(email_address: string, cancellable?: Gio.Cancellable | null): boolean
     create_contacts(vcards: string, opflags: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     create_contacts_finish(result: Gio.AsyncResult, out_contacts: GLib.Queue): boolean
     create_contacts_sync(vcards: string, opflags: number, out_contacts: GLib.Queue, cancellable?: Gio.Cancellable | null): boolean
@@ -222,6 +225,7 @@ export class BookBackend {
     /* Virtual methods of EDataBook-1.2.EDataBook.BookBackend */
     vfunc_closed(sender: string): void
     vfunc_impl_configure_direct(config: string): void
+    vfunc_impl_contains_email(book: DataBook, opid: number, cancellable: Gio.Cancellable | null, email_address: string): void
     vfunc_impl_create_contacts(book: DataBook, opid: number, cancellable: Gio.Cancellable | null, vcards: string, opflags: number): void
     vfunc_impl_delete_cursor(cursor: DataBookCursor): boolean
     vfunc_impl_dup_locale(): string
@@ -413,6 +417,7 @@ export class BookBackendSync {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of EDataBook-1.2.EDataBook.BookBackendSync */
+    contains_email(email_address: string, cancellable?: Gio.Cancellable | null): boolean
     create_contacts(vcards: string, opflags: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_contacts */ EBookContacts.Contact[] ]
     get_contact(uid: string, cancellable?: Gio.Cancellable | null): EBookContacts.Contact
     get_contact_list(query: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_contacts */ EBookContacts.Contact[] ]
@@ -424,6 +429,9 @@ export class BookBackendSync {
     /* Methods of EDataBook-1.2.EDataBook.BookBackend */
     add_view(view: DataBookView): void
     configure_direct(config: string): void
+    contains_email(email_address: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    contains_email_finish(result: Gio.AsyncResult): boolean
+    contains_email_sync(email_address: string, cancellable?: Gio.Cancellable | null): boolean
     create_contacts(vcards: string, opflags: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     create_contacts_finish(result: Gio.AsyncResult, out_contacts: GLib.Queue): boolean
     create_contacts_sync(vcards: string, opflags: number, out_contacts: GLib.Queue, cancellable?: Gio.Cancellable | null): boolean
@@ -523,11 +531,13 @@ export class BookBackendSync {
     unref(): void
     watch_closure(closure: Function): void
     /* Virtual methods of EDataBook-1.2.EDataBook.BookBackendSync */
+    vfunc_contains_email_sync(email_address: string, cancellable?: Gio.Cancellable | null): boolean
     vfunc_open_sync(cancellable?: Gio.Cancellable | null): boolean
     vfunc_refresh_sync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of EDataBook-1.2.EDataBook.BookBackend */
     vfunc_closed(sender: string): void
     vfunc_impl_configure_direct(config: string): void
+    vfunc_impl_contains_email(book: DataBook, opid: number, cancellable: Gio.Cancellable | null, email_address: string): void
     vfunc_impl_create_contacts(book: DataBook, opid: number, cancellable: Gio.Cancellable | null, vcards: string, opflags: number): void
     vfunc_impl_delete_cursor(cursor: DataBookCursor): boolean
     vfunc_impl_dup_locale(): string
@@ -598,6 +608,7 @@ export class BookCache {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of EDataBook-1.2.EDataBook.BookCache */
+    contains_email(email_address: string, cancellable?: Gio.Cancellable | null): boolean
     cursor_calculate(cursor: BookCacheCursor, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_total */ number | null, /* out_position */ number | null ]
     cursor_compare_contact(cursor: BookCacheCursor, contact: EBookContacts.Contact): [ /* returnType */ number, /* out_matches_sexp */ boolean | null ]
     cursor_free(cursor: BookCacheCursor): void
@@ -786,6 +797,7 @@ export class BookMetaBackend {
     split_changes_sync(objects: BookMetaBackendInfo[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* objects */ BookMetaBackendInfo[], /* out_created_objects */ BookMetaBackendInfo[], /* out_modified_objects */ BookMetaBackendInfo[], /* out_removed_objects */ BookMetaBackendInfo[] | null ]
     store_inline_photos_sync(contact: EBookContacts.Contact, cancellable?: Gio.Cancellable | null): boolean
     /* Methods of EDataBook-1.2.EDataBook.BookBackendSync */
+    contains_email(email_address: string, cancellable?: Gio.Cancellable | null): boolean
     create_contacts(vcards: string, opflags: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_contacts */ EBookContacts.Contact[] ]
     get_contact(uid: string, cancellable?: Gio.Cancellable | null): EBookContacts.Contact
     get_contact_list(query: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_contacts */ EBookContacts.Contact[] ]
@@ -797,6 +809,9 @@ export class BookMetaBackend {
     /* Methods of EDataBook-1.2.EDataBook.BookBackend */
     add_view(view: DataBookView): void
     configure_direct(config: string): void
+    contains_email(email_address: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    contains_email_finish(result: Gio.AsyncResult): boolean
+    contains_email_sync(email_address: string, cancellable?: Gio.Cancellable | null): boolean
     create_contacts(vcards: string, opflags: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     create_contacts_finish(result: Gio.AsyncResult, out_contacts: GLib.Queue): boolean
     create_contacts_sync(vcards: string, opflags: number, out_contacts: GLib.Queue, cancellable?: Gio.Cancellable | null): boolean
@@ -908,11 +923,13 @@ export class BookMetaBackend {
     vfunc_search_uids_sync(expr?: string | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_uids */ string[] ]
     vfunc_source_changed(): void
     /* Virtual methods of EDataBook-1.2.EDataBook.BookBackendSync */
+    vfunc_contains_email_sync(email_address: string, cancellable?: Gio.Cancellable | null): boolean
     vfunc_open_sync(cancellable?: Gio.Cancellable | null): boolean
     vfunc_refresh_sync(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of EDataBook-1.2.EDataBook.BookBackend */
     vfunc_closed(sender: string): void
     vfunc_impl_configure_direct(config: string): void
+    vfunc_impl_contains_email(book: DataBook, opid: number, cancellable: Gio.Cancellable | null, email_address: string): void
     vfunc_impl_create_contacts(book: DataBook, opid: number, cancellable: Gio.Cancellable | null, vcards: string, opflags: number): void
     vfunc_impl_delete_cursor(cursor: DataBookCursor): boolean
     vfunc_impl_dup_locale(): string
@@ -1066,7 +1083,7 @@ export class BookSqlite {
     constructor (config?: BookSqlite_ConstructProps)
     _init (config?: BookSqlite_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(path: string, source: EDataServer.Source, cancellable?: Gio.Cancellable | null): BookSqlite
+    static new(path: string, source?: EDataServer.Source | null, cancellable?: Gio.Cancellable | null): BookSqlite
     static new_full(path: string, source: EDataServer.Source, setup?: EBookContacts.SourceBackendSummarySetup | null, vcard_callback?: bSqlVCardCallback | null, change_callback?: bSqlChangeCallback | null, cancellable?: Gio.Cancellable | null): BookSqlite
     static error_quark(): GLib.Quark
     static search_data_free(data: bSqlSearchData): void
@@ -1084,16 +1101,17 @@ export class DataBook {
     get_connection(): Gio.DBusConnection
     get_object_path(): string
     ref_backend(): BookBackend
-    report_backend_property_changed(prop_name: string, prop_value: string): void
+    report_backend_property_changed(prop_name: string, prop_value?: string | null): void
     report_error(message: string): void
-    respond_create_contacts(opid: number, error: GLib.Error, contacts?: EBookContacts.Contact[] | null): void
+    respond_contains_email(opid: number, error: GLib.Error, found: boolean): void
+    respond_create_contacts(opid: number, error: GLib.Error, contacts: EBookContacts.Contact[]): void
     respond_get_contact(opid: number, error?: GLib.Error | null, contact?: EBookContacts.Contact | null): void
-    respond_get_contact_list(opid: number, error: GLib.Error, contacts?: EBookContacts.Contact[] | null): void
-    respond_get_contact_list_uids(opid: number, error: GLib.Error, uids?: string[] | null): void
-    respond_modify_contacts(opid: number, error: GLib.Error, contacts?: EBookContacts.Contact[] | null): void
+    respond_get_contact_list(opid: number, error: GLib.Error, contacts: EBookContacts.Contact[]): void
+    respond_get_contact_list_uids(opid: number, error: GLib.Error, uids: string[]): void
+    respond_modify_contacts(opid: number, error: GLib.Error, contacts: EBookContacts.Contact[]): void
     respond_open(opid: number, error: GLib.Error): void
     respond_refresh(opid: number, error: GLib.Error): void
-    respond_remove_contacts(opid: number, error: GLib.Error, ids?: string[] | null): void
+    respond_remove_contacts(opid: number, error: GLib.Error, ids: string[]): void
     set_locale(locale: string, cancellable?: Gio.Cancellable | null): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -1765,6 +1783,7 @@ export abstract class BookBackendClass {
     impl_delete_cursor: (backend: BookBackend, cursor: DataBookCursor) => boolean
     closed: (backend: BookBackend, sender: string) => void
     shutdown: (backend: BookBackend) => void
+    impl_contains_email: (backend: BookBackend, book: DataBook, opid: number, cancellable: Gio.Cancellable | null, email_address: string) => void
     reserved_padding: object[]
     static name: string
 }
@@ -1790,6 +1809,7 @@ export abstract class BookBackendSyncClass {
     /* Fields of EDataBook-1.2.EDataBook.BookBackendSyncClass */
     open_sync: (backend: BookBackendSync, cancellable?: Gio.Cancellable | null) => boolean
     refresh_sync: (backend: BookBackendSync, cancellable?: Gio.Cancellable | null) => boolean
+    contains_email_sync: (backend: BookBackendSync, email_address: string, cancellable?: Gio.Cancellable | null) => boolean
     reserved_padding: object[]
     static name: string
 }

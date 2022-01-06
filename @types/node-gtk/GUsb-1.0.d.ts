@@ -220,6 +220,7 @@ export class Device {
     getSpec(): number
     getStringDescriptor(descIndex: number): string
     getStringDescriptorBytes(descIndex: number, langid: number): any
+    getStringDescriptorBytesFull(descIndex: number, langid: number, length: number): any
     getVid(): number
     getVidAsStr(): string
     interruptTransfer(endpoint: number, data: any[], timeout: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, actualLength: number | null }

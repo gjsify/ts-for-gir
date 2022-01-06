@@ -20,6 +20,13 @@ export enum CenteringPolicy {
     LOOSE,
     STRICT,
 }
+export enum ColorScheme {
+    DEFAULT,
+    FORCE_LIGHT,
+    PREFER_LIGHT,
+    PREFER_DARK,
+    FORCE_DARK,
+}
 export enum DeckTransitionType {
     OVER,
     UNDER,
@@ -3594,6 +3601,7 @@ export class Avatar {
 export interface Carousel_ConstructProps extends Gtk.EventBox_ConstructProps {
     allow_long_swipes?: boolean
     allow_mouse_drag?: boolean
+    allow_scroll_wheel?: boolean
     animation_duration?: number
     interactive?: boolean
     reveal_duration?: number
@@ -3604,6 +3612,7 @@ export class Carousel {
     /* Properties of Handy-1.Handy.Carousel */
     allow_long_swipes: boolean
     allow_mouse_drag: boolean
+    allow_scroll_wheel: boolean
     animation_duration: number
     interactive: boolean
     readonly n_pages: number
@@ -3672,6 +3681,7 @@ export class Carousel {
     /* Methods of Handy-1.Handy.Carousel */
     get_allow_long_swipes(): boolean
     get_allow_mouse_drag(): boolean
+    get_allow_scroll_wheel(): boolean
     get_animation_duration(): number
     get_interactive(): boolean
     get_n_pages(): number
@@ -3685,6 +3695,7 @@ export class Carousel {
     scroll_to_full(widget: Gtk.Widget, duration: number): void
     set_allow_long_swipes(allow_long_swipes: boolean): void
     set_allow_mouse_drag(allow_mouse_drag: boolean): void
+    set_allow_scroll_wheel(allow_scroll_wheel: boolean): void
     set_animation_duration(duration: number): void
     set_interactive(interactive: boolean): void
     set_reveal_duration(reveal_duration: number): void
@@ -4384,6 +4395,8 @@ export class Carousel {
     connect_after(sigName: "notify::allow-long-swipes", callback: (($obj: Carousel, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::allow-mouse-drag", callback: (($obj: Carousel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::allow-mouse-drag", callback: (($obj: Carousel, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::allow-scroll-wheel", callback: (($obj: Carousel, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::allow-scroll-wheel", callback: (($obj: Carousel, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::animation-duration", callback: (($obj: Carousel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::animation-duration", callback: (($obj: Carousel, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::interactive", callback: (($obj: Carousel, pspec: GObject.ParamSpec) => void)): number
@@ -13322,11 +13335,13 @@ export class Leaflet {
 export interface PreferencesGroup_ConstructProps extends Gtk.Bin_ConstructProps {
     description?: string
     title?: string
+    use_markup?: boolean
 }
 export class PreferencesGroup {
     /* Properties of Handy-1.Handy.PreferencesGroup */
     description: string
     title: string
+    use_markup: boolean
     /* Properties of Gtk-3.0.Gtk.Container */
     border_width: number
     child: Gtk.Widget
@@ -13382,8 +13397,10 @@ export class PreferencesGroup {
     /* Methods of Handy-1.Handy.PreferencesGroup */
     get_description(): string
     get_title(): string
+    get_use_markup(): boolean
     set_description(description: string): void
     set_title(title: string): void
+    set_use_markup(use_markup: boolean): void
     /* Methods of Gtk-3.0.Gtk.Bin */
     get_child(): Gtk.Widget | null
     /* Methods of Gtk-3.0.Gtk.Container */
@@ -14047,6 +14064,8 @@ export class PreferencesGroup {
     connect_after(sigName: "notify::description", callback: (($obj: PreferencesGroup, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::title", callback: (($obj: PreferencesGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::title", callback: (($obj: PreferencesGroup, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::use-markup", callback: (($obj: PreferencesGroup, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::use-markup", callback: (($obj: PreferencesGroup, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::border-width", callback: (($obj: PreferencesGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::border-width", callback: (($obj: PreferencesGroup, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::child", callback: (($obj: PreferencesGroup, pspec: GObject.ParamSpec) => void)): number
@@ -19395,6 +19414,79 @@ export class StatusPage {
     _init (config?: StatusPage_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): StatusPage
+    static $gtype: GObject.Type
+}
+export interface StyleManager_ConstructProps extends GObject.Object_ConstructProps {
+    color_scheme?: ColorScheme
+    display?: Gdk.Display
+}
+export class StyleManager {
+    /* Properties of Handy-1.Handy.StyleManager */
+    color_scheme: ColorScheme
+    readonly dark: boolean
+    readonly high_contrast: boolean
+    readonly system_supports_color_schemes: boolean
+    /* Fields of GObject-2.0.GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of Handy-1.Handy.StyleManager */
+    get_color_scheme(): ColorScheme
+    get_dark(): boolean
+    get_display(): Gdk.Display
+    get_high_contrast(): boolean
+    get_system_supports_color_schemes(): boolean
+    set_color_scheme(color_scheme: ColorScheme): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: any): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: any): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: Function): void
+    /* Virtual methods of GObject-2.0.GObject.Object */
+    vfunc_constructed(): void
+    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose(): void
+    vfunc_finalize(): void
+    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: StyleManager, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: StyleManager, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::color-scheme", callback: (($obj: StyleManager, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::color-scheme", callback: (($obj: StyleManager, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::dark", callback: (($obj: StyleManager, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::dark", callback: (($obj: StyleManager, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::high-contrast", callback: (($obj: StyleManager, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::high-contrast", callback: (($obj: StyleManager, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::system-supports-color-schemes", callback: (($obj: StyleManager, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::system-supports-color-schemes", callback: (($obj: StyleManager, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    static name: string
+    constructor (config?: StyleManager_ConstructProps)
+    _init (config?: StyleManager_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static get_default(): StyleManager
+    static get_for_display(display: Gdk.Display): StyleManager
     static $gtype: GObject.Type
 }
 export interface SwipeGroup_ConstructProps extends GObject.Object_ConstructProps {
@@ -26787,6 +26879,11 @@ export abstract class SqueezerClass {
 export abstract class StatusPageClass {
     /* Fields of Handy-1.Handy.StatusPageClass */
     parent_class: Gtk.BinClass
+    static name: string
+}
+export abstract class StyleManagerClass {
+    /* Fields of Handy-1.Handy.StyleManagerClass */
+    parent_class: GObject.ObjectClass
     static name: string
 }
 export abstract class SwipeGroupClass {

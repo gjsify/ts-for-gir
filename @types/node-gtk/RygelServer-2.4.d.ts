@@ -2,6 +2,7 @@
  * RygelServer-2.4
  */
 
+<<<<<<< HEAD
 import "node"
 import type { RygelCore } from './RygelCore-2.4';
 import type { GLib } from './GLib-2.0';
@@ -15,6 +16,23 @@ import type { GSSDP } from './GSSDP-1.0';
 import type { GUPnPAV } from './GUPnPAV-1.0';
 
 export declare namespace RygelServer {
+=======
+/// <reference types="node" />
+/// <reference path="RygelCore-2.4.d.ts" />
+/// <reference path="GLib-2.0.d.ts" />
+/// <reference path="Gio-2.0.d.ts" />
+/// <reference path="GObject-2.0.d.ts" />
+/// <reference path="Gee-0.8.d.ts" />
+/// <reference path="GUPnP-1.0.d.ts" />
+/// <reference path="libxml2-2.0.d.ts" />
+// WARN: Dependency not found: 'GstPbutils-0.10'
+// WARN: Dependency not found: 'Gst-0.10'
+/// <reference path="GModule-2.0.d.ts" />
+/// <reference path="Soup-2.4.d.ts" />
+/// <reference path="GUPnPAV-1.0.d.ts" />
+
+declare namespace RygelServer {
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
 
 export enum LogicalOperator {
     AND,
@@ -52,15 +70,25 @@ export interface SearchableContainer_ConstructProps extends MediaContainer_Const
     searchClasses?: Gee.ArrayList
 }
 export class SearchableContainer {
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.SearchableContainer */
     searchClasses: Gee.ArrayList
     /* Properties of RygelServer-2.4.RygelServer.MediaContainer */
+=======
+    /* Properties of RygelServer.SearchableContainer */
+    searchClasses: Gee.ArrayList
+    /* Properties of RygelServer.MediaContainer */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     childCount: number
     emptyChildCount: number
     readonly allChildCount: number
     createModeEnabled: boolean
     sortCriteria: string
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Properties of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     id: string
     refId: string
     upnpClass: string
@@ -74,6 +102,7 @@ export class SearchableContainer {
     parentRef: MediaContainer
     title: string
     readonly ocmFlags: GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.MediaContainer */
     parentInstance: MediaObject
     priv: MediaContainerPrivate
@@ -89,11 +118,30 @@ export class SearchableContainer {
     searchFinish(res: Gio.AsyncResult): { returnType: MediaObjects | null, totalMatches: number }
     simpleSearch(expression: SearchExpression | null, offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     simpleSearchFinish(res: Gio.AsyncResult): { returnType: MediaObjects | null, totalMatches: number }
+=======
+    /* Fields of RygelServer.MediaContainer */
+    updateId: number
+    storageUsed: number
+    totalDeletedChildCount: number
+    /* Fields of RygelServer.MediaObject */
+    parentPtr: MediaContainer
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.SearchableContainer */
+    search(expression: SearchExpression | null, offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    searchFinish(res: Gio.AsyncResult): [ /* returnType */ MediaObjects | null, /* totalMatches */ number ]
+    simpleSearch(expression: SearchExpression | null, offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    simpleSearchFinish(res: Gio.AsyncResult): [ /* returnType */ MediaObjects | null, /* totalMatches */ number ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     findObject(id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     findObjectFinish(res: Gio.AsyncResult): MediaObject | null
     getSearchClasses(): Gee.ArrayList
     setSearchClasses(value: Gee.ArrayList): void
+<<<<<<< HEAD
     /* Methods of RygelServer-2.4.RygelServer.MediaContainer */
+=======
+    /* Methods of RygelServer.MediaContainer */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getChildren(offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getChildrenFinish(res: Gio.AsyncResult): MediaObjects | null
     updated(object: MediaObject | null, eventType: ObjectEventType, subTreeUpdate: boolean): void
@@ -106,7 +154,11 @@ export class SearchableContainer {
     setCreateModeEnabled(value: boolean): void
     getSortCriteria(): string
     setSortCriteria(value: string): void
+<<<<<<< HEAD
     /* Methods of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Methods of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getUris(): Gee.List
     getPrimaryUri(): string | null
     addUri(uri: string): void
@@ -114,7 +166,17 @@ export class SearchableContainer {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
+<<<<<<< HEAD
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+=======
+    getResourceList(): Gee.List
+    getResourceByName(resourceName: string): MediaResource | null
+    serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
+    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    compareByProperty(mediaObject: MediaObject, property: string): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -142,6 +204,7 @@ export class SearchableContainer {
     getTitle(): string
     setTitle(value: string): void
     getOcmFlags(): GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -151,6 +214,17 @@ export class SearchableContainer {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -158,11 +232,16 @@ export class SearchableContainer {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of RygelServer-2.4.RygelServer.MediaContainer */
     connect(sigName: "container_updated", callback: (($obj: SearchableContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
@@ -181,6 +260,54 @@ export class SearchableContainer {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.SearchableContainer */
+    vfuncSearch(expression: SearchExpression | null, offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfuncSearchFinish(res: Gio.AsyncResult): [ /* returnType */ MediaObjects | null, /* totalMatches */ number ]
+    vfuncGetSearchClasses(): Gee.ArrayList
+    vfuncSetSearchClasses(value: Gee.ArrayList): void
+    /* Virtual methods of RygelServer.MediaContainer */
+    vfuncGetChildren(offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfuncGetChildrenFinish(res: Gio.AsyncResult): MediaObjects | null
+    vfuncFindObject(id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfuncFindObjectFinish(res: Gio.AsyncResult): MediaObject | null
+    /* Virtual methods of RygelServer.MediaObject */
+    vfuncAddUri(uri: string): void
+    vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
+    vfuncGetOcmFlags(): GUPnPAV.OCMFlags
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of RygelServer.MediaContainer */
+    connect(sigName: "container-updated", callback: (($obj: SearchableContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
+    connect_after(sigName: "container-updated", callback: (($obj: SearchableContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
+    emit(sigName: "container-updated", container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean): void
+    on(sigName: "container-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "container-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "container-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "sub-tree-updates-finished", callback: (($obj: SearchableContainer, subTreeRoot: MediaObject) => void)): number
+    connect_after(sigName: "sub-tree-updates-finished", callback: (($obj: SearchableContainer, subTreeRoot: MediaObject) => void)): number
+    emit(sigName: "sub-tree-updates-finished", subTreeRoot: MediaObject): void
+    on(sigName: "sub-tree-updates-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "sub-tree-updates-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "sub-tree-updates-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SearchableContainer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: SearchableContainer, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::search-classes", callback: (($obj: SearchableContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::search-classes", callback: (($obj: SearchableContainer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::search-classes", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -291,13 +418,21 @@ export class SearchableContainer {
 export interface TrackableContainer_ConstructProps extends MediaContainer_ConstructProps {
 }
 export class TrackableContainer {
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.MediaContainer */
+=======
+    /* Properties of RygelServer.MediaContainer */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     childCount: number
     emptyChildCount: number
     readonly allChildCount: number
     createModeEnabled: boolean
     sortCriteria: string
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Properties of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     id: string
     refId: string
     upnpClass: string
@@ -311,6 +446,7 @@ export class TrackableContainer {
     parentRef: MediaContainer
     title: string
     readonly ocmFlags: GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.MediaContainer */
     parentInstance: MediaObject
     priv: MediaContainerPrivate
@@ -322,6 +458,17 @@ export class TrackableContainer {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer-2.4.RygelServer.TrackableContainer */
+=======
+    /* Fields of RygelServer.MediaContainer */
+    updateId: number
+    storageUsed: number
+    totalDeletedChildCount: number
+    /* Fields of RygelServer.MediaObject */
+    parentPtr: MediaContainer
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.TrackableContainer */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     clear(callback?: Gio.AsyncReadyCallback | null): void
     clearFinish(res: Gio.AsyncResult): void
     addChild(object: MediaObject, callback?: Gio.AsyncReadyCallback | null): void
@@ -335,7 +482,11 @@ export class TrackableContainer {
     getServiceResetToken(): string
     setServiceResetToken(token: string): void
     getSystemUpdateId(): number
+<<<<<<< HEAD
     /* Methods of RygelServer-2.4.RygelServer.MediaContainer */
+=======
+    /* Methods of RygelServer.MediaContainer */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getChildren(offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getChildrenFinish(res: Gio.AsyncResult): MediaObjects | null
     findObject(id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -350,7 +501,11 @@ export class TrackableContainer {
     setCreateModeEnabled(value: boolean): void
     getSortCriteria(): string
     setSortCriteria(value: string): void
+<<<<<<< HEAD
     /* Methods of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Methods of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getUris(): Gee.List
     getPrimaryUri(): string | null
     addUri(uri: string): void
@@ -358,7 +513,17 @@ export class TrackableContainer {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
+<<<<<<< HEAD
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+=======
+    getResourceList(): Gee.List
+    getResourceByName(resourceName: string): MediaResource | null
+    serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
+    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    compareByProperty(mediaObject: MediaObject, property: string): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -386,6 +551,7 @@ export class TrackableContainer {
     getTitle(): string
     setTitle(value: string): void
     getOcmFlags(): GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -395,6 +561,17 @@ export class TrackableContainer {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -402,11 +579,16 @@ export class TrackableContainer {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of RygelServer-2.4.RygelServer.TrackableContainer */
     connect(sigName: "child_added", callback: (($obj: TrackableContainer, object: MediaObject) => void)): number
@@ -436,6 +618,70 @@ export class TrackableContainer {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.TrackableContainer */
+    vfuncAddChild(object: MediaObject, callback?: Gio.AsyncReadyCallback | null): void
+    vfuncAddChildFinish(res: Gio.AsyncResult): void
+    vfuncRemoveChild(object: MediaObject, callback?: Gio.AsyncReadyCallback | null): void
+    vfuncRemoveChildFinish(res: Gio.AsyncResult): void
+    vfuncGetServiceResetToken(): string
+    vfuncSetServiceResetToken(token: string): void
+    vfuncGetSystemUpdateId(): number
+    /* Virtual methods of RygelServer.MediaContainer */
+    vfuncGetChildren(offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfuncGetChildrenFinish(res: Gio.AsyncResult): MediaObjects | null
+    vfuncFindObject(id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfuncFindObjectFinish(res: Gio.AsyncResult): MediaObject | null
+    /* Virtual methods of RygelServer.MediaObject */
+    vfuncAddUri(uri: string): void
+    vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
+    vfuncGetOcmFlags(): GUPnPAV.OCMFlags
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of RygelServer.TrackableContainer */
+    connect(sigName: "child_added", callback: (($obj: TrackableContainer, object: MediaObject) => void)): number
+    connect_after(sigName: "child_added", callback: (($obj: TrackableContainer, object: MediaObject) => void)): number
+    emit(sigName: "child_added", object: MediaObject): void
+    on(sigName: "child_added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "child_added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "child_added", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "child_removed", callback: (($obj: TrackableContainer, object: MediaObject) => void)): number
+    connect_after(sigName: "child_removed", callback: (($obj: TrackableContainer, object: MediaObject) => void)): number
+    emit(sigName: "child_removed", object: MediaObject): void
+    on(sigName: "child_removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "child_removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "child_removed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of RygelServer.MediaContainer */
+    connect(sigName: "container-updated", callback: (($obj: TrackableContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
+    connect_after(sigName: "container-updated", callback: (($obj: TrackableContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
+    emit(sigName: "container-updated", container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean): void
+    on(sigName: "container-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "container-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "container-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "sub-tree-updates-finished", callback: (($obj: TrackableContainer, subTreeRoot: MediaObject) => void)): number
+    connect_after(sigName: "sub-tree-updates-finished", callback: (($obj: TrackableContainer, subTreeRoot: MediaObject) => void)): number
+    emit(sigName: "sub-tree-updates-finished", subTreeRoot: MediaObject): void
+    on(sigName: "sub-tree-updates-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "sub-tree-updates-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "sub-tree-updates-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: TrackableContainer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: TrackableContainer, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::child-count", callback: (($obj: TrackableContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::child-count", callback: (($obj: TrackableContainer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::child-count", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -541,6 +787,7 @@ export class TrackableContainer {
 export interface TrackableItem_ConstructProps extends MediaItem_ConstructProps {
 }
 export class TrackableItem {
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.MediaItem */
     mimeType: string
     dlnaProfile: string
@@ -548,6 +795,11 @@ export class TrackableItem {
     placeHolder: boolean
     description: string
     /* Properties of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Properties of RygelServer.MediaItem */
+    description: string
+    /* Properties of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     id: string
     refId: string
     upnpClass: string
@@ -561,6 +813,7 @@ export class TrackableItem {
     parentRef: MediaContainer
     title: string
     readonly ocmFlags: GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.MediaItem */
     parentInstance: MediaObject
     priv: MediaItemPrivate
@@ -588,6 +841,18 @@ export class TrackableItem {
     getDescription(): string
     setDescription(value: string): void
     /* Methods of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Fields of RygelServer.MediaObject */
+    parentPtr: MediaContainer
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.TrackableItem */
+    changed(): void
+    /* Methods of RygelServer.MediaItem */
+    getDescription(): string
+    setDescription(value: string): void
+    /* Methods of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getUris(): Gee.List
     getPrimaryUri(): string | null
     addUri(uri: string): void
@@ -595,7 +860,17 @@ export class TrackableItem {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
+<<<<<<< HEAD
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+=======
+    getResourceList(): Gee.List
+    getResourceByName(resourceName: string): MediaResource | null
+    serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
+    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    compareByProperty(mediaObject: MediaObject, property: string): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -623,6 +898,7 @@ export class TrackableItem {
     getTitle(): string
     setTitle(value: string): void
     getOcmFlags(): GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -632,6 +908,17 @@ export class TrackableItem {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -639,11 +926,16 @@ export class TrackableItem {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
@@ -671,6 +963,31 @@ export class TrackableItem {
     on(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.MediaObject */
+    vfuncAddUri(uri: string): void
+    vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
+    vfuncGetOcmFlags(): GUPnPAV.OCMFlags
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::description", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::description", callback: (($obj: TrackableItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -760,11 +1077,16 @@ export interface VisualItem_ConstructProps extends MediaItem_ConstructProps {
     thumbnails?: Gee.ArrayList
 }
 export class VisualItem {
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.VisualItem */
+=======
+    /* Properties of RygelServer.VisualItem */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     width: number
     height: number
     colorDepth: number
     thumbnails: Gee.ArrayList
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.MediaItem */
     mimeType: string
     dlnaProfile: string
@@ -772,6 +1094,11 @@ export class VisualItem {
     placeHolder: boolean
     description: string
     /* Properties of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Properties of RygelServer.MediaItem */
+    description: string
+    /* Properties of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     id: string
     refId: string
     upnpClass: string
@@ -785,6 +1112,7 @@ export class VisualItem {
     parentRef: MediaContainer
     title: string
     readonly ocmFlags: GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.MediaItem */
     parentInstance: MediaObject
     priv: MediaItemPrivate
@@ -794,6 +1122,13 @@ export class VisualItem {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer-2.4.RygelServer.VisualItem */
+=======
+    /* Fields of RygelServer.MediaObject */
+    parentPtr: MediaContainer
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.VisualItem */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getWidth(): number
     setWidth(value: number): void
     getHeight(): number
@@ -802,6 +1137,7 @@ export class VisualItem {
     setColorDepth(value: number): void
     getThumbnails(): Gee.ArrayList
     setThumbnails(value: Gee.ArrayList): void
+<<<<<<< HEAD
     /* Methods of RygelServer-2.4.RygelServer.MediaItem */
     createStreamSource(hostIp?: string | null): DataSource | null
     isLiveStream(): boolean
@@ -819,6 +1155,12 @@ export class VisualItem {
     getDescription(): string
     setDescription(value: string): void
     /* Methods of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Methods of RygelServer.MediaItem */
+    getDescription(): string
+    setDescription(value: string): void
+    /* Methods of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getUris(): Gee.List
     getPrimaryUri(): string | null
     addUri(uri: string): void
@@ -826,7 +1168,17 @@ export class VisualItem {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
+<<<<<<< HEAD
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+=======
+    getResourceList(): Gee.List
+    getResourceByName(resourceName: string): MediaResource | null
+    serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
+    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    compareByProperty(mediaObject: MediaObject, property: string): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -854,6 +1206,7 @@ export class VisualItem {
     getTitle(): string
     setTitle(value: string): void
     getOcmFlags(): GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -863,6 +1216,17 @@ export class VisualItem {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -870,11 +1234,16 @@ export class VisualItem {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
@@ -882,6 +1251,40 @@ export class VisualItem {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.VisualItem */
+    vfuncGetWidth(): number
+    vfuncSetWidth(value: number): void
+    vfuncGetHeight(): number
+    vfuncSetHeight(value: number): void
+    vfuncGetColorDepth(): number
+    vfuncSetColorDepth(value: number): void
+    vfuncGetThumbnails(): Gee.ArrayList
+    vfuncSetThumbnails(value: Gee.ArrayList): void
+    /* Virtual methods of RygelServer.MediaObject */
+    vfuncAddUri(uri: string): void
+    vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
+    vfuncGetOcmFlags(): GUPnPAV.OCMFlags
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::width", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::width", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::width", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -902,6 +1305,7 @@ export class VisualItem {
     on(sigName: "notify::thumbnails", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::thumbnails", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::thumbnails", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
     connect(sigName: "notify::mime-type", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::mime-type", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::mime-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -922,6 +1326,8 @@ export class VisualItem {
     on(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::description", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::description", callback: (($obj: VisualItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1008,15 +1414,25 @@ export interface WritableContainer_ConstructProps extends MediaContainer_Constru
     createClasses?: Gee.ArrayList
 }
 export class WritableContainer {
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.WritableContainer */
     createClasses: Gee.ArrayList
     /* Properties of RygelServer-2.4.RygelServer.MediaContainer */
+=======
+    /* Properties of RygelServer.WritableContainer */
+    createClasses: Gee.ArrayList
+    /* Properties of RygelServer.MediaContainer */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     childCount: number
     emptyChildCount: number
     readonly allChildCount: number
     createModeEnabled: boolean
     sortCriteria: string
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Properties of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     id: string
     refId: string
     upnpClass: string
@@ -1030,6 +1446,7 @@ export class WritableContainer {
     parentRef: MediaContainer
     title: string
     readonly ocmFlags: GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.MediaContainer */
     parentInstance: MediaObject
     priv: MediaContainerPrivate
@@ -1041,6 +1458,17 @@ export class WritableContainer {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer-2.4.RygelServer.WritableContainer */
+=======
+    /* Fields of RygelServer.MediaContainer */
+    updateId: number
+    storageUsed: number
+    totalDeletedChildCount: number
+    /* Fields of RygelServer.MediaObject */
+    parentPtr: MediaContainer
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.WritableContainer */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     canCreate(upnpClass: string): boolean
     addItem(item: MediaItem, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     addItemFinish(res: Gio.AsyncResult): void
@@ -1054,7 +1482,11 @@ export class WritableContainer {
     removeContainerFinish(res: Gio.AsyncResult): void
     getCreateClasses(): Gee.ArrayList
     setCreateClasses(value: Gee.ArrayList): void
+<<<<<<< HEAD
     /* Methods of RygelServer-2.4.RygelServer.MediaContainer */
+=======
+    /* Methods of RygelServer.MediaContainer */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getChildren(offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getChildrenFinish(res: Gio.AsyncResult): MediaObjects | null
     findObject(id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -1069,7 +1501,11 @@ export class WritableContainer {
     setCreateModeEnabled(value: boolean): void
     getSortCriteria(): string
     setSortCriteria(value: string): void
+<<<<<<< HEAD
     /* Methods of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Methods of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getUris(): Gee.List
     getPrimaryUri(): string | null
     addUri(uri: string): void
@@ -1077,7 +1513,17 @@ export class WritableContainer {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
+<<<<<<< HEAD
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+=======
+    getResourceList(): Gee.List
+    getResourceByName(resourceName: string): MediaResource | null
+    serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
+    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    compareByProperty(mediaObject: MediaObject, property: string): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -1105,6 +1551,7 @@ export class WritableContainer {
     getTitle(): string
     setTitle(value: string): void
     getOcmFlags(): GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -1114,6 +1561,17 @@ export class WritableContainer {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -1121,11 +1579,16 @@ export class WritableContainer {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of RygelServer-2.4.RygelServer.MediaContainer */
     connect(sigName: "container_updated", callback: (($obj: WritableContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
@@ -1144,6 +1607,62 @@ export class WritableContainer {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.WritableContainer */
+    vfuncAddItem(item: MediaItem, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfuncAddItemFinish(res: Gio.AsyncResult): void
+    vfuncAddContainer(container: MediaContainer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfuncAddContainerFinish(res: Gio.AsyncResult): void
+    vfuncAddReference(object: MediaObject, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfuncAddReferenceFinish(res: Gio.AsyncResult): string
+    vfuncRemoveItem(id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfuncRemoveItemFinish(res: Gio.AsyncResult): void
+    vfuncRemoveContainer(id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfuncRemoveContainerFinish(res: Gio.AsyncResult): void
+    vfuncGetCreateClasses(): Gee.ArrayList
+    vfuncSetCreateClasses(value: Gee.ArrayList): void
+    /* Virtual methods of RygelServer.MediaContainer */
+    vfuncGetChildren(offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfuncGetChildrenFinish(res: Gio.AsyncResult): MediaObjects | null
+    vfuncFindObject(id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfuncFindObjectFinish(res: Gio.AsyncResult): MediaObject | null
+    /* Virtual methods of RygelServer.MediaObject */
+    vfuncAddUri(uri: string): void
+    vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
+    vfuncGetOcmFlags(): GUPnPAV.OCMFlags
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of RygelServer.MediaContainer */
+    connect(sigName: "container-updated", callback: (($obj: WritableContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
+    connect_after(sigName: "container-updated", callback: (($obj: WritableContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
+    emit(sigName: "container-updated", container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean): void
+    on(sigName: "container-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "container-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "container-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "sub-tree-updates-finished", callback: (($obj: WritableContainer, subTreeRoot: MediaObject) => void)): number
+    connect_after(sigName: "sub-tree-updates-finished", callback: (($obj: WritableContainer, subTreeRoot: MediaObject) => void)): number
+    emit(sigName: "sub-tree-updates-finished", subTreeRoot: MediaObject): void
+    on(sigName: "sub-tree-updates-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "sub-tree-updates-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "sub-tree-updates-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: WritableContainer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: WritableContainer, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::create-classes", callback: (($obj: WritableContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::create-classes", callback: (($obj: WritableContainer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::create-classes", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1254,13 +1773,20 @@ export class WritableContainer {
 export interface DataSource_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DataSource {
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer-2.4.RygelServer.DataSource */
+=======
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.DataSource */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     start(offsets?: HTTPSeek | null): void
     freeze(): void
     thaw(): void
     stop(): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -1270,6 +1796,17 @@ export class DataSource {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -1277,11 +1814,16 @@ export class DataSource {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of RygelServer-2.4.RygelServer.DataSource */
     connect(sigName: "data_available", callback: (($obj: DataSource, data: any[]) => void)): number
@@ -1305,6 +1847,48 @@ export class DataSource {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.DataSource */
+    vfuncStart(offsets?: HTTPSeek | null): void
+    vfuncFreeze(): void
+    vfuncThaw(): void
+    vfuncStop(): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of RygelServer.DataSource */
+    connect(sigName: "data_available", callback: (($obj: DataSource, data: any) => void)): number
+    connect_after(sigName: "data_available", callback: (($obj: DataSource, data: any) => void)): number
+    emit(sigName: "data_available", data: any): void
+    on(sigName: "data_available", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "data_available", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "data_available", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "done", callback: (($obj: DataSource) => void)): number
+    connect_after(sigName: "done", callback: (($obj: DataSource) => void)): number
+    emit(sigName: "done"): void
+    on(sigName: "done", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "done", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "done", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "error", callback: (($obj: DataSource, error: GLib.Error) => void)): number
+    connect_after(sigName: "error", callback: (($obj: DataSource, error: GLib.Error) => void)): number
+    emit(sigName: "error", error: GLib.Error): void
+    on(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "error", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: DataSource, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: DataSource, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1320,7 +1904,11 @@ export class DataSource {
 export interface UpdatableObject_ConstructProps extends MediaObject_ConstructProps {
 }
 export class UpdatableObject {
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Properties of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     id: string
     refId: string
     upnpClass: string
@@ -1334,6 +1922,7 @@ export class UpdatableObject {
     parentRef: MediaContainer
     title: string
     readonly ocmFlags: GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.MediaObject */
     parentInstance: GObject.Object
     priv: MediaObjectPrivate
@@ -1344,6 +1933,16 @@ export class UpdatableObject {
     commit(callback?: Gio.AsyncReadyCallback | null): void
     commitFinish(res: Gio.AsyncResult): void
     /* Methods of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Fields of RygelServer.MediaObject */
+    parentPtr: MediaContainer
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.UpdatableObject */
+    commit(callback?: Gio.AsyncReadyCallback | null): void
+    commitFinish(res: Gio.AsyncResult): void
+    /* Methods of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getUris(): Gee.List
     getPrimaryUri(): string | null
     addUri(uri: string): void
@@ -1351,7 +1950,17 @@ export class UpdatableObject {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
+<<<<<<< HEAD
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+=======
+    getResourceList(): Gee.List
+    getResourceByName(resourceName: string): MediaResource | null
+    serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
+    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    compareByProperty(mediaObject: MediaObject, property: string): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -1379,6 +1988,7 @@ export class UpdatableObject {
     getTitle(): string
     setTitle(value: string): void
     getOcmFlags(): GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -1388,6 +1998,17 @@ export class UpdatableObject {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -1395,11 +2016,16 @@ export class UpdatableObject {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: UpdatableObject, pspec: GObject.ParamSpec) => void)): number
@@ -1407,6 +2033,34 @@ export class UpdatableObject {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.UpdatableObject */
+    vfuncCommit(callback?: Gio.AsyncReadyCallback | null): void
+    vfuncCommitFinish(res: Gio.AsyncResult): void
+    /* Virtual methods of RygelServer.MediaObject */
+    vfuncAddUri(uri: string): void
+    vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
+    vfuncGetOcmFlags(): GUPnPAV.OCMFlags
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: UpdatableObject, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: UpdatableObject, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::id", callback: (($obj: UpdatableObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::id", callback: (($obj: UpdatableObject, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1493,13 +2147,18 @@ export interface AudioItem_ConstructProps extends MediaItem_ConstructProps {
     album?: string
 }
 export class AudioItem {
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.AudioItem */
+=======
+    /* Properties of RygelServer.AudioItem */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     duration: number
     bitrate: number
     sampleFreq: number
     bitsPerSample: number
     channels: number
     album: string
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.MediaItem */
     mimeType: string
     dlnaProfile: string
@@ -1507,6 +2166,11 @@ export class AudioItem {
     placeHolder: boolean
     description: string
     /* Properties of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Properties of RygelServer.MediaItem */
+    description: string
+    /* Properties of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     id: string
     refId: string
     upnpClass: string
@@ -1520,6 +2184,7 @@ export class AudioItem {
     parentRef: MediaContainer
     title: string
     readonly ocmFlags: GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.AudioItem */
     parentInstance: MediaItem
     priv: AudioItemPrivate
@@ -1530,6 +2195,16 @@ export class AudioItem {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer-2.4.RygelServer.AudioItem */
+=======
+    /* Fields of RygelServer.AudioItem */
+    parentInstance: MediaItem
+    priv: AudioItemPrivate
+    /* Fields of RygelServer.MediaObject */
+    parentPtr: MediaContainer
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.AudioItem */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getDuration(): number
     setDuration(value: number): void
     getBitrate(): number
@@ -1542,6 +2217,7 @@ export class AudioItem {
     setChannels(value: number): void
     getAlbum(): string
     setAlbum(value: string): void
+<<<<<<< HEAD
     /* Methods of RygelServer-2.4.RygelServer.MediaItem */
     createStreamSource(hostIp?: string | null): DataSource | null
     isLiveStream(): boolean
@@ -1559,6 +2235,12 @@ export class AudioItem {
     getDescription(): string
     setDescription(value: string): void
     /* Methods of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Methods of RygelServer.MediaItem */
+    getDescription(): string
+    setDescription(value: string): void
+    /* Methods of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getUris(): Gee.List
     getPrimaryUri(): string | null
     addUri(uri: string): void
@@ -1566,7 +2248,17 @@ export class AudioItem {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
+<<<<<<< HEAD
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+=======
+    getResourceList(): Gee.List
+    getResourceByName(resourceName: string): MediaResource | null
+    serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
+    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    compareByProperty(mediaObject: MediaObject, property: string): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -1594,6 +2286,7 @@ export class AudioItem {
     getTitle(): string
     setTitle(value: string): void
     getOcmFlags(): GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -1603,6 +2296,17 @@ export class AudioItem {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -1610,11 +2314,16 @@ export class AudioItem {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
@@ -1622,6 +2331,31 @@ export class AudioItem {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.MediaObject */
+    vfuncAddUri(uri: string): void
+    vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
+    vfuncGetOcmFlags(): GUPnPAV.OCMFlags
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::duration", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::duration", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1652,6 +2386,7 @@ export class AudioItem {
     on(sigName: "notify::album", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::album", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::album", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
     connect(sigName: "notify::mime-type", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::mime-type", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::mime-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1672,6 +2407,8 @@ export class AudioItem {
     on(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::description", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::description", callback: (($obj: AudioItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1763,6 +2500,7 @@ export interface ImageItem_ConstructProps extends MediaItem_ConstructProps {
     thumbnails?: Gee.ArrayList
 }
 export class ImageItem {
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.MediaItem */
     mimeType: string
     dlnaProfile: string
@@ -1770,6 +2508,11 @@ export class ImageItem {
     placeHolder: boolean
     description: string
     /* Properties of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Properties of RygelServer.MediaItem */
+    description: string
+    /* Properties of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     id: string
     refId: string
     upnpClass: string
@@ -1783,11 +2526,16 @@ export class ImageItem {
     parentRef: MediaContainer
     title: string
     readonly ocmFlags: GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.VisualItem */
+=======
+    /* Properties of RygelServer.VisualItem */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     width: number
     height: number
     colorDepth: number
     thumbnails: Gee.ArrayList
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.ImageItem */
     parentInstance: MediaItem
     priv: ImageItemPrivate
@@ -1814,6 +2562,19 @@ export class ImageItem {
     getDescription(): string
     setDescription(value: string): void
     /* Methods of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Fields of RygelServer.ImageItem */
+    parentInstance: MediaItem
+    priv: ImageItemPrivate
+    /* Fields of RygelServer.MediaObject */
+    parentPtr: MediaContainer
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.MediaItem */
+    getDescription(): string
+    setDescription(value: string): void
+    /* Methods of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getUris(): Gee.List
     getPrimaryUri(): string | null
     addUri(uri: string): void
@@ -1821,7 +2582,17 @@ export class ImageItem {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
+<<<<<<< HEAD
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+=======
+    getResourceList(): Gee.List
+    getResourceByName(resourceName: string): MediaResource | null
+    serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
+    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    compareByProperty(mediaObject: MediaObject, property: string): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -1849,6 +2620,7 @@ export class ImageItem {
     getTitle(): string
     setTitle(value: string): void
     getOcmFlags(): GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -1858,6 +2630,17 @@ export class ImageItem {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -1865,13 +2648,22 @@ export class ImageItem {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Methods of RygelServer-2.4.RygelServer.VisualItem */
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Methods of RygelServer.VisualItem */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getWidth(): number
     setWidth(value: number): void
     getHeight(): number
@@ -1880,6 +2672,7 @@ export class ImageItem {
     setColorDepth(value: number): void
     getThumbnails(): Gee.ArrayList
     setThumbnails(value: Gee.ArrayList): void
+<<<<<<< HEAD
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -1906,6 +2699,39 @@ export class ImageItem {
     on(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
+=======
+    /* Virtual methods of RygelServer.ImageItem */
+    vfuncGetWidth(): number
+    vfuncSetWidth(value: number): void
+    vfuncGetHeight(): number
+    vfuncSetHeight(value: number): void
+    vfuncGetColorDepth(): number
+    vfuncSetColorDepth(value: number): void
+    vfuncGetThumbnails(): Gee.ArrayList
+    vfuncSetThumbnails(value: Gee.ArrayList): void
+    /* Virtual methods of RygelServer.MediaObject */
+    vfuncAddUri(uri: string): void
+    vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
+    vfuncGetOcmFlags(): GUPnPAV.OCMFlags
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::description", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::description", callback: (($obj: ImageItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2013,6 +2839,7 @@ export class ImageItem {
 export interface MediaArtStore_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MediaArtStore {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.MediaArtStore */
     parentInstance: GObject.Object
     priv: MediaArtStorePrivate
@@ -2032,6 +2859,27 @@ export class MediaArtStore {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of RygelServer.MediaArtStore */
+    parentInstance: GObject.Object
+    priv: MediaArtStorePrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.MediaArtStore */
+    findMediaArt(item: MusicItem, simple: boolean): Thumbnail | null
+    findMediaArtAny(item: MusicItem): Thumbnail | null
+    getMediaArtFile(type: string, item: MusicItem, simple: boolean): Gio.File | null
+    add(item: MusicItem, file: Gio.File, data: any | null): void
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2039,11 +2887,16 @@ export class MediaArtStore {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaArtStore, pspec: GObject.ParamSpec) => void)): number
@@ -2051,6 +2904,24 @@ export class MediaArtStore {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: MediaArtStore, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: MediaArtStore, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2068,6 +2939,7 @@ export class MediaArtStore {
 export interface MediaObjects_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class MediaObjects {
+<<<<<<< HEAD
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly readOnlyView: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -2100,6 +2972,25 @@ export class MediaObjects {
     reserved9(): void
     getReadOnlyView(): Gee.BidirList
     /* Methods of Gee-0.8.Gee.AbstractList */
+=======
+    /* Properties of Gee.ArrayList */
+    equalFunc: GLib.EqualFunc
+    /* Properties of Gee.AbstractList */
+    readonly readOnlyView: Gee.List
+    /* Properties of Gee.AbstractCollection */
+    readonly size: number
+    readonly isEmpty: boolean
+    /* Fields of RygelServer.MediaObjects */
+    parentInstance: Gee.ArrayList
+    priv: MediaObjectsPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.MediaObjects */
+    sortByCriteria(sortCriteria: string): void
+    /* Methods of Gee.ArrayList */
+    sortWithData(compare: GLib.CompareDataFunc): void
+    /* Methods of Gee.AbstractList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     listIterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -2107,12 +2998,20 @@ export class MediaObjects {
     insert(index: number, item?: object | null): void
     removeAt(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
+<<<<<<< HEAD
     getReadOnlyView(): Gee.List
     /* Methods of Gee-0.8.Gee.AbstractCollection */
+=======
+    first(): object | null
+    last(): object | null
+    insertAll(index: number, collection: Gee.Collection): void
+    /* Methods of Gee.AbstractCollection */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
+<<<<<<< HEAD
     iterator(): Gee.Iterator
     foreach(f: Gee.ForallFunc): boolean
     getSize(): number
@@ -2127,6 +3026,23 @@ export class MediaObjects {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    toArray(): object[]
+    addAll(collection: Gee.Collection): boolean
+    containsAll(collection: Gee.Collection): boolean
+    removeAll(collection: Gee.Collection): boolean
+    retainAll(collection: Gee.Collection): boolean
+    iterator(): Gee.Iterator
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2134,11 +3050,16 @@ export class MediaObjects {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
@@ -2146,6 +3067,52 @@ export class MediaObjects {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of Gee.AbstractList */
+    vfuncListIterator(): Gee.ListIterator
+    vfuncGet(index: number): object | null
+    vfuncSet(index: number, item?: object | null): void
+    vfuncIndexOf(item?: object | null): number
+    vfuncInsert(index: number, item?: object | null): void
+    vfuncRemoveAt(index: number): object | null
+    vfuncSlice(start: number, stop: number): Gee.List | null
+    vfuncFirst(): object | null
+    vfuncLast(): object | null
+    vfuncInsertAll(index: number, collection: Gee.Collection): void
+    vfuncSort(compareFunc?: GLib.CompareFunc | null): void
+    /* Virtual methods of Gee.AbstractCollection */
+    vfuncContains(item?: object | null): boolean
+    vfuncAdd(item?: object | null): boolean
+    vfuncRemove(item?: object | null): boolean
+    vfuncClear(): void
+    vfuncToArray(): object[]
+    vfuncAddAll(collection: Gee.Collection): boolean
+    vfuncContainsAll(collection: Gee.Collection): boolean
+    vfuncRemoveAll(collection: Gee.Collection): boolean
+    vfuncRetainAll(collection: Gee.Collection): boolean
+    vfuncIterator(): Gee.Iterator
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::equal-func", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::equal-func", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::read-only-view", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2156,11 +3123,19 @@ export class MediaObjects {
     on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
     connect(sigName: "notify::read-only", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+=======
+    connect(sigName: "notify::is-empty", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::is-empty", callback: (($obj: MediaObjects, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2173,7 +3148,11 @@ export class MediaObjects {
     _init (config?: MediaObjects_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): MediaObjects
+<<<<<<< HEAD
     static new(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, equalFunc: Gee.EqualDataFunc | null): MediaObjects
+=======
+    static new(equalFunc?: GLib.EqualFunc | null): MediaObjects
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     static $gtype: GObject.Type
 }
 export interface MusicItem_ConstructProps extends AudioItem_ConstructProps {
@@ -2181,23 +3160,40 @@ export interface MusicItem_ConstructProps extends AudioItem_ConstructProps {
     albumArt?: Thumbnail
 }
 export class MusicItem {
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.MusicItem */
     trackNumber: number
     albumArt: Thumbnail
     /* Properties of RygelServer-2.4.RygelServer.AudioItem */
+=======
+    /* Properties of RygelServer.MusicItem */
+    trackNumber: number
+    albumArt: Thumbnail
+    /* Properties of RygelServer.AudioItem */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     duration: number
     bitrate: number
     sampleFreq: number
     bitsPerSample: number
     channels: number
     album: string
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.MediaItem */
+=======
+    /* Properties of RygelServer.MediaFileItem */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     mimeType: string
     dlnaProfile: string
     size: number
     placeHolder: boolean
+<<<<<<< HEAD
     description: string
     /* Properties of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Properties of RygelServer.MediaItem */
+    description: string
+    /* Properties of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     id: string
     refId: string
     upnpClass: string
@@ -2211,6 +3207,7 @@ export class MusicItem {
     parentRef: MediaContainer
     title: string
     readonly ocmFlags: GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.MusicItem */
     parentInstance: AudioItem
     priv: MusicItemPrivate
@@ -2221,12 +3218,29 @@ export class MusicItem {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer-2.4.RygelServer.MusicItem */
+=======
+    /* Fields of RygelServer.MusicItem */
+    parentInstance: AudioItem
+    priv: MusicItemPrivate
+    /* Fields of RygelServer.MediaFileItem */
+    rygelMediaFileItemAddressRegex: GLib.Regex
+    rygelMediaFileItemMimeToExt: Gee.HashMap
+    /* Fields of RygelServer.MediaObject */
+    parentPtr: MediaContainer
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.MusicItem */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     lookupAlbumArt(): void
     getTrackNumber(): number
     setTrackNumber(value: number): void
     getAlbumArt(): Thumbnail
     setAlbumArt(value: Thumbnail): void
+<<<<<<< HEAD
     /* Methods of RygelServer-2.4.RygelServer.AudioItem */
+=======
+    /* Methods of RygelServer.AudioItem */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getDuration(): number
     setDuration(value: number): void
     getBitrate(): number
@@ -2239,12 +3253,22 @@ export class MusicItem {
     setChannels(value: number): void
     getAlbum(): string
     setAlbum(value: string): void
+<<<<<<< HEAD
     /* Methods of RygelServer-2.4.RygelServer.MediaItem */
     createStreamSource(hostIp?: string | null): DataSource | null
     isLiveStream(): boolean
     streamable(): boolean
     getProtocolInfo(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
     addResources(didlItem: GUPnPAV.DIDLLiteItem, allowInternal: boolean): void
+=======
+    /* Methods of RygelServer.MediaFileItem */
+    getPrimaryResource(): MediaResource
+    getExtension(): string
+    extFromMimeType(mimeType: string): string
+    addEngineResources(callback?: Gio.AsyncReadyCallback | null): void
+    addEngineResourcesFinish(res: Gio.AsyncResult): void
+    addAdditionalResources(server: HTTPServer): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getMimeType(): string
     setMimeType(value: string): void
     getDlnaProfile(): string
@@ -2253,9 +3277,16 @@ export class MusicItem {
     setSize(value: number): void
     getPlaceHolder(): boolean
     setPlaceHolder(value: boolean): void
+<<<<<<< HEAD
     getDescription(): string
     setDescription(value: string): void
     /* Methods of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Methods of RygelServer.MediaItem */
+    getDescription(): string
+    setDescription(value: string): void
+    /* Methods of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getUris(): Gee.List
     getPrimaryUri(): string | null
     addUri(uri: string): void
@@ -2263,7 +3294,17 @@ export class MusicItem {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
+<<<<<<< HEAD
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+=======
+    getResourceList(): Gee.List
+    getResourceByName(resourceName: string): MediaResource | null
+    serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
+    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    compareByProperty(mediaObject: MediaObject, property: string): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -2291,6 +3332,7 @@ export class MusicItem {
     getTitle(): string
     setTitle(value: string): void
     getOcmFlags(): GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -2300,6 +3342,17 @@ export class MusicItem {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2307,11 +3360,16 @@ export class MusicItem {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MusicItem, pspec: GObject.ParamSpec) => void)): number
@@ -2319,6 +3377,37 @@ export class MusicItem {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.MediaFileItem */
+    vfuncGetPrimaryResource(): MediaResource
+    vfuncGetExtension(): string
+    vfuncAddEngineResources(callback?: Gio.AsyncReadyCallback | null): void
+    vfuncAddEngineResourcesFinish(res: Gio.AsyncResult): void
+    vfuncAddAdditionalResources(server: HTTPServer): void
+    /* Virtual methods of RygelServer.MediaObject */
+    vfuncAddUri(uri: string): void
+    vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
+    vfuncGetOcmFlags(): GUPnPAV.OCMFlags
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: MusicItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: MusicItem, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::track-number", callback: (($obj: MusicItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::track-number", callback: (($obj: MusicItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::track-number", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2466,13 +3555,23 @@ export class MusicItem {
 export interface PhotoItem_ConstructProps extends ImageItem_ConstructProps {
 }
 export class PhotoItem {
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.MediaItem */
+=======
+    /* Properties of RygelServer.MediaFileItem */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     mimeType: string
     dlnaProfile: string
     size: number
     placeHolder: boolean
+<<<<<<< HEAD
     description: string
     /* Properties of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Properties of RygelServer.MediaItem */
+    description: string
+    /* Properties of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     id: string
     refId: string
     upnpClass: string
@@ -2486,6 +3585,7 @@ export class PhotoItem {
     parentRef: MediaContainer
     title: string
     readonly ocmFlags: GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.PhotoItem */
     parentInstance: ImageItem
     priv: PhotoItemPrivate
@@ -2501,6 +3601,25 @@ export class PhotoItem {
     streamable(): boolean
     getProtocolInfo(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
     addResources(didlItem: GUPnPAV.DIDLLiteItem, allowInternal: boolean): void
+=======
+    /* Fields of RygelServer.PhotoItem */
+    parentInstance: ImageItem
+    priv: PhotoItemPrivate
+    /* Fields of RygelServer.MediaFileItem */
+    rygelMediaFileItemAddressRegex: GLib.Regex
+    rygelMediaFileItemMimeToExt: Gee.HashMap
+    /* Fields of RygelServer.MediaObject */
+    parentPtr: MediaContainer
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.MediaFileItem */
+    getPrimaryResource(): MediaResource
+    getExtension(): string
+    extFromMimeType(mimeType: string): string
+    addEngineResources(callback?: Gio.AsyncReadyCallback | null): void
+    addEngineResourcesFinish(res: Gio.AsyncResult): void
+    addAdditionalResources(server: HTTPServer): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getMimeType(): string
     setMimeType(value: string): void
     getDlnaProfile(): string
@@ -2509,9 +3628,16 @@ export class PhotoItem {
     setSize(value: number): void
     getPlaceHolder(): boolean
     setPlaceHolder(value: boolean): void
+<<<<<<< HEAD
     getDescription(): string
     setDescription(value: string): void
     /* Methods of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Methods of RygelServer.MediaItem */
+    getDescription(): string
+    setDescription(value: string): void
+    /* Methods of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getUris(): Gee.List
     getPrimaryUri(): string | null
     addUri(uri: string): void
@@ -2519,7 +3645,17 @@ export class PhotoItem {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
+<<<<<<< HEAD
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+=======
+    getResourceList(): Gee.List
+    getResourceByName(resourceName: string): MediaResource | null
+    serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
+    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    compareByProperty(mediaObject: MediaObject, property: string): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -2547,6 +3683,7 @@ export class PhotoItem {
     getTitle(): string
     setTitle(value: string): void
     getOcmFlags(): GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -2556,6 +3693,17 @@ export class PhotoItem {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2563,11 +3711,16 @@ export class PhotoItem {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PhotoItem, pspec: GObject.ParamSpec) => void)): number
@@ -2575,6 +3728,46 @@ export class PhotoItem {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.ImageItem */
+    vfuncGetWidth(): number
+    vfuncSetWidth(value: number): void
+    vfuncGetHeight(): number
+    vfuncSetHeight(value: number): void
+    vfuncGetColorDepth(): number
+    vfuncSetColorDepth(value: number): void
+    vfuncGetThumbnails(): Gee.ArrayList
+    vfuncSetThumbnails(value: Gee.ArrayList): void
+    /* Virtual methods of RygelServer.MediaFileItem */
+    vfuncGetPrimaryResource(): MediaResource
+    vfuncGetExtension(): string
+    vfuncAddEngineResources(callback?: Gio.AsyncReadyCallback | null): void
+    vfuncAddEngineResourcesFinish(res: Gio.AsyncResult): void
+    vfuncAddAdditionalResources(server: HTTPServer): void
+    /* Virtual methods of RygelServer.MediaObject */
+    vfuncAddUri(uri: string): void
+    vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
+    vfuncGetOcmFlags(): GUPnPAV.OCMFlags
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: PhotoItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: PhotoItem, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::mime-type", callback: (($obj: PhotoItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::mime-type", callback: (($obj: PhotoItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::mime-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2683,13 +3876,21 @@ export interface SimpleContainer_ConstructProps extends MediaContainer_Construct
     searchClasses?: Gee.ArrayList
 }
 export class SimpleContainer {
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.MediaContainer */
+=======
+    /* Properties of RygelServer.MediaContainer */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     childCount: number
     emptyChildCount: number
     readonly allChildCount: number
     createModeEnabled: boolean
     sortCriteria: string
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Properties of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     id: string
     refId: string
     upnpClass: string
@@ -2703,6 +3904,7 @@ export class SimpleContainer {
     parentRef: MediaContainer
     title: string
     readonly ocmFlags: GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.SearchableContainer */
     searchClasses: Gee.ArrayList
     /* Fields of RygelServer-2.4.RygelServer.SimpleContainer */
@@ -2718,13 +3920,34 @@ export class SimpleContainer {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer-2.4.RygelServer.SimpleContainer */
+=======
+    /* Properties of RygelServer.SearchableContainer */
+    searchClasses: Gee.ArrayList
+    /* Fields of RygelServer.SimpleContainer */
+    parentInstance: MediaContainer
+    priv: SimpleContainerPrivate
+    children: MediaObjects
+    /* Fields of RygelServer.MediaContainer */
+    updateId: number
+    storageUsed: number
+    totalDeletedChildCount: number
+    /* Fields of RygelServer.MediaObject */
+    parentPtr: MediaContainer
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.SimpleContainer */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     addChildItem(child: MediaItem): void
     getAllChildren(): MediaObjects
     addChildContainer(child: MediaContainer): void
     removeChild(child: MediaObject): void
     clear(): void
     isChildIdUnique(childId: string): boolean
+<<<<<<< HEAD
     /* Methods of RygelServer-2.4.RygelServer.MediaContainer */
+=======
+    /* Methods of RygelServer.MediaContainer */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getChildren(offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getChildrenFinish(res: Gio.AsyncResult): MediaObjects | null
     findObject(id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -2739,7 +3962,11 @@ export class SimpleContainer {
     setCreateModeEnabled(value: boolean): void
     getSortCriteria(): string
     setSortCriteria(value: string): void
+<<<<<<< HEAD
     /* Methods of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Methods of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getUris(): Gee.List
     getPrimaryUri(): string | null
     addUri(uri: string): void
@@ -2747,7 +3974,17 @@ export class SimpleContainer {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
+<<<<<<< HEAD
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+=======
+    getResourceList(): Gee.List
+    getResourceByName(resourceName: string): MediaResource | null
+    serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
+    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    compareByProperty(mediaObject: MediaObject, property: string): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -2775,6 +4012,7 @@ export class SimpleContainer {
     getTitle(): string
     setTitle(value: string): void
     getOcmFlags(): GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -2784,6 +4022,17 @@ export class SimpleContainer {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2791,11 +4040,16 @@ export class SimpleContainer {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Methods of RygelServer-2.4.RygelServer.SearchableContainer */
     search(expression: SearchExpression | null, offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -2821,6 +4075,61 @@ export class SimpleContainer {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Methods of RygelServer.SearchableContainer */
+    search(expression: SearchExpression | null, offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    searchFinish(res: Gio.AsyncResult): [ /* returnType */ MediaObjects | null, /* totalMatches */ number ]
+    simpleSearch(expression: SearchExpression | null, offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    simpleSearchFinish(res: Gio.AsyncResult): [ /* returnType */ MediaObjects | null, /* totalMatches */ number ]
+    getSearchClasses(): Gee.ArrayList
+    setSearchClasses(value: Gee.ArrayList): void
+    /* Virtual methods of RygelServer.SimpleContainer */
+    vfuncSearch(expression: SearchExpression | null, offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfuncSearchFinish(res: Gio.AsyncResult): [ /* returnType */ MediaObjects | null, /* totalMatches */ number ]
+    vfuncGetSearchClasses(): Gee.ArrayList
+    vfuncSetSearchClasses(value: Gee.ArrayList): void
+    /* Virtual methods of RygelServer.MediaContainer */
+    vfuncGetChildren(offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfuncGetChildrenFinish(res: Gio.AsyncResult): MediaObjects | null
+    vfuncFindObject(id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfuncFindObjectFinish(res: Gio.AsyncResult): MediaObject | null
+    /* Virtual methods of RygelServer.MediaObject */
+    vfuncAddUri(uri: string): void
+    vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
+    vfuncGetOcmFlags(): GUPnPAV.OCMFlags
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of RygelServer.MediaContainer */
+    connect(sigName: "container-updated", callback: (($obj: SimpleContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
+    connect_after(sigName: "container-updated", callback: (($obj: SimpleContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
+    emit(sigName: "container-updated", container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean): void
+    on(sigName: "container-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "container-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "container-updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "sub-tree-updates-finished", callback: (($obj: SimpleContainer, subTreeRoot: MediaObject) => void)): number
+    connect_after(sigName: "sub-tree-updates-finished", callback: (($obj: SimpleContainer, subTreeRoot: MediaObject) => void)): number
+    emit(sigName: "sub-tree-updates-finished", subTreeRoot: MediaObject): void
+    on(sigName: "sub-tree-updates-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "sub-tree-updates-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "sub-tree-updates-finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SimpleContainer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: SimpleContainer, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::child-count", callback: (($obj: SimpleContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::child-count", callback: (($obj: SimpleContainer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::child-count", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2939,22 +4248,38 @@ export interface VideoItem_ConstructProps extends AudioItem_ConstructProps {
     thumbnails?: Gee.ArrayList
 }
 export class VideoItem {
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.VideoItem */
     author: string
     /* Properties of RygelServer-2.4.RygelServer.AudioItem */
+=======
+    /* Properties of RygelServer.VideoItem */
+    author: string
+    /* Properties of RygelServer.AudioItem */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     duration: number
     bitrate: number
     sampleFreq: number
     bitsPerSample: number
     channels: number
     album: string
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.MediaItem */
+=======
+    /* Properties of RygelServer.MediaFileItem */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     mimeType: string
     dlnaProfile: string
     size: number
     placeHolder: boolean
+<<<<<<< HEAD
     description: string
     /* Properties of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Properties of RygelServer.MediaItem */
+    description: string
+    /* Properties of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     id: string
     refId: string
     upnpClass: string
@@ -2968,11 +4293,16 @@ export class VideoItem {
     parentRef: MediaContainer
     title: string
     readonly ocmFlags: GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.VisualItem */
+=======
+    /* Properties of RygelServer.VisualItem */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     width: number
     height: number
     colorDepth: number
     thumbnails: Gee.ArrayList
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.VideoItem */
     parentInstance: AudioItem
     priv: VideoItemPrivate
@@ -2987,6 +4317,23 @@ export class VideoItem {
     getAuthor(): string
     setAuthor(value: string): void
     /* Methods of RygelServer-2.4.RygelServer.AudioItem */
+=======
+    /* Fields of RygelServer.VideoItem */
+    parentInstance: AudioItem
+    priv: VideoItemPrivate
+    subtitles: Gee.ArrayList
+    /* Fields of RygelServer.MediaFileItem */
+    rygelMediaFileItemAddressRegex: GLib.Regex
+    rygelMediaFileItemMimeToExt: Gee.HashMap
+    /* Fields of RygelServer.MediaObject */
+    parentPtr: MediaContainer
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.VideoItem */
+    getAuthor(): string
+    setAuthor(value: string): void
+    /* Methods of RygelServer.AudioItem */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getDuration(): number
     setDuration(value: number): void
     getBitrate(): number
@@ -2999,12 +4346,22 @@ export class VideoItem {
     setChannels(value: number): void
     getAlbum(): string
     setAlbum(value: string): void
+<<<<<<< HEAD
     /* Methods of RygelServer-2.4.RygelServer.MediaItem */
     createStreamSource(hostIp?: string | null): DataSource | null
     isLiveStream(): boolean
     streamable(): boolean
     getProtocolInfo(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
     addResources(didlItem: GUPnPAV.DIDLLiteItem, allowInternal: boolean): void
+=======
+    /* Methods of RygelServer.MediaFileItem */
+    getPrimaryResource(): MediaResource
+    getExtension(): string
+    extFromMimeType(mimeType: string): string
+    addEngineResources(callback?: Gio.AsyncReadyCallback | null): void
+    addEngineResourcesFinish(res: Gio.AsyncResult): void
+    addAdditionalResources(server: HTTPServer): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getMimeType(): string
     setMimeType(value: string): void
     getDlnaProfile(): string
@@ -3013,9 +4370,16 @@ export class VideoItem {
     setSize(value: number): void
     getPlaceHolder(): boolean
     setPlaceHolder(value: boolean): void
+<<<<<<< HEAD
     getDescription(): string
     setDescription(value: string): void
     /* Methods of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Methods of RygelServer.MediaItem */
+    getDescription(): string
+    setDescription(value: string): void
+    /* Methods of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getUris(): Gee.List
     getPrimaryUri(): string | null
     addUri(uri: string): void
@@ -3023,7 +4387,17 @@ export class VideoItem {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
+<<<<<<< HEAD
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+=======
+    getResourceList(): Gee.List
+    getResourceByName(resourceName: string): MediaResource | null
+    serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
+    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    compareByProperty(mediaObject: MediaObject, property: string): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -3051,6 +4425,7 @@ export class VideoItem {
     getTitle(): string
     setTitle(value: string): void
     getOcmFlags(): GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -3060,6 +4435,17 @@ export class VideoItem {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -3067,13 +4453,22 @@ export class VideoItem {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Methods of RygelServer-2.4.RygelServer.VisualItem */
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Methods of RygelServer.VisualItem */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getWidth(): number
     setWidth(value: number): void
     getHeight(): number
@@ -3082,12 +4477,52 @@ export class VideoItem {
     setColorDepth(value: number): void
     getThumbnails(): Gee.ArrayList
     setThumbnails(value: Gee.ArrayList): void
+<<<<<<< HEAD
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: VideoItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    /* Virtual methods of RygelServer.VideoItem */
+    vfuncGetWidth(): number
+    vfuncSetWidth(value: number): void
+    vfuncGetHeight(): number
+    vfuncSetHeight(value: number): void
+    vfuncGetColorDepth(): number
+    vfuncSetColorDepth(value: number): void
+    vfuncGetThumbnails(): Gee.ArrayList
+    vfuncSetThumbnails(value: Gee.ArrayList): void
+    /* Virtual methods of RygelServer.MediaFileItem */
+    vfuncGetPrimaryResource(): MediaResource
+    vfuncGetExtension(): string
+    vfuncAddEngineResources(callback?: Gio.AsyncReadyCallback | null): void
+    vfuncAddEngineResourcesFinish(res: Gio.AsyncResult): void
+    vfuncAddAdditionalResources(server: HTTPServer): void
+    /* Virtual methods of RygelServer.MediaObject */
+    vfuncAddUri(uri: string): void
+    vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
+    vfuncGetOcmFlags(): GUPnPAV.OCMFlags
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: VideoItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: VideoItem, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::author", callback: (($obj: VideoItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::author", callback: (($obj: VideoItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::author", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3254,13 +4689,21 @@ export interface MediaContainer_ConstructProps extends MediaObject_ConstructProp
     sortCriteria?: string
 }
 export class MediaContainer {
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.MediaContainer */
+=======
+    /* Properties of RygelServer.MediaContainer */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     childCount: number
     emptyChildCount: number
     readonly allChildCount: number
     createModeEnabled: boolean
     sortCriteria: string
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Properties of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     id: string
     refId: string
     upnpClass: string
@@ -3274,17 +4717,29 @@ export class MediaContainer {
     parentRef: MediaContainer
     title: string
     readonly ocmFlags: GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.MediaContainer */
+=======
+    /* Fields of RygelServer.MediaContainer */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentInstance: MediaObject
     priv: MediaContainerPrivate
     updateId: number
     storageUsed: number
     totalDeletedChildCount: number
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.MediaObject */
     parentPtr: MediaContainer
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer-2.4.RygelServer.MediaContainer */
+=======
+    /* Fields of RygelServer.MediaObject */
+    parentPtr: MediaContainer
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.MediaContainer */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getChildren(offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getChildrenFinish(res: Gio.AsyncResult): MediaObjects | null
     findObject(id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -3299,7 +4754,11 @@ export class MediaContainer {
     setCreateModeEnabled(value: boolean): void
     getSortCriteria(): string
     setSortCriteria(value: string): void
+<<<<<<< HEAD
     /* Methods of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Methods of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getUris(): Gee.List
     getPrimaryUri(): string | null
     addUri(uri: string): void
@@ -3307,7 +4766,17 @@ export class MediaContainer {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
+<<<<<<< HEAD
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+=======
+    getResourceList(): Gee.List
+    getResourceByName(resourceName: string): MediaResource | null
+    serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
+    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    compareByProperty(mediaObject: MediaObject, property: string): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -3335,6 +4804,7 @@ export class MediaContainer {
     getTitle(): string
     setTitle(value: string): void
     getOcmFlags(): GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -3344,6 +4814,17 @@ export class MediaContainer {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -3351,11 +4832,16 @@ export class MediaContainer {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of RygelServer-2.4.RygelServer.MediaContainer */
     connect(sigName: "container_updated", callback: (($obj: MediaContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
@@ -3374,6 +4860,49 @@ export class MediaContainer {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.MediaContainer */
+    vfuncGetChildren(offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfuncGetChildrenFinish(res: Gio.AsyncResult): MediaObjects | null
+    vfuncFindObject(id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfuncFindObjectFinish(res: Gio.AsyncResult): MediaObject | null
+    /* Virtual methods of RygelServer.MediaObject */
+    vfuncAddUri(uri: string): void
+    vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
+    vfuncGetOcmFlags(): GUPnPAV.OCMFlags
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of RygelServer.MediaContainer */
+    connect(sigName: "container_updated", callback: (($obj: MediaContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
+    connect_after(sigName: "container_updated", callback: (($obj: MediaContainer, container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean) => void)): number
+    emit(sigName: "container_updated", container: MediaContainer, object: MediaObject, eventType: ObjectEventType, subTreeUpdate: boolean): void
+    on(sigName: "container_updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "container_updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "container_updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "sub_tree_updates_finished", callback: (($obj: MediaContainer, subTreeRoot: MediaObject) => void)): number
+    connect_after(sigName: "sub_tree_updates_finished", callback: (($obj: MediaContainer, subTreeRoot: MediaObject) => void)): number
+    emit(sigName: "sub_tree_updates_finished", subTreeRoot: MediaObject): void
+    on(sigName: "sub_tree_updates_finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "sub_tree_updates_finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "sub_tree_updates_finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: MediaContainer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: MediaContainer, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::child-count", callback: (($obj: MediaContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::child-count", callback: (($obj: MediaContainer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::child-count", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3484,13 +5013,21 @@ export interface MediaItem_ConstructProps extends MediaObject_ConstructProps {
     description?: string
 }
 export class MediaItem {
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.MediaItem */
+=======
+    /* Properties of RygelServer.MediaItem */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     mimeType: string
     dlnaProfile: string
     size: number
     placeHolder: boolean
     description: string
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Properties of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     id: string
     refId: string
     upnpClass: string
@@ -3504,6 +5041,7 @@ export class MediaItem {
     parentRef: MediaContainer
     title: string
     readonly ocmFlags: GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.MediaItem */
     parentInstance: MediaObject
     priv: MediaItemPrivate
@@ -3513,6 +5051,17 @@ export class MediaItem {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer-2.4.RygelServer.MediaItem */
+=======
+    /* Fields of RygelServer.MediaItem */
+    parentInstance: MediaObject
+    priv: MediaItemPrivate
+    rygelMediaItemAddressRegex: GLib.Regex
+    /* Fields of RygelServer.MediaObject */
+    parentPtr: MediaContainer
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.MediaItem */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     createStreamSource(hostIp?: string | null): DataSource | null
     isLiveStream(): boolean
     streamable(): boolean
@@ -3528,7 +5077,11 @@ export class MediaItem {
     setPlaceHolder(value: boolean): void
     getDescription(): string
     setDescription(value: string): void
+<<<<<<< HEAD
     /* Methods of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Methods of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getUris(): Gee.List
     getPrimaryUri(): string | null
     addUri(uri: string): void
@@ -3536,7 +5089,17 @@ export class MediaItem {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
+<<<<<<< HEAD
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+=======
+    getResourceList(): Gee.List
+    getResourceByName(resourceName: string): MediaResource | null
+    serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
+    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    compareByProperty(mediaObject: MediaObject, property: string): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -3564,6 +5127,7 @@ export class MediaItem {
     getTitle(): string
     setTitle(value: string): void
     getOcmFlags(): GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -3573,6 +5137,17 @@ export class MediaItem {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -3580,11 +5155,16 @@ export class MediaItem {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaItem, pspec: GObject.ParamSpec) => void)): number
@@ -3592,6 +5172,36 @@ export class MediaItem {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.MediaItem */
+    vfuncCreateStreamSource(hostIp?: string | null): DataSource | null
+    vfuncStreamable(): boolean
+    vfuncGetProtocolInfo(uri: string | null, protocol: string): GUPnPAV.ProtocolInfo
+    vfuncAddResources(didlItem: GUPnPAV.DIDLLiteItem, allowInternal: boolean): void
+    /* Virtual methods of RygelServer.MediaObject */
+    vfuncAddUri(uri: string): void
+    vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
+    vfuncGetOcmFlags(): GUPnPAV.OCMFlags
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: MediaItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: MediaItem, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::mime-type", callback: (($obj: MediaItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::mime-type", callback: (($obj: MediaItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::mime-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3709,7 +5319,11 @@ export interface MediaObject_ConstructProps extends GObject.Object_ConstructProp
     title?: string
 }
 export class MediaObject {
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Properties of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     id: string
     refId: string
     upnpClass: string
@@ -3723,6 +5337,7 @@ export class MediaObject {
     parentRef: MediaContainer
     title: string
     readonly ocmFlags: GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.MediaObject */
     parentInstance: GObject.Object
     priv: MediaObjectPrivate
@@ -3730,6 +5345,15 @@ export class MediaObject {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Fields of RygelServer.MediaObject */
+    parentInstance: GObject.Object
+    priv: MediaObjectPrivate
+    parentPtr: MediaContainer
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getUris(): Gee.List
     getPrimaryUri(): string | null
     addUri(uri: string): void
@@ -3765,6 +5389,7 @@ export class MediaObject {
     getTitle(): string
     setTitle(value: string): void
     getOcmFlags(): GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -3774,6 +5399,17 @@ export class MediaObject {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -3781,11 +5417,16 @@ export class MediaObject {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaObject, pspec: GObject.ParamSpec) => void)): number
@@ -3793,6 +5434,28 @@ export class MediaObject {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.MediaObject */
+    vfuncAddUri(uri: string): void
+    vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    vfuncGetOcmFlags(): GUPnPAV.OCMFlags
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: MediaObject, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: MediaObject, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::id", callback: (($obj: MediaObject, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::id", callback: (($obj: MediaObject, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3876,17 +5539,26 @@ export interface MediaServerPlugin_ConstructProps extends RygelCore.Plugin_Const
     supportedProfiles?: any[]
 }
 export class MediaServerPlugin {
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.MediaServerPlugin */
     readonly searchCaps: string
     uploadProfiles: any[]
     supportedProfiles: any[]
     /* Properties of RygelCore-2.4.RygelCore.Plugin */
+=======
+    /* Properties of RygelServer.MediaServerPlugin */
+    readonly searchCaps: string
+    uploadProfiles: any[]
+    supportedProfiles: any[]
+    /* Properties of RygelCore.Plugin */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     capabilities: RygelCore.PluginCapabilities
     title: string
     active: boolean
     resourceInfos: Gee.ArrayList
     iconInfos: Gee.ArrayList
     defaultIcons: Gee.ArrayList
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.MediaServerPlugin */
     parentInstance: RygelCore.Plugin
     priv: MediaServerPluginPrivate
@@ -3895,13 +5567,25 @@ export class MediaServerPlugin {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer-2.4.RygelServer.MediaServerPlugin */
+=======
+    /* Fields of RygelServer.MediaServerPlugin */
+    parentInstance: RygelCore.Plugin
+    priv: MediaServerPluginPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.MediaServerPlugin */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getRootContainer(): MediaContainer
     getSearchCaps(): string
     getUploadProfiles(): any[]
     setUploadProfiles(value: any[]): void
     getSupportedProfiles(): any[]
     setSupportedProfiles(value: any[]): void
+<<<<<<< HEAD
     /* Methods of RygelCore-2.4.RygelCore.Plugin */
+=======
+    /* Methods of RygelCore.Plugin */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     addResource(resourceInfo: RygelCore.ResourceInfo): void
     addIcon(iconInfo: RygelCore.IconInfo): void
     applyHacks(device: RygelCore.RootDevice, descriptionPath: string): void
@@ -3917,11 +5601,16 @@ export class MediaServerPlugin {
     getResourceInfos(): Gee.ArrayList
     getIconInfos(): Gee.ArrayList
     getDefaultIcons(): Gee.ArrayList
+<<<<<<< HEAD
     /* Methods of GUPnP-1.0.GUPnP.ResourceFactory */
+=======
+    /* Methods of GUPnP.ResourceFactory */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     registerResourceProxyType(upnpType: string, type: GObject.Type): void
     registerResourceType(upnpType: string, type: GObject.Type): void
     unregisterResourceProxyType(upnpType: string): boolean
     unregisterResourceType(upnpType: string): boolean
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -3931,6 +5620,17 @@ export class MediaServerPlugin {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -3938,11 +5638,16 @@ export class MediaServerPlugin {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaServerPlugin, pspec: GObject.ParamSpec) => void)): number
@@ -3950,6 +5655,28 @@ export class MediaServerPlugin {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.MediaServerPlugin */
+    vfuncGetSearchCaps(): string
+    /* Virtual methods of RygelCore.Plugin */
+    vfuncApplyHacks(device: RygelCore.RootDevice, descriptionPath: string): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: MediaServerPlugin, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: MediaServerPlugin, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::search-caps", callback: (($obj: MediaServerPlugin, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::search-caps", callback: (($obj: MediaServerPlugin, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::search-caps", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4013,6 +5740,7 @@ export class MediaServerPlugin {
 export interface TranscodeManager_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class TranscodeManager {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.TranscodeManager */
     parentInstance: GObject.Object
     priv: TranscodeManagerPrivate
@@ -4031,6 +5759,26 @@ export class TranscodeManager {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of RygelServer.TranscodeManager */
+    parentInstance: GObject.Object
+    priv: TranscodeManagerPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.TranscodeManager */
+    createUriForItem(item: MediaItem, thumbnailIndex: number, subtitleIndex: number, transcodeTarget?: string | null, playlistTarget?: string | null): string
+    addResources(didlItem: GUPnPAV.DIDLLiteItem, item: MediaItem): void
+    getTranscoder(target: string): Transcoder
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -4038,11 +5786,16 @@ export class TranscodeManager {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: TranscodeManager, pspec: GObject.ParamSpec) => void)): number
@@ -4050,6 +5803,26 @@ export class TranscodeManager {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.TranscodeManager */
+    vfuncCreateUriForItem(item: MediaItem, thumbnailIndex: number, subtitleIndex: number, transcodeTarget?: string | null, playlistTarget?: string | null): string
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: TranscodeManager, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: TranscodeManager, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4068,12 +5841,21 @@ export interface Transcoder_ConstructProps extends GObject.Object_ConstructProps
     extension?: string
 }
 export class Transcoder {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.Transcoder */
     parentInstance: GObject.Object
     priv: TranscoderPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer-2.4.RygelServer.Transcoder */
+=======
+    /* Fields of RygelServer.Transcoder */
+    parentInstance: GObject.Object
+    priv: TranscoderPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.Transcoder */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     createSource(item: MediaItem, src: DataSource): DataSource
     addResource(didlItem: GUPnPAV.DIDLLiteItem, item: MediaItem, manager: TranscodeManager): GUPnPAV.DIDLLiteResource | null
     canHandle(target: string): boolean
@@ -4082,6 +5864,7 @@ export class Transcoder {
     getMimeType(): string
     getDlnaProfile(): string
     getExtension(): string
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -4091,6 +5874,17 @@ export class Transcoder {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -4098,11 +5892,16 @@ export class Transcoder {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Transcoder, pspec: GObject.ParamSpec) => void)): number
@@ -4110,6 +5909,28 @@ export class Transcoder {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.Transcoder */
+    vfuncCreateSource(item: MediaItem, src: DataSource): DataSource
+    vfuncAddResource(didlItem: GUPnPAV.DIDLLiteItem, item: MediaItem, manager: TranscodeManager): GUPnPAV.DIDLLiteResource | null
+    vfuncGetDistance(item: MediaItem): number
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: Transcoder, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: Transcoder, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4126,6 +5947,7 @@ export interface MediaServer_ConstructProps extends RygelCore.MediaDevice_Constr
     rootContainer?: MediaContainer
 }
 export class MediaServer {
+<<<<<<< HEAD
     /* Properties of RygelCore-2.4.RygelCore.MediaDevice */
     plugin: RygelCore.Plugin
     /* Fields of RygelServer-2.4.RygelServer.MediaServer */
@@ -4134,6 +5956,16 @@ export class MediaServer {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelCore-2.4.RygelCore.MediaDevice */
+=======
+    /* Properties of RygelCore.MediaDevice */
+    plugin: RygelCore.Plugin
+    /* Fields of RygelServer.MediaServer */
+    parentInstance: RygelCore.MediaDevice
+    priv: MediaServerPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelCore.MediaDevice */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     addInterface(iface: string): void
     removeInterface(iface: string): void
     getInterfaces(): string[]
@@ -4141,6 +5973,7 @@ export class MediaServer {
     setPlugin(value: RygelCore.Plugin): void
     getTitle(): string
     getCapabilities(): RygelCore.PluginCapabilities
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -4150,6 +5983,17 @@ export class MediaServer {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -4157,11 +6001,16 @@ export class MediaServer {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaServer, pspec: GObject.ParamSpec) => void)): number
@@ -4169,6 +6018,24 @@ export class MediaServer {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: MediaServer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: MediaServer, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::plugin", callback: (($obj: MediaServer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::plugin", callback: (($obj: MediaServer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::plugin", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4191,6 +6058,7 @@ export class MediaServer {
 export interface MediaEngine_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MediaEngine {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.MediaEngine */
     parentInstance: GObject.Object
     priv: MediaEnginePrivate
@@ -4209,6 +6077,26 @@ export class MediaEngine {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of RygelServer.MediaEngine */
+    parentInstance: GObject.Object
+    priv: MediaEnginePrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.MediaEngine */
+    getDlnaProfiles(): any[]
+    getTranscoders(): Transcoder[] | null
+    createDataSource(uri: string): DataSource | null
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -4216,11 +6104,16 @@ export class MediaEngine {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MediaEngine, pspec: GObject.ParamSpec) => void)): number
@@ -4228,6 +6121,28 @@ export class MediaEngine {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.MediaEngine */
+    vfuncGetDlnaProfiles(): any[]
+    vfuncGetTranscoders(): Transcoder[] | null
+    vfuncCreateDataSource(uri: string): DataSource | null
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: MediaEngine, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: MediaEngine, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4253,7 +6168,11 @@ export interface HTTPSeek_ConstructProps extends GObject.Object_ConstructProps {
     totalLength?: number
 }
 export class HTTPSeek {
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.HTTPSeek */
+=======
+    /* Properties of RygelServer.HTTPSeek */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     seekType: HTTPSeekType
     msg: Soup.Message
     start: number
@@ -4261,12 +6180,21 @@ export class HTTPSeek {
     step: number
     length: number
     totalLength: number
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.HTTPSeek */
     parentInstance: GObject.Object
     priv: HTTPSeekPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer-2.4.RygelServer.HTTPSeek */
+=======
+    /* Fields of RygelServer.HTTPSeek */
+    parentInstance: GObject.Object
+    priv: HTTPSeekPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.HTTPSeek */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     addResponseHeaders(): void
     getSeekType(): HTTPSeekType
     setSeekType(value: HTTPSeekType): void
@@ -4276,6 +6204,7 @@ export class HTTPSeek {
     getStep(): number
     getLength(): number
     getTotalLength(): number
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -4285,6 +6214,17 @@ export class HTTPSeek {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -4292,11 +6232,16 @@ export class HTTPSeek {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HTTPSeek, pspec: GObject.ParamSpec) => void)): number
@@ -4304,6 +6249,26 @@ export class HTTPSeek {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.HTTPSeek */
+    vfuncAddResponseHeaders(): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: HTTPSeek, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: HTTPSeek, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::seek-type", callback: (($obj: HTTPSeek, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::seek-type", callback: (($obj: HTTPSeek, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::seek-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4354,6 +6319,7 @@ export class HTTPSeek {
 export interface PlaylistItem_ConstructProps extends MediaItem_ConstructProps {
 }
 export class PlaylistItem {
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.MediaItem */
     mimeType: string
     dlnaProfile: string
@@ -4361,6 +6327,11 @@ export class PlaylistItem {
     placeHolder: boolean
     description: string
     /* Properties of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Properties of RygelServer.MediaItem */
+    description: string
+    /* Properties of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     id: string
     refId: string
     upnpClass: string
@@ -4374,6 +6345,7 @@ export class PlaylistItem {
     parentRef: MediaContainer
     title: string
     readonly ocmFlags: GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.PlaylistItem */
     parentInstance: MediaItem
     priv: PlaylistItemPrivate
@@ -4400,6 +6372,19 @@ export class PlaylistItem {
     getDescription(): string
     setDescription(value: string): void
     /* Methods of RygelServer-2.4.RygelServer.MediaObject */
+=======
+    /* Fields of RygelServer.PlaylistItem */
+    parentInstance: MediaItem
+    priv: PlaylistItemPrivate
+    /* Fields of RygelServer.MediaObject */
+    parentPtr: MediaContainer
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.MediaItem */
+    getDescription(): string
+    setDescription(value: string): void
+    /* Methods of RygelServer.MediaObject */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getUris(): Gee.List
     getPrimaryUri(): string | null
     addUri(uri: string): void
@@ -4407,7 +6392,17 @@ export class PlaylistItem {
     getWritableFinish(res: Gio.AsyncResult): Gio.File | null
     getWritables(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getWritablesFinish(res: Gio.AsyncResult): Gee.ArrayList
+<<<<<<< HEAD
     serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+=======
+    getResourceList(): Gee.List
+    getResourceByName(resourceName: string): MediaResource | null
+    serialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    serializeResourceList(didlObject: GUPnPAV.DIDLLiteObject, httpServer: HTTPServer): void
+    createStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    applyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    compareByProperty(mediaObject: MediaObject, property: string): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     compareStringProps(prop1: string, prop2: string): number
     compareIntProps(prop1: number, prop2: number): number
     getId(): string
@@ -4435,6 +6430,7 @@ export class PlaylistItem {
     getTitle(): string
     setTitle(value: string): void
     getOcmFlags(): GUPnPAV.OCMFlags
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -4444,6 +6440,17 @@ export class PlaylistItem {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -4451,11 +6458,16 @@ export class PlaylistItem {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
@@ -4483,6 +6495,31 @@ export class PlaylistItem {
     on(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::place-holder", callback: (...args: any[]) => void): NodeJS.EventEmitter
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.MediaObject */
+    vfuncAddUri(uri: string): void
+    vfuncSerialize(serializer: Serializer, httpServer: HTTPServer): GUPnPAV.DIDLLiteObject | null
+    vfuncCreateStreamSourceForResource(request: HTTPRequest, resource: MediaResource): DataSource | null
+    vfuncApplyDidlLite(didlObject: GUPnPAV.DIDLLiteObject): void
+    vfuncCompareByProperty(mediaObject: MediaObject, property: string): number
+    vfuncGetOcmFlags(): GUPnPAV.OCMFlags
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::description", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::description", callback: (($obj: PlaylistItem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4570,27 +6607,44 @@ export class PlaylistItem {
 export interface ContentDirectory_ConstructProps extends GUPnP.Service_ConstructProps {
 }
 export class ContentDirectory {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.ContentDirectory */
+=======
+    /* Fields of RygelServer.ContentDirectory */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentInstance: GUPnP.Service
     priv: ContentDirectoryPrivate
     featureList: string
     rootContainer: MediaContainer
     systemUpdateId: number
+<<<<<<< HEAD
     /* Fields of GUPnP-1.0.GUPnP.Service */
     parent: GUPnP.ServiceInfo
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GUPnP-1.0.GUPnP.Service */
+=======
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GUPnP.Service */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     freezeNotify(): void
     notifyValue(variable: string, value: any): void
     signalsAutoconnect(userData?: object | null): void
     thawNotify(): void
+<<<<<<< HEAD
     /* Methods of GUPnP-1.0.GUPnP.ServiceInfo */
+=======
+    /* Methods of GUPnP.ServiceInfo */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getContext(): GUPnP.Context
     getControlUrl(): string
     getEventSubscriptionUrl(): string
     getId(): string
+<<<<<<< HEAD
     getIntrospection(): GUPnP.ServiceIntrospection
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getIntrospectionAsync(callback: GUPnP.ServiceIntrospectionCallback): void
     getIntrospectionAsyncFull(callback: GUPnP.ServiceIntrospectionCallback, cancellable?: Gio.Cancellable | null): void
     getLocation(): string
@@ -4598,6 +6652,7 @@ export class ContentDirectory {
     getServiceType(): string
     getUdn(): string
     getUrlBase(): Soup.URI
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -4606,6 +6661,18 @@ export class ContentDirectory {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    introspectAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    introspectFinish(res: Gio.AsyncResult): GUPnP.ServiceIntrospection
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -4613,6 +6680,7 @@ export class ContentDirectory {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
@@ -4640,6 +6708,50 @@ export class ContentDirectory {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    unref(): void
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GUPnP.Service */
+    vfuncActionInvoked(action: GUPnP.ServiceAction): void
+    vfuncQueryVariable(variable: string, value: any): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GUPnP.Service */
+    connect(sigName: "action-invoked", callback: (($obj: ContentDirectory, action: GUPnP.ServiceAction) => void)): number
+    connect_after(sigName: "action-invoked", callback: (($obj: ContentDirectory, action: GUPnP.ServiceAction) => void)): number
+    emit(sigName: "action-invoked", action: GUPnP.ServiceAction): void
+    on(sigName: "action-invoked", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "action-invoked", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "action-invoked", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify-failed", callback: (($obj: ContentDirectory, callbackUrl: Soup.URI[], reason: GLib.Error) => void)): number
+    connect_after(sigName: "notify-failed", callback: (($obj: ContentDirectory, callbackUrl: Soup.URI[], reason: GLib.Error) => void)): number
+    emit(sigName: "notify-failed", callbackUrl: Soup.URI[], reason: GLib.Error): void
+    on(sigName: "notify-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "query-variable", callback: (($obj: ContentDirectory, variable: string, value: any) => void)): number
+    connect_after(sigName: "query-variable", callback: (($obj: ContentDirectory, variable: string, value: any) => void)): number
+    emit(sigName: "query-variable", variable: string, value: any): void
+    on(sigName: "query-variable", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "query-variable", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "query-variable", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ContentDirectory, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: ContentDirectory, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4658,13 +6770,20 @@ export interface HTTPServer_ConstructProps extends TranscodeManager_ConstructPro
     pathRoot?: string
 }
 export class HTTPServer {
+<<<<<<< HEAD
     /* Properties of RygelServer-2.4.RygelServer.HTTPServer */
     pathRoot: string
     /* Fields of RygelServer-2.4.RygelServer.HTTPServer */
+=======
+    /* Properties of RygelServer.HTTPServer */
+    pathRoot: string
+    /* Fields of RygelServer.HTTPServer */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentInstance: TranscodeManager
     priv: HTTPServerPrivate
     rootContainer: MediaContainer
     context: GUPnP.Context
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer-2.4.RygelServer.HTTPServer */
@@ -4683,6 +6802,26 @@ export class HTTPServer {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.HTTPServer */
+    needProxy(uri: string): boolean
+    getPathRoot(): string
+    /* Methods of RygelServer.TranscodeManager */
+    createUriForItem(item: MediaItem, thumbnailIndex: number, subtitleIndex: number, transcodeTarget?: string | null, playlistTarget?: string | null): string
+    addResources(didlItem: GUPnPAV.DIDLLiteItem, item: MediaItem): void
+    getTranscoder(target: string): Transcoder
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -4690,11 +6829,16 @@ export class HTTPServer {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HTTPServer, pspec: GObject.ParamSpec) => void)): number
@@ -4702,6 +6846,26 @@ export class HTTPServer {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of RygelServer.TranscodeManager */
+    vfuncCreateUriForItem(item: MediaItem, thumbnailIndex: number, subtitleIndex: number, transcodeTarget?: string | null, playlistTarget?: string | null): string
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: HTTPServer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: HTTPServer, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::path-root", callback: (($obj: HTTPServer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::path-root", callback: (($obj: HTTPServer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::path-root", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4725,16 +6889,26 @@ export interface Serializer_ConstructProps extends GObject.Object_ConstructProps
     serializerType?: SerializerType
 }
 export class Serializer {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.Serializer */
     parentInstance: GObject.Object
     priv: SerializerPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of RygelServer-2.4.RygelServer.Serializer */
+=======
+    /* Fields of RygelServer.Serializer */
+    parentInstance: GObject.Object
+    priv: SerializerPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of RygelServer.Serializer */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     addItem(): GUPnPAV.DIDLLiteItem | null
     addContainer(): GUPnPAV.DIDLLiteContainer | null
     filter(filterString: string): void
     getString(): string
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -4744,6 +6918,17 @@ export class Serializer {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -4751,11 +6936,16 @@ export class Serializer {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Serializer, pspec: GObject.ParamSpec) => void)): number
@@ -4763,6 +6953,24 @@ export class Serializer {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: Serializer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: Serializer, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4778,7 +6986,11 @@ export class Serializer {
     static $gtype: GObject.Type
 }
 export abstract class AudioItemClass {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.AudioItemClass */
+=======
+    /* Fields of RygelServer.AudioItemClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: MediaItemClass
     static name: string
 }
@@ -4786,7 +6998,11 @@ export class AudioItemPrivate {
     static name: string
 }
 export abstract class ImageItemClass {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.ImageItemClass */
+=======
+    /* Fields of RygelServer.ImageItemClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: MediaItemClass
     static name: string
 }
@@ -4801,7 +7017,11 @@ export class LogicalExpression {
     static new(): LogicalExpression
 }
 export abstract class MediaArtStoreClass {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.MediaArtStoreClass */
+=======
+    /* Fields of RygelServer.MediaArtStoreClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4809,7 +7029,11 @@ export class MediaArtStorePrivate {
     static name: string
 }
 export abstract class MediaObjectsClass {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.MediaObjectsClass */
+=======
+    /* Fields of RygelServer.MediaObjectsClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: Gee.ArrayListClass
     static name: string
 }
@@ -4817,7 +7041,11 @@ export class MediaObjectsPrivate {
     static name: string
 }
 export abstract class MusicItemClass {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.MusicItemClass */
+=======
+    /* Fields of RygelServer.MusicItemClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: AudioItemClass
     static name: string
 }
@@ -4825,7 +7053,11 @@ export class MusicItemPrivate {
     static name: string
 }
 export abstract class PhotoItemClass {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.PhotoItemClass */
+=======
+    /* Fields of RygelServer.PhotoItemClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: ImageItemClass
     static name: string
 }
@@ -4833,7 +7065,11 @@ export class PhotoItemPrivate {
     static name: string
 }
 export class RelationalExpression {
+<<<<<<< HEAD
     /* Methods of RygelServer-2.4.RygelServer.RelationalExpression */
+=======
+    /* Methods of RygelServer.RelationalExpression */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     compareString(str?: string | null): boolean
     compareInt(integer: number): boolean
     compareUint(integer: number): boolean
@@ -4844,7 +7080,11 @@ export class RelationalExpression {
     static new(): RelationalExpression
 }
 export abstract class SimpleContainerClass {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.SimpleContainerClass */
+=======
+    /* Fields of RygelServer.SimpleContainerClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: MediaContainerClass
     static name: string
 }
@@ -4852,7 +7092,11 @@ export class SimpleContainerPrivate {
     static name: string
 }
 export class Subtitle {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.Subtitle */
+=======
+    /* Fields of RygelServer.Subtitle */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     uri: string
     mimeType: string
     captionType: string
@@ -4864,7 +7108,11 @@ export class Subtitle {
     static new(mimeType: string, captionType: string): Subtitle
 }
 export class Thumbnail {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.Thumbnail */
+=======
+    /* Fields of RygelServer.Thumbnail */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     dlnaProfile: string
     static name: string
     static new(mimeType: string, dlnaProfile: string, fileExtension: string): Thumbnail
@@ -4873,7 +7121,11 @@ export class Thumbnail {
     static new(mimeType: string, dlnaProfile: string, fileExtension: string): Thumbnail
 }
 export abstract class VideoItemClass {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.VideoItemClass */
+=======
+    /* Fields of RygelServer.VideoItemClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: AudioItemClass
     static name: string
 }
@@ -4881,7 +7133,11 @@ export class VideoItemPrivate {
     static name: string
 }
 export abstract class MediaContainerClass {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.MediaContainerClass */
+=======
+    /* Fields of RygelServer.MediaContainerClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: MediaObjectClass
     getChildren: (self: MediaContainer, offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     getChildrenFinish: (self: MediaContainer, res: Gio.AsyncResult) => MediaObjects | null
@@ -4893,7 +7149,11 @@ export class MediaContainerPrivate {
     static name: string
 }
 export abstract class MediaItemClass {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.MediaItemClass */
+=======
+    /* Fields of RygelServer.MediaItemClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: MediaObjectClass
     createStreamSource: (self: MediaItem, hostIp?: string | null) => DataSource | null
     streamable: (self: MediaItem) => boolean
@@ -4906,7 +7166,11 @@ export class MediaItemPrivate {
     static name: string
 }
 export abstract class MediaObjectClass {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.MediaObjectClass */
+=======
+    /* Fields of RygelServer.MediaObjectClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     addUri: (self: MediaObject, uri: string) => void
     serialize: (self: MediaObject, serializer: Serializer, httpServer: HTTPServer) => GUPnPAV.DIDLLiteObject | null
@@ -4919,7 +7183,11 @@ export class MediaObjectPrivate {
     static name: string
 }
 export abstract class MediaServerPluginClass {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.MediaServerPluginClass */
+=======
+    /* Fields of RygelServer.MediaServerPluginClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: RygelCore.PluginClass
     static name: string
 }
@@ -4927,6 +7195,7 @@ export class MediaServerPluginPrivate {
     static name: string
 }
 export class SearchExpression {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.SearchExpression */
     op: object | null
     operand1: object | null
@@ -4938,6 +7207,22 @@ export class SearchExpression {
 }
 export abstract class TranscodeManagerClass {
     /* Fields of RygelServer-2.4.RygelServer.TranscodeManagerClass */
+=======
+    /* Fields of RygelServer.SearchExpression */
+    op: object | null
+    operand1: object | null
+    operand2: object | null
+    /* Methods of RygelServer.SearchExpression */
+    satisfiedBy(mediaObject: MediaObject): boolean
+    toString(): string
+    /* Virtual methods of RygelServer.SearchExpression */
+    vfuncSatisfiedBy(mediaObject: MediaObject): boolean
+    vfuncToString(): string
+    static name: string
+}
+export abstract class TranscodeManagerClass {
+    /* Fields of RygelServer.TranscodeManagerClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     createUriForItem: (self: TranscodeManager, item: MediaItem, thumbnailIndex: number, subtitleIndex: number, transcodeTarget?: string | null, playlistTarget?: string | null) => string
     getProtocol: (self: TranscodeManager) => string
@@ -4948,7 +7233,11 @@ export class TranscodeManagerPrivate {
     static name: string
 }
 export abstract class TranscoderClass {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.TranscoderClass */
+=======
+    /* Fields of RygelServer.TranscoderClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     createSource: (self: Transcoder, item: MediaItem, src: DataSource) => DataSource
     addResource: (self: Transcoder, didlItem: GUPnPAV.DIDLLiteItem, item: MediaItem, manager: TranscodeManager) => GUPnPAV.DIDLLiteResource | null
@@ -4959,7 +7248,11 @@ export class TranscoderPrivate {
     static name: string
 }
 export abstract class MediaServerClass {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.MediaServerClass */
+=======
+    /* Fields of RygelServer.MediaServerClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: RygelCore.MediaDeviceClass
     static name: string
 }
@@ -4967,7 +7260,11 @@ export class MediaServerPrivate {
     static name: string
 }
 export abstract class MediaEngineClass {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.MediaEngineClass */
+=======
+    /* Fields of RygelServer.MediaEngineClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     getDlnaProfiles: (self: MediaEngine) => any[]
     getTranscoders: (self: MediaEngine) => Transcoder[] | null
@@ -4978,7 +7275,11 @@ export class MediaEnginePrivate {
     static name: string
 }
 export abstract class HTTPSeekClass {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.HTTPSeekClass */
+=======
+    /* Fields of RygelServer.HTTPSeekClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     addResponseHeaders: (self: HTTPSeek) => void
     static name: string
@@ -4987,7 +7288,11 @@ export class HTTPSeekPrivate {
     static name: string
 }
 export abstract class PlaylistItemClass {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.PlaylistItemClass */
+=======
+    /* Fields of RygelServer.PlaylistItemClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: MediaItemClass
     static name: string
 }
@@ -4995,7 +7300,11 @@ export class PlaylistItemPrivate {
     static name: string
 }
 export abstract class ContentDirectoryClass {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.ContentDirectoryClass */
+=======
+    /* Fields of RygelServer.ContentDirectoryClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GUPnP.ServiceClass
     static name: string
 }
@@ -5003,7 +7312,11 @@ export class ContentDirectoryPrivate {
     static name: string
 }
 export abstract class HTTPServerClass {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.HTTPServerClass */
+=======
+    /* Fields of RygelServer.HTTPServerClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: TranscodeManagerClass
     static name: string
 }
@@ -5011,7 +7324,11 @@ export class HTTPServerPrivate {
     static name: string
 }
 export abstract class SerializerClass {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.SerializerClass */
+=======
+    /* Fields of RygelServer.SerializerClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -5019,16 +7336,27 @@ export class SerializerPrivate {
     static name: string
 }
 export abstract class SearchableContainerIface {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.SearchableContainerIface */
     parentIface: GObject.TypeInterface
     search: (self: SearchableContainer, expression: SearchExpression | null, offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     searchFinish: (self: SearchableContainer, res: Gio.AsyncResult) => { returnType: MediaObjects | null, totalMatches: number }
+=======
+    /* Fields of RygelServer.SearchableContainerIface */
+    parentIface: GObject.TypeInterface
+    search: (self: SearchableContainer, expression: SearchExpression | null, offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    searchFinish: (self: SearchableContainer, res: Gio.AsyncResult) => [ /* returnType */ MediaObjects | null, /* totalMatches */ number ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getSearchClasses: (self: SearchableContainer) => Gee.ArrayList
     setSearchClasses: (self: SearchableContainer, value: Gee.ArrayList) => void
     static name: string
 }
 export abstract class TrackableContainerIface {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.TrackableContainerIface */
+=======
+    /* Fields of RygelServer.TrackableContainerIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentIface: GObject.TypeInterface
     addChild: (self: TrackableContainer, object: MediaObject, callback?: Gio.AsyncReadyCallback | null) => void
     addChildFinish: (self: TrackableContainer, res: Gio.AsyncResult) => void
@@ -5040,12 +7368,20 @@ export abstract class TrackableContainerIface {
     static name: string
 }
 export abstract class TrackableItemIface {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.TrackableItemIface */
+=======
+    /* Fields of RygelServer.TrackableItemIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentIface: GObject.TypeInterface
     static name: string
 }
 export abstract class VisualItemIface {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.VisualItemIface */
+=======
+    /* Fields of RygelServer.VisualItemIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentIface: GObject.TypeInterface
     getWidth: (self: VisualItem) => number
     setWidth: (self: VisualItem, value: number) => void
@@ -5058,7 +7394,11 @@ export abstract class VisualItemIface {
     static name: string
 }
 export abstract class WritableContainerIface {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.WritableContainerIface */
+=======
+    /* Fields of RygelServer.WritableContainerIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentIface: GObject.TypeInterface
     addItem: (self: WritableContainer, item: MediaItem, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
     addItemFinish: (self: WritableContainer, res: Gio.AsyncResult) => void
@@ -5075,7 +7415,11 @@ export abstract class WritableContainerIface {
     static name: string
 }
 export abstract class DataSourceIface {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.DataSourceIface */
+=======
+    /* Fields of RygelServer.DataSourceIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentIface: GObject.TypeInterface
     start: (self: DataSource, offsets?: HTTPSeek | null) => void
     freeze: (self: DataSource) => void
@@ -5084,7 +7428,11 @@ export abstract class DataSourceIface {
     static name: string
 }
 export abstract class UpdatableObjectIface {
+<<<<<<< HEAD
     /* Fields of RygelServer-2.4.RygelServer.UpdatableObjectIface */
+=======
+    /* Fields of RygelServer.UpdatableObjectIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentIface: GObject.TypeInterface
     commit: (self: UpdatableObject, callback?: Gio.AsyncReadyCallback | null) => void
     commitFinish: (self: UpdatableObject, res: Gio.AsyncResult) => void

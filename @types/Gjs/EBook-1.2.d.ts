@@ -43,7 +43,7 @@ export enum BookStatus {
     NOT_SUPPORTED,
 }
 export function book_error_quark(): GLib.Quark
-export function book_utils_get_recipient_certificates_sync(registry: EDataServer.SourceRegistry, only_clients: BookClient[] | null, flags: number, recipients: string[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_certificates */ string[] ]
+export function book_utils_get_recipient_certificates_sync(registry: EDataServer.SourceRegistry, only_clients: BookClient[] | null, flags: Camel.RecipientCertificateFlags, recipients: string[], cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_certificates */ string[] ]
 export interface BookClient_ConstructProps extends EDataServer.Client_ConstructProps {
 }
 export class BookClient {
@@ -58,14 +58,17 @@ export class BookClient {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of EBook-1.2.EBook.BookClient */
-    add_contact(contact: EBookContacts.Contact, opflags: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    add_contact_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_added_uid */ string ]
-    add_contact_sync(contact: EBookContacts.Contact, opflags: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_added_uid */ string ]
-    add_contacts(contacts: EBookContacts.Contact[], opflags: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    add_contact(contact: EBookContacts.Contact, opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    add_contact_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_added_uid */ string | null ]
+    add_contact_sync(contact: EBookContacts.Contact, opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_added_uid */ string | null ]
+    add_contacts(contacts: EBookContacts.Contact[], opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     add_contacts_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_added_uids */ string[] | null ]
-    add_contacts_sync(contacts: EBookContacts.Contact[], opflags: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_added_uids */ string[] | null ]
+    add_contacts_sync(contacts: EBookContacts.Contact[], opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_added_uids */ string[] | null ]
+    contains_email(email_address: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    contains_email_finish(result: Gio.AsyncResult): boolean
+    contains_email_sync(email_address: string, cancellable?: Gio.Cancellable | null): boolean
     get_contact(uid: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    get_contact_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_contact */ EBookContacts.Contact ]
+    get_contact_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_contact */ EBookContacts.Contact | null ]
     get_contact_sync(uid: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_contact */ EBookContacts.Contact ]
     get_contacts(sexp: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     get_contacts_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_contacts */ EBookContacts.Contact[] ]
@@ -80,21 +83,21 @@ export class BookClient {
     get_view(sexp: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     get_view_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_view */ BookClientView ]
     get_view_sync(sexp: string, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_view */ BookClientView ]
-    modify_contact(contact: EBookContacts.Contact, opflags: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    modify_contact(contact: EBookContacts.Contact, opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     modify_contact_finish(result: Gio.AsyncResult): boolean
-    modify_contact_sync(contact: EBookContacts.Contact, opflags: number, cancellable?: Gio.Cancellable | null): boolean
-    modify_contacts(contacts: EBookContacts.Contact[], opflags: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    modify_contact_sync(contact: EBookContacts.Contact, opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null): boolean
+    modify_contacts(contacts: EBookContacts.Contact[], opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     modify_contacts_finish(result: Gio.AsyncResult): boolean
-    modify_contacts_sync(contacts: EBookContacts.Contact[], opflags: number, cancellable?: Gio.Cancellable | null): boolean
-    remove_contact(contact: EBookContacts.Contact, opflags: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    remove_contact_by_uid(uid: string, opflags: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    modify_contacts_sync(contacts: EBookContacts.Contact[], opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null): boolean
+    remove_contact(contact: EBookContacts.Contact, opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    remove_contact_by_uid(uid: string, opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     remove_contact_by_uid_finish(result: Gio.AsyncResult): boolean
-    remove_contact_by_uid_sync(uid: string, opflags: number, cancellable?: Gio.Cancellable | null): boolean
+    remove_contact_by_uid_sync(uid: string, opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null): boolean
     remove_contact_finish(result: Gio.AsyncResult): boolean
-    remove_contact_sync(contact: EBookContacts.Contact, opflags: number, cancellable?: Gio.Cancellable | null): boolean
-    remove_contacts(uids: string[], opflags: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    remove_contact_sync(contact: EBookContacts.Contact, opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null): boolean
+    remove_contacts(uids: string[], opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     remove_contacts_finish(result: Gio.AsyncResult): boolean
-    remove_contacts_sync(uids: string[], opflags: number, cancellable?: Gio.Cancellable | null): boolean
+    remove_contacts_sync(uids: string[], opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null): boolean
     set_self(contact: EBookContacts.Contact): boolean
     /* Methods of EDataServer-1.2.EDataServer.Client */
     cancel_all(): void
@@ -267,7 +270,7 @@ export class BookClientCursor {
     get_contact_alphabetic_index(contact: EBookContacts.Contact): number
     get_position(): number
     get_total(): number
-    ref_client(): object | null
+    ref_client(): BookClient
     set_alphabetic_index(index: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     set_alphabetic_index_finish(result: Gio.AsyncResult): boolean
     set_alphabetic_index_sync(index: number, cancellable?: Gio.Cancellable | null): boolean
@@ -346,11 +349,11 @@ export class BookClientView {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of EBook-1.2.EBook.BookClientView */
-    get_client(): object | null
+    get_client(): BookClient
     get_connection(): Gio.DBusConnection
     get_object_path(): string
     is_running(): boolean
-    ref_client(): object | null
+    ref_client(): BookClient
     set_fields_of_interest(fields_of_interest: string[]): void
     set_flags(flags: EBookContacts.BookClientViewFlags): void
     start(): void
@@ -395,15 +398,15 @@ export class BookClientView {
     connect(sigName: "complete", callback: (($obj: BookClientView, object: GLib.Error) => void)): number
     connect_after(sigName: "complete", callback: (($obj: BookClientView, object: GLib.Error) => void)): number
     emit(sigName: "complete", object: GLib.Error): void
-    connect(sigName: "objects-added", callback: (($obj: BookClientView, object?: object | null) => void)): number
-    connect_after(sigName: "objects-added", callback: (($obj: BookClientView, object?: object | null) => void)): number
-    emit(sigName: "objects-added", object?: object | null): void
-    connect(sigName: "objects-modified", callback: (($obj: BookClientView, object?: object | null) => void)): number
-    connect_after(sigName: "objects-modified", callback: (($obj: BookClientView, object?: object | null) => void)): number
-    emit(sigName: "objects-modified", object?: object | null): void
-    connect(sigName: "objects-removed", callback: (($obj: BookClientView, object?: object | null) => void)): number
-    connect_after(sigName: "objects-removed", callback: (($obj: BookClientView, object?: object | null) => void)): number
-    emit(sigName: "objects-removed", object?: object | null): void
+    connect(sigName: "objects-added", callback: (($obj: BookClientView, objects: EBookContacts.Contact[]) => void)): number
+    connect_after(sigName: "objects-added", callback: (($obj: BookClientView, objects: EBookContacts.Contact[]) => void)): number
+    emit(sigName: "objects-added", objects: EBookContacts.Contact[]): void
+    connect(sigName: "objects-modified", callback: (($obj: BookClientView, objects: EBookContacts.Contact[]) => void)): number
+    connect_after(sigName: "objects-modified", callback: (($obj: BookClientView, objects: EBookContacts.Contact[]) => void)): number
+    emit(sigName: "objects-modified", objects: EBookContacts.Contact[]): void
+    connect(sigName: "objects-removed", callback: (($obj: BookClientView, uids: string[]) => void)): number
+    connect_after(sigName: "objects-removed", callback: (($obj: BookClientView, uids: string[]) => void)): number
+    emit(sigName: "objects-removed", uids: string[]): void
     connect(sigName: "progress", callback: (($obj: BookClientView, object: number, p0: string) => void)): number
     connect_after(sigName: "progress", callback: (($obj: BookClientView, object: number, p0: string) => void)): number
     emit(sigName: "progress", object: number, p0: string): void
@@ -448,8 +451,8 @@ export class Destination {
     is_auto_recipient(): boolean
     is_evolution_list(): boolean
     is_ignored(): boolean
-    list_get_dests(): Destination[]
-    list_get_root_dests(): Destination[]
+    list_get_dests(): Destination[] | null
+    list_get_root_dests(): Destination[] | null
     list_show_addresses(): boolean
     set_auto_recipient(value: boolean): void
     set_client(client: BookClient): void

@@ -4883,7 +4883,7 @@ export class Mark {
     constructor (config?: Mark_ConstructProps)
     _init (config?: Mark_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(name: string, category: string): Mark
+    static new(name: string | null, category: string): Mark
     static new(name: string | null, leftGravity: boolean): Mark
     static $gtype: GObject.Type
 }

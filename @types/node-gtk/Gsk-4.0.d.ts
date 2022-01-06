@@ -8,6 +8,7 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { Gdk } from './Gdk-4.0';
 import type { cairo } from './cairo-1.0';
+import type { PangoCairo } from './PangoCairo-1.0';
 import type { Pango } from './Pango-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { Gio } from './Gio-2.0';
@@ -99,6 +100,10 @@ export enum TransformCategory {
 }
 export function serializationErrorQuark(): GLib.Quark
 export function transformParse(string: string): { returnType: boolean, outTransform: Transform }
+export function valueDupRenderNode(value: any): RenderNode | null
+export function valueGetRenderNode(value: any): RenderNode | null
+export function valueSetRenderNode(value: any, node: RenderNode): void
+export function valueTakeRenderNode(value: any, node?: RenderNode | null): void
 export interface ParseErrorFunc {
     (start: ParseLocation, end: ParseLocation, error: GLib.Error): void
 }
@@ -169,7 +174,7 @@ export class BroadwayRenderer {
     /* Methods of Gsk-4.0.Gsk.Renderer */
     getSurface(): Gdk.Surface | null
     isRealized(): boolean
-    realize(surface: Gdk.Surface): boolean
+    realize(surface?: Gdk.Surface | null): boolean
     render(root: RenderNode, region?: cairo.Region | null): void
     renderTexture(root: RenderNode, viewport?: Graphene.Rect | null): Gdk.Texture
     unrealize(): void
@@ -254,7 +259,7 @@ export class CairoRenderer {
     /* Methods of Gsk-4.0.Gsk.Renderer */
     getSurface(): Gdk.Surface | null
     isRealized(): boolean
-    realize(surface: Gdk.Surface): boolean
+    realize(surface?: Gdk.Surface | null): boolean
     render(root: RenderNode, region?: cairo.Region | null): void
     renderTexture(root: RenderNode, viewport?: Graphene.Rect | null): Gdk.Texture
     unrealize(): void
@@ -451,7 +456,7 @@ export class GLRenderer {
     /* Methods of Gsk-4.0.Gsk.Renderer */
     getSurface(): Gdk.Surface | null
     isRealized(): boolean
-    realize(surface: Gdk.Surface): boolean
+    realize(surface?: Gdk.Surface | null): boolean
     render(root: RenderNode, region?: cairo.Region | null): void
     renderTexture(root: RenderNode, viewport?: Graphene.Rect | null): Gdk.Texture
     unrealize(): void
@@ -527,7 +532,7 @@ export class GLShader {
     getArgsSize(): number
     getNTextures(): number
     getNUniforms(): number
-    getResource(): string
+    getResource(): string | null
     getSource(): any
     getUniformName(idx: number): string
     getUniformOffset(idx: number): number
@@ -637,6 +642,73 @@ export class LinearGradientNode {
     /* Static methods and pseudo-constructors */
     static new(bounds: Graphene.Rect, start: Graphene.Point, end: Graphene.Point, colorStops: ColorStop[]): LinearGradientNode
 }
+export interface NglRenderer_ConstructProps extends Renderer_ConstructProps {
+}
+export class NglRenderer {
+    /* Properties of Gsk-4.0.Gsk.Renderer */
+    readonly realized: boolean
+    readonly surface: Gdk.Surface
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Gsk-4.0.Gsk.Renderer */
+    getSurface(): Gdk.Surface | null
+    isRealized(): boolean
+    realize(surface?: Gdk.Surface | null): boolean
+    render(root: RenderNode, region?: cairo.Region | null): void
+    renderTexture(root: RenderNode, viewport?: Graphene.Rect | null): Gdk.Texture
+    unrealize(): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: NglRenderer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::realized", callback: (($obj: NglRenderer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::realized", callback: (($obj: NglRenderer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::realized", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::realized", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::realized", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::surface", callback: (($obj: NglRenderer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::surface", callback: (($obj: NglRenderer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::surface", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::surface", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::surface", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: NglRenderer_ConstructProps)
+    _init (config?: NglRenderer_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): NglRenderer
+    static $gtype: GObject.Type
+}
 export class OpacityNode {
     /* Methods of Gsk-4.0.Gsk.OpacityNode */
     getChild(): RenderNode
@@ -724,7 +796,7 @@ export class Renderer {
     /* Methods of Gsk-4.0.Gsk.Renderer */
     getSurface(): Gdk.Surface | null
     isRealized(): boolean
-    realize(surface: Gdk.Surface): boolean
+    realize(surface?: Gdk.Surface | null): boolean
     render(root: RenderNode, region?: cairo.Region | null): void
     renderTexture(root: RenderNode, viewport?: Graphene.Rect | null): Gdk.Texture
     unrealize(): void
@@ -922,73 +994,6 @@ export class TransformNode {
     /* Static methods and pseudo-constructors */
     static new(child: RenderNode, transform: Transform): TransformNode
 }
-export interface VulkanRenderer_ConstructProps extends Renderer_ConstructProps {
-}
-export class VulkanRenderer {
-    /* Properties of Gsk-4.0.Gsk.Renderer */
-    readonly realized: boolean
-    readonly surface: Gdk.Surface
-    /* Fields of GObject-2.0.GObject.Object */
-    gTypeInstance: GObject.TypeInstance
-    /* Methods of Gsk-4.0.Gsk.Renderer */
-    getSurface(): Gdk.Surface | null
-    isRealized(): boolean
-    realize(surface: Gdk.Surface): boolean
-    render(root: RenderNode, region?: cairo.Region | null): void
-    renderTexture(root: RenderNode, viewport?: Graphene.Rect | null): Gdk.Texture
-    unrealize(): void
-    /* Methods of GObject-2.0.GObject.Object */
-    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
-    forceFloating(): void
-    freezeNotify(): void
-    getData(key: string): object | null
-    getProperty(propertyName: string, value: any): void
-    getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    isFloating(): boolean
-    notify(propertyName: string): void
-    notifyByPspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    refSink(): GObject.Object
-    runDispose(): void
-    setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: any): void
-    stealData(key: string): object | null
-    stealQdata(quark: GLib.Quark): object | null
-    thawNotify(): void
-    unref(): void
-    watchClosure(closure: Function): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: VulkanRenderer, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::realized", callback: (($obj: VulkanRenderer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::realized", callback: (($obj: VulkanRenderer, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::realized", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::realized", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::realized", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::surface", callback: (($obj: VulkanRenderer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::surface", callback: (($obj: VulkanRenderer, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::surface", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::surface", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::surface", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    on(sigName: string, callback: any): NodeJS.EventEmitter
-    once(sigName: string, callback: any): NodeJS.EventEmitter
-    off(sigName: string, callback: any): NodeJS.EventEmitter
-    static name: string
-    constructor (config?: VulkanRenderer_ConstructProps)
-    _init (config?: VulkanRenderer_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): VulkanRenderer
-    static $gtype: GObject.Type
-}
 export abstract class BroadwayRendererClass {
     static name: string
 }
@@ -1077,7 +1082,9 @@ export class Transform {
     rotate3d(angle: number, axis: Graphene.Vec3): Transform
     scale(factorX: number, factorY: number): Transform
     scale3d(factorX: number, factorY: number, factorZ: number): Transform
+    skew(skewX: number, skewY: number): Transform
     to2d(): { outXx: number, outYx: number, outXy: number, outYy: number, outDx: number, outDy: number }
+    to2dComponents(): { outSkewX: number, outSkewY: number, outScaleX: number, outScaleY: number, outAngle: number, outDx: number, outDy: number }
     toAffine(): { outScaleX: number, outScaleY: number, outDx: number, outDy: number }
     toMatrix(): { outMatrix: Graphene.Matrix }
     toString(): string
@@ -1094,8 +1101,5 @@ export class Transform {
     /* Static methods and pseudo-constructors */
     static new(): Transform
     static parse(string: string): { returnType: boolean, outTransform: Transform }
-}
-export abstract class VulkanRendererClass {
-    static name: string
 }
 }

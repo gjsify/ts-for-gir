@@ -130,12 +130,15 @@ export interface Display_ConstructProps extends Gtk.DrawingArea_ConstructProps {
     grab_keyboard?: boolean
     grab_keys?: GrabSequence
     grab_pointer?: boolean
+    keep_aspect_ratio?: boolean
     local_pointer?: boolean
     lossy_encoding?: boolean
     read_only?: boolean
+    rotation?: number
     scaling?: boolean
     shared_flag?: boolean
     smoothing?: boolean
+    zoom_level?: number
 }
 export class Display {
     /* Properties of GtkVnc-2.0.GtkVnc.Display */
@@ -147,14 +150,17 @@ export class Display {
     grab_keys: GrabSequence
     grab_pointer: boolean
     readonly height: number
+    keep_aspect_ratio: boolean
     local_pointer: boolean
     lossy_encoding: boolean
     readonly name: string
     read_only: boolean
+    rotation: number
     scaling: boolean
     shared_flag: boolean
     smoothing: boolean
     readonly width: number
+    zoom_level: number
     /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
@@ -212,6 +218,7 @@ export class Display {
     get_force_size(): boolean
     get_grab_keys(): GrabSequence
     get_height(): number
+    get_keep_aspect_ratio(): boolean
     get_keyboard_grab(): boolean
     get_lossy_encoding(): boolean
     get_name(): string
@@ -219,10 +226,12 @@ export class Display {
     get_pointer_grab(): boolean
     get_pointer_local(): boolean
     get_read_only(): boolean
+    get_rotation(): number
     get_scaling(): boolean
     get_shared_flag(): boolean
     get_smoothing(): boolean
     get_width(): number
+    get_zoom_level(): number
     is_open(): boolean
     is_pointer_absolute(): boolean
     open_addr(addr: Gio.SocketAddress, hostname?: string | null): boolean
@@ -238,14 +247,17 @@ export class Display {
     set_depth(depth: DisplayDepthColor): void
     set_force_size(enable: boolean): void
     set_grab_keys(seq: GrabSequence): void
+    set_keep_aspect_ratio(enable: boolean): void
     set_keyboard_grab(enable: boolean): void
     set_lossy_encoding(enable: boolean): void
     set_pointer_grab(enable: boolean): void
     set_pointer_local(enable: boolean): void
     set_read_only(enable: boolean): void
+    set_rotation(rotation: number): void
     set_scaling(enable: boolean): boolean
     set_shared_flag(shared: boolean): void
     set_smoothing(enable: boolean): void
+    set_zoom_level(zoom: number): void
     /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     add_accelerator(accel_signal: string, accel_group: Gtk.AccelGroup, accel_key: number, accel_mods: Gdk.ModifierType, accel_flags: Gtk.AccelFlags): void
@@ -921,6 +933,8 @@ export class Display {
     connect_after(sigName: "notify::grab-pointer", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::height", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::height", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::keep-aspect-ratio", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::keep-aspect-ratio", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::local-pointer", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::local-pointer", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::lossy-encoding", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
@@ -929,6 +943,8 @@ export class Display {
     connect_after(sigName: "notify::name", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::rotation", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::rotation", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::scaling", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::scaling", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::shared-flag", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
@@ -937,6 +953,8 @@ export class Display {
     connect_after(sigName: "notify::smoothing", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::width", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::width", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::zoom-level", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::zoom-level", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::app-paintable", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::app-paintable", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::can-default", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number

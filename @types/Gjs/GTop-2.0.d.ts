@@ -17,6 +17,7 @@ export const EOT_CHR: number
 export const EOT_STR: string
 export const FALSE: number
 export const GLIBTOP_CMND_CPU: number
+export const GLIBTOP_CMND_DISK: number
 export const GLIBTOP_CMND_FSUSAGE: number
 export const GLIBTOP_CMND_LOADAVG: number
 export const GLIBTOP_CMND_MEM: number
@@ -135,6 +136,7 @@ export const GLIBTOP_MAP_PERM_SHARED: number
 export const GLIBTOP_MAP_PERM_WRITE: number
 export const GLIBTOP_MAX_CMND: number
 export const GLIBTOP_MAX_CPU: number
+export const GLIBTOP_MAX_DISK: number
 export const GLIBTOP_MAX_FSUSAGE: number
 export const GLIBTOP_MAX_GROUPS: number
 export const GLIBTOP_MAX_LOADAVG: number
@@ -183,6 +185,7 @@ export const GLIBTOP_MOUNTLIST_NUMBER: number
 export const GLIBTOP_MOUNTLIST_SIZE: number
 export const GLIBTOP_MOUNTLIST_TOTAL: number
 export const GLIBTOP_NCPU: number
+export const GLIBTOP_NDISK: number
 export const GLIBTOP_NETLIST_NUMBER: number
 export const GLIBTOP_NETLOAD_ADDRESS: number
 export const GLIBTOP_NETLOAD_ADDRESS6: number
@@ -314,6 +317,7 @@ export const GLIBTOP_SWAP_TOTAL: number
 export const GLIBTOP_SWAP_USED: number
 export const GLIBTOP_SYSDEPS_ALL: number
 export const GLIBTOP_SYSDEPS_CPU: number
+export const GLIBTOP_SYSDEPS_DISK: number
 export const GLIBTOP_SYSDEPS_FEATURES: number
 export const GLIBTOP_SYSDEPS_FSUSAGE: number
 export const GLIBTOP_SYSDEPS_LOADAVG: number
@@ -355,6 +359,10 @@ export const GLIBTOP_XCPU_SOFTIRQ: number
 export const GLIBTOP_XCPU_SYS: number
 export const GLIBTOP_XCPU_TOTAL: number
 export const GLIBTOP_XCPU_USER: number
+export const GLIBTOP_XDISK_SECTORS_READ: number
+export const GLIBTOP_XDISK_SECTORS_WRITE: number
+export const GLIBTOP_XDISK_TIME_READ: number
+export const GLIBTOP_XDISK_TIME_WRITE: number
 export const HOSTNAMSZ: number
 export const LIBGTOP_MAJOR_VERSION: number
 export const LIBGTOP_MICRO_VERSION: number
@@ -368,6 +376,7 @@ export const TABLE_SIZE: number
 export const TRUE: number
 export function glibtop_close(): void
 export function glibtop_get_cpu(buf: glibtop_cpu): void
+export function glibtop_get_disk(buf: glibtop_disk): void
 export function glibtop_get_fsusage(buf: glibtop_fsusage, mount_dir: string): void
 export function glibtop_get_loadavg(buf: glibtop_loadavg): void
 export function glibtop_get_mem(buf: glibtop_mem): void
@@ -427,6 +436,8 @@ export class glibtop {
     gid: number
     egid: number
     machine: glibtop_machine
+    ndisk: number
+    real_ndisk: number
     /* Methods of GTop-2.0.GTop.glibtop */
     call_l(command: number, send_size: number, send_buf: object | null, recv_size: number, recv_buf?: object | null): object | null
     call_s(command: number, send_size: number, send_buf: object | null, recv_size: number, recv_buf?: object | null): object | null
@@ -435,6 +446,8 @@ export class glibtop {
     close_s(): void
     get_cpu_l(buf: glibtop_cpu): void
     get_cpu_s(buf: glibtop_cpu): void
+    get_disk_l(buf: glibtop_disk): void
+    get_disk_s(buf: glibtop_disk): void
     get_fsusage_l(buf: glibtop_fsusage, mount_dir: string): void
     get_fsusage_s(buf: glibtop_fsusage, mount_dir: string): void
     get_loadavg_l(buf: glibtop_loadavg): void
@@ -497,6 +510,7 @@ export class glibtop {
     /* Static methods and pseudo-constructors */
     static close(): void
     static get_cpu(buf: glibtop_cpu): void
+    static get_disk(buf: glibtop_disk): void
     static get_fsusage(buf: glibtop_fsusage, mount_dir: string): void
     static get_loadavg(buf: glibtop_loadavg): void
     static get_mem(buf: glibtop_mem): void
@@ -560,6 +574,16 @@ export class glibtop_cpu {
     xcpu_irq: number[]
     xcpu_softirq: number[]
     xcpu_flags: number
+    static name: string
+}
+export class glibtop_disk {
+    /* Fields of GTop-2.0.GTop.glibtop_disk */
+    flags: number
+    xdisk_sectors_read: number[]
+    xdisk_time_read: number[]
+    xdisk_sectors_write: number[]
+    xdisk_time_write: number[]
+    xdisk_flags: number
     static name: string
 }
 export class glibtop_entry {
@@ -933,7 +957,7 @@ export class glibtop_sysdeps {
     proc_wd: number
     proc_affinity: number
     proc_io: number
-    reserved0: number
+    disk: number
     reserved1: number
     reserved2: number
     reserved3: number
@@ -958,6 +982,14 @@ export class glibtop_uptime {
     boot_time: number
     static name: string
 }
+export class partition_info {
+    /* Fields of GTop-2.0.GTop.partition_info */
+    name: number[]
+    type: number[]
+    raid_num: number[]
+    max: number
+    static name: string
+}
 export class glibtop_response_union {
     /* Fields of GTop-2.0.GTop.glibtop_response_union */
     data: glibtop_union
@@ -967,6 +999,7 @@ export class glibtop_response_union {
 export class glibtop_union {
     /* Fields of GTop-2.0.GTop.glibtop_union */
     cpu: glibtop_cpu
+    disk: glibtop_disk
     mem: glibtop_mem
     swap: glibtop_swap
     uptime: glibtop_uptime

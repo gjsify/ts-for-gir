@@ -32,9 +32,12 @@ export enum CtlDataLinkProtocol {
     RAW_IP,
 }
 export enum DataEndpointType {
+    UNKNOWN,
+    HSIC,
     HSUSB,
     PCIE,
     EMBEDDED,
+    BAM_DMUX,
     UNDEFINED,
 }
 export enum DeviceExpectedDataFormat {
@@ -105,6 +108,7 @@ export enum DmsRadioInterface {
     GSM,
     UMTS,
     LTE,
+    TDS,
     /* 5GNR (invalid, starts with a number) */
 }
 export enum DmsSimCapability {
@@ -198,6 +202,10 @@ export enum GasFirmwareListingMode {
     ACTIVE_FIRMWARE,
     ALL_FIRMWARE,
     SPECIFIC_FIRMWARE,
+}
+export enum GasUsbCompositionEndpointType {
+    HSUSB,
+    HSIC,
 }
 export enum LocEngineState {
     ON,
@@ -633,6 +641,68 @@ export enum NasRegistrationState {
     REGISTRATION_DENIED,
     UNKNOWN,
 }
+export enum NasRejectCause {
+    NONE,
+    IMSI_UNKNOWN_IN_HLR,
+    ILLEGAL_UE,
+    IMSI_UNKNOWN_IN_VLR,
+    IMEI_NOT_ACCEPTED,
+    ILLEGAL_ME,
+    PS_SERVICES_NOT_ALLOWED,
+    PS_AND_NON_PS_SERVICES_NOT_ALLOWED,
+    UE_IDENTITY_NOT_DERIVED_BY_NETWORK,
+    IMPLICITLY_DETACHED,
+    PLMN_NOT_ALLOWED,
+    LOCATION_AREA_NOT_ALLOWED,
+    ROAMING_IN_LOCATION_AREA_NOT_ALLOWED,
+    PS_SERVICES_IN_LOCATION_AREA_NOT_ALLOWED,
+    NO_SUITABLE_CELLS_IN_LOCATION_AREA,
+    MSC_TEMPORARILY_NOT_REACHABLE,
+    NETWORK_FAILURE,
+    CS_DOMAIN_NOT_AVAILABLE,
+    ESM_FAILURE,
+    MAC_FAILURE,
+    SYNCH_FAILURE,
+    CONGESTION,
+    UE_SECURITY_CAPABILITIES_MISMATCH,
+    SECURITY_MODE_REJECTED_UNSPECIFIED,
+    CSG_NOT_AUTHORIZED,
+    NON_EPS_AUTHENTICATION_UNACCEPTABLE,
+    SMS_PROVIDED_BY_GPRS_IN_ROUTING_AREA,
+    REDIRECTION_TO_5GCN_REQUIRED,
+    SERVICE_OPTION_NOT_SUPPORTED,
+    REQUESTED_SERVICE_OPTION_NOT_SUBSCRIBED,
+    SERVICE_OPTION_TEMPORARILY_OUT_OF_ORDER,
+    REQUESTED_SERVICE_OPTION_NOT_AUTHORIZED,
+    CALL_CANNOT_BE_IDENTIFIED,
+    CS_SERVICE_TEMPORARILY_NOT_AVAILABLE,
+    NO_EPS_BEARER_CONTEXT_ACTIVATED,
+    SEVERE_NETWORK_FAILURE,
+    RETRY_UPON_ENTRY_INTO_NEW_CELL_0,
+    RETRY_UPON_ENTRY_INTO_NEW_CELL_1,
+    RETRY_UPON_ENTRY_INTO_NEW_CELL_2,
+    RETRY_UPON_ENTRY_INTO_NEW_CELL_3,
+    RETRY_UPON_ENTRY_INTO_NEW_CELL_4,
+    RETRY_UPON_ENTRY_INTO_NEW_CELL_5,
+    RETRY_UPON_ENTRY_INTO_NEW_CELL_6,
+    RETRY_UPON_ENTRY_INTO_NEW_CELL_7,
+    RETRY_UPON_ENTRY_INTO_NEW_CELL_8,
+    RETRY_UPON_ENTRY_INTO_NEW_CELL_9,
+    RETRY_UPON_ENTRY_INTO_NEW_CELL_10,
+    RETRY_UPON_ENTRY_INTO_NEW_CELL_11,
+    RETRY_UPON_ENTRY_INTO_NEW_CELL_12,
+    RETRY_UPON_ENTRY_INTO_NEW_CELL_13,
+    RETRY_UPON_ENTRY_INTO_NEW_CELL_14,
+    RETRY_UPON_ENTRY_INTO_NEW_CELL_15,
+    SEMANTICALLY_INCORRECT_MESSAGE,
+    INVALID_MANDATORY_INFORMATION,
+    MESSAGE_TYPE_NON_EXISTENT,
+    MESSAGE_TYPE_NOT_COMPATIBLE,
+    INFORMATION_ELEMENT_NON_EXISTENT,
+    CONDITIONAL_INFORMATION_ELEMENT_ERROR,
+    MESSAGE_NOT_COMPATIBLE,
+    UNSPECIFIED_PROTOCOL_ERROR,
+}
 export enum NasRoamingIndicatorStatus {
     ON,
     OFF,
@@ -817,6 +887,11 @@ export enum PbmSessionType {
 export enum PdcConfigurationType {
     PLATFORM,
     SOFTWARE,
+}
+export enum PdcRefreshEventType {
+    START,
+    COMPLETE,
+    CLIENT_REFRESH,
 }
 export enum PdsNetworkMode {
     UMTS,
@@ -1058,6 +1133,7 @@ export enum Service {
     RFRPE,
     DSD,
     SSCTL,
+    DPM,
     CAT,
     RMS,
     OMA,
@@ -1135,6 +1211,10 @@ export enum UimCardState {
     ABSENT,
     PRESENT,
     ERROR,
+}
+export enum UimDepersonalizationOperation {
+    DEACTIVATE,
+    UNBLOCK,
 }
 export enum UimFileType {
     TRANSPARENT,
@@ -1498,6 +1578,61 @@ export enum VoiceServiceOption {
     IS_96,
     WVRC,
 }
+export enum VoiceSupplementaryServiceAction {
+    ACTIVATE,
+    DEACTIVATE,
+    REGISTER,
+    ERASE,
+}
+export enum VoiceSupplementaryServiceNotificationType {
+    OUTGOING_CALL_IS_FORWARDED,
+    OUTGOING_CALL_IS_WAITING,
+    OUTGOING_CUG_CALL,
+    OUTGOING_CALLS_BARRED,
+    OUTGOING_CALL_IS_DEFLECTED,
+    INCOMING_CUG_CALL,
+    INCOMING_CALLS_BARRED,
+    INCOMING_FORWARDED_CALL,
+    INCOMING_DEFLECTED_CALL,
+    INCOMING_CALL_IS_FORWARDED,
+    UNCONDITIONAL_CALL_FORWARD_ACTIVE,
+    CONDITIONAL_CALL_FORWARD_ACTIVE,
+    CLIR_SUPPRESSION_REJECTED,
+    CALL_IS_ON_HOLD,
+    CALL_IS_RETRIEVED,
+    CALL_IS_IN_MULTIPARTY,
+    INCOMING_CALL_IS_ECT,
+}
+export enum VoiceSupplementaryServiceReason {
+    FORWARD_UNCONDITIONAL,
+    FORWARD_MOBILE_BUSY,
+    FORWARD_NO_REPLY,
+    FORWARD_UNREACHABLE,
+    FORWARD_ALL,
+    FORWARD_ALL_CONDITIONAL,
+    ALL_OUTGOING,
+    OUTGOING_INTERNAL,
+    OUTGOING_INTERNAL_EXTERNAL_TO_HOME,
+    ALL_INCOMING,
+    INCOMING_ROAMING,
+    BAR_ALL,
+    BAR_ALL_OUTGOING,
+    BAR_ALL_INCOMING,
+    CALL_WAITING,
+}
+export enum VoiceSupplementaryServiceType {
+    RELEASE_HELD_OR_WAITING,
+    RELEASE_ACTIVE_ACCEPT_HELD_OR_WAITING,
+    HOLD_ACTIVE_ACCEPT_WAITING_OR_HELD,
+    HOLD_ALL_EXCEPT_SPECIFIED_CALL,
+    MAKE_CONFERENCE_CALL,
+    EXPLICIT_CALL_TRANSFER,
+    CCBS_ACTIVATION,
+    END_ALL_CALLS,
+    RELEASE_SPECIFIED_CALL,
+    LOCAL_HOLD,
+    LOCAL_UNHOLD,
+}
 export enum VoiceTtyMode {
     FULL,
     VCO,
@@ -1522,6 +1657,9 @@ export enum WdaDataAggregationProtocol {
     MBIM,
     RNDIS,
     QMAP,
+    QMAPV2,
+    QMAPV3,
+    QMAPV4,
     QMAPV5,
 }
 export enum WdaLinkLayerProtocol {
@@ -2284,6 +2422,13 @@ export enum CtlFlag {
     RESPONSE,
     INDICATION,
 }
+export enum DeviceAddLinkFlags {
+    NONE,
+    INGRESS_MAP_CKSUMV4,
+    EGRESS_MAP_CKSUMV4,
+    INGRESS_MAP_CKSUMV5,
+    EGRESS_MAP_CKSUMV5,
+}
 export enum DeviceOpenFlags {
     NONE,
     VERSION_INFO,
@@ -2626,6 +2771,15 @@ export enum NasNetworkStatus {
     PREFERRED,
     NOT_PREFERRED,
 }
+export enum NasPlmnAccessTechnologyIdentifier {
+    UNSPECIFIED,
+    GSM_COMPACT,
+    GSM,
+    NGRAN,
+    EUTRAN,
+    UTRAN,
+    ALL,
+}
 export enum NasRadioTechnologyPreference {
     AUTO,
     /* 3GPP2 (invalid, starts with a number) */
@@ -2712,6 +2866,11 @@ export enum ServiceFlag {
     RESPONSE,
     INDICATION,
 }
+export enum UimConfiguration {
+    AUTOMATIC_SELECTION,
+    PERSONALIZATION_STATUS,
+    HALT_SUBSCRIPTION,
+}
 export enum UimEventRegistrationFlag {
     CARD_STATUS,
     SAP_CONNECTION,
@@ -2730,6 +2889,14 @@ export enum VoiceWcdmaAmrStatus {
     GSM_HR_AMR,
     GSM_AMR_WB,
     GSM_AMR_NB,
+}
+export enum WdsApnTypeMask {
+    DEFAULT,
+    IMS,
+    MMS,
+    FOTA,
+    IA,
+    EMERGENCY,
 }
 export enum WdsAuthentication {
     NONE,
@@ -2898,6 +3065,7 @@ export function ctlDataFormatGetString(val: CtlDataFormat): string
 export function ctlDataLinkProtocolGetString(val: CtlDataLinkProtocol): string
 export function ctlFlagBuildStringFromMask(mask: CtlFlag): string
 export function dataEndpointTypeGetString(val: DataEndpointType): string
+export function deviceAddLinkFlagsBuildStringFromMask(mask: DeviceAddLinkFlags): string
 export function deviceExpectedDataFormatGetString(val: DeviceExpectedDataFormat): string
 export function deviceOpenFlagsBuildStringFromMask(mask: DeviceOpenFlags): string
 export function deviceReleaseClientFlagsBuildStringFromMask(mask: DeviceReleaseClientFlags): string
@@ -2929,6 +3097,7 @@ export function dsdApnTypeGetString(val: DsdApnType): string
 export function dsdApnTypePreferenceBuildStringFromMask(mask: DsdApnTypePreference): string
 export function endianGetString(val: Endian): string
 export function gasFirmwareListingModeGetString(val: GasFirmwareListingMode): string
+export function gasUsbCompositionEndpointTypeGetString(val: GasUsbCompositionEndpointType): string
 export function locDeleteCellDatabaseBuildStringFromMask(mask: LocDeleteCellDatabase): string
 export function locDeleteClockInfoBuildStringFromMask(mask: LocDeleteClockInfo): string
 export function locDeleteGnssDataBuildStringFromMask(mask: LocDeleteGnssData): string
@@ -3038,6 +3207,7 @@ export function nasNetworkSelectionRegistrationRestrictionGetString(val: NasNetw
 export function nasNetworkServiceDomainGetString(val: NasNetworkServiceDomain): string
 export function nasNetworkStatusBuildStringFromMask(mask: NasNetworkStatus): string
 export function nasNetworkTypeGetString(val: NasNetworkType): string
+export function nasPlmnAccessTechnologyIdentifierBuildStringFromMask(mask: NasPlmnAccessTechnologyIdentifier): string
 export function nasPlmnEncodingSchemeGetString(val: NasPlmnEncodingScheme): string
 export function nasPlmnLanguageIdGetString(val: NasPlmnLanguageId): string
 export function nasPlmnNameCountryInitialsGetString(val: NasPlmnNameCountryInitials): string
@@ -3050,6 +3220,7 @@ export function nasRatModePreferenceBuildStringFromMask(mask: NasRatModePreferen
 export function nasReadStringFromNetworkDescriptionEncodedArray(encoding: NasNetworkDescriptionEncoding, array: any[]): string
 export function nasReadStringFromPlmnEncodedArray(encoding: NasPlmnEncodingScheme, array: any[]): string
 export function nasRegistrationStateGetString(val: NasRegistrationState): string
+export function nasRejectCauseGetString(val: NasRejectCause): string
 export function nasRoamingIndicatorStatusGetString(val: NasRoamingIndicatorStatus): string
 export function nasRoamingPreferenceGetString(val: NasRoamingPreference): string
 export function nasRoamingStatusGetString(val: NasRoamingStatus): string
@@ -3077,6 +3248,7 @@ export function pbmEventRegistrationFlagBuildStringFromMask(mask: PbmEventRegist
 export function pbmPhonebookTypeBuildStringFromMask(mask: PbmPhonebookType): string
 export function pbmSessionTypeGetString(val: PbmSessionType): string
 export function pdcConfigurationTypeGetString(val: PdcConfigurationType): string
+export function pdcRefreshEventTypeGetString(val: PdcRefreshEventType): string
 export function pdsDataValidBuildStringFromMask(mask: PdsDataValid): string
 export function pdsNetworkModeGetString(val: PdsNetworkMode): string
 export function pdsOperatingModeGetString(val: PdsOperatingMode): string
@@ -3098,6 +3270,8 @@ export function uimCardApplicationTypeGetString(val: UimCardApplicationType): st
 export function uimCardErrorGetString(val: UimCardError): string
 export function uimCardProtocolGetString(val: UimCardProtocol): string
 export function uimCardStateGetString(val: UimCardState): string
+export function uimConfigurationBuildStringFromMask(mask: UimConfiguration): string
+export function uimDepersonalizationOperationGetString(val: UimDepersonalizationOperation): string
 export function uimEventRegistrationFlagBuildStringFromMask(mask: UimEventRegistrationFlag): string
 export function uimFileTypeGetString(val: UimFileType): string
 export function uimPhysicalCardStateGetString(val: UimPhysicalCardState): string
@@ -3124,12 +3298,17 @@ export function voiceDomainGetString(val: VoiceDomain): string
 export function voicePresentationGetString(val: VoicePresentation): string
 export function voicePrivacyGetString(val: VoicePrivacy): string
 export function voiceServiceOptionGetString(val: VoiceServiceOption): string
+export function voiceSupplementaryServiceActionGetString(val: VoiceSupplementaryServiceAction): string
+export function voiceSupplementaryServiceNotificationTypeGetString(val: VoiceSupplementaryServiceNotificationType): string
+export function voiceSupplementaryServiceReasonGetString(val: VoiceSupplementaryServiceReason): string
+export function voiceSupplementaryServiceTypeGetString(val: VoiceSupplementaryServiceType): string
 export function voiceTtyModeGetString(val: VoiceTtyMode): string
 export function voiceUserActionGetString(val: VoiceUserAction): string
 export function voiceUssDataCodingSchemeGetString(val: VoiceUssDataCodingScheme): string
 export function voiceWcdmaAmrStatusBuildStringFromMask(mask: VoiceWcdmaAmrStatus): string
 export function wdaDataAggregationProtocolGetString(val: WdaDataAggregationProtocol): string
 export function wdaLinkLayerProtocolGetString(val: WdaLinkLayerProtocol): string
+export function wdsApnTypeMaskBuildStringFromMask(mask: WdsApnTypeMask): string
 export function wdsAttachPdnListActionGetString(val: WdsAttachPdnListAction): string
 export function wdsAuthenticationBuildStringFromMask(mask: WdsAuthentication): string
 export function wdsAutoconnectSettingGetString(val: WdsAutoconnectSetting): string
@@ -3438,6 +3617,8 @@ export class ClientDms {
     foxconnChangeDeviceModeFinish(res: Gio.AsyncResult): MessageDmsFoxconnChangeDeviceModeOutput
     foxconnGetFirmwareVersion(input: MessageDmsFoxconnGetFirmwareVersionInput, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     foxconnGetFirmwareVersionFinish(res: Gio.AsyncResult): MessageDmsFoxconnGetFirmwareVersionOutput
+    foxconnSetFccAuthentication(input: MessageDmsFoxconnSetFccAuthenticationInput, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    foxconnSetFccAuthenticationFinish(res: Gio.AsyncResult): MessageDmsFoxconnSetFccAuthenticationOutput
     getActivationState(unused: object | null, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getActivationStateFinish(res: Gio.AsyncResult): MessageDmsGetActivationStateOutput
     getAltNetConfig(unused: object | null, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -3633,6 +3814,102 @@ export class ClientDms {
     _init (config?: ClientDms_ConstructProps): void
     static $gtype: GObject.Type
 }
+export interface ClientDpm_ConstructProps extends Client_ConstructProps {
+}
+export class ClientDpm {
+    /* Properties of Qmi-1.0.Qmi.Client */
+    clientCid: number
+    clientDevice: Device
+    clientService: Service
+    readonly clientValid: boolean
+    clientVersionMajor: number
+    clientVersionMinor: number
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Qmi-1.0.Qmi.ClientDpm */
+    closePort(unused: object | null, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    closePortFinish(res: Gio.AsyncResult): MessageDpmClosePortOutput
+    openPort(input: MessageDpmOpenPortInput, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    openPortFinish(res: Gio.AsyncResult): MessageDpmOpenPortOutput
+    /* Methods of Qmi-1.0.Qmi.Client */
+    checkVersion(major: number, minor: number): boolean
+    getCid(): number
+    getDevice(): GObject.Object
+    getNextTransactionId(): number
+    getService(): Service
+    getVersion(major: number, minor: number): boolean
+    isValid(): boolean
+    peekDevice(): GObject.Object
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ClientDpm, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::client-cid", callback: (($obj: ClientDpm, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client-cid", callback: (($obj: ClientDpm, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client-cid", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client-cid", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client-cid", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client-device", callback: (($obj: ClientDpm, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client-device", callback: (($obj: ClientDpm, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client-device", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client-service", callback: (($obj: ClientDpm, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client-service", callback: (($obj: ClientDpm, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client-service", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client-service", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client-service", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client-valid", callback: (($obj: ClientDpm, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client-valid", callback: (($obj: ClientDpm, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client-valid", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client-valid", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client-valid", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client-version-major", callback: (($obj: ClientDpm, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client-version-major", callback: (($obj: ClientDpm, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client-version-major", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client-version-major", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client-version-major", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client-version-minor", callback: (($obj: ClientDpm, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client-version-minor", callback: (($obj: ClientDpm, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client-version-minor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client-version-minor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client-version-minor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: ClientDpm_ConstructProps)
+    _init (config?: ClientDpm_ConstructProps): void
+    static $gtype: GObject.Type
+}
 export interface ClientDsd_ConstructProps extends Client_ConstructProps {
 }
 export class ClientDsd {
@@ -3744,8 +4021,12 @@ export class ClientGas {
     /* Methods of Qmi-1.0.Qmi.ClientGas */
     dmsGetFirmwareList(input: MessageGasDmsGetFirmwareListInput, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     dmsGetFirmwareListFinish(res: Gio.AsyncResult): MessageGasDmsGetFirmwareListOutput
+    dmsGetUsbComposition(unused: object | null, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    dmsGetUsbCompositionFinish(res: Gio.AsyncResult): MessageGasDmsGetUsbCompositionOutput
     dmsSetActiveFirmware(input: MessageGasDmsSetActiveFirmwareInput, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     dmsSetActiveFirmwareFinish(res: Gio.AsyncResult): MessageGasDmsSetActiveFirmwareOutput
+    dmsSetUsbComposition(input: MessageGasDmsSetUsbCompositionInput, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    dmsSetUsbCompositionFinish(res: Gio.AsyncResult): MessageGasDmsSetUsbCompositionOutput
     /* Methods of Qmi-1.0.Qmi.Client */
     checkVersion(major: number, minor: number): boolean
     getCid(): number
@@ -4162,6 +4443,8 @@ export class ClientNas {
     getOperatorNameFinish(res: Gio.AsyncResult): MessageNasGetOperatorNameOutput
     getPlmnName(input: MessageNasGetPlmnNameInput, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getPlmnNameFinish(res: Gio.AsyncResult): MessageNasGetPlmnNameOutput
+    getPreferredNetworks(unused: object | null, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    getPreferredNetworksFinish(res: Gio.AsyncResult): MessageNasGetPreferredNetworksOutput
     getRfBandInformation(unused: object | null, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getRfBandInformationFinish(res: Gio.AsyncResult): MessageNasGetRfBandInformationOutput
     getServingSystem(unused: object | null, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -4190,6 +4473,8 @@ export class ClientNas {
     resetFinish(res: Gio.AsyncResult): MessageNasResetOutput
     setEventReport(input: MessageNasSetEventReportInput, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     setEventReportFinish(res: Gio.AsyncResult): MessageNasSetEventReportOutput
+    setPreferredNetworks(input: MessageNasSetPreferredNetworksInput, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    setPreferredNetworksFinish(res: Gio.AsyncResult): MessageNasSetPreferredNetworksOutput
     setSystemSelectionPreference(input: MessageNasSetSystemSelectionPreferenceInput, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     setSystemSelectionPreferenceFinish(res: Gio.AsyncResult): MessageNasSetSystemSelectionPreferenceOutput
     setTechnologyPreference(input: MessageNasSetTechnologyPreferenceInput, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -4233,6 +4518,11 @@ export class ClientNas {
     once(sigName: "event-report", callback: (output: IndicationNasEventReportOutput) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "event-report", callback: (output: IndicationNasEventReportOutput) => void): NodeJS.EventEmitter
     emit(sigName: "event-report", output: IndicationNasEventReportOutput): void
+    connect(sigName: "network-reject", callback: (($obj: ClientNas, output: IndicationNasNetworkRejectOutput) => void)): number
+    on(sigName: "network-reject", callback: (output: IndicationNasNetworkRejectOutput) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "network-reject", callback: (output: IndicationNasNetworkRejectOutput) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "network-reject", callback: (output: IndicationNasNetworkRejectOutput) => void): NodeJS.EventEmitter
+    emit(sigName: "network-reject", output: IndicationNasNetworkRejectOutput): void
     connect(sigName: "network-time", callback: (($obj: ClientNas, output: IndicationNasNetworkTimeOutput) => void)): number
     on(sigName: "network-time", callback: (output: IndicationNasNetworkTimeOutput) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "network-time", callback: (output: IndicationNasNetworkTimeOutput) => void, after?: boolean): NodeJS.EventEmitter
@@ -4619,6 +4909,11 @@ export class ClientPdc {
     once(sigName: "load-config", callback: (output: IndicationPdcLoadConfigOutput) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "load-config", callback: (output: IndicationPdcLoadConfigOutput) => void): NodeJS.EventEmitter
     emit(sigName: "load-config", output: IndicationPdcLoadConfigOutput): void
+    connect(sigName: "refresh", callback: (($obj: ClientPdc, output: IndicationPdcRefreshOutput) => void)): number
+    on(sigName: "refresh", callback: (output: IndicationPdcRefreshOutput) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "refresh", callback: (output: IndicationPdcRefreshOutput) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "refresh", callback: (output: IndicationPdcRefreshOutput) => void): NodeJS.EventEmitter
+    emit(sigName: "refresh", output: IndicationPdcRefreshOutput): void
     connect(sigName: "set-selected-config", callback: (($obj: ClientPdc, output: IndicationPdcSetSelectedConfigOutput) => void)): number
     on(sigName: "set-selected-config", callback: (output: IndicationPdcSetSelectedConfigOutput) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "set-selected-config", callback: (output: IndicationPdcSetSelectedConfigOutput) => void, after?: boolean): NodeJS.EventEmitter
@@ -5019,8 +5314,12 @@ export class ClientUim {
     changePinFinish(res: Gio.AsyncResult): MessageUimChangePinOutput
     changeProvisioningSession(input: MessageUimChangeProvisioningSessionInput, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     changeProvisioningSessionFinish(res: Gio.AsyncResult): MessageUimChangeProvisioningSessionOutput
+    depersonalization(input: MessageUimDepersonalizationInput, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    depersonalizationFinish(res: Gio.AsyncResult): MessageUimDepersonalizationOutput
     getCardStatus(unused: object | null, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getCardStatusFinish(res: Gio.AsyncResult): MessageUimGetCardStatusOutput
+    getConfiguration(input: MessageUimGetConfigurationInput, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    getConfigurationFinish(res: Gio.AsyncResult): MessageUimGetConfigurationOutput
     getFileAttributes(input: MessageUimGetFileAttributesInput, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getFileAttributesFinish(res: Gio.AsyncResult): MessageUimGetFileAttributesOutput
     getSlotStatus(unused: object | null, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -5171,16 +5470,24 @@ export class ClientVoice {
     dialCallFinish(res: Gio.AsyncResult): MessageVoiceDialCallOutput
     endCall(input: MessageVoiceEndCallInput, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     endCallFinish(res: Gio.AsyncResult): MessageVoiceEndCallOutput
+    getAllCallInfo(unused: object | null, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    getAllCallInfoFinish(res: Gio.AsyncResult): MessageVoiceGetAllCallInfoOutput
+    getCallWaiting(input: MessageVoiceGetCallWaitingInput, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    getCallWaitingFinish(res: Gio.AsyncResult): MessageVoiceGetCallWaitingOutput
     getConfig(input: MessageVoiceGetConfigInput, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getConfigFinish(res: Gio.AsyncResult): MessageVoiceGetConfigOutput
     getSupportedMessages(unused: object | null, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getSupportedMessagesFinish(res: Gio.AsyncResult): MessageVoiceGetSupportedMessagesOutput
     indicationRegister(input: MessageVoiceIndicationRegisterInput, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     indicationRegisterFinish(res: Gio.AsyncResult): MessageVoiceIndicationRegisterOutput
+    manageCalls(input: MessageVoiceManageCallsInput, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    manageCallsFinish(res: Gio.AsyncResult): MessageVoiceManageCallsOutput
     originateUssd(input: MessageVoiceOriginateUssdInput, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     originateUssdFinish(res: Gio.AsyncResult): MessageVoiceOriginateUssdOutput
     originateUssdNoWait(input: MessageVoiceOriginateUssdNoWaitInput, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     originateUssdNoWaitFinish(res: Gio.AsyncResult): MessageVoiceOriginateUssdNoWaitOutput
+    setSupplementaryService(input: MessageVoiceSetSupplementaryServiceInput, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    setSupplementaryServiceFinish(res: Gio.AsyncResult): MessageVoiceSetSupplementaryServiceOutput
     /* Methods of Qmi-1.0.Qmi.Client */
     checkVersion(major: number, minor: number): boolean
     getCid(): number
@@ -5228,6 +5535,11 @@ export class ClientVoice {
     once(sigName: "release-ussd", callback: () => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "release-ussd", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "release-ussd"): void
+    connect(sigName: "supplementary-service", callback: (($obj: ClientVoice, output: IndicationVoiceSupplementaryServiceOutput) => void)): number
+    on(sigName: "supplementary-service", callback: (output: IndicationVoiceSupplementaryServiceOutput) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "supplementary-service", callback: (output: IndicationVoiceSupplementaryServiceOutput) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "supplementary-service", callback: (output: IndicationVoiceSupplementaryServiceOutput) => void): NodeJS.EventEmitter
+    emit(sigName: "supplementary-service", output: IndicationVoiceSupplementaryServiceOutput): void
     connect(sigName: "ussd", callback: (($obj: ClientVoice, output: IndicationVoiceUssdOutput) => void)): number
     on(sigName: "ussd", callback: (output: IndicationVoiceUssdOutput) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "ussd", callback: (output: IndicationVoiceUssdOutput) => void, after?: boolean): NodeJS.EventEmitter
@@ -5697,6 +6009,8 @@ export class Device {
     /* Methods of Qmi-1.0.Qmi.Device */
     addLink(muxId: number, baseIfname: string, ifnamePrefix: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     addLinkFinish(res: Gio.AsyncResult, muxId: number): string
+    addLinkWithFlags(muxId: number, baseIfname: string, ifnamePrefix: string, flags: DeviceAddLinkFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    addLinkWithFlagsFinish(res: Gio.AsyncResult, muxId: number): string
     allocateClient(service: Service, cid: number, timeout: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     allocateClientFinish(res: Gio.AsyncResult): Client
     checkExpectedDataFormatSupported(format: DeviceExpectedDataFormat): boolean
@@ -5860,6 +6174,9 @@ export abstract class ClientCtlClass {
 export abstract class ClientDmsClass {
     static name: string
 }
+export abstract class ClientDpmClass {
+    static name: string
+}
 export abstract class ClientDsdClass {
     static name: string
 }
@@ -5932,87 +6249,87 @@ export class DeviceServiceVersionInfo {
 }
 export class IndicationDmsEventReportOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationDmsEventReportOutput */
-    getActivationState(): { returnType: boolean, valueActivationState: DmsActivationState }
-    getOperatingMode(): { returnType: boolean, valueOperatingMode: DmsOperatingMode }
-    getPin1Status(): { returnType: boolean, valuePin1StatusCurrentStatus: DmsUimPinStatus, valuePin1StatusVerifyRetriesLeft: number, valuePin1StatusUnblockRetriesLeft: number }
-    getPin2Status(): { returnType: boolean, valuePin2StatusCurrentStatus: DmsUimPinStatus, valuePin2StatusVerifyRetriesLeft: number, valuePin2StatusUnblockRetriesLeft: number }
-    getPowerState(): { returnType: boolean, valuePowerStatePowerStateFlags: number, valuePowerStateBatteryLevel: number }
-    getPrlInitNotification(): { returnType: boolean, valuePrlInitNotification: boolean }
-    getUimState(): { returnType: boolean, valueUimState: DmsUimState }
-    getWirelessDisableState(): { returnType: boolean, valueWirelessDisableState: boolean }
+    getActivationState(): { returnType: boolean, valueActivationState: DmsActivationState | null }
+    getOperatingMode(): { returnType: boolean, valueOperatingMode: DmsOperatingMode | null }
+    getPin1Status(): { returnType: boolean, valuePin1StatusCurrentStatus: DmsUimPinStatus | null, valuePin1StatusVerifyRetriesLeft: number | null, valuePin1StatusUnblockRetriesLeft: number | null }
+    getPin2Status(): { returnType: boolean, valuePin2StatusCurrentStatus: DmsUimPinStatus | null, valuePin2StatusVerifyRetriesLeft: number | null, valuePin2StatusUnblockRetriesLeft: number | null }
+    getPowerState(): { returnType: boolean, valuePowerStatePowerStateFlags: number | null, valuePowerStateBatteryLevel: number | null }
+    getPrlInitNotification(): { returnType: boolean, valuePrlInitNotification: boolean | null }
+    getUimState(): { returnType: boolean, valueUimState: DmsUimState | null }
+    getWirelessDisableState(): { returnType: boolean, valueWirelessDisableState: boolean | null }
     ref(): IndicationDmsEventReportOutput
     unref(): void
     static name: string
 }
 export class IndicationLocDeleteAssistanceDataOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocDeleteAssistanceDataOutput */
-    getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus }
+    getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus | null }
     ref(): IndicationLocDeleteAssistanceDataOutput
     unref(): void
     static name: string
 }
 export class IndicationLocEngineStateOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocEngineStateOutput */
-    getEngineState(): { returnType: boolean, valueEngineState: LocEngineState }
+    getEngineState(): { returnType: boolean, valueEngineState: LocEngineState | null }
     ref(): IndicationLocEngineStateOutput
     unref(): void
     static name: string
 }
 export class IndicationLocFixRecurrenceTypeOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocFixRecurrenceTypeOutput */
-    getFixRecurrenceType(): { returnType: boolean, valueFixRecurrenceType: LocFixRecurrenceType }
+    getFixRecurrenceType(): { returnType: boolean, valueFixRecurrenceType: LocFixRecurrenceType | null }
     ref(): IndicationLocFixRecurrenceTypeOutput
     unref(): void
     static name: string
 }
 export class IndicationLocGetEngineLockOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocGetEngineLockOutput */
-    getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus }
-    getLockType(): { returnType: boolean, valueLockType: LocLockType }
+    getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus | null }
+    getLockType(): { returnType: boolean, valueLockType: LocLockType | null }
     ref(): IndicationLocGetEngineLockOutput
     unref(): void
     static name: string
 }
 export class IndicationLocGetNmeaTypesOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocGetNmeaTypesOutput */
-    getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus }
-    getNmeaTypes(): { returnType: boolean, valueNmeaTypes: LocNmeaType }
+    getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus | null }
+    getNmeaTypes(): { returnType: boolean, valueNmeaTypes: LocNmeaType | null }
     ref(): IndicationLocGetNmeaTypesOutput
     unref(): void
     static name: string
 }
 export class IndicationLocGetOperationModeOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocGetOperationModeOutput */
-    getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus }
-    getOperationMode(): { returnType: boolean, valueOperationMode: LocOperationMode }
+    getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus | null }
+    getOperationMode(): { returnType: boolean, valueOperationMode: LocOperationMode | null }
     ref(): IndicationLocGetOperationModeOutput
     unref(): void
     static name: string
 }
 export class IndicationLocGetPredictedOrbitsDataSourceOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocGetPredictedOrbitsDataSourceOutput */
-    getAllowedSizes(): { returnType: boolean, valueAllowedSizesMaxFileSize: number, valueAllowedSizesMaxPartSize: number }
-    getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus }
-    getServerList(): { returnType: boolean, valueServerList: string[] }
+    getAllowedSizes(): { returnType: boolean, valueAllowedSizesMaxFileSize: number | null, valueAllowedSizesMaxPartSize: number | null }
+    getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus | null }
+    getServerList(): { returnType: boolean, valueServerList: string[] | null }
     ref(): IndicationLocGetPredictedOrbitsDataSourceOutput
     unref(): void
     static name: string
 }
 export class IndicationLocGetServerOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocGetServerOutput */
-    getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus }
-    getIpv4(): { returnType: boolean, valueIpv4Ipv4Address: number, valueIpv4Ipv4Port: number }
-    getIpv6(): { returnType: boolean, valueIpv6Ipv6Address: number[], valueIpv6Ipv6Port: number }
-    getServerType(): { returnType: boolean, valueServerType: LocServerType }
-    getUrl(): { returnType: boolean, valueUrl: string }
+    getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus | null }
+    getIpv4(): { returnType: boolean, valueIpv4Ipv4Address: number | null, valueIpv4Ipv4Port: number | null }
+    getIpv6(): { returnType: boolean, valueIpv6Ipv6Address: number[] | null, valueIpv6Ipv6Port: number | null }
+    getServerType(): { returnType: boolean, valueServerType: LocServerType | null }
+    getUrl(): { returnType: boolean, valueUrl: string | null }
     ref(): IndicationLocGetServerOutput
     unref(): void
     static name: string
 }
 export class IndicationLocGnssSvInfoOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocGnssSvInfoOutput */
-    getAltitudeAssumed(): { returnType: boolean, valueAltitudeAssumed: boolean }
-    getList(): { returnType: boolean, valueList: IndicationLocGnssSvInfoOutputListElement[] }
+    getAltitudeAssumed(): { returnType: boolean, valueAltitudeAssumed: boolean | null }
+    getList(): { returnType: boolean, valueList: IndicationLocGnssSvInfoOutputListElement[] | null }
     ref(): IndicationLocGnssSvInfoOutput
     unref(): void
     static name: string
@@ -6032,61 +6349,61 @@ export class IndicationLocGnssSvInfoOutputListElement {
 }
 export class IndicationLocInjectPredictedOrbitsDataOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocInjectPredictedOrbitsDataOutput */
-    getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus }
-    getPartNumber(): { returnType: boolean, valuePartNumber: number }
+    getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus | null }
+    getPartNumber(): { returnType: boolean, valuePartNumber: number | null }
     ref(): IndicationLocInjectPredictedOrbitsDataOutput
     unref(): void
     static name: string
 }
 export class IndicationLocInjectXtraDataOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocInjectXtraDataOutput */
-    getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus }
-    getPartNumber(): { returnType: boolean, valuePartNumber: number }
+    getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus | null }
+    getPartNumber(): { returnType: boolean, valuePartNumber: number | null }
     ref(): IndicationLocInjectXtraDataOutput
     unref(): void
     static name: string
 }
 export class IndicationLocNmeaOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocNmeaOutput */
-    getNmeaString(): { returnType: boolean, valueNmeaString: string }
+    getNmeaString(): { returnType: boolean, valueNmeaString: string | null }
     ref(): IndicationLocNmeaOutput
     unref(): void
     static name: string
 }
 export class IndicationLocPositionReportOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocPositionReportOutput */
-    getAltitudeAssumed(): { returnType: boolean, valueAltitudeAssumed: boolean }
-    getAltitudeFromEllipsoid(): { returnType: boolean, valueAltitudeFromEllipsoid: number }
-    getAltitudeFromSealevel(): { returnType: boolean, valueAltitudeFromSealevel: number }
-    getDilutionOfPrecision(): { returnType: boolean, valueDilutionOfPrecision: IndicationLocPositionReportOutputDilutionOfPrecision }
-    getGpsTime(): { returnType: boolean, valueGpsTime: IndicationLocPositionReportOutputGpsTime }
-    getHeading(): { returnType: boolean, valueHeading: number }
-    getHeadingUncertainty(): { returnType: boolean, valueHeadingUncertainty: number }
-    getHorizontalConfidence(): { returnType: boolean, valueHorizontalConfidence: number }
-    getHorizontalReliability(): { returnType: boolean, valueHorizontalReliability: LocReliability }
-    getHorizontalSpeed(): { returnType: boolean, valueHorizontalSpeed: number }
-    getHorizontalUncertaintyCircular(): { returnType: boolean, valueHorizontalUncertaintyCircular: number }
-    getHorizontalUncertaintyEllipticalAzimuth(): { returnType: boolean, valueHorizontalUncertaintyEllipticalAzimuth: number }
-    getHorizontalUncertaintyEllipticalMajor(): { returnType: boolean, valueHorizontalUncertaintyEllipticalMajor: number }
-    getHorizontalUncertaintyEllipticalMinor(): { returnType: boolean, valueHorizontalUncertaintyEllipticalMinor: number }
-    getLatitude(): { returnType: boolean, valueLatitude: number }
-    getLeapSeconds(): { returnType: boolean, valueLeapSeconds: number }
-    getLongitude(): { returnType: boolean, valueLongitude: number }
-    getMagneticDeviation(): { returnType: boolean, valueMagneticDeviation: number }
-    getSatellitesUsed(): { returnType: boolean, valueSatellitesUsed: number[] }
-    getSensorDataUsage(): { returnType: boolean, valueSensorDataUsage: LocSensorDataUsage }
-    getSessionFixCount(): { returnType: boolean, valueSessionFixCount: number }
-    getSessionId(): { returnType: boolean, valueSessionId: number }
-    getSessionStatus(): { returnType: boolean, valueSessionStatus: LocSessionStatus }
-    getSpeedUncertainty(): { returnType: boolean, valueSpeedUncertainty: number }
-    getTechnologyUsed(): { returnType: boolean, valueTechnologyUsed: LocTechnologyUsed }
-    getTimeSource(): { returnType: boolean, valueTimeSource: LocTimeSource }
-    getTimeUncertainty(): { returnType: boolean, valueTimeUncertainty: number }
-    getUtcTimestamp(): { returnType: boolean, valueUtcTimestamp: number }
-    getVerticalConfidence(): { returnType: boolean, valueVerticalConfidence: number }
-    getVerticalReliability(): { returnType: boolean, valueVerticalReliability: number }
-    getVerticalSpeed(): { returnType: boolean, valueVerticalSpeed: number }
-    getVerticalUncertainty(): { returnType: boolean, valueVerticalUncertainty: number }
+    getAltitudeAssumed(): { returnType: boolean, valueAltitudeAssumed: boolean | null }
+    getAltitudeFromEllipsoid(): { returnType: boolean, valueAltitudeFromEllipsoid: number | null }
+    getAltitudeFromSealevel(): { returnType: boolean, valueAltitudeFromSealevel: number | null }
+    getDilutionOfPrecision(): { returnType: boolean, valueDilutionOfPrecision: IndicationLocPositionReportOutputDilutionOfPrecision | null }
+    getGpsTime(): { returnType: boolean, valueGpsTime: IndicationLocPositionReportOutputGpsTime | null }
+    getHeading(): { returnType: boolean, valueHeading: number | null }
+    getHeadingUncertainty(): { returnType: boolean, valueHeadingUncertainty: number | null }
+    getHorizontalConfidence(): { returnType: boolean, valueHorizontalConfidence: number | null }
+    getHorizontalReliability(): { returnType: boolean, valueHorizontalReliability: LocReliability | null }
+    getHorizontalSpeed(): { returnType: boolean, valueHorizontalSpeed: number | null }
+    getHorizontalUncertaintyCircular(): { returnType: boolean, valueHorizontalUncertaintyCircular: number | null }
+    getHorizontalUncertaintyEllipticalAzimuth(): { returnType: boolean, valueHorizontalUncertaintyEllipticalAzimuth: number | null }
+    getHorizontalUncertaintyEllipticalMajor(): { returnType: boolean, valueHorizontalUncertaintyEllipticalMajor: number | null }
+    getHorizontalUncertaintyEllipticalMinor(): { returnType: boolean, valueHorizontalUncertaintyEllipticalMinor: number | null }
+    getLatitude(): { returnType: boolean, valueLatitude: number | null }
+    getLeapSeconds(): { returnType: boolean, valueLeapSeconds: number | null }
+    getLongitude(): { returnType: boolean, valueLongitude: number | null }
+    getMagneticDeviation(): { returnType: boolean, valueMagneticDeviation: number | null }
+    getSatellitesUsed(): { returnType: boolean, valueSatellitesUsed: number[] | null }
+    getSensorDataUsage(): { returnType: boolean, valueSensorDataUsage: LocSensorDataUsage | null }
+    getSessionFixCount(): { returnType: boolean, valueSessionFixCount: number | null }
+    getSessionId(): { returnType: boolean, valueSessionId: number | null }
+    getSessionStatus(): { returnType: boolean, valueSessionStatus: LocSessionStatus | null }
+    getSpeedUncertainty(): { returnType: boolean, valueSpeedUncertainty: number | null }
+    getTechnologyUsed(): { returnType: boolean, valueTechnologyUsed: LocTechnologyUsed | null }
+    getTimeSource(): { returnType: boolean, valueTimeSource: LocTimeSource | null }
+    getTimeUncertainty(): { returnType: boolean, valueTimeUncertainty: number | null }
+    getUtcTimestamp(): { returnType: boolean, valueUtcTimestamp: number | null }
+    getVerticalConfidence(): { returnType: boolean, valueVerticalConfidence: number | null }
+    getVerticalReliability(): { returnType: boolean, valueVerticalReliability: number | null }
+    getVerticalSpeed(): { returnType: boolean, valueVerticalSpeed: number | null }
+    getVerticalUncertainty(): { returnType: boolean, valueVerticalUncertainty: number | null }
     ref(): IndicationLocPositionReportOutput
     unref(): void
     static name: string
@@ -6106,45 +6423,45 @@ export class IndicationLocPositionReportOutputGpsTime {
 }
 export class IndicationLocSetEngineLockOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocSetEngineLockOutput */
-    getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus }
+    getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus | null }
     ref(): IndicationLocSetEngineLockOutput
     unref(): void
     static name: string
 }
 export class IndicationLocSetNmeaTypesOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocSetNmeaTypesOutput */
-    getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus }
+    getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus | null }
     ref(): IndicationLocSetNmeaTypesOutput
     unref(): void
     static name: string
 }
 export class IndicationLocSetOperationModeOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocSetOperationModeOutput */
-    getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus }
+    getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus | null }
     ref(): IndicationLocSetOperationModeOutput
     unref(): void
     static name: string
 }
 export class IndicationLocSetServerOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationLocSetServerOutput */
-    getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus }
+    getIndicationStatus(): { returnType: boolean, valueIndicationStatus: LocIndicationStatus | null }
     ref(): IndicationLocSetServerOutput
     unref(): void
     static name: string
 }
 export class IndicationNasEventReportOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationNasEventReportOutput */
-    getEcio(): { returnType: boolean, valueEcioEcio: number, valueEcioRadioInterface: NasRadioInterface }
-    getErrorRate(): { returnType: boolean, valueErrorRateRate: number, valueErrorRateRadioInterface: NasRadioInterface }
-    getIo(): { returnType: boolean, valueIo: number }
-    getLteRsrp(): { returnType: boolean, valueLteRsrp: number }
-    getLteSnr(): { returnType: boolean, valueLteSnr: number }
-    getRegistrationRejectReason(): { returnType: boolean, valueRegistrationRejectReasonServiceDomain: NasNetworkServiceDomain, valueRegistrationRejectReasonRejectCause: number }
-    getRfBandInformation(): { returnType: boolean, valueRfBandInformation: IndicationNasEventReportOutputRfBandInformationElement[] }
-    getRsrq(): { returnType: boolean, valueRsrqRsrq: number, valueRsrqRadioInterface: NasRadioInterface }
-    getRssi(): { returnType: boolean, valueRssiRssi: number, valueRssiRadioInterface: NasRadioInterface }
-    getSignalStrength(): { returnType: boolean, valueSignalStrengthStrength: number, valueSignalStrengthRadioInterface: NasRadioInterface }
-    getSinr(): { returnType: boolean, valueSinr: NasEvdoSinrLevel }
+    getEcio(): { returnType: boolean, valueEcioEcio: number | null, valueEcioRadioInterface: NasRadioInterface | null }
+    getErrorRate(): { returnType: boolean, valueErrorRateRate: number | null, valueErrorRateRadioInterface: NasRadioInterface | null }
+    getIo(): { returnType: boolean, valueIo: number | null }
+    getLteRsrp(): { returnType: boolean, valueLteRsrp: number | null }
+    getLteSnr(): { returnType: boolean, valueLteSnr: number | null }
+    getRegistrationRejectReason(): { returnType: boolean, valueRegistrationRejectReasonServiceDomain: NasNetworkServiceDomain | null, valueRegistrationRejectReasonRejectCause: number | null }
+    getRfBandInformation(): { returnType: boolean, valueRfBandInformation: IndicationNasEventReportOutputRfBandInformationElement[] | null }
+    getRsrq(): { returnType: boolean, valueRsrqRsrq: number | null, valueRsrqRadioInterface: NasRadioInterface | null }
+    getRssi(): { returnType: boolean, valueRssiRssi: number | null, valueRssiRadioInterface: NasRadioInterface | null }
+    getSignalStrength(): { returnType: boolean, valueSignalStrengthStrength: number | null, valueSignalStrengthRadioInterface: NasRadioInterface | null }
+    getSinr(): { returnType: boolean, valueSinr: NasEvdoSinrLevel | null }
     ref(): IndicationNasEventReportOutput
     unref(): void
     static name: string
@@ -6156,23 +6473,34 @@ export class IndicationNasEventReportOutputRfBandInformationElement {
     activeChannel: number
     static name: string
 }
+export class IndicationNasNetworkRejectOutput {
+    /* Methods of Qmi-1.0.Qmi.IndicationNasNetworkRejectOutput */
+    getClosedSubscriberGroup(): { returnType: boolean, valueClosedSubscriberGroup: number | null }
+    getPlmn(): { returnType: boolean, valuePlmnMcc: number | null, valuePlmnMnc: number | null, valuePlmnIncludesPcsDigit: boolean | null }
+    getRadioInterface(): { returnType: boolean, valueRadioInterface: NasRadioInterface | null }
+    getRejectCause(): { returnType: boolean, valueRejectCause: NasRejectCause | null }
+    getServiceDomain(): { returnType: boolean, valueServiceDomain: NasNetworkServiceDomain | null }
+    ref(): IndicationNasNetworkRejectOutput
+    unref(): void
+    static name: string
+}
 export class IndicationNasNetworkTimeOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationNasNetworkTimeOutput */
-    getDaylightSavingsAdjustment(): { returnType: boolean, valueDaylightSavingsAdjustment: NasDaylightSavingsAdjustment }
-    getRadioInterface(): { returnType: boolean, valueRadioInterface: NasRadioInterface }
-    getTimezoneOffset(): { returnType: boolean, valueTimezoneOffset: number }
-    getUniversalTime(): { returnType: boolean, valueUniversalTimeYear: number, valueUniversalTimeMonth: number, valueUniversalTimeDay: number, valueUniversalTimeHour: number, valueUniversalTimeMinute: number, valueUniversalTimeSecond: number, valueUniversalTimeDayOfWeek: NasDayOfWeek }
+    getDaylightSavingsAdjustment(): { returnType: boolean, valueDaylightSavingsAdjustment: NasDaylightSavingsAdjustment | null }
+    getRadioInterface(): { returnType: boolean, valueRadioInterface: NasRadioInterface | null }
+    getTimezoneOffset(): { returnType: boolean, valueTimezoneOffset: number | null }
+    getUniversalTime(): { returnType: boolean, valueUniversalTimeYear: number | null, valueUniversalTimeMonth: number | null, valueUniversalTimeDay: number | null, valueUniversalTimeHour: number | null, valueUniversalTimeMinute: number | null, valueUniversalTimeSecond: number | null, valueUniversalTimeDayOfWeek: NasDayOfWeek | null }
     ref(): IndicationNasNetworkTimeOutput
     unref(): void
     static name: string
 }
 export class IndicationNasOperatorNameOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationNasOperatorNameOutput */
-    getNitzInformation(): { returnType: boolean, valueNitzInformationNameEncoding: NasPlmnEncodingScheme, valueNitzInformationShortCountryInitials: NasPlmnNameCountryInitials, valueNitzInformationLongNameSpareBits: NasPlmnNameSpareBits, valueNitzInformationShortNameSpareBits: NasPlmnNameSpareBits, valueNitzInformationLongName: any[], valueNitzInformationShortName: any[] }
-    getOperatorPlmnList(): { returnType: boolean, valueOperatorPlmnList: IndicationNasOperatorNameOutputOperatorPlmnListElement[] }
-    getOperatorPlmnName(): { returnType: boolean, valueOperatorPlmnName: IndicationNasOperatorNameOutputOperatorPlmnNameElement[] }
-    getOperatorStringName(): { returnType: boolean, valueOperatorStringName: string }
-    getServiceProviderName(): { returnType: boolean, valueServiceProviderNameNameDisplayCondition: NasNetworkNameDisplayCondition, valueServiceProviderNameName: string }
+    getNitzInformation(): { returnType: boolean, valueNitzInformationNameEncoding: NasPlmnEncodingScheme | null, valueNitzInformationShortCountryInitials: NasPlmnNameCountryInitials | null, valueNitzInformationLongNameSpareBits: NasPlmnNameSpareBits | null, valueNitzInformationShortNameSpareBits: NasPlmnNameSpareBits | null, valueNitzInformationLongName: any[] | null, valueNitzInformationShortName: any[] | null }
+    getOperatorPlmnList(): { returnType: boolean, valueOperatorPlmnList: IndicationNasOperatorNameOutputOperatorPlmnListElement[] | null }
+    getOperatorPlmnName(): { returnType: boolean, valueOperatorPlmnName: IndicationNasOperatorNameOutputOperatorPlmnNameElement[] | null }
+    getOperatorStringName(): { returnType: boolean, valueOperatorStringName: string | null }
+    getServiceProviderName(): { returnType: boolean, valueServiceProviderNameNameDisplayCondition: NasNetworkNameDisplayCondition | null, valueServiceProviderNameName: string | null }
     ref(): IndicationNasOperatorNameOutput
     unref(): void
     static name: string
@@ -6198,34 +6526,34 @@ export class IndicationNasOperatorNameOutputOperatorPlmnNameElement {
 }
 export class IndicationNasServingSystemOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationNasServingSystemOutput */
-    getCallBarringStatus(): { returnType: boolean, valueCallBarringStatusCsStatus: NasCallBarringStatus, valueCallBarringStatusPsStatus: NasCallBarringStatus }
-    getCdmaBaseStationInfo(): { returnType: boolean, valueCdmaBaseStationInfoBaseStationId: number, valueCdmaBaseStationInfoBaseStationLatitude: number, valueCdmaBaseStationInfoBaseStationLongitude: number }
-    getCdmaPRev(): { returnType: boolean, valueCdmaPRev: number }
-    getCdmaSystemId(): { returnType: boolean, valueCdmaSystemIdSid: number, valueCdmaSystemIdNid: number }
-    getCdmaSystemInfo(): { returnType: boolean, valueCdmaSystemInfoMcc: number, valueCdmaSystemInfoImsi1112: number }
-    getCid3gpp(): { returnType: boolean, valueCid3gpp: number }
-    getConcurrentServiceInfo3gpp2(): { returnType: boolean, valueConcurrentServiceInfo3gpp2: boolean }
-    getCurrentPlmn(): { returnType: boolean, valueCurrentPlmnMcc: number, valueCurrentPlmnMnc: number, valueCurrentPlmnDescription: string }
-    getDataServiceCapability(): { returnType: boolean, valueDataServiceCapability: NasDataCapability[] }
-    getDaylightSavingTimeAdjustment3gpp(): { returnType: boolean, valueDaylightSavingTimeAdjustment3gpp: number }
-    getDefaultRoamingIndicator(): { returnType: boolean, valueDefaultRoamingIndicator: NasRoamingIndicatorStatus }
-    getDetailedServiceStatus(): { returnType: boolean, valueDetailedServiceStatusStatus: NasServiceStatus, valueDetailedServiceStatusCapability: NasNetworkServiceDomain, valueDetailedServiceStatusHdrStatus: NasServiceStatus, valueDetailedServiceStatusHdrHybrid: boolean, valueDetailedServiceStatusForbidden: boolean }
-    getDtmSupport(): { returnType: boolean, valueDtmSupport: boolean }
-    getHdrPersonality(): { returnType: boolean, valueHdrPersonality: NasHdrPersonality }
-    getLac3gpp(): { returnType: boolean, valueLac3gpp: number }
-    getLteTac(): { returnType: boolean, valueLteTac: number }
-    getMncPcsDigitIncludeStatus(): { returnType: boolean, valueMncPcsDigitIncludeStatusMcc: number, valueMncPcsDigitIncludeStatusMnc: number, valueMncPcsDigitIncludeStatusIncludesPcsDigit: boolean }
-    getNetworkNameSource(): { returnType: boolean, valueNetworkNameSource: NasNetworkNameSource }
-    getPlmnNameFlag3gpp(): { returnType: boolean, valuePlmnNameFlag3gpp: boolean }
-    getPlmnNotChangedIndication(): { returnType: boolean, valuePlmnNotChangedIndication: boolean }
-    getPrlIndicator3gpp2(): { returnType: boolean, valuePrlIndicator3gpp2: boolean }
-    getRoamingIndicator(): { returnType: boolean, valueRoamingIndicator: NasRoamingIndicatorStatus }
-    getRoamingIndicatorList(): { returnType: boolean, valueRoamingIndicatorList: IndicationNasServingSystemOutputRoamingIndicatorListElement[] }
-    getServingSystem(): { returnType: boolean, valueServingSystemRegistrationState: NasRegistrationState, valueServingSystemCsAttachState: NasAttachState, valueServingSystemPsAttachState: NasAttachState, valueServingSystemSelectedNetwork: NasNetworkType, valueServingSystemRadioInterfaces: NasRadioInterface[] }
-    getTimeZone3gpp(): { returnType: boolean, valueTimeZone3gpp: number }
-    getTimeZone3gpp2(): { returnType: boolean, valueTimeZone3gpp2LeapSeconds: number, valueTimeZone3gpp2LocalTimeOffset: number, valueTimeZone3gpp2DaylightSavingTime: boolean }
-    getUmtsPrimaryScramblingCode(): { returnType: boolean, valueUmtsPrimaryScramblingCode: number }
-    getUniversalTimeAndLocalTimeZone3gpp(): { returnType: boolean, valueUniversalTimeAndLocalTimeZone3gppYear: number, valueUniversalTimeAndLocalTimeZone3gppMonth: number, valueUniversalTimeAndLocalTimeZone3gppDay: number, valueUniversalTimeAndLocalTimeZone3gppHour: number, valueUniversalTimeAndLocalTimeZone3gppMinute: number, valueUniversalTimeAndLocalTimeZone3gppSecond: number, valueUniversalTimeAndLocalTimeZone3gppTimeZone: number }
+    getCallBarringStatus(): { returnType: boolean, valueCallBarringStatusCsStatus: NasCallBarringStatus | null, valueCallBarringStatusPsStatus: NasCallBarringStatus | null }
+    getCdmaBaseStationInfo(): { returnType: boolean, valueCdmaBaseStationInfoBaseStationId: number | null, valueCdmaBaseStationInfoBaseStationLatitude: number | null, valueCdmaBaseStationInfoBaseStationLongitude: number | null }
+    getCdmaPRev(): { returnType: boolean, valueCdmaPRev: number | null }
+    getCdmaSystemId(): { returnType: boolean, valueCdmaSystemIdSid: number | null, valueCdmaSystemIdNid: number | null }
+    getCdmaSystemInfo(): { returnType: boolean, valueCdmaSystemInfoMcc: number | null, valueCdmaSystemInfoImsi1112: number | null }
+    getCid3gpp(): { returnType: boolean, valueCid3gpp: number | null }
+    getConcurrentServiceInfo3gpp2(): { returnType: boolean, valueConcurrentServiceInfo3gpp2: boolean | null }
+    getCurrentPlmn(): { returnType: boolean, valueCurrentPlmnMcc: number | null, valueCurrentPlmnMnc: number | null, valueCurrentPlmnDescription: string | null }
+    getDataServiceCapability(): { returnType: boolean, valueDataServiceCapability: NasDataCapability[] | null }
+    getDaylightSavingTimeAdjustment3gpp(): { returnType: boolean, valueDaylightSavingTimeAdjustment3gpp: number | null }
+    getDefaultRoamingIndicator(): { returnType: boolean, valueDefaultRoamingIndicator: NasRoamingIndicatorStatus | null }
+    getDetailedServiceStatus(): { returnType: boolean, valueDetailedServiceStatusStatus: NasServiceStatus | null, valueDetailedServiceStatusCapability: NasNetworkServiceDomain | null, valueDetailedServiceStatusHdrStatus: NasServiceStatus | null, valueDetailedServiceStatusHdrHybrid: boolean | null, valueDetailedServiceStatusForbidden: boolean | null }
+    getDtmSupport(): { returnType: boolean, valueDtmSupport: boolean | null }
+    getHdrPersonality(): { returnType: boolean, valueHdrPersonality: NasHdrPersonality | null }
+    getLac3gpp(): { returnType: boolean, valueLac3gpp: number | null }
+    getLteTac(): { returnType: boolean, valueLteTac: number | null }
+    getMncPcsDigitIncludeStatus(): { returnType: boolean, valueMncPcsDigitIncludeStatusMcc: number | null, valueMncPcsDigitIncludeStatusMnc: number | null, valueMncPcsDigitIncludeStatusIncludesPcsDigit: boolean | null }
+    getNetworkNameSource(): { returnType: boolean, valueNetworkNameSource: NasNetworkNameSource | null }
+    getPlmnNameFlag3gpp(): { returnType: boolean, valuePlmnNameFlag3gpp: boolean | null }
+    getPlmnNotChangedIndication(): { returnType: boolean, valuePlmnNotChangedIndication: boolean | null }
+    getPrlIndicator3gpp2(): { returnType: boolean, valuePrlIndicator3gpp2: boolean | null }
+    getRoamingIndicator(): { returnType: boolean, valueRoamingIndicator: NasRoamingIndicatorStatus | null }
+    getRoamingIndicatorList(): { returnType: boolean, valueRoamingIndicatorList: IndicationNasServingSystemOutputRoamingIndicatorListElement[] | null }
+    getServingSystem(): { returnType: boolean, valueServingSystemRegistrationState: NasRegistrationState | null, valueServingSystemCsAttachState: NasAttachState | null, valueServingSystemPsAttachState: NasAttachState | null, valueServingSystemSelectedNetwork: NasNetworkType | null, valueServingSystemRadioInterfaces: NasRadioInterface[] | null }
+    getTimeZone3gpp(): { returnType: boolean, valueTimeZone3gpp: number | null }
+    getTimeZone3gpp2(): { returnType: boolean, valueTimeZone3gpp2LeapSeconds: number | null, valueTimeZone3gpp2LocalTimeOffset: number | null, valueTimeZone3gpp2DaylightSavingTime: boolean | null }
+    getUmtsPrimaryScramblingCode(): { returnType: boolean, valueUmtsPrimaryScramblingCode: number | null }
+    getUniversalTimeAndLocalTimeZone3gpp(): { returnType: boolean, valueUniversalTimeAndLocalTimeZone3gppYear: number | null, valueUniversalTimeAndLocalTimeZone3gppMonth: number | null, valueUniversalTimeAndLocalTimeZone3gppDay: number | null, valueUniversalTimeAndLocalTimeZone3gppHour: number | null, valueUniversalTimeAndLocalTimeZone3gppMinute: number | null, valueUniversalTimeAndLocalTimeZone3gppSecond: number | null, valueUniversalTimeAndLocalTimeZone3gppTimeZone: number | null }
     ref(): IndicationNasServingSystemOutput
     unref(): void
     static name: string
@@ -6238,98 +6566,105 @@ export class IndicationNasServingSystemOutputRoamingIndicatorListElement {
 }
 export class IndicationNasSignalInfoOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationNasSignalInfoOutput */
-    getCdmaSignalStrength(): { returnType: boolean, valueCdmaSignalStrengthRssi: number, valueCdmaSignalStrengthEcio: number }
-    getGsmSignalStrength(): { returnType: boolean, valueGsmSignalStrength: number }
-    getHdrSignalStrength(): { returnType: boolean, valueHdrSignalStrengthRssi: number, valueHdrSignalStrengthEcio: number, valueHdrSignalStrengthSinr: NasEvdoSinrLevel, valueHdrSignalStrengthIo: number }
-    getLteSignalStrength(): { returnType: boolean, valueLteSignalStrengthRssi: number, valueLteSignalStrengthRsrq: number, valueLteSignalStrengthRsrp: number, valueLteSignalStrengthSnr: number }
-    getTdmaSignalStrength(): { returnType: boolean, valueTdmaSignalStrength: number }
-    getWcdmaSignalStrength(): { returnType: boolean, valueWcdmaSignalStrengthRssi: number, valueWcdmaSignalStrengthEcio: number }
+    get5gSignalStrength(): { returnType: boolean, value5gSignalStrengthRsrp: number | null, value5gSignalStrengthSnr: number | null }
+    get5gSignalStrengthExtended(): { returnType: boolean, value5gSignalStrengthExtended: number | null }
+    getCdmaSignalStrength(): { returnType: boolean, valueCdmaSignalStrengthRssi: number | null, valueCdmaSignalStrengthEcio: number | null }
+    getGsmSignalStrength(): { returnType: boolean, valueGsmSignalStrength: number | null }
+    getHdrSignalStrength(): { returnType: boolean, valueHdrSignalStrengthRssi: number | null, valueHdrSignalStrengthEcio: number | null, valueHdrSignalStrengthSinr: NasEvdoSinrLevel | null, valueHdrSignalStrengthIo: number | null }
+    getLteSignalStrength(): { returnType: boolean, valueLteSignalStrengthRssi: number | null, valueLteSignalStrengthRsrq: number | null, valueLteSignalStrengthRsrp: number | null, valueLteSignalStrengthSnr: number | null }
+    getTdmaSignalStrength(): { returnType: boolean, valueTdmaSignalStrength: number | null }
+    getWcdmaSignalStrength(): { returnType: boolean, valueWcdmaSignalStrengthRssi: number | null, valueWcdmaSignalStrengthEcio: number | null }
     ref(): IndicationNasSignalInfoOutput
     unref(): void
     static name: string
 }
 export class IndicationNasSystemInfoOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationNasSystemInfoOutput */
-    getAdditionalCdmaSystemInfo(): { returnType: boolean, valueAdditionalCdmaSystemInfoGeoSystemIndex: number, valueAdditionalCdmaSystemInfoRegistrationPeriod: number }
-    getAdditionalGsmSystemInfo(): { returnType: boolean, valueAdditionalGsmSystemInfoGeoSystemIndex: number, valueAdditionalGsmSystemInfoCellBroadcastSupport: NasCellBroadcastCapability }
-    getAdditionalHdrSystemInfo(): { returnType: boolean, valueAdditionalHdrSystemInfoGeoSystemIndex: number }
-    getAdditionalLteSystemInfo(): { returnType: boolean, valueAdditionalLteSystemInfoGeoSystemIndex: number }
-    getAdditionalWcdmaSystemInfo(): { returnType: boolean, valueAdditionalWcdmaSystemInfoGeoSystemIndex: number, valueAdditionalWcdmaSystemInfoCellBroadcastSupport: NasCellBroadcastCapability }
-    getCdmaServiceStatus(): { returnType: boolean, valueCdmaServiceStatusServiceStatus: NasServiceStatus, valueCdmaServiceStatusPreferredDataPath: boolean }
-    getCdmaSystemInfo(): { returnType: boolean, valueCdmaSystemInfoDomainValid: boolean, valueCdmaSystemInfoDomain: NasNetworkServiceDomain, valueCdmaSystemInfoServiceCapabilityValid: boolean, valueCdmaSystemInfoServiceCapability: NasNetworkServiceDomain, valueCdmaSystemInfoRoamingStatusValid: boolean, valueCdmaSystemInfoRoamingStatus: NasRoamingStatus, valueCdmaSystemInfoForbiddenValid: boolean, valueCdmaSystemInfoForbidden: boolean, valueCdmaSystemInfoPrlMatchValid: boolean, valueCdmaSystemInfoPrlMatch: boolean, valueCdmaSystemInfoPRevValid: boolean, valueCdmaSystemInfoPRev: number, valueCdmaSystemInfoBaseStationPRevValid: boolean, valueCdmaSystemInfoBaseStationPRev: number, valueCdmaSystemInfoConcurrentServiceSupportValid: boolean, valueCdmaSystemInfoConcurrentServiceSupport: boolean, valueCdmaSystemInfoCdmaSystemIdValid: boolean, valueCdmaSystemInfoSid: number, valueCdmaSystemInfoNid: number, valueCdmaSystemInfoBaseStationInfoValid: boolean, valueCdmaSystemInfoBaseStationId: number, valueCdmaSystemInfoBaseStationLatitude: number, valueCdmaSystemInfoBaseStationLongitude: number, valueCdmaSystemInfoPacketZoneValid: boolean, valueCdmaSystemInfoPacketZone: number, valueCdmaSystemInfoNetworkIdValid: boolean, valueCdmaSystemInfoMcc: string, valueCdmaSystemInfoMnc: string }
-    getGsmCallBarringStatus(): { returnType: boolean, valueGsmCallBarringStatusCsStatus: NasCallBarringStatus, valueGsmCallBarringStatusPsStatus: NasCallBarringStatus }
-    getGsmCipherDomain(): { returnType: boolean, valueGsmCipherDomain: NasNetworkServiceDomain }
-    getGsmServiceStatus(): { returnType: boolean, valueGsmServiceStatusServiceStatus: NasServiceStatus, valueGsmServiceStatusTrueServiceStatus: NasServiceStatus, valueGsmServiceStatusPreferredDataPath: boolean }
-    getGsmSystemInfo(): { returnType: boolean, valueGsmSystemInfoDomainValid: boolean, valueGsmSystemInfoDomain: NasNetworkServiceDomain, valueGsmSystemInfoServiceCapabilityValid: boolean, valueGsmSystemInfoServiceCapability: NasNetworkServiceDomain, valueGsmSystemInfoRoamingStatusValid: boolean, valueGsmSystemInfoRoamingStatus: NasRoamingStatus, valueGsmSystemInfoForbiddenValid: boolean, valueGsmSystemInfoForbidden: boolean, valueGsmSystemInfoLacValid: boolean, valueGsmSystemInfoLac: number, valueGsmSystemInfoCidValid: boolean, valueGsmSystemInfoCid: number, valueGsmSystemInfoRegistrationRejectInfoValid: boolean, valueGsmSystemInfoRegistrationRejectDomain: NasNetworkServiceDomain, valueGsmSystemInfoRegistrationRejectCause: number, valueGsmSystemInfoNetworkIdValid: boolean, valueGsmSystemInfoMcc: string, valueGsmSystemInfoMnc: string, valueGsmSystemInfoEgprsSupportValid: boolean, valueGsmSystemInfoEgprsSupport: boolean, valueGsmSystemInfoDtmSupportValid: boolean, valueGsmSystemInfoDtmSupport: boolean }
-    getHdrServiceStatus(): { returnType: boolean, valueHdrServiceStatusServiceStatus: NasServiceStatus, valueHdrServiceStatusPreferredDataPath: boolean }
-    getHdrSystemInfo(): { returnType: boolean, valueHdrSystemInfoDomainValid: boolean, valueHdrSystemInfoDomain: NasNetworkServiceDomain, valueHdrSystemInfoServiceCapabilityValid: boolean, valueHdrSystemInfoServiceCapability: NasNetworkServiceDomain, valueHdrSystemInfoRoamingStatusValid: boolean, valueHdrSystemInfoRoamingStatus: NasRoamingStatus, valueHdrSystemInfoForbiddenValid: boolean, valueHdrSystemInfoForbidden: boolean, valueHdrSystemInfoPrlMatchValid: boolean, valueHdrSystemInfoPrlMatch: boolean, valueHdrSystemInfoPersonalityValid: boolean, valueHdrSystemInfoPersonality: NasHdrPersonality, valueHdrSystemInfoProtocolRevisionValid: boolean, valueHdrSystemInfoProtocolRevision: NasHdrProtocolRevision, valueHdrSystemInfoIs856SystemIdValid: boolean, valueHdrSystemInfoIs856SystemId: string }
-    getLteEmbmsCoverageInfoSupport(): { returnType: boolean, valueLteEmbmsCoverageInfoSupport: boolean }
-    getLteServiceStatus(): { returnType: boolean, valueLteServiceStatusServiceStatus: NasServiceStatus, valueLteServiceStatusTrueServiceStatus: NasServiceStatus, valueLteServiceStatusPreferredDataPath: boolean }
-    getLteSystemInfo(): { returnType: boolean, valueLteSystemInfoDomainValid: boolean, valueLteSystemInfoDomain: NasNetworkServiceDomain, valueLteSystemInfoServiceCapabilityValid: boolean, valueLteSystemInfoServiceCapability: NasNetworkServiceDomain, valueLteSystemInfoRoamingStatusValid: boolean, valueLteSystemInfoRoamingStatus: NasRoamingStatus, valueLteSystemInfoForbiddenValid: boolean, valueLteSystemInfoForbidden: boolean, valueLteSystemInfoLacValid: boolean, valueLteSystemInfoLac: number, valueLteSystemInfoCidValid: boolean, valueLteSystemInfoCid: number, valueLteSystemInfoRegistrationRejectInfoValid: boolean, valueLteSystemInfoRegistrationRejectDomain: NasNetworkServiceDomain, valueLteSystemInfoRegistrationRejectCause: number, valueLteSystemInfoNetworkIdValid: boolean, valueLteSystemInfoMcc: string, valueLteSystemInfoMnc: string, valueLteSystemInfoTacValid: boolean, valueLteSystemInfoTac: number }
-    getLteVoiceSupport(): { returnType: boolean, valueLteVoiceSupport: boolean }
-    getPlmnNotChangedIndication(): { returnType: boolean, valuePlmnNotChangedIndication: boolean }
-    getSimRejectInfo(): { returnType: boolean, valueSimRejectInfo: NasSimRejectState }
-    getTdScdmaServiceStatus(): { returnType: boolean, valueTdScdmaServiceStatusServiceStatus: NasServiceStatus, valueTdScdmaServiceStatusTrueServiceStatus: NasServiceStatus, valueTdScdmaServiceStatusPreferredDataPath: boolean }
-    getTdScmaSystemInfo(): { returnType: boolean, valueTdScmaSystemInfoDomainValid: boolean, valueTdScmaSystemInfoDomain: NasNetworkServiceDomain, valueTdScmaSystemInfoServiceCapabilityValid: boolean, valueTdScmaSystemInfoServiceCapability: NasNetworkServiceDomain, valueTdScmaSystemInfoRoamingStatusValid: boolean, valueTdScmaSystemInfoRoamingStatus: NasRoamingStatus, valueTdScmaSystemInfoForbiddenValid: boolean, valueTdScmaSystemInfoForbidden: boolean, valueTdScmaSystemInfoLacValid: boolean, valueTdScmaSystemInfoLac: number, valueTdScmaSystemInfoCidValid: boolean, valueTdScmaSystemInfoCid: number, valueTdScmaSystemInfoRegistrationRejectInfoValid: boolean, valueTdScmaSystemInfoRegistrationRejectDomain: NasNetworkServiceDomain, valueTdScmaSystemInfoRegistrationRejectCause: number, valueTdScmaSystemInfoNetworkIdValid: boolean, valueTdScmaSystemInfoMcc: string, valueTdScmaSystemInfoMnc: string, valueTdScmaSystemInfoHsCallStatusValid: boolean, valueTdScmaSystemInfoHsCallStatus: NasWcdmaHsService, valueTdScmaSystemInfoHsServiceValid: boolean, valueTdScmaSystemInfoHsService: NasWcdmaHsService, valueTdScmaSystemInfoCellParameterIdValid: boolean, valueTdScmaSystemInfoCellParameterId: number, valueTdScmaSystemInfoCellBroadcastSupportValid: boolean, valueTdScmaSystemInfoCellBroadcastSupport: NasCellBroadcastCapability, valueTdScmaSystemInfoCsCallBarringStatusValid: boolean, valueTdScmaSystemInfoCsCallBarringStatus: NasCallBarringStatus, valueTdScmaSystemInfoPsCallBarringStatusValid: boolean, valueTdScmaSystemInfoPsCallBarringStatus: NasCallBarringStatus, valueTdScmaSystemInfoCipherDomainValid: boolean, valueTdScmaSystemInfoCipherDomain: NasNetworkServiceDomain }
-    getWcdmaCallBarringStatus(): { returnType: boolean, valueWcdmaCallBarringStatusCsStatus: NasCallBarringStatus, valueWcdmaCallBarringStatusPsStatus: NasCallBarringStatus }
-    getWcdmaCipherDomain(): { returnType: boolean, valueWcdmaCipherDomain: NasNetworkServiceDomain }
-    getWcdmaServiceStatus(): { returnType: boolean, valueWcdmaServiceStatusServiceStatus: NasServiceStatus, valueWcdmaServiceStatusTrueServiceStatus: NasServiceStatus, valueWcdmaServiceStatusPreferredDataPath: boolean }
-    getWcdmaSystemInfo(): { returnType: boolean, valueWcdmaSystemInfoDomainValid: boolean, valueWcdmaSystemInfoDomain: NasNetworkServiceDomain, valueWcdmaSystemInfoServiceCapabilityValid: boolean, valueWcdmaSystemInfoServiceCapability: NasNetworkServiceDomain, valueWcdmaSystemInfoRoamingStatusValid: boolean, valueWcdmaSystemInfoRoamingStatus: NasRoamingStatus, valueWcdmaSystemInfoForbiddenValid: boolean, valueWcdmaSystemInfoForbidden: boolean, valueWcdmaSystemInfoLacValid: boolean, valueWcdmaSystemInfoLac: number, valueWcdmaSystemInfoCidValid: boolean, valueWcdmaSystemInfoCid: number, valueWcdmaSystemInfoRegistrationRejectInfoValid: boolean, valueWcdmaSystemInfoRegistrationRejectDomain: NasNetworkServiceDomain, valueWcdmaSystemInfoRegistrationRejectCause: number, valueWcdmaSystemInfoNetworkIdValid: boolean, valueWcdmaSystemInfoMcc: string, valueWcdmaSystemInfoMnc: string, valueWcdmaSystemInfoHsCallStatusValid: boolean, valueWcdmaSystemInfoHsCallStatus: NasWcdmaHsService, valueWcdmaSystemInfoHsServiceValid: boolean, valueWcdmaSystemInfoHsService: NasWcdmaHsService, valueWcdmaSystemInfoPrimaryScramblingCodeValid: boolean, valueWcdmaSystemInfoPrimaryScramblingCode: number }
+    getAdditionalCdmaSystemInfo(): { returnType: boolean, valueAdditionalCdmaSystemInfoGeoSystemIndex: number | null, valueAdditionalCdmaSystemInfoRegistrationPeriod: number | null }
+    getAdditionalGsmSystemInfo(): { returnType: boolean, valueAdditionalGsmSystemInfoGeoSystemIndex: number | null, valueAdditionalGsmSystemInfoCellBroadcastSupport: NasCellBroadcastCapability | null }
+    getAdditionalHdrSystemInfo(): { returnType: boolean, valueAdditionalHdrSystemInfoGeoSystemIndex: number | null }
+    getAdditionalLteSystemInfo(): { returnType: boolean, valueAdditionalLteSystemInfoGeoSystemIndex: number | null }
+    getAdditionalWcdmaSystemInfo(): { returnType: boolean, valueAdditionalWcdmaSystemInfoGeoSystemIndex: number | null, valueAdditionalWcdmaSystemInfoCellBroadcastSupport: NasCellBroadcastCapability | null }
+    getCdmaServiceStatus(): { returnType: boolean, valueCdmaServiceStatusServiceStatus: NasServiceStatus | null, valueCdmaServiceStatusPreferredDataPath: boolean | null }
+    getCdmaSystemInfo(): { returnType: boolean, valueCdmaSystemInfoDomainValid: boolean | null, valueCdmaSystemInfoDomain: NasNetworkServiceDomain | null, valueCdmaSystemInfoServiceCapabilityValid: boolean | null, valueCdmaSystemInfoServiceCapability: NasNetworkServiceDomain | null, valueCdmaSystemInfoRoamingStatusValid: boolean | null, valueCdmaSystemInfoRoamingStatus: NasRoamingStatus | null, valueCdmaSystemInfoForbiddenValid: boolean | null, valueCdmaSystemInfoForbidden: boolean | null, valueCdmaSystemInfoPrlMatchValid: boolean | null, valueCdmaSystemInfoPrlMatch: boolean | null, valueCdmaSystemInfoPRevValid: boolean | null, valueCdmaSystemInfoPRev: number | null, valueCdmaSystemInfoBaseStationPRevValid: boolean | null, valueCdmaSystemInfoBaseStationPRev: number | null, valueCdmaSystemInfoConcurrentServiceSupportValid: boolean | null, valueCdmaSystemInfoConcurrentServiceSupport: boolean | null, valueCdmaSystemInfoCdmaSystemIdValid: boolean | null, valueCdmaSystemInfoSid: number | null, valueCdmaSystemInfoNid: number | null, valueCdmaSystemInfoBaseStationInfoValid: boolean | null, valueCdmaSystemInfoBaseStationId: number | null, valueCdmaSystemInfoBaseStationLatitude: number | null, valueCdmaSystemInfoBaseStationLongitude: number | null, valueCdmaSystemInfoPacketZoneValid: boolean | null, valueCdmaSystemInfoPacketZone: number | null, valueCdmaSystemInfoNetworkIdValid: boolean | null, valueCdmaSystemInfoMcc: string | null, valueCdmaSystemInfoMnc: string | null }
+    getDcnrRestrictionInfo(): { returnType: boolean, valueDcnrRestrictionInfo: boolean | null }
+    getEutraWithNr5gAvailability(): { returnType: boolean, valueEutraWithNr5gAvailability: boolean | null }
+    getGsmCallBarringStatus(): { returnType: boolean, valueGsmCallBarringStatusCsStatus: NasCallBarringStatus | null, valueGsmCallBarringStatusPsStatus: NasCallBarringStatus | null }
+    getGsmCipherDomain(): { returnType: boolean, valueGsmCipherDomain: NasNetworkServiceDomain | null }
+    getGsmServiceStatus(): { returnType: boolean, valueGsmServiceStatusServiceStatus: NasServiceStatus | null, valueGsmServiceStatusTrueServiceStatus: NasServiceStatus | null, valueGsmServiceStatusPreferredDataPath: boolean | null }
+    getGsmSystemInfoV2(): { returnType: boolean, valueGsmSystemInfoV2DomainValid: boolean | null, valueGsmSystemInfoV2Domain: NasNetworkServiceDomain | null, valueGsmSystemInfoV2ServiceCapabilityValid: boolean | null, valueGsmSystemInfoV2ServiceCapability: NasNetworkServiceDomain | null, valueGsmSystemInfoV2RoamingStatusValid: boolean | null, valueGsmSystemInfoV2RoamingStatus: NasRoamingStatus | null, valueGsmSystemInfoV2ForbiddenValid: boolean | null, valueGsmSystemInfoV2Forbidden: boolean | null, valueGsmSystemInfoV2LacValid: boolean | null, valueGsmSystemInfoV2Lac: number | null, valueGsmSystemInfoV2CidValid: boolean | null, valueGsmSystemInfoV2Cid: number | null, valueGsmSystemInfoV2RegistrationRejectInfoValid: boolean | null, valueGsmSystemInfoV2RegistrationRejectDomain: NasNetworkServiceDomain | null, valueGsmSystemInfoV2RegistrationRejectCause: NasRejectCause | null, valueGsmSystemInfoV2NetworkIdValid: boolean | null, valueGsmSystemInfoV2Mcc: string | null, valueGsmSystemInfoV2Mnc: string | null, valueGsmSystemInfoV2EgprsSupportValid: boolean | null, valueGsmSystemInfoV2EgprsSupport: boolean | null, valueGsmSystemInfoV2DtmSupportValid: boolean | null, valueGsmSystemInfoV2DtmSupport: boolean | null }
+    getHdrServiceStatus(): { returnType: boolean, valueHdrServiceStatusServiceStatus: NasServiceStatus | null, valueHdrServiceStatusPreferredDataPath: boolean | null }
+    getHdrSystemInfo(): { returnType: boolean, valueHdrSystemInfoDomainValid: boolean | null, valueHdrSystemInfoDomain: NasNetworkServiceDomain | null, valueHdrSystemInfoServiceCapabilityValid: boolean | null, valueHdrSystemInfoServiceCapability: NasNetworkServiceDomain | null, valueHdrSystemInfoRoamingStatusValid: boolean | null, valueHdrSystemInfoRoamingStatus: NasRoamingStatus | null, valueHdrSystemInfoForbiddenValid: boolean | null, valueHdrSystemInfoForbidden: boolean | null, valueHdrSystemInfoPrlMatchValid: boolean | null, valueHdrSystemInfoPrlMatch: boolean | null, valueHdrSystemInfoPersonalityValid: boolean | null, valueHdrSystemInfoPersonality: NasHdrPersonality | null, valueHdrSystemInfoProtocolRevisionValid: boolean | null, valueHdrSystemInfoProtocolRevision: NasHdrProtocolRevision | null, valueHdrSystemInfoIs856SystemIdValid: boolean | null, valueHdrSystemInfoIs856SystemId: string | null }
+    getLteEmbmsCoverageInfoSupport(): { returnType: boolean, valueLteEmbmsCoverageInfoSupport: boolean | null }
+    getLteServiceStatus(): { returnType: boolean, valueLteServiceStatusServiceStatus: NasServiceStatus | null, valueLteServiceStatusTrueServiceStatus: NasServiceStatus | null, valueLteServiceStatusPreferredDataPath: boolean | null }
+    getLteSystemInfoV2(): { returnType: boolean, valueLteSystemInfoV2DomainValid: boolean | null, valueLteSystemInfoV2Domain: NasNetworkServiceDomain | null, valueLteSystemInfoV2ServiceCapabilityValid: boolean | null, valueLteSystemInfoV2ServiceCapability: NasNetworkServiceDomain | null, valueLteSystemInfoV2RoamingStatusValid: boolean | null, valueLteSystemInfoV2RoamingStatus: NasRoamingStatus | null, valueLteSystemInfoV2ForbiddenValid: boolean | null, valueLteSystemInfoV2Forbidden: boolean | null, valueLteSystemInfoV2LacValid: boolean | null, valueLteSystemInfoV2Lac: number | null, valueLteSystemInfoV2CidValid: boolean | null, valueLteSystemInfoV2Cid: number | null, valueLteSystemInfoV2RegistrationRejectInfoValid: boolean | null, valueLteSystemInfoV2RegistrationRejectDomain: NasNetworkServiceDomain | null, valueLteSystemInfoV2RegistrationRejectCause: NasRejectCause | null, valueLteSystemInfoV2NetworkIdValid: boolean | null, valueLteSystemInfoV2Mcc: string | null, valueLteSystemInfoV2Mnc: string | null, valueLteSystemInfoV2TacValid: boolean | null, valueLteSystemInfoV2Tac: number | null }
+    getLteVoiceSupport(): { returnType: boolean, valueLteVoiceSupport: boolean | null }
+    getNr5gServiceStatusInfo(): { returnType: boolean, valueNr5gServiceStatusInfoServiceStatus: NasServiceStatus | null, valueNr5gServiceStatusInfoTrueServiceStatus: NasServiceStatus | null, valueNr5gServiceStatusInfoPreferredDataPath: boolean | null }
+    getNr5gSystemInfo(): { returnType: boolean, valueNr5gSystemInfoDomainValid: boolean | null, valueNr5gSystemInfoDomain: NasNetworkServiceDomain | null, valueNr5gSystemInfoServiceCapabilityValid: boolean | null, valueNr5gSystemInfoServiceCapability: NasNetworkServiceDomain | null, valueNr5gSystemInfoRoamingStatusValid: boolean | null, valueNr5gSystemInfoRoamingStatus: NasRoamingStatus | null, valueNr5gSystemInfoForbiddenValid: boolean | null, valueNr5gSystemInfoForbidden: boolean | null, valueNr5gSystemInfoLacValid: boolean | null, valueNr5gSystemInfoLac: number | null, valueNr5gSystemInfoCidValid: boolean | null, valueNr5gSystemInfoCid: number | null, valueNr5gSystemInfoRegistrationRejectInfoValid: boolean | null, valueNr5gSystemInfoRegistrationRejectDomain: NasNetworkServiceDomain | null, valueNr5gSystemInfoRegistrationRejectCause: number | null, valueNr5gSystemInfoNetworkIdValid: boolean | null, valueNr5gSystemInfoMcc: string | null, valueNr5gSystemInfoMnc: string | null, valueNr5gSystemInfoTacValid: boolean | null, valueNr5gSystemInfoTac: number | null }
+    getNr5gTrackingAreaCode(): { returnType: boolean, valueNr5gTrackingAreaCode: any[] | null }
+    getPlmnNotChangedIndication(): { returnType: boolean, valuePlmnNotChangedIndication: boolean | null }
+    getSimRejectInfo(): { returnType: boolean, valueSimRejectInfo: NasSimRejectState | null }
+    getTdScdmaServiceStatus(): { returnType: boolean, valueTdScdmaServiceStatusServiceStatus: NasServiceStatus | null, valueTdScdmaServiceStatusTrueServiceStatus: NasServiceStatus | null, valueTdScdmaServiceStatusPreferredDataPath: boolean | null }
+    getTdScmaSystemInfoV2(): { returnType: boolean, valueTdScmaSystemInfoV2DomainValid: boolean | null, valueTdScmaSystemInfoV2Domain: NasNetworkServiceDomain | null, valueTdScmaSystemInfoV2ServiceCapabilityValid: boolean | null, valueTdScmaSystemInfoV2ServiceCapability: NasNetworkServiceDomain | null, valueTdScmaSystemInfoV2RoamingStatusValid: boolean | null, valueTdScmaSystemInfoV2RoamingStatus: NasRoamingStatus | null, valueTdScmaSystemInfoV2ForbiddenValid: boolean | null, valueTdScmaSystemInfoV2Forbidden: boolean | null, valueTdScmaSystemInfoV2LacValid: boolean | null, valueTdScmaSystemInfoV2Lac: number | null, valueTdScmaSystemInfoV2CidValid: boolean | null, valueTdScmaSystemInfoV2Cid: number | null, valueTdScmaSystemInfoV2RegistrationRejectInfoValid: boolean | null, valueTdScmaSystemInfoV2RegistrationRejectDomain: NasNetworkServiceDomain | null, valueTdScmaSystemInfoV2RegistrationRejectCause: NasRejectCause | null, valueTdScmaSystemInfoV2NetworkIdValid: boolean | null, valueTdScmaSystemInfoV2Mcc: string | null, valueTdScmaSystemInfoV2Mnc: string | null, valueTdScmaSystemInfoV2HsCallStatusValid: boolean | null, valueTdScmaSystemInfoV2HsCallStatus: NasWcdmaHsService | null, valueTdScmaSystemInfoV2HsServiceValid: boolean | null, valueTdScmaSystemInfoV2HsService: NasWcdmaHsService | null, valueTdScmaSystemInfoV2CellParameterIdValid: boolean | null, valueTdScmaSystemInfoV2CellParameterId: number | null, valueTdScmaSystemInfoV2CellBroadcastSupportValid: boolean | null, valueTdScmaSystemInfoV2CellBroadcastSupport: NasCellBroadcastCapability | null, valueTdScmaSystemInfoV2CsCallBarringStatusValid: boolean | null, valueTdScmaSystemInfoV2CsCallBarringStatus: NasCallBarringStatus | null, valueTdScmaSystemInfoV2PsCallBarringStatusValid: boolean | null, valueTdScmaSystemInfoV2PsCallBarringStatus: NasCallBarringStatus | null, valueTdScmaSystemInfoV2CipherDomainValid: boolean | null, valueTdScmaSystemInfoV2CipherDomain: NasNetworkServiceDomain | null }
+    getWcdmaCallBarringStatus(): { returnType: boolean, valueWcdmaCallBarringStatusCsStatus: NasCallBarringStatus | null, valueWcdmaCallBarringStatusPsStatus: NasCallBarringStatus | null }
+    getWcdmaCipherDomain(): { returnType: boolean, valueWcdmaCipherDomain: NasNetworkServiceDomain | null }
+    getWcdmaServiceStatus(): { returnType: boolean, valueWcdmaServiceStatusServiceStatus: NasServiceStatus | null, valueWcdmaServiceStatusTrueServiceStatus: NasServiceStatus | null, valueWcdmaServiceStatusPreferredDataPath: boolean | null }
+    getWcdmaSystemInfoV2(): { returnType: boolean, valueWcdmaSystemInfoV2DomainValid: boolean | null, valueWcdmaSystemInfoV2Domain: NasNetworkServiceDomain | null, valueWcdmaSystemInfoV2ServiceCapabilityValid: boolean | null, valueWcdmaSystemInfoV2ServiceCapability: NasNetworkServiceDomain | null, valueWcdmaSystemInfoV2RoamingStatusValid: boolean | null, valueWcdmaSystemInfoV2RoamingStatus: NasRoamingStatus | null, valueWcdmaSystemInfoV2ForbiddenValid: boolean | null, valueWcdmaSystemInfoV2Forbidden: boolean | null, valueWcdmaSystemInfoV2LacValid: boolean | null, valueWcdmaSystemInfoV2Lac: number | null, valueWcdmaSystemInfoV2CidValid: boolean | null, valueWcdmaSystemInfoV2Cid: number | null, valueWcdmaSystemInfoV2RegistrationRejectInfoValid: boolean | null, valueWcdmaSystemInfoV2RegistrationRejectDomain: NasNetworkServiceDomain | null, valueWcdmaSystemInfoV2RegistrationRejectCause: NasRejectCause | null, valueWcdmaSystemInfoV2NetworkIdValid: boolean | null, valueWcdmaSystemInfoV2Mcc: string | null, valueWcdmaSystemInfoV2Mnc: string | null, valueWcdmaSystemInfoV2HsCallStatusValid: boolean | null, valueWcdmaSystemInfoV2HsCallStatus: NasWcdmaHsService | null, valueWcdmaSystemInfoV2HsServiceValid: boolean | null, valueWcdmaSystemInfoV2HsService: NasWcdmaHsService | null, valueWcdmaSystemInfoV2PrimaryScramblingCodeValid: boolean | null, valueWcdmaSystemInfoV2PrimaryScramblingCode: number | null }
     ref(): IndicationNasSystemInfoOutput
     unref(): void
     static name: string
 }
 export class IndicationOmaEventReportOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationOmaEventReportOutput */
-    getNetworkInitiatedAlert(): { returnType: boolean, valueNetworkInitiatedAlertSessionType: OmaSessionType, valueNetworkInitiatedAlertSessionId: number }
-    getSessionFailReason(): { returnType: boolean, valueSessionFailReason: OmaSessionFailedReason }
-    getSessionState(): { returnType: boolean, valueSessionState: OmaSessionState }
+    getNetworkInitiatedAlert(): { returnType: boolean, valueNetworkInitiatedAlertSessionType: OmaSessionType | null, valueNetworkInitiatedAlertSessionId: number | null }
+    getSessionFailReason(): { returnType: boolean, valueSessionFailReason: OmaSessionFailedReason | null }
+    getSessionState(): { returnType: boolean, valueSessionState: OmaSessionState | null }
     ref(): IndicationOmaEventReportOutput
     unref(): void
     static name: string
 }
 export class IndicationPdcActivateConfigOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationPdcActivateConfigOutput */
-    getIndicationResult(): { returnType: boolean, valueIndicationResult: number }
-    getToken(): { returnType: boolean, valueToken: number }
+    getIndicationResult(): { returnType: boolean, valueIndicationResult: number | null }
+    getToken(): { returnType: boolean, valueToken: number | null }
     ref(): IndicationPdcActivateConfigOutput
     unref(): void
     static name: string
 }
 export class IndicationPdcDeactivateConfigOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationPdcDeactivateConfigOutput */
-    getIndicationResult(): { returnType: boolean, valueIndicationResult: number }
-    getToken(): { returnType: boolean, valueToken: number }
+    getIndicationResult(): { returnType: boolean, valueIndicationResult: number | null }
+    getToken(): { returnType: boolean, valueToken: number | null }
     ref(): IndicationPdcDeactivateConfigOutput
     unref(): void
     static name: string
 }
 export class IndicationPdcGetConfigInfoOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationPdcGetConfigInfoOutput */
-    getDescription(): { returnType: boolean, valueDescription: string }
-    getIndicationResult(): { returnType: boolean, valueIndicationResult: number }
-    getToken(): { returnType: boolean, valueToken: number }
-    getTotalSize(): { returnType: boolean, valueTotalSize: number }
-    getVersion(): { returnType: boolean, valueVersion: number }
+    getDescription(): { returnType: boolean, valueDescription: string | null }
+    getIndicationResult(): { returnType: boolean, valueIndicationResult: number | null }
+    getToken(): { returnType: boolean, valueToken: number | null }
+    getTotalSize(): { returnType: boolean, valueTotalSize: number | null }
+    getVersion(): { returnType: boolean, valueVersion: number | null }
     ref(): IndicationPdcGetConfigInfoOutput
     unref(): void
     static name: string
 }
 export class IndicationPdcGetSelectedConfigOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationPdcGetSelectedConfigOutput */
-    getActiveId(): { returnType: boolean, valueActiveId: any[] }
-    getIndicationResult(): { returnType: boolean, valueIndicationResult: number }
-    getPendingId(): { returnType: boolean, valuePendingId: any[] }
-    getToken(): { returnType: boolean, valueToken: number }
+    getActiveId(): { returnType: boolean, valueActiveId: any[] | null }
+    getIndicationResult(): { returnType: boolean, valueIndicationResult: number | null }
+    getPendingId(): { returnType: boolean, valuePendingId: any[] | null }
+    getToken(): { returnType: boolean, valueToken: number | null }
     ref(): IndicationPdcGetSelectedConfigOutput
     unref(): void
     static name: string
 }
 export class IndicationPdcListConfigsOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationPdcListConfigsOutput */
-    getConfigs(): { returnType: boolean, valueConfigs: IndicationPdcListConfigsOutputConfigsElement[] }
-    getIndicationResult(): { returnType: boolean, valueIndicationResult: number }
-    getToken(): { returnType: boolean, valueToken: number }
+    getConfigs(): { returnType: boolean, valueConfigs: IndicationPdcListConfigsOutputConfigsElement[] | null }
+    getIndicationResult(): { returnType: boolean, valueIndicationResult: number | null }
+    getToken(): { returnType: boolean, valueToken: number | null }
     ref(): IndicationPdcListConfigsOutput
     unref(): void
     static name: string
@@ -6342,49 +6677,58 @@ export class IndicationPdcListConfigsOutputConfigsElement {
 }
 export class IndicationPdcLoadConfigOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationPdcLoadConfigOutput */
-    getFrameReset(): { returnType: boolean, valueFrameReset: boolean }
-    getIndicationResult(): { returnType: boolean, valueIndicationResult: number }
-    getReceived(): { returnType: boolean, valueReceived: number }
-    getRemainingSize(): { returnType: boolean, valueRemainingSize: number }
-    getToken(): { returnType: boolean, valueToken: number }
+    getFrameReset(): { returnType: boolean, valueFrameReset: boolean | null }
+    getIndicationResult(): { returnType: boolean, valueIndicationResult: number | null }
+    getReceived(): { returnType: boolean, valueReceived: number | null }
+    getRemainingSize(): { returnType: boolean, valueRemainingSize: number | null }
+    getToken(): { returnType: boolean, valueToken: number | null }
     ref(): IndicationPdcLoadConfigOutput
+    unref(): void
+    static name: string
+}
+export class IndicationPdcRefreshOutput {
+    /* Methods of Qmi-1.0.Qmi.IndicationPdcRefreshOutput */
+    getRefreshEvent(): { returnType: boolean, valueRefreshEvent: PdcRefreshEventType | null }
+    getSlotId(): { returnType: boolean, valueSlotId: number | null }
+    getSubscriptionId(): { returnType: boolean, valueSubscriptionId: number | null }
+    ref(): IndicationPdcRefreshOutput
     unref(): void
     static name: string
 }
 export class IndicationPdcSetSelectedConfigOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationPdcSetSelectedConfigOutput */
-    getIndicationResult(): { returnType: boolean, valueIndicationResult: number }
-    getToken(): { returnType: boolean, valueToken: number }
+    getIndicationResult(): { returnType: boolean, valueIndicationResult: number | null }
+    getToken(): { returnType: boolean, valueToken: number | null }
     ref(): IndicationPdcSetSelectedConfigOutput
     unref(): void
     static name: string
 }
 export class IndicationPdsEventReportOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationPdsEventReportOutput */
-    getExtendedNmeaPosition(): { returnType: boolean, valueExtendedNmeaPositionOperationMode: PdsOperationMode, valueExtendedNmeaPositionNmea: string }
-    getNmeaPosition(): { returnType: boolean, valueNmeaPosition: string }
-    getPositionSessionStatus(): { returnType: boolean, valuePositionSessionStatus: PdsPositionSessionStatus }
+    getExtendedNmeaPosition(): { returnType: boolean, valueExtendedNmeaPositionOperationMode: PdsOperationMode | null, valueExtendedNmeaPositionNmea: string | null }
+    getNmeaPosition(): { returnType: boolean, valueNmeaPosition: string | null }
+    getPositionSessionStatus(): { returnType: boolean, valuePositionSessionStatus: PdsPositionSessionStatus | null }
     ref(): IndicationPdsEventReportOutput
     unref(): void
     static name: string
 }
 export class IndicationQosFlowStatusOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationQosFlowStatusOutput */
-    getValue(): { returnType: boolean, valueValueQosId: number, valueValueStatus: QosStatus, valueValueEvent: QosEvent }
+    getValue(): { returnType: boolean, valueValueQosId: number | null, valueValueStatus: QosStatus | null, valueValueEvent: QosEvent | null }
     ref(): IndicationQosFlowStatusOutput
     unref(): void
     static name: string
 }
 export class IndicationQosNetworkStatusOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationQosNetworkStatusOutput */
-    getQosSupported(): { returnType: boolean, valueQosSupported: boolean }
+    getQosSupported(): { returnType: boolean, valueQosSupported: boolean | null }
     ref(): IndicationQosNetworkStatusOutput
     unref(): void
     static name: string
 }
 export class IndicationUimCardStatusOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationUimCardStatusOutput */
-    getCardStatus(): { returnType: boolean, valueCardStatusIndexGwPrimary: number, valueCardStatusIndex1xPrimary: number, valueCardStatusIndexGwSecondary: number, valueCardStatusIndex1xSecondary: number, valueCardStatusCards: IndicationUimCardStatusOutputCardStatusCardsElement[] }
+    getCardStatus(): { returnType: boolean, valueCardStatusIndexGwPrimary: number | null, valueCardStatusIndex1xPrimary: number | null, valueCardStatusIndexGwSecondary: number | null, valueCardStatusIndex1xSecondary: number | null, valueCardStatusCards: IndicationUimCardStatusOutputCardStatusCardsElement[] | null }
     ref(): IndicationUimCardStatusOutput
     unref(): void
     static name: string
@@ -6419,7 +6763,7 @@ export class IndicationUimCardStatusOutputCardStatusCardsElementApplicationsElem
 }
 export class IndicationUimRefreshOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationUimRefreshOutput */
-    getEvent(): { returnType: boolean, valueEventStage: UimRefreshStage, valueEventMode: UimRefreshMode, valueEventSessionType: UimSessionType, valueEventApplicationIdentifier: any[], valueEventFiles: IndicationUimRefreshOutputEventFilesElement[] }
+    getEvent(): { returnType: boolean, valueEventStage: UimRefreshStage | null, valueEventMode: UimRefreshMode | null, valueEventSessionType: UimSessionType | null, valueEventApplicationIdentifier: any[] | null, valueEventFiles: IndicationUimRefreshOutputEventFilesElement[] | null }
     ref(): IndicationUimRefreshOutput
     unref(): void
     static name: string
@@ -6432,17 +6776,17 @@ export class IndicationUimRefreshOutputEventFilesElement {
 }
 export class IndicationUimSlotStatusOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationUimSlotStatusOutput */
-    getPhysicalSlotInformation(): { returnType: boolean, valuePhysicalSlotInformation: PhysicalSlotInformationSlot[] }
-    getPhysicalSlotStatus(): { returnType: boolean, valuePhysicalSlotStatus: PhysicalSlotStatusSlot[] }
-    getSlotEidInformation(): { returnType: boolean, valueSlotEidInformation: any[] }
+    getPhysicalSlotInformation(): { returnType: boolean, valuePhysicalSlotInformation: PhysicalSlotInformationSlot[] | null }
+    getPhysicalSlotStatus(): { returnType: boolean, valuePhysicalSlotStatus: PhysicalSlotStatusSlot[] | null }
+    getSlotEidInformation(): { returnType: boolean, valueSlotEidInformation: any[] | null }
     ref(): IndicationUimSlotStatusOutput
     unref(): void
     static name: string
 }
 export class IndicationVoiceAllCallStatusOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationVoiceAllCallStatusOutput */
-    getCallInformation(): { returnType: boolean, valueCallInformation: IndicationVoiceAllCallStatusOutputCallInformationCall[] }
-    getRemotePartyNumber(): { returnType: boolean, valueRemotePartyNumber: IndicationVoiceAllCallStatusOutputRemotePartyNumberCall[] }
+    getCallInformation(): { returnType: boolean, valueCallInformation: IndicationVoiceAllCallStatusOutputCallInformationCall[] | null }
+    getRemotePartyNumber(): { returnType: boolean, valueRemotePartyNumber: IndicationVoiceAllCallStatusOutputRemotePartyNumberCall[] | null }
     ref(): IndicationVoiceAllCallStatusOutput
     unref(): void
     static name: string
@@ -6467,50 +6811,57 @@ export class IndicationVoiceAllCallStatusOutputRemotePartyNumberCall {
 }
 export class IndicationVoiceOriginateUssdNoWaitOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationVoiceOriginateUssdNoWaitOutput */
-    getAlphaIdentifier(): { returnType: boolean, valueAlphaIdentifierDataCodingScheme: VoiceAlphaDataCodingScheme, valueAlphaIdentifierAlpha: any[] }
-    getErrorCode(): { returnType: boolean, valueErrorCode: number }
-    getFailureCause(): { returnType: boolean, valueFailureCause: VoiceCallEndReason }
-    getUssData(): { returnType: boolean, valueUssDataDataCodingScheme: VoiceUssDataCodingScheme, valueUssDataData: any[] }
-    getUssDataUtf16(): { returnType: boolean, valueUssDataUtf16: number[] }
+    getAlphaIdentifier(): { returnType: boolean, valueAlphaIdentifierDataCodingScheme: VoiceAlphaDataCodingScheme | null, valueAlphaIdentifierAlpha: any[] | null }
+    getErrorCode(): { returnType: boolean, valueErrorCode: number | null }
+    getFailureCause(): { returnType: boolean, valueFailureCause: VoiceCallEndReason | null }
+    getUssData(): { returnType: boolean, valueUssDataDataCodingScheme: VoiceUssDataCodingScheme | null, valueUssDataData: any[] | null }
+    getUssDataUtf16(): { returnType: boolean, valueUssDataUtf16: number[] | null }
     ref(): IndicationVoiceOriginateUssdNoWaitOutput
+    unref(): void
+    static name: string
+}
+export class IndicationVoiceSupplementaryServiceOutput {
+    /* Methods of Qmi-1.0.Qmi.IndicationVoiceSupplementaryServiceOutput */
+    getInfo(): { returnType: boolean, valueInfoCallId: number | null, valueInfoNotificationType: VoiceSupplementaryServiceNotificationType | null }
+    ref(): IndicationVoiceSupplementaryServiceOutput
     unref(): void
     static name: string
 }
 export class IndicationVoiceUssdOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationVoiceUssdOutput */
-    getUserAction(): { returnType: boolean, valueUserAction: VoiceUserAction }
-    getUssData(): { returnType: boolean, valueUssDataDataCodingScheme: VoiceUssDataCodingScheme, valueUssDataData: any[] }
-    getUssDataUtf16(): { returnType: boolean, valueUssDataUtf16: number[] }
+    getUserAction(): { returnType: boolean, valueUserAction: VoiceUserAction | null }
+    getUssData(): { returnType: boolean, valueUssDataDataCodingScheme: VoiceUssDataCodingScheme | null, valueUssDataData: any[] | null }
+    getUssDataUtf16(): { returnType: boolean, valueUssDataUtf16: number[] | null }
     ref(): IndicationVoiceUssdOutput
     unref(): void
     static name: string
 }
 export class IndicationWdsEventReportOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationWdsEventReportOutput */
-    getChannelRates(): { returnType: boolean, valueChannelRatesTxRateBps: number, valueChannelRatesRxRateBps: number }
-    getCurrentDataBearerTechnology(): { returnType: boolean, valueCurrentDataBearerTechnologyNetworkType: WdsNetworkType, valueCurrentDataBearerTechnologyRatMask: number, valueCurrentDataBearerTechnologySoMask: number }
-    getDataBearerTechnology(): { returnType: boolean, valueDataBearerTechnology: WdsDataBearerTechnology }
-    getDataCallAddressFamily(): { returnType: boolean, valueDataCallAddressFamily: WdsIpFamily }
-    getDataCallStatus(): { returnType: boolean, valueDataCallStatus: WdsDataCallStatus }
-    getDataCallType(): { returnType: boolean, valueDataCallTypeDataCallType: WdsDataCallType, valueDataCallTypeTetheredCallType: WdsTetheredCallType }
-    getDataSystems(): { returnType: boolean, valueDataSystemsPreferredNetworkType: WdsDataSystemNetworkType, valueDataSystemsNetworks: IndicationWdsEventReportOutputDataSystemsNetworksNetwork[] }
-    getDormancyStatus(): { returnType: boolean, valueDormancyStatus: WdsDormancyStatus }
-    getEvdoPageMonitorPeriodChange(): { returnType: boolean, valueEvdoPageMonitorPeriodChangePeriodChange: number, valueEvdoPageMonitorPeriodChangeForceLongSleep: boolean }
-    getExtendedDataBearerTechnology(): { returnType: boolean, valueExtendedDataBearerTechnologyDataBearerTechnology: WdsDataSystemNetworkType, valueExtendedDataBearerTechnologyRadioAccessTechnology: WdsRadioAccessTechnology, valueExtendedDataBearerTechnologyExtendedDataBearerTechnology3gpp: WdsExtendedDataBearerTechnology3gpp, valueExtendedDataBearerTechnologyExtendedDataBearerTechnology3gpp2: WdsExtendedDataBearerTechnology3gpp2 }
-    getMipStatus(): { returnType: boolean, valueMipStatus: boolean }
-    getPdnFiltersRemoved(): { returnType: boolean, valuePdnFiltersRemovedPdnFilterHandler: number[] }
-    getPreferredDataSystem(): { returnType: boolean, valuePreferredDataSystem: WdsDataSystem }
-    getRxBytesOk(): { returnType: boolean, valueRxBytesOk: number }
-    getRxOverflows(): { returnType: boolean, valueRxOverflows: number }
-    getRxPacketsDropped(): { returnType: boolean, valueRxPacketsDropped: number }
-    getRxPacketsError(): { returnType: boolean, valueRxPacketsError: number }
-    getRxPacketsOk(): { returnType: boolean, valueRxPacketsOk: number }
-    getTxBytesOk(): { returnType: boolean, valueTxBytesOk: number }
-    getTxOverflows(): { returnType: boolean, valueTxOverflows: number }
-    getTxPacketsDropped(): { returnType: boolean, valueTxPacketsDropped: number }
-    getTxPacketsError(): { returnType: boolean, valueTxPacketsError: number }
-    getTxPacketsOk(): { returnType: boolean, valueTxPacketsOk: number }
-    getUplinkFlowControlEnabled(): { returnType: boolean, valueUplinkFlowControlEnabled: boolean }
+    getChannelRates(): { returnType: boolean, valueChannelRatesTxRateBps: number | null, valueChannelRatesRxRateBps: number | null }
+    getCurrentDataBearerTechnology(): { returnType: boolean, valueCurrentDataBearerTechnologyNetworkType: WdsNetworkType | null, valueCurrentDataBearerTechnologyRatMask: number | null, valueCurrentDataBearerTechnologySoMask: number | null }
+    getDataBearerTechnology(): { returnType: boolean, valueDataBearerTechnology: WdsDataBearerTechnology | null }
+    getDataCallAddressFamily(): { returnType: boolean, valueDataCallAddressFamily: WdsIpFamily | null }
+    getDataCallStatus(): { returnType: boolean, valueDataCallStatus: WdsDataCallStatus | null }
+    getDataCallType(): { returnType: boolean, valueDataCallTypeDataCallType: WdsDataCallType | null, valueDataCallTypeTetheredCallType: WdsTetheredCallType | null }
+    getDataSystems(): { returnType: boolean, valueDataSystemsPreferredNetworkType: WdsDataSystemNetworkType | null, valueDataSystemsNetworks: IndicationWdsEventReportOutputDataSystemsNetworksNetwork[] | null }
+    getDormancyStatus(): { returnType: boolean, valueDormancyStatus: WdsDormancyStatus | null }
+    getEvdoPageMonitorPeriodChange(): { returnType: boolean, valueEvdoPageMonitorPeriodChangePeriodChange: number | null, valueEvdoPageMonitorPeriodChangeForceLongSleep: boolean | null }
+    getExtendedDataBearerTechnology(): { returnType: boolean, valueExtendedDataBearerTechnologyDataBearerTechnology: WdsDataSystemNetworkType | null, valueExtendedDataBearerTechnologyRadioAccessTechnology: WdsRadioAccessTechnology | null, valueExtendedDataBearerTechnologyExtendedDataBearerTechnology3gpp: WdsExtendedDataBearerTechnology3gpp | null, valueExtendedDataBearerTechnologyExtendedDataBearerTechnology3gpp2: WdsExtendedDataBearerTechnology3gpp2 | null }
+    getMipStatus(): { returnType: boolean, valueMipStatus: boolean | null }
+    getPdnFiltersRemoved(): { returnType: boolean, valuePdnFiltersRemovedPdnFilterHandler: number[] | null }
+    getPreferredDataSystem(): { returnType: boolean, valuePreferredDataSystem: WdsDataSystem | null }
+    getRxBytesOk(): { returnType: boolean, valueRxBytesOk: number | null }
+    getRxOverflows(): { returnType: boolean, valueRxOverflows: number | null }
+    getRxPacketsDropped(): { returnType: boolean, valueRxPacketsDropped: number | null }
+    getRxPacketsError(): { returnType: boolean, valueRxPacketsError: number | null }
+    getRxPacketsOk(): { returnType: boolean, valueRxPacketsOk: number | null }
+    getTxBytesOk(): { returnType: boolean, valueTxBytesOk: number | null }
+    getTxOverflows(): { returnType: boolean, valueTxOverflows: number | null }
+    getTxPacketsDropped(): { returnType: boolean, valueTxPacketsDropped: number | null }
+    getTxPacketsError(): { returnType: boolean, valueTxPacketsError: number | null }
+    getTxPacketsOk(): { returnType: boolean, valueTxPacketsOk: number | null }
+    getUplinkFlowControlEnabled(): { returnType: boolean, valueUplinkFlowControlEnabled: boolean | null }
     ref(): IndicationWdsEventReportOutput
     unref(): void
     static name: string
@@ -6524,18 +6875,18 @@ export class IndicationWdsEventReportOutputDataSystemsNetworksNetwork {
 }
 export class IndicationWdsPacketServiceStatusOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationWdsPacketServiceStatusOutput */
-    getCallEndReason(): { returnType: boolean, valueCallEndReason: WdsCallEndReason }
-    getConnectionStatus(): { returnType: boolean, valueConnectionStatusStatus: WdsConnectionStatus, valueConnectionStatusReconfigurationRequired: boolean }
-    getExtendedTechnologyPreference(): { returnType: boolean, valueExtendedTechnologyPreference: WdsExtendedTechnologyPreference }
-    getIpFamily(): { returnType: boolean, valueIpFamily: WdsIpFamily }
-    getVerboseCallEndReason(): { returnType: boolean, valueVerboseCallEndReasonType: WdsVerboseCallEndReasonType, valueVerboseCallEndReasonReason: number }
+    getCallEndReason(): { returnType: boolean, valueCallEndReason: WdsCallEndReason | null }
+    getConnectionStatus(): { returnType: boolean, valueConnectionStatusStatus: WdsConnectionStatus | null, valueConnectionStatusReconfigurationRequired: boolean | null }
+    getExtendedTechnologyPreference(): { returnType: boolean, valueExtendedTechnologyPreference: WdsExtendedTechnologyPreference | null }
+    getIpFamily(): { returnType: boolean, valueIpFamily: WdsIpFamily | null }
+    getVerboseCallEndReason(): { returnType: boolean, valueVerboseCallEndReasonType: WdsVerboseCallEndReasonType | null, valueVerboseCallEndReasonReason: number | null }
     ref(): IndicationWdsPacketServiceStatusOutput
     unref(): void
     static name: string
 }
 export class IndicationWdsSetLteAttachPdnListOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationWdsSetLteAttachPdnListOutput */
-    getActionResult(): { returnType: boolean, valueActionResult: boolean }
+    getActionResult(): { returnType: boolean, valueActionResult: boolean | null }
     getResult(): boolean
     ref(): IndicationWdsSetLteAttachPdnListOutput
     unref(): void
@@ -6543,20 +6894,20 @@ export class IndicationWdsSetLteAttachPdnListOutput {
 }
 export class IndicationWmsEventReportOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationWmsEventReportOutput */
-    getEtwsMessage(): { returnType: boolean, valueEtwsMessageNotificationType: WmsNotificationType, valueEtwsMessageRawData: any[] }
-    getEtwsPlmnInformation(): { returnType: boolean, valueEtwsPlmnInformationMcc: number, valueEtwsPlmnInformationMnc: number }
-    getMessageMode(): { returnType: boolean, valueMessageMode: WmsMessageMode }
-    getMtMessage(): { returnType: boolean, valueMtMessageStorageType: WmsStorageType, valueMtMessageMemoryIndex: number }
-    getSmsOnIms(): { returnType: boolean, valueSmsOnIms: boolean }
-    getSmscAddress(): { returnType: boolean, valueSmscAddress: string }
-    getTransferRouteMtMessage(): { returnType: boolean, valueTransferRouteMtMessageAckIndicator: WmsAckIndicator, valueTransferRouteMtMessageTransactionId: number, valueTransferRouteMtMessageFormat: WmsMessageFormat, valueTransferRouteMtMessageRawData: any[] }
+    getEtwsMessage(): { returnType: boolean, valueEtwsMessageNotificationType: WmsNotificationType | null, valueEtwsMessageRawData: any[] | null }
+    getEtwsPlmnInformation(): { returnType: boolean, valueEtwsPlmnInformationMcc: number | null, valueEtwsPlmnInformationMnc: number | null }
+    getMessageMode(): { returnType: boolean, valueMessageMode: WmsMessageMode | null }
+    getMtMessage(): { returnType: boolean, valueMtMessageStorageType: WmsStorageType | null, valueMtMessageMemoryIndex: number | null }
+    getSmsOnIms(): { returnType: boolean, valueSmsOnIms: boolean | null }
+    getSmscAddress(): { returnType: boolean, valueSmscAddress: string | null }
+    getTransferRouteMtMessage(): { returnType: boolean, valueTransferRouteMtMessageAckIndicator: WmsAckIndicator | null, valueTransferRouteMtMessageTransactionId: number | null, valueTransferRouteMtMessageFormat: WmsMessageFormat | null, valueTransferRouteMtMessageRawData: any[] | null }
     ref(): IndicationWmsEventReportOutput
     unref(): void
     static name: string
 }
 export class IndicationWmsSmscAddressOutput {
     /* Methods of Qmi-1.0.Qmi.IndicationWmsSmscAddressOutput */
-    getAddress(): { returnType: boolean, valueAddressType: string, valueAddressDigits: string }
+    getAddress(): { returnType: boolean, valueAddressType: string | null, valueAddressDigits: string | null }
     ref(): IndicationWmsSmscAddressOutput
     unref(): void
     static name: string
@@ -6575,7 +6926,7 @@ export class MessageContext {
 }
 export class MessageCtlAllocateCidInput {
     /* Methods of Qmi-1.0.Qmi.MessageCtlAllocateCidInput */
-    getService(): { returnType: boolean, valueService: Service }
+    getService(): { returnType: boolean, valueService: Service | null }
     ref(): MessageCtlAllocateCidInput
     setService(valueService: Service): boolean
     unref(): void
@@ -6587,7 +6938,7 @@ export class MessageCtlAllocateCidInput {
 }
 export class MessageCtlAllocateCidOutput {
     /* Methods of Qmi-1.0.Qmi.MessageCtlAllocateCidOutput */
-    getAllocationInfo(): { returnType: boolean, valueAllocationInfoService: Service, valueAllocationInfoCid: number }
+    getAllocationInfo(): { returnType: boolean, valueAllocationInfoService: Service | null, valueAllocationInfoCid: number | null }
     getResult(): boolean
     ref(): MessageCtlAllocateCidOutput
     unref(): void
@@ -6596,7 +6947,7 @@ export class MessageCtlAllocateCidOutput {
 export class MessageCtlGetVersionInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessageCtlGetVersionInfoOutput */
     getResult(): boolean
-    getServiceList(): { returnType: boolean, valueServiceList: MessageCtlGetVersionInfoOutputServiceListService[] }
+    getServiceList(): { returnType: boolean, valueServiceList: MessageCtlGetVersionInfoOutputServiceListService[] | null }
     ref(): MessageCtlGetVersionInfoOutput
     unref(): void
     static name: string
@@ -6610,7 +6961,7 @@ export class MessageCtlGetVersionInfoOutputServiceListService {
 }
 export class MessageCtlInternalProxyOpenInput {
     /* Methods of Qmi-1.0.Qmi.MessageCtlInternalProxyOpenInput */
-    getDevicePath(): { returnType: boolean, valueDevicePath: string }
+    getDevicePath(): { returnType: boolean, valueDevicePath: string | null }
     ref(): MessageCtlInternalProxyOpenInput
     setDevicePath(valueDevicePath: string): boolean
     unref(): void
@@ -6629,7 +6980,7 @@ export class MessageCtlInternalProxyOpenOutput {
 }
 export class MessageCtlReleaseCidInput {
     /* Methods of Qmi-1.0.Qmi.MessageCtlReleaseCidInput */
-    getReleaseInfo(): { returnType: boolean, valueReleaseInfoService: Service, valueReleaseInfoCid: number }
+    getReleaseInfo(): { returnType: boolean, valueReleaseInfoService: Service | null, valueReleaseInfoCid: number | null }
     ref(): MessageCtlReleaseCidInput
     setReleaseInfo(valueReleaseInfoService: Service, valueReleaseInfoCid: number): boolean
     unref(): void
@@ -6641,7 +6992,7 @@ export class MessageCtlReleaseCidInput {
 }
 export class MessageCtlReleaseCidOutput {
     /* Methods of Qmi-1.0.Qmi.MessageCtlReleaseCidOutput */
-    getReleaseInfo(): { returnType: boolean, valueReleaseInfoService: Service, valueReleaseInfoCid: number }
+    getReleaseInfo(): { returnType: boolean, valueReleaseInfoService: Service | null, valueReleaseInfoCid: number | null }
     getResult(): boolean
     ref(): MessageCtlReleaseCidOutput
     unref(): void
@@ -6649,8 +7000,8 @@ export class MessageCtlReleaseCidOutput {
 }
 export class MessageCtlSetDataFormatInput {
     /* Methods of Qmi-1.0.Qmi.MessageCtlSetDataFormatInput */
-    getFormat(): { returnType: boolean, valueFormat: CtlDataFormat }
-    getProtocol(): { returnType: boolean, valueProtocol: CtlDataLinkProtocol }
+    getFormat(): { returnType: boolean, valueFormat: CtlDataFormat | null }
+    getProtocol(): { returnType: boolean, valueProtocol: CtlDataLinkProtocol | null }
     ref(): MessageCtlSetDataFormatInput
     setFormat(valueFormat: CtlDataFormat): boolean
     setProtocol(valueProtocol: CtlDataLinkProtocol): boolean
@@ -6663,7 +7014,7 @@ export class MessageCtlSetDataFormatInput {
 }
 export class MessageCtlSetDataFormatOutput {
     /* Methods of Qmi-1.0.Qmi.MessageCtlSetDataFormatOutput */
-    getProtocol(): { returnType: boolean, valueProtocol: CtlDataLinkProtocol }
+    getProtocol(): { returnType: boolean, valueProtocol: CtlDataLinkProtocol | null }
     getResult(): boolean
     ref(): MessageCtlSetDataFormatOutput
     unref(): void
@@ -6671,7 +7022,7 @@ export class MessageCtlSetDataFormatOutput {
 }
 export class MessageCtlSetInstanceIdInput {
     /* Methods of Qmi-1.0.Qmi.MessageCtlSetInstanceIdInput */
-    getId(): { returnType: boolean, valueId: number }
+    getId(): { returnType: boolean, valueId: number | null }
     ref(): MessageCtlSetInstanceIdInput
     setId(valueId: number): boolean
     unref(): void
@@ -6683,7 +7034,7 @@ export class MessageCtlSetInstanceIdInput {
 }
 export class MessageCtlSetInstanceIdOutput {
     /* Methods of Qmi-1.0.Qmi.MessageCtlSetInstanceIdOutput */
-    getLinkId(): { returnType: boolean, valueLinkId: number }
+    getLinkId(): { returnType: boolean, valueLinkId: number | null }
     getResult(): boolean
     ref(): MessageCtlSetInstanceIdOutput
     unref(): void
@@ -6698,7 +7049,7 @@ export class MessageCtlSyncOutput {
 }
 export class MessageDmsActivateAutomaticInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsActivateAutomaticInput */
-    getActivationCode(): { returnType: boolean, valueActivationCode: string }
+    getActivationCode(): { returnType: boolean, valueActivationCode: string | null }
     ref(): MessageDmsActivateAutomaticInput
     setActivationCode(valueActivationCode: string): boolean
     unref(): void
@@ -6717,10 +7068,10 @@ export class MessageDmsActivateAutomaticOutput {
 }
 export class MessageDmsActivateManualInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsActivateManualInput */
-    getInfo(): { returnType: boolean, valueInfoServiceProgrammingCode: string, valueInfoSystemIdentificationNumber: number, valueInfoMobileDirectoryNumber: string, valueInfoMobileIdentificationNumber: string }
-    getMnAaaKey(): { returnType: boolean, valueMnAaaKey: string }
-    getMnHaKey(): { returnType: boolean, valueMnHaKey: string }
-    getPrl(): { returnType: boolean, valuePrlPrlTotalLength: number, valuePrlPrlSegmentSequence: number, valuePrlPrlSegment: any[] }
+    getInfo(): { returnType: boolean, valueInfoServiceProgrammingCode: string | null, valueInfoSystemIdentificationNumber: number | null, valueInfoMobileDirectoryNumber: string | null, valueInfoMobileIdentificationNumber: string | null }
+    getMnAaaKey(): { returnType: boolean, valueMnAaaKey: string | null }
+    getMnHaKey(): { returnType: boolean, valueMnHaKey: string | null }
+    getPrl(): { returnType: boolean, valuePrlPrlTotalLength: number | null, valuePrlPrlSegmentSequence: number | null, valuePrlPrlSegment: any[] | null }
     ref(): MessageDmsActivateManualInput
     setInfo(valueInfoServiceProgrammingCode: string, valueInfoSystemIdentificationNumber: number, valueInfoMobileDirectoryNumber: string, valueInfoMobileIdentificationNumber: string): boolean
     setMnAaaKey(valueMnAaaKey: string): boolean
@@ -6742,7 +7093,7 @@ export class MessageDmsActivateManualOutput {
 }
 export class MessageDmsDeleteStoredImageInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsDeleteStoredImageInput */
-    getImage(): { returnType: boolean, valueImage: MessageDmsDeleteStoredImageInputImage }
+    getImage(): { returnType: boolean, valueImage: MessageDmsDeleteStoredImageInputImage | null }
     ref(): MessageDmsDeleteStoredImageInput
     setImage(valueImage: MessageDmsDeleteStoredImageInputImage): boolean
     unref(): void
@@ -6768,7 +7119,7 @@ export class MessageDmsDeleteStoredImageOutput {
 }
 export class MessageDmsFoxconnChangeDeviceModeInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsFoxconnChangeDeviceModeInput */
-    getMode(): { returnType: boolean, valueMode: DmsFoxconnDeviceMode }
+    getMode(): { returnType: boolean, valueMode: DmsFoxconnDeviceMode | null }
     ref(): MessageDmsFoxconnChangeDeviceModeInput
     setMode(valueMode: DmsFoxconnDeviceMode): boolean
     unref(): void
@@ -6787,7 +7138,7 @@ export class MessageDmsFoxconnChangeDeviceModeOutput {
 }
 export class MessageDmsFoxconnGetFirmwareVersionInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsFoxconnGetFirmwareVersionInput */
-    getVersionType(): { returnType: boolean, valueVersionType: DmsFoxconnFirmwareVersionType }
+    getVersionType(): { returnType: boolean, valueVersionType: DmsFoxconnFirmwareVersionType | null }
     ref(): MessageDmsFoxconnGetFirmwareVersionInput
     setVersionType(valueVersionType: DmsFoxconnFirmwareVersionType): boolean
     unref(): void
@@ -6800,14 +7151,33 @@ export class MessageDmsFoxconnGetFirmwareVersionInput {
 export class MessageDmsFoxconnGetFirmwareVersionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsFoxconnGetFirmwareVersionOutput */
     getResult(): boolean
-    getVersion(): { returnType: boolean, valueVersion: string }
+    getVersion(): { returnType: boolean, valueVersion: string | null }
     ref(): MessageDmsFoxconnGetFirmwareVersionOutput
+    unref(): void
+    static name: string
+}
+export class MessageDmsFoxconnSetFccAuthenticationInput {
+    /* Methods of Qmi-1.0.Qmi.MessageDmsFoxconnSetFccAuthenticationInput */
+    getValue(): { returnType: boolean, valueValue: number | null }
+    ref(): MessageDmsFoxconnSetFccAuthenticationInput
+    setValue(valueValue: number): boolean
+    unref(): void
+    static name: string
+    static new(): MessageDmsFoxconnSetFccAuthenticationInput
+    constructor()
+    /* Static methods and pseudo-constructors */
+    static new(): MessageDmsFoxconnSetFccAuthenticationInput
+}
+export class MessageDmsFoxconnSetFccAuthenticationOutput {
+    /* Methods of Qmi-1.0.Qmi.MessageDmsFoxconnSetFccAuthenticationOutput */
+    getResult(): boolean
+    ref(): MessageDmsFoxconnSetFccAuthenticationOutput
     unref(): void
     static name: string
 }
 export class MessageDmsGetActivationStateOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetActivationStateOutput */
-    getInfo(): { returnType: boolean, valueInfo: DmsActivationState }
+    getInfo(): { returnType: boolean, valueInfo: DmsActivationState | null }
     getResult(): boolean
     ref(): MessageDmsGetActivationStateOutput
     unref(): void
@@ -6815,7 +7185,7 @@ export class MessageDmsGetActivationStateOutput {
 }
 export class MessageDmsGetAltNetConfigOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetAltNetConfigOutput */
-    getConfig(): { returnType: boolean, valueConfig: boolean }
+    getConfig(): { returnType: boolean, valueConfig: boolean | null }
     getResult(): boolean
     ref(): MessageDmsGetAltNetConfigOutput
     unref(): void
@@ -6823,9 +7193,10 @@ export class MessageDmsGetAltNetConfigOutput {
 }
 export class MessageDmsGetBandCapabilitiesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetBandCapabilitiesOutput */
-    getBandCapability(): { returnType: boolean, valueBandCapability: DmsBandCapability }
-    getExtendedLteBandCapability(): { returnType: boolean, valueExtendedLteBandCapability: number[] }
-    getLteBandCapability(): { returnType: boolean, valueLteBandCapability: DmsLteBandCapability }
+    getBandCapability(): { returnType: boolean, valueBandCapability: DmsBandCapability | null }
+    getExtendedLteBandCapability(): { returnType: boolean, valueExtendedLteBandCapability: number[] | null }
+    getLteBandCapability(): { returnType: boolean, valueLteBandCapability: DmsLteBandCapability | null }
+    getNr5gBandCapability(): { returnType: boolean, valueNr5gBandCapability: number[] | null }
     getResult(): boolean
     ref(): MessageDmsGetBandCapabilitiesOutput
     unref(): void
@@ -6833,7 +7204,7 @@ export class MessageDmsGetBandCapabilitiesOutput {
 }
 export class MessageDmsGetBootImageDownloadModeOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetBootImageDownloadModeOutput */
-    getMode(): { returnType: boolean, valueMode: DmsBootImageDownloadMode }
+    getMode(): { returnType: boolean, valueMode: DmsBootImageDownloadMode | null }
     getResult(): boolean
     ref(): MessageDmsGetBootImageDownloadModeOutput
     unref(): void
@@ -6841,7 +7212,7 @@ export class MessageDmsGetBootImageDownloadModeOutput {
 }
 export class MessageDmsGetCapabilitiesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetCapabilitiesOutput */
-    getInfo(): { returnType: boolean, valueInfoMaxTxChannelRate: number, valueInfoMaxRxChannelRate: number, valueInfoDataServiceCapability: DmsDataServiceCapability, valueInfoSimCapability: DmsSimCapability, valueInfoRadioInterfaceList: DmsRadioInterface[] }
+    getInfo(): { returnType: boolean, valueInfoMaxTxChannelRate: number | null, valueInfoMaxRxChannelRate: number | null, valueInfoDataServiceCapability: DmsDataServiceCapability | null, valueInfoSimCapability: DmsSimCapability | null, valueInfoRadioInterfaceList: DmsRadioInterface[] | null }
     getResult(): boolean
     ref(): MessageDmsGetCapabilitiesOutput
     unref(): void
@@ -6850,14 +7221,14 @@ export class MessageDmsGetCapabilitiesOutput {
 export class MessageDmsGetFactorySkuOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetFactorySkuOutput */
     getResult(): boolean
-    getSku(): { returnType: boolean, valueSku: string }
+    getSku(): { returnType: boolean, valueSku: string | null }
     ref(): MessageDmsGetFactorySkuOutput
     unref(): void
     static name: string
 }
 export class MessageDmsGetFirmwarePreferenceOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetFirmwarePreferenceOutput */
-    getList(): { returnType: boolean, valueList: MessageDmsGetFirmwarePreferenceOutputListImage[] }
+    getList(): { returnType: boolean, valueList: MessageDmsGetFirmwarePreferenceOutputListImage[] | null }
     getResult(): boolean
     ref(): MessageDmsGetFirmwarePreferenceOutput
     unref(): void
@@ -6873,17 +7244,17 @@ export class MessageDmsGetFirmwarePreferenceOutputListImage {
 export class MessageDmsGetHardwareRevisionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetHardwareRevisionOutput */
     getResult(): boolean
-    getRevision(): { returnType: boolean, valueRevision: string }
+    getRevision(): { returnType: boolean, valueRevision: string | null }
     ref(): MessageDmsGetHardwareRevisionOutput
     unref(): void
     static name: string
 }
 export class MessageDmsGetIdsOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetIdsOutput */
-    getEsn(): { returnType: boolean, valueEsn: string }
-    getImei(): { returnType: boolean, valueImei: string }
-    getImeiSoftwareVersion(): { returnType: boolean, valueImeiSoftwareVersion: string }
-    getMeid(): { returnType: boolean, valueMeid: string }
+    getEsn(): { returnType: boolean, valueEsn: string | null }
+    getImei(): { returnType: boolean, valueImei: string | null }
+    getImeiSoftwareVersion(): { returnType: boolean, valueImeiSoftwareVersion: string | null }
+    getMeid(): { returnType: boolean, valueMeid: string | null }
     getResult(): boolean
     ref(): MessageDmsGetIdsOutput
     unref(): void
@@ -6891,7 +7262,7 @@ export class MessageDmsGetIdsOutput {
 }
 export class MessageDmsGetMacAddressInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetMacAddressInput */
-    getDevice(): { returnType: boolean, valueDevice: DmsMacType }
+    getDevice(): { returnType: boolean, valueDevice: DmsMacType | null }
     ref(): MessageDmsGetMacAddressInput
     setDevice(valueDevice: DmsMacType): boolean
     unref(): void
@@ -6903,7 +7274,7 @@ export class MessageDmsGetMacAddressInput {
 }
 export class MessageDmsGetMacAddressOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetMacAddressOutput */
-    getMacAddress(): { returnType: boolean, valueMacAddress: any[] }
+    getMacAddress(): { returnType: boolean, valueMacAddress: any[] | null }
     getResult(): boolean
     ref(): MessageDmsGetMacAddressOutput
     unref(): void
@@ -6911,7 +7282,7 @@ export class MessageDmsGetMacAddressOutput {
 }
 export class MessageDmsGetManufacturerOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetManufacturerOutput */
-    getManufacturer(): { returnType: boolean, valueManufacturer: string }
+    getManufacturer(): { returnType: boolean, valueManufacturer: string | null }
     getResult(): boolean
     ref(): MessageDmsGetManufacturerOutput
     unref(): void
@@ -6919,7 +7290,7 @@ export class MessageDmsGetManufacturerOutput {
 }
 export class MessageDmsGetModelOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetModelOutput */
-    getModel(): { returnType: boolean, valueModel: string }
+    getModel(): { returnType: boolean, valueModel: string | null }
     getResult(): boolean
     ref(): MessageDmsGetModelOutput
     unref(): void
@@ -6927,7 +7298,7 @@ export class MessageDmsGetModelOutput {
 }
 export class MessageDmsGetMsisdnOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetMsisdnOutput */
-    getMsisdn(): { returnType: boolean, valueMsisdn: string }
+    getMsisdn(): { returnType: boolean, valueMsisdn: string | null }
     getResult(): boolean
     ref(): MessageDmsGetMsisdnOutput
     unref(): void
@@ -6935,9 +7306,9 @@ export class MessageDmsGetMsisdnOutput {
 }
 export class MessageDmsGetOperatingModeOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetOperatingModeOutput */
-    getHardwareRestrictedMode(): { returnType: boolean, valueHardwareRestrictedMode: boolean }
-    getMode(): { returnType: boolean, valueMode: DmsOperatingMode }
-    getOfflineReason(): { returnType: boolean, valueOfflineReason: DmsOfflineReason }
+    getHardwareRestrictedMode(): { returnType: boolean, valueHardwareRestrictedMode: boolean | null }
+    getMode(): { returnType: boolean, valueMode: DmsOperatingMode | null }
+    getOfflineReason(): { returnType: boolean, valueOfflineReason: DmsOfflineReason | null }
     getResult(): boolean
     ref(): MessageDmsGetOperatingModeOutput
     unref(): void
@@ -6945,7 +7316,7 @@ export class MessageDmsGetOperatingModeOutput {
 }
 export class MessageDmsGetPowerStateOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetPowerStateOutput */
-    getInfo(): { returnType: boolean, valueInfoPowerStateFlags: number, valueInfoBatteryLevel: number }
+    getInfo(): { returnType: boolean, valueInfoPowerStateFlags: number | null, valueInfoBatteryLevel: number | null }
     getResult(): boolean
     ref(): MessageDmsGetPowerStateOutput
     unref(): void
@@ -6953,9 +7324,9 @@ export class MessageDmsGetPowerStateOutput {
 }
 export class MessageDmsGetPrlVersionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetPrlVersionOutput */
-    getPrlOnlyPreference(): { returnType: boolean, valuePrlOnlyPreference: boolean }
+    getPrlOnlyPreference(): { returnType: boolean, valuePrlOnlyPreference: boolean | null }
     getResult(): boolean
-    getVersion(): { returnType: boolean, valueVersion: number }
+    getVersion(): { returnType: boolean, valueVersion: number | null }
     ref(): MessageDmsGetPrlVersionOutput
     unref(): void
     static name: string
@@ -6963,7 +7334,7 @@ export class MessageDmsGetPrlVersionOutput {
 export class MessageDmsGetRevisionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetRevisionOutput */
     getResult(): boolean
-    getRevision(): { returnType: boolean, valueRevision: string }
+    getRevision(): { returnType: boolean, valueRevision: string | null }
     ref(): MessageDmsGetRevisionOutput
     unref(): void
     static name: string
@@ -6971,14 +7342,14 @@ export class MessageDmsGetRevisionOutput {
 export class MessageDmsGetSoftwareVersionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetSoftwareVersionOutput */
     getResult(): boolean
-    getVersion(): { returnType: boolean, valueVersion: string }
+    getVersion(): { returnType: boolean, valueVersion: string | null }
     ref(): MessageDmsGetSoftwareVersionOutput
     unref(): void
     static name: string
 }
 export class MessageDmsGetStoredImageInfoInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetStoredImageInfoInput */
-    getImage(): { returnType: boolean, valueImage: MessageDmsGetStoredImageInfoInputImage }
+    getImage(): { returnType: boolean, valueImage: MessageDmsGetStoredImageInfoInputImage | null }
     ref(): MessageDmsGetStoredImageInfoInput
     setImage(valueImage: MessageDmsGetStoredImageInfoInputImage): boolean
     unref(): void
@@ -6997,9 +7368,9 @@ export class MessageDmsGetStoredImageInfoInputImage {
 }
 export class MessageDmsGetStoredImageInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetStoredImageInfoOutput */
-    getBootVersion(): { returnType: boolean, valueBootVersionMajorVersion: number, valueBootVersionMinorVersion: number }
-    getOemLockId(): { returnType: boolean, valueOemLockId: number }
-    getPriVersion(): { returnType: boolean, valuePriVersionPriVersion: number, valuePriVersionPriInfo: string }
+    getBootVersion(): { returnType: boolean, valueBootVersionMajorVersion: number | null, valueBootVersionMinorVersion: number | null }
+    getOemLockId(): { returnType: boolean, valueOemLockId: number | null }
+    getPriVersion(): { returnType: boolean, valuePriVersionPriVersion: number | null, valuePriVersionPriInfo: string | null }
     getResult(): boolean
     ref(): MessageDmsGetStoredImageInfoOutput
     unref(): void
@@ -7007,7 +7378,7 @@ export class MessageDmsGetStoredImageInfoOutput {
 }
 export class MessageDmsGetSupportedMessagesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetSupportedMessagesOutput */
-    getList(): { returnType: boolean, valueList: any[] }
+    getList(): { returnType: boolean, valueList: any[] | null }
     getResult(): boolean
     ref(): MessageDmsGetSupportedMessagesOutput
     unref(): void
@@ -7015,17 +7386,17 @@ export class MessageDmsGetSupportedMessagesOutput {
 }
 export class MessageDmsGetTimeOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetTimeOutput */
-    getDeviceTime(): { returnType: boolean, valueDeviceTimeTimeCount: number, valueDeviceTimeTimeSource: DmsTimeSource }
+    getDeviceTime(): { returnType: boolean, valueDeviceTimeTimeCount: number | null, valueDeviceTimeTimeSource: DmsTimeSource | null }
     getResult(): boolean
-    getSystemTime(): { returnType: boolean, valueSystemTime: number }
-    getUserTime(): { returnType: boolean, valueUserTime: number }
+    getSystemTime(): { returnType: boolean, valueSystemTime: number | null }
+    getUserTime(): { returnType: boolean, valueUserTime: number | null }
     ref(): MessageDmsGetTimeOutput
     unref(): void
     static name: string
 }
 export class MessageDmsGetUserLockStateOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsGetUserLockStateOutput */
-    getEnabled(): { returnType: boolean, valueEnabled: boolean }
+    getEnabled(): { returnType: boolean, valueEnabled: boolean | null }
     getResult(): boolean
     ref(): MessageDmsGetUserLockStateOutput
     unref(): void
@@ -7033,7 +7404,7 @@ export class MessageDmsGetUserLockStateOutput {
 }
 export class MessageDmsHpChangeDeviceModeInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsHpChangeDeviceModeInput */
-    getMode(): { returnType: boolean, valueMode: DmsHpDeviceMode }
+    getMode(): { returnType: boolean, valueMode: DmsHpDeviceMode | null }
     ref(): MessageDmsHpChangeDeviceModeInput
     setMode(valueMode: DmsHpDeviceMode): boolean
     unref(): void
@@ -7052,7 +7423,7 @@ export class MessageDmsHpChangeDeviceModeOutput {
 }
 export class MessageDmsListStoredImagesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsListStoredImagesOutput */
-    getList(): { returnType: boolean, valueList: MessageDmsListStoredImagesOutputListImage[] }
+    getList(): { returnType: boolean, valueList: MessageDmsListStoredImagesOutputListImage[] | null }
     getResult(): boolean
     ref(): MessageDmsListStoredImagesOutput
     unref(): void
@@ -7076,7 +7447,7 @@ export class MessageDmsListStoredImagesOutputListImageSublistSublistElement {
 }
 export class MessageDmsReadEriFileOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsReadEriFileOutput */
-    getEriFile(): { returnType: boolean, valueEriFile: any[] }
+    getEriFile(): { returnType: boolean, valueEriFile: any[] | null }
     getResult(): boolean
     ref(): MessageDmsReadEriFileOutput
     unref(): void
@@ -7085,7 +7456,7 @@ export class MessageDmsReadEriFileOutput {
 export class MessageDmsReadUserDataOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsReadUserDataOutput */
     getResult(): boolean
-    getUserData(): { returnType: boolean, valueUserData: any[] }
+    getUserData(): { returnType: boolean, valueUserData: any[] | null }
     ref(): MessageDmsReadUserDataOutput
     unref(): void
     static name: string
@@ -7099,7 +7470,7 @@ export class MessageDmsResetOutput {
 }
 export class MessageDmsRestoreFactoryDefaultsInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsRestoreFactoryDefaultsInput */
-    getServiceProgrammingCode(): { returnType: boolean, valueServiceProgrammingCode: string }
+    getServiceProgrammingCode(): { returnType: boolean, valueServiceProgrammingCode: string | null }
     ref(): MessageDmsRestoreFactoryDefaultsInput
     setServiceProgrammingCode(valueServiceProgrammingCode: string): boolean
     unref(): void
@@ -7118,7 +7489,7 @@ export class MessageDmsRestoreFactoryDefaultsOutput {
 }
 export class MessageDmsSetAltNetConfigInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetAltNetConfigInput */
-    getConfig(): { returnType: boolean, valueConfig: boolean }
+    getConfig(): { returnType: boolean, valueConfig: boolean | null }
     ref(): MessageDmsSetAltNetConfigInput
     setConfig(valueConfig: boolean): boolean
     unref(): void
@@ -7137,7 +7508,7 @@ export class MessageDmsSetAltNetConfigOutput {
 }
 export class MessageDmsSetBootImageDownloadModeInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetBootImageDownloadModeInput */
-    getMode(): { returnType: boolean, valueMode: DmsBootImageDownloadMode }
+    getMode(): { returnType: boolean, valueMode: DmsBootImageDownloadMode | null }
     ref(): MessageDmsSetBootImageDownloadModeInput
     setMode(valueMode: DmsBootImageDownloadMode): boolean
     unref(): void
@@ -7156,14 +7527,14 @@ export class MessageDmsSetBootImageDownloadModeOutput {
 }
 export class MessageDmsSetEventReportInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetEventReportInput */
-    getActivationStateReporting(): { returnType: boolean, valueActivationStateReporting: boolean }
-    getBatteryLevelReportLimits(): { returnType: boolean, valueBatteryLevelReportLimitsLowerLimit: number, valueBatteryLevelReportLimitsUpperLimit: number }
-    getOperatingModeReporting(): { returnType: boolean, valueOperatingModeReporting: boolean }
-    getPinStateReporting(): { returnType: boolean, valuePinStateReporting: boolean }
-    getPowerStateReporting(): { returnType: boolean, valuePowerStateReporting: boolean }
-    getPrlInitReporting(): { returnType: boolean, valuePrlInitReporting: boolean }
-    getUimStateReporting(): { returnType: boolean, valueUimStateReporting: boolean }
-    getWirelessDisableStateReporting(): { returnType: boolean, valueWirelessDisableStateReporting: boolean }
+    getActivationStateReporting(): { returnType: boolean, valueActivationStateReporting: boolean | null }
+    getBatteryLevelReportLimits(): { returnType: boolean, valueBatteryLevelReportLimitsLowerLimit: number | null, valueBatteryLevelReportLimitsUpperLimit: number | null }
+    getOperatingModeReporting(): { returnType: boolean, valueOperatingModeReporting: boolean | null }
+    getPinStateReporting(): { returnType: boolean, valuePinStateReporting: boolean | null }
+    getPowerStateReporting(): { returnType: boolean, valuePowerStateReporting: boolean | null }
+    getPrlInitReporting(): { returnType: boolean, valuePrlInitReporting: boolean | null }
+    getUimStateReporting(): { returnType: boolean, valueUimStateReporting: boolean | null }
+    getWirelessDisableStateReporting(): { returnType: boolean, valueWirelessDisableStateReporting: boolean | null }
     ref(): MessageDmsSetEventReportInput
     setActivationStateReporting(valueActivationStateReporting: boolean): boolean
     setBatteryLevelReportLimits(valueBatteryLevelReportLimitsLowerLimit: number, valueBatteryLevelReportLimitsUpperLimit: number): boolean
@@ -7203,9 +7574,9 @@ export class MessageDmsSetFirmwareIdOutput {
 }
 export class MessageDmsSetFirmwarePreferenceInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetFirmwarePreferenceInput */
-    getDownloadOverride(): { returnType: boolean, valueDownloadOverride: boolean }
-    getList(): { returnType: boolean, valueList: MessageDmsSetFirmwarePreferenceInputListImage[] }
-    getModemStorageIndex(): { returnType: boolean, valueModemStorageIndex: number }
+    getDownloadOverride(): { returnType: boolean, valueDownloadOverride: boolean | null }
+    getList(): { returnType: boolean, valueList: MessageDmsSetFirmwarePreferenceInputListImage[] | null }
+    getModemStorageIndex(): { returnType: boolean, valueModemStorageIndex: number | null }
     ref(): MessageDmsSetFirmwarePreferenceInput
     setDownloadOverride(valueDownloadOverride: boolean): boolean
     setList(valueList: MessageDmsSetFirmwarePreferenceInputListImage[]): boolean
@@ -7226,7 +7597,7 @@ export class MessageDmsSetFirmwarePreferenceInputListImage {
 }
 export class MessageDmsSetFirmwarePreferenceOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetFirmwarePreferenceOutput */
-    getImageDownloadList(): { returnType: boolean, valueImageDownloadList: DmsFirmwareImageType[] }
+    getImageDownloadList(): { returnType: boolean, valueImageDownloadList: DmsFirmwareImageType[] | null }
     getResult(): boolean
     ref(): MessageDmsSetFirmwarePreferenceOutput
     unref(): void
@@ -7234,7 +7605,7 @@ export class MessageDmsSetFirmwarePreferenceOutput {
 }
 export class MessageDmsSetOperatingModeInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetOperatingModeInput */
-    getMode(): { returnType: boolean, valueMode: DmsOperatingMode }
+    getMode(): { returnType: boolean, valueMode: DmsOperatingMode | null }
     ref(): MessageDmsSetOperatingModeInput
     setMode(valueMode: DmsOperatingMode): boolean
     unref(): void
@@ -7253,8 +7624,8 @@ export class MessageDmsSetOperatingModeOutput {
 }
 export class MessageDmsSetServiceProgrammingCodeInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetServiceProgrammingCodeInput */
-    getCurrentCode(): { returnType: boolean, valueCurrentCode: string }
-    getNewCode(): { returnType: boolean, valueNewCode: string }
+    getCurrentCode(): { returnType: boolean, valueCurrentCode: string | null }
+    getNewCode(): { returnType: boolean, valueNewCode: string | null }
     ref(): MessageDmsSetServiceProgrammingCodeInput
     setCurrentCode(valueCurrentCode: string): boolean
     setNewCode(valueNewCode: string): boolean
@@ -7274,8 +7645,8 @@ export class MessageDmsSetServiceProgrammingCodeOutput {
 }
 export class MessageDmsSetTimeInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetTimeInput */
-    getTimeReferenceType(): { returnType: boolean, valueTimeReferenceType: DmsTimeReferenceType }
-    getTimeValue(): { returnType: boolean, valueTimeValue: number }
+    getTimeReferenceType(): { returnType: boolean, valueTimeReferenceType: DmsTimeReferenceType | null }
+    getTimeValue(): { returnType: boolean, valueTimeValue: number | null }
     ref(): MessageDmsSetTimeInput
     setTimeReferenceType(valueTimeReferenceType: DmsTimeReferenceType): boolean
     setTimeValue(valueTimeValue: number): boolean
@@ -7295,7 +7666,7 @@ export class MessageDmsSetTimeOutput {
 }
 export class MessageDmsSetUserLockCodeInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetUserLockCodeInput */
-    getInfo(): { returnType: boolean, valueInfoOldCode: string, valueInfoNewCode: string }
+    getInfo(): { returnType: boolean, valueInfoOldCode: string | null, valueInfoNewCode: string | null }
     ref(): MessageDmsSetUserLockCodeInput
     setInfo(valueInfoOldCode: string, valueInfoNewCode: string): boolean
     unref(): void
@@ -7314,7 +7685,7 @@ export class MessageDmsSetUserLockCodeOutput {
 }
 export class MessageDmsSetUserLockStateInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSetUserLockStateInput */
-    getInfo(): { returnType: boolean, valueInfoEnabled: boolean, valueInfoLockCode: string }
+    getInfo(): { returnType: boolean, valueInfoEnabled: boolean | null, valueInfoLockCode: string | null }
     ref(): MessageDmsSetUserLockStateInput
     setInfo(valueInfoEnabled: boolean, valueInfoLockCode: string): boolean
     unref(): void
@@ -7333,32 +7704,32 @@ export class MessageDmsSetUserLockStateOutput {
 }
 export class MessageDmsSwiGetCurrentFirmwareOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSwiGetCurrentFirmwareOutput */
-    getAmssVersion(): { returnType: boolean, valueAmssVersion: string }
-    getBootVersion(): { returnType: boolean, valueBootVersion: string }
-    getCarrier(): { returnType: boolean, valueCarrier: string }
-    getCarrierId(): { returnType: boolean, valueCarrierId: string }
-    getConfigVersion(): { returnType: boolean, valueConfigVersion: string }
-    getModel(): { returnType: boolean, valueModel: string }
-    getPackageId(): { returnType: boolean, valuePackageId: string }
-    getPriVersion(): { returnType: boolean, valuePriVersion: string }
+    getAmssVersion(): { returnType: boolean, valueAmssVersion: string | null }
+    getBootVersion(): { returnType: boolean, valueBootVersion: string | null }
+    getCarrier(): { returnType: boolean, valueCarrier: string | null }
+    getCarrierId(): { returnType: boolean, valueCarrierId: string | null }
+    getConfigVersion(): { returnType: boolean, valueConfigVersion: string | null }
+    getModel(): { returnType: boolean, valueModel: string | null }
+    getPackageId(): { returnType: boolean, valuePackageId: string | null }
+    getPriVersion(): { returnType: boolean, valuePriVersion: string | null }
     getResult(): boolean
-    getSkuId(): { returnType: boolean, valueSkuId: string }
+    getSkuId(): { returnType: boolean, valueSkuId: string | null }
     ref(): MessageDmsSwiGetCurrentFirmwareOutput
     unref(): void
     static name: string
 }
 export class MessageDmsSwiGetUsbCompositionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSwiGetUsbCompositionOutput */
-    getCurrent(): { returnType: boolean, valueCurrent: DmsSwiUsbComposition }
+    getCurrent(): { returnType: boolean, valueCurrent: DmsSwiUsbComposition | null }
     getResult(): boolean
-    getSupported(): { returnType: boolean, valueSupported: DmsSwiUsbComposition[] }
+    getSupported(): { returnType: boolean, valueSupported: DmsSwiUsbComposition[] | null }
     ref(): MessageDmsSwiGetUsbCompositionOutput
     unref(): void
     static name: string
 }
 export class MessageDmsSwiSetUsbCompositionInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsSwiSetUsbCompositionInput */
-    getCurrent(): { returnType: boolean, valueCurrent: DmsSwiUsbComposition }
+    getCurrent(): { returnType: boolean, valueCurrent: DmsSwiUsbComposition | null }
     ref(): MessageDmsSwiSetUsbCompositionInput
     setCurrent(valueCurrent: DmsSwiUsbComposition): boolean
     unref(): void
@@ -7377,7 +7748,7 @@ export class MessageDmsSwiSetUsbCompositionOutput {
 }
 export class MessageDmsUimChangePinInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimChangePinInput */
-    getInfo(): { returnType: boolean, valueInfoPinId: DmsUimPinId, valueInfoOldPin: string, valueInfoNewPin: string }
+    getInfo(): { returnType: boolean, valueInfoPinId: DmsUimPinId | null, valueInfoOldPin: string | null, valueInfoNewPin: string | null }
     ref(): MessageDmsUimChangePinInput
     setInfo(valueInfoPinId: DmsUimPinId, valueInfoOldPin: string, valueInfoNewPin: string): boolean
     unref(): void
@@ -7389,7 +7760,7 @@ export class MessageDmsUimChangePinInput {
 }
 export class MessageDmsUimChangePinOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimChangePinOutput */
-    getPinRetriesStatus(): { returnType: boolean, valuePinRetriesStatusVerifyRetriesLeft: number, valuePinRetriesStatusUnblockRetriesLeft: number }
+    getPinRetriesStatus(): { returnType: boolean, valuePinRetriesStatusVerifyRetriesLeft: number | null, valuePinRetriesStatusUnblockRetriesLeft: number | null }
     getResult(): boolean
     ref(): MessageDmsUimChangePinOutput
     unref(): void
@@ -7397,7 +7768,7 @@ export class MessageDmsUimChangePinOutput {
 }
 export class MessageDmsUimGetCkStatusInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimGetCkStatusInput */
-    getFacility(): { returnType: boolean, valueFacility: DmsUimFacility }
+    getFacility(): { returnType: boolean, valueFacility: DmsUimFacility | null }
     ref(): MessageDmsUimGetCkStatusInput
     setFacility(valueFacility: DmsUimFacility): boolean
     unref(): void
@@ -7409,8 +7780,8 @@ export class MessageDmsUimGetCkStatusInput {
 }
 export class MessageDmsUimGetCkStatusOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimGetCkStatusOutput */
-    getCkStatus(): { returnType: boolean, valueCkStatusFacilityState: DmsUimFacilityState, valueCkStatusVerifyRetriesLeft: number, valueCkStatusUnblockRetriesLeft: number }
-    getOperationBlockingFacility(): { returnType: boolean, valueOperationBlockingFacility: boolean }
+    getCkStatus(): { returnType: boolean, valueCkStatusFacilityState: DmsUimFacilityState | null, valueCkStatusVerifyRetriesLeft: number | null, valueCkStatusUnblockRetriesLeft: number | null }
+    getOperationBlockingFacility(): { returnType: boolean, valueOperationBlockingFacility: boolean | null }
     getResult(): boolean
     ref(): MessageDmsUimGetCkStatusOutput
     unref(): void
@@ -7418,7 +7789,7 @@ export class MessageDmsUimGetCkStatusOutput {
 }
 export class MessageDmsUimGetIccidOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimGetIccidOutput */
-    getIccid(): { returnType: boolean, valueIccid: string }
+    getIccid(): { returnType: boolean, valueIccid: string | null }
     getResult(): boolean
     ref(): MessageDmsUimGetIccidOutput
     unref(): void
@@ -7426,7 +7797,7 @@ export class MessageDmsUimGetIccidOutput {
 }
 export class MessageDmsUimGetImsiOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimGetImsiOutput */
-    getImsi(): { returnType: boolean, valueImsi: string }
+    getImsi(): { returnType: boolean, valueImsi: string | null }
     getResult(): boolean
     ref(): MessageDmsUimGetImsiOutput
     unref(): void
@@ -7434,8 +7805,8 @@ export class MessageDmsUimGetImsiOutput {
 }
 export class MessageDmsUimGetPinStatusOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimGetPinStatusOutput */
-    getPin1Status(): { returnType: boolean, valuePin1StatusCurrentStatus: DmsUimPinStatus, valuePin1StatusVerifyRetriesLeft: number, valuePin1StatusUnblockRetriesLeft: number }
-    getPin2Status(): { returnType: boolean, valuePin2StatusCurrentStatus: DmsUimPinStatus, valuePin2StatusVerifyRetriesLeft: number, valuePin2StatusUnblockRetriesLeft: number }
+    getPin1Status(): { returnType: boolean, valuePin1StatusCurrentStatus: DmsUimPinStatus | null, valuePin1StatusVerifyRetriesLeft: number | null, valuePin1StatusUnblockRetriesLeft: number | null }
+    getPin2Status(): { returnType: boolean, valuePin2StatusCurrentStatus: DmsUimPinStatus | null, valuePin2StatusVerifyRetriesLeft: number | null, valuePin2StatusUnblockRetriesLeft: number | null }
     getResult(): boolean
     ref(): MessageDmsUimGetPinStatusOutput
     unref(): void
@@ -7444,14 +7815,14 @@ export class MessageDmsUimGetPinStatusOutput {
 export class MessageDmsUimGetStateOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimGetStateOutput */
     getResult(): boolean
-    getState(): { returnType: boolean, valueState: DmsUimState }
+    getState(): { returnType: boolean, valueState: DmsUimState | null }
     ref(): MessageDmsUimGetStateOutput
     unref(): void
     static name: string
 }
 export class MessageDmsUimSetCkProtectionInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimSetCkProtectionInput */
-    getFacility(): { returnType: boolean, valueFacilityFacility: DmsUimFacility, valueFacilityFacilityState: DmsUimFacilityState, valueFacilityFacilityDepersonalizationControlKey: string }
+    getFacility(): { returnType: boolean, valueFacilityFacility: DmsUimFacility | null, valueFacilityFacilityState: DmsUimFacilityState | null, valueFacilityFacilityDepersonalizationControlKey: string | null }
     ref(): MessageDmsUimSetCkProtectionInput
     setFacility(valueFacilityFacility: DmsUimFacility, valueFacilityFacilityState: DmsUimFacilityState, valueFacilityFacilityDepersonalizationControlKey: string): boolean
     unref(): void
@@ -7464,14 +7835,14 @@ export class MessageDmsUimSetCkProtectionInput {
 export class MessageDmsUimSetCkProtectionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimSetCkProtectionOutput */
     getResult(): boolean
-    getVerifyRetriesLeft(): { returnType: boolean, valueVerifyRetriesLeft: number }
+    getVerifyRetriesLeft(): { returnType: boolean, valueVerifyRetriesLeft: number | null }
     ref(): MessageDmsUimSetCkProtectionOutput
     unref(): void
     static name: string
 }
 export class MessageDmsUimSetPinProtectionInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimSetPinProtectionInput */
-    getInfo(): { returnType: boolean, valueInfoPinId: DmsUimPinId, valueInfoProtectionEnabled: boolean, valueInfoPin: string }
+    getInfo(): { returnType: boolean, valueInfoPinId: DmsUimPinId | null, valueInfoProtectionEnabled: boolean | null, valueInfoPin: string | null }
     ref(): MessageDmsUimSetPinProtectionInput
     setInfo(valueInfoPinId: DmsUimPinId, valueInfoProtectionEnabled: boolean, valueInfoPin: string): boolean
     unref(): void
@@ -7483,7 +7854,7 @@ export class MessageDmsUimSetPinProtectionInput {
 }
 export class MessageDmsUimSetPinProtectionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimSetPinProtectionOutput */
-    getPinRetriesStatus(): { returnType: boolean, valuePinRetriesStatusVerifyRetriesLeft: number, valuePinRetriesStatusUnblockRetriesLeft: number }
+    getPinRetriesStatus(): { returnType: boolean, valuePinRetriesStatusVerifyRetriesLeft: number | null, valuePinRetriesStatusUnblockRetriesLeft: number | null }
     getResult(): boolean
     ref(): MessageDmsUimSetPinProtectionOutput
     unref(): void
@@ -7491,7 +7862,7 @@ export class MessageDmsUimSetPinProtectionOutput {
 }
 export class MessageDmsUimUnblockCkInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimUnblockCkInput */
-    getFacility(): { returnType: boolean, valueFacilityFacility: DmsUimFacility, valueFacilityFacilityControlKey: string }
+    getFacility(): { returnType: boolean, valueFacilityFacility: DmsUimFacility | null, valueFacilityFacilityControlKey: string | null }
     ref(): MessageDmsUimUnblockCkInput
     setFacility(valueFacilityFacility: DmsUimFacility, valueFacilityFacilityControlKey: string): boolean
     unref(): void
@@ -7504,14 +7875,14 @@ export class MessageDmsUimUnblockCkInput {
 export class MessageDmsUimUnblockCkOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimUnblockCkOutput */
     getResult(): boolean
-    getUnblockRetriesLeft(): { returnType: boolean, valueUnblockRetriesLeft: number }
+    getUnblockRetriesLeft(): { returnType: boolean, valueUnblockRetriesLeft: number | null }
     ref(): MessageDmsUimUnblockCkOutput
     unref(): void
     static name: string
 }
 export class MessageDmsUimUnblockPinInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimUnblockPinInput */
-    getInfo(): { returnType: boolean, valueInfoPinId: DmsUimPinId, valueInfoPuk: string, valueInfoNewPin: string }
+    getInfo(): { returnType: boolean, valueInfoPinId: DmsUimPinId | null, valueInfoPuk: string | null, valueInfoNewPin: string | null }
     ref(): MessageDmsUimUnblockPinInput
     setInfo(valueInfoPinId: DmsUimPinId, valueInfoPuk: string, valueInfoNewPin: string): boolean
     unref(): void
@@ -7523,7 +7894,7 @@ export class MessageDmsUimUnblockPinInput {
 }
 export class MessageDmsUimUnblockPinOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimUnblockPinOutput */
-    getPinRetriesStatus(): { returnType: boolean, valuePinRetriesStatusVerifyRetriesLeft: number, valuePinRetriesStatusUnblockRetriesLeft: number }
+    getPinRetriesStatus(): { returnType: boolean, valuePinRetriesStatusVerifyRetriesLeft: number | null, valuePinRetriesStatusUnblockRetriesLeft: number | null }
     getResult(): boolean
     ref(): MessageDmsUimUnblockPinOutput
     unref(): void
@@ -7531,7 +7902,7 @@ export class MessageDmsUimUnblockPinOutput {
 }
 export class MessageDmsUimVerifyPinInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimVerifyPinInput */
-    getInfo(): { returnType: boolean, valueInfoPinId: DmsUimPinId, valueInfoPin: string }
+    getInfo(): { returnType: boolean, valueInfoPinId: DmsUimPinId | null, valueInfoPin: string | null }
     ref(): MessageDmsUimVerifyPinInput
     setInfo(valueInfoPinId: DmsUimPinId, valueInfoPin: string): boolean
     unref(): void
@@ -7543,7 +7914,7 @@ export class MessageDmsUimVerifyPinInput {
 }
 export class MessageDmsUimVerifyPinOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsUimVerifyPinOutput */
-    getPinRetriesStatus(): { returnType: boolean, valuePinRetriesStatusVerifyRetriesLeft: number, valuePinRetriesStatusUnblockRetriesLeft: number }
+    getPinRetriesStatus(): { returnType: boolean, valuePinRetriesStatusVerifyRetriesLeft: number | null, valuePinRetriesStatusUnblockRetriesLeft: number | null }
     getResult(): boolean
     ref(): MessageDmsUimVerifyPinOutput
     unref(): void
@@ -7551,7 +7922,7 @@ export class MessageDmsUimVerifyPinOutput {
 }
 export class MessageDmsValidateServiceProgrammingCodeInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsValidateServiceProgrammingCodeInput */
-    getServiceProgrammingCode(): { returnType: boolean, valueServiceProgrammingCode: string }
+    getServiceProgrammingCode(): { returnType: boolean, valueServiceProgrammingCode: string | null }
     ref(): MessageDmsValidateServiceProgrammingCodeInput
     setServiceProgrammingCode(valueServiceProgrammingCode: string): boolean
     unref(): void
@@ -7570,7 +7941,7 @@ export class MessageDmsValidateServiceProgrammingCodeOutput {
 }
 export class MessageDmsWriteUserDataInput {
     /* Methods of Qmi-1.0.Qmi.MessageDmsWriteUserDataInput */
-    getUserData(): { returnType: boolean, valueUserData: any[] }
+    getUserData(): { returnType: boolean, valueUserData: any[] | null }
     ref(): MessageDmsWriteUserDataInput
     setUserData(valueUserData: any[]): boolean
     unref(): void
@@ -7587,9 +7958,61 @@ export class MessageDmsWriteUserDataOutput {
     unref(): void
     static name: string
 }
+export class MessageDpmClosePortOutput {
+    /* Methods of Qmi-1.0.Qmi.MessageDpmClosePortOutput */
+    getResult(): boolean
+    ref(): MessageDpmClosePortOutput
+    unref(): void
+    static name: string
+}
+export class MessageDpmOpenPortInput {
+    /* Methods of Qmi-1.0.Qmi.MessageDpmOpenPortInput */
+    getControlPorts(): { returnType: boolean, valueControlPorts: MessageDpmOpenPortInputControlPortsElement[] | null }
+    getHardwareDataPorts(): { returnType: boolean, valueHardwareDataPorts: MessageDpmOpenPortInputHardwareDataPortsElement[] | null }
+    getSoftwareDataPorts(): { returnType: boolean, valueSoftwareDataPorts: MessageDpmOpenPortInputSoftwareDataPortsElement[] | null }
+    ref(): MessageDpmOpenPortInput
+    setControlPorts(valueControlPorts: MessageDpmOpenPortInputControlPortsElement[]): boolean
+    setHardwareDataPorts(valueHardwareDataPorts: MessageDpmOpenPortInputHardwareDataPortsElement[]): boolean
+    setSoftwareDataPorts(valueSoftwareDataPorts: MessageDpmOpenPortInputSoftwareDataPortsElement[]): boolean
+    unref(): void
+    static name: string
+    static new(): MessageDpmOpenPortInput
+    constructor()
+    /* Static methods and pseudo-constructors */
+    static new(): MessageDpmOpenPortInput
+}
+export class MessageDpmOpenPortInputControlPortsElement {
+    /* Fields of Qmi-1.0.Qmi.MessageDpmOpenPortInputControlPortsElement */
+    portName: string
+    endpointType: DataEndpointType
+    interfaceNumber: number
+    static name: string
+}
+export class MessageDpmOpenPortInputHardwareDataPortsElement {
+    /* Fields of Qmi-1.0.Qmi.MessageDpmOpenPortInputHardwareDataPortsElement */
+    endpointType: DataEndpointType
+    interfaceNumber: number
+    rxEndpointNumber: number
+    txEndpointNumber: number
+    static name: string
+}
+export class MessageDpmOpenPortInputSoftwareDataPortsElement {
+    /* Fields of Qmi-1.0.Qmi.MessageDpmOpenPortInputSoftwareDataPortsElement */
+    endpointType: DataEndpointType
+    interfaceNumber: number
+    portName: string
+    static name: string
+}
+export class MessageDpmOpenPortOutput {
+    /* Methods of Qmi-1.0.Qmi.MessageDpmOpenPortOutput */
+    getResult(): boolean
+    ref(): MessageDpmOpenPortOutput
+    unref(): void
+    static name: string
+}
 export class MessageDsdGetApnInfoInput {
     /* Methods of Qmi-1.0.Qmi.MessageDsdGetApnInfoInput */
-    getApnType(): { returnType: boolean, valueApnType: DsdApnType }
+    getApnType(): { returnType: boolean, valueApnType: DsdApnType | null }
     ref(): MessageDsdGetApnInfoInput
     setApnType(valueApnType: DsdApnType): boolean
     unref(): void
@@ -7601,7 +8024,7 @@ export class MessageDsdGetApnInfoInput {
 }
 export class MessageDsdGetApnInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessageDsdGetApnInfoOutput */
-    getApnName(): { returnType: boolean, valueApnName: string }
+    getApnName(): { returnType: boolean, valueApnName: string | null }
     getResult(): boolean
     ref(): MessageDsdGetApnInfoOutput
     unref(): void
@@ -7609,8 +8032,8 @@ export class MessageDsdGetApnInfoOutput {
 }
 export class MessageDsdSetApnTypeInput {
     /* Methods of Qmi-1.0.Qmi.MessageDsdSetApnTypeInput */
-    getApnType(): { returnType: boolean, valueApnTypeName: string, valueApnTypeType: DsdApnTypePreference }
-    getApnTypePreferenceMask(): { returnType: boolean, valueApnTypePreferenceMask: DsdApnTypePreference }
+    getApnType(): { returnType: boolean, valueApnTypeName: string | null, valueApnTypeType: DsdApnTypePreference | null }
+    getApnTypePreferenceMask(): { returnType: boolean, valueApnTypePreferenceMask: DsdApnTypePreference | null }
     ref(): MessageDsdSetApnTypeInput
     setApnType(valueApnTypeName: string, valueApnTypeType: DsdApnTypePreference): boolean
     setApnTypePreferenceMask(valueApnTypePreferenceMask: DsdApnTypePreference): boolean
@@ -7630,10 +8053,10 @@ export class MessageDsdSetApnTypeOutput {
 }
 export class MessageGasDmsGetFirmwareListInput {
     /* Methods of Qmi-1.0.Qmi.MessageGasDmsGetFirmwareListInput */
-    getMode(): { returnType: boolean, valueMode: GasFirmwareListingMode }
-    getName(): { returnType: boolean, valueName: string }
-    getSlotIndex(): { returnType: boolean, valueSlotIndex: number }
-    getVersion(): { returnType: boolean, valueVersion: string }
+    getMode(): { returnType: boolean, valueMode: GasFirmwareListingMode | null }
+    getName(): { returnType: boolean, valueName: string | null }
+    getSlotIndex(): { returnType: boolean, valueSlotIndex: number | null }
+    getVersion(): { returnType: boolean, valueVersion: string | null }
     ref(): MessageGasDmsGetFirmwareListInput
     setMode(valueMode: GasFirmwareListingMode): boolean
     setName(valueName: string): boolean
@@ -7648,21 +8071,33 @@ export class MessageGasDmsGetFirmwareListInput {
 }
 export class MessageGasDmsGetFirmwareListOutput {
     /* Methods of Qmi-1.0.Qmi.MessageGasDmsGetFirmwareListOutput */
-    getMode(): { returnType: boolean, valueMode: GasFirmwareListingMode }
+    getMode(): { returnType: boolean, valueMode: GasFirmwareListingMode | null }
     getResult(): boolean
-    getStoredFirmware1(): { returnType: boolean, valueStoredFirmware1Index: number, valueStoredFirmware1Name: string, valueStoredFirmware1Version: string, valueStoredFirmware1PriRevision: string }
-    getStoredFirmware2(): { returnType: boolean, valueStoredFirmware2Index: number, valueStoredFirmware2Name: string, valueStoredFirmware2Version: string, valueStoredFirmware2PriRevision: string }
-    getStoredFirmware3(): { returnType: boolean, valueStoredFirmware3Index: number, valueStoredFirmware3Name: string, valueStoredFirmware3Version: string, valueStoredFirmware3PriRevision: string }
-    getStoredFirmware4(): { returnType: boolean, valueStoredFirmware4Index: number, valueStoredFirmware4Name: string, valueStoredFirmware4Version: string, valueStoredFirmware4PriRevision: string }
+    getStoredFirmware1(): { returnType: boolean, valueStoredFirmware1Index: number | null, valueStoredFirmware1Name: string | null, valueStoredFirmware1Version: string | null, valueStoredFirmware1PriRevision: string | null }
+    getStoredFirmware2(): { returnType: boolean, valueStoredFirmware2Index: number | null, valueStoredFirmware2Name: string | null, valueStoredFirmware2Version: string | null, valueStoredFirmware2PriRevision: string | null }
+    getStoredFirmware3(): { returnType: boolean, valueStoredFirmware3Index: number | null, valueStoredFirmware3Name: string | null, valueStoredFirmware3Version: string | null, valueStoredFirmware3PriRevision: string | null }
+    getStoredFirmware4(): { returnType: boolean, valueStoredFirmware4Index: number | null, valueStoredFirmware4Name: string | null, valueStoredFirmware4Version: string | null, valueStoredFirmware4PriRevision: string | null }
     ref(): MessageGasDmsGetFirmwareListOutput
+    unref(): void
+    static name: string
+}
+export class MessageGasDmsGetUsbCompositionOutput {
+    /* Methods of Qmi-1.0.Qmi.MessageGasDmsGetUsbCompositionOutput */
+    getCompositionPersistence(): { returnType: boolean, valueCompositionPersistence: boolean | null }
+    getEndpointType(): { returnType: boolean, valueEndpointType: GasUsbCompositionEndpointType | null }
+    getImmediateSetting(): { returnType: boolean, valueImmediateSetting: boolean | null }
+    getRebootAfterSetting(): { returnType: boolean, valueRebootAfterSetting: boolean | null }
+    getResult(): boolean
+    getUsbComposition(): { returnType: boolean, valueUsbComposition: number | null }
+    ref(): MessageGasDmsGetUsbCompositionOutput
     unref(): void
     static name: string
 }
 export class MessageGasDmsSetActiveFirmwareInput {
     /* Methods of Qmi-1.0.Qmi.MessageGasDmsSetActiveFirmwareInput */
-    getCarrierName(): { returnType: boolean, valueCarrierName: string }
-    getSlotIndex(): { returnType: boolean, valueSlotIndex: number }
-    getVersion(): { returnType: boolean, valueVersion: string }
+    getCarrierName(): { returnType: boolean, valueCarrierName: string | null }
+    getSlotIndex(): { returnType: boolean, valueSlotIndex: number | null }
+    getVersion(): { returnType: boolean, valueVersion: string | null }
     ref(): MessageGasDmsSetActiveFirmwareInput
     setCarrierName(valueCarrierName: string): boolean
     setSlotIndex(valueSlotIndex: number): boolean
@@ -7681,19 +8116,46 @@ export class MessageGasDmsSetActiveFirmwareOutput {
     unref(): void
     static name: string
 }
+export class MessageGasDmsSetUsbCompositionInput {
+    /* Methods of Qmi-1.0.Qmi.MessageGasDmsSetUsbCompositionInput */
+    getCompositionPersistence(): { returnType: boolean, valueCompositionPersistence: boolean | null }
+    getEndpointType(): { returnType: boolean, valueEndpointType: GasUsbCompositionEndpointType | null }
+    getImmediateSetting(): { returnType: boolean, valueImmediateSetting: boolean | null }
+    getRebootAfterSetting(): { returnType: boolean, valueRebootAfterSetting: boolean | null }
+    getUsbComposition(): { returnType: boolean, valueUsbComposition: number | null }
+    ref(): MessageGasDmsSetUsbCompositionInput
+    setCompositionPersistence(valueCompositionPersistence: boolean): boolean
+    setEndpointType(valueEndpointType: GasUsbCompositionEndpointType): boolean
+    setImmediateSetting(valueImmediateSetting: boolean): boolean
+    setRebootAfterSetting(valueRebootAfterSetting: boolean): boolean
+    setUsbComposition(valueUsbComposition: number): boolean
+    unref(): void
+    static name: string
+    static new(): MessageGasDmsSetUsbCompositionInput
+    constructor()
+    /* Static methods and pseudo-constructors */
+    static new(): MessageGasDmsSetUsbCompositionInput
+}
+export class MessageGasDmsSetUsbCompositionOutput {
+    /* Methods of Qmi-1.0.Qmi.MessageGasDmsSetUsbCompositionOutput */
+    getResult(): boolean
+    ref(): MessageGasDmsSetUsbCompositionOutput
+    unref(): void
+    static name: string
+}
 export class MessageGmsTestGetValueOutput {
     /* Methods of Qmi-1.0.Qmi.MessageGmsTestGetValueOutput */
     getResult(): boolean
-    getTestMandatoryValue(): { returnType: boolean, valueTestMandatoryValue: number }
-    getTestOptionalValue(): { returnType: boolean, valueTestOptionalValue: number }
+    getTestMandatoryValue(): { returnType: boolean, valueTestMandatoryValue: number | null }
+    getTestOptionalValue(): { returnType: boolean, valueTestOptionalValue: number | null }
     ref(): MessageGmsTestGetValueOutput
     unref(): void
     static name: string
 }
 export class MessageGmsTestSetValueInput {
     /* Methods of Qmi-1.0.Qmi.MessageGmsTestSetValueInput */
-    getTestMandatoryValue(): { returnType: boolean, valueTestMandatoryValue: number }
-    getTestOptionalValue(): { returnType: boolean, valueTestOptionalValue: number }
+    getTestMandatoryValue(): { returnType: boolean, valueTestMandatoryValue: number | null }
+    getTestOptionalValue(): { returnType: boolean, valueTestOptionalValue: number | null }
     ref(): MessageGmsTestSetValueInput
     setTestMandatoryValue(valueTestMandatoryValue: number): boolean
     setTestOptionalValue(valueTestOptionalValue: number): boolean
@@ -7713,11 +8175,11 @@ export class MessageGmsTestSetValueOutput {
 }
 export class MessageLocDeleteAssistanceDataInput {
     /* Methods of Qmi-1.0.Qmi.MessageLocDeleteAssistanceDataInput */
-    getDeleteAll(): { returnType: boolean, valueDeleteAll: boolean }
-    getDeleteCellDatabaseMask(): { returnType: boolean, valueDeleteCellDatabaseMask: LocDeleteCellDatabase }
-    getDeleteClockInfoMask(): { returnType: boolean, valueDeleteClockInfoMask: LocDeleteClockInfo }
-    getDeleteGnssDataMask(): { returnType: boolean, valueDeleteGnssDataMask: LocDeleteGnssData }
-    getDeleteSvInfo(): { returnType: boolean, valueDeleteSvInfo: MessageLocDeleteAssistanceDataInputDeleteSvInfoElement[] }
+    getDeleteAll(): { returnType: boolean, valueDeleteAll: boolean | null }
+    getDeleteCellDatabaseMask(): { returnType: boolean, valueDeleteCellDatabaseMask: LocDeleteCellDatabase | null }
+    getDeleteClockInfoMask(): { returnType: boolean, valueDeleteClockInfoMask: LocDeleteClockInfo | null }
+    getDeleteGnssDataMask(): { returnType: boolean, valueDeleteGnssDataMask: LocDeleteGnssData | null }
+    getDeleteSvInfo(): { returnType: boolean, valueDeleteSvInfo: MessageLocDeleteAssistanceDataInputDeleteSvInfoElement[] | null }
     ref(): MessageLocDeleteAssistanceDataInput
     setDeleteAll(valueDeleteAll: boolean): boolean
     setDeleteCellDatabaseMask(valueDeleteCellDatabaseMask: LocDeleteCellDatabase): boolean
@@ -7775,8 +8237,8 @@ export class MessageLocGetPredictedOrbitsDataSourceOutput {
 }
 export class MessageLocGetServerInput {
     /* Methods of Qmi-1.0.Qmi.MessageLocGetServerInput */
-    getServerAddressType(): { returnType: boolean, valueServerAddressType: LocServerAddressType }
-    getServerType(): { returnType: boolean, valueServerType: LocServerType }
+    getServerAddressType(): { returnType: boolean, valueServerAddressType: LocServerAddressType | null }
+    getServerType(): { returnType: boolean, valueServerType: LocServerType | null }
     ref(): MessageLocGetServerInput
     setServerAddressType(valueServerAddressType: LocServerAddressType): boolean
     setServerType(valueServerType: LocServerType): boolean
@@ -7796,11 +8258,11 @@ export class MessageLocGetServerOutput {
 }
 export class MessageLocInjectPredictedOrbitsDataInput {
     /* Methods of Qmi-1.0.Qmi.MessageLocInjectPredictedOrbitsDataInput */
-    getFormatType(): { returnType: boolean, valueFormatType: LocPredictedOrbitsDataFormat }
-    getPartData(): { returnType: boolean, valuePartData: any[] }
-    getPartNumber(): { returnType: boolean, valuePartNumber: number }
-    getTotalParts(): { returnType: boolean, valueTotalParts: number }
-    getTotalSize(): { returnType: boolean, valueTotalSize: number }
+    getFormatType(): { returnType: boolean, valueFormatType: LocPredictedOrbitsDataFormat | null }
+    getPartData(): { returnType: boolean, valuePartData: any[] | null }
+    getPartNumber(): { returnType: boolean, valuePartNumber: number | null }
+    getTotalParts(): { returnType: boolean, valueTotalParts: number | null }
+    getTotalSize(): { returnType: boolean, valueTotalSize: number | null }
     ref(): MessageLocInjectPredictedOrbitsDataInput
     setFormatType(valueFormatType: LocPredictedOrbitsDataFormat): boolean
     setPartData(valuePartData: any[]): boolean
@@ -7823,10 +8285,10 @@ export class MessageLocInjectPredictedOrbitsDataOutput {
 }
 export class MessageLocInjectXtraDataInput {
     /* Methods of Qmi-1.0.Qmi.MessageLocInjectXtraDataInput */
-    getPartData(): { returnType: boolean, valuePartData: any[] }
-    getPartNumber(): { returnType: boolean, valuePartNumber: number }
-    getTotalParts(): { returnType: boolean, valueTotalParts: number }
-    getTotalSize(): { returnType: boolean, valueTotalSize: number }
+    getPartData(): { returnType: boolean, valuePartData: any[] | null }
+    getPartNumber(): { returnType: boolean, valuePartNumber: number | null }
+    getTotalParts(): { returnType: boolean, valueTotalParts: number | null }
+    getTotalSize(): { returnType: boolean, valueTotalSize: number | null }
     ref(): MessageLocInjectXtraDataInput
     setPartData(valuePartData: any[]): boolean
     setPartNumber(valuePartNumber: number): boolean
@@ -7848,7 +8310,7 @@ export class MessageLocInjectXtraDataOutput {
 }
 export class MessageLocRegisterEventsInput {
     /* Methods of Qmi-1.0.Qmi.MessageLocRegisterEventsInput */
-    getEventRegistrationMask(): { returnType: boolean, valueEventRegistrationMask: LocEventRegistrationFlag }
+    getEventRegistrationMask(): { returnType: boolean, valueEventRegistrationMask: LocEventRegistrationFlag | null }
     ref(): MessageLocRegisterEventsInput
     setEventRegistrationMask(valueEventRegistrationMask: LocEventRegistrationFlag): boolean
     unref(): void
@@ -7867,7 +8329,7 @@ export class MessageLocRegisterEventsOutput {
 }
 export class MessageLocSetEngineLockInput {
     /* Methods of Qmi-1.0.Qmi.MessageLocSetEngineLockInput */
-    getLockType(): { returnType: boolean, valueLockType: LocLockType }
+    getLockType(): { returnType: boolean, valueLockType: LocLockType | null }
     ref(): MessageLocSetEngineLockInput
     setLockType(valueLockType: LocLockType): boolean
     unref(): void
@@ -7886,7 +8348,7 @@ export class MessageLocSetEngineLockOutput {
 }
 export class MessageLocSetNmeaTypesInput {
     /* Methods of Qmi-1.0.Qmi.MessageLocSetNmeaTypesInput */
-    getNmeaTypes(): { returnType: boolean, valueNmeaTypes: LocNmeaType }
+    getNmeaTypes(): { returnType: boolean, valueNmeaTypes: LocNmeaType | null }
     ref(): MessageLocSetNmeaTypesInput
     setNmeaTypes(valueNmeaTypes: LocNmeaType): boolean
     unref(): void
@@ -7905,7 +8367,7 @@ export class MessageLocSetNmeaTypesOutput {
 }
 export class MessageLocSetOperationModeInput {
     /* Methods of Qmi-1.0.Qmi.MessageLocSetOperationModeInput */
-    getOperationMode(): { returnType: boolean, valueOperationMode: LocOperationMode }
+    getOperationMode(): { returnType: boolean, valueOperationMode: LocOperationMode | null }
     ref(): MessageLocSetOperationModeInput
     setOperationMode(valueOperationMode: LocOperationMode): boolean
     unref(): void
@@ -7924,10 +8386,10 @@ export class MessageLocSetOperationModeOutput {
 }
 export class MessageLocSetServerInput {
     /* Methods of Qmi-1.0.Qmi.MessageLocSetServerInput */
-    getIpv4(): { returnType: boolean, valueIpv4Ipv4Address: number, valueIpv4Ipv4Port: number }
-    getIpv6(): { returnType: boolean, valueIpv6Ipv6Address: number[], valueIpv6Ipv6Port: number }
-    getServerType(): { returnType: boolean, valueServerType: LocServerType }
-    getUrl(): { returnType: boolean, valueUrl: string }
+    getIpv4(): { returnType: boolean, valueIpv4Ipv4Address: number | null, valueIpv4Ipv4Port: number | null }
+    getIpv6(): { returnType: boolean, valueIpv6Ipv6Address: number[] | null, valueIpv6Ipv6Port: number | null }
+    getServerType(): { returnType: boolean, valueServerType: LocServerType | null }
+    getUrl(): { returnType: boolean, valueUrl: string | null }
     ref(): MessageLocSetServerInput
     setIpv4(valueIpv4Ipv4Address: number, valueIpv4Ipv4Port: number): boolean
     setIpv6(valueIpv6Ipv6Address: number[], valueIpv6Ipv6Port: number): boolean
@@ -7949,10 +8411,10 @@ export class MessageLocSetServerOutput {
 }
 export class MessageLocStartInput {
     /* Methods of Qmi-1.0.Qmi.MessageLocStartInput */
-    getFixRecurrenceType(): { returnType: boolean, valueFixRecurrenceType: LocFixRecurrenceType }
-    getIntermediateReportState(): { returnType: boolean, valueIntermediateReportState: LocIntermediateReportState }
-    getMinimumIntervalBetweenPositionReports(): { returnType: boolean, valueMinimumIntervalBetweenPositionReports: number }
-    getSessionId(): { returnType: boolean, valueSessionId: number }
+    getFixRecurrenceType(): { returnType: boolean, valueFixRecurrenceType: LocFixRecurrenceType | null }
+    getIntermediateReportState(): { returnType: boolean, valueIntermediateReportState: LocIntermediateReportState | null }
+    getMinimumIntervalBetweenPositionReports(): { returnType: boolean, valueMinimumIntervalBetweenPositionReports: number | null }
+    getSessionId(): { returnType: boolean, valueSessionId: number | null }
     ref(): MessageLocStartInput
     setFixRecurrenceType(valueFixRecurrenceType: LocFixRecurrenceType): boolean
     setIntermediateReportState(valueIntermediateReportState: LocIntermediateReportState): boolean
@@ -7974,7 +8436,7 @@ export class MessageLocStartOutput {
 }
 export class MessageLocStopInput {
     /* Methods of Qmi-1.0.Qmi.MessageLocStopInput */
-    getSessionId(): { returnType: boolean, valueSessionId: number }
+    getSessionId(): { returnType: boolean, valueSessionId: number | null }
     ref(): MessageLocStopInput
     setSessionId(valueSessionId: number): boolean
     unref(): void
@@ -7993,7 +8455,7 @@ export class MessageLocStopOutput {
 }
 export class MessageNasAttachDetachInput {
     /* Methods of Qmi-1.0.Qmi.MessageNasAttachDetachInput */
-    getAction(): { returnType: boolean, valueAction: NasPsAttachAction }
+    getAction(): { returnType: boolean, valueAction: NasPsAttachAction | null }
     ref(): MessageNasAttachDetachInput
     setAction(valueAction: NasPsAttachAction): boolean
     unref(): void
@@ -8012,15 +8474,15 @@ export class MessageNasAttachDetachOutput {
 }
 export class MessageNasConfigSignalInfoInput {
     /* Methods of Qmi-1.0.Qmi.MessageNasConfigSignalInfoInput */
-    getEcioThreshold(): { returnType: boolean, valueEcioThreshold: number[] }
-    getIoThreshold(): { returnType: boolean, valueIoThreshold: number[] }
-    getLteReport(): { returnType: boolean, valueLteReportRate: number, valueLteReportAveragePeriod: number }
-    getLteSnrThreshold(): { returnType: boolean, valueLteSnrThreshold: number[] }
-    getRscpThreshold(): { returnType: boolean, valueRscpThreshold: any[] }
-    getRsrpThreshold(): { returnType: boolean, valueRsrpThreshold: number[] }
-    getRsrqThreshold(): { returnType: boolean, valueRsrqThreshold: any[] }
-    getRssiThreshold(): { returnType: boolean, valueRssiThreshold: any[] }
-    getSinrThreshold(): { returnType: boolean, valueSinrThreshold: any[] }
+    getEcioThreshold(): { returnType: boolean, valueEcioThreshold: number[] | null }
+    getIoThreshold(): { returnType: boolean, valueIoThreshold: number[] | null }
+    getLteReport(): { returnType: boolean, valueLteReportRate: number | null, valueLteReportAveragePeriod: number | null }
+    getLteSnrThreshold(): { returnType: boolean, valueLteSnrThreshold: number[] | null }
+    getRscpThreshold(): { returnType: boolean, valueRscpThreshold: any[] | null }
+    getRsrpThreshold(): { returnType: boolean, valueRsrpThreshold: number[] | null }
+    getRsrqThreshold(): { returnType: boolean, valueRsrqThreshold: any[] | null }
+    getRssiThreshold(): { returnType: boolean, valueRssiThreshold: any[] | null }
+    getSinrThreshold(): { returnType: boolean, valueSinrThreshold: any[] | null }
     ref(): MessageNasConfigSignalInfoInput
     setEcioThreshold(valueEcioThreshold: number[]): boolean
     setIoThreshold(valueIoThreshold: number[]): boolean
@@ -8054,7 +8516,7 @@ export class MessageNasForceNetworkSearchOutput {
 }
 export class MessageNasGetCdmaPositionInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetCdmaPositionInfoOutput */
-    getCdmaPositionInfo(): { returnType: boolean, valueCdmaPositionInfoUiInIdleMode: number, valueCdmaPositionInfoBasestations: MessageNasGetCdmaPositionInfoOutputCdmaPositionInfoBasestationsBasestation[] }
+    getCdmaPositionInfo(): { returnType: boolean, valueCdmaPositionInfoUiInIdleMode: number | null, valueCdmaPositionInfoBasestations: MessageNasGetCdmaPositionInfoOutputCdmaPositionInfoBasestationsBasestation[] | null }
     getResult(): boolean
     ref(): MessageNasGetCdmaPositionInfoOutput
     unref(): void
@@ -8075,17 +8537,19 @@ export class MessageNasGetCdmaPositionInfoOutputCdmaPositionInfoBasestationsBase
 }
 export class MessageNasGetCellLocationInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetCellLocationInfoOutput */
-    getCdmaInfo(): { returnType: boolean, valueCdmaInfoSystemId: number, valueCdmaInfoNetworkId: number, valueCdmaInfoBaseStationId: number, valueCdmaInfoReferencePn: number, valueCdmaInfoLatitude: number, valueCdmaInfoLongitude: number }
-    getGeranInfoV2(): { returnType: boolean, valueGeranInfoV2CellId: number, valueGeranInfoV2Plmn: any[], valueGeranInfoV2Lac: number, valueGeranInfoV2GeranAbsoluteRfChannelNumber: number, valueGeranInfoV2BaseStationIdentityCode: number, valueGeranInfoV2TimingAdvance: number, valueGeranInfoV2RxLevel: number, valueGeranInfoV2Cell: MessageNasGetCellLocationInfoOutputGeranInfoV2CellElement[] }
-    getInterfrequencyLteInfo(): { returnType: boolean, valueInterfrequencyLteInfoUeInIdle: boolean, valueInterfrequencyLteInfoFrequency: MessageNasGetCellLocationInfoOutputInterfrequencyLteInfoFrequencyElement[] }
-    getIntrafrequencyLteInfoV2(): { returnType: boolean, valueIntrafrequencyLteInfoV2UeInIdle: boolean, valueIntrafrequencyLteInfoV2Plmn: any[], valueIntrafrequencyLteInfoV2TrackingAreaCode: number, valueIntrafrequencyLteInfoV2GlobalCellId: number, valueIntrafrequencyLteInfoV2EutraAbsoluteRfChannelNumber: number, valueIntrafrequencyLteInfoV2ServingCellId: number, valueIntrafrequencyLteInfoV2CellReselectionPriority: number, valueIntrafrequencyLteInfoV2SNonIntraSearchThreshold: number, valueIntrafrequencyLteInfoV2ServingCellLowThreshold: number, valueIntrafrequencyLteInfoV2SIntraSearchThreshold: number, valueIntrafrequencyLteInfoV2Cell: MessageNasGetCellLocationInfoOutputIntrafrequencyLteInfoV2CellElement[] }
-    getLteInfoNeighboringGsm(): { returnType: boolean, valueLteInfoNeighboringGsmUeInIdle: boolean, valueLteInfoNeighboringGsmFrequency: MessageNasGetCellLocationInfoOutputLteInfoNeighboringGsmFrequencyElement[] }
-    getLteInfoNeighboringWcdma(): { returnType: boolean, valueLteInfoNeighboringWcdmaUeInIdle: boolean, valueLteInfoNeighboringWcdmaFrequency: MessageNasGetCellLocationInfoOutputLteInfoNeighboringWcdmaFrequencyElement[] }
-    getLteInfoTimingAdvance(): { returnType: boolean, valueLteInfoTimingAdvance: number }
+    getCdmaInfo(): { returnType: boolean, valueCdmaInfoSystemId: number | null, valueCdmaInfoNetworkId: number | null, valueCdmaInfoBaseStationId: number | null, valueCdmaInfoReferencePn: number | null, valueCdmaInfoLatitude: number | null, valueCdmaInfoLongitude: number | null }
+    getGeranInfoV2(): { returnType: boolean, valueGeranInfoV2CellId: number | null, valueGeranInfoV2Plmn: any[] | null, valueGeranInfoV2Lac: number | null, valueGeranInfoV2GeranAbsoluteRfChannelNumber: number | null, valueGeranInfoV2BaseStationIdentityCode: number | null, valueGeranInfoV2TimingAdvance: number | null, valueGeranInfoV2RxLevel: number | null, valueGeranInfoV2Cell: MessageNasGetCellLocationInfoOutputGeranInfoV2CellElement[] | null }
+    getInterfrequencyLteInfo(): { returnType: boolean, valueInterfrequencyLteInfoUeInIdle: boolean | null, valueInterfrequencyLteInfoFrequency: MessageNasGetCellLocationInfoOutputInterfrequencyLteInfoFrequencyElement[] | null }
+    getIntrafrequencyLteInfoV2(): { returnType: boolean, valueIntrafrequencyLteInfoV2UeInIdle: boolean | null, valueIntrafrequencyLteInfoV2Plmn: any[] | null, valueIntrafrequencyLteInfoV2TrackingAreaCode: number | null, valueIntrafrequencyLteInfoV2GlobalCellId: number | null, valueIntrafrequencyLteInfoV2EutraAbsoluteRfChannelNumber: number | null, valueIntrafrequencyLteInfoV2ServingCellId: number | null, valueIntrafrequencyLteInfoV2CellReselectionPriority: number | null, valueIntrafrequencyLteInfoV2SNonIntraSearchThreshold: number | null, valueIntrafrequencyLteInfoV2ServingCellLowThreshold: number | null, valueIntrafrequencyLteInfoV2SIntraSearchThreshold: number | null, valueIntrafrequencyLteInfoV2Cell: MessageNasGetCellLocationInfoOutputIntrafrequencyLteInfoV2CellElement[] | null }
+    getLteInfoNeighboringGsm(): { returnType: boolean, valueLteInfoNeighboringGsmUeInIdle: boolean | null, valueLteInfoNeighboringGsmFrequency: MessageNasGetCellLocationInfoOutputLteInfoNeighboringGsmFrequencyElement[] | null }
+    getLteInfoNeighboringWcdma(): { returnType: boolean, valueLteInfoNeighboringWcdmaUeInIdle: boolean | null, valueLteInfoNeighboringWcdmaFrequency: MessageNasGetCellLocationInfoOutputLteInfoNeighboringWcdmaFrequencyElement[] | null }
+    getLteInfoTimingAdvance(): { returnType: boolean, valueLteInfoTimingAdvance: number | null }
+    getNr5gArfcn(): { returnType: boolean, valueNr5gArfcn: number | null }
+    getNr5gCellInformation(): { returnType: boolean, valueNr5gCellInformationPlmn: any[] | null, valueNr5gCellInformationTrackingAreaCode: any[] | null, valueNr5gCellInformationGlobalCellId: number | null, valueNr5gCellInformationPhysicalCellId: number | null, valueNr5gCellInformationRsrq: number | null, valueNr5gCellInformationRsrp: number | null, valueNr5gCellInformationSnr: number | null }
     getResult(): boolean
-    getUmtsCellId(): { returnType: boolean, valueUmtsCellId: number }
-    getUmtsInfoNeighboringLte(): { returnType: boolean, valueUmtsInfoNeighboringLteRrcState: NasWcdmaRrcState, valueUmtsInfoNeighboringLteFrequency: MessageNasGetCellLocationInfoOutputUmtsInfoNeighboringLteFrequencyElement[] }
-    getUmtsInfoV2(): { returnType: boolean, valueUmtsInfoV2CellId: number, valueUmtsInfoV2Plmn: any[], valueUmtsInfoV2Lac: number, valueUmtsInfoV2UtraAbsoluteRfChannelNumber: number, valueUmtsInfoV2PrimaryScramblingCode: number, valueUmtsInfoV2Rscp: number, valueUmtsInfoV2Ecio: number, valueUmtsInfoV2Cell: MessageNasGetCellLocationInfoOutputUmtsInfoV2CellElement[], valueUmtsInfoV2NeighboringGeran: MessageNasGetCellLocationInfoOutputUmtsInfoV2NeighboringGeranElement[] }
+    getUmtsCellId(): { returnType: boolean, valueUmtsCellId: number | null }
+    getUmtsInfoNeighboringLte(): { returnType: boolean, valueUmtsInfoNeighboringLteRrcState: NasWcdmaRrcState | null, valueUmtsInfoNeighboringLteFrequency: MessageNasGetCellLocationInfoOutputUmtsInfoNeighboringLteFrequencyElement[] | null }
+    getUmtsInfoV2(): { returnType: boolean, valueUmtsInfoV2CellId: number | null, valueUmtsInfoV2Plmn: any[] | null, valueUmtsInfoV2Lac: number | null, valueUmtsInfoV2UtraAbsoluteRfChannelNumber: number | null, valueUmtsInfoV2PrimaryScramblingCode: number | null, valueUmtsInfoV2Rscp: number | null, valueUmtsInfoV2Ecio: number | null, valueUmtsInfoV2Cell: MessageNasGetCellLocationInfoOutputUmtsInfoV2CellElement[] | null, valueUmtsInfoV2NeighboringGeran: MessageNasGetCellLocationInfoOutputUmtsInfoV2NeighboringGeranElement[] | null }
     ref(): MessageNasGetCellLocationInfoOutput
     unref(): void
     static name: string
@@ -8191,7 +8655,7 @@ export class MessageNasGetCellLocationInfoOutputUmtsInfoV2NeighboringGeranElemen
 }
 export class MessageNasGetDrxOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetDrxOutput */
-    getInfo(): { returnType: boolean, valueInfo: NasDrx }
+    getInfo(): { returnType: boolean, valueInfo: NasDrx | null }
     getResult(): boolean
     ref(): MessageNasGetDrxOutput
     unref(): void
@@ -8199,11 +8663,11 @@ export class MessageNasGetDrxOutput {
 }
 export class MessageNasGetHomeNetworkOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetHomeNetworkOutput */
-    getHomeNetwork(): { returnType: boolean, valueHomeNetworkMcc: number, valueHomeNetworkMnc: number, valueHomeNetworkDescription: string }
-    getHomeNetwork3gpp2Ext(): { returnType: boolean, valueHomeNetwork3gpp2ExtMcc: number, valueHomeNetwork3gpp2ExtMnc: number, valueHomeNetwork3gpp2ExtDisplayDescription: NasNetworkDescriptionDisplay, valueHomeNetwork3gpp2ExtDescriptionEncoding: NasNetworkDescriptionEncoding, valueHomeNetwork3gpp2ExtDescription: any[] }
-    getHomeNetwork3gppMnc(): { returnType: boolean, valueHomeNetwork3gppMncIs3gpp: boolean, valueHomeNetwork3gppMncIncludesPcsDigit: boolean }
-    getHomeSystemId(): { returnType: boolean, valueHomeSystemIdSid: number, valueHomeSystemIdNid: number }
-    getNetworkNameSource(): { returnType: boolean, valueNetworkNameSource: NasNetworkNameSource }
+    getHomeNetwork(): { returnType: boolean, valueHomeNetworkMcc: number | null, valueHomeNetworkMnc: number | null, valueHomeNetworkDescription: string | null }
+    getHomeNetwork3gpp2Ext(): { returnType: boolean, valueHomeNetwork3gpp2ExtMcc: number | null, valueHomeNetwork3gpp2ExtMnc: number | null, valueHomeNetwork3gpp2ExtDisplayDescription: NasNetworkDescriptionDisplay | null, valueHomeNetwork3gpp2ExtDescriptionEncoding: NasNetworkDescriptionEncoding | null, valueHomeNetwork3gpp2ExtDescription: any[] | null }
+    getHomeNetwork3gppMnc(): { returnType: boolean, valueHomeNetwork3gppMncIs3gpp: boolean | null, valueHomeNetwork3gppMncIncludesPcsDigit: boolean | null }
+    getHomeSystemId(): { returnType: boolean, valueHomeSystemIdSid: number | null, valueHomeSystemIdNid: number | null }
+    getNetworkNameSource(): { returnType: boolean, valueNetworkNameSource: NasNetworkNameSource | null }
     getResult(): boolean
     ref(): MessageNasGetHomeNetworkOutput
     unref(): void
@@ -8211,12 +8675,12 @@ export class MessageNasGetHomeNetworkOutput {
 }
 export class MessageNasGetLteCphyCaInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetLteCphyCaInfoOutput */
-    getDlBandwidth(): { returnType: boolean, valueDlBandwidth: NasDLBandwidth }
-    getPhyCaAggPcellInfo(): { returnType: boolean, valuePhyCaAggPcellInfoPhysicalCellId: number, valuePhyCaAggPcellInfoRxChannel: number, valuePhyCaAggPcellInfoDlBandwidth: NasDLBandwidth, valuePhyCaAggPcellInfoLteBand: NasActiveBand }
-    getPhyCaAggScellInfo(): { returnType: boolean, valuePhyCaAggScellInfoPhysicalCellId: number, valuePhyCaAggScellInfoRxChannel: number, valuePhyCaAggScellInfoDlBandwidth: NasDLBandwidth, valuePhyCaAggScellInfoLteBand: NasActiveBand, valuePhyCaAggScellInfoState: NasScellState }
-    getPhyCaAggSecondaryCells(): { returnType: boolean, valuePhyCaAggSecondaryCells: MessageNasGetLteCphyCaInfoOutputPhyCaAggSecondaryCellsSsc[] }
+    getDlBandwidth(): { returnType: boolean, valueDlBandwidth: NasDLBandwidth | null }
+    getPhyCaAggPcellInfo(): { returnType: boolean, valuePhyCaAggPcellInfoPhysicalCellId: number | null, valuePhyCaAggPcellInfoRxChannel: number | null, valuePhyCaAggPcellInfoDlBandwidth: NasDLBandwidth | null, valuePhyCaAggPcellInfoLteBand: NasActiveBand | null }
+    getPhyCaAggScellInfo(): { returnType: boolean, valuePhyCaAggScellInfoPhysicalCellId: number | null, valuePhyCaAggScellInfoRxChannel: number | null, valuePhyCaAggScellInfoDlBandwidth: NasDLBandwidth | null, valuePhyCaAggScellInfoLteBand: NasActiveBand | null, valuePhyCaAggScellInfoState: NasScellState | null }
+    getPhyCaAggSecondaryCells(): { returnType: boolean, valuePhyCaAggSecondaryCells: MessageNasGetLteCphyCaInfoOutputPhyCaAggSecondaryCellsSsc[] | null }
     getResult(): boolean
-    getScellIndex(): { returnType: boolean, valueScellIndex: number }
+    getScellIndex(): { returnType: boolean, valueScellIndex: number | null }
     ref(): MessageNasGetLteCphyCaInfoOutput
     unref(): void
     static name: string
@@ -8233,12 +8697,12 @@ export class MessageNasGetLteCphyCaInfoOutputPhyCaAggSecondaryCellsSsc {
 }
 export class MessageNasGetOperatorNameOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetOperatorNameOutput */
-    getNitzInformation(): { returnType: boolean, valueNitzInformationNameEncoding: NasPlmnEncodingScheme, valueNitzInformationShortCountryInitials: NasPlmnNameCountryInitials, valueNitzInformationLongNameSpareBits: NasPlmnNameSpareBits, valueNitzInformationShortNameSpareBits: NasPlmnNameSpareBits, valueNitzInformationLongName: any[], valueNitzInformationShortName: any[] }
-    getOperatorPlmnList(): { returnType: boolean, valueOperatorPlmnList: MessageNasGetOperatorNameOutputOperatorPlmnListElement[] }
-    getOperatorPlmnName(): { returnType: boolean, valueOperatorPlmnName: MessageNasGetOperatorNameOutputOperatorPlmnNameElement[] }
-    getOperatorStringName(): { returnType: boolean, valueOperatorStringName: string }
+    getNitzInformation(): { returnType: boolean, valueNitzInformationNameEncoding: NasPlmnEncodingScheme | null, valueNitzInformationShortCountryInitials: NasPlmnNameCountryInitials | null, valueNitzInformationLongNameSpareBits: NasPlmnNameSpareBits | null, valueNitzInformationShortNameSpareBits: NasPlmnNameSpareBits | null, valueNitzInformationLongName: any[] | null, valueNitzInformationShortName: any[] | null }
+    getOperatorPlmnList(): { returnType: boolean, valueOperatorPlmnList: MessageNasGetOperatorNameOutputOperatorPlmnListElement[] | null }
+    getOperatorPlmnName(): { returnType: boolean, valueOperatorPlmnName: MessageNasGetOperatorNameOutputOperatorPlmnNameElement[] | null }
+    getOperatorStringName(): { returnType: boolean, valueOperatorStringName: string | null }
     getResult(): boolean
-    getServiceProviderName(): { returnType: boolean, valueServiceProviderNameNameDisplayCondition: NasNetworkNameDisplayCondition, valueServiceProviderNameName: string }
+    getServiceProviderName(): { returnType: boolean, valueServiceProviderNameNameDisplayCondition: NasNetworkNameDisplayCondition | null, valueServiceProviderNameName: string | null }
     ref(): MessageNasGetOperatorNameOutput
     unref(): void
     static name: string
@@ -8264,14 +8728,14 @@ export class MessageNasGetOperatorNameOutputOperatorPlmnNameElement {
 }
 export class MessageNasGetPlmnNameInput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetPlmnNameInput */
-    getAlwaysSendPlmnName(): { returnType: boolean, valueAlwaysSendPlmnName: boolean }
-    getCsgId(): { returnType: boolean, valueCsgId: number }
-    getMncPcsDigitIncludeStatus(): { returnType: boolean, valueMncPcsDigitIncludeStatus: boolean }
-    getPlmn(): { returnType: boolean, valuePlmnMcc: number, valuePlmnMnc: number }
-    getRadioAccessTechnology(): { returnType: boolean, valueRadioAccessTechnology: NasRadioInterface }
-    getSendAllInformation(): { returnType: boolean, valueSendAllInformation: boolean }
-    getSuppressSimError(): { returnType: boolean, valueSuppressSimError: boolean }
-    getUseStaticTableOnly(): { returnType: boolean, valueUseStaticTableOnly: boolean }
+    getAlwaysSendPlmnName(): { returnType: boolean, valueAlwaysSendPlmnName: boolean | null }
+    getCsgId(): { returnType: boolean, valueCsgId: number | null }
+    getMncPcsDigitIncludeStatus(): { returnType: boolean, valueMncPcsDigitIncludeStatus: boolean | null }
+    getPlmn(): { returnType: boolean, valuePlmnMcc: number | null, valuePlmnMnc: number | null }
+    getRadioAccessTechnology(): { returnType: boolean, valueRadioAccessTechnology: NasRadioInterface | null }
+    getSendAllInformation(): { returnType: boolean, valueSendAllInformation: boolean | null }
+    getSuppressSimError(): { returnType: boolean, valueSuppressSimError: boolean | null }
+    getUseStaticTableOnly(): { returnType: boolean, valueUseStaticTableOnly: boolean | null }
     ref(): MessageNasGetPlmnNameInput
     setAlwaysSendPlmnName(valueAlwaysSendPlmnName: boolean): boolean
     setCsgId(valueCsgId: number): boolean
@@ -8290,12 +8754,12 @@ export class MessageNasGetPlmnNameInput {
 }
 export class MessageNasGetPlmnNameOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetPlmnNameOutput */
-    get3gppEonsPlmnName(): { returnType: boolean, value3gppEonsPlmnNameServiceProviderNameEncoding: NasNetworkDescriptionEncoding, value3gppEonsPlmnNameServiceProviderName: any[], value3gppEonsPlmnNameShortNameEncoding: NasNetworkDescriptionEncoding, value3gppEonsPlmnNameShortNameCountryInitials: NasPlmnNameCountryInitials, value3gppEonsPlmnNameShortNameSpareBits: NasPlmnNameSpareBits, value3gppEonsPlmnNameShortName: any[], value3gppEonsPlmnNameLongNameEncoding: NasNetworkDescriptionEncoding, value3gppEonsPlmnNameLongNameCountryInitials: NasPlmnNameCountryInitials, value3gppEonsPlmnNameLongNameSpareBits: NasPlmnNameSpareBits, value3gppEonsPlmnNameLongName: any[] }
-    getAdditionalInformation(): { returnType: boolean, valueAdditionalInformation: number[] }
-    getDisplayBitInformation(): { returnType: boolean, valueDisplayBitInformationServiceProviderNameSet: NasBoolean, valueDisplayBitInformationPlmnNameSet: NasBoolean }
-    getNetworkInformation(): { returnType: boolean, valueNetworkInformation: NasBoolean }
-    getNetworkNameSource(): { returnType: boolean, valueNetworkNameSource: NasNetworkNameSource }
-    getPlmnNameWithLanguageId(): { returnType: boolean, valuePlmnNameWithLanguageId: MessageNasGetPlmnNameOutputPlmnNameWithLanguageIdElement[] }
+    get3gppEonsPlmnName(): { returnType: boolean, value3gppEonsPlmnNameServiceProviderNameEncoding: NasNetworkDescriptionEncoding | null, value3gppEonsPlmnNameServiceProviderName: any[] | null, value3gppEonsPlmnNameShortNameEncoding: NasNetworkDescriptionEncoding | null, value3gppEonsPlmnNameShortNameCountryInitials: NasPlmnNameCountryInitials | null, value3gppEonsPlmnNameShortNameSpareBits: NasPlmnNameSpareBits | null, value3gppEonsPlmnNameShortName: any[] | null, value3gppEonsPlmnNameLongNameEncoding: NasNetworkDescriptionEncoding | null, value3gppEonsPlmnNameLongNameCountryInitials: NasPlmnNameCountryInitials | null, value3gppEonsPlmnNameLongNameSpareBits: NasPlmnNameSpareBits | null, value3gppEonsPlmnNameLongName: any[] | null }
+    getAdditionalInformation(): { returnType: boolean, valueAdditionalInformation: number[] | null }
+    getDisplayBitInformation(): { returnType: boolean, valueDisplayBitInformationServiceProviderNameSet: NasBoolean | null, valueDisplayBitInformationPlmnNameSet: NasBoolean | null }
+    getNetworkInformation(): { returnType: boolean, valueNetworkInformation: NasBoolean | null }
+    getNetworkNameSource(): { returnType: boolean, valueNetworkNameSource: NasNetworkNameSource | null }
+    getPlmnNameWithLanguageId(): { returnType: boolean, valuePlmnNameWithLanguageId: MessageNasGetPlmnNameOutputPlmnNameWithLanguageIdElement[] | null }
     getResult(): boolean
     ref(): MessageNasGetPlmnNameOutput
     unref(): void
@@ -8308,11 +8772,34 @@ export class MessageNasGetPlmnNameOutputPlmnNameWithLanguageIdElement {
     languageId: NasPlmnLanguageId
     static name: string
 }
+export class MessageNasGetPreferredNetworksOutput {
+    /* Methods of Qmi-1.0.Qmi.MessageNasGetPreferredNetworksOutput */
+    getMncPcsDigitIncludeStatus(): { returnType: boolean, valueMncPcsDigitIncludeStatus: MessageNasGetPreferredNetworksOutputMncPcsDigitIncludeStatusElement[] | null }
+    getPreferredNetworks(): { returnType: boolean, valuePreferredNetworks: MessageNasGetPreferredNetworksOutputPreferredNetworksElement[] | null }
+    getResult(): boolean
+    ref(): MessageNasGetPreferredNetworksOutput
+    unref(): void
+    static name: string
+}
+export class MessageNasGetPreferredNetworksOutputMncPcsDigitIncludeStatusElement {
+    /* Fields of Qmi-1.0.Qmi.MessageNasGetPreferredNetworksOutputMncPcsDigitIncludeStatusElement */
+    mcc: number
+    mnc: number
+    includesPcsDigit: boolean
+    static name: string
+}
+export class MessageNasGetPreferredNetworksOutputPreferredNetworksElement {
+    /* Fields of Qmi-1.0.Qmi.MessageNasGetPreferredNetworksOutputPreferredNetworksElement */
+    mcc: number
+    mnc: number
+    radioAccessTechnology: NasPlmnAccessTechnologyIdentifier
+    static name: string
+}
 export class MessageNasGetRfBandInformationOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetRfBandInformationOutput */
-    getBandwidthList(): { returnType: boolean, valueBandwidthList: MessageNasGetRfBandInformationOutputBandwidthListElement[] }
-    getExtendedList(): { returnType: boolean, valueExtendedList: MessageNasGetRfBandInformationOutputExtendedListElement[] }
-    getList(): { returnType: boolean, valueList: MessageNasGetRfBandInformationOutputListElement[] }
+    getBandwidthList(): { returnType: boolean, valueBandwidthList: MessageNasGetRfBandInformationOutputBandwidthListElement[] | null }
+    getExtendedList(): { returnType: boolean, valueExtendedList: MessageNasGetRfBandInformationOutputExtendedListElement[] | null }
+    getList(): { returnType: boolean, valueList: MessageNasGetRfBandInformationOutputListElement[] | null }
     getResult(): boolean
     ref(): MessageNasGetRfBandInformationOutput
     unref(): void
@@ -8340,32 +8827,32 @@ export class MessageNasGetRfBandInformationOutputListElement {
 }
 export class MessageNasGetServingSystemOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetServingSystemOutput */
-    getCallBarringStatus(): { returnType: boolean, valueCallBarringStatusCsStatus: NasCallBarringStatus, valueCallBarringStatusPsStatus: NasCallBarringStatus }
-    getCdmaBaseStationInfo(): { returnType: boolean, valueCdmaBaseStationInfoBaseStationId: number, valueCdmaBaseStationInfoBaseStationLatitude: number, valueCdmaBaseStationInfoBaseStationLongitude: number }
-    getCdmaPRev(): { returnType: boolean, valueCdmaPRev: number }
-    getCdmaSystemId(): { returnType: boolean, valueCdmaSystemIdSid: number, valueCdmaSystemIdNid: number }
-    getCdmaSystemInfo(): { returnType: boolean, valueCdmaSystemInfoMcc: number, valueCdmaSystemInfoImsi1112: number }
-    getCid3gpp(): { returnType: boolean, valueCid3gpp: number }
-    getConcurrentServiceInfo3gpp2(): { returnType: boolean, valueConcurrentServiceInfo3gpp2: boolean }
-    getCurrentPlmn(): { returnType: boolean, valueCurrentPlmnMcc: number, valueCurrentPlmnMnc: number, valueCurrentPlmnDescription: string }
-    getDataServiceCapability(): { returnType: boolean, valueDataServiceCapability: NasDataCapability[] }
-    getDaylightSavingTimeAdjustment3gpp(): { returnType: boolean, valueDaylightSavingTimeAdjustment3gpp: number }
-    getDefaultRoamingIndicator(): { returnType: boolean, valueDefaultRoamingIndicator: NasRoamingIndicatorStatus }
-    getDetailedServiceStatus(): { returnType: boolean, valueDetailedServiceStatusStatus: NasServiceStatus, valueDetailedServiceStatusCapability: NasNetworkServiceDomain, valueDetailedServiceStatusHdrStatus: NasServiceStatus, valueDetailedServiceStatusHdrHybrid: boolean, valueDetailedServiceStatusForbidden: boolean }
-    getDtmSupport(): { returnType: boolean, valueDtmSupport: boolean }
-    getHdrPersonality(): { returnType: boolean, valueHdrPersonality: NasHdrPersonality }
-    getLac3gpp(): { returnType: boolean, valueLac3gpp: number }
-    getLteTac(): { returnType: boolean, valueLteTac: number }
-    getMncPcsDigitIncludeStatus(): { returnType: boolean, valueMncPcsDigitIncludeStatusMcc: number, valueMncPcsDigitIncludeStatusMnc: number, valueMncPcsDigitIncludeStatusIncludesPcsDigit: boolean }
-    getNetworkNameSource(): { returnType: boolean, valueNetworkNameSource: NasNetworkNameSource }
-    getPrlIndicator3gpp2(): { returnType: boolean, valuePrlIndicator3gpp2: boolean }
+    getCallBarringStatus(): { returnType: boolean, valueCallBarringStatusCsStatus: NasCallBarringStatus | null, valueCallBarringStatusPsStatus: NasCallBarringStatus | null }
+    getCdmaBaseStationInfo(): { returnType: boolean, valueCdmaBaseStationInfoBaseStationId: number | null, valueCdmaBaseStationInfoBaseStationLatitude: number | null, valueCdmaBaseStationInfoBaseStationLongitude: number | null }
+    getCdmaPRev(): { returnType: boolean, valueCdmaPRev: number | null }
+    getCdmaSystemId(): { returnType: boolean, valueCdmaSystemIdSid: number | null, valueCdmaSystemIdNid: number | null }
+    getCdmaSystemInfo(): { returnType: boolean, valueCdmaSystemInfoMcc: number | null, valueCdmaSystemInfoImsi1112: number | null }
+    getCid3gpp(): { returnType: boolean, valueCid3gpp: number | null }
+    getConcurrentServiceInfo3gpp2(): { returnType: boolean, valueConcurrentServiceInfo3gpp2: boolean | null }
+    getCurrentPlmn(): { returnType: boolean, valueCurrentPlmnMcc: number | null, valueCurrentPlmnMnc: number | null, valueCurrentPlmnDescription: string | null }
+    getDataServiceCapability(): { returnType: boolean, valueDataServiceCapability: NasDataCapability[] | null }
+    getDaylightSavingTimeAdjustment3gpp(): { returnType: boolean, valueDaylightSavingTimeAdjustment3gpp: number | null }
+    getDefaultRoamingIndicator(): { returnType: boolean, valueDefaultRoamingIndicator: NasRoamingIndicatorStatus | null }
+    getDetailedServiceStatus(): { returnType: boolean, valueDetailedServiceStatusStatus: NasServiceStatus | null, valueDetailedServiceStatusCapability: NasNetworkServiceDomain | null, valueDetailedServiceStatusHdrStatus: NasServiceStatus | null, valueDetailedServiceStatusHdrHybrid: boolean | null, valueDetailedServiceStatusForbidden: boolean | null }
+    getDtmSupport(): { returnType: boolean, valueDtmSupport: boolean | null }
+    getHdrPersonality(): { returnType: boolean, valueHdrPersonality: NasHdrPersonality | null }
+    getLac3gpp(): { returnType: boolean, valueLac3gpp: number | null }
+    getLteTac(): { returnType: boolean, valueLteTac: number | null }
+    getMncPcsDigitIncludeStatus(): { returnType: boolean, valueMncPcsDigitIncludeStatusMcc: number | null, valueMncPcsDigitIncludeStatusMnc: number | null, valueMncPcsDigitIncludeStatusIncludesPcsDigit: boolean | null }
+    getNetworkNameSource(): { returnType: boolean, valueNetworkNameSource: NasNetworkNameSource | null }
+    getPrlIndicator3gpp2(): { returnType: boolean, valuePrlIndicator3gpp2: boolean | null }
     getResult(): boolean
-    getRoamingIndicator(): { returnType: boolean, valueRoamingIndicator: NasRoamingIndicatorStatus }
-    getRoamingIndicatorList(): { returnType: boolean, valueRoamingIndicatorList: MessageNasGetServingSystemOutputRoamingIndicatorListElement[] }
-    getServingSystem(): { returnType: boolean, valueServingSystemRegistrationState: NasRegistrationState, valueServingSystemCsAttachState: NasAttachState, valueServingSystemPsAttachState: NasAttachState, valueServingSystemSelectedNetwork: NasNetworkType, valueServingSystemRadioInterfaces: NasRadioInterface[] }
-    getTimeZone3gpp(): { returnType: boolean, valueTimeZone3gpp: number }
-    getTimeZone3gpp2(): { returnType: boolean, valueTimeZone3gpp2LeapSeconds: number, valueTimeZone3gpp2LocalTimeOffset: number, valueTimeZone3gpp2DaylightSavingTime: boolean }
-    getUmtsPrimaryScramblingCode(): { returnType: boolean, valueUmtsPrimaryScramblingCode: number }
+    getRoamingIndicator(): { returnType: boolean, valueRoamingIndicator: NasRoamingIndicatorStatus | null }
+    getRoamingIndicatorList(): { returnType: boolean, valueRoamingIndicatorList: MessageNasGetServingSystemOutputRoamingIndicatorListElement[] | null }
+    getServingSystem(): { returnType: boolean, valueServingSystemRegistrationState: NasRegistrationState | null, valueServingSystemCsAttachState: NasAttachState | null, valueServingSystemPsAttachState: NasAttachState | null, valueServingSystemSelectedNetwork: NasNetworkType | null, valueServingSystemRadioInterfaces: NasRadioInterface[] | null }
+    getTimeZone3gpp(): { returnType: boolean, valueTimeZone3gpp: number | null }
+    getTimeZone3gpp2(): { returnType: boolean, valueTimeZone3gpp2LeapSeconds: number | null, valueTimeZone3gpp2LocalTimeOffset: number | null, valueTimeZone3gpp2DaylightSavingTime: boolean | null }
+    getUmtsPrimaryScramblingCode(): { returnType: boolean, valueUmtsPrimaryScramblingCode: number | null }
     ref(): MessageNasGetServingSystemOutput
     unref(): void
     static name: string
@@ -8378,23 +8865,23 @@ export class MessageNasGetServingSystemOutputRoamingIndicatorListElement {
 }
 export class MessageNasGetSignalInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetSignalInfoOutput */
-    get5gSignalStrength(): { returnType: boolean, value5gSignalStrengthRsrp: number, value5gSignalStrengthSnr: number }
-    get5gSignalStrengthExtended(): { returnType: boolean, value5gSignalStrengthExtended: number }
-    getCdmaSignalStrength(): { returnType: boolean, valueCdmaSignalStrengthRssi: number, valueCdmaSignalStrengthEcio: number }
-    getGsmSignalStrength(): { returnType: boolean, valueGsmSignalStrength: number }
-    getHdrSignalStrength(): { returnType: boolean, valueHdrSignalStrengthRssi: number, valueHdrSignalStrengthEcio: number, valueHdrSignalStrengthSinr: NasEvdoSinrLevel, valueHdrSignalStrengthIo: number }
-    getLteSignalStrength(): { returnType: boolean, valueLteSignalStrengthRssi: number, valueLteSignalStrengthRsrq: number, valueLteSignalStrengthRsrp: number, valueLteSignalStrengthSnr: number }
+    get5gSignalStrength(): { returnType: boolean, value5gSignalStrengthRsrp: number | null, value5gSignalStrengthSnr: number | null }
+    get5gSignalStrengthExtended(): { returnType: boolean, value5gSignalStrengthExtended: number | null }
+    getCdmaSignalStrength(): { returnType: boolean, valueCdmaSignalStrengthRssi: number | null, valueCdmaSignalStrengthEcio: number | null }
+    getGsmSignalStrength(): { returnType: boolean, valueGsmSignalStrength: number | null }
+    getHdrSignalStrength(): { returnType: boolean, valueHdrSignalStrengthRssi: number | null, valueHdrSignalStrengthEcio: number | null, valueHdrSignalStrengthSinr: NasEvdoSinrLevel | null, valueHdrSignalStrengthIo: number | null }
+    getLteSignalStrength(): { returnType: boolean, valueLteSignalStrengthRssi: number | null, valueLteSignalStrengthRsrq: number | null, valueLteSignalStrengthRsrp: number | null, valueLteSignalStrengthSnr: number | null }
     getResult(): boolean
-    getTdmaSignalStrength(): { returnType: boolean, valueTdmaSignalStrength: number }
-    getTdmaSignalStrengthExtended(): { returnType: boolean, valueTdmaSignalStrengthExtendedRssi: number, valueTdmaSignalStrengthExtendedRscp: number, valueTdmaSignalStrengthExtendedEcio: number, valueTdmaSignalStrengthExtendedSinr: number }
-    getWcdmaSignalStrength(): { returnType: boolean, valueWcdmaSignalStrengthRssi: number, valueWcdmaSignalStrengthEcio: number }
+    getTdmaSignalStrength(): { returnType: boolean, valueTdmaSignalStrength: number | null }
+    getTdmaSignalStrengthExtended(): { returnType: boolean, valueTdmaSignalStrengthExtendedRssi: number | null, valueTdmaSignalStrengthExtendedRscp: number | null, valueTdmaSignalStrengthExtendedEcio: number | null, valueTdmaSignalStrengthExtendedSinr: number | null }
+    getWcdmaSignalStrength(): { returnType: boolean, valueWcdmaSignalStrengthRssi: number | null, valueWcdmaSignalStrengthEcio: number | null }
     ref(): MessageNasGetSignalInfoOutput
     unref(): void
     static name: string
 }
 export class MessageNasGetSignalStrengthInput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetSignalStrengthInput */
-    getRequestMask(): { returnType: boolean, valueRequestMask: NasSignalStrengthRequest }
+    getRequestMask(): { returnType: boolean, valueRequestMask: NasSignalStrengthRequest | null }
     ref(): MessageNasGetSignalStrengthInput
     setRequestMask(valueRequestMask: NasSignalStrengthRequest): boolean
     unref(): void
@@ -8406,17 +8893,17 @@ export class MessageNasGetSignalStrengthInput {
 }
 export class MessageNasGetSignalStrengthOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetSignalStrengthOutput */
-    getEcioList(): { returnType: boolean, valueEcioList: MessageNasGetSignalStrengthOutputEcioListElement[] }
-    getErrorRateList(): { returnType: boolean, valueErrorRateList: MessageNasGetSignalStrengthOutputErrorRateListElement[] }
-    getIo(): { returnType: boolean, valueIo: number }
-    getLteRsrp(): { returnType: boolean, valueLteRsrp: number }
-    getLteSnr(): { returnType: boolean, valueLteSnr: number }
+    getEcioList(): { returnType: boolean, valueEcioList: MessageNasGetSignalStrengthOutputEcioListElement[] | null }
+    getErrorRateList(): { returnType: boolean, valueErrorRateList: MessageNasGetSignalStrengthOutputErrorRateListElement[] | null }
+    getIo(): { returnType: boolean, valueIo: number | null }
+    getLteRsrp(): { returnType: boolean, valueLteRsrp: number | null }
+    getLteSnr(): { returnType: boolean, valueLteSnr: number | null }
     getResult(): boolean
-    getRsrq(): { returnType: boolean, valueRsrqRsrq: number, valueRsrqRadioInterface: NasRadioInterface }
-    getRssiList(): { returnType: boolean, valueRssiList: MessageNasGetSignalStrengthOutputRssiListElement[] }
-    getSignalStrength(): { returnType: boolean, valueSignalStrengthStrength: number, valueSignalStrengthRadioInterface: NasRadioInterface }
-    getSinr(): { returnType: boolean, valueSinr: NasEvdoSinrLevel }
-    getStrengthList(): { returnType: boolean, valueStrengthList: MessageNasGetSignalStrengthOutputStrengthListElement[] }
+    getRsrq(): { returnType: boolean, valueRsrqRsrq: number | null, valueRsrqRadioInterface: NasRadioInterface | null }
+    getRssiList(): { returnType: boolean, valueRssiList: MessageNasGetSignalStrengthOutputRssiListElement[] | null }
+    getSignalStrength(): { returnType: boolean, valueSignalStrengthStrength: number | null, valueSignalStrengthRadioInterface: NasRadioInterface | null }
+    getSinr(): { returnType: boolean, valueSinr: NasEvdoSinrLevel | null }
+    getStrengthList(): { returnType: boolean, valueStrengthList: MessageNasGetSignalStrengthOutputStrengthListElement[] | null }
     ref(): MessageNasGetSignalStrengthOutput
     unref(): void
     static name: string
@@ -8447,7 +8934,7 @@ export class MessageNasGetSignalStrengthOutputStrengthListElement {
 }
 export class MessageNasGetSupportedMessagesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetSupportedMessagesOutput */
-    getList(): { returnType: boolean, valueList: any[] }
+    getList(): { returnType: boolean, valueList: any[] | null }
     getResult(): boolean
     ref(): MessageNasGetSupportedMessagesOutput
     unref(): void
@@ -8455,73 +8942,80 @@ export class MessageNasGetSupportedMessagesOutput {
 }
 export class MessageNasGetSystemInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetSystemInfoOutput */
-    getAdditionalCdmaSystemInfo(): { returnType: boolean, valueAdditionalCdmaSystemInfoGeoSystemIndex: number, valueAdditionalCdmaSystemInfoRegistrationPeriod: number }
-    getAdditionalGsmSystemInfo(): { returnType: boolean, valueAdditionalGsmSystemInfoGeoSystemIndex: number, valueAdditionalGsmSystemInfoCellBroadcastSupport: NasCellBroadcastCapability }
-    getAdditionalHdrSystemInfo(): { returnType: boolean, valueAdditionalHdrSystemInfoGeoSystemIndex: number }
-    getAdditionalLteSystemInfo(): { returnType: boolean, valueAdditionalLteSystemInfoGeoSystemIndex: number }
-    getAdditionalWcdmaSystemInfo(): { returnType: boolean, valueAdditionalWcdmaSystemInfoGeoSystemIndex: number, valueAdditionalWcdmaSystemInfoCellBroadcastSupport: NasCellBroadcastCapability }
-    getCdmaRegistrationZoneId(): { returnType: boolean, valueCdmaRegistrationZoneId: number }
-    getCdmaResolvedMcc(): { returnType: boolean, valueCdmaResolvedMcc: number }
-    getCdmaServiceStatus(): { returnType: boolean, valueCdmaServiceStatusServiceStatus: NasServiceStatus, valueCdmaServiceStatusPreferredDataPath: boolean }
-    getCdmaSystemInfo(): { returnType: boolean, valueCdmaSystemInfoDomainValid: boolean, valueCdmaSystemInfoDomain: NasNetworkServiceDomain, valueCdmaSystemInfoServiceCapabilityValid: boolean, valueCdmaSystemInfoServiceCapability: NasNetworkServiceDomain, valueCdmaSystemInfoRoamingStatusValid: boolean, valueCdmaSystemInfoRoamingStatus: NasRoamingStatus, valueCdmaSystemInfoForbiddenValid: boolean, valueCdmaSystemInfoForbidden: boolean, valueCdmaSystemInfoPrlMatchValid: boolean, valueCdmaSystemInfoPrlMatch: boolean, valueCdmaSystemInfoPRevValid: boolean, valueCdmaSystemInfoPRev: number, valueCdmaSystemInfoBaseStationPRevValid: boolean, valueCdmaSystemInfoBaseStationPRev: number, valueCdmaSystemInfoConcurrentServiceSupportValid: boolean, valueCdmaSystemInfoConcurrentServiceSupport: boolean, valueCdmaSystemInfoCdmaSystemIdValid: boolean, valueCdmaSystemInfoSid: number, valueCdmaSystemInfoNid: number, valueCdmaSystemInfoBaseStationInfoValid: boolean, valueCdmaSystemInfoBaseStationId: number, valueCdmaSystemInfoBaseStationLatitude: number, valueCdmaSystemInfoBaseStationLongitude: number, valueCdmaSystemInfoPacketZoneValid: boolean, valueCdmaSystemInfoPacketZone: number, valueCdmaSystemInfoNetworkIdValid: boolean, valueCdmaSystemInfoMcc: string, valueCdmaSystemInfoMnc: string }
-    getGsmCallBarringStatus(): { returnType: boolean, valueGsmCallBarringStatusCsStatus: NasCallBarringStatus, valueGsmCallBarringStatusPsStatus: NasCallBarringStatus }
-    getGsmCipherDomain(): { returnType: boolean, valueGsmCipherDomain: NasNetworkServiceDomain }
-    getGsmRoutingAreaCode(): { returnType: boolean, valueGsmRoutingAreaCode: number }
-    getGsmServiceStatus(): { returnType: boolean, valueGsmServiceStatusServiceStatus: NasServiceStatus, valueGsmServiceStatusTrueServiceStatus: NasServiceStatus, valueGsmServiceStatusPreferredDataPath: boolean }
-    getGsmSystemInfo(): { returnType: boolean, valueGsmSystemInfoDomainValid: boolean, valueGsmSystemInfoDomain: NasNetworkServiceDomain, valueGsmSystemInfoServiceCapabilityValid: boolean, valueGsmSystemInfoServiceCapability: NasNetworkServiceDomain, valueGsmSystemInfoRoamingStatusValid: boolean, valueGsmSystemInfoRoamingStatus: NasRoamingStatus, valueGsmSystemInfoForbiddenValid: boolean, valueGsmSystemInfoForbidden: boolean, valueGsmSystemInfoLacValid: boolean, valueGsmSystemInfoLac: number, valueGsmSystemInfoCidValid: boolean, valueGsmSystemInfoCid: number, valueGsmSystemInfoRegistrationRejectInfoValid: boolean, valueGsmSystemInfoRegistrationRejectDomain: NasNetworkServiceDomain, valueGsmSystemInfoRegistrationRejectCause: number, valueGsmSystemInfoNetworkIdValid: boolean, valueGsmSystemInfoMcc: string, valueGsmSystemInfoMnc: string, valueGsmSystemInfoEgprsSupportValid: boolean, valueGsmSystemInfoEgprsSupport: boolean, valueGsmSystemInfoDtmSupportValid: boolean, valueGsmSystemInfoDtmSupport: boolean }
-    getHdrServiceStatus(): { returnType: boolean, valueHdrServiceStatusServiceStatus: NasServiceStatus, valueHdrServiceStatusPreferredDataPath: boolean }
-    getHdrSystemInfo(): { returnType: boolean, valueHdrSystemInfoDomainValid: boolean, valueHdrSystemInfoDomain: NasNetworkServiceDomain, valueHdrSystemInfoServiceCapabilityValid: boolean, valueHdrSystemInfoServiceCapability: NasNetworkServiceDomain, valueHdrSystemInfoRoamingStatusValid: boolean, valueHdrSystemInfoRoamingStatus: NasRoamingStatus, valueHdrSystemInfoForbiddenValid: boolean, valueHdrSystemInfoForbidden: boolean, valueHdrSystemInfoPrlMatchValid: boolean, valueHdrSystemInfoPrlMatch: boolean, valueHdrSystemInfoPersonalityValid: boolean, valueHdrSystemInfoPersonality: NasHdrPersonality, valueHdrSystemInfoProtocolRevisionValid: boolean, valueHdrSystemInfoProtocolRevision: NasHdrProtocolRevision, valueHdrSystemInfoIs856SystemIdValid: boolean, valueHdrSystemInfoIs856SystemId: string }
-    getImsVoiceSupport(): { returnType: boolean, valueImsVoiceSupport: boolean }
-    getLteCellAccessStatus(): { returnType: boolean, valueLteCellAccessStatus: NasLteCellAccessStatus }
-    getLteEmbmsCoverageInfoSupport(): { returnType: boolean, valueLteEmbmsCoverageInfoSupport: boolean }
-    getLteEmbmsCoverageInfoTraceId(): { returnType: boolean, valueLteEmbmsCoverageInfoTraceId: number }
-    getLteRegistrationDomain(): { returnType: boolean, valueLteRegistrationDomain: NasLteRegistrationDomain }
-    getLteServiceStatus(): { returnType: boolean, valueLteServiceStatusServiceStatus: NasServiceStatus, valueLteServiceStatusTrueServiceStatus: NasServiceStatus, valueLteServiceStatusPreferredDataPath: boolean }
-    getLteSystemInfo(): { returnType: boolean, valueLteSystemInfoDomainValid: boolean, valueLteSystemInfoDomain: NasNetworkServiceDomain, valueLteSystemInfoServiceCapabilityValid: boolean, valueLteSystemInfoServiceCapability: NasNetworkServiceDomain, valueLteSystemInfoRoamingStatusValid: boolean, valueLteSystemInfoRoamingStatus: NasRoamingStatus, valueLteSystemInfoForbiddenValid: boolean, valueLteSystemInfoForbidden: boolean, valueLteSystemInfoLacValid: boolean, valueLteSystemInfoLac: number, valueLteSystemInfoCidValid: boolean, valueLteSystemInfoCid: number, valueLteSystemInfoRegistrationRejectInfoValid: boolean, valueLteSystemInfoRegistrationRejectDomain: NasNetworkServiceDomain, valueLteSystemInfoRegistrationRejectCause: number, valueLteSystemInfoNetworkIdValid: boolean, valueLteSystemInfoMcc: string, valueLteSystemInfoMnc: string, valueLteSystemInfoTacValid: boolean, valueLteSystemInfoTac: number }
-    getLteVoiceDomain(): { returnType: boolean, valueLteVoiceDomain: NasLteVoiceDomain }
-    getLteVoiceSupport(): { returnType: boolean, valueLteVoiceSupport: boolean }
-    getNetworkSelectionRegistrationRestriction(): { returnType: boolean, valueNetworkSelectionRegistrationRestriction: NasNetworkSelectionRegistrationRestriction }
+    getAdditionalCdmaSystemInfo(): { returnType: boolean, valueAdditionalCdmaSystemInfoGeoSystemIndex: number | null, valueAdditionalCdmaSystemInfoRegistrationPeriod: number | null }
+    getAdditionalGsmSystemInfo(): { returnType: boolean, valueAdditionalGsmSystemInfoGeoSystemIndex: number | null, valueAdditionalGsmSystemInfoCellBroadcastSupport: NasCellBroadcastCapability | null }
+    getAdditionalHdrSystemInfo(): { returnType: boolean, valueAdditionalHdrSystemInfoGeoSystemIndex: number | null }
+    getAdditionalLteSystemInfo(): { returnType: boolean, valueAdditionalLteSystemInfoGeoSystemIndex: number | null }
+    getAdditionalWcdmaSystemInfo(): { returnType: boolean, valueAdditionalWcdmaSystemInfoGeoSystemIndex: number | null, valueAdditionalWcdmaSystemInfoCellBroadcastSupport: NasCellBroadcastCapability | null }
+    getCdmaRegistrationZoneId(): { returnType: boolean, valueCdmaRegistrationZoneId: number | null }
+    getCdmaResolvedMcc(): { returnType: boolean, valueCdmaResolvedMcc: number | null }
+    getCdmaServiceStatus(): { returnType: boolean, valueCdmaServiceStatusServiceStatus: NasServiceStatus | null, valueCdmaServiceStatusPreferredDataPath: boolean | null }
+    getCdmaSystemInfo(): { returnType: boolean, valueCdmaSystemInfoDomainValid: boolean | null, valueCdmaSystemInfoDomain: NasNetworkServiceDomain | null, valueCdmaSystemInfoServiceCapabilityValid: boolean | null, valueCdmaSystemInfoServiceCapability: NasNetworkServiceDomain | null, valueCdmaSystemInfoRoamingStatusValid: boolean | null, valueCdmaSystemInfoRoamingStatus: NasRoamingStatus | null, valueCdmaSystemInfoForbiddenValid: boolean | null, valueCdmaSystemInfoForbidden: boolean | null, valueCdmaSystemInfoPrlMatchValid: boolean | null, valueCdmaSystemInfoPrlMatch: boolean | null, valueCdmaSystemInfoPRevValid: boolean | null, valueCdmaSystemInfoPRev: number | null, valueCdmaSystemInfoBaseStationPRevValid: boolean | null, valueCdmaSystemInfoBaseStationPRev: number | null, valueCdmaSystemInfoConcurrentServiceSupportValid: boolean | null, valueCdmaSystemInfoConcurrentServiceSupport: boolean | null, valueCdmaSystemInfoCdmaSystemIdValid: boolean | null, valueCdmaSystemInfoSid: number | null, valueCdmaSystemInfoNid: number | null, valueCdmaSystemInfoBaseStationInfoValid: boolean | null, valueCdmaSystemInfoBaseStationId: number | null, valueCdmaSystemInfoBaseStationLatitude: number | null, valueCdmaSystemInfoBaseStationLongitude: number | null, valueCdmaSystemInfoPacketZoneValid: boolean | null, valueCdmaSystemInfoPacketZone: number | null, valueCdmaSystemInfoNetworkIdValid: boolean | null, valueCdmaSystemInfoMcc: string | null, valueCdmaSystemInfoMnc: string | null }
+    getDcnrRestrictionInfo(): { returnType: boolean, valueDcnrRestrictionInfo: boolean | null }
+    getEutraWithNr5gAvailability(): { returnType: boolean, valueEutraWithNr5gAvailability: boolean | null }
+    getGsmCallBarringStatus(): { returnType: boolean, valueGsmCallBarringStatusCsStatus: NasCallBarringStatus | null, valueGsmCallBarringStatusPsStatus: NasCallBarringStatus | null }
+    getGsmCipherDomain(): { returnType: boolean, valueGsmCipherDomain: NasNetworkServiceDomain | null }
+    getGsmRoutingAreaCode(): { returnType: boolean, valueGsmRoutingAreaCode: number | null }
+    getGsmServiceStatus(): { returnType: boolean, valueGsmServiceStatusServiceStatus: NasServiceStatus | null, valueGsmServiceStatusTrueServiceStatus: NasServiceStatus | null, valueGsmServiceStatusPreferredDataPath: boolean | null }
+    getGsmSystemInfoV2(): { returnType: boolean, valueGsmSystemInfoV2DomainValid: boolean | null, valueGsmSystemInfoV2Domain: NasNetworkServiceDomain | null, valueGsmSystemInfoV2ServiceCapabilityValid: boolean | null, valueGsmSystemInfoV2ServiceCapability: NasNetworkServiceDomain | null, valueGsmSystemInfoV2RoamingStatusValid: boolean | null, valueGsmSystemInfoV2RoamingStatus: NasRoamingStatus | null, valueGsmSystemInfoV2ForbiddenValid: boolean | null, valueGsmSystemInfoV2Forbidden: boolean | null, valueGsmSystemInfoV2LacValid: boolean | null, valueGsmSystemInfoV2Lac: number | null, valueGsmSystemInfoV2CidValid: boolean | null, valueGsmSystemInfoV2Cid: number | null, valueGsmSystemInfoV2RegistrationRejectInfoValid: boolean | null, valueGsmSystemInfoV2RegistrationRejectDomain: NasNetworkServiceDomain | null, valueGsmSystemInfoV2RegistrationRejectCause: NasRejectCause | null, valueGsmSystemInfoV2NetworkIdValid: boolean | null, valueGsmSystemInfoV2Mcc: string | null, valueGsmSystemInfoV2Mnc: string | null, valueGsmSystemInfoV2EgprsSupportValid: boolean | null, valueGsmSystemInfoV2EgprsSupport: boolean | null, valueGsmSystemInfoV2DtmSupportValid: boolean | null, valueGsmSystemInfoV2DtmSupport: boolean | null }
+    getHdrServiceStatus(): { returnType: boolean, valueHdrServiceStatusServiceStatus: NasServiceStatus | null, valueHdrServiceStatusPreferredDataPath: boolean | null }
+    getHdrSystemInfo(): { returnType: boolean, valueHdrSystemInfoDomainValid: boolean | null, valueHdrSystemInfoDomain: NasNetworkServiceDomain | null, valueHdrSystemInfoServiceCapabilityValid: boolean | null, valueHdrSystemInfoServiceCapability: NasNetworkServiceDomain | null, valueHdrSystemInfoRoamingStatusValid: boolean | null, valueHdrSystemInfoRoamingStatus: NasRoamingStatus | null, valueHdrSystemInfoForbiddenValid: boolean | null, valueHdrSystemInfoForbidden: boolean | null, valueHdrSystemInfoPrlMatchValid: boolean | null, valueHdrSystemInfoPrlMatch: boolean | null, valueHdrSystemInfoPersonalityValid: boolean | null, valueHdrSystemInfoPersonality: NasHdrPersonality | null, valueHdrSystemInfoProtocolRevisionValid: boolean | null, valueHdrSystemInfoProtocolRevision: NasHdrProtocolRevision | null, valueHdrSystemInfoIs856SystemIdValid: boolean | null, valueHdrSystemInfoIs856SystemId: string | null }
+    getImsVoiceSupport(): { returnType: boolean, valueImsVoiceSupport: boolean | null }
+    getLteCellAccessStatus(): { returnType: boolean, valueLteCellAccessStatus: NasLteCellAccessStatus | null }
+    getLteEmbmsCoverageInfoSupport(): { returnType: boolean, valueLteEmbmsCoverageInfoSupport: boolean | null }
+    getLteEmbmsCoverageInfoTraceId(): { returnType: boolean, valueLteEmbmsCoverageInfoTraceId: number | null }
+    getLteRegistrationDomain(): { returnType: boolean, valueLteRegistrationDomain: NasLteRegistrationDomain | null }
+    getLteServiceStatus(): { returnType: boolean, valueLteServiceStatusServiceStatus: NasServiceStatus | null, valueLteServiceStatusTrueServiceStatus: NasServiceStatus | null, valueLteServiceStatusPreferredDataPath: boolean | null }
+    getLteSystemInfoV2(): { returnType: boolean, valueLteSystemInfoV2DomainValid: boolean | null, valueLteSystemInfoV2Domain: NasNetworkServiceDomain | null, valueLteSystemInfoV2ServiceCapabilityValid: boolean | null, valueLteSystemInfoV2ServiceCapability: NasNetworkServiceDomain | null, valueLteSystemInfoV2RoamingStatusValid: boolean | null, valueLteSystemInfoV2RoamingStatus: NasRoamingStatus | null, valueLteSystemInfoV2ForbiddenValid: boolean | null, valueLteSystemInfoV2Forbidden: boolean | null, valueLteSystemInfoV2LacValid: boolean | null, valueLteSystemInfoV2Lac: number | null, valueLteSystemInfoV2CidValid: boolean | null, valueLteSystemInfoV2Cid: number | null, valueLteSystemInfoV2RegistrationRejectInfoValid: boolean | null, valueLteSystemInfoV2RegistrationRejectDomain: NasNetworkServiceDomain | null, valueLteSystemInfoV2RegistrationRejectCause: NasRejectCause | null, valueLteSystemInfoV2NetworkIdValid: boolean | null, valueLteSystemInfoV2Mcc: string | null, valueLteSystemInfoV2Mnc: string | null, valueLteSystemInfoV2TacValid: boolean | null, valueLteSystemInfoV2Tac: number | null }
+    getLteVoiceDomain(): { returnType: boolean, valueLteVoiceDomain: NasLteVoiceDomain | null }
+    getLteVoiceSupport(): { returnType: boolean, valueLteVoiceSupport: boolean | null }
+    getNetworkSelectionRegistrationRestriction(): { returnType: boolean, valueNetworkSelectionRegistrationRestriction: NasNetworkSelectionRegistrationRestriction | null }
+    getNr5gServiceStatusInfo(): { returnType: boolean, valueNr5gServiceStatusInfoServiceStatus: NasServiceStatus | null, valueNr5gServiceStatusInfoTrueServiceStatus: NasServiceStatus | null, valueNr5gServiceStatusInfoPreferredDataPath: boolean | null }
+    getNr5gSystemInfo(): { returnType: boolean, valueNr5gSystemInfoDomainValid: boolean | null, valueNr5gSystemInfoDomain: NasNetworkServiceDomain | null, valueNr5gSystemInfoServiceCapabilityValid: boolean | null, valueNr5gSystemInfoServiceCapability: NasNetworkServiceDomain | null, valueNr5gSystemInfoRoamingStatusValid: boolean | null, valueNr5gSystemInfoRoamingStatus: NasRoamingStatus | null, valueNr5gSystemInfoForbiddenValid: boolean | null, valueNr5gSystemInfoForbidden: boolean | null, valueNr5gSystemInfoLacValid: boolean | null, valueNr5gSystemInfoLac: number | null, valueNr5gSystemInfoCidValid: boolean | null, valueNr5gSystemInfoCid: number | null, valueNr5gSystemInfoRegistrationRejectInfoValid: boolean | null, valueNr5gSystemInfoRegistrationRejectDomain: NasNetworkServiceDomain | null, valueNr5gSystemInfoRegistrationRejectCause: number | null, valueNr5gSystemInfoNetworkIdValid: boolean | null, valueNr5gSystemInfoMcc: string | null, valueNr5gSystemInfoMnc: string | null, valueNr5gSystemInfoTacValid: boolean | null, valueNr5gSystemInfoTac: number | null }
+    getNr5gTrackingAreaCode(): { returnType: boolean, valueNr5gTrackingAreaCode: any[] | null }
     getResult(): boolean
-    getSimRejectInfo(): { returnType: boolean, valueSimRejectInfo: NasSimRejectState }
-    getTdScdmaServiceStatus(): { returnType: boolean, valueTdScdmaServiceStatusServiceStatus: NasServiceStatus, valueTdScdmaServiceStatusTrueServiceStatus: NasServiceStatus, valueTdScdmaServiceStatusPreferredDataPath: boolean }
-    getTdScdmaSystemInfo(): { returnType: boolean, valueTdScdmaSystemInfoDomainValid: boolean, valueTdScdmaSystemInfoDomain: NasNetworkServiceDomain, valueTdScdmaSystemInfoServiceCapabilityValid: boolean, valueTdScdmaSystemInfoServiceCapability: NasNetworkServiceDomain, valueTdScdmaSystemInfoRoamingStatusValid: boolean, valueTdScdmaSystemInfoRoamingStatus: NasRoamingStatus, valueTdScdmaSystemInfoForbiddenValid: boolean, valueTdScdmaSystemInfoForbidden: boolean, valueTdScdmaSystemInfoLacValid: boolean, valueTdScdmaSystemInfoLac: number, valueTdScdmaSystemInfoCidValid: boolean, valueTdScdmaSystemInfoCid: number, valueTdScdmaSystemInfoRegistrationRejectInfoValid: boolean, valueTdScdmaSystemInfoRegistrationRejectDomain: NasNetworkServiceDomain, valueTdScdmaSystemInfoRegistrationRejectCause: number, valueTdScdmaSystemInfoNetworkIdValid: boolean, valueTdScdmaSystemInfoMcc: string, valueTdScdmaSystemInfoMnc: string, valueTdScdmaSystemInfoHsCallStatusValid: boolean, valueTdScdmaSystemInfoHsCallStatus: NasWcdmaHsService, valueTdScdmaSystemInfoHsServiceValid: boolean, valueTdScdmaSystemInfoHsService: NasWcdmaHsService, valueTdScdmaSystemInfoCellParameterIdValid: boolean, valueTdScdmaSystemInfoCellParameterId: number, valueTdScdmaSystemInfoCellBroadcastSupportValid: boolean, valueTdScdmaSystemInfoCellBroadcastSupport: NasCellBroadcastCapability, valueTdScdmaSystemInfoCsCallBarringStatusValid: boolean, valueTdScdmaSystemInfoCsCallBarringStatus: NasCallBarringStatus, valueTdScdmaSystemInfoPsCallBarringStatusValid: boolean, valueTdScdmaSystemInfoPsCallBarringStatus: NasCallBarringStatus, valueTdScdmaSystemInfoCipherDomainValid: boolean, valueTdScdmaSystemInfoCipherDomain: NasNetworkServiceDomain }
-    getWcdmaCallBarringStatus(): { returnType: boolean, valueWcdmaCallBarringStatusCsStatus: NasCallBarringStatus, valueWcdmaCallBarringStatusPsStatus: NasCallBarringStatus }
-    getWcdmaCipherDomain(): { returnType: boolean, valueWcdmaCipherDomain: NasNetworkServiceDomain }
-    getWcdmaRoutingAreaCode(): { returnType: boolean, valueWcdmaRoutingAreaCode: number }
-    getWcdmaServiceStatus(): { returnType: boolean, valueWcdmaServiceStatusServiceStatus: NasServiceStatus, valueWcdmaServiceStatusTrueServiceStatus: NasServiceStatus, valueWcdmaServiceStatusPreferredDataPath: boolean }
-    getWcdmaSystemInfo(): { returnType: boolean, valueWcdmaSystemInfoDomainValid: boolean, valueWcdmaSystemInfoDomain: NasNetworkServiceDomain, valueWcdmaSystemInfoServiceCapabilityValid: boolean, valueWcdmaSystemInfoServiceCapability: NasNetworkServiceDomain, valueWcdmaSystemInfoRoamingStatusValid: boolean, valueWcdmaSystemInfoRoamingStatus: NasRoamingStatus, valueWcdmaSystemInfoForbiddenValid: boolean, valueWcdmaSystemInfoForbidden: boolean, valueWcdmaSystemInfoLacValid: boolean, valueWcdmaSystemInfoLac: number, valueWcdmaSystemInfoCidValid: boolean, valueWcdmaSystemInfoCid: number, valueWcdmaSystemInfoRegistrationRejectInfoValid: boolean, valueWcdmaSystemInfoRegistrationRejectDomain: NasNetworkServiceDomain, valueWcdmaSystemInfoRegistrationRejectCause: number, valueWcdmaSystemInfoNetworkIdValid: boolean, valueWcdmaSystemInfoMcc: string, valueWcdmaSystemInfoMnc: string, valueWcdmaSystemInfoHsCallStatusValid: boolean, valueWcdmaSystemInfoHsCallStatus: NasWcdmaHsService, valueWcdmaSystemInfoHsServiceValid: boolean, valueWcdmaSystemInfoHsService: NasWcdmaHsService, valueWcdmaSystemInfoPrimaryScramblingCodeValid: boolean, valueWcdmaSystemInfoPrimaryScramblingCode: number }
+    getSimRejectInfo(): { returnType: boolean, valueSimRejectInfo: NasSimRejectState | null }
+    getTdScdmaServiceStatus(): { returnType: boolean, valueTdScdmaServiceStatusServiceStatus: NasServiceStatus | null, valueTdScdmaServiceStatusTrueServiceStatus: NasServiceStatus | null, valueTdScdmaServiceStatusPreferredDataPath: boolean | null }
+    getTdScdmaSystemInfoV2(): { returnType: boolean, valueTdScdmaSystemInfoV2DomainValid: boolean | null, valueTdScdmaSystemInfoV2Domain: NasNetworkServiceDomain | null, valueTdScdmaSystemInfoV2ServiceCapabilityValid: boolean | null, valueTdScdmaSystemInfoV2ServiceCapability: NasNetworkServiceDomain | null, valueTdScdmaSystemInfoV2RoamingStatusValid: boolean | null, valueTdScdmaSystemInfoV2RoamingStatus: NasRoamingStatus | null, valueTdScdmaSystemInfoV2ForbiddenValid: boolean | null, valueTdScdmaSystemInfoV2Forbidden: boolean | null, valueTdScdmaSystemInfoV2LacValid: boolean | null, valueTdScdmaSystemInfoV2Lac: number | null, valueTdScdmaSystemInfoV2CidValid: boolean | null, valueTdScdmaSystemInfoV2Cid: number | null, valueTdScdmaSystemInfoV2RegistrationRejectInfoValid: boolean | null, valueTdScdmaSystemInfoV2RegistrationRejectDomain: NasNetworkServiceDomain | null, valueTdScdmaSystemInfoV2RegistrationRejectCause: NasRejectCause | null, valueTdScdmaSystemInfoV2NetworkIdValid: boolean | null, valueTdScdmaSystemInfoV2Mcc: string | null, valueTdScdmaSystemInfoV2Mnc: string | null, valueTdScdmaSystemInfoV2HsCallStatusValid: boolean | null, valueTdScdmaSystemInfoV2HsCallStatus: NasWcdmaHsService | null, valueTdScdmaSystemInfoV2HsServiceValid: boolean | null, valueTdScdmaSystemInfoV2HsService: NasWcdmaHsService | null, valueTdScdmaSystemInfoV2CellParameterIdValid: boolean | null, valueTdScdmaSystemInfoV2CellParameterId: number | null, valueTdScdmaSystemInfoV2CellBroadcastSupportValid: boolean | null, valueTdScdmaSystemInfoV2CellBroadcastSupport: NasCellBroadcastCapability | null, valueTdScdmaSystemInfoV2CsCallBarringStatusValid: boolean | null, valueTdScdmaSystemInfoV2CsCallBarringStatus: NasCallBarringStatus | null, valueTdScdmaSystemInfoV2PsCallBarringStatusValid: boolean | null, valueTdScdmaSystemInfoV2PsCallBarringStatus: NasCallBarringStatus | null, valueTdScdmaSystemInfoV2CipherDomainValid: boolean | null, valueTdScdmaSystemInfoV2CipherDomain: NasNetworkServiceDomain | null }
+    getWcdmaCallBarringStatus(): { returnType: boolean, valueWcdmaCallBarringStatusCsStatus: NasCallBarringStatus | null, valueWcdmaCallBarringStatusPsStatus: NasCallBarringStatus | null }
+    getWcdmaCipherDomain(): { returnType: boolean, valueWcdmaCipherDomain: NasNetworkServiceDomain | null }
+    getWcdmaRoutingAreaCode(): { returnType: boolean, valueWcdmaRoutingAreaCode: number | null }
+    getWcdmaServiceStatus(): { returnType: boolean, valueWcdmaServiceStatusServiceStatus: NasServiceStatus | null, valueWcdmaServiceStatusTrueServiceStatus: NasServiceStatus | null, valueWcdmaServiceStatusPreferredDataPath: boolean | null }
+    getWcdmaSystemInfoV2(): { returnType: boolean, valueWcdmaSystemInfoV2DomainValid: boolean | null, valueWcdmaSystemInfoV2Domain: NasNetworkServiceDomain | null, valueWcdmaSystemInfoV2ServiceCapabilityValid: boolean | null, valueWcdmaSystemInfoV2ServiceCapability: NasNetworkServiceDomain | null, valueWcdmaSystemInfoV2RoamingStatusValid: boolean | null, valueWcdmaSystemInfoV2RoamingStatus: NasRoamingStatus | null, valueWcdmaSystemInfoV2ForbiddenValid: boolean | null, valueWcdmaSystemInfoV2Forbidden: boolean | null, valueWcdmaSystemInfoV2LacValid: boolean | null, valueWcdmaSystemInfoV2Lac: number | null, valueWcdmaSystemInfoV2CidValid: boolean | null, valueWcdmaSystemInfoV2Cid: number | null, valueWcdmaSystemInfoV2RegistrationRejectInfoValid: boolean | null, valueWcdmaSystemInfoV2RegistrationRejectDomain: NasNetworkServiceDomain | null, valueWcdmaSystemInfoV2RegistrationRejectCause: NasRejectCause | null, valueWcdmaSystemInfoV2NetworkIdValid: boolean | null, valueWcdmaSystemInfoV2Mcc: string | null, valueWcdmaSystemInfoV2Mnc: string | null, valueWcdmaSystemInfoV2HsCallStatusValid: boolean | null, valueWcdmaSystemInfoV2HsCallStatus: NasWcdmaHsService | null, valueWcdmaSystemInfoV2HsServiceValid: boolean | null, valueWcdmaSystemInfoV2HsService: NasWcdmaHsService | null, valueWcdmaSystemInfoV2PrimaryScramblingCodeValid: boolean | null, valueWcdmaSystemInfoV2PrimaryScramblingCode: number | null }
     ref(): MessageNasGetSystemInfoOutput
     unref(): void
     static name: string
 }
 export class MessageNasGetSystemSelectionPreferenceOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetSystemSelectionPreferenceOutput */
-    getAcquisitionOrderPreference(): { returnType: boolean, valueAcquisitionOrderPreference: NasRadioInterface[] }
-    getBandPreference(): { returnType: boolean, valueBandPreference: NasBandPreference }
-    getCdmaPrlPreference(): { returnType: boolean, valueCdmaPrlPreference: NasCdmaPrlPreference }
-    getDisabledModes(): { returnType: boolean, valueDisabledModes: NasRatModePreference }
-    getEmergencyMode(): { returnType: boolean, valueEmergencyMode: boolean }
-    getExtendedLteBandPreference(): { returnType: boolean, valueExtendedLteBandPreferenceMaskLow: number, valueExtendedLteBandPreferenceMaskMidLow: number, valueExtendedLteBandPreferenceMaskMidHigh: number, valueExtendedLteBandPreferenceMaskHigh: number }
-    getGsmWcdmaAcquisitionOrderPreference(): { returnType: boolean, valueGsmWcdmaAcquisitionOrderPreference: NasGsmWcdmaAcquisitionOrderPreference }
-    getLteBandPreference(): { returnType: boolean, valueLteBandPreference: NasLteBandPreference }
-    getManualNetworkSelection(): { returnType: boolean, valueManualNetworkSelectionMcc: number, valueManualNetworkSelectionMnc: number, valueManualNetworkSelectionIncludesPcsDigit: boolean }
-    getModePreference(): { returnType: boolean, valueModePreference: NasRatModePreference }
-    getNetworkSelectionPreference(): { returnType: boolean, valueNetworkSelectionPreference: NasNetworkSelectionPreference }
-    getNetworkSelectionRegistrationRestriction(): { returnType: boolean, valueNetworkSelectionRegistrationRestriction: NasNetworkSelectionRegistrationRestriction }
+    getAcquisitionOrderPreference(): { returnType: boolean, valueAcquisitionOrderPreference: NasRadioInterface[] | null }
+    getBandPreference(): { returnType: boolean, valueBandPreference: NasBandPreference | null }
+    getCdmaPrlPreference(): { returnType: boolean, valueCdmaPrlPreference: NasCdmaPrlPreference | null }
+    getDisabledModes(): { returnType: boolean, valueDisabledModes: NasRatModePreference | null }
+    getEmergencyMode(): { returnType: boolean, valueEmergencyMode: boolean | null }
+    getExtendedLteBandPreference(): { returnType: boolean, valueExtendedLteBandPreferenceMaskLow: number | null, valueExtendedLteBandPreferenceMaskMidLow: number | null, valueExtendedLteBandPreferenceMaskMidHigh: number | null, valueExtendedLteBandPreferenceMaskHigh: number | null }
+    getGsmWcdmaAcquisitionOrderPreference(): { returnType: boolean, valueGsmWcdmaAcquisitionOrderPreference: NasGsmWcdmaAcquisitionOrderPreference | null }
+    getLteBandPreference(): { returnType: boolean, valueLteBandPreference: NasLteBandPreference | null }
+    getManualNetworkSelection(): { returnType: boolean, valueManualNetworkSelectionMcc: number | null, valueManualNetworkSelectionMnc: number | null, valueManualNetworkSelectionIncludesPcsDigit: boolean | null }
+    getModePreference(): { returnType: boolean, valueModePreference: NasRatModePreference | null }
+    getNetworkSelectionPreference(): { returnType: boolean, valueNetworkSelectionPreference: NasNetworkSelectionPreference | null }
+    getNetworkSelectionRegistrationRestriction(): { returnType: boolean, valueNetworkSelectionRegistrationRestriction: NasNetworkSelectionRegistrationRestriction | null }
+    getNr5gNsaBandPreference(): { returnType: boolean, valueNr5gNsaBandPreferenceMask0: number | null, valueNr5gNsaBandPreferenceMask1: number | null, valueNr5gNsaBandPreferenceMask2: number | null, valueNr5gNsaBandPreferenceMask3: number | null, valueNr5gNsaBandPreferenceMask4: number | null, valueNr5gNsaBandPreferenceMask5: number | null, valueNr5gNsaBandPreferenceMask6: number | null, valueNr5gNsaBandPreferenceMask7: number | null }
+    getNr5gSaBandPreference(): { returnType: boolean, valueNr5gSaBandPreferenceMask0: number | null, valueNr5gSaBandPreferenceMask1: number | null, valueNr5gSaBandPreferenceMask2: number | null, valueNr5gSaBandPreferenceMask3: number | null, valueNr5gSaBandPreferenceMask4: number | null, valueNr5gSaBandPreferenceMask5: number | null, valueNr5gSaBandPreferenceMask6: number | null, valueNr5gSaBandPreferenceMask7: number | null }
     getResult(): boolean
-    getRoamingPreference(): { returnType: boolean, valueRoamingPreference: NasRoamingPreference }
-    getServiceDomainPreference(): { returnType: boolean, valueServiceDomainPreference: NasServiceDomainPreference }
-    getTdScdmaBandPreference(): { returnType: boolean, valueTdScdmaBandPreference: NasTdScdmaBandPreference }
-    getUsagePreference(): { returnType: boolean, valueUsagePreference: NasUsagePreference }
-    getVoiceDomainPreference(): { returnType: boolean, valueVoiceDomainPreference: NasVoiceDomainPreference }
+    getRoamingPreference(): { returnType: boolean, valueRoamingPreference: NasRoamingPreference | null }
+    getServiceDomainPreference(): { returnType: boolean, valueServiceDomainPreference: NasServiceDomainPreference | null }
+    getTdScdmaBandPreference(): { returnType: boolean, valueTdScdmaBandPreference: NasTdScdmaBandPreference | null }
+    getUsagePreference(): { returnType: boolean, valueUsagePreference: NasUsagePreference | null }
+    getVoiceDomainPreference(): { returnType: boolean, valueVoiceDomainPreference: NasVoiceDomainPreference | null }
     ref(): MessageNasGetSystemSelectionPreferenceOutput
     unref(): void
     static name: string
 }
 export class MessageNasGetTechnologyPreferenceOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetTechnologyPreferenceOutput */
-    getActive(): { returnType: boolean, valueActiveTechnologyPreference: NasRadioTechnologyPreference, valueActiveTechnologyPreferenceDuration: NasPreferenceDuration }
-    getPersistent(): { returnType: boolean, valuePersistent: NasRadioTechnologyPreference }
+    getActive(): { returnType: boolean, valueActiveTechnologyPreference: NasRadioTechnologyPreference | null, valueActiveTechnologyPreferenceDuration: NasPreferenceDuration | null }
+    getPersistent(): { returnType: boolean, valuePersistent: NasRadioTechnologyPreference | null }
     getResult(): boolean
     ref(): MessageNasGetTechnologyPreferenceOutput
     unref(): void
@@ -8529,7 +9023,7 @@ export class MessageNasGetTechnologyPreferenceOutput {
 }
 export class MessageNasGetTxRxInfoInput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetTxRxInfoInput */
-    getRadioInterface(): { returnType: boolean, valueRadioInterface: NasRadioInterface }
+    getRadioInterface(): { returnType: boolean, valueRadioInterface: NasRadioInterface | null }
     ref(): MessageNasGetTxRxInfoInput
     setRadioInterface(valueRadioInterface: NasRadioInterface): boolean
     unref(): void
@@ -8542,21 +9036,21 @@ export class MessageNasGetTxRxInfoInput {
 export class MessageNasGetTxRxInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasGetTxRxInfoOutput */
     getResult(): boolean
-    getRxChain0Info(): { returnType: boolean, valueRxChain0InfoIsRadioTuned: boolean, valueRxChain0InfoRxPower: number, valueRxChain0InfoEcio: number, valueRxChain0InfoRscp: number, valueRxChain0InfoRsrp: number, valueRxChain0InfoPhase: number }
-    getRxChain1Info(): { returnType: boolean, valueRxChain1InfoIsRadioTuned: boolean, valueRxChain1InfoRxPower: number, valueRxChain1InfoEcio: number, valueRxChain1InfoRscp: number, valueRxChain1InfoRsrp: number, valueRxChain1InfoPhase: number }
-    getRxChain2Info(): { returnType: boolean, valueRxChain2InfoIsRadioTuned: boolean, valueRxChain2InfoRxPower: number, valueRxChain2InfoEcio: number, valueRxChain2InfoRscp: number, valueRxChain2InfoRsrp: number, valueRxChain2InfoPhase: number }
-    getRxChain3Info(): { returnType: boolean, valueRxChain3InfoIsRadioTuned: boolean, valueRxChain3InfoRxPower: number, valueRxChain3InfoEcio: number, valueRxChain3InfoRscp: number, valueRxChain3InfoRsrp: number, valueRxChain3InfoPhase: number }
-    getTxInfo(): { returnType: boolean, valueTxInfoIsInTraffic: boolean, valueTxInfoTxPower: number }
+    getRxChain0Info(): { returnType: boolean, valueRxChain0InfoIsRadioTuned: boolean | null, valueRxChain0InfoRxPower: number | null, valueRxChain0InfoEcio: number | null, valueRxChain0InfoRscp: number | null, valueRxChain0InfoRsrp: number | null, valueRxChain0InfoPhase: number | null }
+    getRxChain1Info(): { returnType: boolean, valueRxChain1InfoIsRadioTuned: boolean | null, valueRxChain1InfoRxPower: number | null, valueRxChain1InfoEcio: number | null, valueRxChain1InfoRscp: number | null, valueRxChain1InfoRsrp: number | null, valueRxChain1InfoPhase: number | null }
+    getRxChain2Info(): { returnType: boolean, valueRxChain2InfoIsRadioTuned: boolean | null, valueRxChain2InfoRxPower: number | null, valueRxChain2InfoEcio: number | null, valueRxChain2InfoRscp: number | null, valueRxChain2InfoRsrp: number | null, valueRxChain2InfoPhase: number | null }
+    getRxChain3Info(): { returnType: boolean, valueRxChain3InfoIsRadioTuned: boolean | null, valueRxChain3InfoRxPower: number | null, valueRxChain3InfoEcio: number | null, valueRxChain3InfoRscp: number | null, valueRxChain3InfoRsrp: number | null, valueRxChain3InfoPhase: number | null }
+    getTxInfo(): { returnType: boolean, valueTxInfoIsInTraffic: boolean | null, valueTxInfoTxPower: number | null }
     ref(): MessageNasGetTxRxInfoOutput
     unref(): void
     static name: string
 }
 export class MessageNasInitiateNetworkRegisterInput {
     /* Methods of Qmi-1.0.Qmi.MessageNasInitiateNetworkRegisterInput */
-    getAction(): { returnType: boolean, valueAction: NasNetworkRegisterType }
-    getChangeDuration(): { returnType: boolean, valueChangeDuration: NasChangeDuration }
-    getManualRegistrationInfo3gpp(): { returnType: boolean, valueManualRegistrationInfo3gppMcc: number, valueManualRegistrationInfo3gppMnc: number, valueManualRegistrationInfo3gppRadioInterface: NasRadioInterface }
-    getMncPcsDigitIncludeStatus(): { returnType: boolean, valueMncPcsDigitIncludeStatus: boolean }
+    getAction(): { returnType: boolean, valueAction: NasNetworkRegisterType | null }
+    getChangeDuration(): { returnType: boolean, valueChangeDuration: NasChangeDuration | null }
+    getManualRegistrationInfo3gpp(): { returnType: boolean, valueManualRegistrationInfo3gppMcc: number | null, valueManualRegistrationInfo3gppMnc: number | null, valueManualRegistrationInfo3gppRadioInterface: NasRadioInterface | null }
+    getMncPcsDigitIncludeStatus(): { returnType: boolean, valueMncPcsDigitIncludeStatus: boolean | null }
     ref(): MessageNasInitiateNetworkRegisterInput
     setAction(valueAction: NasNetworkRegisterType): boolean
     setChangeDuration(valueChangeDuration: NasChangeDuration): boolean
@@ -8578,7 +9072,7 @@ export class MessageNasInitiateNetworkRegisterOutput {
 }
 export class MessageNasNetworkScanInput {
     /* Methods of Qmi-1.0.Qmi.MessageNasNetworkScanInput */
-    getNetworkType(): { returnType: boolean, valueNetworkType: NasNetworkScanType }
+    getNetworkType(): { returnType: boolean, valueNetworkType: NasNetworkScanType | null }
     ref(): MessageNasNetworkScanInput
     setNetworkType(valueNetworkType: NasNetworkScanType): boolean
     unref(): void
@@ -8590,10 +9084,10 @@ export class MessageNasNetworkScanInput {
 }
 export class MessageNasNetworkScanOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasNetworkScanOutput */
-    getMncPcsDigitIncludeStatus(): { returnType: boolean, valueMncPcsDigitIncludeStatus: MessageNasNetworkScanOutputMncPcsDigitIncludeStatusElement[] }
-    getNetworkInformation(): { returnType: boolean, valueNetworkInformation: MessageNasNetworkScanOutputNetworkInformationElement[] }
-    getNetworkScanResult(): { returnType: boolean, valueNetworkScanResult: NasNetworkScanResult }
-    getRadioAccessTechnology(): { returnType: boolean, valueRadioAccessTechnology: MessageNasNetworkScanOutputRadioAccessTechnologyElement[] }
+    getMncPcsDigitIncludeStatus(): { returnType: boolean, valueMncPcsDigitIncludeStatus: MessageNasNetworkScanOutputMncPcsDigitIncludeStatusElement[] | null }
+    getNetworkInformation(): { returnType: boolean, valueNetworkInformation: MessageNasNetworkScanOutputNetworkInformationElement[] | null }
+    getNetworkScanResult(): { returnType: boolean, valueNetworkScanResult: NasNetworkScanResult | null }
+    getRadioAccessTechnology(): { returnType: boolean, valueRadioAccessTechnology: MessageNasNetworkScanOutputRadioAccessTechnologyElement[] | null }
     getResult(): boolean
     ref(): MessageNasNetworkScanOutput
     unref(): void
@@ -8623,21 +9117,22 @@ export class MessageNasNetworkScanOutputRadioAccessTechnologyElement {
 }
 export class MessageNasRegisterIndicationsInput {
     /* Methods of Qmi-1.0.Qmi.MessageNasRegisterIndicationsInput */
-    getCurrentPlmnName(): { returnType: boolean, valueCurrentPlmnName: boolean }
-    getDdtmEvents(): { returnType: boolean, valueDdtmEvents: boolean }
-    getDualStandbyPreference(): { returnType: boolean, valueDualStandbyPreference: boolean }
-    getEmbmsStatus(): { returnType: boolean, valueEmbmsStatus: boolean }
-    getErrorRate(): { returnType: boolean, valueErrorRate: boolean }
-    getHdrNewUatiAssigned(): { returnType: boolean, valueHdrNewUatiAssigned: boolean }
-    getHdrSessionClosed(): { returnType: boolean, valueHdrSessionClosed: boolean }
-    getManagedRoaming(): { returnType: boolean, valueManagedRoaming: boolean }
-    getNetworkTime(): { returnType: boolean, valueNetworkTime: boolean }
-    getRfBandInformation(): { returnType: boolean, valueRfBandInformation: boolean }
-    getServingSystemEvents(): { returnType: boolean, valueServingSystemEvents: boolean }
-    getSignalInfo(): { returnType: boolean, valueSignalInfo: boolean }
-    getSubscriptionInfo(): { returnType: boolean, valueSubscriptionInfo: boolean }
-    getSystemInfo(): { returnType: boolean, valueSystemInfo: boolean }
-    getSystemSelectionPreference(): { returnType: boolean, valueSystemSelectionPreference: boolean }
+    getCurrentPlmnName(): { returnType: boolean, valueCurrentPlmnName: boolean | null }
+    getDdtmEvents(): { returnType: boolean, valueDdtmEvents: boolean | null }
+    getDualStandbyPreference(): { returnType: boolean, valueDualStandbyPreference: boolean | null }
+    getEmbmsStatus(): { returnType: boolean, valueEmbmsStatus: boolean | null }
+    getErrorRate(): { returnType: boolean, valueErrorRate: boolean | null }
+    getHdrNewUatiAssigned(): { returnType: boolean, valueHdrNewUatiAssigned: boolean | null }
+    getHdrSessionClosed(): { returnType: boolean, valueHdrSessionClosed: boolean | null }
+    getManagedRoaming(): { returnType: boolean, valueManagedRoaming: boolean | null }
+    getNetworkRejectInformation(): { returnType: boolean, valueNetworkRejectInformationEnableNetworkRejectIndications: boolean | null, valueNetworkRejectInformationSupressSystemInfoIndications: boolean | null }
+    getNetworkTime(): { returnType: boolean, valueNetworkTime: boolean | null }
+    getRfBandInformation(): { returnType: boolean, valueRfBandInformation: boolean | null }
+    getServingSystemEvents(): { returnType: boolean, valueServingSystemEvents: boolean | null }
+    getSignalInfo(): { returnType: boolean, valueSignalInfo: boolean | null }
+    getSubscriptionInfo(): { returnType: boolean, valueSubscriptionInfo: boolean | null }
+    getSystemInfo(): { returnType: boolean, valueSystemInfo: boolean | null }
+    getSystemSelectionPreference(): { returnType: boolean, valueSystemSelectionPreference: boolean | null }
     ref(): MessageNasRegisterIndicationsInput
     setCurrentPlmnName(valueCurrentPlmnName: boolean): boolean
     setDdtmEvents(valueDdtmEvents: boolean): boolean
@@ -8647,6 +9142,7 @@ export class MessageNasRegisterIndicationsInput {
     setHdrNewUatiAssigned(valueHdrNewUatiAssigned: boolean): boolean
     setHdrSessionClosed(valueHdrSessionClosed: boolean): boolean
     setManagedRoaming(valueManagedRoaming: boolean): boolean
+    setNetworkRejectInformation(valueNetworkRejectInformationEnableNetworkRejectIndications: boolean, valueNetworkRejectInformationSupressSystemInfoIndications: boolean): boolean
     setNetworkTime(valueNetworkTime: boolean): boolean
     setRfBandInformation(valueRfBandInformation: boolean): boolean
     setServingSystemEvents(valueServingSystemEvents: boolean): boolean
@@ -8677,18 +9173,18 @@ export class MessageNasResetOutput {
 }
 export class MessageNasSetEventReportInput {
     /* Methods of Qmi-1.0.Qmi.MessageNasSetEventReportInput */
-    getEcioIndicator(): { returnType: boolean, valueEcioIndicatorReport: boolean, valueEcioIndicatorEcioDelta: number }
-    getEcioThreshold(): { returnType: boolean, valueEcioThresholdReport: boolean, valueEcioThresholdThresholds: number[] }
-    getErrorRateIndicator(): { returnType: boolean, valueErrorRateIndicator: boolean }
-    getIoIndicator(): { returnType: boolean, valueIoIndicatorReport: boolean, valueIoIndicatorIoDelta: number }
-    getLteRsrpDelta(): { returnType: boolean, valueLteRsrpDeltaReport: boolean, valueLteRsrpDeltaRsrpDelta: number }
-    getLteSnrDelta(): { returnType: boolean, valueLteSnrDeltaReport: boolean, valueLteSnrDeltaSnrDelta: number }
-    getRegistrationRejectReason(): { returnType: boolean, valueRegistrationRejectReason: boolean }
-    getRfBandInformation(): { returnType: boolean, valueRfBandInformation: boolean }
-    getRssiIndicator(): { returnType: boolean, valueRssiIndicatorReport: boolean, valueRssiIndicatorRssiDelta: number }
-    getSignalStrengthIndicator(): { returnType: boolean, valueSignalStrengthIndicatorReport: boolean, valueSignalStrengthIndicatorThresholds: any[] }
-    getSinrIndicator(): { returnType: boolean, valueSinrIndicatorReport: boolean, valueSinrIndicatorSinrDelta: number }
-    getSinrThreshold(): { returnType: boolean, valueSinrThresholdReport: boolean, valueSinrThresholdThresholds: any[] }
+    getEcioIndicator(): { returnType: boolean, valueEcioIndicatorReport: boolean | null, valueEcioIndicatorEcioDelta: number | null }
+    getEcioThreshold(): { returnType: boolean, valueEcioThresholdReport: boolean | null, valueEcioThresholdThresholds: number[] | null }
+    getErrorRateIndicator(): { returnType: boolean, valueErrorRateIndicator: boolean | null }
+    getIoIndicator(): { returnType: boolean, valueIoIndicatorReport: boolean | null, valueIoIndicatorIoDelta: number | null }
+    getLteRsrpDelta(): { returnType: boolean, valueLteRsrpDeltaReport: boolean | null, valueLteRsrpDeltaRsrpDelta: number | null }
+    getLteSnrDelta(): { returnType: boolean, valueLteSnrDeltaReport: boolean | null, valueLteSnrDeltaSnrDelta: number | null }
+    getRegistrationRejectReason(): { returnType: boolean, valueRegistrationRejectReason: boolean | null }
+    getRfBandInformation(): { returnType: boolean, valueRfBandInformation: boolean | null }
+    getRssiIndicator(): { returnType: boolean, valueRssiIndicatorReport: boolean | null, valueRssiIndicatorRssiDelta: number | null }
+    getSignalStrengthIndicator(): { returnType: boolean, valueSignalStrengthIndicatorReport: boolean | null, valueSignalStrengthIndicatorThresholds: any[] | null }
+    getSinrIndicator(): { returnType: boolean, valueSinrIndicatorReport: boolean | null, valueSinrIndicatorSinrDelta: number | null }
+    getSinrThreshold(): { returnType: boolean, valueSinrThresholdReport: boolean | null, valueSinrThresholdThresholds: any[] | null }
     ref(): MessageNasSetEventReportInput
     setEcioIndicator(valueEcioIndicatorReport: boolean, valueEcioIndicatorEcioDelta: number): boolean
     setEcioThreshold(valueEcioThresholdReport: boolean, valueEcioThresholdThresholds: number[]): boolean
@@ -8716,25 +9212,64 @@ export class MessageNasSetEventReportOutput {
     unref(): void
     static name: string
 }
+export class MessageNasSetPreferredNetworksInput {
+    /* Methods of Qmi-1.0.Qmi.MessageNasSetPreferredNetworksInput */
+    getClearPreviousPreferredNetworks(): { returnType: boolean, valueClearPreviousPreferredNetworks: boolean | null }
+    getMncPcsDigitIncludeStatus(): { returnType: boolean, valueMncPcsDigitIncludeStatus: MessageNasSetPreferredNetworksInputMncPcsDigitIncludeStatusElement[] | null }
+    getPreferredNetworks(): { returnType: boolean, valuePreferredNetworks: MessageNasSetPreferredNetworksInputPreferredNetworksElement[] | null }
+    ref(): MessageNasSetPreferredNetworksInput
+    setClearPreviousPreferredNetworks(valueClearPreviousPreferredNetworks: boolean): boolean
+    setMncPcsDigitIncludeStatus(valueMncPcsDigitIncludeStatus: MessageNasSetPreferredNetworksInputMncPcsDigitIncludeStatusElement[]): boolean
+    setPreferredNetworks(valuePreferredNetworks: MessageNasSetPreferredNetworksInputPreferredNetworksElement[]): boolean
+    unref(): void
+    static name: string
+    static new(): MessageNasSetPreferredNetworksInput
+    constructor()
+    /* Static methods and pseudo-constructors */
+    static new(): MessageNasSetPreferredNetworksInput
+}
+export class MessageNasSetPreferredNetworksInputMncPcsDigitIncludeStatusElement {
+    /* Fields of Qmi-1.0.Qmi.MessageNasSetPreferredNetworksInputMncPcsDigitIncludeStatusElement */
+    mcc: number
+    mnc: number
+    includesPcsDigit: boolean
+    static name: string
+}
+export class MessageNasSetPreferredNetworksInputPreferredNetworksElement {
+    /* Fields of Qmi-1.0.Qmi.MessageNasSetPreferredNetworksInputPreferredNetworksElement */
+    mcc: number
+    mnc: number
+    radioAccessTechnology: NasPlmnAccessTechnologyIdentifier
+    static name: string
+}
+export class MessageNasSetPreferredNetworksOutput {
+    /* Methods of Qmi-1.0.Qmi.MessageNasSetPreferredNetworksOutput */
+    getResult(): boolean
+    ref(): MessageNasSetPreferredNetworksOutput
+    unref(): void
+    static name: string
+}
 export class MessageNasSetSystemSelectionPreferenceInput {
     /* Methods of Qmi-1.0.Qmi.MessageNasSetSystemSelectionPreferenceInput */
-    getAcquisitionOrderPreference(): { returnType: boolean, valueAcquisitionOrderPreference: NasRadioInterface[] }
-    getBandPreference(): { returnType: boolean, valueBandPreference: NasBandPreference }
-    getCdmaPrlPreference(): { returnType: boolean, valueCdmaPrlPreference: NasCdmaPrlPreference }
-    getChangeDuration(): { returnType: boolean, valueChangeDuration: NasChangeDuration }
-    getEmergencyMode(): { returnType: boolean, valueEmergencyMode: boolean }
-    getExtendedLteBandPreference(): { returnType: boolean, valueExtendedLteBandPreferenceMaskLow: number, valueExtendedLteBandPreferenceMaskMidLow: number, valueExtendedLteBandPreferenceMaskMidHigh: number, valueExtendedLteBandPreferenceMaskHigh: number }
-    getGsmWcdmaAcquisitionOrderPreference(): { returnType: boolean, valueGsmWcdmaAcquisitionOrderPreference: NasGsmWcdmaAcquisitionOrderPreference }
-    getLteBandPreference(): { returnType: boolean, valueLteBandPreference: NasLteBandPreference }
-    getMncPdsDigitIncludeStatus(): { returnType: boolean, valueMncPdsDigitIncludeStatus: boolean }
-    getModePreference(): { returnType: boolean, valueModePreference: NasRatModePreference }
-    getNetworkSelectionPreference(): { returnType: boolean, valueNetworkSelectionPreferenceMode: NasNetworkSelectionPreference, valueNetworkSelectionPreferenceMcc: number, valueNetworkSelectionPreferenceMnc: number }
-    getNetworkSelectionRegistrationRestriction(): { returnType: boolean, valueNetworkSelectionRegistrationRestriction: NasNetworkSelectionRegistrationRestriction }
-    getRoamingPreference(): { returnType: boolean, valueRoamingPreference: NasRoamingPreference }
-    getServiceDomainPreference(): { returnType: boolean, valueServiceDomainPreference: NasServiceDomainPreference }
-    getTdScdmaBandPreference(): { returnType: boolean, valueTdScdmaBandPreference: NasTdScdmaBandPreference }
-    getUsagePreference(): { returnType: boolean, valueUsagePreference: NasUsagePreference }
-    getVoiceDomainPreference(): { returnType: boolean, valueVoiceDomainPreference: NasVoiceDomainPreference }
+    getAcquisitionOrderPreference(): { returnType: boolean, valueAcquisitionOrderPreference: NasRadioInterface[] | null }
+    getBandPreference(): { returnType: boolean, valueBandPreference: NasBandPreference | null }
+    getCdmaPrlPreference(): { returnType: boolean, valueCdmaPrlPreference: NasCdmaPrlPreference | null }
+    getChangeDuration(): { returnType: boolean, valueChangeDuration: NasChangeDuration | null }
+    getEmergencyMode(): { returnType: boolean, valueEmergencyMode: boolean | null }
+    getExtendedLteBandPreference(): { returnType: boolean, valueExtendedLteBandPreferenceMaskLow: number | null, valueExtendedLteBandPreferenceMaskMidLow: number | null, valueExtendedLteBandPreferenceMaskMidHigh: number | null, valueExtendedLteBandPreferenceMaskHigh: number | null }
+    getGsmWcdmaAcquisitionOrderPreference(): { returnType: boolean, valueGsmWcdmaAcquisitionOrderPreference: NasGsmWcdmaAcquisitionOrderPreference | null }
+    getLteBandPreference(): { returnType: boolean, valueLteBandPreference: NasLteBandPreference | null }
+    getMncPcsDigitIncludeStatus(): { returnType: boolean, valueMncPcsDigitIncludeStatus: boolean | null }
+    getModePreference(): { returnType: boolean, valueModePreference: NasRatModePreference | null }
+    getNetworkSelectionPreference(): { returnType: boolean, valueNetworkSelectionPreferenceMode: NasNetworkSelectionPreference | null, valueNetworkSelectionPreferenceMcc: number | null, valueNetworkSelectionPreferenceMnc: number | null }
+    getNetworkSelectionRegistrationRestriction(): { returnType: boolean, valueNetworkSelectionRegistrationRestriction: NasNetworkSelectionRegistrationRestriction | null }
+    getNr5gNsaBandPreference(): { returnType: boolean, valueNr5gNsaBandPreferenceMask0: number | null, valueNr5gNsaBandPreferenceMask1: number | null, valueNr5gNsaBandPreferenceMask2: number | null, valueNr5gNsaBandPreferenceMask3: number | null, valueNr5gNsaBandPreferenceMask4: number | null, valueNr5gNsaBandPreferenceMask5: number | null, valueNr5gNsaBandPreferenceMask6: number | null, valueNr5gNsaBandPreferenceMask7: number | null }
+    getNr5gSaBandPreference(): { returnType: boolean, valueNr5gSaBandPreferenceMask0: number | null, valueNr5gSaBandPreferenceMask1: number | null, valueNr5gSaBandPreferenceMask2: number | null, valueNr5gSaBandPreferenceMask3: number | null, valueNr5gSaBandPreferenceMask4: number | null, valueNr5gSaBandPreferenceMask5: number | null, valueNr5gSaBandPreferenceMask6: number | null, valueNr5gSaBandPreferenceMask7: number | null }
+    getRoamingPreference(): { returnType: boolean, valueRoamingPreference: NasRoamingPreference | null }
+    getServiceDomainPreference(): { returnType: boolean, valueServiceDomainPreference: NasServiceDomainPreference | null }
+    getTdScdmaBandPreference(): { returnType: boolean, valueTdScdmaBandPreference: NasTdScdmaBandPreference | null }
+    getUsagePreference(): { returnType: boolean, valueUsagePreference: NasUsagePreference | null }
+    getVoiceDomainPreference(): { returnType: boolean, valueVoiceDomainPreference: NasVoiceDomainPreference | null }
     ref(): MessageNasSetSystemSelectionPreferenceInput
     setAcquisitionOrderPreference(valueAcquisitionOrderPreference: NasRadioInterface[]): boolean
     setBandPreference(valueBandPreference: NasBandPreference): boolean
@@ -8744,10 +9279,12 @@ export class MessageNasSetSystemSelectionPreferenceInput {
     setExtendedLteBandPreference(valueExtendedLteBandPreferenceMaskLow: number, valueExtendedLteBandPreferenceMaskMidLow: number, valueExtendedLteBandPreferenceMaskMidHigh: number, valueExtendedLteBandPreferenceMaskHigh: number): boolean
     setGsmWcdmaAcquisitionOrderPreference(valueGsmWcdmaAcquisitionOrderPreference: NasGsmWcdmaAcquisitionOrderPreference): boolean
     setLteBandPreference(valueLteBandPreference: NasLteBandPreference): boolean
-    setMncPdsDigitIncludeStatus(valueMncPdsDigitIncludeStatus: boolean): boolean
+    setMncPcsDigitIncludeStatus(valueMncPcsDigitIncludeStatus: boolean): boolean
     setModePreference(valueModePreference: NasRatModePreference): boolean
     setNetworkSelectionPreference(valueNetworkSelectionPreferenceMode: NasNetworkSelectionPreference, valueNetworkSelectionPreferenceMcc: number, valueNetworkSelectionPreferenceMnc: number): boolean
     setNetworkSelectionRegistrationRestriction(valueNetworkSelectionRegistrationRestriction: NasNetworkSelectionRegistrationRestriction): boolean
+    setNr5gNsaBandPreference(valueNr5gNsaBandPreferenceMask0: number, valueNr5gNsaBandPreferenceMask1: number, valueNr5gNsaBandPreferenceMask2: number, valueNr5gNsaBandPreferenceMask3: number, valueNr5gNsaBandPreferenceMask4: number, valueNr5gNsaBandPreferenceMask5: number, valueNr5gNsaBandPreferenceMask6: number, valueNr5gNsaBandPreferenceMask7: number): boolean
+    setNr5gSaBandPreference(valueNr5gSaBandPreferenceMask0: number, valueNr5gSaBandPreferenceMask1: number, valueNr5gSaBandPreferenceMask2: number, valueNr5gSaBandPreferenceMask3: number, valueNr5gSaBandPreferenceMask4: number, valueNr5gSaBandPreferenceMask5: number, valueNr5gSaBandPreferenceMask6: number, valueNr5gSaBandPreferenceMask7: number): boolean
     setRoamingPreference(valueRoamingPreference: NasRoamingPreference): boolean
     setServiceDomainPreference(valueServiceDomainPreference: NasServiceDomainPreference): boolean
     setTdScdmaBandPreference(valueTdScdmaBandPreference: NasTdScdmaBandPreference): boolean
@@ -8769,7 +9306,7 @@ export class MessageNasSetSystemSelectionPreferenceOutput {
 }
 export class MessageNasSetTechnologyPreferenceInput {
     /* Methods of Qmi-1.0.Qmi.MessageNasSetTechnologyPreferenceInput */
-    getCurrent(): { returnType: boolean, valueCurrentTechnologyPreference: NasRadioTechnologyPreference, valueCurrentTechnologyPreferenceDuration: NasPreferenceDuration }
+    getCurrent(): { returnType: boolean, valueCurrentTechnologyPreference: NasRadioTechnologyPreference | null, valueCurrentTechnologyPreferenceDuration: NasPreferenceDuration | null }
     ref(): MessageNasSetTechnologyPreferenceInput
     setCurrent(valueCurrentTechnologyPreference: NasRadioTechnologyPreference, valueCurrentTechnologyPreferenceDuration: NasPreferenceDuration): boolean
     unref(): void
@@ -8788,8 +9325,8 @@ export class MessageNasSetTechnologyPreferenceOutput {
 }
 export class MessageNasSwiGetStatusOutput {
     /* Methods of Qmi-1.0.Qmi.MessageNasSwiGetStatusOutput */
-    getCommonInfo(): { returnType: boolean, valueCommonInfoTemperature: number, valueCommonInfoModemMode: NasSwiModemMode, valueCommonInfoSystemMode: NasSwiSystemMode, valueCommonInfoImsRegistrationState: NasSwiImsRegState, valueCommonInfoPacketServiceState: NasSwiPsState }
-    getLteInfo(): { returnType: boolean, valueLteInfoBand: NasActiveBand, valueLteInfoBandwidth: NasDLBandwidth, valueLteInfoRxChannel: number, valueLteInfoTxChannel: number, valueLteInfoEmmState: NasSwiEmmState, valueLteInfoEmmSubState: number, valueLteInfoEmmConnectionState: NasSwiEmmConnectionState }
+    getCommonInfoV2(): { returnType: boolean, valueCommonInfoV2Temperature: number | null, valueCommonInfoV2ModemMode: NasSwiModemMode | null, valueCommonInfoV2SystemMode: NasSwiSystemMode | null, valueCommonInfoV2ImsRegistrationState: NasSwiImsRegState | null, valueCommonInfoV2PacketServiceState: NasSwiPsState | null }
+    getLteInfo(): { returnType: boolean, valueLteInfoBand: NasActiveBand | null, valueLteInfoBandwidth: NasDLBandwidth | null, valueLteInfoRxChannel: number | null, valueLteInfoTxChannel: number | null, valueLteInfoEmmState: NasSwiEmmState | null, valueLteInfoEmmSubState: number | null, valueLteInfoEmmConnectionState: NasSwiEmmConnectionState | null }
     getResult(): boolean
     ref(): MessageNasSwiGetStatusOutput
     unref(): void
@@ -8804,10 +9341,10 @@ export class MessageOmaCancelSessionOutput {
 }
 export class MessageOmaGetFeatureSettingOutput {
     /* Methods of Qmi-1.0.Qmi.MessageOmaGetFeatureSettingOutput */
-    getDeviceProvisioningServiceUpdateConfig(): { returnType: boolean, valueDeviceProvisioningServiceUpdateConfig: boolean }
-    getHfaFeatureConfig(): { returnType: boolean, valueHfaFeatureConfig: boolean }
-    getHfaFeatureDoneState(): { returnType: boolean, valueHfaFeatureDoneState: OmaHfaFeatureDoneState }
-    getPrlUpdateServiceConfig(): { returnType: boolean, valuePrlUpdateServiceConfig: boolean }
+    getDeviceProvisioningServiceUpdateConfig(): { returnType: boolean, valueDeviceProvisioningServiceUpdateConfig: boolean | null }
+    getHfaFeatureConfig(): { returnType: boolean, valueHfaFeatureConfig: boolean | null }
+    getHfaFeatureDoneState(): { returnType: boolean, valueHfaFeatureDoneState: OmaHfaFeatureDoneState | null }
+    getPrlUpdateServiceConfig(): { returnType: boolean, valuePrlUpdateServiceConfig: boolean | null }
     getResult(): boolean
     ref(): MessageOmaGetFeatureSettingOutput
     unref(): void
@@ -8815,11 +9352,11 @@ export class MessageOmaGetFeatureSettingOutput {
 }
 export class MessageOmaGetSessionInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessageOmaGetSessionInfoOutput */
-    getNetworkInitiatedAlert(): { returnType: boolean, valueNetworkInitiatedAlertSessionType: OmaSessionType, valueNetworkInitiatedAlertSessionId: number }
+    getNetworkInitiatedAlert(): { returnType: boolean, valueNetworkInitiatedAlertSessionType: OmaSessionType | null, valueNetworkInitiatedAlertSessionId: number | null }
     getResult(): boolean
-    getRetryInfo(): { returnType: boolean, valueRetryInfoRetryCount: number, valueRetryInfoRetryPauseTimer: number, valueRetryInfoRetryPauseTimerRemaining: number }
-    getSessionFailedReason(): { returnType: boolean, valueSessionFailedReason: OmaSessionFailedReason }
-    getSessionInfo(): { returnType: boolean, valueSessionInfoSessionState: OmaSessionState, valueSessionInfoSessionType: OmaSessionType }
+    getRetryInfo(): { returnType: boolean, valueRetryInfoRetryCount: number | null, valueRetryInfoRetryPauseTimer: number | null, valueRetryInfoRetryPauseTimerRemaining: number | null }
+    getSessionFailedReason(): { returnType: boolean, valueSessionFailedReason: OmaSessionFailedReason | null }
+    getSessionInfo(): { returnType: boolean, valueSessionInfoSessionState: OmaSessionState | null, valueSessionInfoSessionType: OmaSessionType | null }
     ref(): MessageOmaGetSessionInfoOutput
     unref(): void
     static name: string
@@ -8833,7 +9370,7 @@ export class MessageOmaResetOutput {
 }
 export class MessageOmaSendSelectionInput {
     /* Methods of Qmi-1.0.Qmi.MessageOmaSendSelectionInput */
-    getNetworkInitiatedAlertSelection(): { returnType: boolean, valueNetworkInitiatedAlertSelectionControlPointSelectionAccept: boolean, valueNetworkInitiatedAlertSelectionSessionId: number }
+    getNetworkInitiatedAlertSelection(): { returnType: boolean, valueNetworkInitiatedAlertSelectionControlPointSelectionAccept: boolean | null, valueNetworkInitiatedAlertSelectionSessionId: number | null }
     ref(): MessageOmaSendSelectionInput
     setNetworkInitiatedAlertSelection(valueNetworkInitiatedAlertSelectionControlPointSelectionAccept: boolean, valueNetworkInitiatedAlertSelectionSessionId: number): boolean
     unref(): void
@@ -8852,8 +9389,8 @@ export class MessageOmaSendSelectionOutput {
 }
 export class MessageOmaSetEventReportInput {
     /* Methods of Qmi-1.0.Qmi.MessageOmaSetEventReportInput */
-    getNetworkInitiatedAlertReporting(): { returnType: boolean, valueNetworkInitiatedAlertReporting: boolean }
-    getSessionStateReporting(): { returnType: boolean, valueSessionStateReporting: boolean }
+    getNetworkInitiatedAlertReporting(): { returnType: boolean, valueNetworkInitiatedAlertReporting: boolean | null }
+    getSessionStateReporting(): { returnType: boolean, valueSessionStateReporting: boolean | null }
     ref(): MessageOmaSetEventReportInput
     setNetworkInitiatedAlertReporting(valueNetworkInitiatedAlertReporting: boolean): boolean
     setSessionStateReporting(valueSessionStateReporting: boolean): boolean
@@ -8873,9 +9410,9 @@ export class MessageOmaSetEventReportOutput {
 }
 export class MessageOmaSetFeatureSettingInput {
     /* Methods of Qmi-1.0.Qmi.MessageOmaSetFeatureSettingInput */
-    getDeviceProvisioningServiceUpdateConfig(): { returnType: boolean, valueDeviceProvisioningServiceUpdateConfig: boolean }
-    getHfaFeatureConfig(): { returnType: boolean, valueHfaFeatureConfig: boolean }
-    getPrlUpdateServiceConfig(): { returnType: boolean, valuePrlUpdateServiceConfig: boolean }
+    getDeviceProvisioningServiceUpdateConfig(): { returnType: boolean, valueDeviceProvisioningServiceUpdateConfig: boolean | null }
+    getHfaFeatureConfig(): { returnType: boolean, valueHfaFeatureConfig: boolean | null }
+    getPrlUpdateServiceConfig(): { returnType: boolean, valuePrlUpdateServiceConfig: boolean | null }
     ref(): MessageOmaSetFeatureSettingInput
     setDeviceProvisioningServiceUpdateConfig(valueDeviceProvisioningServiceUpdateConfig: boolean): boolean
     setHfaFeatureConfig(valueHfaFeatureConfig: boolean): boolean
@@ -8896,7 +9433,7 @@ export class MessageOmaSetFeatureSettingOutput {
 }
 export class MessageOmaStartSessionInput {
     /* Methods of Qmi-1.0.Qmi.MessageOmaStartSessionInput */
-    getSessionType(): { returnType: boolean, valueSessionType: OmaSessionType }
+    getSessionType(): { returnType: boolean, valueSessionType: OmaSessionType | null }
     ref(): MessageOmaStartSessionInput
     setSessionType(valueSessionType: OmaSessionType): boolean
     unref(): void
@@ -8915,15 +9452,15 @@ export class MessageOmaStartSessionOutput {
 }
 export class MessagePbmGetAllCapabilitiesOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePbmGetAllCapabilitiesOutput */
-    getAdditionalNumberAlphaStringCapability(): { returnType: boolean, valueAdditionalNumberAlphaStringCapability: MessagePbmGetAllCapabilitiesOutputAdditionalNumberAlphaStringCapabilityElement[] }
-    getAdditionalNumberCapability(): { returnType: boolean, valueAdditionalNumberCapability: MessagePbmGetAllCapabilitiesOutputAdditionalNumberCapabilityElement[] }
-    getCapabilityBasicInformation(): { returnType: boolean, valueCapabilityBasicInformation: MessagePbmGetAllCapabilitiesOutputCapabilityBasicInformationElement[] }
-    getEmailCapability(): { returnType: boolean, valueEmailCapability: MessagePbmGetAllCapabilitiesOutputEmailCapabilityElement[] }
-    getGroupCapability(): { returnType: boolean, valueGroupCapability: MessagePbmGetAllCapabilitiesOutputGroupCapabilityElement[] }
-    getGroupingInformationAlphaStringCapability(): { returnType: boolean, valueGroupingInformationAlphaStringCapability: MessagePbmGetAllCapabilitiesOutputGroupingInformationAlphaStringCapabilityElement[] }
-    getHiddenRecordsCapability(): { returnType: boolean, valueHiddenRecordsCapability: MessagePbmGetAllCapabilitiesOutputHiddenRecordsCapabilityElement[] }
+    getAdditionalNumberAlphaStringCapability(): { returnType: boolean, valueAdditionalNumberAlphaStringCapability: MessagePbmGetAllCapabilitiesOutputAdditionalNumberAlphaStringCapabilityElement[] | null }
+    getAdditionalNumberCapability(): { returnType: boolean, valueAdditionalNumberCapability: MessagePbmGetAllCapabilitiesOutputAdditionalNumberCapabilityElement[] | null }
+    getCapabilityBasicInformation(): { returnType: boolean, valueCapabilityBasicInformation: MessagePbmGetAllCapabilitiesOutputCapabilityBasicInformationElement[] | null }
+    getEmailCapability(): { returnType: boolean, valueEmailCapability: MessagePbmGetAllCapabilitiesOutputEmailCapabilityElement[] | null }
+    getGroupCapability(): { returnType: boolean, valueGroupCapability: MessagePbmGetAllCapabilitiesOutputGroupCapabilityElement[] | null }
+    getGroupingInformationAlphaStringCapability(): { returnType: boolean, valueGroupingInformationAlphaStringCapability: MessagePbmGetAllCapabilitiesOutputGroupingInformationAlphaStringCapabilityElement[] | null }
+    getHiddenRecordsCapability(): { returnType: boolean, valueHiddenRecordsCapability: MessagePbmGetAllCapabilitiesOutputHiddenRecordsCapabilityElement[] | null }
     getResult(): boolean
-    getSecondNameCapability(): { returnType: boolean, valueSecondNameCapability: MessagePbmGetAllCapabilitiesOutputSecondNameCapabilityElement[] }
+    getSecondNameCapability(): { returnType: boolean, valueSecondNameCapability: MessagePbmGetAllCapabilitiesOutputSecondNameCapabilityElement[] | null }
     ref(): MessagePbmGetAllCapabilitiesOutput
     unref(): void
     static name: string
@@ -8995,7 +9532,7 @@ export class MessagePbmGetAllCapabilitiesOutputSecondNameCapabilityElement {
 }
 export class MessagePbmGetCapabilitiesInput {
     /* Methods of Qmi-1.0.Qmi.MessagePbmGetCapabilitiesInput */
-    getPhonebookInformation(): { returnType: boolean, valuePhonebookInformationSessionType: PbmSessionType, valuePhonebookInformationPhonebookType: PbmPhonebookType }
+    getPhonebookInformation(): { returnType: boolean, valuePhonebookInformationSessionType: PbmSessionType | null, valuePhonebookInformationPhonebookType: PbmPhonebookType | null }
     ref(): MessagePbmGetCapabilitiesInput
     setPhonebookInformation(valuePhonebookInformationSessionType: PbmSessionType, valuePhonebookInformationPhonebookType: PbmPhonebookType): boolean
     unref(): void
@@ -9007,22 +9544,22 @@ export class MessagePbmGetCapabilitiesInput {
 }
 export class MessagePbmGetCapabilitiesOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePbmGetCapabilitiesOutput */
-    getAdditionalNumberAlphaStringCapability(): { returnType: boolean, valueAdditionalNumberAlphaStringCapabilityMaximumRecords: number, valueAdditionalNumberAlphaStringCapabilityUsedRecords: number, valueAdditionalNumberAlphaStringCapabilityMaximumStringLength: number }
-    getAdditionalNumberCapability(): { returnType: boolean, valueAdditionalNumberCapabilityMaximumAdditionalNumbers: number, valueAdditionalNumberCapabilityMaximumAdditionalNumberLength: number, valueAdditionalNumberCapabilityMaximumAdditionalNumberTagLength: number }
-    getCapabilityBasicInformation(): { returnType: boolean, valueCapabilityBasicInformationSessionType: PbmSessionType, valueCapabilityBasicInformationPhonebookType: PbmPhonebookType, valueCapabilityBasicInformationUsedRecords: number, valueCapabilityBasicInformationMaximumRecords: number, valueCapabilityBasicInformationMaximumNumberLength: number, valueCapabilityBasicInformationMaximumNameLength: number }
-    getEmailCapability(): { returnType: boolean, valueEmailCapabilityMaximumEmails: number, valueEmailCapabilityMaximumEmailAddressLength: number }
-    getGroupCapability(): { returnType: boolean, valueGroupCapabilityMaximumGroups: number, valueGroupCapabilityMaximumGroupTagLength: number }
-    getGroupingInformationAlphaStringCapability(): { returnType: boolean, valueGroupingInformationAlphaStringCapabilityMaximumRecords: number, valueGroupingInformationAlphaStringCapabilityUsedRecords: number, valueGroupingInformationAlphaStringCapabilityMaximumStringLength: number }
-    getHiddenRecordsCapability(): { returnType: boolean, valueHiddenRecordsCapabilitySupported: boolean }
+    getAdditionalNumberAlphaStringCapability(): { returnType: boolean, valueAdditionalNumberAlphaStringCapabilityMaximumRecords: number | null, valueAdditionalNumberAlphaStringCapabilityUsedRecords: number | null, valueAdditionalNumberAlphaStringCapabilityMaximumStringLength: number | null }
+    getAdditionalNumberCapability(): { returnType: boolean, valueAdditionalNumberCapabilityMaximumAdditionalNumbers: number | null, valueAdditionalNumberCapabilityMaximumAdditionalNumberLength: number | null, valueAdditionalNumberCapabilityMaximumAdditionalNumberTagLength: number | null }
+    getCapabilityBasicInformation(): { returnType: boolean, valueCapabilityBasicInformationSessionType: PbmSessionType | null, valueCapabilityBasicInformationPhonebookType: PbmPhonebookType | null, valueCapabilityBasicInformationUsedRecords: number | null, valueCapabilityBasicInformationMaximumRecords: number | null, valueCapabilityBasicInformationMaximumNumberLength: number | null, valueCapabilityBasicInformationMaximumNameLength: number | null }
+    getEmailCapability(): { returnType: boolean, valueEmailCapabilityMaximumEmails: number | null, valueEmailCapabilityMaximumEmailAddressLength: number | null }
+    getGroupCapability(): { returnType: boolean, valueGroupCapabilityMaximumGroups: number | null, valueGroupCapabilityMaximumGroupTagLength: number | null }
+    getGroupingInformationAlphaStringCapability(): { returnType: boolean, valueGroupingInformationAlphaStringCapabilityMaximumRecords: number | null, valueGroupingInformationAlphaStringCapabilityUsedRecords: number | null, valueGroupingInformationAlphaStringCapabilityMaximumStringLength: number | null }
+    getHiddenRecordsCapability(): { returnType: boolean, valueHiddenRecordsCapabilitySupported: boolean | null }
     getResult(): boolean
-    getSecondNameCapability(): { returnType: boolean, valueSecondNameCapabilityMaximumSecondNameLength: number }
+    getSecondNameCapability(): { returnType: boolean, valueSecondNameCapabilityMaximumSecondNameLength: number | null }
     ref(): MessagePbmGetCapabilitiesOutput
     unref(): void
     static name: string
 }
 export class MessagePbmIndicationRegisterInput {
     /* Methods of Qmi-1.0.Qmi.MessagePbmIndicationRegisterInput */
-    getEventRegistrationMask(): { returnType: boolean, valueEventRegistrationMask: PbmEventRegistrationFlag }
+    getEventRegistrationMask(): { returnType: boolean, valueEventRegistrationMask: PbmEventRegistrationFlag | null }
     ref(): MessagePbmIndicationRegisterInput
     setEventRegistrationMask(valueEventRegistrationMask: PbmEventRegistrationFlag): boolean
     unref(): void
@@ -9034,7 +9571,7 @@ export class MessagePbmIndicationRegisterInput {
 }
 export class MessagePbmIndicationRegisterOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePbmIndicationRegisterOutput */
-    getEventRegistrationMask(): { returnType: boolean, valueEventRegistrationMask: PbmEventRegistrationFlag }
+    getEventRegistrationMask(): { returnType: boolean, valueEventRegistrationMask: PbmEventRegistrationFlag | null }
     getResult(): boolean
     ref(): MessagePbmIndicationRegisterOutput
     unref(): void
@@ -9042,8 +9579,8 @@ export class MessagePbmIndicationRegisterOutput {
 }
 export class MessagePdcActivateConfigInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcActivateConfigInput */
-    getConfigType(): { returnType: boolean, valueConfigType: PdcConfigurationType }
-    getToken(): { returnType: boolean, valueToken: number }
+    getConfigType(): { returnType: boolean, valueConfigType: PdcConfigurationType | null }
+    getToken(): { returnType: boolean, valueToken: number | null }
     ref(): MessagePdcActivateConfigInput
     setConfigType(valueConfigType: PdcConfigurationType): boolean
     setToken(valueToken: number): boolean
@@ -9057,14 +9594,14 @@ export class MessagePdcActivateConfigInput {
 export class MessagePdcActivateConfigOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcActivateConfigOutput */
     getResult(): boolean
-    getToken(): { returnType: boolean, valueToken: number }
+    getToken(): { returnType: boolean, valueToken: number | null }
     ref(): MessagePdcActivateConfigOutput
     unref(): void
     static name: string
 }
 export class MessagePdcConfigChangeInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcConfigChangeInput */
-    getTypeWithId(): { returnType: boolean, valueTypeWithId: ConfigTypeAndId }
+    getTypeWithId(): { returnType: boolean, valueTypeWithId: ConfigTypeAndId | null }
     ref(): MessagePdcConfigChangeInput
     setTypeWithId(valueTypeWithId: ConfigTypeAndId): boolean
     unref(): void
@@ -9077,15 +9614,15 @@ export class MessagePdcConfigChangeInput {
 export class MessagePdcConfigChangeOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcConfigChangeOutput */
     getResult(): boolean
-    getTypeWithId(): { returnType: boolean, valueTypeWithId: ConfigTypeAndId }
+    getTypeWithId(): { returnType: boolean, valueTypeWithId: ConfigTypeAndId | null }
     ref(): MessagePdcConfigChangeOutput
     unref(): void
     static name: string
 }
 export class MessagePdcDeactivateConfigInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcDeactivateConfigInput */
-    getConfigType(): { returnType: boolean, valueConfigType: PdcConfigurationType }
-    getToken(): { returnType: boolean, valueToken: number }
+    getConfigType(): { returnType: boolean, valueConfigType: PdcConfigurationType | null }
+    getToken(): { returnType: boolean, valueToken: number | null }
     ref(): MessagePdcDeactivateConfigInput
     setConfigType(valueConfigType: PdcConfigurationType): boolean
     setToken(valueToken: number): boolean
@@ -9099,16 +9636,16 @@ export class MessagePdcDeactivateConfigInput {
 export class MessagePdcDeactivateConfigOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcDeactivateConfigOutput */
     getResult(): boolean
-    getToken(): { returnType: boolean, valueToken: number }
+    getToken(): { returnType: boolean, valueToken: number | null }
     ref(): MessagePdcDeactivateConfigOutput
     unref(): void
     static name: string
 }
 export class MessagePdcDeleteConfigInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcDeleteConfigInput */
-    getConfigType(): { returnType: boolean, valueConfigType: PdcConfigurationType }
-    getId(): { returnType: boolean, valueId: any[] }
-    getToken(): { returnType: boolean, valueToken: number }
+    getConfigType(): { returnType: boolean, valueConfigType: PdcConfigurationType | null }
+    getId(): { returnType: boolean, valueId: any[] | null }
+    getToken(): { returnType: boolean, valueToken: number | null }
     ref(): MessagePdcDeleteConfigInput
     setConfigType(valueConfigType: PdcConfigurationType): boolean
     setId(valueId: any[]): boolean
@@ -9123,15 +9660,15 @@ export class MessagePdcDeleteConfigInput {
 export class MessagePdcDeleteConfigOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcDeleteConfigOutput */
     getResult(): boolean
-    getToken(): { returnType: boolean, valueToken: number }
+    getToken(): { returnType: boolean, valueToken: number | null }
     ref(): MessagePdcDeleteConfigOutput
     unref(): void
     static name: string
 }
 export class MessagePdcGetConfigInfoInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcGetConfigInfoInput */
-    getToken(): { returnType: boolean, valueToken: number }
-    getTypeWithId(): { returnType: boolean, valueTypeWithId: ConfigTypeAndId }
+    getToken(): { returnType: boolean, valueToken: number | null }
+    getTypeWithId(): { returnType: boolean, valueTypeWithId: ConfigTypeAndId | null }
     ref(): MessagePdcGetConfigInfoInput
     setToken(valueToken: number): boolean
     setTypeWithId(valueTypeWithId: ConfigTypeAndId): boolean
@@ -9151,8 +9688,8 @@ export class MessagePdcGetConfigInfoOutput {
 }
 export class MessagePdcGetConfigLimitsInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcGetConfigLimitsInput */
-    getConfigType(): { returnType: boolean, valueConfigType: PdcConfigurationType }
-    getToken(): { returnType: boolean, valueToken: number }
+    getConfigType(): { returnType: boolean, valueConfigType: PdcConfigurationType | null }
+    getToken(): { returnType: boolean, valueToken: number | null }
     ref(): MessagePdcGetConfigLimitsInput
     setConfigType(valueConfigType: PdcConfigurationType): boolean
     setToken(valueToken: number): boolean
@@ -9165,18 +9702,18 @@ export class MessagePdcGetConfigLimitsInput {
 }
 export class MessagePdcGetConfigLimitsOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcGetConfigLimitsOutput */
-    getCurrentSize(): { returnType: boolean, valueCurrentSize: number }
-    getMaximumSize(): { returnType: boolean, valueMaximumSize: number }
+    getCurrentSize(): { returnType: boolean, valueCurrentSize: number | null }
+    getMaximumSize(): { returnType: boolean, valueMaximumSize: number | null }
     getResult(): boolean
-    getToken(): { returnType: boolean, valueToken: number }
+    getToken(): { returnType: boolean, valueToken: number | null }
     ref(): MessagePdcGetConfigLimitsOutput
     unref(): void
     static name: string
 }
 export class MessagePdcGetDefaultConfigInfoInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcGetDefaultConfigInfoInput */
-    getConfigType(): { returnType: boolean, valueConfigType: PdcConfigurationType }
-    getToken(): { returnType: boolean, valueToken: number }
+    getConfigType(): { returnType: boolean, valueConfigType: PdcConfigurationType | null }
+    getToken(): { returnType: boolean, valueToken: number | null }
     ref(): MessagePdcGetDefaultConfigInfoInput
     setConfigType(valueConfigType: PdcConfigurationType): boolean
     setToken(valueToken: number): boolean
@@ -9189,19 +9726,19 @@ export class MessagePdcGetDefaultConfigInfoInput {
 }
 export class MessagePdcGetDefaultConfigInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcGetDefaultConfigInfoOutput */
-    getDescription(): { returnType: boolean, valueDescription: string }
+    getDescription(): { returnType: boolean, valueDescription: string | null }
     getResult(): boolean
-    getToken(): { returnType: boolean, valueToken: number }
-    getTotalSize(): { returnType: boolean, valueTotalSize: number }
-    getVersion(): { returnType: boolean, valueVersion: number }
+    getToken(): { returnType: boolean, valueToken: number | null }
+    getTotalSize(): { returnType: boolean, valueTotalSize: number | null }
+    getVersion(): { returnType: boolean, valueVersion: number | null }
     ref(): MessagePdcGetDefaultConfigInfoOutput
     unref(): void
     static name: string
 }
 export class MessagePdcGetSelectedConfigInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcGetSelectedConfigInput */
-    getConfigType(): { returnType: boolean, valueConfigType: PdcConfigurationType }
-    getToken(): { returnType: boolean, valueToken: number }
+    getConfigType(): { returnType: boolean, valueConfigType: PdcConfigurationType | null }
+    getToken(): { returnType: boolean, valueToken: number | null }
     ref(): MessagePdcGetSelectedConfigInput
     setConfigType(valueConfigType: PdcConfigurationType): boolean
     setToken(valueToken: number): boolean
@@ -9215,15 +9752,15 @@ export class MessagePdcGetSelectedConfigInput {
 export class MessagePdcGetSelectedConfigOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcGetSelectedConfigOutput */
     getResult(): boolean
-    getToken(): { returnType: boolean, valueToken: number }
+    getToken(): { returnType: boolean, valueToken: number | null }
     ref(): MessagePdcGetSelectedConfigOutput
     unref(): void
     static name: string
 }
 export class MessagePdcListConfigsInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcListConfigsInput */
-    getConfigType(): { returnType: boolean, valueConfigType: PdcConfigurationType }
-    getToken(): { returnType: boolean, valueToken: number }
+    getConfigType(): { returnType: boolean, valueConfigType: PdcConfigurationType | null }
+    getToken(): { returnType: boolean, valueToken: number | null }
     ref(): MessagePdcListConfigsInput
     setConfigType(valueConfigType: PdcConfigurationType): boolean
     setToken(valueToken: number): boolean
@@ -9243,8 +9780,8 @@ export class MessagePdcListConfigsOutput {
 }
 export class MessagePdcLoadConfigInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcLoadConfigInput */
-    getConfigChunk(): { returnType: boolean, valueConfigChunkType: PdcConfigurationType, valueConfigChunkId: any[], valueConfigChunkTotalSize: number, valueConfigChunkChunk: any[] }
-    getToken(): { returnType: boolean, valueToken: number }
+    getConfigChunk(): { returnType: boolean, valueConfigChunkType: PdcConfigurationType | null, valueConfigChunkId: any[] | null, valueConfigChunkTotalSize: number | null, valueConfigChunkChunk: any[] | null }
+    getToken(): { returnType: boolean, valueToken: number | null }
     ref(): MessagePdcLoadConfigInput
     setConfigChunk(valueConfigChunkType: PdcConfigurationType, valueConfigChunkId: any[], valueConfigChunkTotalSize: number, valueConfigChunkChunk: any[]): boolean
     setToken(valueToken: number): boolean
@@ -9258,15 +9795,17 @@ export class MessagePdcLoadConfigInput {
 export class MessagePdcLoadConfigOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcLoadConfigOutput */
     getResult(): boolean
-    getToken(): { returnType: boolean, valueToken: number }
+    getToken(): { returnType: boolean, valueToken: number | null }
     ref(): MessagePdcLoadConfigOutput
     unref(): void
     static name: string
 }
 export class MessagePdcRegisterInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcRegisterInput */
-    getEnableReporting(): { returnType: boolean, valueEnableReporting: boolean }
+    getEnableRefresh(): { returnType: boolean, valueEnableRefresh: boolean | null }
+    getEnableReporting(): { returnType: boolean, valueEnableReporting: boolean | null }
     ref(): MessagePdcRegisterInput
+    setEnableRefresh(valueEnableRefresh: boolean): boolean
     setEnableReporting(valueEnableReporting: boolean): boolean
     unref(): void
     static name: string
@@ -9291,8 +9830,8 @@ export class MessagePdcResetOutput {
 }
 export class MessagePdcSetSelectedConfigInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcSetSelectedConfigInput */
-    getToken(): { returnType: boolean, valueToken: number }
-    getTypeWithId(): { returnType: boolean, valueTypeWithId: ConfigTypeAndId }
+    getToken(): { returnType: boolean, valueToken: number | null }
+    getTypeWithId(): { returnType: boolean, valueTypeWithId: ConfigTypeAndId | null }
     ref(): MessagePdcSetSelectedConfigInput
     setToken(valueToken: number): boolean
     setTypeWithId(valueTypeWithId: ConfigTypeAndId): boolean
@@ -9306,14 +9845,14 @@ export class MessagePdcSetSelectedConfigInput {
 export class MessagePdcSetSelectedConfigOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdcSetSelectedConfigOutput */
     getResult(): boolean
-    getToken(): { returnType: boolean, valueToken: number }
+    getToken(): { returnType: boolean, valueToken: number | null }
     ref(): MessagePdcSetSelectedConfigOutput
     unref(): void
     static name: string
 }
 export class MessagePdsGetAgpsConfigInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsGetAgpsConfigInput */
-    getNetworkMode(): { returnType: boolean, valueNetworkMode: PdsNetworkMode }
+    getNetworkMode(): { returnType: boolean, valueNetworkMode: PdsNetworkMode | null }
     ref(): MessagePdsGetAgpsConfigInput
     setNetworkMode(valueNetworkMode: PdsNetworkMode): boolean
     unref(): void
@@ -9325,8 +9864,8 @@ export class MessagePdsGetAgpsConfigInput {
 }
 export class MessagePdsGetAgpsConfigOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsGetAgpsConfigOutput */
-    getLocationServerAddress(): { returnType: boolean, valueLocationServerAddressIp: number, valueLocationServerAddressPort: number }
-    getLocationServerUrl(): { returnType: boolean, valueLocationServerUrl: any[] }
+    getLocationServerAddress(): { returnType: boolean, valueLocationServerAddressIp: number | null, valueLocationServerAddressPort: number | null }
+    getLocationServerUrl(): { returnType: boolean, valueLocationServerUrl: any[] | null }
     getResult(): boolean
     ref(): MessagePdsGetAgpsConfigOutput
     unref(): void
@@ -9335,14 +9874,14 @@ export class MessagePdsGetAgpsConfigOutput {
 export class MessagePdsGetAutoTrackingStateOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsGetAutoTrackingStateOutput */
     getResult(): boolean
-    getState(): { returnType: boolean, valueStateAutoTrackingState: boolean }
+    getState(): { returnType: boolean, valueStateAutoTrackingState: boolean | null }
     ref(): MessagePdsGetAutoTrackingStateOutput
     unref(): void
     static name: string
 }
 export class MessagePdsGetDefaultTrackingSessionOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsGetDefaultTrackingSessionOutput */
-    getInfo(): { returnType: boolean, valueInfoSessionOperation: PdsOperatingMode, valueInfoPositionDataTimeout: number, valueInfoInterval: number, valueInfoAccuracyThreshold: number }
+    getInfo(): { returnType: boolean, valueInfoSessionOperation: PdsOperatingMode | null, valueInfoPositionDataTimeout: number | null, valueInfoInterval: number | null, valueInfoAccuracyThreshold: number | null }
     getResult(): boolean
     ref(): MessagePdsGetDefaultTrackingSessionOutput
     unref(): void
@@ -9351,7 +9890,7 @@ export class MessagePdsGetDefaultTrackingSessionOutput {
 export class MessagePdsGetGpsServiceStateOutput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsGetGpsServiceStateOutput */
     getResult(): boolean
-    getState(): { returnType: boolean, valueStateGpsServiceState: boolean, valueStateTrackingSessionState: PdsTrackingSessionState }
+    getState(): { returnType: boolean, valueStateGpsServiceState: boolean | null, valueStateTrackingSessionState: PdsTrackingSessionState | null }
     ref(): MessagePdsGetGpsServiceStateOutput
     unref(): void
     static name: string
@@ -9365,9 +9904,9 @@ export class MessagePdsResetOutput {
 }
 export class MessagePdsSetAgpsConfigInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsSetAgpsConfigInput */
-    getLocationServerAddress(): { returnType: boolean, valueLocationServerAddressIp: number, valueLocationServerAddressPort: number }
-    getLocationServerUrl(): { returnType: boolean, valueLocationServerUrl: any[] }
-    getNetworkMode(): { returnType: boolean, valueNetworkMode: PdsNetworkMode }
+    getLocationServerAddress(): { returnType: boolean, valueLocationServerAddressIp: number | null, valueLocationServerAddressPort: number | null }
+    getLocationServerUrl(): { returnType: boolean, valueLocationServerUrl: any[] | null }
+    getNetworkMode(): { returnType: boolean, valueNetworkMode: PdsNetworkMode | null }
     ref(): MessagePdsSetAgpsConfigInput
     setLocationServerAddress(valueLocationServerAddressIp: number, valueLocationServerAddressPort: number): boolean
     setLocationServerUrl(valueLocationServerUrl: any[]): boolean
@@ -9388,7 +9927,7 @@ export class MessagePdsSetAgpsConfigOutput {
 }
 export class MessagePdsSetAutoTrackingStateInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsSetAutoTrackingStateInput */
-    getState(): { returnType: boolean, valueStateAutoTrackingState: boolean }
+    getState(): { returnType: boolean, valueStateAutoTrackingState: boolean | null }
     ref(): MessagePdsSetAutoTrackingStateInput
     setState(valueStateAutoTrackingState: boolean): boolean
     unref(): void
@@ -9407,7 +9946,7 @@ export class MessagePdsSetAutoTrackingStateOutput {
 }
 export class MessagePdsSetDefaultTrackingSessionInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsSetDefaultTrackingSessionInput */
-    getInfo(): { returnType: boolean, valueInfoSessionOperation: PdsOperatingMode, valueInfoPositionDataTimeout: number, valueInfoInterval: number, valueInfoAccuracyThreshold: number }
+    getInfo(): { returnType: boolean, valueInfoSessionOperation: PdsOperatingMode | null, valueInfoPositionDataTimeout: number | null, valueInfoInterval: number | null, valueInfoAccuracyThreshold: number | null }
     ref(): MessagePdsSetDefaultTrackingSessionInput
     setInfo(valueInfoSessionOperation: PdsOperatingMode, valueInfoPositionDataTimeout: number, valueInfoInterval: number, valueInfoAccuracyThreshold: number): boolean
     unref(): void
@@ -9426,26 +9965,26 @@ export class MessagePdsSetDefaultTrackingSessionOutput {
 }
 export class MessagePdsSetEventReportInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsSetEventReportInput */
-    getAccelerometerDataStreamingReadyReporting(): { returnType: boolean, valueAccelerometerDataStreamingReadyReporting: boolean }
-    getExtendedExternalXtraDataRequestReporting(): { returnType: boolean, valueExtendedExternalXtraDataRequestReporting: boolean }
-    getExtendedNmeaPositionReporting(): { returnType: boolean, valueExtendedNmeaPositionReporting: boolean }
-    getExternalTimeInjectionRequestReporting(): { returnType: boolean, valueExternalTimeInjectionRequestReporting: boolean }
-    getExternalWifiPositionRequestReporting(): { returnType: boolean, valueExternalWifiPositionRequestReporting: boolean }
-    getExternalXtraDataRequestReporting(): { returnType: boolean, valueExternalXtraDataRequestReporting: boolean }
-    getGyroDataStreamingReadyReporting(): { returnType: boolean, valueGyroDataStreamingReadyReporting: boolean }
-    getHeadingUncertaintyReporting(): { returnType: boolean, valueHeadingUncertaintyReporting: boolean }
-    getNmeaDebugStringsReporting(): { returnType: boolean, valueNmeaDebugStringsReporting: boolean }
-    getNmeaPositionReporting(): { returnType: boolean, valueNmeaPositionReporting: boolean }
-    getParsedPositionReporting(): { returnType: boolean, valueParsedPositionReporting: boolean }
-    getPdsCommEventReporting(): { returnType: boolean, valuePdsCommEventReporting: boolean }
-    getPositionReliabilityIndicatorReporting(): { returnType: boolean, valuePositionReliabilityIndicatorReporting: boolean }
-    getSatelliteInformationReporting(): { returnType: boolean, valueSatelliteInformationReporting: boolean }
-    getSensorDataUsageIndicatorReporting(): { returnType: boolean, valueSensorDataUsageIndicatorReporting: boolean }
-    getSuplNetworkInitiatedPromptReporting(): { returnType: boolean, valueSuplNetworkInitiatedPromptReporting: boolean }
-    getTimeSourceInformationReporting(): { returnType: boolean, valueTimeSourceInformationReporting: boolean }
-    getTimeSyncRequestReporting(): { returnType: boolean, valueTimeSyncRequestReporting: boolean }
-    getUmtsCpNetworkInitiatedPromptReporting(): { returnType: boolean, valueUmtsCpNetworkInitiatedPromptReporting: boolean }
-    getVxNetworkInitiatedRequestReporting(): { returnType: boolean, valueVxNetworkInitiatedRequestReporting: boolean }
+    getAccelerometerDataStreamingReadyReporting(): { returnType: boolean, valueAccelerometerDataStreamingReadyReporting: boolean | null }
+    getExtendedExternalXtraDataRequestReporting(): { returnType: boolean, valueExtendedExternalXtraDataRequestReporting: boolean | null }
+    getExtendedNmeaPositionReporting(): { returnType: boolean, valueExtendedNmeaPositionReporting: boolean | null }
+    getExternalTimeInjectionRequestReporting(): { returnType: boolean, valueExternalTimeInjectionRequestReporting: boolean | null }
+    getExternalWifiPositionRequestReporting(): { returnType: boolean, valueExternalWifiPositionRequestReporting: boolean | null }
+    getExternalXtraDataRequestReporting(): { returnType: boolean, valueExternalXtraDataRequestReporting: boolean | null }
+    getGyroDataStreamingReadyReporting(): { returnType: boolean, valueGyroDataStreamingReadyReporting: boolean | null }
+    getHeadingUncertaintyReporting(): { returnType: boolean, valueHeadingUncertaintyReporting: boolean | null }
+    getNmeaDebugStringsReporting(): { returnType: boolean, valueNmeaDebugStringsReporting: boolean | null }
+    getNmeaPositionReporting(): { returnType: boolean, valueNmeaPositionReporting: boolean | null }
+    getParsedPositionReporting(): { returnType: boolean, valueParsedPositionReporting: boolean | null }
+    getPdsCommEventReporting(): { returnType: boolean, valuePdsCommEventReporting: boolean | null }
+    getPositionReliabilityIndicatorReporting(): { returnType: boolean, valuePositionReliabilityIndicatorReporting: boolean | null }
+    getSatelliteInformationReporting(): { returnType: boolean, valueSatelliteInformationReporting: boolean | null }
+    getSensorDataUsageIndicatorReporting(): { returnType: boolean, valueSensorDataUsageIndicatorReporting: boolean | null }
+    getSuplNetworkInitiatedPromptReporting(): { returnType: boolean, valueSuplNetworkInitiatedPromptReporting: boolean | null }
+    getTimeSourceInformationReporting(): { returnType: boolean, valueTimeSourceInformationReporting: boolean | null }
+    getTimeSyncRequestReporting(): { returnType: boolean, valueTimeSyncRequestReporting: boolean | null }
+    getUmtsCpNetworkInitiatedPromptReporting(): { returnType: boolean, valueUmtsCpNetworkInitiatedPromptReporting: boolean | null }
+    getVxNetworkInitiatedRequestReporting(): { returnType: boolean, valueVxNetworkInitiatedRequestReporting: boolean | null }
     ref(): MessagePdsSetEventReportInput
     setAccelerometerDataStreamingReadyReporting(valueAccelerometerDataStreamingReadyReporting: boolean): boolean
     setExtendedExternalXtraDataRequestReporting(valueExtendedExternalXtraDataRequestReporting: boolean): boolean
@@ -9483,7 +10022,7 @@ export class MessagePdsSetEventReportOutput {
 }
 export class MessagePdsSetGpsServiceStateInput {
     /* Methods of Qmi-1.0.Qmi.MessagePdsSetGpsServiceStateInput */
-    getState(): { returnType: boolean, valueStateGpsServiceState: boolean }
+    getState(): { returnType: boolean, valueStateGpsServiceState: boolean | null }
     ref(): MessagePdsSetGpsServiceStateInput
     setState(valueStateGpsServiceState: boolean): boolean
     unref(): void
@@ -9502,7 +10041,7 @@ export class MessagePdsSetGpsServiceStateOutput {
 }
 export class MessageQosGetFlowStatusInput {
     /* Methods of Qmi-1.0.Qmi.MessageQosGetFlowStatusInput */
-    getQosId(): { returnType: boolean, valueQosId: number }
+    getQosId(): { returnType: boolean, valueQosId: number | null }
     ref(): MessageQosGetFlowStatusInput
     setQosId(valueQosId: number): boolean
     unref(): void
@@ -9515,14 +10054,14 @@ export class MessageQosGetFlowStatusInput {
 export class MessageQosGetFlowStatusOutput {
     /* Methods of Qmi-1.0.Qmi.MessageQosGetFlowStatusOutput */
     getResult(): boolean
-    getValue(): { returnType: boolean, valueValue: QosStatus }
+    getValue(): { returnType: boolean, valueValue: QosStatus | null }
     ref(): MessageQosGetFlowStatusOutput
     unref(): void
     static name: string
 }
 export class MessageQosGetNetworkStatusOutput {
     /* Methods of Qmi-1.0.Qmi.MessageQosGetNetworkStatusOutput */
-    getQosSupported(): { returnType: boolean, valueQosSupported: boolean }
+    getQosSupported(): { returnType: boolean, valueQosSupported: boolean | null }
     getResult(): boolean
     ref(): MessageQosGetNetworkStatusOutput
     unref(): void
@@ -9537,7 +10076,7 @@ export class MessageQosResetOutput {
 }
 export class MessageQosSwiReadDataStatsInput {
     /* Methods of Qmi-1.0.Qmi.MessageQosSwiReadDataStatsInput */
-    getApnId(): { returnType: boolean, valueApnId: number }
+    getApnId(): { returnType: boolean, valueApnId: number | null }
     ref(): MessageQosSwiReadDataStatsInput
     setApnId(valueApnId: number): boolean
     unref(): void
@@ -9549,8 +10088,8 @@ export class MessageQosSwiReadDataStatsInput {
 }
 export class MessageQosSwiReadDataStatsOutput {
     /* Methods of Qmi-1.0.Qmi.MessageQosSwiReadDataStatsOutput */
-    getApn(): { returnType: boolean, valueApnApnId: number, valueApnTxPackets: number, valueApnTxPacketsDropped: number, valueApnRxPackets: number, valueApnTxBytes: number, valueApnTxBytesDropped: number, valueApnRxBytes: number }
-    getFlow(): { returnType: boolean, valueFlow: MessageQosSwiReadDataStatsOutputFlowElement[] }
+    getApn(): { returnType: boolean, valueApnApnId: number | null, valueApnTxPackets: number | null, valueApnTxPacketsDropped: number | null, valueApnRxPackets: number | null, valueApnTxBytes: number | null, valueApnTxBytesDropped: number | null, valueApnRxBytes: number | null }
+    getFlow(): { returnType: boolean, valueFlow: MessageQosSwiReadDataStatsOutputFlowElement[] | null }
     getResult(): boolean
     ref(): MessageQosSwiReadDataStatsOutput
     unref(): void
@@ -9568,14 +10107,14 @@ export class MessageQosSwiReadDataStatsOutputFlowElement {
 export class MessageSarRfGetStateOutput {
     /* Methods of Qmi-1.0.Qmi.MessageSarRfGetStateOutput */
     getResult(): boolean
-    getState(): { returnType: boolean, valueState: SarRfState }
+    getState(): { returnType: boolean, valueState: SarRfState | null }
     ref(): MessageSarRfGetStateOutput
     unref(): void
     static name: string
 }
 export class MessageSarRfSetStateInput {
     /* Methods of Qmi-1.0.Qmi.MessageSarRfSetStateInput */
-    getState(): { returnType: boolean, valueState: SarRfState }
+    getState(): { returnType: boolean, valueState: SarRfState | null }
     ref(): MessageSarRfSetStateInput
     setState(valueState: SarRfState): boolean
     unref(): void
@@ -9594,9 +10133,9 @@ export class MessageSarRfSetStateOutput {
 }
 export class MessageUimChangePinInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimChangePinInput */
-    getInfo(): { returnType: boolean, valueInfoPinId: UimPinId, valueInfoOldPin: string, valueInfoNewPin: string }
-    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number }
-    getSession(): { returnType: boolean, valueSessionSessionType: UimSessionType, valueSessionApplicationIdentifier: any[] }
+    getInfo(): { returnType: boolean, valueInfoPinId: UimPinId | null, valueInfoOldPin: string | null, valueInfoNewPin: string | null }
+    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number | null }
+    getSession(): { returnType: boolean, valueSessionSessionType: UimSessionType | null, valueSessionApplicationIdentifier: any[] | null }
     ref(): MessageUimChangePinInput
     setInfo(valueInfoPinId: UimPinId, valueInfoOldPin: string, valueInfoNewPin: string): boolean
     setResponseInIndicationToken(valueResponseInIndicationToken: number): boolean
@@ -9610,18 +10149,18 @@ export class MessageUimChangePinInput {
 }
 export class MessageUimChangePinOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimChangePinOutput */
-    getCardResult(): { returnType: boolean, valueCardResultSw1: number, valueCardResultSw2: number }
-    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number }
+    getCardResult(): { returnType: boolean, valueCardResultSw1: number | null, valueCardResultSw2: number | null }
+    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number | null }
     getResult(): boolean
-    getRetriesRemaining(): { returnType: boolean, valueRetriesRemainingVerifyRetriesLeft: number, valueRetriesRemainingUnblockRetriesLeft: number }
+    getRetriesRemaining(): { returnType: boolean, valueRetriesRemainingVerifyRetriesLeft: number | null, valueRetriesRemainingUnblockRetriesLeft: number | null }
     ref(): MessageUimChangePinOutput
     unref(): void
     static name: string
 }
 export class MessageUimChangeProvisioningSessionInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimChangeProvisioningSessionInput */
-    getApplicationInformation(): { returnType: boolean, valueApplicationInformationSlot: number, valueApplicationInformationApplicationIdentifier: any[] }
-    getSessionChange(): { returnType: boolean, valueSessionChangeSessionType: UimSessionType, valueSessionChangeActivate: boolean }
+    getApplicationInformation(): { returnType: boolean, valueApplicationInformationSlot: number | null, valueApplicationInformationApplicationIdentifier: any[] | null }
+    getSessionChange(): { returnType: boolean, valueSessionChangeSessionType: UimSessionType | null, valueSessionChangeActivate: boolean | null }
     ref(): MessageUimChangeProvisioningSessionInput
     setApplicationInformation(valueApplicationInformationSlot: number, valueApplicationInformationApplicationIdentifier: any[]): boolean
     setSessionChange(valueSessionChangeSessionType: UimSessionType, valueSessionChangeActivate: boolean): boolean
@@ -9639,9 +10178,31 @@ export class MessageUimChangeProvisioningSessionOutput {
     unref(): void
     static name: string
 }
+export class MessageUimDepersonalizationInput {
+    /* Methods of Qmi-1.0.Qmi.MessageUimDepersonalizationInput */
+    getInfo(): { returnType: boolean, valueInfoFeature: UimCardApplicationPersonalizationFeature | null, valueInfoOperation: UimDepersonalizationOperation | null, valueInfoControlKey: string | null }
+    getSlot(): { returnType: boolean, valueSlot: number | null }
+    ref(): MessageUimDepersonalizationInput
+    setInfo(valueInfoFeature: UimCardApplicationPersonalizationFeature, valueInfoOperation: UimDepersonalizationOperation, valueInfoControlKey: string): boolean
+    setSlot(valueSlot: number): boolean
+    unref(): void
+    static name: string
+    static new(): MessageUimDepersonalizationInput
+    constructor()
+    /* Static methods and pseudo-constructors */
+    static new(): MessageUimDepersonalizationInput
+}
+export class MessageUimDepersonalizationOutput {
+    /* Methods of Qmi-1.0.Qmi.MessageUimDepersonalizationOutput */
+    getResult(): boolean
+    getRetriesRemaining(): { returnType: boolean, valueRetriesRemainingVerifyLeft: number | null, valueRetriesRemainingUnblockLeft: number | null }
+    ref(): MessageUimDepersonalizationOutput
+    unref(): void
+    static name: string
+}
 export class MessageUimGetCardStatusOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimGetCardStatusOutput */
-    getCardStatus(): { returnType: boolean, valueCardStatusIndexGwPrimary: number, valueCardStatusIndex1xPrimary: number, valueCardStatusIndexGwSecondary: number, valueCardStatusIndex1xSecondary: number, valueCardStatusCards: MessageUimGetCardStatusOutputCardStatusCardsElement[] }
+    getCardStatus(): { returnType: boolean, valueCardStatusIndexGwPrimary: number | null, valueCardStatusIndex1xPrimary: number | null, valueCardStatusIndexGwSecondary: number | null, valueCardStatusIndex1xSecondary: number | null, valueCardStatusCards: MessageUimGetCardStatusOutputCardStatusCardsElement[] | null }
     getResult(): boolean
     ref(): MessageUimGetCardStatusOutput
     unref(): void
@@ -9675,11 +10236,48 @@ export class MessageUimGetCardStatusOutputCardStatusCardsElementApplicationsElem
     puk2Retries: number
     static name: string
 }
+export class MessageUimGetConfigurationInput {
+    /* Methods of Qmi-1.0.Qmi.MessageUimGetConfigurationInput */
+    getConfigurationMask(): { returnType: boolean, valueConfigurationMask: UimConfiguration | null }
+    ref(): MessageUimGetConfigurationInput
+    setConfigurationMask(valueConfigurationMask: UimConfiguration): boolean
+    unref(): void
+    static name: string
+    static new(): MessageUimGetConfigurationInput
+    constructor()
+    /* Static methods and pseudo-constructors */
+    static new(): MessageUimGetConfigurationInput
+}
+export class MessageUimGetConfigurationOutput {
+    /* Methods of Qmi-1.0.Qmi.MessageUimGetConfigurationOutput */
+    getAutomaticSelection(): { returnType: boolean, valueAutomaticSelection: boolean | null }
+    getHaltSubscription(): { returnType: boolean, valueHaltSubscription: boolean | null }
+    getPersonalizationStatus(): { returnType: boolean, valuePersonalizationStatus: MessageUimGetConfigurationOutputPersonalizationStatusElement[] | null }
+    getPersonalizationStatusOtherSlots(): { returnType: boolean, valuePersonalizationStatusOtherSlots: any[] | null }
+    getResult(): boolean
+    ref(): MessageUimGetConfigurationOutput
+    unref(): void
+    static name: string
+}
+export class MessageUimGetConfigurationOutputPersonalizationStatusElement {
+    /* Fields of Qmi-1.0.Qmi.MessageUimGetConfigurationOutputPersonalizationStatusElement */
+    feature: UimCardApplicationPersonalizationFeature
+    verifyLeft: number
+    unblockLeft: number
+    static name: string
+}
+export class MessageUimGetConfigurationOutputPersonalizationStatusOtherSlotsSlotsElement {
+    /* Fields of Qmi-1.0.Qmi.MessageUimGetConfigurationOutputPersonalizationStatusOtherSlotsSlotsElement */
+    feature: UimCardApplicationPersonalizationFeature
+    verifyLeft: number
+    unblockLeft: number
+    static name: string
+}
 export class MessageUimGetFileAttributesInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimGetFileAttributesInput */
-    getFile(): { returnType: boolean, valueFileFileId: number, valueFileFilePath: any[] }
-    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number }
-    getSession(): { returnType: boolean, valueSessionSessionType: UimSessionType, valueSessionApplicationIdentifier: any[] }
+    getFile(): { returnType: boolean, valueFileFileId: number | null, valueFileFilePath: any[] | null }
+    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number | null }
+    getSession(): { returnType: boolean, valueSessionSessionType: UimSessionType | null, valueSessionApplicationIdentifier: any[] | null }
     ref(): MessageUimGetFileAttributesInput
     setFile(valueFileFileId: number, valueFileFilePath: any[]): boolean
     setResponseInIndicationToken(valueResponseInIndicationToken: number): boolean
@@ -9693,9 +10291,9 @@ export class MessageUimGetFileAttributesInput {
 }
 export class MessageUimGetFileAttributesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimGetFileAttributesOutput */
-    getCardResult(): { returnType: boolean, valueCardResultSw1: number, valueCardResultSw2: number }
-    getFileAttributes(): { returnType: boolean, valueFileAttributesFileSize: number, valueFileAttributesFileId: number, valueFileAttributesFileType: UimFileType, valueFileAttributesRecordSize: number, valueFileAttributesRecordCount: number, valueFileAttributesReadSecurityAttributesLogic: UimSecurityAttributeLogic, valueFileAttributesReadSecurityAttributes: UimSecurityAttribute, valueFileAttributesWriteSecurityAttributesLogic: UimSecurityAttributeLogic, valueFileAttributesWriteSecurityAttributes: UimSecurityAttribute, valueFileAttributesIncreaseSecurityAttributesLogic: UimSecurityAttributeLogic, valueFileAttributesIncreaseSecurityAttributes: UimSecurityAttribute, valueFileAttributesDeactivateSecurityAttributesLogic: UimSecurityAttributeLogic, valueFileAttributesDeactivateSecurityAttributes: UimSecurityAttribute, valueFileAttributesActivateSecurityAttributesLogic: UimSecurityAttributeLogic, valueFileAttributesActivateSecurityAttributes: UimSecurityAttribute, valueFileAttributesRawData: any[] }
-    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number }
+    getCardResult(): { returnType: boolean, valueCardResultSw1: number | null, valueCardResultSw2: number | null }
+    getFileAttributes(): { returnType: boolean, valueFileAttributesFileSize: number | null, valueFileAttributesFileId: number | null, valueFileAttributesFileType: UimFileType | null, valueFileAttributesRecordSize: number | null, valueFileAttributesRecordCount: number | null, valueFileAttributesReadSecurityAttributesLogic: UimSecurityAttributeLogic | null, valueFileAttributesReadSecurityAttributes: UimSecurityAttribute | null, valueFileAttributesWriteSecurityAttributesLogic: UimSecurityAttributeLogic | null, valueFileAttributesWriteSecurityAttributes: UimSecurityAttribute | null, valueFileAttributesIncreaseSecurityAttributesLogic: UimSecurityAttributeLogic | null, valueFileAttributesIncreaseSecurityAttributes: UimSecurityAttribute | null, valueFileAttributesDeactivateSecurityAttributesLogic: UimSecurityAttributeLogic | null, valueFileAttributesDeactivateSecurityAttributes: UimSecurityAttribute | null, valueFileAttributesActivateSecurityAttributesLogic: UimSecurityAttributeLogic | null, valueFileAttributesActivateSecurityAttributes: UimSecurityAttribute | null, valueFileAttributesRawData: any[] | null }
+    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number | null }
     getResult(): boolean
     ref(): MessageUimGetFileAttributesOutput
     unref(): void
@@ -9703,17 +10301,17 @@ export class MessageUimGetFileAttributesOutput {
 }
 export class MessageUimGetSlotStatusOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimGetSlotStatusOutput */
-    getPhysicalSlotInformation(): { returnType: boolean, valuePhysicalSlotInformation: PhysicalSlotInformationSlot[] }
-    getPhysicalSlotStatus(): { returnType: boolean, valuePhysicalSlotStatus: PhysicalSlotStatusSlot[] }
+    getPhysicalSlotInformation(): { returnType: boolean, valuePhysicalSlotInformation: PhysicalSlotInformationSlot[] | null }
+    getPhysicalSlotStatus(): { returnType: boolean, valuePhysicalSlotStatus: PhysicalSlotStatusSlot[] | null }
     getResult(): boolean
-    getSlotEidInformation(): { returnType: boolean, valueSlotEidInformation: any[] }
+    getSlotEidInformation(): { returnType: boolean, valueSlotEidInformation: any[] | null }
     ref(): MessageUimGetSlotStatusOutput
     unref(): void
     static name: string
 }
 export class MessageUimGetSupportedMessagesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimGetSupportedMessagesOutput */
-    getList(): { returnType: boolean, valueList: any[] }
+    getList(): { returnType: boolean, valueList: any[] | null }
     getResult(): boolean
     ref(): MessageUimGetSupportedMessagesOutput
     unref(): void
@@ -9721,7 +10319,7 @@ export class MessageUimGetSupportedMessagesOutput {
 }
 export class MessageUimPowerOffSimInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimPowerOffSimInput */
-    getSlot(): { returnType: boolean, valueSlot: number }
+    getSlot(): { returnType: boolean, valueSlot: number | null }
     ref(): MessageUimPowerOffSimInput
     setSlot(valueSlot: number): boolean
     unref(): void
@@ -9740,7 +10338,7 @@ export class MessageUimPowerOffSimOutput {
 }
 export class MessageUimPowerOnSimInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimPowerOnSimInput */
-    getSlot(): { returnType: boolean, valueSlot: number }
+    getSlot(): { returnType: boolean, valueSlot: number | null }
     ref(): MessageUimPowerOnSimInput
     setSlot(valueSlot: number): boolean
     unref(): void
@@ -9759,11 +10357,11 @@ export class MessageUimPowerOnSimOutput {
 }
 export class MessageUimReadRecordInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimReadRecordInput */
-    getFile(): { returnType: boolean, valueFileFileId: number, valueFileFilePath: any[] }
-    getLastRecord(): { returnType: boolean, valueLastRecord: number }
-    getRecord(): { returnType: boolean, valueRecordRecordNumber: number, valueRecordRecordLength: number }
-    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number }
-    getSession(): { returnType: boolean, valueSessionSessionType: UimSessionType, valueSessionApplicationIdentifier: any[] }
+    getFile(): { returnType: boolean, valueFileFileId: number | null, valueFileFilePath: any[] | null }
+    getLastRecord(): { returnType: boolean, valueLastRecord: number | null }
+    getRecord(): { returnType: boolean, valueRecordRecordNumber: number | null, valueRecordRecordLength: number | null }
+    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number | null }
+    getSession(): { returnType: boolean, valueSessionSessionType: UimSessionType | null, valueSessionApplicationIdentifier: any[] | null }
     ref(): MessageUimReadRecordInput
     setFile(valueFileFileId: number, valueFileFilePath: any[]): boolean
     setLastRecord(valueLastRecord: number): boolean
@@ -9779,10 +10377,10 @@ export class MessageUimReadRecordInput {
 }
 export class MessageUimReadRecordOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimReadRecordOutput */
-    getAdditionalReadResult(): { returnType: boolean, valueAdditionalReadResult: any[] }
-    getCardResult(): { returnType: boolean, valueCardResultSw1: number, valueCardResultSw2: number }
-    getReadResult(): { returnType: boolean, valueReadResult: any[] }
-    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number }
+    getAdditionalReadResult(): { returnType: boolean, valueAdditionalReadResult: any[] | null }
+    getCardResult(): { returnType: boolean, valueCardResultSw1: number | null, valueCardResultSw2: number | null }
+    getReadResult(): { returnType: boolean, valueReadResult: any[] | null }
+    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number | null }
     getResult(): boolean
     ref(): MessageUimReadRecordOutput
     unref(): void
@@ -9790,11 +10388,11 @@ export class MessageUimReadRecordOutput {
 }
 export class MessageUimReadTransparentInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimReadTransparentInput */
-    getEncryptData(): { returnType: boolean, valueEncryptData: boolean }
-    getFile(): { returnType: boolean, valueFileFileId: number, valueFileFilePath: any[] }
-    getReadInformation(): { returnType: boolean, valueReadInformationOffset: number, valueReadInformationLength: number }
-    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number }
-    getSession(): { returnType: boolean, valueSessionSessionType: UimSessionType, valueSessionApplicationIdentifier: any[] }
+    getEncryptData(): { returnType: boolean, valueEncryptData: boolean | null }
+    getFile(): { returnType: boolean, valueFileFileId: number | null, valueFileFilePath: any[] | null }
+    getReadInformation(): { returnType: boolean, valueReadInformationOffset: number | null, valueReadInformationLength: number | null }
+    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number | null }
+    getSession(): { returnType: boolean, valueSessionSessionType: UimSessionType | null, valueSessionApplicationIdentifier: any[] | null }
     ref(): MessageUimReadTransparentInput
     setEncryptData(valueEncryptData: boolean): boolean
     setFile(valueFileFileId: number, valueFileFilePath: any[]): boolean
@@ -9810,10 +10408,10 @@ export class MessageUimReadTransparentInput {
 }
 export class MessageUimReadTransparentOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimReadTransparentOutput */
-    getCardResult(): { returnType: boolean, valueCardResultSw1: number, valueCardResultSw2: number }
-    getEncryptedData(): { returnType: boolean, valueEncryptedData: boolean }
-    getReadResult(): { returnType: boolean, valueReadResult: any[] }
-    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number }
+    getCardResult(): { returnType: boolean, valueCardResultSw1: number | null, valueCardResultSw2: number | null }
+    getEncryptedData(): { returnType: boolean, valueEncryptedData: boolean | null }
+    getReadResult(): { returnType: boolean, valueReadResult: any[] | null }
+    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number | null }
     getResult(): boolean
     ref(): MessageUimReadTransparentOutput
     unref(): void
@@ -9821,8 +10419,8 @@ export class MessageUimReadTransparentOutput {
 }
 export class MessageUimRefreshCompleteInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimRefreshCompleteInput */
-    getInfo(): { returnType: boolean, valueInfoRefreshSuccess: boolean }
-    getSession(): { returnType: boolean, valueSessionSessionType: UimSessionType, valueSessionApplicationIdentifier: any[] }
+    getInfo(): { returnType: boolean, valueInfoRefreshSuccess: boolean | null }
+    getSession(): { returnType: boolean, valueSessionSessionType: UimSessionType | null, valueSessionApplicationIdentifier: any[] | null }
     ref(): MessageUimRefreshCompleteInput
     setInfo(valueInfoRefreshSuccess: boolean): boolean
     setSession(valueSessionSessionType: UimSessionType, valueSessionApplicationIdentifier: any[]): boolean
@@ -9842,8 +10440,8 @@ export class MessageUimRefreshCompleteOutput {
 }
 export class MessageUimRefreshRegisterAllInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimRefreshRegisterAllInput */
-    getInfo(): { returnType: boolean, valueInfoRegisterFlag: boolean }
-    getSession(): { returnType: boolean, valueSessionSessionType: UimSessionType, valueSessionApplicationIdentifier: any[] }
+    getInfo(): { returnType: boolean, valueInfoRegisterFlag: boolean | null }
+    getSession(): { returnType: boolean, valueSessionSessionType: UimSessionType | null, valueSessionApplicationIdentifier: any[] | null }
     ref(): MessageUimRefreshRegisterAllInput
     setInfo(valueInfoRegisterFlag: boolean): boolean
     setSession(valueSessionSessionType: UimSessionType, valueSessionApplicationIdentifier: any[]): boolean
@@ -9863,8 +10461,8 @@ export class MessageUimRefreshRegisterAllOutput {
 }
 export class MessageUimRefreshRegisterInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimRefreshRegisterInput */
-    getInfo(): { returnType: boolean, valueInfoRegisterFlag: boolean, valueInfoVoteForInit: boolean, valueInfoFiles: MessageUimRefreshRegisterInputInfoFilesElement[] }
-    getSession(): { returnType: boolean, valueSessionSessionType: UimSessionType, valueSessionApplicationIdentifier: any[] }
+    getInfo(): { returnType: boolean, valueInfoRegisterFlag: boolean | null, valueInfoVoteForInit: boolean | null, valueInfoFiles: MessageUimRefreshRegisterInputInfoFilesElement[] | null }
+    getSession(): { returnType: boolean, valueSessionSessionType: UimSessionType | null, valueSessionApplicationIdentifier: any[] | null }
     ref(): MessageUimRefreshRegisterInput
     setInfo(valueInfoRegisterFlag: boolean, valueInfoVoteForInit: boolean, valueInfoFiles: MessageUimRefreshRegisterInputInfoFilesElement[]): boolean
     setSession(valueSessionSessionType: UimSessionType, valueSessionApplicationIdentifier: any[]): boolean
@@ -9890,7 +10488,7 @@ export class MessageUimRefreshRegisterOutput {
 }
 export class MessageUimRegisterEventsInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimRegisterEventsInput */
-    getEventRegistrationMask(): { returnType: boolean, valueEventRegistrationMask: UimEventRegistrationFlag }
+    getEventRegistrationMask(): { returnType: boolean, valueEventRegistrationMask: UimEventRegistrationFlag | null }
     ref(): MessageUimRegisterEventsInput
     setEventRegistrationMask(valueEventRegistrationMask: UimEventRegistrationFlag): boolean
     unref(): void
@@ -9902,7 +10500,7 @@ export class MessageUimRegisterEventsInput {
 }
 export class MessageUimRegisterEventsOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimRegisterEventsOutput */
-    getEventRegistrationMask(): { returnType: boolean, valueEventRegistrationMask: UimEventRegistrationFlag }
+    getEventRegistrationMask(): { returnType: boolean, valueEventRegistrationMask: UimEventRegistrationFlag | null }
     getResult(): boolean
     ref(): MessageUimRegisterEventsOutput
     unref(): void
@@ -9917,9 +10515,9 @@ export class MessageUimResetOutput {
 }
 export class MessageUimSetPinProtectionInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimSetPinProtectionInput */
-    getInfo(): { returnType: boolean, valueInfoPinId: UimPinId, valueInfoPinEnabled: boolean, valueInfoPinValue: string }
-    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number }
-    getSession(): { returnType: boolean, valueSessionSessionType: UimSessionType, valueSessionApplicationIdentifier: any[] }
+    getInfo(): { returnType: boolean, valueInfoPinId: UimPinId | null, valueInfoPinEnabled: boolean | null, valueInfoPinValue: string | null }
+    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number | null }
+    getSession(): { returnType: boolean, valueSessionSessionType: UimSessionType | null, valueSessionApplicationIdentifier: any[] | null }
     ref(): MessageUimSetPinProtectionInput
     setInfo(valueInfoPinId: UimPinId, valueInfoPinEnabled: boolean, valueInfoPinValue: string): boolean
     setResponseInIndicationToken(valueResponseInIndicationToken: number): boolean
@@ -9933,17 +10531,17 @@ export class MessageUimSetPinProtectionInput {
 }
 export class MessageUimSetPinProtectionOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimSetPinProtectionOutput */
-    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number }
+    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number | null }
     getResult(): boolean
-    getRetriesRemaining(): { returnType: boolean, valueRetriesRemainingVerifyRetriesLeft: number, valueRetriesRemainingUnblockRetriesLeft: number }
+    getRetriesRemaining(): { returnType: boolean, valueRetriesRemainingVerifyRetriesLeft: number | null, valueRetriesRemainingUnblockRetriesLeft: number | null }
     ref(): MessageUimSetPinProtectionOutput
     unref(): void
     static name: string
 }
 export class MessageUimSwitchSlotInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimSwitchSlotInput */
-    getLogicalSlot(): { returnType: boolean, valueLogicalSlot: number }
-    getPhysicalSlot(): { returnType: boolean, valuePhysicalSlot: number }
+    getLogicalSlot(): { returnType: boolean, valueLogicalSlot: number | null }
+    getPhysicalSlot(): { returnType: boolean, valuePhysicalSlot: number | null }
     ref(): MessageUimSwitchSlotInput
     setLogicalSlot(valueLogicalSlot: number): boolean
     setPhysicalSlot(valuePhysicalSlot: number): boolean
@@ -9963,9 +10561,9 @@ export class MessageUimSwitchSlotOutput {
 }
 export class MessageUimUnblockPinInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimUnblockPinInput */
-    getInfo(): { returnType: boolean, valueInfoPinId: UimPinId, valueInfoPuk: string, valueInfoNewPin: string }
-    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number }
-    getSession(): { returnType: boolean, valueSessionSessionType: UimSessionType, valueSessionApplicationIdentifier: any[] }
+    getInfo(): { returnType: boolean, valueInfoPinId: UimPinId | null, valueInfoPuk: string | null, valueInfoNewPin: string | null }
+    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number | null }
+    getSession(): { returnType: boolean, valueSessionSessionType: UimSessionType | null, valueSessionApplicationIdentifier: any[] | null }
     ref(): MessageUimUnblockPinInput
     setInfo(valueInfoPinId: UimPinId, valueInfoPuk: string, valueInfoNewPin: string): boolean
     setResponseInIndicationToken(valueResponseInIndicationToken: number): boolean
@@ -9979,19 +10577,19 @@ export class MessageUimUnblockPinInput {
 }
 export class MessageUimUnblockPinOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimUnblockPinOutput */
-    getCardResult(): { returnType: boolean, valueCardResultSw1: number, valueCardResultSw2: number }
-    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number }
+    getCardResult(): { returnType: boolean, valueCardResultSw1: number | null, valueCardResultSw2: number | null }
+    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number | null }
     getResult(): boolean
-    getRetriesRemaining(): { returnType: boolean, valueRetriesRemainingVerifyRetriesLeft: number, valueRetriesRemainingUnblockRetriesLeft: number }
+    getRetriesRemaining(): { returnType: boolean, valueRetriesRemainingVerifyRetriesLeft: number | null, valueRetriesRemainingUnblockRetriesLeft: number | null }
     ref(): MessageUimUnblockPinOutput
     unref(): void
     static name: string
 }
 export class MessageUimVerifyPinInput {
     /* Methods of Qmi-1.0.Qmi.MessageUimVerifyPinInput */
-    getInfo(): { returnType: boolean, valueInfoPinId: UimPinId, valueInfoPinValue: string }
-    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number }
-    getSession(): { returnType: boolean, valueSessionSessionType: UimSessionType, valueSessionApplicationIdentifier: any[] }
+    getInfo(): { returnType: boolean, valueInfoPinId: UimPinId | null, valueInfoPinValue: string | null }
+    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number | null }
+    getSession(): { returnType: boolean, valueSessionSessionType: UimSessionType | null, valueSessionApplicationIdentifier: any[] | null }
     ref(): MessageUimVerifyPinInput
     setInfo(valueInfoPinId: UimPinId, valueInfoPinValue: string): boolean
     setResponseInIndicationToken(valueResponseInIndicationToken: number): boolean
@@ -10005,17 +10603,17 @@ export class MessageUimVerifyPinInput {
 }
 export class MessageUimVerifyPinOutput {
     /* Methods of Qmi-1.0.Qmi.MessageUimVerifyPinOutput */
-    getCardResult(): { returnType: boolean, valueCardResultSw1: number, valueCardResultSw2: number }
-    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number }
+    getCardResult(): { returnType: boolean, valueCardResultSw1: number | null, valueCardResultSw2: number | null }
+    getResponseInIndicationToken(): { returnType: boolean, valueResponseInIndicationToken: number | null }
     getResult(): boolean
-    getRetriesRemaining(): { returnType: boolean, valueRetriesRemainingVerifyRetriesLeft: number, valueRetriesRemainingUnblockRetriesLeft: number }
+    getRetriesRemaining(): { returnType: boolean, valueRetriesRemainingVerifyRetriesLeft: number | null, valueRetriesRemainingUnblockRetriesLeft: number | null }
     ref(): MessageUimVerifyPinOutput
     unref(): void
     static name: string
 }
 export class MessageVoiceAnswerCallInput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceAnswerCallInput */
-    getCallId(): { returnType: boolean, valueCallId: number }
+    getCallId(): { returnType: boolean, valueCallId: number | null }
     ref(): MessageVoiceAnswerCallInput
     setCallId(valueCallId: number): boolean
     unref(): void
@@ -10027,7 +10625,7 @@ export class MessageVoiceAnswerCallInput {
 }
 export class MessageVoiceAnswerCallOutput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceAnswerCallOutput */
-    getCallId(): { returnType: boolean, valueCallId: number }
+    getCallId(): { returnType: boolean, valueCallId: number | null }
     getResult(): boolean
     ref(): MessageVoiceAnswerCallOutput
     unref(): void
@@ -10035,7 +10633,7 @@ export class MessageVoiceAnswerCallOutput {
 }
 export class MessageVoiceAnswerUssdInput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceAnswerUssdInput */
-    getUssData(): { returnType: boolean, valueUssDataDataCodingScheme: VoiceUssDataCodingScheme, valueUssDataData: any[] }
+    getUssData(): { returnType: boolean, valueUssDataDataCodingScheme: VoiceUssDataCodingScheme | null, valueUssDataData: any[] | null }
     ref(): MessageVoiceAnswerUssdInput
     setUssData(valueUssDataDataCodingScheme: VoiceUssDataCodingScheme, valueUssDataData: any[]): boolean
     unref(): void
@@ -10061,7 +10659,7 @@ export class MessageVoiceCancelUssdOutput {
 }
 export class MessageVoiceDialCallInput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceDialCallInput */
-    getCallingNumber(): { returnType: boolean, valueCallingNumber: string }
+    getCallingNumber(): { returnType: boolean, valueCallingNumber: string | null }
     ref(): MessageVoiceDialCallInput
     setCallingNumber(valueCallingNumber: string): boolean
     unref(): void
@@ -10073,7 +10671,7 @@ export class MessageVoiceDialCallInput {
 }
 export class MessageVoiceDialCallOutput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceDialCallOutput */
-    getCallId(): { returnType: boolean, valueCallId: number }
+    getCallId(): { returnType: boolean, valueCallId: number | null }
     getResult(): boolean
     ref(): MessageVoiceDialCallOutput
     unref(): void
@@ -10081,7 +10679,7 @@ export class MessageVoiceDialCallOutput {
 }
 export class MessageVoiceEndCallInput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceEndCallInput */
-    getCallId(): { returnType: boolean, valueCallId: number }
+    getCallId(): { returnType: boolean, valueCallId: number | null }
     ref(): MessageVoiceEndCallInput
     setCallId(valueCallId: number): boolean
     unref(): void
@@ -10093,23 +10691,70 @@ export class MessageVoiceEndCallInput {
 }
 export class MessageVoiceEndCallOutput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceEndCallOutput */
-    getCallId(): { returnType: boolean, valueCallId: number }
+    getCallId(): { returnType: boolean, valueCallId: number | null }
     getResult(): boolean
     ref(): MessageVoiceEndCallOutput
     unref(): void
     static name: string
 }
+export class MessageVoiceGetAllCallInfoOutput {
+    /* Methods of Qmi-1.0.Qmi.MessageVoiceGetAllCallInfoOutput */
+    getCallInformation(): { returnType: boolean, valueCallInformation: MessageVoiceGetAllCallInfoOutputCallInformationCall[] | null }
+    getRemotePartyNumber(): { returnType: boolean, valueRemotePartyNumber: MessageVoiceGetAllCallInfoOutputRemotePartyNumberCall[] | null }
+    getResult(): boolean
+    ref(): MessageVoiceGetAllCallInfoOutput
+    unref(): void
+    static name: string
+}
+export class MessageVoiceGetAllCallInfoOutputCallInformationCall {
+    /* Fields of Qmi-1.0.Qmi.MessageVoiceGetAllCallInfoOutputCallInformationCall */
+    id: number
+    state: VoiceCallState
+    type: VoiceCallType
+    direction: VoiceCallDirection
+    mode: VoiceCallMode
+    multipartIndicator: boolean
+    als: VoiceAls
+    static name: string
+}
+export class MessageVoiceGetAllCallInfoOutputRemotePartyNumberCall {
+    /* Fields of Qmi-1.0.Qmi.MessageVoiceGetAllCallInfoOutputRemotePartyNumberCall */
+    id: number
+    presentationIndicator: VoicePresentation
+    type: string
+    static name: string
+}
+export class MessageVoiceGetCallWaitingInput {
+    /* Methods of Qmi-1.0.Qmi.MessageVoiceGetCallWaitingInput */
+    getServiceClass(): { returnType: boolean, valueServiceClass: number | null }
+    ref(): MessageVoiceGetCallWaitingInput
+    setServiceClass(valueServiceClass: number): boolean
+    unref(): void
+    static name: string
+    static new(): MessageVoiceGetCallWaitingInput
+    constructor()
+    /* Static methods and pseudo-constructors */
+    static new(): MessageVoiceGetCallWaitingInput
+}
+export class MessageVoiceGetCallWaitingOutput {
+    /* Methods of Qmi-1.0.Qmi.MessageVoiceGetCallWaitingOutput */
+    getResult(): boolean
+    getServiceClass(): { returnType: boolean, valueServiceClass: number | null }
+    ref(): MessageVoiceGetCallWaitingOutput
+    unref(): void
+    static name: string
+}
 export class MessageVoiceGetConfigInput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceGetConfigInput */
-    getAirTimer(): { returnType: boolean, valueAirTimer: boolean }
-    getAmrStatus(): { returnType: boolean, valueAmrStatus: boolean }
-    getAutoAnswer(): { returnType: boolean, valueAutoAnswer: boolean }
-    getNamIndex(): { returnType: boolean, valueNamIndex: boolean }
-    getPreferredVoicePrivacy(): { returnType: boolean, valuePreferredVoicePrivacy: boolean }
-    getPreferredVoiceServiceOption(): { returnType: boolean, valuePreferredVoiceServiceOption: boolean }
-    getRoamTimer(): { returnType: boolean, valueRoamTimer: boolean }
-    getTtyMode(): { returnType: boolean, valueTtyMode: boolean }
-    getVoiceDomainPreference(): { returnType: boolean, valueVoiceDomainPreference: boolean }
+    getAirTimer(): { returnType: boolean, valueAirTimer: boolean | null }
+    getAmrStatus(): { returnType: boolean, valueAmrStatus: boolean | null }
+    getAutoAnswer(): { returnType: boolean, valueAutoAnswer: boolean | null }
+    getNamIndex(): { returnType: boolean, valueNamIndex: boolean | null }
+    getPreferredVoicePrivacy(): { returnType: boolean, valuePreferredVoicePrivacy: boolean | null }
+    getPreferredVoiceServiceOption(): { returnType: boolean, valuePreferredVoiceServiceOption: boolean | null }
+    getRoamTimer(): { returnType: boolean, valueRoamTimer: boolean | null }
+    getTtyMode(): { returnType: boolean, valueTtyMode: boolean | null }
+    getVoiceDomainPreference(): { returnType: boolean, valueVoiceDomainPreference: boolean | null }
     ref(): MessageVoiceGetConfigInput
     setAirTimer(valueAirTimer: boolean): boolean
     setAmrStatus(valueAmrStatus: boolean): boolean
@@ -10129,22 +10774,22 @@ export class MessageVoiceGetConfigInput {
 }
 export class MessageVoiceGetConfigOutput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceGetConfigOutput */
-    getAirTimerCount(): { returnType: boolean, valueAirTimerCountNamId: number, valueAirTimerCountAirTimer: number }
-    getAutoAnswerStatus(): { returnType: boolean, valueAutoAnswerStatus: boolean }
-    getCurrentAmrStatus(): { returnType: boolean, valueCurrentAmrStatusGsm: boolean, valueCurrentAmrStatusWcdma: VoiceWcdmaAmrStatus }
-    getCurrentPreferredVoiceSo(): { returnType: boolean, valueCurrentPreferredVoiceSoNamId: number, valueCurrentPreferredVoiceSoEvrcCapability: boolean, valueCurrentPreferredVoiceSoHomePageVoiceServiceOption: VoiceServiceOption, valueCurrentPreferredVoiceSoHomeOriginationVoiceServiceOption: VoiceServiceOption, valueCurrentPreferredVoiceSoRoamingOriginationVoiceServiceOption: VoiceServiceOption }
-    getCurrentTtyMode(): { returnType: boolean, valueCurrentTtyMode: VoiceTtyMode }
-    getCurrentVoiceDomainPreference(): { returnType: boolean, valueCurrentVoiceDomainPreference: VoiceDomain }
-    getCurrentVoicePrivacyPreference(): { returnType: boolean, valueCurrentVoicePrivacyPreference: VoicePrivacy }
+    getAirTimerCount(): { returnType: boolean, valueAirTimerCountNamId: number | null, valueAirTimerCountAirTimer: number | null }
+    getAutoAnswerStatus(): { returnType: boolean, valueAutoAnswerStatus: boolean | null }
+    getCurrentAmrStatus(): { returnType: boolean, valueCurrentAmrStatusGsm: boolean | null, valueCurrentAmrStatusWcdma: VoiceWcdmaAmrStatus | null }
+    getCurrentPreferredVoiceSo(): { returnType: boolean, valueCurrentPreferredVoiceSoNamId: number | null, valueCurrentPreferredVoiceSoEvrcCapability: boolean | null, valueCurrentPreferredVoiceSoHomePageVoiceServiceOption: VoiceServiceOption | null, valueCurrentPreferredVoiceSoHomeOriginationVoiceServiceOption: VoiceServiceOption | null, valueCurrentPreferredVoiceSoRoamingOriginationVoiceServiceOption: VoiceServiceOption | null }
+    getCurrentTtyMode(): { returnType: boolean, valueCurrentTtyMode: VoiceTtyMode | null }
+    getCurrentVoiceDomainPreference(): { returnType: boolean, valueCurrentVoiceDomainPreference: VoiceDomain | null }
+    getCurrentVoicePrivacyPreference(): { returnType: boolean, valueCurrentVoicePrivacyPreference: VoicePrivacy | null }
     getResult(): boolean
-    getRoamTimerCount(): { returnType: boolean, valueRoamTimerCountNamId: number, valueRoamTimerCountRoamTimer: number }
+    getRoamTimerCount(): { returnType: boolean, valueRoamTimerCountNamId: number | null, valueRoamTimerCountRoamTimer: number | null }
     ref(): MessageVoiceGetConfigOutput
     unref(): void
     static name: string
 }
 export class MessageVoiceGetSupportedMessagesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceGetSupportedMessagesOutput */
-    getList(): { returnType: boolean, valueList: any[] }
+    getList(): { returnType: boolean, valueList: any[] | null }
     getResult(): boolean
     ref(): MessageVoiceGetSupportedMessagesOutput
     unref(): void
@@ -10152,19 +10797,19 @@ export class MessageVoiceGetSupportedMessagesOutput {
 }
 export class MessageVoiceIndicationRegisterInput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceIndicationRegisterInput */
-    getAocEvents(): { returnType: boolean, valueAocEvents: boolean }
-    getCallNotificationEvents(): { returnType: boolean, valueCallNotificationEvents: boolean }
-    getConferenceEvents(): { returnType: boolean, valueConferenceEvents: boolean }
-    getDtmfEvents(): { returnType: boolean, valueDtmfEvents: boolean }
-    getExtendedBurstTypeInternationalInformationEvents(): { returnType: boolean, valueExtendedBurstTypeInternationalInformationEvents: boolean }
-    getHandoverEvents(): { returnType: boolean, valueHandoverEvents: boolean }
-    getModificationEvents(): { returnType: boolean, valueModificationEvents: boolean }
-    getMtPageMissInformationEvents(): { returnType: boolean, valueMtPageMissInformationEvents: boolean }
-    getSpeechCodecEvents(): { returnType: boolean, valueSpeechCodecEvents: boolean }
-    getSupplementaryServiceNotificationEvents(): { returnType: boolean, valueSupplementaryServiceNotificationEvents: boolean }
-    getUssdNotificationEvents(): { returnType: boolean, valueUssdNotificationEvents: boolean }
-    getUusEvents(): { returnType: boolean, valueUusEvents: boolean }
-    getVoicePrivacyEvents(): { returnType: boolean, valueVoicePrivacyEvents: boolean }
+    getAocEvents(): { returnType: boolean, valueAocEvents: boolean | null }
+    getCallNotificationEvents(): { returnType: boolean, valueCallNotificationEvents: boolean | null }
+    getConferenceEvents(): { returnType: boolean, valueConferenceEvents: boolean | null }
+    getDtmfEvents(): { returnType: boolean, valueDtmfEvents: boolean | null }
+    getExtendedBurstTypeInternationalInformationEvents(): { returnType: boolean, valueExtendedBurstTypeInternationalInformationEvents: boolean | null }
+    getHandoverEvents(): { returnType: boolean, valueHandoverEvents: boolean | null }
+    getModificationEvents(): { returnType: boolean, valueModificationEvents: boolean | null }
+    getMtPageMissInformationEvents(): { returnType: boolean, valueMtPageMissInformationEvents: boolean | null }
+    getSpeechCodecEvents(): { returnType: boolean, valueSpeechCodecEvents: boolean | null }
+    getSupplementaryServiceNotificationEvents(): { returnType: boolean, valueSupplementaryServiceNotificationEvents: boolean | null }
+    getUssdNotificationEvents(): { returnType: boolean, valueUssdNotificationEvents: boolean | null }
+    getUusEvents(): { returnType: boolean, valueUusEvents: boolean | null }
+    getVoicePrivacyEvents(): { returnType: boolean, valueVoicePrivacyEvents: boolean | null }
     ref(): MessageVoiceIndicationRegisterInput
     setAocEvents(valueAocEvents: boolean): boolean
     setCallNotificationEvents(valueCallNotificationEvents: boolean): boolean
@@ -10193,9 +10838,30 @@ export class MessageVoiceIndicationRegisterOutput {
     unref(): void
     static name: string
 }
+export class MessageVoiceManageCallsInput {
+    /* Methods of Qmi-1.0.Qmi.MessageVoiceManageCallsInput */
+    getCallId(): { returnType: boolean, valueCallId: number | null }
+    getServiceType(): { returnType: boolean, valueServiceType: VoiceSupplementaryServiceType | null }
+    ref(): MessageVoiceManageCallsInput
+    setCallId(valueCallId: number): boolean
+    setServiceType(valueServiceType: VoiceSupplementaryServiceType): boolean
+    unref(): void
+    static name: string
+    static new(): MessageVoiceManageCallsInput
+    constructor()
+    /* Static methods and pseudo-constructors */
+    static new(): MessageVoiceManageCallsInput
+}
+export class MessageVoiceManageCallsOutput {
+    /* Methods of Qmi-1.0.Qmi.MessageVoiceManageCallsOutput */
+    getResult(): boolean
+    ref(): MessageVoiceManageCallsOutput
+    unref(): void
+    static name: string
+}
 export class MessageVoiceOriginateUssdInput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceOriginateUssdInput */
-    getUssData(): { returnType: boolean, valueUssDataDataCodingScheme: VoiceUssDataCodingScheme, valueUssDataData: any[] }
+    getUssData(): { returnType: boolean, valueUssDataDataCodingScheme: VoiceUssDataCodingScheme | null, valueUssDataData: any[] | null }
     ref(): MessageVoiceOriginateUssdInput
     setUssData(valueUssDataDataCodingScheme: VoiceUssDataCodingScheme, valueUssDataData: any[]): boolean
     unref(): void
@@ -10207,7 +10873,7 @@ export class MessageVoiceOriginateUssdInput {
 }
 export class MessageVoiceOriginateUssdNoWaitInput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceOriginateUssdNoWaitInput */
-    getUssData(): { returnType: boolean, valueUssDataDataCodingScheme: VoiceUssDataCodingScheme, valueUssDataData: any[] }
+    getUssData(): { returnType: boolean, valueUssDataDataCodingScheme: VoiceUssDataCodingScheme | null, valueUssDataData: any[] | null }
     ref(): MessageVoiceOriginateUssdNoWaitInput
     setUssData(valueUssDataDataCodingScheme: VoiceUssDataCodingScheme, valueUssDataData: any[]): boolean
     unref(): void
@@ -10226,21 +10892,41 @@ export class MessageVoiceOriginateUssdNoWaitOutput {
 }
 export class MessageVoiceOriginateUssdOutput {
     /* Methods of Qmi-1.0.Qmi.MessageVoiceOriginateUssdOutput */
-    getAlphaIdentifier(): { returnType: boolean, valueAlphaIdentifierDataCodingScheme: VoiceAlphaDataCodingScheme, valueAlphaIdentifierAlpha: any[] }
-    getCallControlResultType(): { returnType: boolean, valueCallControlResultType: VoiceCallControlResultType }
-    getCallControlSupplementaryServiceType(): { returnType: boolean, valueCallControlSupplementaryServiceType: VoiceCallControlSupplementaryServiceType }
-    getCallId(): { returnType: boolean, valueCallId: number }
-    getFailureCause(): { returnType: boolean, valueFailureCause: VoiceCallEndReason }
+    getAlphaIdentifier(): { returnType: boolean, valueAlphaIdentifierDataCodingScheme: VoiceAlphaDataCodingScheme | null, valueAlphaIdentifierAlpha: any[] | null }
+    getCallControlResultType(): { returnType: boolean, valueCallControlResultType: VoiceCallControlResultType | null }
+    getCallControlSupplementaryServiceType(): { returnType: boolean, valueCallControlSupplementaryServiceType: VoiceCallControlSupplementaryServiceType | null }
+    getCallId(): { returnType: boolean, valueCallId: number | null }
+    getFailureCause(): { returnType: boolean, valueFailureCause: VoiceCallEndReason | null }
     getResult(): boolean
-    getUssData(): { returnType: boolean, valueUssDataDataCodingScheme: VoiceUssDataCodingScheme, valueUssDataData: any[] }
-    getUssDataUtf16(): { returnType: boolean, valueUssDataUtf16: number[] }
+    getUssData(): { returnType: boolean, valueUssDataDataCodingScheme: VoiceUssDataCodingScheme | null, valueUssDataData: any[] | null }
+    getUssDataUtf16(): { returnType: boolean, valueUssDataUtf16: number[] | null }
     ref(): MessageVoiceOriginateUssdOutput
+    unref(): void
+    static name: string
+}
+export class MessageVoiceSetSupplementaryServiceInput {
+    /* Methods of Qmi-1.0.Qmi.MessageVoiceSetSupplementaryServiceInput */
+    getSupplementaryServiceInformation(): { returnType: boolean, valueSupplementaryServiceInformationSupplementaryServiceAction: VoiceSupplementaryServiceAction | null, valueSupplementaryServiceInformationSupplementaryServiceReason: VoiceSupplementaryServiceReason | null }
+    ref(): MessageVoiceSetSupplementaryServiceInput
+    setSupplementaryServiceInformation(valueSupplementaryServiceInformationSupplementaryServiceAction: VoiceSupplementaryServiceAction, valueSupplementaryServiceInformationSupplementaryServiceReason: VoiceSupplementaryServiceReason): boolean
+    unref(): void
+    static name: string
+    static new(): MessageVoiceSetSupplementaryServiceInput
+    constructor()
+    /* Static methods and pseudo-constructors */
+    static new(): MessageVoiceSetSupplementaryServiceInput
+}
+export class MessageVoiceSetSupplementaryServiceOutput {
+    /* Methods of Qmi-1.0.Qmi.MessageVoiceSetSupplementaryServiceOutput */
+    getResult(): boolean
+    getServiceStatus(): { returnType: boolean, valueServiceStatusActive: boolean | null, valueServiceStatusProvisioned: boolean | null }
+    ref(): MessageVoiceSetSupplementaryServiceOutput
     unref(): void
     static name: string
 }
 export class MessageWdaGetDataFormatInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdaGetDataFormatInput */
-    getEndpointInfo(): { returnType: boolean, valueEndpointInfoEndpointType: DataEndpointType, valueEndpointInfoInterfaceNumber: number }
+    getEndpointInfo(): { returnType: boolean, valueEndpointInfoEndpointType: DataEndpointType | null, valueEndpointInfoInterfaceNumber: number | null }
     ref(): MessageWdaGetDataFormatInput
     setEndpointInfo(valueEndpointInfoEndpointType: DataEndpointType, valueEndpointInfoInterfaceNumber: number): boolean
     unref(): void
@@ -10252,21 +10938,25 @@ export class MessageWdaGetDataFormatInput {
 }
 export class MessageWdaGetDataFormatOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdaGetDataFormatOutput */
-    getDownlinkDataAggregationMaxDatagrams(): { returnType: boolean, valueDownlinkDataAggregationMaxDatagrams: number }
-    getDownlinkDataAggregationMaxSize(): { returnType: boolean, valueDownlinkDataAggregationMaxSize: number }
-    getDownlinkDataAggregationProtocol(): { returnType: boolean, valueDownlinkDataAggregationProtocol: WdaDataAggregationProtocol }
-    getLinkLayerProtocol(): { returnType: boolean, valueLinkLayerProtocol: WdaLinkLayerProtocol }
-    getNdpSignature(): { returnType: boolean, valueNdpSignature: number }
-    getQosFormat(): { returnType: boolean, valueQosFormat: boolean }
+    getDownlinkDataAggregationMaxDatagrams(): { returnType: boolean, valueDownlinkDataAggregationMaxDatagrams: number | null }
+    getDownlinkDataAggregationMaxSize(): { returnType: boolean, valueDownlinkDataAggregationMaxSize: number | null }
+    getDownlinkDataAggregationProtocol(): { returnType: boolean, valueDownlinkDataAggregationProtocol: WdaDataAggregationProtocol | null }
+    getDownloadMinimumPadding(): { returnType: boolean, valueDownloadMinimumPadding: number | null }
+    getFlowControl(): { returnType: boolean, valueFlowControl: number | null }
+    getLinkLayerProtocol(): { returnType: boolean, valueLinkLayerProtocol: WdaLinkLayerProtocol | null }
+    getNdpSignature(): { returnType: boolean, valueNdpSignature: number | null }
+    getQosFormat(): { returnType: boolean, valueQosFormat: boolean | null }
     getResult(): boolean
-    getUplinkDataAggregationProtocol(): { returnType: boolean, valueUplinkDataAggregationProtocol: WdaDataAggregationProtocol }
+    getUplinkDataAggregationMaxDatagrams(): { returnType: boolean, valueUplinkDataAggregationMaxDatagrams: number | null }
+    getUplinkDataAggregationMaxSize(): { returnType: boolean, valueUplinkDataAggregationMaxSize: number | null }
+    getUplinkDataAggregationProtocol(): { returnType: boolean, valueUplinkDataAggregationProtocol: WdaDataAggregationProtocol | null }
     ref(): MessageWdaGetDataFormatOutput
     unref(): void
     static name: string
 }
 export class MessageWdaGetSupportedMessagesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdaGetSupportedMessagesOutput */
-    getList(): { returnType: boolean, valueList: any[] }
+    getList(): { returnType: boolean, valueList: any[] | null }
     getResult(): boolean
     ref(): MessageWdaGetSupportedMessagesOutput
     unref(): void
@@ -10274,14 +10964,14 @@ export class MessageWdaGetSupportedMessagesOutput {
 }
 export class MessageWdaSetDataFormatInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdaSetDataFormatInput */
-    getDownlinkDataAggregationMaxDatagrams(): { returnType: boolean, valueDownlinkDataAggregationMaxDatagrams: number }
-    getDownlinkDataAggregationMaxSize(): { returnType: boolean, valueDownlinkDataAggregationMaxSize: number }
-    getDownlinkDataAggregationProtocol(): { returnType: boolean, valueDownlinkDataAggregationProtocol: WdaDataAggregationProtocol }
-    getEndpointInfo(): { returnType: boolean, valueEndpointInfoEndpointType: DataEndpointType, valueEndpointInfoInterfaceNumber: number }
-    getLinkLayerProtocol(): { returnType: boolean, valueLinkLayerProtocol: WdaLinkLayerProtocol }
-    getNdpSignature(): { returnType: boolean, valueNdpSignature: number }
-    getQosFormat(): { returnType: boolean, valueQosFormat: boolean }
-    getUplinkDataAggregationProtocol(): { returnType: boolean, valueUplinkDataAggregationProtocol: WdaDataAggregationProtocol }
+    getDownlinkDataAggregationMaxDatagrams(): { returnType: boolean, valueDownlinkDataAggregationMaxDatagrams: number | null }
+    getDownlinkDataAggregationMaxSize(): { returnType: boolean, valueDownlinkDataAggregationMaxSize: number | null }
+    getDownlinkDataAggregationProtocol(): { returnType: boolean, valueDownlinkDataAggregationProtocol: WdaDataAggregationProtocol | null }
+    getEndpointInfo(): { returnType: boolean, valueEndpointInfoEndpointType: DataEndpointType | null, valueEndpointInfoInterfaceNumber: number | null }
+    getLinkLayerProtocol(): { returnType: boolean, valueLinkLayerProtocol: WdaLinkLayerProtocol | null }
+    getNdpSignature(): { returnType: boolean, valueNdpSignature: number | null }
+    getQosFormat(): { returnType: boolean, valueQosFormat: boolean | null }
+    getUplinkDataAggregationProtocol(): { returnType: boolean, valueUplinkDataAggregationProtocol: WdaDataAggregationProtocol | null }
     ref(): MessageWdaSetDataFormatInput
     setDownlinkDataAggregationMaxDatagrams(valueDownlinkDataAggregationMaxDatagrams: number): boolean
     setDownlinkDataAggregationMaxSize(valueDownlinkDataAggregationMaxSize: number): boolean
@@ -10300,21 +10990,25 @@ export class MessageWdaSetDataFormatInput {
 }
 export class MessageWdaSetDataFormatOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdaSetDataFormatOutput */
-    getDownlinkDataAggregationMaxDatagrams(): { returnType: boolean, valueDownlinkDataAggregationMaxDatagrams: number }
-    getDownlinkDataAggregationMaxSize(): { returnType: boolean, valueDownlinkDataAggregationMaxSize: number }
-    getDownlinkDataAggregationProtocol(): { returnType: boolean, valueDownlinkDataAggregationProtocol: WdaDataAggregationProtocol }
-    getLinkLayerProtocol(): { returnType: boolean, valueLinkLayerProtocol: WdaLinkLayerProtocol }
-    getNdpSignature(): { returnType: boolean, valueNdpSignature: number }
-    getQosFormat(): { returnType: boolean, valueQosFormat: boolean }
+    getDownlinkDataAggregationMaxDatagrams(): { returnType: boolean, valueDownlinkDataAggregationMaxDatagrams: number | null }
+    getDownlinkDataAggregationMaxSize(): { returnType: boolean, valueDownlinkDataAggregationMaxSize: number | null }
+    getDownlinkDataAggregationProtocol(): { returnType: boolean, valueDownlinkDataAggregationProtocol: WdaDataAggregationProtocol | null }
+    getDownloadMinimumPadding(): { returnType: boolean, valueDownloadMinimumPadding: number | null }
+    getFlowControl(): { returnType: boolean, valueFlowControl: number | null }
+    getLinkLayerProtocol(): { returnType: boolean, valueLinkLayerProtocol: WdaLinkLayerProtocol | null }
+    getNdpSignature(): { returnType: boolean, valueNdpSignature: number | null }
+    getQosFormat(): { returnType: boolean, valueQosFormat: boolean | null }
     getResult(): boolean
-    getUplinkDataAggregationProtocol(): { returnType: boolean, valueUplinkDataAggregationProtocol: WdaDataAggregationProtocol }
+    getUplinkDataAggregationMaxDatagrams(): { returnType: boolean, valueUplinkDataAggregationMaxDatagrams: number | null }
+    getUplinkDataAggregationMaxSize(): { returnType: boolean, valueUplinkDataAggregationMaxSize: number | null }
+    getUplinkDataAggregationProtocol(): { returnType: boolean, valueUplinkDataAggregationProtocol: WdaDataAggregationProtocol | null }
     ref(): MessageWdaSetDataFormatOutput
     unref(): void
     static name: string
 }
 export class MessageWdsBindDataPortInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsBindDataPortInput */
-    getDataPort(): { returnType: boolean, valueDataPort: SioPort }
+    getDataPort(): { returnType: boolean, valueDataPort: SioPort | null }
     ref(): MessageWdsBindDataPortInput
     setDataPort(valueDataPort: SioPort): boolean
     unref(): void
@@ -10333,9 +11027,9 @@ export class MessageWdsBindDataPortOutput {
 }
 export class MessageWdsBindMuxDataPortInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsBindMuxDataPortInput */
-    getClientType(): { returnType: boolean, valueClientType: WdsClientType }
-    getEndpointInfo(): { returnType: boolean, valueEndpointInfoEndpointType: DataEndpointType, valueEndpointInfoInterfaceNumber: number }
-    getMuxId(): { returnType: boolean, valueMuxId: number }
+    getClientType(): { returnType: boolean, valueClientType: WdsClientType | null }
+    getEndpointInfo(): { returnType: boolean, valueEndpointInfoEndpointType: DataEndpointType | null, valueEndpointInfoInterfaceNumber: number | null }
+    getMuxId(): { returnType: boolean, valueMuxId: number | null }
     ref(): MessageWdsBindMuxDataPortInput
     setClientType(valueClientType: WdsClientType): boolean
     setEndpointInfo(valueEndpointInfoEndpointType: DataEndpointType, valueEndpointInfoInterfaceNumber: number): boolean
@@ -10356,39 +11050,41 @@ export class MessageWdsBindMuxDataPortOutput {
 }
 export class MessageWdsCreateProfileInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsCreateProfileInput */
-    getApnDisabledFlag(): { returnType: boolean, valueApnDisabledFlag: boolean }
-    getApnName(): { returnType: boolean, valueApnName: string }
-    getAuthentication(): { returnType: boolean, valueAuthentication: WdsAuthentication }
-    getGprsMinimumQos(): { returnType: boolean, valueGprsMinimumQosPrecedenceClass: number, valueGprsMinimumQosDelayClass: number, valueGprsMinimumQosReliabilityClass: number, valueGprsMinimumQosPeakThroughputClass: number, valueGprsMinimumQosMeanThroughputClass: number }
-    getGprsRequestedQos(): { returnType: boolean, valueGprsRequestedQosPrecedenceClass: number, valueGprsRequestedQosDelayClass: number, valueGprsRequestedQosReliabilityClass: number, valueGprsRequestedQosPeakThroughputClass: number, valueGprsRequestedQosMeanThroughputClass: number }
-    getImcnFlag(): { returnType: boolean, valueImcnFlag: boolean }
-    getIpv4AddressPreference(): { returnType: boolean, valueIpv4AddressPreference: number }
-    getIpv6AddressPreference(): { returnType: boolean, valueIpv6AddressPreferenceAddress: number[] }
-    getIpv6PrimaryDnsAddressPreference(): { returnType: boolean, valueIpv6PrimaryDnsAddressPreference: number[] }
-    getIpv6SecondaryDnsAddressPreference(): { returnType: boolean, valueIpv6SecondaryDnsAddressPreference: number[] }
-    getLteQosParameters(): { returnType: boolean, valueLteQosParametersQosClassIdentifier: WdsQosClassIdentifier, valueLteQosParametersGuaranteedDownlinkBitrate: number, valueLteQosParametersMaxDownlinkBitrate: number, valueLteQosParametersGuaranteedUplinkBitrate: number, valueLteQosParametersMaxUplinkBitrate: number }
-    getPassword(): { returnType: boolean, valuePassword: string }
-    getPcscfAddressUsingDhcp(): { returnType: boolean, valuePcscfAddressUsingDhcp: boolean }
-    getPcscfAddressUsingPco(): { returnType: boolean, valuePcscfAddressUsingPco: boolean }
-    getPdpContextNumber(): { returnType: boolean, valuePdpContextNumber: number }
-    getPdpContextPrimaryId(): { returnType: boolean, valuePdpContextPrimaryId: number }
-    getPdpContextSecondaryFlag(): { returnType: boolean, valuePdpContextSecondaryFlag: boolean }
-    getPdpDataCompressionType(): { returnType: boolean, valuePdpDataCompressionType: WdsPdpDataCompressionType }
-    getPdpHeaderCompressionType(): { returnType: boolean, valuePdpHeaderCompressionType: WdsPdpHeaderCompressionType }
-    getPdpType(): { returnType: boolean, valuePdpType: WdsPdpType }
-    getPrimaryIpv4DnsAddress(): { returnType: boolean, valuePrimaryIpv4DnsAddress: number }
-    getProfileName(): { returnType: boolean, valueProfileName: string }
-    getProfileType(): { returnType: boolean, valueProfileType: WdsProfileType }
-    getRoamingDisallowedFlag(): { returnType: boolean, valueRoamingDisallowedFlag: boolean }
-    getSecondaryIpv4DnsAddress(): { returnType: boolean, valueSecondaryIpv4DnsAddress: number }
-    getUmtsMinimumQos(): { returnType: boolean, valueUmtsMinimumQosTrafficClass: WdsTrafficClass, valueUmtsMinimumQosMaxUplinkBitrate: number, valueUmtsMinimumQosMaxDownlinkBitrate: number, valueUmtsMinimumQosGuaranteedUplinkBitrate: number, valueUmtsMinimumQosGuaranteedDownlinkBitrate: number, valueUmtsMinimumQosQosDeliveryOrder: WdsDeliveryOrder, valueUmtsMinimumQosMaximumSduSize: number, valueUmtsMinimumQosSduErrorRatio: WdsSduErrorRatio, valueUmtsMinimumQosResidualBitErrorRatio: WdsSduResidualBitErrorRatio, valueUmtsMinimumQosDeliveryErroneousSdu: WdsSduErroneousDelivery, valueUmtsMinimumQosTransferDelay: number, valueUmtsMinimumQosTrafficHandlingPriority: number }
-    getUmtsMinimumQosWithSignalingIndicationFlag(): { returnType: boolean, valueUmtsMinimumQosWithSignalingIndicationFlagTrafficClass: WdsTrafficClass, valueUmtsMinimumQosWithSignalingIndicationFlagMaxUplinkBitrate: number, valueUmtsMinimumQosWithSignalingIndicationFlagMaxDownlinkBitrate: number, valueUmtsMinimumQosWithSignalingIndicationFlagGuaranteedUplinkBitrate: number, valueUmtsMinimumQosWithSignalingIndicationFlagGuaranteedDownlinkBitrate: number, valueUmtsMinimumQosWithSignalingIndicationFlagQosDeliveryOrder: WdsDeliveryOrder, valueUmtsMinimumQosWithSignalingIndicationFlagMaximumSduSize: number, valueUmtsMinimumQosWithSignalingIndicationFlagSduErrorRatio: WdsSduErrorRatio, valueUmtsMinimumQosWithSignalingIndicationFlagResidualBitErrorRatio: WdsSduResidualBitErrorRatio, valueUmtsMinimumQosWithSignalingIndicationFlagDeliveryErroneousSdu: WdsSduErroneousDelivery, valueUmtsMinimumQosWithSignalingIndicationFlagTransferDelay: number, valueUmtsMinimumQosWithSignalingIndicationFlagTrafficHandlingPriority: number, valueUmtsMinimumQosWithSignalingIndicationFlagSignalingIndication: number }
-    getUmtsRequestedQos(): { returnType: boolean, valueUmtsRequestedQosTrafficClass: WdsTrafficClass, valueUmtsRequestedQosMaxUplinkBitrate: number, valueUmtsRequestedQosMaxDownlinkBitrate: number, valueUmtsRequestedQosGuaranteedUplinkBitrate: number, valueUmtsRequestedQosGuaranteedDownlinkBitrate: number, valueUmtsRequestedQosQosDeliveryOrder: WdsDeliveryOrder, valueUmtsRequestedQosMaximumSduSize: number, valueUmtsRequestedQosSduErrorRatio: WdsSduErrorRatio, valueUmtsRequestedQosResidualBitErrorRatio: WdsSduResidualBitErrorRatio, valueUmtsRequestedQosDeliveryErroneousSdu: WdsSduErroneousDelivery, valueUmtsRequestedQosTransferDelay: number, valueUmtsRequestedQosTrafficHandlingPriority: number }
-    getUmtsRequestedQosWithSignalingIndicationFlag(): { returnType: boolean, valueUmtsRequestedQosWithSignalingIndicationFlagTrafficClass: WdsTrafficClass, valueUmtsRequestedQosWithSignalingIndicationFlagMaxUplinkBitrate: number, valueUmtsRequestedQosWithSignalingIndicationFlagMaxDownlinkBitrate: number, valueUmtsRequestedQosWithSignalingIndicationFlagGuaranteedUplinkBitrate: number, valueUmtsRequestedQosWithSignalingIndicationFlagGuaranteedDownlinkBitrate: number, valueUmtsRequestedQosWithSignalingIndicationFlagQosDeliveryOrder: WdsDeliveryOrder, valueUmtsRequestedQosWithSignalingIndicationFlagMaximumSduSize: number, valueUmtsRequestedQosWithSignalingIndicationFlagSduErrorRatio: WdsSduErrorRatio, valueUmtsRequestedQosWithSignalingIndicationFlagResidualBitErrorRatio: WdsSduResidualBitErrorRatio, valueUmtsRequestedQosWithSignalingIndicationFlagDeliveryErroneousSdu: WdsSduErroneousDelivery, valueUmtsRequestedQosWithSignalingIndicationFlagTransferDelay: number, valueUmtsRequestedQosWithSignalingIndicationFlagTrafficHandlingPriority: number, valueUmtsRequestedQosWithSignalingIndicationFlagSignalingIndication: number }
-    getUsername(): { returnType: boolean, valueUsername: string }
+    getApnDisabledFlag(): { returnType: boolean, valueApnDisabledFlag: boolean | null }
+    getApnName(): { returnType: boolean, valueApnName: string | null }
+    getApnTypeMask(): { returnType: boolean, valueApnTypeMask: WdsApnTypeMask | null }
+    getAuthentication(): { returnType: boolean, valueAuthentication: WdsAuthentication | null }
+    getGprsMinimumQos(): { returnType: boolean, valueGprsMinimumQosPrecedenceClass: number | null, valueGprsMinimumQosDelayClass: number | null, valueGprsMinimumQosReliabilityClass: number | null, valueGprsMinimumQosPeakThroughputClass: number | null, valueGprsMinimumQosMeanThroughputClass: number | null }
+    getGprsRequestedQos(): { returnType: boolean, valueGprsRequestedQosPrecedenceClass: number | null, valueGprsRequestedQosDelayClass: number | null, valueGprsRequestedQosReliabilityClass: number | null, valueGprsRequestedQosPeakThroughputClass: number | null, valueGprsRequestedQosMeanThroughputClass: number | null }
+    getImcnFlag(): { returnType: boolean, valueImcnFlag: boolean | null }
+    getIpv4AddressPreference(): { returnType: boolean, valueIpv4AddressPreference: number | null }
+    getIpv6AddressPreference(): { returnType: boolean, valueIpv6AddressPreferenceAddress: number[] | null }
+    getIpv6PrimaryDnsAddressPreference(): { returnType: boolean, valueIpv6PrimaryDnsAddressPreference: number[] | null }
+    getIpv6SecondaryDnsAddressPreference(): { returnType: boolean, valueIpv6SecondaryDnsAddressPreference: number[] | null }
+    getLteQosParameters(): { returnType: boolean, valueLteQosParametersQosClassIdentifier: WdsQosClassIdentifier | null, valueLteQosParametersGuaranteedDownlinkBitrate: number | null, valueLteQosParametersMaxDownlinkBitrate: number | null, valueLteQosParametersGuaranteedUplinkBitrate: number | null, valueLteQosParametersMaxUplinkBitrate: number | null }
+    getPassword(): { returnType: boolean, valuePassword: string | null }
+    getPcscfAddressUsingDhcp(): { returnType: boolean, valuePcscfAddressUsingDhcp: boolean | null }
+    getPcscfAddressUsingPco(): { returnType: boolean, valuePcscfAddressUsingPco: boolean | null }
+    getPdpContextNumber(): { returnType: boolean, valuePdpContextNumber: number | null }
+    getPdpContextPrimaryId(): { returnType: boolean, valuePdpContextPrimaryId: number | null }
+    getPdpContextSecondaryFlag(): { returnType: boolean, valuePdpContextSecondaryFlag: boolean | null }
+    getPdpDataCompressionType(): { returnType: boolean, valuePdpDataCompressionType: WdsPdpDataCompressionType | null }
+    getPdpHeaderCompressionType(): { returnType: boolean, valuePdpHeaderCompressionType: WdsPdpHeaderCompressionType | null }
+    getPdpType(): { returnType: boolean, valuePdpType: WdsPdpType | null }
+    getPrimaryIpv4DnsAddress(): { returnType: boolean, valuePrimaryIpv4DnsAddress: number | null }
+    getProfileName(): { returnType: boolean, valueProfileName: string | null }
+    getProfileType(): { returnType: boolean, valueProfileType: WdsProfileType | null }
+    getRoamingDisallowedFlag(): { returnType: boolean, valueRoamingDisallowedFlag: boolean | null }
+    getSecondaryIpv4DnsAddress(): { returnType: boolean, valueSecondaryIpv4DnsAddress: number | null }
+    getUmtsMinimumQos(): { returnType: boolean, valueUmtsMinimumQosTrafficClass: WdsTrafficClass | null, valueUmtsMinimumQosMaxUplinkBitrate: number | null, valueUmtsMinimumQosMaxDownlinkBitrate: number | null, valueUmtsMinimumQosGuaranteedUplinkBitrate: number | null, valueUmtsMinimumQosGuaranteedDownlinkBitrate: number | null, valueUmtsMinimumQosQosDeliveryOrder: WdsDeliveryOrder | null, valueUmtsMinimumQosMaximumSduSize: number | null, valueUmtsMinimumQosSduErrorRatio: WdsSduErrorRatio | null, valueUmtsMinimumQosResidualBitErrorRatio: WdsSduResidualBitErrorRatio | null, valueUmtsMinimumQosDeliveryErroneousSdu: WdsSduErroneousDelivery | null, valueUmtsMinimumQosTransferDelay: number | null, valueUmtsMinimumQosTrafficHandlingPriority: number | null }
+    getUmtsMinimumQosWithSignalingIndicationFlag(): { returnType: boolean, valueUmtsMinimumQosWithSignalingIndicationFlagTrafficClass: WdsTrafficClass | null, valueUmtsMinimumQosWithSignalingIndicationFlagMaxUplinkBitrate: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagMaxDownlinkBitrate: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagGuaranteedUplinkBitrate: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagGuaranteedDownlinkBitrate: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagQosDeliveryOrder: WdsDeliveryOrder | null, valueUmtsMinimumQosWithSignalingIndicationFlagMaximumSduSize: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagSduErrorRatio: WdsSduErrorRatio | null, valueUmtsMinimumQosWithSignalingIndicationFlagResidualBitErrorRatio: WdsSduResidualBitErrorRatio | null, valueUmtsMinimumQosWithSignalingIndicationFlagDeliveryErroneousSdu: WdsSduErroneousDelivery | null, valueUmtsMinimumQosWithSignalingIndicationFlagTransferDelay: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagTrafficHandlingPriority: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagSignalingIndication: number | null }
+    getUmtsRequestedQos(): { returnType: boolean, valueUmtsRequestedQosTrafficClass: WdsTrafficClass | null, valueUmtsRequestedQosMaxUplinkBitrate: number | null, valueUmtsRequestedQosMaxDownlinkBitrate: number | null, valueUmtsRequestedQosGuaranteedUplinkBitrate: number | null, valueUmtsRequestedQosGuaranteedDownlinkBitrate: number | null, valueUmtsRequestedQosQosDeliveryOrder: WdsDeliveryOrder | null, valueUmtsRequestedQosMaximumSduSize: number | null, valueUmtsRequestedQosSduErrorRatio: WdsSduErrorRatio | null, valueUmtsRequestedQosResidualBitErrorRatio: WdsSduResidualBitErrorRatio | null, valueUmtsRequestedQosDeliveryErroneousSdu: WdsSduErroneousDelivery | null, valueUmtsRequestedQosTransferDelay: number | null, valueUmtsRequestedQosTrafficHandlingPriority: number | null }
+    getUmtsRequestedQosWithSignalingIndicationFlag(): { returnType: boolean, valueUmtsRequestedQosWithSignalingIndicationFlagTrafficClass: WdsTrafficClass | null, valueUmtsRequestedQosWithSignalingIndicationFlagMaxUplinkBitrate: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagMaxDownlinkBitrate: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagGuaranteedUplinkBitrate: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagGuaranteedDownlinkBitrate: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagQosDeliveryOrder: WdsDeliveryOrder | null, valueUmtsRequestedQosWithSignalingIndicationFlagMaximumSduSize: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagSduErrorRatio: WdsSduErrorRatio | null, valueUmtsRequestedQosWithSignalingIndicationFlagResidualBitErrorRatio: WdsSduResidualBitErrorRatio | null, valueUmtsRequestedQosWithSignalingIndicationFlagDeliveryErroneousSdu: WdsSduErroneousDelivery | null, valueUmtsRequestedQosWithSignalingIndicationFlagTransferDelay: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagTrafficHandlingPriority: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagSignalingIndication: number | null }
+    getUsername(): { returnType: boolean, valueUsername: string | null }
     ref(): MessageWdsCreateProfileInput
     setApnDisabledFlag(valueApnDisabledFlag: boolean): boolean
     setApnName(valueApnName: string): boolean
+    setApnTypeMask(valueApnTypeMask: WdsApnTypeMask): boolean
     setAuthentication(valueAuthentication: WdsAuthentication): boolean
     setGprsMinimumQos(valueGprsMinimumQosPrecedenceClass: number, valueGprsMinimumQosDelayClass: number, valueGprsMinimumQosReliabilityClass: number, valueGprsMinimumQosPeakThroughputClass: number, valueGprsMinimumQosMeanThroughputClass: number): boolean
     setGprsRequestedQos(valueGprsRequestedQosPrecedenceClass: number, valueGprsRequestedQosDelayClass: number, valueGprsRequestedQosReliabilityClass: number, valueGprsRequestedQosPeakThroughputClass: number, valueGprsRequestedQosMeanThroughputClass: number): boolean
@@ -10426,8 +11122,8 @@ export class MessageWdsCreateProfileInput {
 }
 export class MessageWdsCreateProfileOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsCreateProfileOutput */
-    getExtendedErrorCode(): { returnType: boolean, valueExtendedErrorCode: WdsDsProfileError }
-    getProfileIdentifier(): { returnType: boolean, valueProfileIdentifierProfileType: WdsProfileType, valueProfileIdentifierProfileIndex: number }
+    getExtendedErrorCode(): { returnType: boolean, valueExtendedErrorCode: WdsDsProfileError | null }
+    getProfileIdentifier(): { returnType: boolean, valueProfileIdentifierProfileType: WdsProfileType | null, valueProfileIdentifierProfileIndex: number | null }
     getResult(): boolean
     ref(): MessageWdsCreateProfileOutput
     unref(): void
@@ -10435,7 +11131,7 @@ export class MessageWdsCreateProfileOutput {
 }
 export class MessageWdsDeleteProfileInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsDeleteProfileInput */
-    getProfileIdentifier(): { returnType: boolean, valueProfileIdentifierProfileType: WdsProfileType, valueProfileIdentifierProfileIndex: number }
+    getProfileIdentifier(): { returnType: boolean, valueProfileIdentifierProfileType: WdsProfileType | null, valueProfileIdentifierProfileIndex: number | null }
     ref(): MessageWdsDeleteProfileInput
     setProfileIdentifier(valueProfileIdentifierProfileType: WdsProfileType, valueProfileIdentifierProfileIndex: number): boolean
     unref(): void
@@ -10447,7 +11143,7 @@ export class MessageWdsDeleteProfileInput {
 }
 export class MessageWdsDeleteProfileOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsDeleteProfileOutput */
-    getExtendedErrorCode(): { returnType: boolean, valueExtendedErrorCode: WdsDsProfileError }
+    getExtendedErrorCode(): { returnType: boolean, valueExtendedErrorCode: WdsDsProfileError | null }
     getResult(): boolean
     ref(): MessageWdsDeleteProfileOutput
     unref(): void
@@ -10456,15 +11152,15 @@ export class MessageWdsDeleteProfileOutput {
 export class MessageWdsGetAutoconnectSettingsOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetAutoconnectSettingsOutput */
     getResult(): boolean
-    getRoaming(): { returnType: boolean, valueRoaming: WdsAutoconnectSettingRoaming }
-    getStatus(): { returnType: boolean, valueStatus: WdsAutoconnectSetting }
+    getRoaming(): { returnType: boolean, valueRoaming: WdsAutoconnectSettingRoaming | null }
+    getStatus(): { returnType: boolean, valueStatus: WdsAutoconnectSetting | null }
     ref(): MessageWdsGetAutoconnectSettingsOutput
     unref(): void
     static name: string
 }
 export class MessageWdsGetChannelRatesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetChannelRatesOutput */
-    getChannelRates(): { returnType: boolean, valueChannelRatesChannelTxRateBps: number, valueChannelRatesChannelRxRateBps: number, valueChannelRatesMaxChannelTxRateBps: number, valueChannelRatesMaxChannelRxRateBps: number }
+    getChannelRates(): { returnType: boolean, valueChannelRatesChannelTxRateBps: number | null, valueChannelRatesChannelRxRateBps: number | null, valueChannelRatesMaxChannelTxRateBps: number | null, valueChannelRatesMaxChannelRxRateBps: number | null }
     getResult(): boolean
     ref(): MessageWdsGetChannelRatesOutput
     unref(): void
@@ -10472,8 +11168,8 @@ export class MessageWdsGetChannelRatesOutput {
 }
 export class MessageWdsGetCurrentDataBearerTechnologyOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetCurrentDataBearerTechnologyOutput */
-    getCurrent(): { returnType: boolean, valueCurrentNetworkType: WdsNetworkType, valueCurrentRatMask: number, valueCurrentSoMask: number }
-    getLast(): { returnType: boolean, valueLastNetworkType: WdsNetworkType, valueLastRatMask: number, valueLastSoMask: number }
+    getCurrent(): { returnType: boolean, valueCurrentNetworkType: WdsNetworkType | null, valueCurrentRatMask: number | null, valueCurrentSoMask: number | null }
+    getLast(): { returnType: boolean, valueLastNetworkType: WdsNetworkType | null, valueLastRatMask: number | null, valueLastSoMask: number | null }
     getResult(): boolean
     ref(): MessageWdsGetCurrentDataBearerTechnologyOutput
     unref(): void
@@ -10481,7 +11177,7 @@ export class MessageWdsGetCurrentDataBearerTechnologyOutput {
 }
 export class MessageWdsGetCurrentSettingsInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetCurrentSettingsInput */
-    getRequestedSettings(): { returnType: boolean, valueRequestedSettings: WdsGetCurrentSettingsRequestedSettings }
+    getRequestedSettings(): { returnType: boolean, valueRequestedSettings: WdsGetCurrentSettingsRequestedSettings | null }
     ref(): MessageWdsGetCurrentSettingsInput
     setRequestedSettings(valueRequestedSettings: WdsGetCurrentSettingsRequestedSettings): boolean
     unref(): void
@@ -10493,40 +11189,40 @@ export class MessageWdsGetCurrentSettingsInput {
 }
 export class MessageWdsGetCurrentSettingsOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetCurrentSettingsOutput */
-    getApnName(): { returnType: boolean, valueApnName: string }
-    getAuthentication(): { returnType: boolean, valueAuthentication: WdsAuthentication }
-    getDomainNameList(): { returnType: boolean, valueDomainNameList: string[] }
-    getExtendedTechnologyPreference(): { returnType: boolean, valueExtendedTechnologyPreference: WdsExtendedTechnologyPreference }
-    getGprsGrantedQos(): { returnType: boolean, valueGprsGrantedQosPrecedenceClass: number, valueGprsGrantedQosDelayClass: number, valueGprsGrantedQosReliabilityClass: number, valueGprsGrantedQosPeakThroughputClass: number, valueGprsGrantedQosMeanThroughputClass: number }
-    getImcnFlag(): { returnType: boolean, valueImcnFlag: number }
-    getIpFamily(): { returnType: boolean, valueIpFamily: WdsIpFamily }
-    getIpv4Address(): { returnType: boolean, valueIpv4Address: number }
-    getIpv4GatewayAddress(): { returnType: boolean, valueIpv4GatewayAddress: number }
-    getIpv4GatewaySubnetMask(): { returnType: boolean, valueIpv4GatewaySubnetMask: number }
-    getIpv6Address(): { returnType: boolean, valueIpv6AddressAddress: number[], valueIpv6AddressPrefixLength: number }
-    getIpv6GatewayAddress(): { returnType: boolean, valueIpv6GatewayAddressAddress: number[], valueIpv6GatewayAddressPrefixLength: number }
-    getIpv6PrimaryDnsAddress(): { returnType: boolean, valueIpv6PrimaryDnsAddress: number[] }
-    getIpv6SecondaryDnsAddress(): { returnType: boolean, valueIpv6SecondaryDnsAddress: number[] }
-    getMtu(): { returnType: boolean, valueMtu: number }
-    getPcscfAddressUsingPco(): { returnType: boolean, valuePcscfAddressUsingPco: number }
-    getPcscfDomainNameList(): { returnType: boolean, valuePcscfDomainNameList: string[] }
-    getPcscfServerAddressList(): { returnType: boolean, valuePcscfServerAddressList: number[] }
-    getPdpType(): { returnType: boolean, valuePdpType: WdsPdpType }
-    getPrimaryIpv4DnsAddress(): { returnType: boolean, valuePrimaryIpv4DnsAddress: number }
-    getProfileId(): { returnType: boolean, valueProfileIdProfileType: WdsProfileType, valueProfileIdProfileIndex: number }
-    getProfileName(): { returnType: boolean, valueProfileName: string }
+    getApnName(): { returnType: boolean, valueApnName: string | null }
+    getAuthentication(): { returnType: boolean, valueAuthentication: WdsAuthentication | null }
+    getDomainNameList(): { returnType: boolean, valueDomainNameList: string[] | null }
+    getExtendedTechnologyPreference(): { returnType: boolean, valueExtendedTechnologyPreference: WdsExtendedTechnologyPreference | null }
+    getGprsGrantedQos(): { returnType: boolean, valueGprsGrantedQosPrecedenceClass: number | null, valueGprsGrantedQosDelayClass: number | null, valueGprsGrantedQosReliabilityClass: number | null, valueGprsGrantedQosPeakThroughputClass: number | null, valueGprsGrantedQosMeanThroughputClass: number | null }
+    getImcnFlag(): { returnType: boolean, valueImcnFlag: number | null }
+    getIpFamily(): { returnType: boolean, valueIpFamily: WdsIpFamily | null }
+    getIpv4Address(): { returnType: boolean, valueIpv4Address: number | null }
+    getIpv4GatewayAddress(): { returnType: boolean, valueIpv4GatewayAddress: number | null }
+    getIpv4GatewaySubnetMask(): { returnType: boolean, valueIpv4GatewaySubnetMask: number | null }
+    getIpv6Address(): { returnType: boolean, valueIpv6AddressAddress: number[] | null, valueIpv6AddressPrefixLength: number | null }
+    getIpv6GatewayAddress(): { returnType: boolean, valueIpv6GatewayAddressAddress: number[] | null, valueIpv6GatewayAddressPrefixLength: number | null }
+    getIpv6PrimaryDnsAddress(): { returnType: boolean, valueIpv6PrimaryDnsAddress: number[] | null }
+    getIpv6SecondaryDnsAddress(): { returnType: boolean, valueIpv6SecondaryDnsAddress: number[] | null }
+    getMtu(): { returnType: boolean, valueMtu: number | null }
+    getPcscfAddressUsingPco(): { returnType: boolean, valuePcscfAddressUsingPco: number | null }
+    getPcscfDomainNameList(): { returnType: boolean, valuePcscfDomainNameList: string[] | null }
+    getPcscfServerAddressList(): { returnType: boolean, valuePcscfServerAddressList: number[] | null }
+    getPdpType(): { returnType: boolean, valuePdpType: WdsPdpType | null }
+    getPrimaryIpv4DnsAddress(): { returnType: boolean, valuePrimaryIpv4DnsAddress: number | null }
+    getProfileId(): { returnType: boolean, valueProfileIdProfileType: WdsProfileType | null, valueProfileIdProfileIndex: number | null }
+    getProfileName(): { returnType: boolean, valueProfileName: string | null }
     getResult(): boolean
-    getSecondaryIpv4DnsAddress(): { returnType: boolean, valueSecondaryIpv4DnsAddress: number }
-    getUmtsGrantedQos(): { returnType: boolean, valueUmtsGrantedQosTrafficClass: WdsTrafficClass, valueUmtsGrantedQosMaxUplinkBitrate: number, valueUmtsGrantedQosMaxDownlinkBitrate: number, valueUmtsGrantedQosGuaranteedUplinkBitrate: number, valueUmtsGrantedQosGuaranteedDownlinkBitrate: number, valueUmtsGrantedQosQosDeliveryOrder: WdsDeliveryOrder, valueUmtsGrantedQosMaximumSduSize: number, valueUmtsGrantedQosSduErrorRatio: WdsSduErrorRatio, valueUmtsGrantedQosResidualBitErrorRatio: WdsSduResidualBitErrorRatio, valueUmtsGrantedQosDeliveryErroneousSdu: WdsSduErroneousDelivery, valueUmtsGrantedQosTransferDelay: number, valueUmtsGrantedQosTrafficHandlingPriority: number }
-    getUsername(): { returnType: boolean, valueUsername: string }
+    getSecondaryIpv4DnsAddress(): { returnType: boolean, valueSecondaryIpv4DnsAddress: number | null }
+    getUmtsGrantedQos(): { returnType: boolean, valueUmtsGrantedQosTrafficClass: WdsTrafficClass | null, valueUmtsGrantedQosMaxUplinkBitrate: number | null, valueUmtsGrantedQosMaxDownlinkBitrate: number | null, valueUmtsGrantedQosGuaranteedUplinkBitrate: number | null, valueUmtsGrantedQosGuaranteedDownlinkBitrate: number | null, valueUmtsGrantedQosQosDeliveryOrder: WdsDeliveryOrder | null, valueUmtsGrantedQosMaximumSduSize: number | null, valueUmtsGrantedQosSduErrorRatio: WdsSduErrorRatio | null, valueUmtsGrantedQosResidualBitErrorRatio: WdsSduResidualBitErrorRatio | null, valueUmtsGrantedQosDeliveryErroneousSdu: WdsSduErroneousDelivery | null, valueUmtsGrantedQosTransferDelay: number | null, valueUmtsGrantedQosTrafficHandlingPriority: number | null }
+    getUsername(): { returnType: boolean, valueUsername: string | null }
     ref(): MessageWdsGetCurrentSettingsOutput
     unref(): void
     static name: string
 }
 export class MessageWdsGetDataBearerTechnologyOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetDataBearerTechnologyOutput */
-    getCurrent(): { returnType: boolean, valueCurrent: WdsDataBearerTechnology }
-    getLast(): { returnType: boolean, valueLast: WdsDataBearerTechnology }
+    getCurrent(): { returnType: boolean, valueCurrent: WdsDataBearerTechnology | null }
+    getLast(): { returnType: boolean, valueLast: WdsDataBearerTechnology | null }
     getResult(): boolean
     ref(): MessageWdsGetDataBearerTechnologyOutput
     unref(): void
@@ -10534,7 +11230,7 @@ export class MessageWdsGetDataBearerTechnologyOutput {
 }
 export class MessageWdsGetDefaultProfileNumberInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetDefaultProfileNumberInput */
-    getProfileType(): { returnType: boolean, valueProfileTypeType: WdsProfileType, valueProfileTypeFamily: WdsProfileFamily }
+    getProfileType(): { returnType: boolean, valueProfileTypeType: WdsProfileType | null, valueProfileTypeFamily: WdsProfileFamily | null }
     ref(): MessageWdsGetDefaultProfileNumberInput
     setProfileType(valueProfileTypeType: WdsProfileType, valueProfileTypeFamily: WdsProfileFamily): boolean
     unref(): void
@@ -10546,8 +11242,8 @@ export class MessageWdsGetDefaultProfileNumberInput {
 }
 export class MessageWdsGetDefaultProfileNumberOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetDefaultProfileNumberOutput */
-    getExtendedErrorCode(): { returnType: boolean, valueExtendedErrorCode: WdsDsProfileError }
-    getIndex(): { returnType: boolean, valueIndex: number }
+    getExtendedErrorCode(): { returnType: boolean, valueExtendedErrorCode: WdsDsProfileError | null }
+    getIndex(): { returnType: boolean, valueIndex: number | null }
     getResult(): boolean
     ref(): MessageWdsGetDefaultProfileNumberOutput
     unref(): void
@@ -10555,7 +11251,7 @@ export class MessageWdsGetDefaultProfileNumberOutput {
 }
 export class MessageWdsGetDefaultSettingsInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetDefaultSettingsInput */
-    getProfileType(): { returnType: boolean, valueProfileType: WdsProfileType }
+    getProfileType(): { returnType: boolean, valueProfileType: WdsProfileType | null }
     ref(): MessageWdsGetDefaultSettingsInput
     setProfileType(valueProfileType: WdsProfileType): boolean
     unref(): void
@@ -10567,42 +11263,42 @@ export class MessageWdsGetDefaultSettingsInput {
 }
 export class MessageWdsGetDefaultSettingsOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetDefaultSettingsOutput */
-    getApnName(): { returnType: boolean, valueApnName: string }
-    getAuthentication(): { returnType: boolean, valueAuthentication: WdsAuthentication }
-    getExtendedErrorCode(): { returnType: boolean, valueExtendedErrorCode: WdsDsProfileError }
-    getGprsMinimumQos(): { returnType: boolean, valueGprsMinimumQosPrecedenceClass: number, valueGprsMinimumQosDelayClass: number, valueGprsMinimumQosReliabilityClass: number, valueGprsMinimumQosPeakThroughputClass: number, valueGprsMinimumQosMeanThroughputClass: number }
-    getGprsRequestedQos(): { returnType: boolean, valueGprsRequestedQosPrecedenceClass: number, valueGprsRequestedQosDelayClass: number, valueGprsRequestedQosReliabilityClass: number, valueGprsRequestedQosPeakThroughputClass: number, valueGprsRequestedQosMeanThroughputClass: number }
-    getImcnFlag(): { returnType: boolean, valueImcnFlag: boolean }
-    getIpv4AddressPreference(): { returnType: boolean, valueIpv4AddressPreference: number }
-    getIpv6AddressPreference(): { returnType: boolean, valueIpv6AddressPreferenceAddress: number[] }
-    getIpv6PrimaryDnsAddressPreference(): { returnType: boolean, valueIpv6PrimaryDnsAddressPreference: number[] }
-    getIpv6SecondaryDnsAddressPreference(): { returnType: boolean, valueIpv6SecondaryDnsAddressPreference: number[] }
-    getLteQosParameters(): { returnType: boolean, valueLteQosParametersQosClassIdentifier: WdsQosClassIdentifier, valueLteQosParametersGuaranteedDownlinkBitrate: number, valueLteQosParametersMaxDownlinkBitrate: number, valueLteQosParametersGuaranteedUplinkBitrate: number, valueLteQosParametersMaxUplinkBitrate: number }
-    getPassword(): { returnType: boolean, valuePassword: string }
-    getPcscfAddressUsingDhcp(): { returnType: boolean, valuePcscfAddressUsingDhcp: boolean }
-    getPcscfAddressUsingPco(): { returnType: boolean, valuePcscfAddressUsingPco: boolean }
-    getPdpContextNumber(): { returnType: boolean, valuePdpContextNumber: number }
-    getPdpContextPrimaryId(): { returnType: boolean, valuePdpContextPrimaryId: number }
-    getPdpContextSecondaryFlag(): { returnType: boolean, valuePdpContextSecondaryFlag: boolean }
-    getPdpDataCompressionType(): { returnType: boolean, valuePdpDataCompressionType: WdsPdpDataCompressionType }
-    getPdpHeaderCompressionType(): { returnType: boolean, valuePdpHeaderCompressionType: WdsPdpHeaderCompressionType }
-    getPdpType(): { returnType: boolean, valuePdpType: WdsPdpType }
-    getPrimaryIpv4DnsAddress(): { returnType: boolean, valuePrimaryIpv4DnsAddress: number }
-    getProfileName(): { returnType: boolean, valueProfileName: string }
+    getApnName(): { returnType: boolean, valueApnName: string | null }
+    getAuthentication(): { returnType: boolean, valueAuthentication: WdsAuthentication | null }
+    getExtendedErrorCode(): { returnType: boolean, valueExtendedErrorCode: WdsDsProfileError | null }
+    getGprsMinimumQos(): { returnType: boolean, valueGprsMinimumQosPrecedenceClass: number | null, valueGprsMinimumQosDelayClass: number | null, valueGprsMinimumQosReliabilityClass: number | null, valueGprsMinimumQosPeakThroughputClass: number | null, valueGprsMinimumQosMeanThroughputClass: number | null }
+    getGprsRequestedQos(): { returnType: boolean, valueGprsRequestedQosPrecedenceClass: number | null, valueGprsRequestedQosDelayClass: number | null, valueGprsRequestedQosReliabilityClass: number | null, valueGprsRequestedQosPeakThroughputClass: number | null, valueGprsRequestedQosMeanThroughputClass: number | null }
+    getImcnFlag(): { returnType: boolean, valueImcnFlag: boolean | null }
+    getIpv4AddressPreference(): { returnType: boolean, valueIpv4AddressPreference: number | null }
+    getIpv6AddressPreference(): { returnType: boolean, valueIpv6AddressPreferenceAddress: number[] | null }
+    getIpv6PrimaryDnsAddressPreference(): { returnType: boolean, valueIpv6PrimaryDnsAddressPreference: number[] | null }
+    getIpv6SecondaryDnsAddressPreference(): { returnType: boolean, valueIpv6SecondaryDnsAddressPreference: number[] | null }
+    getLteQosParameters(): { returnType: boolean, valueLteQosParametersQosClassIdentifier: WdsQosClassIdentifier | null, valueLteQosParametersGuaranteedDownlinkBitrate: number | null, valueLteQosParametersMaxDownlinkBitrate: number | null, valueLteQosParametersGuaranteedUplinkBitrate: number | null, valueLteQosParametersMaxUplinkBitrate: number | null }
+    getPassword(): { returnType: boolean, valuePassword: string | null }
+    getPcscfAddressUsingDhcp(): { returnType: boolean, valuePcscfAddressUsingDhcp: boolean | null }
+    getPcscfAddressUsingPco(): { returnType: boolean, valuePcscfAddressUsingPco: boolean | null }
+    getPdpContextNumber(): { returnType: boolean, valuePdpContextNumber: number | null }
+    getPdpContextPrimaryId(): { returnType: boolean, valuePdpContextPrimaryId: number | null }
+    getPdpContextSecondaryFlag(): { returnType: boolean, valuePdpContextSecondaryFlag: boolean | null }
+    getPdpDataCompressionType(): { returnType: boolean, valuePdpDataCompressionType: WdsPdpDataCompressionType | null }
+    getPdpHeaderCompressionType(): { returnType: boolean, valuePdpHeaderCompressionType: WdsPdpHeaderCompressionType | null }
+    getPdpType(): { returnType: boolean, valuePdpType: WdsPdpType | null }
+    getPrimaryIpv4DnsAddress(): { returnType: boolean, valuePrimaryIpv4DnsAddress: number | null }
+    getProfileName(): { returnType: boolean, valueProfileName: string | null }
     getResult(): boolean
-    getSecondaryIpv4DnsAddress(): { returnType: boolean, valueSecondaryIpv4DnsAddress: number }
-    getUmtsMinimumQos(): { returnType: boolean, valueUmtsMinimumQosTrafficClass: WdsTrafficClass, valueUmtsMinimumQosMaxUplinkBitrate: number, valueUmtsMinimumQosMaxDownlinkBitrate: number, valueUmtsMinimumQosGuaranteedUplinkBitrate: number, valueUmtsMinimumQosGuaranteedDownlinkBitrate: number, valueUmtsMinimumQosQosDeliveryOrder: WdsDeliveryOrder, valueUmtsMinimumQosMaximumSduSize: number, valueUmtsMinimumQosSduErrorRatio: WdsSduErrorRatio, valueUmtsMinimumQosResidualBitErrorRatio: WdsSduResidualBitErrorRatio, valueUmtsMinimumQosDeliveryErroneousSdu: WdsSduErroneousDelivery, valueUmtsMinimumQosTransferDelay: number, valueUmtsMinimumQosTrafficHandlingPriority: number }
-    getUmtsMinimumQosWithSignalingIndicationFlag(): { returnType: boolean, valueUmtsMinimumQosWithSignalingIndicationFlagTrafficClass: WdsTrafficClass, valueUmtsMinimumQosWithSignalingIndicationFlagMaxUplinkBitrate: number, valueUmtsMinimumQosWithSignalingIndicationFlagMaxDownlinkBitrate: number, valueUmtsMinimumQosWithSignalingIndicationFlagGuaranteedUplinkBitrate: number, valueUmtsMinimumQosWithSignalingIndicationFlagGuaranteedDownlinkBitrate: number, valueUmtsMinimumQosWithSignalingIndicationFlagQosDeliveryOrder: WdsDeliveryOrder, valueUmtsMinimumQosWithSignalingIndicationFlagMaximumSduSize: number, valueUmtsMinimumQosWithSignalingIndicationFlagSduErrorRatio: WdsSduErrorRatio, valueUmtsMinimumQosWithSignalingIndicationFlagResidualBitErrorRatio: WdsSduResidualBitErrorRatio, valueUmtsMinimumQosWithSignalingIndicationFlagDeliveryErroneousSdu: WdsSduErroneousDelivery, valueUmtsMinimumQosWithSignalingIndicationFlagTransferDelay: number, valueUmtsMinimumQosWithSignalingIndicationFlagTrafficHandlingPriority: number, valueUmtsMinimumQosWithSignalingIndicationFlagSignalingIndication: number }
-    getUmtsRequestedQos(): { returnType: boolean, valueUmtsRequestedQosTrafficClass: WdsTrafficClass, valueUmtsRequestedQosMaxUplinkBitrate: number, valueUmtsRequestedQosMaxDownlinkBitrate: number, valueUmtsRequestedQosGuaranteedUplinkBitrate: number, valueUmtsRequestedQosGuaranteedDownlinkBitrate: number, valueUmtsRequestedQosQosDeliveryOrder: WdsDeliveryOrder, valueUmtsRequestedQosMaximumSduSize: number, valueUmtsRequestedQosSduErrorRatio: WdsSduErrorRatio, valueUmtsRequestedQosResidualBitErrorRatio: WdsSduResidualBitErrorRatio, valueUmtsRequestedQosDeliveryErroneousSdu: WdsSduErroneousDelivery, valueUmtsRequestedQosTransferDelay: number, valueUmtsRequestedQosTrafficHandlingPriority: number }
-    getUmtsRequestedQosWithSignalingIndicationFlag(): { returnType: boolean, valueUmtsRequestedQosWithSignalingIndicationFlagTrafficClass: WdsTrafficClass, valueUmtsRequestedQosWithSignalingIndicationFlagMaxUplinkBitrate: number, valueUmtsRequestedQosWithSignalingIndicationFlagMaxDownlinkBitrate: number, valueUmtsRequestedQosWithSignalingIndicationFlagGuaranteedUplinkBitrate: number, valueUmtsRequestedQosWithSignalingIndicationFlagGuaranteedDownlinkBitrate: number, valueUmtsRequestedQosWithSignalingIndicationFlagQosDeliveryOrder: WdsDeliveryOrder, valueUmtsRequestedQosWithSignalingIndicationFlagMaximumSduSize: number, valueUmtsRequestedQosWithSignalingIndicationFlagSduErrorRatio: WdsSduErrorRatio, valueUmtsRequestedQosWithSignalingIndicationFlagResidualBitErrorRatio: WdsSduResidualBitErrorRatio, valueUmtsRequestedQosWithSignalingIndicationFlagDeliveryErroneousSdu: WdsSduErroneousDelivery, valueUmtsRequestedQosWithSignalingIndicationFlagTransferDelay: number, valueUmtsRequestedQosWithSignalingIndicationFlagTrafficHandlingPriority: number, valueUmtsRequestedQosWithSignalingIndicationFlagSignalingIndication: number }
-    getUsername(): { returnType: boolean, valueUsername: string }
+    getSecondaryIpv4DnsAddress(): { returnType: boolean, valueSecondaryIpv4DnsAddress: number | null }
+    getUmtsMinimumQos(): { returnType: boolean, valueUmtsMinimumQosTrafficClass: WdsTrafficClass | null, valueUmtsMinimumQosMaxUplinkBitrate: number | null, valueUmtsMinimumQosMaxDownlinkBitrate: number | null, valueUmtsMinimumQosGuaranteedUplinkBitrate: number | null, valueUmtsMinimumQosGuaranteedDownlinkBitrate: number | null, valueUmtsMinimumQosQosDeliveryOrder: WdsDeliveryOrder | null, valueUmtsMinimumQosMaximumSduSize: number | null, valueUmtsMinimumQosSduErrorRatio: WdsSduErrorRatio | null, valueUmtsMinimumQosResidualBitErrorRatio: WdsSduResidualBitErrorRatio | null, valueUmtsMinimumQosDeliveryErroneousSdu: WdsSduErroneousDelivery | null, valueUmtsMinimumQosTransferDelay: number | null, valueUmtsMinimumQosTrafficHandlingPriority: number | null }
+    getUmtsMinimumQosWithSignalingIndicationFlag(): { returnType: boolean, valueUmtsMinimumQosWithSignalingIndicationFlagTrafficClass: WdsTrafficClass | null, valueUmtsMinimumQosWithSignalingIndicationFlagMaxUplinkBitrate: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagMaxDownlinkBitrate: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagGuaranteedUplinkBitrate: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagGuaranteedDownlinkBitrate: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagQosDeliveryOrder: WdsDeliveryOrder | null, valueUmtsMinimumQosWithSignalingIndicationFlagMaximumSduSize: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagSduErrorRatio: WdsSduErrorRatio | null, valueUmtsMinimumQosWithSignalingIndicationFlagResidualBitErrorRatio: WdsSduResidualBitErrorRatio | null, valueUmtsMinimumQosWithSignalingIndicationFlagDeliveryErroneousSdu: WdsSduErroneousDelivery | null, valueUmtsMinimumQosWithSignalingIndicationFlagTransferDelay: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagTrafficHandlingPriority: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagSignalingIndication: number | null }
+    getUmtsRequestedQos(): { returnType: boolean, valueUmtsRequestedQosTrafficClass: WdsTrafficClass | null, valueUmtsRequestedQosMaxUplinkBitrate: number | null, valueUmtsRequestedQosMaxDownlinkBitrate: number | null, valueUmtsRequestedQosGuaranteedUplinkBitrate: number | null, valueUmtsRequestedQosGuaranteedDownlinkBitrate: number | null, valueUmtsRequestedQosQosDeliveryOrder: WdsDeliveryOrder | null, valueUmtsRequestedQosMaximumSduSize: number | null, valueUmtsRequestedQosSduErrorRatio: WdsSduErrorRatio | null, valueUmtsRequestedQosResidualBitErrorRatio: WdsSduResidualBitErrorRatio | null, valueUmtsRequestedQosDeliveryErroneousSdu: WdsSduErroneousDelivery | null, valueUmtsRequestedQosTransferDelay: number | null, valueUmtsRequestedQosTrafficHandlingPriority: number | null }
+    getUmtsRequestedQosWithSignalingIndicationFlag(): { returnType: boolean, valueUmtsRequestedQosWithSignalingIndicationFlagTrafficClass: WdsTrafficClass | null, valueUmtsRequestedQosWithSignalingIndicationFlagMaxUplinkBitrate: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagMaxDownlinkBitrate: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagGuaranteedUplinkBitrate: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagGuaranteedDownlinkBitrate: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagQosDeliveryOrder: WdsDeliveryOrder | null, valueUmtsRequestedQosWithSignalingIndicationFlagMaximumSduSize: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagSduErrorRatio: WdsSduErrorRatio | null, valueUmtsRequestedQosWithSignalingIndicationFlagResidualBitErrorRatio: WdsSduResidualBitErrorRatio | null, valueUmtsRequestedQosWithSignalingIndicationFlagDeliveryErroneousSdu: WdsSduErroneousDelivery | null, valueUmtsRequestedQosWithSignalingIndicationFlagTransferDelay: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagTrafficHandlingPriority: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagSignalingIndication: number | null }
+    getUsername(): { returnType: boolean, valueUsername: string | null }
     ref(): MessageWdsGetDefaultSettingsOutput
     unref(): void
     static name: string
 }
 export class MessageWdsGetDormancyStatusOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetDormancyStatusOutput */
-    getDormancyStatus(): { returnType: boolean, valueDormancyStatus: WdsDormancyStatus }
+    getDormancyStatus(): { returnType: boolean, valueDormancyStatus: WdsDormancyStatus | null }
     getResult(): boolean
     ref(): MessageWdsGetDormancyStatusOutput
     unref(): void
@@ -10610,9 +11306,9 @@ export class MessageWdsGetDormancyStatusOutput {
 }
 export class MessageWdsGetLteAttachParametersOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetLteAttachParametersOutput */
-    getApn(): { returnType: boolean, valueApn: string }
-    getIpSupportType(): { returnType: boolean, valueIpSupportType: WdsIpSupportType }
-    getOtaAttachPerformed(): { returnType: boolean, valueOtaAttachPerformed: boolean }
+    getApn(): { returnType: boolean, valueApn: string | null }
+    getIpSupportType(): { returnType: boolean, valueIpSupportType: WdsIpSupportType | null }
+    getOtaAttachPerformed(): { returnType: boolean, valueOtaAttachPerformed: boolean | null }
     getResult(): boolean
     ref(): MessageWdsGetLteAttachParametersOutput
     unref(): void
@@ -10620,8 +11316,8 @@ export class MessageWdsGetLteAttachParametersOutput {
 }
 export class MessageWdsGetLteAttachPdnListOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetLteAttachPdnListOutput */
-    getCurrentList(): { returnType: boolean, valueCurrentList: number[] }
-    getPendingList(): { returnType: boolean, valuePendingList: number[] }
+    getCurrentList(): { returnType: boolean, valueCurrentList: number[] | null }
+    getPendingList(): { returnType: boolean, valuePendingList: number[] | null }
     getResult(): boolean
     ref(): MessageWdsGetLteAttachPdnListOutput
     unref(): void
@@ -10629,7 +11325,7 @@ export class MessageWdsGetLteAttachPdnListOutput {
 }
 export class MessageWdsGetMaxLteAttachPdnNumberOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetMaxLteAttachPdnNumberOutput */
-    getInfo(): { returnType: boolean, valueInfo: number }
+    getInfo(): { returnType: boolean, valueInfo: number | null }
     getResult(): boolean
     ref(): MessageWdsGetMaxLteAttachPdnNumberOutput
     unref(): void
@@ -10637,7 +11333,7 @@ export class MessageWdsGetMaxLteAttachPdnNumberOutput {
 }
 export class MessageWdsGetPacketServiceStatusOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetPacketServiceStatusOutput */
-    getConnectionStatus(): { returnType: boolean, valueConnectionStatus: WdsConnectionStatus }
+    getConnectionStatus(): { returnType: boolean, valueConnectionStatus: WdsConnectionStatus | null }
     getResult(): boolean
     ref(): MessageWdsGetPacketServiceStatusOutput
     unref(): void
@@ -10645,7 +11341,7 @@ export class MessageWdsGetPacketServiceStatusOutput {
 }
 export class MessageWdsGetPacketStatisticsInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetPacketStatisticsInput */
-    getMask(): { returnType: boolean, valueMask: WdsPacketStatisticsMaskFlag }
+    getMask(): { returnType: boolean, valueMask: WdsPacketStatisticsMaskFlag | null }
     ref(): MessageWdsGetPacketStatisticsInput
     setMask(valueMask: WdsPacketStatisticsMaskFlag): boolean
     unref(): void
@@ -10657,26 +11353,26 @@ export class MessageWdsGetPacketStatisticsInput {
 }
 export class MessageWdsGetPacketStatisticsOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetPacketStatisticsOutput */
-    getLastCallRxBytesOk(): { returnType: boolean, valueLastCallRxBytesOk: number }
-    getLastCallTxBytesOk(): { returnType: boolean, valueLastCallTxBytesOk: number }
+    getLastCallRxBytesOk(): { returnType: boolean, valueLastCallRxBytesOk: number | null }
+    getLastCallTxBytesOk(): { returnType: boolean, valueLastCallTxBytesOk: number | null }
     getResult(): boolean
-    getRxBytesOk(): { returnType: boolean, valueRxBytesOk: number }
-    getRxOverflows(): { returnType: boolean, valueRxOverflows: number }
-    getRxPacketsDropped(): { returnType: boolean, valueRxPacketsDropped: number }
-    getRxPacketsError(): { returnType: boolean, valueRxPacketsError: number }
-    getRxPacketsOk(): { returnType: boolean, valueRxPacketsOk: number }
-    getTxBytesOk(): { returnType: boolean, valueTxBytesOk: number }
-    getTxOverflows(): { returnType: boolean, valueTxOverflows: number }
-    getTxPacketsDropped(): { returnType: boolean, valueTxPacketsDropped: number }
-    getTxPacketsError(): { returnType: boolean, valueTxPacketsError: number }
-    getTxPacketsOk(): { returnType: boolean, valueTxPacketsOk: number }
+    getRxBytesOk(): { returnType: boolean, valueRxBytesOk: number | null }
+    getRxOverflows(): { returnType: boolean, valueRxOverflows: number | null }
+    getRxPacketsDropped(): { returnType: boolean, valueRxPacketsDropped: number | null }
+    getRxPacketsError(): { returnType: boolean, valueRxPacketsError: number | null }
+    getRxPacketsOk(): { returnType: boolean, valueRxPacketsOk: number | null }
+    getTxBytesOk(): { returnType: boolean, valueTxBytesOk: number | null }
+    getTxOverflows(): { returnType: boolean, valueTxOverflows: number | null }
+    getTxPacketsDropped(): { returnType: boolean, valueTxPacketsDropped: number | null }
+    getTxPacketsError(): { returnType: boolean, valueTxPacketsError: number | null }
+    getTxPacketsOk(): { returnType: boolean, valueTxPacketsOk: number | null }
     ref(): MessageWdsGetPacketStatisticsOutput
     unref(): void
     static name: string
 }
 export class MessageWdsGetPdnThrottleInfoInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetPdnThrottleInfoInput */
-    getNetworkType(): { returnType: boolean, valueNetworkType: WdsDataSystemNetworkType }
+    getNetworkType(): { returnType: boolean, valueNetworkType: WdsDataSystemNetworkType | null }
     ref(): MessageWdsGetPdnThrottleInfoInput
     setNetworkType(valueNetworkType: WdsDataSystemNetworkType): boolean
     unref(): void
@@ -10688,7 +11384,7 @@ export class MessageWdsGetPdnThrottleInfoInput {
 }
 export class MessageWdsGetPdnThrottleInfoOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetPdnThrottleInfoOutput */
-    getInfo(): { returnType: boolean, valueInfo: MessageWdsGetPdnThrottleInfoOutputInfoElement[] }
+    getInfo(): { returnType: boolean, valueInfo: MessageWdsGetPdnThrottleInfoOutputInfoElement[] | null }
     getResult(): boolean
     ref(): MessageWdsGetPdnThrottleInfoOutput
     unref(): void
@@ -10705,7 +11401,7 @@ export class MessageWdsGetPdnThrottleInfoOutputInfoElement {
 }
 export class MessageWdsGetProfileListInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetProfileListInput */
-    getProfileType(): { returnType: boolean, valueProfileType: WdsProfileType }
+    getProfileType(): { returnType: boolean, valueProfileType: WdsProfileType | null }
     ref(): MessageWdsGetProfileListInput
     setProfileType(valueProfileType: WdsProfileType): boolean
     unref(): void
@@ -10717,8 +11413,8 @@ export class MessageWdsGetProfileListInput {
 }
 export class MessageWdsGetProfileListOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetProfileListOutput */
-    getExtendedErrorCode(): { returnType: boolean, valueExtendedErrorCode: WdsDsProfileError }
-    getProfileList(): { returnType: boolean, valueProfileList: MessageWdsGetProfileListOutputProfileListProfile[] }
+    getExtendedErrorCode(): { returnType: boolean, valueExtendedErrorCode: WdsDsProfileError | null }
+    getProfileList(): { returnType: boolean, valueProfileList: MessageWdsGetProfileListOutputProfileListProfile[] | null }
     getResult(): boolean
     ref(): MessageWdsGetProfileListOutput
     unref(): void
@@ -10733,7 +11429,7 @@ export class MessageWdsGetProfileListOutputProfileListProfile {
 }
 export class MessageWdsGetProfileSettingsInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetProfileSettingsInput */
-    getProfileId(): { returnType: boolean, valueProfileIdProfileType: WdsProfileType, valueProfileIdProfileIndex: number }
+    getProfileId(): { returnType: boolean, valueProfileIdProfileType: WdsProfileType | null, valueProfileIdProfileIndex: number | null }
     ref(): MessageWdsGetProfileSettingsInput
     setProfileId(valueProfileIdProfileType: WdsProfileType, valueProfileIdProfileIndex: number): boolean
     unref(): void
@@ -10745,44 +11441,45 @@ export class MessageWdsGetProfileSettingsInput {
 }
 export class MessageWdsGetProfileSettingsOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetProfileSettingsOutput */
-    getApnDisabledFlag(): { returnType: boolean, valueApnDisabledFlag: boolean }
-    getApnName(): { returnType: boolean, valueApnName: string }
-    getAuthentication(): { returnType: boolean, valueAuthentication: WdsAuthentication }
-    getExtendedErrorCode(): { returnType: boolean, valueExtendedErrorCode: WdsDsProfileError }
-    getGprsMinimumQos(): { returnType: boolean, valueGprsMinimumQosPrecedenceClass: number, valueGprsMinimumQosDelayClass: number, valueGprsMinimumQosReliabilityClass: number, valueGprsMinimumQosPeakThroughputClass: number, valueGprsMinimumQosMeanThroughputClass: number }
-    getGprsRequestedQos(): { returnType: boolean, valueGprsRequestedQosPrecedenceClass: number, valueGprsRequestedQosDelayClass: number, valueGprsRequestedQosReliabilityClass: number, valueGprsRequestedQosPeakThroughputClass: number, valueGprsRequestedQosMeanThroughputClass: number }
-    getImcnFlag(): { returnType: boolean, valueImcnFlag: boolean }
-    getIpv4AddressPreference(): { returnType: boolean, valueIpv4AddressPreference: number }
-    getIpv6AddressPreference(): { returnType: boolean, valueIpv6AddressPreferenceAddress: number[] }
-    getIpv6PrimaryDnsAddressPreference(): { returnType: boolean, valueIpv6PrimaryDnsAddressPreference: number[] }
-    getIpv6SecondaryDnsAddressPreference(): { returnType: boolean, valueIpv6SecondaryDnsAddressPreference: number[] }
-    getLteQosParameters(): { returnType: boolean, valueLteQosParametersQosClassIdentifier: WdsQosClassIdentifier, valueLteQosParametersGuaranteedDownlinkBitrate: number, valueLteQosParametersMaxDownlinkBitrate: number, valueLteQosParametersGuaranteedUplinkBitrate: number, valueLteQosParametersMaxUplinkBitrate: number }
-    getPassword(): { returnType: boolean, valuePassword: string }
-    getPcscfAddressUsingDhcp(): { returnType: boolean, valuePcscfAddressUsingDhcp: boolean }
-    getPcscfAddressUsingPco(): { returnType: boolean, valuePcscfAddressUsingPco: boolean }
-    getPdpContextNumber(): { returnType: boolean, valuePdpContextNumber: number }
-    getPdpContextPrimaryId(): { returnType: boolean, valuePdpContextPrimaryId: number }
-    getPdpContextSecondaryFlag(): { returnType: boolean, valuePdpContextSecondaryFlag: boolean }
-    getPdpDataCompressionType(): { returnType: boolean, valuePdpDataCompressionType: WdsPdpDataCompressionType }
-    getPdpHeaderCompressionType(): { returnType: boolean, valuePdpHeaderCompressionType: WdsPdpHeaderCompressionType }
-    getPdpType(): { returnType: boolean, valuePdpType: WdsPdpType }
-    getPrimaryIpv4DnsAddress(): { returnType: boolean, valuePrimaryIpv4DnsAddress: number }
-    getProfileName(): { returnType: boolean, valueProfileName: string }
+    getApnDisabledFlag(): { returnType: boolean, valueApnDisabledFlag: boolean | null }
+    getApnName(): { returnType: boolean, valueApnName: string | null }
+    getApnTypeMask(): { returnType: boolean, valueApnTypeMask: WdsApnTypeMask | null }
+    getAuthentication(): { returnType: boolean, valueAuthentication: WdsAuthentication | null }
+    getExtendedErrorCode(): { returnType: boolean, valueExtendedErrorCode: WdsDsProfileError | null }
+    getGprsMinimumQos(): { returnType: boolean, valueGprsMinimumQosPrecedenceClass: number | null, valueGprsMinimumQosDelayClass: number | null, valueGprsMinimumQosReliabilityClass: number | null, valueGprsMinimumQosPeakThroughputClass: number | null, valueGprsMinimumQosMeanThroughputClass: number | null }
+    getGprsRequestedQos(): { returnType: boolean, valueGprsRequestedQosPrecedenceClass: number | null, valueGprsRequestedQosDelayClass: number | null, valueGprsRequestedQosReliabilityClass: number | null, valueGprsRequestedQosPeakThroughputClass: number | null, valueGprsRequestedQosMeanThroughputClass: number | null }
+    getImcnFlag(): { returnType: boolean, valueImcnFlag: boolean | null }
+    getIpv4AddressPreference(): { returnType: boolean, valueIpv4AddressPreference: number | null }
+    getIpv6AddressPreference(): { returnType: boolean, valueIpv6AddressPreferenceAddress: number[] | null }
+    getIpv6PrimaryDnsAddressPreference(): { returnType: boolean, valueIpv6PrimaryDnsAddressPreference: number[] | null }
+    getIpv6SecondaryDnsAddressPreference(): { returnType: boolean, valueIpv6SecondaryDnsAddressPreference: number[] | null }
+    getLteQosParameters(): { returnType: boolean, valueLteQosParametersQosClassIdentifier: WdsQosClassIdentifier | null, valueLteQosParametersGuaranteedDownlinkBitrate: number | null, valueLteQosParametersMaxDownlinkBitrate: number | null, valueLteQosParametersGuaranteedUplinkBitrate: number | null, valueLteQosParametersMaxUplinkBitrate: number | null }
+    getPassword(): { returnType: boolean, valuePassword: string | null }
+    getPcscfAddressUsingDhcp(): { returnType: boolean, valuePcscfAddressUsingDhcp: boolean | null }
+    getPcscfAddressUsingPco(): { returnType: boolean, valuePcscfAddressUsingPco: boolean | null }
+    getPdpContextNumber(): { returnType: boolean, valuePdpContextNumber: number | null }
+    getPdpContextPrimaryId(): { returnType: boolean, valuePdpContextPrimaryId: number | null }
+    getPdpContextSecondaryFlag(): { returnType: boolean, valuePdpContextSecondaryFlag: boolean | null }
+    getPdpDataCompressionType(): { returnType: boolean, valuePdpDataCompressionType: WdsPdpDataCompressionType | null }
+    getPdpHeaderCompressionType(): { returnType: boolean, valuePdpHeaderCompressionType: WdsPdpHeaderCompressionType | null }
+    getPdpType(): { returnType: boolean, valuePdpType: WdsPdpType | null }
+    getPrimaryIpv4DnsAddress(): { returnType: boolean, valuePrimaryIpv4DnsAddress: number | null }
+    getProfileName(): { returnType: boolean, valueProfileName: string | null }
     getResult(): boolean
-    getRoamingDisallowedFlag(): { returnType: boolean, valueRoamingDisallowedFlag: boolean }
-    getSecondaryIpv4DnsAddress(): { returnType: boolean, valueSecondaryIpv4DnsAddress: number }
-    getUmtsMinimumQos(): { returnType: boolean, valueUmtsMinimumQosTrafficClass: WdsTrafficClass, valueUmtsMinimumQosMaxUplinkBitrate: number, valueUmtsMinimumQosMaxDownlinkBitrate: number, valueUmtsMinimumQosGuaranteedUplinkBitrate: number, valueUmtsMinimumQosGuaranteedDownlinkBitrate: number, valueUmtsMinimumQosQosDeliveryOrder: WdsDeliveryOrder, valueUmtsMinimumQosMaximumSduSize: number, valueUmtsMinimumQosSduErrorRatio: WdsSduErrorRatio, valueUmtsMinimumQosResidualBitErrorRatio: WdsSduResidualBitErrorRatio, valueUmtsMinimumQosDeliveryErroneousSdu: WdsSduErroneousDelivery, valueUmtsMinimumQosTransferDelay: number, valueUmtsMinimumQosTrafficHandlingPriority: number }
-    getUmtsMinimumQosWithSignalingIndicationFlag(): { returnType: boolean, valueUmtsMinimumQosWithSignalingIndicationFlagTrafficClass: WdsTrafficClass, valueUmtsMinimumQosWithSignalingIndicationFlagMaxUplinkBitrate: number, valueUmtsMinimumQosWithSignalingIndicationFlagMaxDownlinkBitrate: number, valueUmtsMinimumQosWithSignalingIndicationFlagGuaranteedUplinkBitrate: number, valueUmtsMinimumQosWithSignalingIndicationFlagGuaranteedDownlinkBitrate: number, valueUmtsMinimumQosWithSignalingIndicationFlagQosDeliveryOrder: WdsDeliveryOrder, valueUmtsMinimumQosWithSignalingIndicationFlagMaximumSduSize: number, valueUmtsMinimumQosWithSignalingIndicationFlagSduErrorRatio: WdsSduErrorRatio, valueUmtsMinimumQosWithSignalingIndicationFlagResidualBitErrorRatio: WdsSduResidualBitErrorRatio, valueUmtsMinimumQosWithSignalingIndicationFlagDeliveryErroneousSdu: WdsSduErroneousDelivery, valueUmtsMinimumQosWithSignalingIndicationFlagTransferDelay: number, valueUmtsMinimumQosWithSignalingIndicationFlagTrafficHandlingPriority: number, valueUmtsMinimumQosWithSignalingIndicationFlagSignalingIndication: number }
-    getUmtsRequestedQos(): { returnType: boolean, valueUmtsRequestedQosTrafficClass: WdsTrafficClass, valueUmtsRequestedQosMaxUplinkBitrate: number, valueUmtsRequestedQosMaxDownlinkBitrate: number, valueUmtsRequestedQosGuaranteedUplinkBitrate: number, valueUmtsRequestedQosGuaranteedDownlinkBitrate: number, valueUmtsRequestedQosQosDeliveryOrder: WdsDeliveryOrder, valueUmtsRequestedQosMaximumSduSize: number, valueUmtsRequestedQosSduErrorRatio: WdsSduErrorRatio, valueUmtsRequestedQosResidualBitErrorRatio: WdsSduResidualBitErrorRatio, valueUmtsRequestedQosDeliveryErroneousSdu: WdsSduErroneousDelivery, valueUmtsRequestedQosTransferDelay: number, valueUmtsRequestedQosTrafficHandlingPriority: number }
-    getUmtsRequestedQosWithSignalingIndicationFlag(): { returnType: boolean, valueUmtsRequestedQosWithSignalingIndicationFlagTrafficClass: WdsTrafficClass, valueUmtsRequestedQosWithSignalingIndicationFlagMaxUplinkBitrate: number, valueUmtsRequestedQosWithSignalingIndicationFlagMaxDownlinkBitrate: number, valueUmtsRequestedQosWithSignalingIndicationFlagGuaranteedUplinkBitrate: number, valueUmtsRequestedQosWithSignalingIndicationFlagGuaranteedDownlinkBitrate: number, valueUmtsRequestedQosWithSignalingIndicationFlagQosDeliveryOrder: WdsDeliveryOrder, valueUmtsRequestedQosWithSignalingIndicationFlagMaximumSduSize: number, valueUmtsRequestedQosWithSignalingIndicationFlagSduErrorRatio: WdsSduErrorRatio, valueUmtsRequestedQosWithSignalingIndicationFlagResidualBitErrorRatio: WdsSduResidualBitErrorRatio, valueUmtsRequestedQosWithSignalingIndicationFlagDeliveryErroneousSdu: WdsSduErroneousDelivery, valueUmtsRequestedQosWithSignalingIndicationFlagTransferDelay: number, valueUmtsRequestedQosWithSignalingIndicationFlagTrafficHandlingPriority: number, valueUmtsRequestedQosWithSignalingIndicationFlagSignalingIndication: number }
-    getUsername(): { returnType: boolean, valueUsername: string }
+    getRoamingDisallowedFlag(): { returnType: boolean, valueRoamingDisallowedFlag: boolean | null }
+    getSecondaryIpv4DnsAddress(): { returnType: boolean, valueSecondaryIpv4DnsAddress: number | null }
+    getUmtsMinimumQos(): { returnType: boolean, valueUmtsMinimumQosTrafficClass: WdsTrafficClass | null, valueUmtsMinimumQosMaxUplinkBitrate: number | null, valueUmtsMinimumQosMaxDownlinkBitrate: number | null, valueUmtsMinimumQosGuaranteedUplinkBitrate: number | null, valueUmtsMinimumQosGuaranteedDownlinkBitrate: number | null, valueUmtsMinimumQosQosDeliveryOrder: WdsDeliveryOrder | null, valueUmtsMinimumQosMaximumSduSize: number | null, valueUmtsMinimumQosSduErrorRatio: WdsSduErrorRatio | null, valueUmtsMinimumQosResidualBitErrorRatio: WdsSduResidualBitErrorRatio | null, valueUmtsMinimumQosDeliveryErroneousSdu: WdsSduErroneousDelivery | null, valueUmtsMinimumQosTransferDelay: number | null, valueUmtsMinimumQosTrafficHandlingPriority: number | null }
+    getUmtsMinimumQosWithSignalingIndicationFlag(): { returnType: boolean, valueUmtsMinimumQosWithSignalingIndicationFlagTrafficClass: WdsTrafficClass | null, valueUmtsMinimumQosWithSignalingIndicationFlagMaxUplinkBitrate: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagMaxDownlinkBitrate: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagGuaranteedUplinkBitrate: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagGuaranteedDownlinkBitrate: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagQosDeliveryOrder: WdsDeliveryOrder | null, valueUmtsMinimumQosWithSignalingIndicationFlagMaximumSduSize: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagSduErrorRatio: WdsSduErrorRatio | null, valueUmtsMinimumQosWithSignalingIndicationFlagResidualBitErrorRatio: WdsSduResidualBitErrorRatio | null, valueUmtsMinimumQosWithSignalingIndicationFlagDeliveryErroneousSdu: WdsSduErroneousDelivery | null, valueUmtsMinimumQosWithSignalingIndicationFlagTransferDelay: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagTrafficHandlingPriority: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagSignalingIndication: number | null }
+    getUmtsRequestedQos(): { returnType: boolean, valueUmtsRequestedQosTrafficClass: WdsTrafficClass | null, valueUmtsRequestedQosMaxUplinkBitrate: number | null, valueUmtsRequestedQosMaxDownlinkBitrate: number | null, valueUmtsRequestedQosGuaranteedUplinkBitrate: number | null, valueUmtsRequestedQosGuaranteedDownlinkBitrate: number | null, valueUmtsRequestedQosQosDeliveryOrder: WdsDeliveryOrder | null, valueUmtsRequestedQosMaximumSduSize: number | null, valueUmtsRequestedQosSduErrorRatio: WdsSduErrorRatio | null, valueUmtsRequestedQosResidualBitErrorRatio: WdsSduResidualBitErrorRatio | null, valueUmtsRequestedQosDeliveryErroneousSdu: WdsSduErroneousDelivery | null, valueUmtsRequestedQosTransferDelay: number | null, valueUmtsRequestedQosTrafficHandlingPriority: number | null }
+    getUmtsRequestedQosWithSignalingIndicationFlag(): { returnType: boolean, valueUmtsRequestedQosWithSignalingIndicationFlagTrafficClass: WdsTrafficClass | null, valueUmtsRequestedQosWithSignalingIndicationFlagMaxUplinkBitrate: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagMaxDownlinkBitrate: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagGuaranteedUplinkBitrate: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagGuaranteedDownlinkBitrate: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagQosDeliveryOrder: WdsDeliveryOrder | null, valueUmtsRequestedQosWithSignalingIndicationFlagMaximumSduSize: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagSduErrorRatio: WdsSduErrorRatio | null, valueUmtsRequestedQosWithSignalingIndicationFlagResidualBitErrorRatio: WdsSduResidualBitErrorRatio | null, valueUmtsRequestedQosWithSignalingIndicationFlagDeliveryErroneousSdu: WdsSduErroneousDelivery | null, valueUmtsRequestedQosWithSignalingIndicationFlagTransferDelay: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagTrafficHandlingPriority: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagSignalingIndication: number | null }
+    getUsername(): { returnType: boolean, valueUsername: string | null }
     ref(): MessageWdsGetProfileSettingsOutput
     unref(): void
     static name: string
 }
 export class MessageWdsGetSupportedMessagesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsGetSupportedMessagesOutput */
-    getList(): { returnType: boolean, valueList: any[] }
+    getList(): { returnType: boolean, valueList: any[] | null }
     getResult(): boolean
     ref(): MessageWdsGetSupportedMessagesOutput
     unref(): void
@@ -10804,39 +11501,41 @@ export class MessageWdsGoDormantOutput {
 }
 export class MessageWdsModifyProfileInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsModifyProfileInput */
-    getApnDisabledFlag(): { returnType: boolean, valueApnDisabledFlag: boolean }
-    getApnName(): { returnType: boolean, valueApnName: string }
-    getAuthentication(): { returnType: boolean, valueAuthentication: WdsAuthentication }
-    getGprsMinimumQos(): { returnType: boolean, valueGprsMinimumQosPrecedenceClass: number, valueGprsMinimumQosDelayClass: number, valueGprsMinimumQosReliabilityClass: number, valueGprsMinimumQosPeakThroughputClass: number, valueGprsMinimumQosMeanThroughputClass: number }
-    getGprsRequestedQos(): { returnType: boolean, valueGprsRequestedQosPrecedenceClass: number, valueGprsRequestedQosDelayClass: number, valueGprsRequestedQosReliabilityClass: number, valueGprsRequestedQosPeakThroughputClass: number, valueGprsRequestedQosMeanThroughputClass: number }
-    getImcnFlag(): { returnType: boolean, valueImcnFlag: boolean }
-    getIpv4AddressPreference(): { returnType: boolean, valueIpv4AddressPreference: number }
-    getIpv6AddressPreference(): { returnType: boolean, valueIpv6AddressPreferenceAddress: number[] }
-    getIpv6PrimaryDnsAddressPreference(): { returnType: boolean, valueIpv6PrimaryDnsAddressPreference: number[] }
-    getIpv6SecondaryDnsAddressPreference(): { returnType: boolean, valueIpv6SecondaryDnsAddressPreference: number[] }
-    getLteQosParameters(): { returnType: boolean, valueLteQosParametersQosClassIdentifier: WdsQosClassIdentifier, valueLteQosParametersGuaranteedDownlinkBitrate: number, valueLteQosParametersMaxDownlinkBitrate: number, valueLteQosParametersGuaranteedUplinkBitrate: number, valueLteQosParametersMaxUplinkBitrate: number }
-    getPassword(): { returnType: boolean, valuePassword: string }
-    getPcscfAddressUsingDhcp(): { returnType: boolean, valuePcscfAddressUsingDhcp: boolean }
-    getPcscfAddressUsingPco(): { returnType: boolean, valuePcscfAddressUsingPco: boolean }
-    getPdpContextNumber(): { returnType: boolean, valuePdpContextNumber: number }
-    getPdpContextPrimaryId(): { returnType: boolean, valuePdpContextPrimaryId: number }
-    getPdpContextSecondaryFlag(): { returnType: boolean, valuePdpContextSecondaryFlag: boolean }
-    getPdpDataCompressionType(): { returnType: boolean, valuePdpDataCompressionType: WdsPdpDataCompressionType }
-    getPdpHeaderCompressionType(): { returnType: boolean, valuePdpHeaderCompressionType: WdsPdpHeaderCompressionType }
-    getPdpType(): { returnType: boolean, valuePdpType: WdsPdpType }
-    getPrimaryIpv4DnsAddress(): { returnType: boolean, valuePrimaryIpv4DnsAddress: number }
-    getProfileIdentifier(): { returnType: boolean, valueProfileIdentifierProfileType: WdsProfileType, valueProfileIdentifierProfileIndex: number }
-    getProfileName(): { returnType: boolean, valueProfileName: string }
-    getRoamingDisallowedFlag(): { returnType: boolean, valueRoamingDisallowedFlag: boolean }
-    getSecondaryIpv4DnsAddress(): { returnType: boolean, valueSecondaryIpv4DnsAddress: number }
-    getUmtsMinimumQos(): { returnType: boolean, valueUmtsMinimumQosTrafficClass: WdsTrafficClass, valueUmtsMinimumQosMaxUplinkBitrate: number, valueUmtsMinimumQosMaxDownlinkBitrate: number, valueUmtsMinimumQosGuaranteedUplinkBitrate: number, valueUmtsMinimumQosGuaranteedDownlinkBitrate: number, valueUmtsMinimumQosQosDeliveryOrder: WdsDeliveryOrder, valueUmtsMinimumQosMaximumSduSize: number, valueUmtsMinimumQosSduErrorRatio: WdsSduErrorRatio, valueUmtsMinimumQosResidualBitErrorRatio: WdsSduResidualBitErrorRatio, valueUmtsMinimumQosDeliveryErroneousSdu: WdsSduErroneousDelivery, valueUmtsMinimumQosTransferDelay: number, valueUmtsMinimumQosTrafficHandlingPriority: number }
-    getUmtsMinimumQosWithSignalingIndicationFlag(): { returnType: boolean, valueUmtsMinimumQosWithSignalingIndicationFlagTrafficClass: WdsTrafficClass, valueUmtsMinimumQosWithSignalingIndicationFlagMaxUplinkBitrate: number, valueUmtsMinimumQosWithSignalingIndicationFlagMaxDownlinkBitrate: number, valueUmtsMinimumQosWithSignalingIndicationFlagGuaranteedUplinkBitrate: number, valueUmtsMinimumQosWithSignalingIndicationFlagGuaranteedDownlinkBitrate: number, valueUmtsMinimumQosWithSignalingIndicationFlagQosDeliveryOrder: WdsDeliveryOrder, valueUmtsMinimumQosWithSignalingIndicationFlagMaximumSduSize: number, valueUmtsMinimumQosWithSignalingIndicationFlagSduErrorRatio: WdsSduErrorRatio, valueUmtsMinimumQosWithSignalingIndicationFlagResidualBitErrorRatio: WdsSduResidualBitErrorRatio, valueUmtsMinimumQosWithSignalingIndicationFlagDeliveryErroneousSdu: WdsSduErroneousDelivery, valueUmtsMinimumQosWithSignalingIndicationFlagTransferDelay: number, valueUmtsMinimumQosWithSignalingIndicationFlagTrafficHandlingPriority: number, valueUmtsMinimumQosWithSignalingIndicationFlagSignalingIndication: number }
-    getUmtsRequestedQos(): { returnType: boolean, valueUmtsRequestedQosTrafficClass: WdsTrafficClass, valueUmtsRequestedQosMaxUplinkBitrate: number, valueUmtsRequestedQosMaxDownlinkBitrate: number, valueUmtsRequestedQosGuaranteedUplinkBitrate: number, valueUmtsRequestedQosGuaranteedDownlinkBitrate: number, valueUmtsRequestedQosQosDeliveryOrder: WdsDeliveryOrder, valueUmtsRequestedQosMaximumSduSize: number, valueUmtsRequestedQosSduErrorRatio: WdsSduErrorRatio, valueUmtsRequestedQosResidualBitErrorRatio: WdsSduResidualBitErrorRatio, valueUmtsRequestedQosDeliveryErroneousSdu: WdsSduErroneousDelivery, valueUmtsRequestedQosTransferDelay: number, valueUmtsRequestedQosTrafficHandlingPriority: number }
-    getUmtsRequestedQosWithSignalingIndicationFlag(): { returnType: boolean, valueUmtsRequestedQosWithSignalingIndicationFlagTrafficClass: WdsTrafficClass, valueUmtsRequestedQosWithSignalingIndicationFlagMaxUplinkBitrate: number, valueUmtsRequestedQosWithSignalingIndicationFlagMaxDownlinkBitrate: number, valueUmtsRequestedQosWithSignalingIndicationFlagGuaranteedUplinkBitrate: number, valueUmtsRequestedQosWithSignalingIndicationFlagGuaranteedDownlinkBitrate: number, valueUmtsRequestedQosWithSignalingIndicationFlagQosDeliveryOrder: WdsDeliveryOrder, valueUmtsRequestedQosWithSignalingIndicationFlagMaximumSduSize: number, valueUmtsRequestedQosWithSignalingIndicationFlagSduErrorRatio: WdsSduErrorRatio, valueUmtsRequestedQosWithSignalingIndicationFlagResidualBitErrorRatio: WdsSduResidualBitErrorRatio, valueUmtsRequestedQosWithSignalingIndicationFlagDeliveryErroneousSdu: WdsSduErroneousDelivery, valueUmtsRequestedQosWithSignalingIndicationFlagTransferDelay: number, valueUmtsRequestedQosWithSignalingIndicationFlagTrafficHandlingPriority: number, valueUmtsRequestedQosWithSignalingIndicationFlagSignalingIndication: number }
-    getUsername(): { returnType: boolean, valueUsername: string }
+    getApnDisabledFlag(): { returnType: boolean, valueApnDisabledFlag: boolean | null }
+    getApnName(): { returnType: boolean, valueApnName: string | null }
+    getApnTypeMask(): { returnType: boolean, valueApnTypeMask: WdsApnTypeMask | null }
+    getAuthentication(): { returnType: boolean, valueAuthentication: WdsAuthentication | null }
+    getGprsMinimumQos(): { returnType: boolean, valueGprsMinimumQosPrecedenceClass: number | null, valueGprsMinimumQosDelayClass: number | null, valueGprsMinimumQosReliabilityClass: number | null, valueGprsMinimumQosPeakThroughputClass: number | null, valueGprsMinimumQosMeanThroughputClass: number | null }
+    getGprsRequestedQos(): { returnType: boolean, valueGprsRequestedQosPrecedenceClass: number | null, valueGprsRequestedQosDelayClass: number | null, valueGprsRequestedQosReliabilityClass: number | null, valueGprsRequestedQosPeakThroughputClass: number | null, valueGprsRequestedQosMeanThroughputClass: number | null }
+    getImcnFlag(): { returnType: boolean, valueImcnFlag: boolean | null }
+    getIpv4AddressPreference(): { returnType: boolean, valueIpv4AddressPreference: number | null }
+    getIpv6AddressPreference(): { returnType: boolean, valueIpv6AddressPreferenceAddress: number[] | null }
+    getIpv6PrimaryDnsAddressPreference(): { returnType: boolean, valueIpv6PrimaryDnsAddressPreference: number[] | null }
+    getIpv6SecondaryDnsAddressPreference(): { returnType: boolean, valueIpv6SecondaryDnsAddressPreference: number[] | null }
+    getLteQosParameters(): { returnType: boolean, valueLteQosParametersQosClassIdentifier: WdsQosClassIdentifier | null, valueLteQosParametersGuaranteedDownlinkBitrate: number | null, valueLteQosParametersMaxDownlinkBitrate: number | null, valueLteQosParametersGuaranteedUplinkBitrate: number | null, valueLteQosParametersMaxUplinkBitrate: number | null }
+    getPassword(): { returnType: boolean, valuePassword: string | null }
+    getPcscfAddressUsingDhcp(): { returnType: boolean, valuePcscfAddressUsingDhcp: boolean | null }
+    getPcscfAddressUsingPco(): { returnType: boolean, valuePcscfAddressUsingPco: boolean | null }
+    getPdpContextNumber(): { returnType: boolean, valuePdpContextNumber: number | null }
+    getPdpContextPrimaryId(): { returnType: boolean, valuePdpContextPrimaryId: number | null }
+    getPdpContextSecondaryFlag(): { returnType: boolean, valuePdpContextSecondaryFlag: boolean | null }
+    getPdpDataCompressionType(): { returnType: boolean, valuePdpDataCompressionType: WdsPdpDataCompressionType | null }
+    getPdpHeaderCompressionType(): { returnType: boolean, valuePdpHeaderCompressionType: WdsPdpHeaderCompressionType | null }
+    getPdpType(): { returnType: boolean, valuePdpType: WdsPdpType | null }
+    getPrimaryIpv4DnsAddress(): { returnType: boolean, valuePrimaryIpv4DnsAddress: number | null }
+    getProfileIdentifier(): { returnType: boolean, valueProfileIdentifierProfileType: WdsProfileType | null, valueProfileIdentifierProfileIndex: number | null }
+    getProfileName(): { returnType: boolean, valueProfileName: string | null }
+    getRoamingDisallowedFlag(): { returnType: boolean, valueRoamingDisallowedFlag: boolean | null }
+    getSecondaryIpv4DnsAddress(): { returnType: boolean, valueSecondaryIpv4DnsAddress: number | null }
+    getUmtsMinimumQos(): { returnType: boolean, valueUmtsMinimumQosTrafficClass: WdsTrafficClass | null, valueUmtsMinimumQosMaxUplinkBitrate: number | null, valueUmtsMinimumQosMaxDownlinkBitrate: number | null, valueUmtsMinimumQosGuaranteedUplinkBitrate: number | null, valueUmtsMinimumQosGuaranteedDownlinkBitrate: number | null, valueUmtsMinimumQosQosDeliveryOrder: WdsDeliveryOrder | null, valueUmtsMinimumQosMaximumSduSize: number | null, valueUmtsMinimumQosSduErrorRatio: WdsSduErrorRatio | null, valueUmtsMinimumQosResidualBitErrorRatio: WdsSduResidualBitErrorRatio | null, valueUmtsMinimumQosDeliveryErroneousSdu: WdsSduErroneousDelivery | null, valueUmtsMinimumQosTransferDelay: number | null, valueUmtsMinimumQosTrafficHandlingPriority: number | null }
+    getUmtsMinimumQosWithSignalingIndicationFlag(): { returnType: boolean, valueUmtsMinimumQosWithSignalingIndicationFlagTrafficClass: WdsTrafficClass | null, valueUmtsMinimumQosWithSignalingIndicationFlagMaxUplinkBitrate: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagMaxDownlinkBitrate: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagGuaranteedUplinkBitrate: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagGuaranteedDownlinkBitrate: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagQosDeliveryOrder: WdsDeliveryOrder | null, valueUmtsMinimumQosWithSignalingIndicationFlagMaximumSduSize: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagSduErrorRatio: WdsSduErrorRatio | null, valueUmtsMinimumQosWithSignalingIndicationFlagResidualBitErrorRatio: WdsSduResidualBitErrorRatio | null, valueUmtsMinimumQosWithSignalingIndicationFlagDeliveryErroneousSdu: WdsSduErroneousDelivery | null, valueUmtsMinimumQosWithSignalingIndicationFlagTransferDelay: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagTrafficHandlingPriority: number | null, valueUmtsMinimumQosWithSignalingIndicationFlagSignalingIndication: number | null }
+    getUmtsRequestedQos(): { returnType: boolean, valueUmtsRequestedQosTrafficClass: WdsTrafficClass | null, valueUmtsRequestedQosMaxUplinkBitrate: number | null, valueUmtsRequestedQosMaxDownlinkBitrate: number | null, valueUmtsRequestedQosGuaranteedUplinkBitrate: number | null, valueUmtsRequestedQosGuaranteedDownlinkBitrate: number | null, valueUmtsRequestedQosQosDeliveryOrder: WdsDeliveryOrder | null, valueUmtsRequestedQosMaximumSduSize: number | null, valueUmtsRequestedQosSduErrorRatio: WdsSduErrorRatio | null, valueUmtsRequestedQosResidualBitErrorRatio: WdsSduResidualBitErrorRatio | null, valueUmtsRequestedQosDeliveryErroneousSdu: WdsSduErroneousDelivery | null, valueUmtsRequestedQosTransferDelay: number | null, valueUmtsRequestedQosTrafficHandlingPriority: number | null }
+    getUmtsRequestedQosWithSignalingIndicationFlag(): { returnType: boolean, valueUmtsRequestedQosWithSignalingIndicationFlagTrafficClass: WdsTrafficClass | null, valueUmtsRequestedQosWithSignalingIndicationFlagMaxUplinkBitrate: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagMaxDownlinkBitrate: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagGuaranteedUplinkBitrate: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagGuaranteedDownlinkBitrate: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagQosDeliveryOrder: WdsDeliveryOrder | null, valueUmtsRequestedQosWithSignalingIndicationFlagMaximumSduSize: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagSduErrorRatio: WdsSduErrorRatio | null, valueUmtsRequestedQosWithSignalingIndicationFlagResidualBitErrorRatio: WdsSduResidualBitErrorRatio | null, valueUmtsRequestedQosWithSignalingIndicationFlagDeliveryErroneousSdu: WdsSduErroneousDelivery | null, valueUmtsRequestedQosWithSignalingIndicationFlagTransferDelay: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagTrafficHandlingPriority: number | null, valueUmtsRequestedQosWithSignalingIndicationFlagSignalingIndication: number | null }
+    getUsername(): { returnType: boolean, valueUsername: string | null }
     ref(): MessageWdsModifyProfileInput
     setApnDisabledFlag(valueApnDisabledFlag: boolean): boolean
     setApnName(valueApnName: string): boolean
+    setApnTypeMask(valueApnTypeMask: WdsApnTypeMask): boolean
     setAuthentication(valueAuthentication: WdsAuthentication): boolean
     setGprsMinimumQos(valueGprsMinimumQosPrecedenceClass: number, valueGprsMinimumQosDelayClass: number, valueGprsMinimumQosReliabilityClass: number, valueGprsMinimumQosPeakThroughputClass: number, valueGprsMinimumQosMeanThroughputClass: number): boolean
     setGprsRequestedQos(valueGprsRequestedQosPrecedenceClass: number, valueGprsRequestedQosDelayClass: number, valueGprsRequestedQosReliabilityClass: number, valueGprsRequestedQosPeakThroughputClass: number, valueGprsRequestedQosMeanThroughputClass: number): boolean
@@ -10874,7 +11573,7 @@ export class MessageWdsModifyProfileInput {
 }
 export class MessageWdsModifyProfileOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsModifyProfileOutput */
-    getExtendedErrorCode(): { returnType: boolean, valueExtendedErrorCode: WdsDsProfileError }
+    getExtendedErrorCode(): { returnType: boolean, valueExtendedErrorCode: WdsDsProfileError | null }
     getResult(): boolean
     ref(): MessageWdsModifyProfileOutput
     unref(): void
@@ -10889,8 +11588,8 @@ export class MessageWdsResetOutput {
 }
 export class MessageWdsSetAutoconnectSettingsInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsSetAutoconnectSettingsInput */
-    getRoaming(): { returnType: boolean, valueRoaming: WdsAutoconnectSettingRoaming }
-    getStatus(): { returnType: boolean, valueStatus: WdsAutoconnectSetting }
+    getRoaming(): { returnType: boolean, valueRoaming: WdsAutoconnectSettingRoaming | null }
+    getStatus(): { returnType: boolean, valueStatus: WdsAutoconnectSetting | null }
     ref(): MessageWdsSetAutoconnectSettingsInput
     setRoaming(valueRoaming: WdsAutoconnectSettingRoaming): boolean
     setStatus(valueStatus: WdsAutoconnectSetting): boolean
@@ -10910,7 +11609,7 @@ export class MessageWdsSetAutoconnectSettingsOutput {
 }
 export class MessageWdsSetDefaultProfileNumberInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsSetDefaultProfileNumberInput */
-    getProfileIdentifier(): { returnType: boolean, valueProfileIdentifierType: WdsProfileType, valueProfileIdentifierFamily: WdsProfileFamily, valueProfileIdentifierIndex: number }
+    getProfileIdentifier(): { returnType: boolean, valueProfileIdentifierType: WdsProfileType | null, valueProfileIdentifierFamily: WdsProfileFamily | null, valueProfileIdentifierIndex: number | null }
     ref(): MessageWdsSetDefaultProfileNumberInput
     setProfileIdentifier(valueProfileIdentifierType: WdsProfileType, valueProfileIdentifierFamily: WdsProfileFamily, valueProfileIdentifierIndex: number): boolean
     unref(): void
@@ -10922,7 +11621,7 @@ export class MessageWdsSetDefaultProfileNumberInput {
 }
 export class MessageWdsSetDefaultProfileNumberOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsSetDefaultProfileNumberOutput */
-    getExtendedErrorCode(): { returnType: boolean, valueExtendedErrorCode: WdsDsProfileError }
+    getExtendedErrorCode(): { returnType: boolean, valueExtendedErrorCode: WdsDsProfileError | null }
     getResult(): boolean
     ref(): MessageWdsSetDefaultProfileNumberOutput
     unref(): void
@@ -10930,20 +11629,20 @@ export class MessageWdsSetDefaultProfileNumberOutput {
 }
 export class MessageWdsSetEventReportInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsSetEventReportInput */
-    getChannelRate(): { returnType: boolean, valueChannelRate: boolean }
-    getCurrentDataBearerTechnology(): { returnType: boolean, valueCurrentDataBearerTechnology: boolean }
-    getDataBearerTechnology(): { returnType: boolean, valueDataBearerTechnology: boolean }
-    getDataCallStatus(): { returnType: boolean, valueDataCallStatus: boolean }
-    getDataSystems(): { returnType: boolean, valueDataSystems: boolean }
-    getDormancyStatus(): { returnType: boolean, valueDormancyStatus: boolean }
-    getEvdoPmChange(): { returnType: boolean, valueEvdoPmChange: boolean }
-    getExtendedDataBearerTechnology(): { returnType: boolean, valueExtendedDataBearerTechnology: boolean }
-    getLimitedDataSystemStatus(): { returnType: boolean, valueLimitedDataSystemStatus: boolean }
-    getMipStatus(): { returnType: boolean, valueMipStatus: number }
-    getPdnFilterRemovals(): { returnType: boolean, valuePdnFilterRemovals: boolean }
-    getPreferredDataSystem(): { returnType: boolean, valuePreferredDataSystem: boolean }
-    getTransferStatistics(): { returnType: boolean, valueTransferStatisticsIntervalSeconds: number, valueTransferStatisticsIndicators: WdsSetEventReportTransferStatistics }
-    getUplinkFlowControl(): { returnType: boolean, valueUplinkFlowControl: boolean }
+    getChannelRate(): { returnType: boolean, valueChannelRate: boolean | null }
+    getCurrentDataBearerTechnology(): { returnType: boolean, valueCurrentDataBearerTechnology: boolean | null }
+    getDataBearerTechnology(): { returnType: boolean, valueDataBearerTechnology: boolean | null }
+    getDataCallStatus(): { returnType: boolean, valueDataCallStatus: boolean | null }
+    getDataSystems(): { returnType: boolean, valueDataSystems: boolean | null }
+    getDormancyStatus(): { returnType: boolean, valueDormancyStatus: boolean | null }
+    getEvdoPmChange(): { returnType: boolean, valueEvdoPmChange: boolean | null }
+    getExtendedDataBearerTechnology(): { returnType: boolean, valueExtendedDataBearerTechnology: boolean | null }
+    getLimitedDataSystemStatus(): { returnType: boolean, valueLimitedDataSystemStatus: boolean | null }
+    getMipStatus(): { returnType: boolean, valueMipStatus: number | null }
+    getPdnFilterRemovals(): { returnType: boolean, valuePdnFilterRemovals: boolean | null }
+    getPreferredDataSystem(): { returnType: boolean, valuePreferredDataSystem: boolean | null }
+    getTransferStatistics(): { returnType: boolean, valueTransferStatisticsIntervalSeconds: number | null, valueTransferStatisticsIndicators: WdsSetEventReportTransferStatistics | null }
+    getUplinkFlowControl(): { returnType: boolean, valueUplinkFlowControl: boolean | null }
     ref(): MessageWdsSetEventReportInput
     setChannelRate(valueChannelRate: boolean): boolean
     setCurrentDataBearerTechnology(valueCurrentDataBearerTechnology: boolean): boolean
@@ -10975,7 +11674,7 @@ export class MessageWdsSetEventReportOutput {
 }
 export class MessageWdsSetIpFamilyInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsSetIpFamilyInput */
-    getPreference(): { returnType: boolean, valuePreference: WdsIpFamily }
+    getPreference(): { returnType: boolean, valuePreference: WdsIpFamily | null }
     ref(): MessageWdsSetIpFamilyInput
     setPreference(valuePreference: WdsIpFamily): boolean
     unref(): void
@@ -10994,8 +11693,8 @@ export class MessageWdsSetIpFamilyOutput {
 }
 export class MessageWdsSetLteAttachPdnListInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsSetLteAttachPdnListInput */
-    getAction(): { returnType: boolean, valueAction: WdsAttachPdnListAction }
-    getList(): { returnType: boolean, valueList: number[] }
+    getAction(): { returnType: boolean, valueAction: WdsAttachPdnListAction | null }
+    getList(): { returnType: boolean, valueList: number[] | null }
     ref(): MessageWdsSetLteAttachPdnListInput
     setAction(valueAction: WdsAttachPdnListAction): boolean
     setList(valueList: number[]): boolean
@@ -11015,22 +11714,22 @@ export class MessageWdsSetLteAttachPdnListOutput {
 }
 export class MessageWdsStartNetworkInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsStartNetworkInput */
-    getApn(): { returnType: boolean, valueApn: string }
-    getAuthenticationPreference(): { returnType: boolean, valueAuthenticationPreference: WdsAuthentication }
-    getCallType(): { returnType: boolean, valueCallType: WdsCallType }
-    getEnableAutoconnect(): { returnType: boolean, valueEnableAutoconnect: boolean }
-    getExtendedTechnologyPreference(): { returnType: boolean, valueExtendedTechnologyPreference: WdsExtendedTechnologyPreference }
-    getIpFamilyPreference(): { returnType: boolean, valueIpFamilyPreference: WdsIpFamily }
-    getIpv4AddressPreference(): { returnType: boolean, valueIpv4AddressPreference: number }
-    getPassword(): { returnType: boolean, valuePassword: string }
-    getPrimaryDnsAddressPreference(): { returnType: boolean, valuePrimaryDnsAddressPreference: number }
-    getPrimaryNbnsAddressPreference(): { returnType: boolean, valuePrimaryNbnsAddressPreference: number }
-    getProfileIndex3gpp(): { returnType: boolean, valueProfileIndex3gpp: number }
-    getProfileIndex3gpp2(): { returnType: boolean, valueProfileIndex3gpp2: number }
-    getSecondaryDnsAddressPreference(): { returnType: boolean, valueSecondaryDnsAddressPreference: number }
-    getSecondaryNbnsAddressPreference(): { returnType: boolean, valueSecondaryNbnsAddressPreference: number }
-    getTechnologyPreference(): { returnType: boolean, valueTechnologyPreference: WdsTechnologyPreference }
-    getUsername(): { returnType: boolean, valueUsername: string }
+    getApn(): { returnType: boolean, valueApn: string | null }
+    getAuthenticationPreference(): { returnType: boolean, valueAuthenticationPreference: WdsAuthentication | null }
+    getCallType(): { returnType: boolean, valueCallType: WdsCallType | null }
+    getEnableAutoconnect(): { returnType: boolean, valueEnableAutoconnect: boolean | null }
+    getExtendedTechnologyPreference(): { returnType: boolean, valueExtendedTechnologyPreference: WdsExtendedTechnologyPreference | null }
+    getIpFamilyPreference(): { returnType: boolean, valueIpFamilyPreference: WdsIpFamily | null }
+    getIpv4AddressPreference(): { returnType: boolean, valueIpv4AddressPreference: number | null }
+    getPassword(): { returnType: boolean, valuePassword: string | null }
+    getPrimaryDnsAddressPreference(): { returnType: boolean, valuePrimaryDnsAddressPreference: number | null }
+    getPrimaryNbnsAddressPreference(): { returnType: boolean, valuePrimaryNbnsAddressPreference: number | null }
+    getProfileIndex3gpp(): { returnType: boolean, valueProfileIndex3gpp: number | null }
+    getProfileIndex3gpp2(): { returnType: boolean, valueProfileIndex3gpp2: number | null }
+    getSecondaryDnsAddressPreference(): { returnType: boolean, valueSecondaryDnsAddressPreference: number | null }
+    getSecondaryNbnsAddressPreference(): { returnType: boolean, valueSecondaryNbnsAddressPreference: number | null }
+    getTechnologyPreference(): { returnType: boolean, valueTechnologyPreference: WdsTechnologyPreference | null }
+    getUsername(): { returnType: boolean, valueUsername: string | null }
     ref(): MessageWdsStartNetworkInput
     setApn(valueApn: string): boolean
     setAuthenticationPreference(valueAuthenticationPreference: WdsAuthentication): boolean
@@ -11057,18 +11756,18 @@ export class MessageWdsStartNetworkInput {
 }
 export class MessageWdsStartNetworkOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsStartNetworkOutput */
-    getCallEndReason(): { returnType: boolean, valueCallEndReason: WdsCallEndReason }
-    getPacketDataHandle(): { returnType: boolean, valuePacketDataHandle: number }
+    getCallEndReason(): { returnType: boolean, valueCallEndReason: WdsCallEndReason | null }
+    getPacketDataHandle(): { returnType: boolean, valuePacketDataHandle: number | null }
     getResult(): boolean
-    getVerboseCallEndReason(): { returnType: boolean, valueVerboseCallEndReasonType: WdsVerboseCallEndReasonType, valueVerboseCallEndReasonReason: number }
+    getVerboseCallEndReason(): { returnType: boolean, valueVerboseCallEndReasonType: WdsVerboseCallEndReasonType | null, valueVerboseCallEndReasonReason: number | null }
     ref(): MessageWdsStartNetworkOutput
     unref(): void
     static name: string
 }
 export class MessageWdsStopNetworkInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsStopNetworkInput */
-    getDisableAutoconnect(): { returnType: boolean, valueDisableAutoconnect: boolean }
-    getPacketDataHandle(): { returnType: boolean, valuePacketDataHandle: number }
+    getDisableAutoconnect(): { returnType: boolean, valueDisableAutoconnect: boolean | null }
+    getPacketDataHandle(): { returnType: boolean, valuePacketDataHandle: number | null }
     ref(): MessageWdsStopNetworkInput
     setDisableAutoconnect(valueDisableAutoconnect: boolean): boolean
     setPacketDataHandle(valuePacketDataHandle: number): boolean
@@ -11088,19 +11787,19 @@ export class MessageWdsStopNetworkOutput {
 }
 export class MessageWdsSwiCreateProfileIndexedInput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsSwiCreateProfileIndexedInput */
-    getApnDisabledFlag(): { returnType: boolean, valueApnDisabledFlag: boolean }
-    getApnName(): { returnType: boolean, valueApnName: string }
-    getAuthentication(): { returnType: boolean, valueAuthentication: WdsAuthentication }
-    getIpv4AddressPreference(): { returnType: boolean, valueIpv4AddressPreference: number }
-    getPassword(): { returnType: boolean, valuePassword: string }
-    getPdpContextNumber(): { returnType: boolean, valuePdpContextNumber: number }
-    getPdpType(): { returnType: boolean, valuePdpType: WdsPdpType }
-    getPrimaryIpv4DnsAddress(): { returnType: boolean, valuePrimaryIpv4DnsAddress: number }
-    getProfileIdentifier(): { returnType: boolean, valueProfileIdentifierProfileType: WdsProfileType, valueProfileIdentifierProfileIndex: number }
-    getProfileName(): { returnType: boolean, valueProfileName: string }
-    getRoamingDisallowedFlag(): { returnType: boolean, valueRoamingDisallowedFlag: boolean }
-    getSecondaryIpv4DnsAddress(): { returnType: boolean, valueSecondaryIpv4DnsAddress: number }
-    getUsername(): { returnType: boolean, valueUsername: string }
+    getApnDisabledFlag(): { returnType: boolean, valueApnDisabledFlag: boolean | null }
+    getApnName(): { returnType: boolean, valueApnName: string | null }
+    getAuthentication(): { returnType: boolean, valueAuthentication: WdsAuthentication | null }
+    getIpv4AddressPreference(): { returnType: boolean, valueIpv4AddressPreference: number | null }
+    getPassword(): { returnType: boolean, valuePassword: string | null }
+    getPdpContextNumber(): { returnType: boolean, valuePdpContextNumber: number | null }
+    getPdpType(): { returnType: boolean, valuePdpType: WdsPdpType | null }
+    getPrimaryIpv4DnsAddress(): { returnType: boolean, valuePrimaryIpv4DnsAddress: number | null }
+    getProfileIdentifier(): { returnType: boolean, valueProfileIdentifierProfileType: WdsProfileType | null, valueProfileIdentifierProfileIndex: number | null }
+    getProfileName(): { returnType: boolean, valueProfileName: string | null }
+    getRoamingDisallowedFlag(): { returnType: boolean, valueRoamingDisallowedFlag: boolean | null }
+    getSecondaryIpv4DnsAddress(): { returnType: boolean, valueSecondaryIpv4DnsAddress: number | null }
+    getUsername(): { returnType: boolean, valueUsername: string | null }
     ref(): MessageWdsSwiCreateProfileIndexedInput
     setApnDisabledFlag(valueApnDisabledFlag: boolean): boolean
     setApnName(valueApnName: string): boolean
@@ -11124,7 +11823,7 @@ export class MessageWdsSwiCreateProfileIndexedInput {
 }
 export class MessageWdsSwiCreateProfileIndexedOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWdsSwiCreateProfileIndexedOutput */
-    getProfileIdentifier(): { returnType: boolean, valueProfileIdentifierProfileType: WdsProfileType, valueProfileIdentifierProfileIndex: number }
+    getProfileIdentifier(): { returnType: boolean, valueProfileIdentifierProfileType: WdsProfileType | null, valueProfileIdentifierProfileIndex: number | null }
     getResult(): boolean
     ref(): MessageWdsSwiCreateProfileIndexedOutput
     unref(): void
@@ -11132,10 +11831,10 @@ export class MessageWdsSwiCreateProfileIndexedOutput {
 }
 export class MessageWmsDeleteInput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsDeleteInput */
-    getMemoryIndex(): { returnType: boolean, valueMemoryIndex: number }
-    getMemoryStorage(): { returnType: boolean, valueMemoryStorage: WmsStorageType }
-    getMessageMode(): { returnType: boolean, valueMessageMode: WmsMessageMode }
-    getMessageTag(): { returnType: boolean, valueMessageTag: WmsMessageTagType }
+    getMemoryIndex(): { returnType: boolean, valueMemoryIndex: number | null }
+    getMemoryStorage(): { returnType: boolean, valueMemoryStorage: WmsStorageType | null }
+    getMessageMode(): { returnType: boolean, valueMessageMode: WmsMessageMode | null }
+    getMessageTag(): { returnType: boolean, valueMessageTag: WmsMessageTagType | null }
     ref(): MessageWmsDeleteInput
     setMemoryIndex(valueMemoryIndex: number): boolean
     setMemoryStorage(valueMemoryStorage: WmsStorageType): boolean
@@ -11157,7 +11856,7 @@ export class MessageWmsDeleteOutput {
 }
 export class MessageWmsGetMessageProtocolOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsGetMessageProtocolOutput */
-    getMessageProtocol(): { returnType: boolean, valueMessageProtocol: WmsMessageProtocol }
+    getMessageProtocol(): { returnType: boolean, valueMessageProtocol: WmsMessageProtocol | null }
     getResult(): boolean
     ref(): MessageWmsGetMessageProtocolOutput
     unref(): void
@@ -11166,8 +11865,8 @@ export class MessageWmsGetMessageProtocolOutput {
 export class MessageWmsGetRoutesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsGetRoutesOutput */
     getResult(): boolean
-    getRouteList(): { returnType: boolean, valueRouteList: MessageWmsGetRoutesOutputRouteListElement[] }
-    getTransferStatusReport(): { returnType: boolean, valueTransferStatusReport: WmsTransferIndication }
+    getRouteList(): { returnType: boolean, valueRouteList: MessageWmsGetRoutesOutputRouteListElement[] | null }
+    getTransferStatusReport(): { returnType: boolean, valueTransferStatusReport: WmsTransferIndication | null }
     ref(): MessageWmsGetRoutesOutput
     unref(): void
     static name: string
@@ -11182,7 +11881,7 @@ export class MessageWmsGetRoutesOutputRouteListElement {
 }
 export class MessageWmsGetSupportedMessagesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsGetSupportedMessagesOutput */
-    getList(): { returnType: boolean, valueList: any[] }
+    getList(): { returnType: boolean, valueList: any[] | null }
     getResult(): boolean
     ref(): MessageWmsGetSupportedMessagesOutput
     unref(): void
@@ -11190,9 +11889,9 @@ export class MessageWmsGetSupportedMessagesOutput {
 }
 export class MessageWmsListMessagesInput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsListMessagesInput */
-    getMessageMode(): { returnType: boolean, valueMessageMode: WmsMessageMode }
-    getMessageTag(): { returnType: boolean, valueMessageTag: WmsMessageTagType }
-    getStorageType(): { returnType: boolean, valueStorageType: WmsStorageType }
+    getMessageMode(): { returnType: boolean, valueMessageMode: WmsMessageMode | null }
+    getMessageTag(): { returnType: boolean, valueMessageTag: WmsMessageTagType | null }
+    getStorageType(): { returnType: boolean, valueStorageType: WmsStorageType | null }
     ref(): MessageWmsListMessagesInput
     setMessageMode(valueMessageMode: WmsMessageMode): boolean
     setMessageTag(valueMessageTag: WmsMessageTagType): boolean
@@ -11206,7 +11905,7 @@ export class MessageWmsListMessagesInput {
 }
 export class MessageWmsListMessagesOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsListMessagesOutput */
-    getMessageList(): { returnType: boolean, valueMessageList: MessageWmsListMessagesOutputMessageListElement[] }
+    getMessageList(): { returnType: boolean, valueMessageList: MessageWmsListMessagesOutputMessageListElement[] | null }
     getResult(): boolean
     ref(): MessageWmsListMessagesOutput
     unref(): void
@@ -11220,8 +11919,8 @@ export class MessageWmsListMessagesOutputMessageListElement {
 }
 export class MessageWmsModifyTagInput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsModifyTagInput */
-    getMessageMode(): { returnType: boolean, valueMessageMode: WmsMessageMode }
-    getMessageTag(): { returnType: boolean, valueMessageTagStorageType: WmsStorageType, valueMessageTagMemoryIndex: number, valueMessageTagMessageTag: WmsMessageTagType }
+    getMessageMode(): { returnType: boolean, valueMessageMode: WmsMessageMode | null }
+    getMessageTag(): { returnType: boolean, valueMessageTagStorageType: WmsStorageType | null, valueMessageTagMemoryIndex: number | null, valueMessageTagMessageTag: WmsMessageTagType | null }
     ref(): MessageWmsModifyTagInput
     setMessageMode(valueMessageMode: WmsMessageMode): boolean
     setMessageTag(valueMessageTagStorageType: WmsStorageType, valueMessageTagMemoryIndex: number, valueMessageTagMessageTag: WmsMessageTagType): boolean
@@ -11241,9 +11940,9 @@ export class MessageWmsModifyTagOutput {
 }
 export class MessageWmsRawReadInput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsRawReadInput */
-    getMessageMemoryStorageId(): { returnType: boolean, valueMessageMemoryStorageIdStorageType: WmsStorageType, valueMessageMemoryStorageIdMemoryIndex: number }
-    getMessageMode(): { returnType: boolean, valueMessageMode: WmsMessageMode }
-    getSmsOnIms(): { returnType: boolean, valueSmsOnIms: boolean }
+    getMessageMemoryStorageId(): { returnType: boolean, valueMessageMemoryStorageIdStorageType: WmsStorageType | null, valueMessageMemoryStorageIdMemoryIndex: number | null }
+    getMessageMode(): { returnType: boolean, valueMessageMode: WmsMessageMode | null }
+    getSmsOnIms(): { returnType: boolean, valueSmsOnIms: boolean | null }
     ref(): MessageWmsRawReadInput
     setMessageMemoryStorageId(valueMessageMemoryStorageIdStorageType: WmsStorageType, valueMessageMemoryStorageIdMemoryIndex: number): boolean
     setMessageMode(valueMessageMode: WmsMessageMode): boolean
@@ -11257,7 +11956,7 @@ export class MessageWmsRawReadInput {
 }
 export class MessageWmsRawReadOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsRawReadOutput */
-    getRawMessageData(): { returnType: boolean, valueRawMessageDataMessageTag: WmsMessageTagType, valueRawMessageDataFormat: WmsMessageFormat, valueRawMessageDataRawData: any[] }
+    getRawMessageData(): { returnType: boolean, valueRawMessageDataMessageTag: WmsMessageTagType | null, valueRawMessageDataFormat: WmsMessageFormat | null, valueRawMessageDataRawData: any[] | null }
     getResult(): boolean
     ref(): MessageWmsRawReadOutput
     unref(): void
@@ -11265,11 +11964,11 @@ export class MessageWmsRawReadOutput {
 }
 export class MessageWmsRawSendInput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsRawSendInput */
-    getCdmaFollowOnDc(): { returnType: boolean, valueCdmaFollowOnDcFollow: boolean }
-    getCdmaForceOnDc(): { returnType: boolean, valueCdmaForceOnDcForce: boolean, valueCdmaForceOnDcServiceOption: WmsCdmaServiceOption }
-    getGsmWcdmaLinkTimer(): { returnType: boolean, valueGsmWcdmaLinkTimer: number }
-    getRawMessageData(): { returnType: boolean, valueRawMessageDataFormat: WmsMessageFormat, valueRawMessageDataRawData: any[] }
-    getSmsOnIms(): { returnType: boolean, valueSmsOnIms: boolean }
+    getCdmaFollowOnDc(): { returnType: boolean, valueCdmaFollowOnDcFollow: boolean | null }
+    getCdmaForceOnDc(): { returnType: boolean, valueCdmaForceOnDcForce: boolean | null, valueCdmaForceOnDcServiceOption: WmsCdmaServiceOption | null }
+    getGsmWcdmaLinkTimer(): { returnType: boolean, valueGsmWcdmaLinkTimer: number | null }
+    getRawMessageData(): { returnType: boolean, valueRawMessageDataFormat: WmsMessageFormat | null, valueRawMessageDataRawData: any[] | null }
+    getSmsOnIms(): { returnType: boolean, valueSmsOnIms: boolean | null }
     ref(): MessageWmsRawSendInput
     setCdmaFollowOnDc(valueCdmaFollowOnDcFollow: boolean): boolean
     setCdmaForceOnDc(valueCdmaForceOnDcForce: boolean, valueCdmaForceOnDcServiceOption: WmsCdmaServiceOption): boolean
@@ -11285,11 +11984,11 @@ export class MessageWmsRawSendInput {
 }
 export class MessageWmsRawSendOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsRawSendOutput */
-    getCdmaCauseCode(): { returnType: boolean, valueCdmaCauseCode: WmsCdmaCauseCode }
-    getCdmaErrorClass(): { returnType: boolean, valueCdmaErrorClass: WmsCdmaErrorClass }
-    getGsmWcdmaCauseInfo(): { returnType: boolean, valueGsmWcdmaCauseInfoRpCause: WmsGsmUmtsRpCause, valueGsmWcdmaCauseInfoTpCause: WmsGsmUmtsTpCause }
-    getMessageDeliveryFailureType(): { returnType: boolean, valueMessageDeliveryFailureType: WmsMessageDeliveryFailureType }
-    getMessageId(): { returnType: boolean, valueMessageId: number }
+    getCdmaCauseCode(): { returnType: boolean, valueCdmaCauseCode: WmsCdmaCauseCode | null }
+    getCdmaErrorClass(): { returnType: boolean, valueCdmaErrorClass: WmsCdmaErrorClass | null }
+    getGsmWcdmaCauseInfo(): { returnType: boolean, valueGsmWcdmaCauseInfoRpCause: WmsGsmUmtsRpCause | null, valueGsmWcdmaCauseInfoTpCause: WmsGsmUmtsTpCause | null }
+    getMessageDeliveryFailureType(): { returnType: boolean, valueMessageDeliveryFailureType: WmsMessageDeliveryFailureType | null }
+    getMessageId(): { returnType: boolean, valueMessageId: number | null }
     getResult(): boolean
     ref(): MessageWmsRawSendOutput
     unref(): void
@@ -11297,7 +11996,7 @@ export class MessageWmsRawSendOutput {
 }
 export class MessageWmsRawWriteInput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsRawWriteInput */
-    getRawMessageData(): { returnType: boolean, valueRawMessageDataStorageType: WmsStorageType, valueRawMessageDataFormat: WmsMessageFormat, valueRawMessageDataRawData: any[] }
+    getRawMessageData(): { returnType: boolean, valueRawMessageDataStorageType: WmsStorageType | null, valueRawMessageDataFormat: WmsMessageFormat | null, valueRawMessageDataRawData: any[] | null }
     ref(): MessageWmsRawWriteInput
     setRawMessageData(valueRawMessageDataStorageType: WmsStorageType, valueRawMessageDataFormat: WmsMessageFormat, valueRawMessageDataRawData: any[]): boolean
     unref(): void
@@ -11309,7 +12008,7 @@ export class MessageWmsRawWriteInput {
 }
 export class MessageWmsRawWriteOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsRawWriteOutput */
-    getMemoryIndex(): { returnType: boolean, valueMemoryIndex: number }
+    getMemoryIndex(): { returnType: boolean, valueMemoryIndex: number | null }
     getResult(): boolean
     ref(): MessageWmsRawWriteOutput
     unref(): void
@@ -11324,10 +12023,10 @@ export class MessageWmsResetOutput {
 }
 export class MessageWmsSendAckInput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsSendAckInput */
-    get3gpp2FailureInformation(): { returnType: boolean, value3gpp2FailureInformationErrorClass: WmsCdmaErrorClass, value3gpp2FailureInformationCauseCode: WmsCdmaCauseCode }
-    get3gppFailureInformation(): { returnType: boolean, value3gppFailureInformationRpCause: WmsGsmUmtsRpCause, value3gppFailureInformationTpCause: WmsGsmUmtsTpCause }
-    getInformation(): { returnType: boolean, valueInformationTransactionId: number, valueInformationMessageProtocol: WmsMessageProtocol, valueInformationSuccess: boolean }
-    getSmsOnIms(): { returnType: boolean, valueSmsOnIms: boolean }
+    get3gpp2FailureInformation(): { returnType: boolean, value3gpp2FailureInformationErrorClass: WmsCdmaErrorClass | null, value3gpp2FailureInformationCauseCode: WmsCdmaCauseCode | null }
+    get3gppFailureInformation(): { returnType: boolean, value3gppFailureInformationRpCause: WmsGsmUmtsRpCause | null, value3gppFailureInformationTpCause: WmsGsmUmtsTpCause | null }
+    getInformation(): { returnType: boolean, valueInformationTransactionId: number | null, valueInformationMessageProtocol: WmsMessageProtocol | null, valueInformationSuccess: boolean | null }
+    getSmsOnIms(): { returnType: boolean, valueSmsOnIms: boolean | null }
     ref(): MessageWmsSendAckInput
     set3gpp2FailureInformation(value3gpp2FailureInformationErrorClass: WmsCdmaErrorClass, value3gpp2FailureInformationCauseCode: WmsCdmaCauseCode): boolean
     set3gppFailureInformation(value3gppFailureInformationRpCause: WmsGsmUmtsRpCause, value3gppFailureInformationTpCause: WmsGsmUmtsTpCause): boolean
@@ -11342,7 +12041,7 @@ export class MessageWmsSendAckInput {
 }
 export class MessageWmsSendAckOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsSendAckOutput */
-    getFailureCause(): { returnType: boolean, valueFailureCause: WmsAckFailureCause }
+    getFailureCause(): { returnType: boolean, valueFailureCause: WmsAckFailureCause | null }
     getResult(): boolean
     ref(): MessageWmsSendAckOutput
     unref(): void
@@ -11350,8 +12049,8 @@ export class MessageWmsSendAckOutput {
 }
 export class MessageWmsSendFromMemoryStorageInput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsSendFromMemoryStorageInput */
-    getInformation(): { returnType: boolean, valueInformationStorageType: WmsStorageType, valueInformationMemoryIndex: number, valueInformationMessageMode: WmsMessageMode }
-    getSmsOnIms(): { returnType: boolean, valueSmsOnIms: boolean }
+    getInformation(): { returnType: boolean, valueInformationStorageType: WmsStorageType | null, valueInformationMemoryIndex: number | null, valueInformationMessageMode: WmsMessageMode | null }
+    getSmsOnIms(): { returnType: boolean, valueSmsOnIms: boolean | null }
     ref(): MessageWmsSendFromMemoryStorageInput
     setInformation(valueInformationStorageType: WmsStorageType, valueInformationMemoryIndex: number, valueInformationMessageMode: WmsMessageMode): boolean
     setSmsOnIms(valueSmsOnIms: boolean): boolean
@@ -11364,11 +12063,11 @@ export class MessageWmsSendFromMemoryStorageInput {
 }
 export class MessageWmsSendFromMemoryStorageOutput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsSendFromMemoryStorageOutput */
-    getCdmaCauseCode(): { returnType: boolean, valueCdmaCauseCode: WmsCdmaCauseCode }
-    getCdmaErrorClass(): { returnType: boolean, valueCdmaErrorClass: WmsCdmaErrorClass }
-    getGsmWcdmaCauseInfo(): { returnType: boolean, valueGsmWcdmaCauseInfoRpCause: WmsGsmUmtsRpCause, valueGsmWcdmaCauseInfoTpCause: WmsGsmUmtsTpCause }
-    getMessageDeliveryFailureType(): { returnType: boolean, valueMessageDeliveryFailureType: WmsMessageDeliveryFailureType }
-    getMessageId(): { returnType: boolean, valueMessageId: number }
+    getCdmaCauseCode(): { returnType: boolean, valueCdmaCauseCode: WmsCdmaCauseCode | null }
+    getCdmaErrorClass(): { returnType: boolean, valueCdmaErrorClass: WmsCdmaErrorClass | null }
+    getGsmWcdmaCauseInfo(): { returnType: boolean, valueGsmWcdmaCauseInfoRpCause: WmsGsmUmtsRpCause | null, valueGsmWcdmaCauseInfoTpCause: WmsGsmUmtsTpCause | null }
+    getMessageDeliveryFailureType(): { returnType: boolean, valueMessageDeliveryFailureType: WmsMessageDeliveryFailureType | null }
+    getMessageId(): { returnType: boolean, valueMessageId: number | null }
     getResult(): boolean
     ref(): MessageWmsSendFromMemoryStorageOutput
     unref(): void
@@ -11376,7 +12075,7 @@ export class MessageWmsSendFromMemoryStorageOutput {
 }
 export class MessageWmsSetEventReportInput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsSetEventReportInput */
-    getNewMtMessageIndicator(): { returnType: boolean, valueNewMtMessageIndicatorReport: boolean }
+    getNewMtMessageIndicator(): { returnType: boolean, valueNewMtMessageIndicatorReport: boolean | null }
     ref(): MessageWmsSetEventReportInput
     setNewMtMessageIndicator(valueNewMtMessageIndicatorReport: boolean): boolean
     unref(): void
@@ -11395,8 +12094,8 @@ export class MessageWmsSetEventReportOutput {
 }
 export class MessageWmsSetRoutesInput {
     /* Methods of Qmi-1.0.Qmi.MessageWmsSetRoutesInput */
-    getRouteList(): { returnType: boolean, valueRouteList: MessageWmsSetRoutesInputRouteListElement[] }
-    getTransferStatusReport(): { returnType: boolean, valueTransferStatusReport: WmsTransferIndication }
+    getRouteList(): { returnType: boolean, valueRouteList: MessageWmsSetRoutesInputRouteListElement[] | null }
+    getTransferStatusReport(): { returnType: boolean, valueTransferStatusReport: WmsTransferIndication | null }
     ref(): MessageWmsSetRoutesInput
     setRouteList(valueRouteList: MessageWmsSetRoutesInputRouteListElement[]): boolean
     setTransferStatusReport(valueTransferStatusReport: WmsTransferIndication): boolean

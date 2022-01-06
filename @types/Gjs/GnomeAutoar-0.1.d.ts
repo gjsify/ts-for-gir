@@ -8,6 +8,7 @@ import type * as GObject from './GObject-2.0';
 import type * as GLib from './GLib-2.0';
 
 export enum ConflictAction {
+    UNHANDLED,
     SKIP,
     OVERWRITE,
     CHANGE_DESTINATION,
@@ -96,6 +97,7 @@ export class Compressor {
     get_source_files(): Gio.File[]
     set_notify_interval(notify_interval: number): void
     set_output_is_dest(output_is_dest: boolean): void
+    set_passphrase(passphrase: string): void
     start(cancellable?: Gio.Cancellable | null): void
     start_async(cancellable?: Gio.Cancellable | null): void
     /* Methods of GObject-2.0.GObject.Object */

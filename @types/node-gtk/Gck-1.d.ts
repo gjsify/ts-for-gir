@@ -63,8 +63,8 @@ export function slotsEnumerateObjects(slots: Slot[], match: Attributes, options:
 export function uriBuild(uriData: UriData, flags: UriFlags): string
 export function uriErrorGetQuark(): GLib.Quark
 export function uriParse(string: string, flags: UriFlags): UriData
-export function valueToBoolean(value: any[], result: boolean): boolean
-export function valueToUlong(value: any[], result: number): boolean
+export function valueToBoolean(value: any[]): { returnType: boolean, result: boolean }
+export function valueToUlong(value: any[]): { returnType: boolean, result: number }
 export interface Allocator {
     (data: object | null, length: number): object | null
 }
@@ -404,7 +404,7 @@ export class Password {
     /* Methods of Gio-2.0.Gio.TlsPassword */
     getDescription(): string
     getFlags(): Gio.TlsPasswordFlags
-    getValue(length?: number | null): number
+    getValue(): any[]
     getWarning(): string
     setDescription(description: string): void
     setFlags(flags: Gio.TlsPasswordFlags): void

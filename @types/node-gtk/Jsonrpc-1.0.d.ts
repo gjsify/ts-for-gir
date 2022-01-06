@@ -587,6 +587,12 @@ export class MessagePutStrv {
     val: string
     static name: string
 }
+export class MessagePutVariant {
+    /* Fields of Jsonrpc-1.0.Jsonrpc.MessagePutVariant */
+    magic: MessageMagic
+    val: GLib.Variant
+    static name: string
+}
 export abstract class OutputStreamClass {
     /* Fields of Jsonrpc-1.0.Jsonrpc.OutputStreamClass */
     parentClass: Gio.DataOutputStreamClass

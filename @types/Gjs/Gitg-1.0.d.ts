@@ -9285,6 +9285,7 @@ export class Repository {
     revparse(spec: string): Ggit.Object | null
     save_stash(stasher: Ggit.Signature, message: string, flags: Ggit.StashFlags): Ggit.OId | null
     set_head(ref_name: string): boolean
+    set_head_detached(oid: Ggit.OId): boolean
     set_remote_url(remote: string, url: string): boolean
     set_submodule_fetch_recurse(name: string, fetch_recurse_submodules: Ggit.SubmoduleRecurse): void
     set_submodule_ignore(name: string, ignore: Ggit.SubmoduleIgnore): void
@@ -11758,7 +11759,7 @@ export class DiffViewOptionsPrivate {
 }
 export abstract class DiffViewClass {
     /* Fields of Gitg-1.0.Gitg.DiffViewClass */
-    options_changed: () => void
+    options_changed: (self: DiffView) => void
     static name: string
 }
 export class DiffViewPrivate {
@@ -11862,8 +11863,8 @@ export class SidebarStoreSidebarHeaderPrivate {
 }
 export abstract class SidebarClass {
     /* Fields of Gitg-1.0.Gitg.SidebarClass */
-    select_function: (sel: Gtk.TreeSelection, model: Gtk.TreeModel, path: Gtk.TreePath, cursel: boolean) => boolean
-    selection_changed: (sel: Gtk.TreeSelection) => void
+    select_function: (self: Sidebar, sel: Gtk.TreeSelection, model: Gtk.TreeModel, path: Gtk.TreePath, cursel: boolean) => boolean
+    selection_changed: (self: Sidebar, sel: Gtk.TreeSelection) => void
     static name: string
 }
 export class SidebarPrivate {
@@ -11927,40 +11928,40 @@ export class WhenMappedPrivate {
 }
 export abstract class BranchIface {
     /* Fields of Gitg-1.0.Gitg.BranchIface */
-    get_upstream: () => Ref
+    get_upstream: (self: Branch) => Ref
     static name: string
 }
 export abstract class RefIface {
     /* Fields of Gitg-1.0.Gitg.RefIface */
-    get_owner: () => Repository
-    get_d_parsed_name: () => ParsedRefName
-    set_d_parsed_name: (value: ParsedRefName) => void
-    get_d_pushes: () => Ref[] | null
-    set_d_pushes: (value?: Ref[] | null) => void
-    get_state: () => RefState
-    set_state: (value: RefState) => void
-    get_working: () => boolean
-    set_working: (value: boolean) => void
+    get_owner: (self: Ref) => Repository
+    get_d_parsed_name: (self: Ref) => ParsedRefName
+    set_d_parsed_name: (self: Ref, value: ParsedRefName) => void
+    get_d_pushes: (self: Ref) => Ref[] | null
+    set_d_pushes: (self: Ref, value?: Ref[] | null) => void
+    get_state: (self: Ref) => RefState
+    set_state: (self: Ref, value: RefState) => void
+    get_working: (self: Ref) => boolean
+    set_working: (self: Ref, value: boolean) => void
     static name: string
 }
 export abstract class CredentialsProviderIface {
     /* Fields of Gitg-1.0.Gitg.CredentialsProviderIface */
-    credentials: (url: string, username_from_url: string | null, allowed_types: Ggit.Credtype) => Ggit.Cred | null
+    credentials: (self: CredentialsProvider, url: string, username_from_url: string | null, allowed_types: Ggit.Credtype) => Ggit.Cred | null
     static name: string
 }
 export abstract class SidebarItemIface {
     /* Fields of Gitg-1.0.Gitg.SidebarItemIface */
-    activate: (numclick: number) => void
-    get_text: () => string
-    get_icon_name: () => string | null
+    activate: (self: SidebarItem, numclick: number) => void
+    get_text: (self: SidebarItem) => string
+    get_icon_name: (self: SidebarItem) => string | null
     static name: string
 }
 export abstract class StageStatusItemIface {
     /* Fields of Gitg-1.0.Gitg.StageStatusItemIface */
-    get_path: () => string
-    get_is_staged: () => boolean
-    get_is_unstaged: () => boolean
-    get_is_untracked: () => boolean
-    get_icon_name: () => string | null
+    get_path: (self: StageStatusItem) => string
+    get_is_staged: (self: StageStatusItem) => boolean
+    get_is_unstaged: (self: StageStatusItem) => boolean
+    get_is_untracked: (self: StageStatusItem) => boolean
+    get_icon_name: (self: StageStatusItem) => string | null
     static name: string
 }

@@ -206,10 +206,12 @@ export class Aggregator {
     finishBufferList(bufferlist: Gst.BufferList): Gst.FlowReturn
     getAllocator(): { allocator: Gst.Allocator | null, params: Gst.AllocationParams | null }
     getBufferPool(): Gst.BufferPool | null
+    getIgnoreInactivePads(): boolean
     getLatency(): Gst.ClockTime
     negotiate(): boolean
     peekNextSample(pad: AggregatorPad): Gst.Sample | null
     selectedSamples(pts: Gst.ClockTime, dts: Gst.ClockTime, duration: Gst.ClockTime, info?: Gst.Structure | null): void
+    setIgnoreInactivePads(ignore: boolean): void
     setLatency(minLatency: Gst.ClockTime, maxLatency: Gst.ClockTime): void
     setSrcCaps(caps: Gst.Caps): void
     simpleGetNextTime(): Gst.ClockTime
@@ -267,6 +269,7 @@ export class Aggregator {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -436,6 +439,7 @@ export class AggregatorPad {
     dropBuffer(): boolean
     hasBuffer(): boolean
     isEos(): boolean
+    isInactive(): boolean
     peekBuffer(): Gst.Buffer | null
     popBuffer(): Gst.Buffer | null
     /* Methods of Gst-1.0.Gst.Pad */
@@ -748,6 +752,7 @@ export class BaseParse {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -1021,6 +1026,7 @@ export class BaseSink {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -1328,6 +1334,7 @@ export class BaseSrc {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -1569,6 +1576,7 @@ export class BaseTransform {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -2009,6 +2017,7 @@ export class PushSrc {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -2187,7 +2196,7 @@ export abstract class BaseParseClass {
     start: (parse: BaseParse) => boolean
     stop: (parse: BaseParse) => boolean
     setSinkCaps: (parse: BaseParse, caps: Gst.Caps) => boolean
-    handleFrame: (parse: BaseParse, frame: BaseParseFrame, skipsize: number) => Gst.FlowReturn
+    handleFrame: (parse: BaseParse, frame: BaseParseFrame) => { returnType: Gst.FlowReturn, skipsize: number }
     prePushFrame: (parse: BaseParse, frame: BaseParseFrame) => Gst.FlowReturn
     convert: (parse: BaseParse, srcFormat: Gst.Format, srcValue: number, destFormat: Gst.Format, destValue: number) => boolean
     sinkEvent: (parse: BaseParse, event: Gst.Event) => boolean
@@ -2255,7 +2264,7 @@ export abstract class BaseSrcClass {
     start: (src: BaseSrc) => boolean
     stop: (src: BaseSrc) => boolean
     getTimes: (src: BaseSrc, buffer: Gst.Buffer) => { start: Gst.ClockTime, end: Gst.ClockTime }
-    getSize: (src: BaseSrc, size: number) => boolean
+    getSize: (src: BaseSrc) => { returnType: boolean, size: number }
     isSeekable: (src: BaseSrc) => boolean
     prepareSeekSegment: (src: BaseSrc, seek: Gst.Event, segment: Gst.Segment) => boolean
     doSeek: (src: BaseSrc, segment: Gst.Segment) => boolean
@@ -2263,8 +2272,8 @@ export abstract class BaseSrcClass {
     unlockStop: (src: BaseSrc) => boolean
     query: (src: BaseSrc, query: Gst.Query) => boolean
     event: (src: BaseSrc, event: Gst.Event) => boolean
-    create: (src: BaseSrc, offset: number, size: number) => { returnType: Gst.FlowReturn, buf: Gst.Buffer }
-    alloc: (src: BaseSrc, offset: number, size: number, buf: Gst.Buffer) => Gst.FlowReturn
+    create: (src: BaseSrc, offset: number, size: number, buf: Gst.Buffer) => { returnType: Gst.FlowReturn, buf: Gst.Buffer }
+    alloc: (src: BaseSrc, offset: number, size: number) => { returnType: Gst.FlowReturn, buf: Gst.Buffer }
     fill: (src: BaseSrc, offset: number, size: number, buf: Gst.Buffer) => Gst.FlowReturn
     static name: string
 }
@@ -2337,14 +2346,14 @@ export class BitWriter {
     free(): void
     freeAndGetBuffer(): Gst.Buffer
     freeAndGetData(): any[]
-    getData(): number
+    getData(): any[]
     getRemaining(): number
     getSize(): number
     putBitsUint16(value: number, nbits: number): boolean
     putBitsUint32(value: number, nbits: number): boolean
     putBitsUint64(value: number, nbits: number): boolean
     putBitsUint8(value: number, nbits: number): boolean
-    putBytes(data: number, nbytes: number): boolean
+    putBytes(data: any[], nbytes: number): boolean
     reset(): void
     resetAndGetBuffer(): Gst.Buffer
     resetAndGetData(): any[]
@@ -2538,8 +2547,8 @@ export class FlowCombiner {
 export abstract class PushSrcClass {
     /* Fields of GstBase-1.0.GstBase.PushSrcClass */
     parentClass: BaseSrcClass
-    create: (src: PushSrc, buf: Gst.Buffer) => Gst.FlowReturn
-    alloc: (src: PushSrc, buf: Gst.Buffer) => Gst.FlowReturn
+    create: (src: PushSrc, buf: Gst.Buffer) => { returnType: Gst.FlowReturn, buf: Gst.Buffer }
+    alloc: (src: PushSrc) => { returnType: Gst.FlowReturn, buf: Gst.Buffer }
     fill: (src: PushSrc, buf: Gst.Buffer) => Gst.FlowReturn
     static name: string
 }

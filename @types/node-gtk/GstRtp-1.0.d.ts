@@ -38,6 +38,13 @@ export enum RTCPSDESType {
     TOOL,
     NOTE,
     PRIV,
+    H323_CADDR,
+    APSI,
+    RGRP,
+    RTP_STREAM_ID,
+    REPAIRED_RTP_STREAM_ID,
+    CCID,
+    MID,
 }
 export enum RTCPType {
     INVALID,
@@ -103,6 +110,13 @@ export enum RTPBufferFlags {
 export enum RTPBufferMapFlags {
     SKIP_PADDING,
     LAST,
+}
+export enum RTPHeaderExtensionDirection {
+    INACTIVE,
+    SENDONLY,
+    RECVONLY,
+    SENDRECV,
+    INHERITED,
 }
 export enum RTPHeaderExtensionFlags {
     ONE_BYTE,
@@ -187,7 +201,7 @@ export function rtpBufferNewAllocate(payloadLen: number, padLen: number, csrcCou
 export function rtpBufferNewAllocateLen(packetLen: number, padLen: number, csrcCount: number): Gst.Buffer
 export function rtpBufferNewCopyData(data: any[]): Gst.Buffer
 export function rtpBufferNewTakeData(data: any[]): Gst.Buffer
-export function rtpGetHeaderExtensionList(): RTPHeaderExtension[]
+export function rtpGetHeaderExtensionList(): Gst.ElementFactory[]
 export function rtpHdrextGetNtp56(data: any[]): { returnType: boolean, ntptime: number }
 export function rtpHdrextGetNtp64(data: any[]): { returnType: boolean, ntptime: number }
 export function rtpHdrextSetNtp56(data: object | null, size: number, ntptime: number): boolean
@@ -330,6 +344,7 @@ export class RTPBaseAudioPayload {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -645,6 +660,7 @@ export class RTPBaseDepayload {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -918,6 +934,7 @@ export class RTPBasePayload {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -1129,8 +1146,6 @@ export class RTPHeaderExtension {
     /* Properties of Gst-1.0.Gst.Object */
     name: string
     parent: Gst.Object
-    /* Fields of GstRtp-1.0.GstRtp.RTPHeaderExtension */
-    extId: number
     /* Fields of Gst-1.0.Gst.Element */
     object: Gst.Object
     stateLock: GLib.RecMutex
@@ -1159,18 +1174,23 @@ export class RTPHeaderExtension {
     /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GstRtp-1.0.GstRtp.RTPHeaderExtension */
+    getDirection(): RTPHeaderExtensionDirection
     getId(): number
     getMaxSize(inputMeta: Gst.Buffer): number
     getSdpCapsFieldName(): string
     getSupportedFlags(): RTPHeaderExtensionFlags
     getUri(): string
-    read(readFlags: RTPHeaderExtensionFlags, data: number, size: number, buffer: Gst.Buffer): boolean
+    read(readFlags: RTPHeaderExtensionFlags, data: any[], buffer: Gst.Buffer): boolean
     setAttributesFromCaps(caps: Gst.Caps): boolean
-    setAttributesFromCapsSimpleSdp(caps: Gst.Caps): boolean
     setCapsFromAttributes(caps: Gst.Caps): boolean
-    setCapsFromAttributesSimpleSdp(caps: Gst.Caps): boolean
+    setCapsFromAttributesHelper(caps: Gst.Caps, attributes: string): boolean
+    setDirection(direction: RTPHeaderExtensionDirection): void
     setId(extId: number): void
-    write(inputMeta: Gst.Buffer, writeFlags: RTPHeaderExtensionFlags, output: Gst.Buffer, data: number, size: number): number
+    setNonRtpSinkCaps(caps: Gst.Caps): boolean
+    setWantsUpdateNonRtpSrcCaps(state: boolean): void
+    updateNonRtpSrcCaps(caps: Gst.Caps): boolean
+    wantsUpdateNonRtpSrcCaps(): boolean
+    write(inputMeta: Gst.Buffer, writeFlags: RTPHeaderExtensionFlags, output: Gst.Buffer, data: any[]): number
     /* Methods of Gst-1.0.Gst.Element */
     abortState(): void
     addPad(pad: Gst.Pad): boolean
@@ -1224,6 +1244,7 @@ export class RTPHeaderExtension {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -1503,6 +1524,7 @@ export class RTPBuffer {
     getTimestamp(): number
     getVersion(): number
     padTo(len: number): void
+    removeExtensionData(): void
     setCsrc(idx: number, csrc: number): void
     setExtension(extension: boolean): void
     setExtensionData(bits: number, length: number): boolean
@@ -1536,9 +1558,11 @@ export abstract class RTPHeaderExtensionClass {
     parentClass: Gst.ElementClass
     getSupportedFlags: (ext: RTPHeaderExtension) => RTPHeaderExtensionFlags
     getMaxSize: (ext: RTPHeaderExtension, inputMeta: Gst.Buffer) => number
-    write: (ext: RTPHeaderExtension, inputMeta: Gst.Buffer, writeFlags: RTPHeaderExtensionFlags, output: Gst.Buffer, data: number, size: number) => number
-    read: (ext: RTPHeaderExtension, readFlags: RTPHeaderExtensionFlags, data: number, size: number, buffer: Gst.Buffer) => boolean
-    setAttributesFromCaps: (ext: RTPHeaderExtension, caps: Gst.Caps) => boolean
+    write: (ext: RTPHeaderExtension, inputMeta: Gst.Buffer, writeFlags: RTPHeaderExtensionFlags, output: Gst.Buffer, data: any[]) => number
+    read: (ext: RTPHeaderExtension, readFlags: RTPHeaderExtensionFlags, data: any[], buffer: Gst.Buffer) => boolean
+    setNonRtpSinkCaps: (ext: RTPHeaderExtension, caps: Gst.Caps) => boolean
+    updateNonRtpSrcCaps: (ext: RTPHeaderExtension, caps: Gst.Caps) => boolean
+    setAttributes: (ext: RTPHeaderExtension, direction: RTPHeaderExtensionDirection, attributes: string) => boolean
     setCapsFromAttributes: (ext: RTPHeaderExtension, caps: Gst.Caps) => boolean
     /* Methods of GstRtp-1.0.GstRtp.RTPHeaderExtensionClass */
     setUri(klass: RTPHeaderExtension | Function | GObject.Type, uri: string): void

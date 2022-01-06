@@ -22,6 +22,13 @@ export enum CenteringPolicy {
     LOOSE,
     STRICT,
 }
+export enum ColorScheme {
+    DEFAULT,
+    FORCE_LIGHT,
+    PREFER_LIGHT,
+    PREFER_DARK,
+    FORCE_DARK,
+}
 export enum DeckTransitionType {
     OVER,
     UNDER,
@@ -4382,6 +4389,7 @@ export class Avatar {
 export interface Carousel_ConstructProps extends Gtk.EventBox_ConstructProps {
     allowLongSwipes?: boolean
     allowMouseDrag?: boolean
+    allowScrollWheel?: boolean
     animationDuration?: number
     interactive?: boolean
     revealDuration?: number
@@ -4392,6 +4400,7 @@ export class Carousel {
     /* Properties of Handy-1.Handy.Carousel */
     allowLongSwipes: boolean
     allowMouseDrag: boolean
+    allowScrollWheel: boolean
     animationDuration: number
     interactive: boolean
     readonly nPages: number
@@ -4460,6 +4469,7 @@ export class Carousel {
     /* Methods of Handy-1.Handy.Carousel */
     getAllowLongSwipes(): boolean
     getAllowMouseDrag(): boolean
+    getAllowScrollWheel(): boolean
     getAnimationDuration(): number
     getInteractive(): boolean
     getNPages(): number
@@ -4473,6 +4483,7 @@ export class Carousel {
     scrollToFull(widget: Gtk.Widget, duration: number): void
     setAllowLongSwipes(allowLongSwipes: boolean): void
     setAllowMouseDrag(allowMouseDrag: boolean): void
+    setAllowScrollWheel(allowScrollWheel: boolean): void
     setAnimationDuration(duration: number): void
     setInteractive(interactive: boolean): void
     setRevealDuration(revealDuration: number): void
@@ -5210,6 +5221,11 @@ export class Carousel {
     on(sigName: "notify::allow-mouse-drag", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::allow-mouse-drag", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::allow-mouse-drag", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::allow-scroll-wheel", callback: (($obj: Carousel, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::allow-scroll-wheel", callback: (($obj: Carousel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::allow-scroll-wheel", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::allow-scroll-wheel", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::allow-scroll-wheel", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::animation-duration", callback: (($obj: Carousel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::animation-duration", callback: (($obj: Carousel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::animation-duration", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -16170,11 +16186,13 @@ export class Leaflet {
 export interface PreferencesGroup_ConstructProps extends Gtk.Bin_ConstructProps {
     description?: string
     title?: string
+    useMarkup?: boolean
 }
 export class PreferencesGroup {
     /* Properties of Handy-1.Handy.PreferencesGroup */
     description: string
     title: string
+    useMarkup: boolean
     /* Properties of Gtk-3.0.Gtk.Container */
     borderWidth: number
     child: Gtk.Widget
@@ -16230,8 +16248,10 @@ export class PreferencesGroup {
     /* Methods of Handy-1.Handy.PreferencesGroup */
     getDescription(): string
     getTitle(): string
+    getUseMarkup(): boolean
     setDescription(description: string): void
     setTitle(title: string): void
+    setUseMarkup(useMarkup: boolean): void
     /* Methods of Gtk-3.0.Gtk.Bin */
     getChild(): Gtk.Widget | null
     /* Methods of Gtk-3.0.Gtk.Container */
@@ -16936,6 +16956,11 @@ export class PreferencesGroup {
     on(sigName: "notify::title", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::title", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::title", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::use-markup", callback: (($obj: PreferencesGroup, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::use-markup", callback: (($obj: PreferencesGroup, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::use-markup", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::use-markup", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::use-markup", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::border-width", callback: (($obj: PreferencesGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::border-width", callback: (($obj: PreferencesGroup, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::border-width", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -23565,6 +23590,88 @@ export class StatusPage {
     _init (config?: StatusPage_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): StatusPage
+    static $gtype: GObject.Type
+}
+export interface StyleManager_ConstructProps extends GObject.Object_ConstructProps {
+    colorScheme?: ColorScheme
+    display?: Gdk.Display
+}
+export class StyleManager {
+    /* Properties of Handy-1.Handy.StyleManager */
+    colorScheme: ColorScheme
+    readonly dark: boolean
+    readonly highContrast: boolean
+    readonly systemSupportsColorSchemes: boolean
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Handy-1.Handy.StyleManager */
+    getColorScheme(): ColorScheme
+    getDark(): boolean
+    getDisplay(): Gdk.Display
+    getHighContrast(): boolean
+    getSystemSupportsColorSchemes(): boolean
+    setColorScheme(colorScheme: ColorScheme): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: StyleManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::color-scheme", callback: (($obj: StyleManager, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::color-scheme", callback: (($obj: StyleManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::color-scheme", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::color-scheme", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::color-scheme", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::dark", callback: (($obj: StyleManager, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::dark", callback: (($obj: StyleManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::dark", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::dark", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::dark", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::high-contrast", callback: (($obj: StyleManager, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::high-contrast", callback: (($obj: StyleManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::high-contrast", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::high-contrast", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::high-contrast", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::system-supports-color-schemes", callback: (($obj: StyleManager, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::system-supports-color-schemes", callback: (($obj: StyleManager, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::system-supports-color-schemes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::system-supports-color-schemes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::system-supports-color-schemes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: StyleManager_ConstructProps)
+    _init (config?: StyleManager_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static getDefault(): StyleManager
+    static getForDisplay(display: Gdk.Display): StyleManager
     static $gtype: GObject.Type
 }
 export interface SwipeGroup_ConstructProps extends GObject.Object_ConstructProps {
@@ -32503,6 +32610,11 @@ export abstract class SqueezerClass {
 export abstract class StatusPageClass {
     /* Fields of Handy-1.Handy.StatusPageClass */
     parentClass: Gtk.BinClass
+    static name: string
+}
+export abstract class StyleManagerClass {
+    /* Fields of Handy-1.Handy.StyleManagerClass */
+    parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class SwipeGroupClass {

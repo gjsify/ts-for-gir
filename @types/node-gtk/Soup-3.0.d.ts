@@ -39,11 +39,13 @@ export enum Encoding {
 export enum HTTPVersion {
     HTTP_1_0,
     HTTP_1_1,
+    HTTP_2_0,
 }
 export enum LoggerLogLevel {
     NONE,
     MINIMAL,
     HEADERS,
+    BODY,
 }
 export enum MemoryUse {
     STATIC,
@@ -68,14 +70,13 @@ export enum SameSitePolicy {
     STRICT,
 }
 export enum SessionError {
-    BAD_URI,
-    UNSUPPORTED_URI_SCHEME,
     PARSING,
     ENCODING,
     TOO_MANY_REDIRECTS,
     TOO_MANY_RESTARTS,
     REDIRECT_NO_LOCATION,
     REDIRECT_BAD_URI,
+    MESSAGE_ALREADY_IN_QUEUE,
 }
 export enum Status {
     NONE,
@@ -120,6 +121,7 @@ export enum Status {
     REQUESTED_RANGE_NOT_SATISFIABLE,
     INVALID_RANGE,
     EXPECTATION_FAILED,
+    MISDIRECTED_REQUEST,
     UNPROCESSABLE_ENTITY,
     LOCKED,
     FAILED_DEPENDENCY,
@@ -200,6 +202,7 @@ export enum MessageFlags {
     NEW_CONNECTION,
     IDEMPOTENT,
     DO_NOT_USE_AUTH_CACHE,
+    COLLECT_METRICS,
 }
 export enum ServerListenOptions {
     HTTPS,
@@ -219,7 +222,7 @@ export const MICRO_VERSION: number
 export const MINOR_VERSION: number
 export const VERSION_MIN_REQUIRED: number
 export function checkVersion(major: number, minor: number, micro: number): boolean
-export function cookieParse(header: string, origin: GLib.Uri): Cookie | null
+export function cookieParse(header: string, origin?: GLib.Uri | null): Cookie | null
 export function cookiesFromRequest(msg: Message): Cookie[]
 export function cookiesFromResponse(msg: Message): Cookie[]
 export function cookiesToCookieHeader(cookies: Cookie[]): string
@@ -1232,7 +1235,6 @@ export class ContentSniffer {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Soup-3.0.Soup.ContentSniffer */
-    getBufferSize(): number
     sniff(msg: Message, buffer: any): { returnType: string, params: GLib.HashTable | null }
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -1638,13 +1640,17 @@ export class HSTSEnforcerDB {
 }
 export interface Logger_ConstructProps extends GObject.Object_ConstructProps {
     level?: LoggerLogLevel
+    maxBodySize?: number
 }
 export class Logger {
     /* Properties of Soup-3.0.Soup.Logger */
     level: LoggerLogLevel
+    maxBodySize: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Soup-3.0.Soup.Logger */
+    getMaxBodySize(): number
+    setMaxBodySize(maxBodySize: number): void
     setPrinter(printer: LoggerPrinter): void
     setRequestFilter(requestFilter: LoggerFilter): void
     setResponseFilter(responseFilter: LoggerFilter): void
@@ -1681,6 +1687,11 @@ export class Logger {
     on(sigName: "notify::level", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::level", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::level", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::max-body-size", callback: (($obj: Logger, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::max-body-size", callback: (($obj: Logger, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::max-body-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::max-body-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::max-body-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1698,10 +1709,9 @@ export class Logger {
 export interface Message_ConstructProps extends GObject.Object_ConstructProps {
     firstParty?: GLib.Uri
     flags?: MessageFlags
-    httpVersion?: HTTPVersion
+    isOptionsPing?: boolean
     isTopLevelNavigation?: boolean
     method?: string
-    optionsPing?: boolean
     priority?: MessagePriority
     siteForCookies?: GLib.Uri
     uri?: GLib.Uri
@@ -1710,37 +1720,46 @@ export class Message {
     /* Properties of Soup-3.0.Soup.Message */
     firstParty: GLib.Uri
     flags: MessageFlags
-    httpVersion: HTTPVersion
+    readonly httpVersion: HTTPVersion
+    isOptionsPing: boolean
     isTopLevelNavigation: boolean
     method: string
-    optionsPing: boolean
     priority: MessagePriority
     readonly reasonPhrase: string
+    readonly remoteAddress: Gio.SocketAddress
     readonly requestHeaders: MessageHeaders
     readonly responseHeaders: MessageHeaders
     siteForCookies: GLib.Uri
     readonly statusCode: number
-    readonly tlsCertificate: Gio.TlsCertificate
-    readonly tlsCertificateErrors: Gio.TlsCertificateFlags
+    readonly tlsCiphersuiteName: string
+    readonly tlsPeerCertificate: Gio.TlsCertificate
+    readonly tlsPeerCertificateErrors: Gio.TlsCertificateFlags
+    readonly tlsProtocolVersion: Gio.TlsProtocolVersion
     uri: GLib.Uri
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Soup-3.0.Soup.Message */
     addFlags(flags: MessageFlags): void
     disableFeature(featureType: GObject.Type): void
+    getConnectionId(): number
     getFirstParty(): GLib.Uri
     getFlags(): MessageFlags
     getHttpVersion(): HTTPVersion
+    getIsOptionsPing(): boolean
     getIsTopLevelNavigation(): boolean
     getMethod(): string
+    getMetrics(): MessageMetrics | null
     getPriority(): MessagePriority
     getReasonPhrase(): string
+    getRemoteAddress(): Gio.SocketAddress | null
     getRequestHeaders(): MessageHeaders
     getResponseHeaders(): MessageHeaders
     getSiteForCookies(): GLib.Uri
     getStatus(): Status
-    getTlsCertificate(): Gio.TlsCertificate | null
-    getTlsCertificateErrors(): Gio.TlsCertificateFlags
+    getTlsCiphersuiteName(): string
+    getTlsPeerCertificate(): Gio.TlsCertificate | null
+    getTlsPeerCertificateErrors(): Gio.TlsCertificateFlags
+    getTlsProtocolVersion(): Gio.TlsProtocolVersion
     getUri(): GLib.Uri
     isFeatureDisabled(featureType: GObject.Type): boolean
     isKeepalive(): boolean
@@ -1748,13 +1767,16 @@ export class Message {
     removeFlags(flags: MessageFlags): void
     setFirstParty(firstParty: GLib.Uri): void
     setFlags(flags: MessageFlags): void
-    setHttpVersion(version: HTTPVersion): void
+    setIsOptionsPing(isOptionsPing: boolean): void
     setIsTopLevelNavigation(isTopLevelNavigation: boolean): void
+    setMethod(method: string): void
     setPriority(priority: MessagePriority): void
     setRequestBody(contentType: string | null, stream: Gio.InputStream | null, contentLength: number): void
     setRequestBodyFromBytes(contentType?: string | null, bytes?: any | null): void
     setSiteForCookies(siteForCookies?: GLib.Uri | null): void
+    setTlsClientCertificate(certificate?: Gio.TlsCertificate | null): void
     setUri(uri: GLib.Uri): void
+    tlsClientCertificatePasswordRequestComplete(): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -1778,11 +1800,11 @@ export class Message {
     unref(): void
     watchClosure(closure: Function): void
     /* Signals of Soup-3.0.Soup.Message */
-    connect(sigName: "accept-certificate", callback: (($obj: Message, tlsCertificate: Gio.TlsCertificate, tlsErrors: Gio.TlsCertificateFlags) => boolean)): number
-    on(sigName: "accept-certificate", callback: (tlsCertificate: Gio.TlsCertificate, tlsErrors: Gio.TlsCertificateFlags) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "accept-certificate", callback: (tlsCertificate: Gio.TlsCertificate, tlsErrors: Gio.TlsCertificateFlags) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "accept-certificate", callback: (tlsCertificate: Gio.TlsCertificate, tlsErrors: Gio.TlsCertificateFlags) => void): NodeJS.EventEmitter
-    emit(sigName: "accept-certificate", tlsCertificate: Gio.TlsCertificate, tlsErrors: Gio.TlsCertificateFlags): void
+    connect(sigName: "accept-certificate", callback: (($obj: Message, tlsPeerCertificate: Gio.TlsCertificate, tlsPeerErrors: Gio.TlsCertificateFlags) => boolean)): number
+    on(sigName: "accept-certificate", callback: (tlsPeerCertificate: Gio.TlsCertificate, tlsPeerErrors: Gio.TlsCertificateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "accept-certificate", callback: (tlsPeerCertificate: Gio.TlsCertificate, tlsPeerErrors: Gio.TlsCertificateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "accept-certificate", callback: (tlsPeerCertificate: Gio.TlsCertificate, tlsPeerErrors: Gio.TlsCertificateFlags) => void): NodeJS.EventEmitter
+    emit(sigName: "accept-certificate", tlsPeerCertificate: Gio.TlsCertificate, tlsPeerErrors: Gio.TlsCertificateFlags): void
     connect(sigName: "authenticate", callback: (($obj: Message, auth: Auth, retrying: boolean) => boolean)): number
     on(sigName: "authenticate", callback: (auth: Auth, retrying: boolean) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "authenticate", callback: (auth: Auth, retrying: boolean) => void, after?: boolean): NodeJS.EventEmitter
@@ -1823,6 +1845,16 @@ export class Message {
     once(sigName: "network-event", callback: (event: Gio.SocketClientEvent, connection: Gio.IOStream) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "network-event", callback: (event: Gio.SocketClientEvent, connection: Gio.IOStream) => void): NodeJS.EventEmitter
     emit(sigName: "network-event", event: Gio.SocketClientEvent, connection: Gio.IOStream): void
+    connect(sigName: "request-certificate", callback: (($obj: Message, tlsConnection: Gio.TlsClientConnection) => boolean)): number
+    on(sigName: "request-certificate", callback: (tlsConnection: Gio.TlsClientConnection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "request-certificate", callback: (tlsConnection: Gio.TlsClientConnection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "request-certificate", callback: (tlsConnection: Gio.TlsClientConnection) => void): NodeJS.EventEmitter
+    emit(sigName: "request-certificate", tlsConnection: Gio.TlsClientConnection): void
+    connect(sigName: "request-certificate-password", callback: (($obj: Message, tlsPassword: Gio.TlsPassword) => boolean)): number
+    on(sigName: "request-certificate-password", callback: (tlsPassword: Gio.TlsPassword) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "request-certificate-password", callback: (tlsPassword: Gio.TlsPassword) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "request-certificate-password", callback: (tlsPassword: Gio.TlsPassword) => void): NodeJS.EventEmitter
+    emit(sigName: "request-certificate-password", tlsPassword: Gio.TlsPassword): void
     connect(sigName: "restarted", callback: (($obj: Message) => void)): number
     on(sigName: "restarted", callback: () => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "restarted", callback: () => void, after?: boolean): NodeJS.EventEmitter
@@ -1869,6 +1901,11 @@ export class Message {
     on(sigName: "notify::http-version", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::http-version", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::http-version", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::is-options-ping", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::is-options-ping", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-options-ping", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-options-ping", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-options-ping", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-top-level-navigation", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-top-level-navigation", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::is-top-level-navigation", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1879,11 +1916,6 @@ export class Message {
     on(sigName: "notify::method", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::method", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::method", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::options-ping", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::options-ping", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::options-ping", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::options-ping", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::options-ping", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::priority", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::priority", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::priority", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1894,6 +1926,11 @@ export class Message {
     on(sigName: "notify::reason-phrase", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::reason-phrase", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::reason-phrase", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::remote-address", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::remote-address", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::remote-address", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::remote-address", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::remote-address", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::request-headers", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::request-headers", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::request-headers", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1914,16 +1951,26 @@ export class Message {
     on(sigName: "notify::status-code", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::status-code", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::status-code", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::tls-certificate", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tls-certificate", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::tls-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::tls-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::tls-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::tls-certificate-errors", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::tls-certificate-errors", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::tls-certificate-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::tls-certificate-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::tls-certificate-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::tls-ciphersuite-name", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::tls-ciphersuite-name", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tls-ciphersuite-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::tls-ciphersuite-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::tls-ciphersuite-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::tls-peer-certificate", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::tls-peer-certificate", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tls-peer-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::tls-peer-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::tls-peer-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::tls-peer-certificate-errors", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::tls-peer-certificate-errors", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tls-peer-certificate-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::tls-peer-certificate-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::tls-peer-certificate-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::tls-protocol-version", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::tls-protocol-version", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tls-protocol-version", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::tls-protocol-version", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::tls-protocol-version", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::uri", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::uri", callback: (($obj: Message, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1944,6 +1991,7 @@ export class Message {
     static newFromEncodedForm(method: string, uriString: string, encodedForm: string): Message
     static newFromMultipart(uriString: string, multipart: Multipart): Message
     static newFromUri(method: string, uri: GLib.Uri): Message
+    static newOptionsPing(baseUri: GLib.Uri): Message
     static $gtype: GObject.Type
 }
 export interface MultipartInputStream_ConstructProps extends Gio.FilterInputStream_ConstructProps {
@@ -2012,7 +2060,7 @@ export class MultipartInputStream {
     canPoll(): boolean
     createSource(cancellable?: Gio.Cancellable | null): GLib.Source
     isReadable(): boolean
-    readNonblocking(buffer: any[], cancellable?: Gio.Cancellable | null): number
+    readNonblocking(cancellable?: Gio.Cancellable | null): { returnType: number, buffer: any[] }
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MultipartInputStream, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -2041,11 +2089,16 @@ export class MultipartInputStream {
 export interface Server_ConstructProps extends GObject.Object_ConstructProps {
     rawPaths?: boolean
     serverHeader?: string
+    tlsAuthMode?: Gio.TlsAuthenticationMode
     tlsCertificate?: Gio.TlsCertificate
+    tlsDatabase?: Gio.TlsDatabase
 }
 export class Server {
     /* Properties of Soup-3.0.Soup.Server */
     serverHeader: string
+    tlsAuthMode: Gio.TlsAuthenticationMode
+    tlsCertificate: Gio.TlsCertificate
+    tlsDatabase: Gio.TlsDatabase
     /* Fields of Soup-3.0.Soup.Server */
     parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -2059,6 +2112,9 @@ export class Server {
     addWebsocketHandler(path: string | null, origin: string | null, protocols: string[] | null, callback: ServerWebsocketCallback): void
     disconnect(): void
     getListeners(): Gio.Socket[]
+    getTlsAuthMode(): Gio.TlsAuthenticationMode
+    getTlsCertificate(): Gio.TlsCertificate | null
+    getTlsDatabase(): Gio.TlsDatabase | null
     getUris(): GLib.Uri[]
     isHttps(): boolean
     listen(address: Gio.SocketAddress, options: ServerListenOptions): boolean
@@ -2069,7 +2125,9 @@ export class Server {
     removeAuthDomain(authDomain: AuthDomain): void
     removeHandler(path: string): void
     removeWebsocketExtension(extensionType: GObject.Type): void
-    setSslCertFile(sslCertFile: string, sslKeyFile: string): boolean
+    setTlsAuthMode(mode: Gio.TlsAuthenticationMode): void
+    setTlsCertificate(certificate: Gio.TlsCertificate): void
+    setTlsDatabase(tlsDatabase: Gio.TlsDatabase): void
     unpauseMessage(msg: ServerMessage): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -2125,6 +2183,21 @@ export class Server {
     on(sigName: "notify::server-header", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::server-header", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::server-header", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::tls-auth-mode", callback: (($obj: Server, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::tls-auth-mode", callback: (($obj: Server, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tls-auth-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::tls-auth-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::tls-auth-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::tls-certificate", callback: (($obj: Server, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::tls-certificate", callback: (($obj: Server, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tls-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::tls-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::tls-certificate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::tls-database", callback: (($obj: Server, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::tls-database", callback: (($obj: Server, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tls-database", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::tls-database", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::tls-database", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2185,6 +2258,11 @@ export class ServerMessage {
     unref(): void
     watchClosure(closure: Function): void
     /* Signals of Soup-3.0.Soup.ServerMessage */
+    connect(sigName: "accept-certificate", callback: (($obj: ServerMessage, tlsPeerCertificate: Gio.TlsCertificate, tlsPeerErrors: Gio.TlsCertificateFlags) => boolean)): number
+    on(sigName: "accept-certificate", callback: (tlsPeerCertificate: Gio.TlsCertificate, tlsPeerErrors: Gio.TlsCertificateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "accept-certificate", callback: (tlsPeerCertificate: Gio.TlsCertificate, tlsPeerErrors: Gio.TlsCertificateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "accept-certificate", callback: (tlsPeerCertificate: Gio.TlsCertificate, tlsPeerErrors: Gio.TlsCertificateFlags) => void): NodeJS.EventEmitter
+    emit(sigName: "accept-certificate", tlsPeerCertificate: Gio.TlsCertificate, tlsPeerErrors: Gio.TlsCertificateFlags): void
     connect(sigName: "disconnected", callback: (($obj: ServerMessage) => void)): number
     on(sigName: "disconnected", callback: () => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "disconnected", callback: () => void, after?: boolean): NodeJS.EventEmitter
@@ -2261,6 +2339,7 @@ export interface Session_ConstructProps extends GObject.Object_ConstructProps {
     maxConns?: number
     maxConnsPerHost?: number
     proxyResolver?: Gio.ProxyResolver
+    remoteConnectable?: Gio.SocketConnectable
     timeout?: number
     tlsDatabase?: Gio.TlsDatabase
     tlsInteraction?: Gio.TlsInteraction
@@ -2276,6 +2355,8 @@ export class Session {
     tlsDatabase: Gio.TlsDatabase
     tlsInteraction: Gio.TlsInteraction
     userAgent: string
+    /* Fields of Soup-3.0.Soup.Session */
+    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Soup-3.0.Soup.Session */
@@ -2284,28 +2365,28 @@ export class Session {
     addFeatureByType(featureType: GObject.Type): void
     getAcceptLanguage(): string | null
     getAcceptLanguageAuto(): boolean
+    getAsyncResultMessage(result: Gio.AsyncResult): Message | null
     getFeature(featureType: GObject.Type): SessionFeature | null
     getFeatureForMessage(featureType: GObject.Type, msg: Message): SessionFeature | null
-    getFeatures(featureType: GObject.Type): SessionFeature[]
     getIdleTimeout(): number
     getLocalAddress(): Gio.InetSocketAddress | null
     getMaxConns(): number
     getMaxConnsPerHost(): number
     getProxyResolver(): Gio.ProxyResolver | null
+    getRemoteConnectable(): Gio.SocketConnectable | null
     getTimeout(): number
     getTlsDatabase(): Gio.TlsDatabase | null
     getTlsInteraction(): Gio.TlsInteraction | null
     getUserAgent(): string | null
     hasFeature(featureType: GObject.Type): boolean
-    loadUriBytes(uri: string, cancellable?: Gio.Cancellable | null): { returnType: any, contentType: string | null }
-    loadUriBytesAsync(uri: string, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    loadUriBytesFinish(result: Gio.AsyncResult): { returnType: any, contentType: string | null }
-    readUri(uri: string, cancellable?: Gio.Cancellable | null): { returnType: Gio.InputStream, contentLength: number | null, contentType: string | null }
-    readUriAsync(uri: string, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    readUriFinish(result: Gio.AsyncResult): { returnType: Gio.InputStream, contentLength: number | null, contentType: string | null }
+    preconnectAsync(msg: Message, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    preconnectFinish(result: Gio.AsyncResult): boolean
     removeFeature(feature: SessionFeature): void
     removeFeatureByType(featureType: GObject.Type): void
     send(msg: Message, cancellable?: Gio.Cancellable | null): Gio.InputStream
+    sendAndRead(msg: Message, cancellable?: Gio.Cancellable | null): any
+    sendAndReadAsync(msg: Message, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    sendAndReadFinish(result: Gio.AsyncResult): any
     sendAsync(msg: Message, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     sendFinish(result: Gio.AsyncResult): Gio.InputStream
     setAcceptLanguage(acceptLanguage: string): void
@@ -2726,6 +2807,9 @@ export abstract class CacheClass {
     padding: object[]
     static name: string
 }
+export class ClientMessageIO {
+    static name: string
+}
 export class Connection {
     static name: string
 }
@@ -2770,7 +2854,7 @@ export class Cookie {
     constructor(name: string, value: string, domain: string, path: string, maxAge: number)
     /* Static methods and pseudo-constructors */
     static new(name: string, value: string, domain: string, path: string, maxAge: number): Cookie
-    static parse(header: string, origin: GLib.Uri): Cookie | null
+    static parse(header: string, origin?: GLib.Uri | null): Cookie | null
 }
 export abstract class CookieJarClass {
     /* Fields of Soup-3.0.Soup.CookieJarClass */
@@ -2831,19 +2915,20 @@ export abstract class LoggerClass {
 }
 export class MessageBody {
     /* Fields of Soup-3.0.Soup.MessageBody */
-    data: string
+    data: any[]
     length: number
     /* Methods of Soup-3.0.Soup.MessageBody */
     appendBytes(buffer: any): void
     append(data: any[]): void
     complete(): void
     flatten(): any
-    free(): void
     getAccumulate(): boolean
     getChunk(offset: number): any | null
     gotChunk(chunk: any): void
+    ref(): MessageBody
     setAccumulate(accumulate: boolean): void
     truncate(): void
+    unref(): void
     wroteChunk(chunk: any): void
     static name: string
     static new(): MessageBody
@@ -2862,7 +2947,6 @@ export class MessageHeaders {
     cleanConnectionHeaders(): void
     clear(): void
     foreach(func: MessageHeadersForeachFunc): void
-    free(): void
     freeRanges(ranges: Range): void
     getContentDisposition(): { returnType: boolean, disposition: string, params: GLib.HashTable }
     getContentLength(): number
@@ -2876,6 +2960,7 @@ export class MessageHeaders {
     getRanges(totalLength: number): { returnType: boolean, ranges: Range[] }
     headerContains(name: string, token: string): boolean
     headerEquals(name: string, value: string): boolean
+    ref(): MessageHeaders
     remove(name: string): void
     replace(name: string, value: string): void
     setContentDisposition(disposition: string, params?: GLib.HashTable | null): void
@@ -2886,6 +2971,7 @@ export class MessageHeaders {
     setExpectations(expectations: Expectation): void
     setRange(start: number, end: number): void
     setRanges(ranges: Range, length: number): void
+    unref(): void
     static name: string
     static new(type: MessageHeadersType): MessageHeaders
     constructor(type: MessageHeadersType)
@@ -2898,6 +2984,27 @@ export class MessageHeadersIter {
     static name: string
     /* Static methods and pseudo-constructors */
     static init(hdrs: MessageHeaders): { iter: MessageHeadersIter }
+}
+export class MessageMetrics {
+    /* Methods of Soup-3.0.Soup.MessageMetrics */
+    copy(): MessageMetrics
+    free(): void
+    getConnectEnd(): number
+    getConnectStart(): number
+    getDnsEnd(): number
+    getDnsStart(): number
+    getFetchStart(): number
+    getRequestBodyBytesSent(): number
+    getRequestBodySize(): number
+    getRequestHeaderBytesSent(): number
+    getRequestStart(): number
+    getResponseBodyBytesReceived(): number
+    getResponseBodySize(): number
+    getResponseEnd(): number
+    getResponseHeaderBytesReceived(): number
+    getResponseStart(): number
+    getTlsStart(): number
+    static name: string
 }
 export class MessageQueue {
     static name: string
@@ -2950,6 +3057,8 @@ export abstract class ServerMessageClass {
 export abstract class SessionClass {
     /* Fields of Soup-3.0.Soup.SessionClass */
     parentClass: GObject.ObjectClass
+    requestQueued: (session: Session, msg: Message) => void
+    requestUnqueued: (session: Session, msg: Message) => void
     static name: string
 }
 export abstract class SessionFeatureInterface {

@@ -889,7 +889,7 @@ export class RepoFile {
     replace_readwrite(etag: string | null, make_backup: boolean, flags: Gio.FileCreateFlags, cancellable?: Gio.Cancellable | null): Gio.FileIOStream
     replace_readwrite_async(etag: string | null, make_backup: boolean, flags: Gio.FileCreateFlags, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     replace_readwrite_finish(res: Gio.AsyncResult): Gio.FileIOStream
-    resolve_relative_path(relative_path: string): Gio.File
+    resolve_relative_path(relative_path: string): Gio.File | null
     set_attribute(attribute: string, type: Gio.FileAttributeType, value_p: object | null, flags: Gio.FileQueryInfoFlags, cancellable?: Gio.Cancellable | null): boolean
     set_attribute_byte_string(attribute: string, value: string, flags: Gio.FileQueryInfoFlags, cancellable?: Gio.Cancellable | null): boolean
     set_attribute_int32(attribute: string, value: number, flags: Gio.FileQueryInfoFlags, cancellable?: Gio.Cancellable | null): boolean
@@ -989,7 +989,7 @@ export class RepoFile {
     vfunc_replace_readwrite(etag: string | null, make_backup: boolean, flags: Gio.FileCreateFlags, cancellable?: Gio.Cancellable | null): Gio.FileIOStream
     vfunc_replace_readwrite_async(etag: string | null, make_backup: boolean, flags: Gio.FileCreateFlags, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_replace_readwrite_finish(res: Gio.AsyncResult): Gio.FileIOStream
-    vfunc_resolve_relative_path(relative_path: string): Gio.File
+    vfunc_resolve_relative_path(relative_path: string): Gio.File | null
     vfunc_set_attribute(attribute: string, type: Gio.FileAttributeType, value_p: object | null, flags: Gio.FileQueryInfoFlags, cancellable?: Gio.Cancellable | null): boolean
     vfunc_set_attributes_async(info: Gio.FileInfo, flags: Gio.FileQueryInfoFlags, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     vfunc_set_attributes_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* info */ Gio.FileInfo ]

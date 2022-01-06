@@ -334,6 +334,12 @@ export enum SettingConnectionAutoconnectSlaves {
     NO,
     YES,
 }
+export enum SettingConnectionDnsOverTls {
+    DEFAULT,
+    NO,
+    OPPORTUNISTIC,
+    YES,
+}
 export enum SettingConnectionLldp {
     DEFAULT,
     DISABLE,
@@ -583,9 +589,13 @@ export enum ClientInstanceFlags {
 }
 export enum ConnectionSerializationFlags {
     ALL,
+    WITH_NON_SECRET,
     NO_SECRETS,
+    WITH_SECRETS,
     ONLY_SECRETS,
     WITH_SECRETS_AGENT_OWNED,
+    WITH_SECRETS_SYSTEM_OWNED,
+    WITH_SECRETS_NOT_SAVED,
 }
 export enum DeviceCapabilities {
     NONE,
@@ -597,7 +607,9 @@ export enum DeviceCapabilities {
 export enum DeviceInterfaceFlags {
     UP,
     LOWER_UP,
+    PROMISC,
     CARRIER,
+    LLDP_CLIENT_ENABLED,
 }
 export enum DeviceModemCapabilities {
     NONE,
@@ -834,6 +846,7 @@ export const CLIENT_WIRELESS_HARDWARE_ENABLED: string
 export const CLIENT_WWAN_ENABLED: string
 export const CLIENT_WWAN_HARDWARE_ENABLED: string
 export const CONNECTION_CHANGED: string
+export const CONNECTION_NORMALIZE_PARAM_IP4_CONFIG_METHOD: string
 export const CONNECTION_NORMALIZE_PARAM_IP6_CONFIG_METHOD: string
 export const CONNECTION_SECRETS_CLEARED: string
 export const CONNECTION_SECRETS_UPDATED: string
@@ -961,6 +974,7 @@ export const DEVICE_OVS_BRIDGE_SLAVES: string
 export const DEVICE_OVS_PORT_SLAVES: string
 export const DEVICE_PATH: string
 export const DEVICE_PHYSICAL_PORT_ID: string
+export const DEVICE_PORTS: string
 export const DEVICE_PRODUCT: string
 export const DEVICE_REAL: string
 export const DEVICE_STATE: string
@@ -1107,6 +1121,9 @@ export const ETHTOOL_OPTNAME_FEATURE_TX_UDP_SEGMENTATION: string
 export const ETHTOOL_OPTNAME_FEATURE_TX_UDP_TNL_CSUM_SEGMENTATION: string
 export const ETHTOOL_OPTNAME_FEATURE_TX_UDP_TNL_SEGMENTATION: string
 export const ETHTOOL_OPTNAME_FEATURE_TX_VLAN_STAG_HW_INSERT: string
+export const ETHTOOL_OPTNAME_PAUSE_AUTONEG: string
+export const ETHTOOL_OPTNAME_PAUSE_RX: string
+export const ETHTOOL_OPTNAME_PAUSE_TX: string
 export const ETHTOOL_OPTNAME_RING_RX: string
 export const ETHTOOL_OPTNAME_RING_RX_JUMBO: string
 export const ETHTOOL_OPTNAME_RING_RX_MINI: string
@@ -1165,6 +1182,7 @@ export const LLDP_DEST_NEAREST_NON_TPMR_BRIDGE: string
 export const MAJOR_VERSION: number
 export const MICRO_VERSION: number
 export const MINOR_VERSION: number
+export const OBJECT_CLIENT: string
 export const OBJECT_PATH: string
 export const REMOTE_CONNECTION_DBUS_CONNECTION: string
 export const REMOTE_CONNECTION_FILENAME: string
@@ -1269,6 +1287,7 @@ export const SETTING_BOND_OPTION_MODE: string
 export const SETTING_BOND_OPTION_NUM_GRAT_ARP: string
 export const SETTING_BOND_OPTION_NUM_UNSOL_NA: string
 export const SETTING_BOND_OPTION_PACKETS_PER_SLAVE: string
+export const SETTING_BOND_OPTION_PEER_NOTIF_DELAY: string
 export const SETTING_BOND_OPTION_PRIMARY: string
 export const SETTING_BOND_OPTION_PRIMARY_RESELECT: string
 export const SETTING_BOND_OPTION_RESEND_IGMP: string
@@ -1276,6 +1295,8 @@ export const SETTING_BOND_OPTION_TLB_DYNAMIC_LB: string
 export const SETTING_BOND_OPTION_UPDELAY: string
 export const SETTING_BOND_OPTION_USE_CARRIER: string
 export const SETTING_BOND_OPTION_XMIT_HASH_POLICY: string
+export const SETTING_BOND_PORT_QUEUE_ID: string
+export const SETTING_BOND_PORT_SETTING_NAME: string
 export const SETTING_BOND_SETTING_NAME: string
 export const SETTING_BRIDGE_AGEING_TIME: string
 export const SETTING_BRIDGE_FORWARD_DELAY: string
@@ -1324,6 +1345,7 @@ export const SETTING_CONNECTION_AUTOCONNECT_PRIORITY_MAX: number
 export const SETTING_CONNECTION_AUTOCONNECT_PRIORITY_MIN: number
 export const SETTING_CONNECTION_AUTOCONNECT_RETRIES: string
 export const SETTING_CONNECTION_AUTOCONNECT_SLAVES: string
+export const SETTING_CONNECTION_DNS_OVER_TLS: string
 export const SETTING_CONNECTION_GATEWAY_PING_TIMEOUT: string
 export const SETTING_CONNECTION_ID: string
 export const SETTING_CONNECTION_INTERFACE_NAME: string
@@ -1450,6 +1472,7 @@ export const SETTING_IP_CONFIG_IGNORE_AUTO_ROUTES: string
 export const SETTING_IP_CONFIG_MAY_FAIL: string
 export const SETTING_IP_CONFIG_METHOD: string
 export const SETTING_IP_CONFIG_NEVER_DEFAULT: string
+export const SETTING_IP_CONFIG_REQUIRED_TIMEOUT: string
 export const SETTING_IP_CONFIG_ROUTES: string
 export const SETTING_IP_CONFIG_ROUTE_METRIC: string
 export const SETTING_IP_CONFIG_ROUTE_TABLE: string
@@ -1657,6 +1680,7 @@ export const SETTING_WIFI_P2P_WPS_METHOD: string
 export const SETTING_WIMAX_MAC_ADDRESS: string
 export const SETTING_WIMAX_NETWORK_NAME: string
 export const SETTING_WIMAX_SETTING_NAME: string
+export const SETTING_WIRED_ACCEPT_ALL_MAC_ADDRESSES: string
 export const SETTING_WIRED_AUTO_NEGOTIATE: string
 export const SETTING_WIRED_CLONED_MAC_ADDRESS: string
 export const SETTING_WIRED_DUPLEX: string
@@ -1822,6 +1846,7 @@ export function crypto_error_quark(): GLib.Quark
 export function device_error_quark(): GLib.Quark
 export function ethtool_optname_is_coalesce(optname?: string | null): boolean
 export function ethtool_optname_is_feature(optname?: string | null): boolean
+export function ethtool_optname_is_pause(optname?: string | null): boolean
 export function ethtool_optname_is_ring(optname?: string | null): boolean
 export function ip_route_attribute_validate(name: string, value: GLib.Variant, family: number): [ /* returnType */ boolean, /* known */ boolean ]
 export function ip_route_get_variant_attribute_spec(): VariantAttributeSpec
@@ -2085,6 +2110,7 @@ export class AccessPoint {
     readonly strength: number
     readonly wpa_flags: TODO_80211ApSecurityFlags
     /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     readonly path: string
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
@@ -2160,6 +2186,8 @@ export class AccessPoint {
     connect_after(sigName: "notify::strength", callback: (($obj: AccessPoint, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::wpa-flags", callback: (($obj: AccessPoint, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::wpa-flags", callback: (($obj: AccessPoint, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: AccessPoint, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: AccessPoint, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::path", callback: (($obj: AccessPoint, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::path", callback: (($obj: AccessPoint, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -2192,6 +2220,7 @@ export class ActiveConnection {
     readonly uuid: string
     readonly vpn: boolean
     /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     readonly path: string
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
@@ -2286,6 +2315,8 @@ export class ActiveConnection {
     connect_after(sigName: "notify::uuid", callback: (($obj: ActiveConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vpn", callback: (($obj: ActiveConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vpn", callback: (($obj: ActiveConnection, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: ActiveConnection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: ActiveConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::path", callback: (($obj: ActiveConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::path", callback: (($obj: ActiveConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -2305,6 +2336,7 @@ export class Checkpoint {
     readonly devices: Device[]
     readonly rollback_timeout: number
     /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     readonly path: string
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
@@ -2355,6 +2387,8 @@ export class Checkpoint {
     connect_after(sigName: "notify::devices", callback: (($obj: Checkpoint, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::rollback-timeout", callback: (($obj: Checkpoint, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::rollback-timeout", callback: (($obj: Checkpoint, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: Checkpoint, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: Checkpoint, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::path", callback: (($obj: Checkpoint, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::path", callback: (($obj: Checkpoint, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -2680,12 +2714,15 @@ export class Device {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.Device */
@@ -2727,6 +2764,7 @@ export class Device {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -2833,6 +2871,8 @@ export class Device {
     connect_after(sigName: "notify::path", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
@@ -2845,6 +2885,8 @@ export class Device {
     connect_after(sigName: "notify::udi", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2888,12 +2930,15 @@ export class Device6Lowpan {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.Device6Lowpan */
@@ -2937,6 +2982,7 @@ export class Device6Lowpan {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -3045,6 +3091,8 @@ export class Device6Lowpan {
     connect_after(sigName: "notify::path", callback: (($obj: Device6Lowpan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: Device6Lowpan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: Device6Lowpan, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: Device6Lowpan, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: Device6Lowpan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: Device6Lowpan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: Device6Lowpan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: Device6Lowpan, pspec: GObject.ParamSpec) => void)): number
@@ -3057,6 +3105,8 @@ export class Device6Lowpan {
     connect_after(sigName: "notify::udi", callback: (($obj: Device6Lowpan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: Device6Lowpan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: Device6Lowpan, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: Device6Lowpan, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: Device6Lowpan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3098,12 +3148,15 @@ export class DeviceAdsl {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceAdsl */
@@ -3147,6 +3200,7 @@ export class DeviceAdsl {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -3255,6 +3309,8 @@ export class DeviceAdsl {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceAdsl, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceAdsl, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceAdsl, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceAdsl, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceAdsl, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceAdsl, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceAdsl, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceAdsl, pspec: GObject.ParamSpec) => void)): number
@@ -3267,6 +3323,8 @@ export class DeviceAdsl {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceAdsl, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceAdsl, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceAdsl, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceAdsl, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceAdsl, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3309,12 +3367,15 @@ export class DeviceBond {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceBond */
@@ -3359,6 +3420,7 @@ export class DeviceBond {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -3469,6 +3531,8 @@ export class DeviceBond {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceBond, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceBond, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceBond, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceBond, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceBond, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceBond, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceBond, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceBond, pspec: GObject.ParamSpec) => void)): number
@@ -3481,6 +3545,8 @@ export class DeviceBond {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceBond, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceBond, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceBond, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceBond, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceBond, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3523,12 +3589,15 @@ export class DeviceBridge {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceBridge */
@@ -3573,6 +3642,7 @@ export class DeviceBridge {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -3683,6 +3753,8 @@ export class DeviceBridge {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceBridge, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceBridge, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceBridge, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceBridge, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceBridge, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceBridge, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceBridge, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceBridge, pspec: GObject.ParamSpec) => void)): number
@@ -3695,6 +3767,8 @@ export class DeviceBridge {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceBridge, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceBridge, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceBridge, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceBridge, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceBridge, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3737,12 +3811,15 @@ export class DeviceBt {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceBt */
@@ -3787,6 +3864,7 @@ export class DeviceBt {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -3897,6 +3975,8 @@ export class DeviceBt {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceBt, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceBt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceBt, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceBt, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceBt, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceBt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceBt, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceBt, pspec: GObject.ParamSpec) => void)): number
@@ -3909,6 +3989,8 @@ export class DeviceBt {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceBt, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceBt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceBt, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceBt, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceBt, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3948,12 +4030,15 @@ export class DeviceDummy {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.Device */
@@ -3995,6 +4080,7 @@ export class DeviceDummy {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -4101,6 +4187,8 @@ export class DeviceDummy {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceDummy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceDummy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceDummy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceDummy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceDummy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceDummy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceDummy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceDummy, pspec: GObject.ParamSpec) => void)): number
@@ -4113,6 +4201,8 @@ export class DeviceDummy {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceDummy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceDummy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceDummy, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceDummy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceDummy, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4157,12 +4247,15 @@ export class DeviceEthernet {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceEthernet */
@@ -4209,6 +4302,7 @@ export class DeviceEthernet {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -4323,6 +4417,8 @@ export class DeviceEthernet {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceEthernet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceEthernet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceEthernet, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceEthernet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceEthernet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceEthernet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceEthernet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceEthernet, pspec: GObject.ParamSpec) => void)): number
@@ -4335,6 +4431,8 @@ export class DeviceEthernet {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceEthernet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceEthernet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceEthernet, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceEthernet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceEthernet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4376,12 +4474,15 @@ export class DeviceGeneric {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.Device */
@@ -4423,6 +4524,7 @@ export class DeviceGeneric {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -4531,6 +4633,8 @@ export class DeviceGeneric {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceGeneric, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceGeneric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceGeneric, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceGeneric, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceGeneric, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceGeneric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceGeneric, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceGeneric, pspec: GObject.ParamSpec) => void)): number
@@ -4543,6 +4647,8 @@ export class DeviceGeneric {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceGeneric, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceGeneric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceGeneric, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceGeneric, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceGeneric, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4595,12 +4701,15 @@ export class DeviceIPTunnel {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceIPTunnel */
@@ -4655,6 +4764,7 @@ export class DeviceIPTunnel {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -4785,6 +4895,8 @@ export class DeviceIPTunnel {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceIPTunnel, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceIPTunnel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceIPTunnel, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceIPTunnel, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceIPTunnel, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceIPTunnel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceIPTunnel, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceIPTunnel, pspec: GObject.ParamSpec) => void)): number
@@ -4797,6 +4909,8 @@ export class DeviceIPTunnel {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceIPTunnel, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceIPTunnel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceIPTunnel, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceIPTunnel, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceIPTunnel, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4838,12 +4952,15 @@ export class DeviceInfiniband {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceInfiniband */
@@ -4887,6 +5004,7 @@ export class DeviceInfiniband {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -4995,6 +5113,8 @@ export class DeviceInfiniband {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceInfiniband, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceInfiniband, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceInfiniband, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceInfiniband, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceInfiniband, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceInfiniband, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceInfiniband, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceInfiniband, pspec: GObject.ParamSpec) => void)): number
@@ -5007,6 +5127,8 @@ export class DeviceInfiniband {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceInfiniband, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceInfiniband, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceInfiniband, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceInfiniband, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceInfiniband, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5060,12 +5182,15 @@ export class DeviceMacsec {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceMacsec */
@@ -5121,6 +5246,7 @@ export class DeviceMacsec {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -5253,6 +5379,8 @@ export class DeviceMacsec {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceMacsec, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceMacsec, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceMacsec, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceMacsec, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceMacsec, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceMacsec, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceMacsec, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceMacsec, pspec: GObject.ParamSpec) => void)): number
@@ -5265,6 +5393,8 @@ export class DeviceMacsec {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceMacsec, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceMacsec, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceMacsec, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceMacsec, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceMacsec, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5309,12 +5439,15 @@ export class DeviceMacvlan {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceMacvlan */
@@ -5361,6 +5494,7 @@ export class DeviceMacvlan {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -5475,6 +5609,8 @@ export class DeviceMacvlan {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceMacvlan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceMacvlan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceMacvlan, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceMacvlan, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceMacvlan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceMacvlan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceMacvlan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceMacvlan, pspec: GObject.ParamSpec) => void)): number
@@ -5487,6 +5623,8 @@ export class DeviceMacvlan {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceMacvlan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceMacvlan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceMacvlan, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceMacvlan, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceMacvlan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5532,12 +5670,15 @@ export class DeviceModem {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceModem */
@@ -5585,6 +5726,7 @@ export class DeviceModem {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -5701,6 +5843,8 @@ export class DeviceModem {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceModem, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceModem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceModem, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceModem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceModem, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceModem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceModem, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceModem, pspec: GObject.ParamSpec) => void)): number
@@ -5713,6 +5857,8 @@ export class DeviceModem {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceModem, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceModem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceModem, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceModem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceModem, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5755,12 +5901,15 @@ export class DeviceOlpcMesh {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceOlpcMesh */
@@ -5805,6 +5954,7 @@ export class DeviceOlpcMesh {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -5915,6 +6065,8 @@ export class DeviceOlpcMesh {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceOlpcMesh, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceOlpcMesh, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceOlpcMesh, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceOlpcMesh, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceOlpcMesh, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceOlpcMesh, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceOlpcMesh, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceOlpcMesh, pspec: GObject.ParamSpec) => void)): number
@@ -5927,6 +6079,8 @@ export class DeviceOlpcMesh {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceOlpcMesh, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceOlpcMesh, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceOlpcMesh, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceOlpcMesh, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceOlpcMesh, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5968,12 +6122,15 @@ export class DeviceOvsBridge {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceOvsBridge */
@@ -6017,6 +6174,7 @@ export class DeviceOvsBridge {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -6125,6 +6283,8 @@ export class DeviceOvsBridge {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceOvsBridge, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceOvsBridge, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceOvsBridge, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceOvsBridge, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceOvsBridge, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceOvsBridge, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceOvsBridge, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceOvsBridge, pspec: GObject.ParamSpec) => void)): number
@@ -6137,6 +6297,8 @@ export class DeviceOvsBridge {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceOvsBridge, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceOvsBridge, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceOvsBridge, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceOvsBridge, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceOvsBridge, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6176,12 +6338,15 @@ export class DeviceOvsInterface {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.Device */
@@ -6223,6 +6388,7 @@ export class DeviceOvsInterface {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -6329,6 +6495,8 @@ export class DeviceOvsInterface {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceOvsInterface, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceOvsInterface, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceOvsInterface, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceOvsInterface, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceOvsInterface, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceOvsInterface, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceOvsInterface, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceOvsInterface, pspec: GObject.ParamSpec) => void)): number
@@ -6341,6 +6509,8 @@ export class DeviceOvsInterface {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceOvsInterface, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceOvsInterface, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceOvsInterface, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceOvsInterface, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceOvsInterface, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6382,12 +6552,15 @@ export class DeviceOvsPort {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceOvsPort */
@@ -6431,6 +6604,7 @@ export class DeviceOvsPort {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -6539,6 +6713,8 @@ export class DeviceOvsPort {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceOvsPort, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceOvsPort, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceOvsPort, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceOvsPort, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceOvsPort, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceOvsPort, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceOvsPort, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceOvsPort, pspec: GObject.ParamSpec) => void)): number
@@ -6551,6 +6727,8 @@ export class DeviceOvsPort {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceOvsPort, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceOvsPort, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceOvsPort, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceOvsPort, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceOvsPort, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6590,12 +6768,15 @@ export class DevicePpp {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.Device */
@@ -6637,6 +6818,7 @@ export class DevicePpp {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -6743,6 +6925,8 @@ export class DevicePpp {
     connect_after(sigName: "notify::path", callback: (($obj: DevicePpp, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DevicePpp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DevicePpp, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DevicePpp, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DevicePpp, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DevicePpp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DevicePpp, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DevicePpp, pspec: GObject.ParamSpec) => void)): number
@@ -6755,6 +6939,8 @@ export class DevicePpp {
     connect_after(sigName: "notify::udi", callback: (($obj: DevicePpp, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DevicePpp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DevicePpp, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DevicePpp, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DevicePpp, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6798,12 +6984,15 @@ export class DeviceTeam {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceTeam */
@@ -6849,6 +7038,7 @@ export class DeviceTeam {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -6961,6 +7151,8 @@ export class DeviceTeam {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceTeam, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceTeam, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceTeam, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceTeam, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceTeam, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceTeam, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceTeam, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceTeam, pspec: GObject.ParamSpec) => void)): number
@@ -6973,6 +7165,8 @@ export class DeviceTeam {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceTeam, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceTeam, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceTeam, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceTeam, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceTeam, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7019,12 +7213,15 @@ export class DeviceTun {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceTun */
@@ -7073,6 +7270,7 @@ export class DeviceTun {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -7191,6 +7389,8 @@ export class DeviceTun {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceTun, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceTun, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceTun, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceTun, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceTun, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceTun, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceTun, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceTun, pspec: GObject.ParamSpec) => void)): number
@@ -7203,6 +7403,8 @@ export class DeviceTun {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceTun, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceTun, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceTun, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceTun, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceTun, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7249,12 +7451,15 @@ export class DeviceVeth {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceVeth */
@@ -7303,6 +7508,7 @@ export class DeviceVeth {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -7419,6 +7625,8 @@ export class DeviceVeth {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceVeth, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceVeth, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceVeth, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceVeth, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceVeth, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceVeth, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceVeth, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceVeth, pspec: GObject.ParamSpec) => void)): number
@@ -7431,6 +7639,8 @@ export class DeviceVeth {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceVeth, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceVeth, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceVeth, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceVeth, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceVeth, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7474,12 +7684,15 @@ export class DeviceVlan {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceVlan */
@@ -7525,6 +7738,7 @@ export class DeviceVlan {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -7637,6 +7851,8 @@ export class DeviceVlan {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceVlan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceVlan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceVlan, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceVlan, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceVlan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceVlan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceVlan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceVlan, pspec: GObject.ParamSpec) => void)): number
@@ -7649,6 +7865,8 @@ export class DeviceVlan {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceVlan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceVlan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceVlan, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceVlan, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceVlan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7690,12 +7908,15 @@ export class DeviceVrf {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceVrf */
@@ -7739,6 +7960,7 @@ export class DeviceVrf {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -7847,6 +8069,8 @@ export class DeviceVrf {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceVrf, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceVrf, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceVrf, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceVrf, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceVrf, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceVrf, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceVrf, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceVrf, pspec: GObject.ParamSpec) => void)): number
@@ -7859,6 +8083,8 @@ export class DeviceVrf {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceVrf, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceVrf, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceVrf, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceVrf, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceVrf, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7916,12 +8142,15 @@ export class DeviceVxlan {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceVxlan */
@@ -7981,6 +8210,7 @@ export class DeviceVxlan {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -8121,6 +8351,8 @@ export class DeviceVxlan {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceVxlan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceVxlan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceVxlan, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceVxlan, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceVxlan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceVxlan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceVxlan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceVxlan, pspec: GObject.ParamSpec) => void)): number
@@ -8133,6 +8365,8 @@ export class DeviceVxlan {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceVxlan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceVxlan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceVxlan, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceVxlan, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceVxlan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8180,12 +8414,15 @@ export class DeviceWifi {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceWifi */
@@ -8241,6 +8478,7 @@ export class DeviceWifi {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -8368,6 +8606,8 @@ export class DeviceWifi {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceWifi, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceWifi, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceWifi, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceWifi, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceWifi, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceWifi, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceWifi, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceWifi, pspec: GObject.ParamSpec) => void)): number
@@ -8380,6 +8620,8 @@ export class DeviceWifi {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceWifi, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceWifi, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceWifi, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceWifi, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceWifi, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8421,12 +8663,15 @@ export class DeviceWifiP2P {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceWifiP2P */
@@ -8475,6 +8720,7 @@ export class DeviceWifiP2P {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -8590,6 +8836,8 @@ export class DeviceWifiP2P {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceWifiP2P, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceWifiP2P, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceWifiP2P, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceWifiP2P, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceWifiP2P, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceWifiP2P, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceWifiP2P, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceWifiP2P, pspec: GObject.ParamSpec) => void)): number
@@ -8602,6 +8850,8 @@ export class DeviceWifiP2P {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceWifiP2P, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceWifiP2P, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceWifiP2P, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceWifiP2P, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceWifiP2P, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8649,12 +8899,15 @@ export class DeviceWimax {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceWimax */
@@ -8705,6 +8958,7 @@ export class DeviceWimax {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -8832,6 +9086,8 @@ export class DeviceWimax {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceWimax, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceWimax, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceWimax, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceWimax, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceWimax, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceWimax, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceWimax, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceWimax, pspec: GObject.ParamSpec) => void)): number
@@ -8844,6 +9100,8 @@ export class DeviceWimax {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceWimax, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceWimax, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceWimax, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceWimax, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceWimax, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8887,12 +9145,15 @@ export class DeviceWireGuard {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceWireGuard */
@@ -8938,6 +9199,7 @@ export class DeviceWireGuard {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -9050,6 +9312,8 @@ export class DeviceWireGuard {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceWireGuard, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceWireGuard, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceWireGuard, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceWireGuard, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceWireGuard, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceWireGuard, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceWireGuard, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceWireGuard, pspec: GObject.ParamSpec) => void)): number
@@ -9062,6 +9326,8 @@ export class DeviceWireGuard {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceWireGuard, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceWireGuard, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceWireGuard, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceWireGuard, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceWireGuard, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9101,12 +9367,15 @@ export class DeviceWpan {
     readonly nm_plugin_missing: boolean
     readonly path: string
     readonly physical_port_id: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly state_reason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.Device */
@@ -9148,6 +9417,7 @@ export class DeviceWpan {
     get_nm_plugin_missing(): boolean
     get_path(): string
     get_physical_port_id(): string
+    get_ports(): Device[]
     get_product(): string
     get_setting_type(): GObject.Type
     get_state(): DeviceState
@@ -9254,6 +9524,8 @@ export class DeviceWpan {
     connect_after(sigName: "notify::path", callback: (($obj: DeviceWpan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::physical-port-id", callback: (($obj: DeviceWpan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::physical-port-id", callback: (($obj: DeviceWpan, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ports", callback: (($obj: DeviceWpan, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceWpan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::product", callback: (($obj: DeviceWpan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceWpan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::real", callback: (($obj: DeviceWpan, pspec: GObject.ParamSpec) => void)): number
@@ -9266,6 +9538,8 @@ export class DeviceWpan {
     connect_after(sigName: "notify::udi", callback: (($obj: DeviceWpan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vendor", callback: (($obj: DeviceWpan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vendor", callback: (($obj: DeviceWpan, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DeviceWpan, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceWpan, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9282,6 +9556,7 @@ export class DhcpConfig {
     readonly family: number
     readonly options: GLib.HashTable
     /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     readonly path: string
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
@@ -9330,6 +9605,8 @@ export class DhcpConfig {
     connect_after(sigName: "notify::family", callback: (($obj: DhcpConfig, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::options", callback: (($obj: DhcpConfig, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::options", callback: (($obj: DhcpConfig, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: DhcpConfig, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DhcpConfig, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::path", callback: (($obj: DhcpConfig, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::path", callback: (($obj: DhcpConfig, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -9354,6 +9631,7 @@ export class IPConfig {
     readonly searches: string[]
     readonly wins_servers: string[]
     /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     readonly path: string
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
@@ -9419,6 +9697,8 @@ export class IPConfig {
     connect_after(sigName: "notify::searches", callback: (($obj: IPConfig, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::wins-servers", callback: (($obj: IPConfig, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::wins-servers", callback: (($obj: IPConfig, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: IPConfig, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: IPConfig, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::path", callback: (($obj: IPConfig, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::path", callback: (($obj: IPConfig, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -9434,6 +9714,7 @@ export interface Object_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Object {
     /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     readonly path: string
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
@@ -9474,6 +9755,8 @@ export class Object {
     connect(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::client", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::path", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::path", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -9494,6 +9777,7 @@ export class RemoteConnection {
     readonly unsaved: boolean
     readonly visible: boolean
     /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     readonly path: string
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
@@ -9642,6 +9926,8 @@ export class RemoteConnection {
     connect_after(sigName: "notify::unsaved", callback: (($obj: RemoteConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::visible", callback: (($obj: RemoteConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::visible", callback: (($obj: RemoteConnection, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: RemoteConnection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: RemoteConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::path", callback: (($obj: RemoteConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::path", callback: (($obj: RemoteConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -9756,8 +10042,6 @@ export interface Setting_ConstructProps extends GObject.Object_ConstructProps {
 export class Setting {
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.Setting */
@@ -9802,14 +10086,6 @@ export class Setting {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -9889,14 +10165,6 @@ export class Setting6Lowpan {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10024,8 +10292,6 @@ export class Setting8021x {
     system_ca_certs: boolean
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting8021x */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.Setting8021x */
@@ -10159,14 +10425,6 @@ export class Setting8021x {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10307,8 +10565,6 @@ export class SettingAdsl {
     vpi: number
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingAdsl */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingAdsl */
@@ -10361,14 +10617,6 @@ export class SettingAdsl {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10418,8 +10666,6 @@ export class SettingBluetooth {
     type: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingBluetooth */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingBluetooth */
@@ -10467,14 +10713,6 @@ export class SettingBluetooth {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10512,8 +10750,6 @@ export class SettingBond {
     options: GLib.HashTable
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingBond */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingBond */
@@ -10567,14 +10803,6 @@ export class SettingBond {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10601,6 +10829,87 @@ export class SettingBond {
     /* Static methods and pseudo-constructors */
     static new(): SettingBond
     static validate_option(name: string, value: string): boolean
+    static $gtype: GObject.Type
+}
+export interface SettingBondPort_ConstructProps extends Setting_ConstructProps {
+    queue_id?: number
+}
+export class SettingBondPort {
+    /* Properties of NM-1.0.NM.SettingBondPort */
+    queue_id: number
+    /* Properties of NM-1.0.NM.Setting */
+    readonly name: string
+    /* Fields of GObject-2.0.GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of NM-1.0.NM.SettingBondPort */
+    get_queue_id(): number
+    /* Methods of NM-1.0.NM.Setting */
+    compare(b: Setting, flags: SettingCompareFlags): boolean
+    diff(b: Setting, flags: SettingCompareFlags, invert_results: boolean, results: GLib.HashTable): [ /* returnType */ boolean, /* results */ GLib.HashTable ]
+    duplicate(): Setting
+    enumerate_values(func: SettingValueIterFn): void
+    get_dbus_property_type(property_name: string): GLib.VariantType
+    get_name(): string
+    get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
+    option_clear_by_name(predicate?: UtilsPredicateStr | null): void
+    option_get(opt_name: string): GLib.Variant
+    option_get_all_names(): string[]
+    option_get_boolean(opt_name: string): [ /* returnType */ boolean, /* out_value */ boolean | null ]
+    option_get_uint32(opt_name: string): [ /* returnType */ boolean, /* out_value */ number | null ]
+    option_set(opt_name: string, variant?: GLib.Variant | null): void
+    option_set_boolean(opt_name: string, value: boolean): void
+    option_set_uint32(opt_name: string, value: number): void
+    set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
+    to_string(): string
+    verify(connection?: Connection | null): boolean
+    verify_secrets(connection?: Connection | null): boolean
+    /* Methods of GObject-2.0.GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: any): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: any): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: Function): void
+    /* Virtual methods of GObject-2.0.GObject.Object */
+    vfunc_constructed(): void
+    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose(): void
+    vfunc_finalize(): void
+    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SettingBondPort, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: SettingBondPort, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::queue-id", callback: (($obj: SettingBondPort, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::queue-id", callback: (($obj: SettingBondPort, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::name", callback: (($obj: SettingBondPort, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::name", callback: (($obj: SettingBondPort, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    static name: string
+    constructor (config?: SettingBondPort_ConstructProps)
+    _init (config?: SettingBondPort_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): SettingBondPort
     static $gtype: GObject.Type
 }
 export interface SettingBridge_ConstructProps extends Setting_ConstructProps {
@@ -10663,8 +10972,6 @@ export class SettingBridge {
     vlans: BridgeVlan[]
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingBridge */
@@ -10742,14 +11049,6 @@ export class SettingBridge {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10843,8 +11142,6 @@ export class SettingBridgePort {
     vlans: BridgeVlan[]
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingBridgePort */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingBridgePort */
@@ -10899,14 +11196,6 @@ export class SettingBridgePort {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -10956,8 +11245,6 @@ export class SettingCdma {
     username: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingCdma */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingCdma */
@@ -11008,14 +11295,6 @@ export class SettingCdma {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11057,6 +11336,7 @@ export interface SettingConnection_ConstructProps extends Setting_ConstructProps
     autoconnect_priority?: number
     autoconnect_retries?: number
     autoconnect_slaves?: SettingConnectionAutoconnectSlaves
+    dns_over_tls?: number
     gateway_ping_timeout?: number
     id?: string
     interface_name?: string
@@ -11085,6 +11365,7 @@ export class SettingConnection {
     autoconnect_priority: number
     autoconnect_retries: number
     autoconnect_slaves: SettingConnectionAutoconnectSlaves
+    dns_over_tls: number
     gateway_ping_timeout: number
     id: string
     interface_name: string
@@ -11107,8 +11388,6 @@ export class SettingConnection {
     zone: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingConnection */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingConnection */
@@ -11120,6 +11399,7 @@ export class SettingConnection {
     get_autoconnect_retries(): number
     get_autoconnect_slaves(): SettingConnectionAutoconnectSlaves
     get_connection_type(): string
+    get_dns_over_tls(): SettingConnectionDnsOverTls
     get_gateway_ping_timeout(): number
     get_id(): string
     get_interface_name(): string
@@ -11189,14 +11469,6 @@ export class SettingConnection {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11219,6 +11491,8 @@ export class SettingConnection {
     connect_after(sigName: "notify::autoconnect-retries", callback: (($obj: SettingConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::autoconnect-slaves", callback: (($obj: SettingConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::autoconnect-slaves", callback: (($obj: SettingConnection, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::dns-over-tls", callback: (($obj: SettingConnection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::dns-over-tls", callback: (($obj: SettingConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::gateway-ping-timeout", callback: (($obj: SettingConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::gateway-ping-timeout", callback: (($obj: SettingConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::id", callback: (($obj: SettingConnection, pspec: GObject.ParamSpec) => void)): number
@@ -11308,8 +11582,6 @@ export class SettingDcb {
     priority_traffic_class: number[]
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingDcb */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingDcb */
@@ -11376,14 +11648,6 @@ export class SettingDcb {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11444,8 +11708,6 @@ export interface SettingDummy_ConstructProps extends Setting_ConstructProps {
 export class SettingDummy {
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingDummy */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.Setting */
@@ -11490,14 +11752,6 @@ export class SettingDummy {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11528,8 +11782,6 @@ export interface SettingEthtool_ConstructProps extends Setting_ConstructProps {
 export class SettingEthtool {
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingEthtool */
@@ -11579,14 +11831,6 @@ export class SettingEthtool {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11617,8 +11861,6 @@ export interface SettingGeneric_ConstructProps extends Setting_ConstructProps {
 export class SettingGeneric {
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingGeneric */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.Setting */
@@ -11663,14 +11905,6 @@ export class SettingGeneric {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11730,8 +11964,6 @@ export class SettingGsm {
     username: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingGsm */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingGsm */
@@ -11791,14 +12023,6 @@ export class SettingGsm {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11866,8 +12090,6 @@ export class SettingHostname {
     priority: number
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingHostname */
@@ -11917,14 +12139,6 @@ export class SettingHostname {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -11987,13 +12201,12 @@ export class SettingIP4Config {
     may_fail: boolean
     method: string
     never_default: boolean
+    required_timeout: number
     route_metric: number
     route_table: number
     routes: IPRoute[]
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingIP4Config */
-    parent: SettingIPConfig
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingIP4Config */
@@ -12039,6 +12252,7 @@ export class SettingIP4Config {
     get_num_dns_searches(): number
     get_num_routes(): number
     get_num_routing_rules(): number
+    get_required_timeout(): number
     get_route(idx: number): IPRoute
     get_route_metric(): number
     get_route_table(): number
@@ -12098,14 +12312,6 @@ export class SettingIP4Config {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -12160,6 +12366,8 @@ export class SettingIP4Config {
     connect_after(sigName: "notify::method", callback: (($obj: SettingIP4Config, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::never-default", callback: (($obj: SettingIP4Config, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::never-default", callback: (($obj: SettingIP4Config, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::required-timeout", callback: (($obj: SettingIP4Config, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::required-timeout", callback: (($obj: SettingIP4Config, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::route-metric", callback: (($obj: SettingIP4Config, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::route-metric", callback: (($obj: SettingIP4Config, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::route-table", callback: (($obj: SettingIP4Config, pspec: GObject.ParamSpec) => void)): number
@@ -12212,13 +12420,12 @@ export class SettingIP6Config {
     may_fail: boolean
     method: string
     never_default: boolean
+    required_timeout: number
     route_metric: number
     route_table: number
     routes: IPRoute[]
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingIP6Config */
-    parent: SettingIPConfig
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingIP6Config */
@@ -12266,6 +12473,7 @@ export class SettingIP6Config {
     get_num_dns_searches(): number
     get_num_routes(): number
     get_num_routing_rules(): number
+    get_required_timeout(): number
     get_route(idx: number): IPRoute
     get_route_metric(): number
     get_route_table(): number
@@ -12325,14 +12533,6 @@ export class SettingIP6Config {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -12391,6 +12591,8 @@ export class SettingIP6Config {
     connect_after(sigName: "notify::method", callback: (($obj: SettingIP6Config, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::never-default", callback: (($obj: SettingIP6Config, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::never-default", callback: (($obj: SettingIP6Config, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::required-timeout", callback: (($obj: SettingIP6Config, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::required-timeout", callback: (($obj: SettingIP6Config, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::route-metric", callback: (($obj: SettingIP6Config, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::route-metric", callback: (($obj: SettingIP6Config, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::route-table", callback: (($obj: SettingIP6Config, pspec: GObject.ParamSpec) => void)): number
@@ -12429,6 +12631,7 @@ export interface SettingIPConfig_ConstructProps extends Setting_ConstructProps {
     may_fail?: boolean
     method?: string
     never_default?: boolean
+    required_timeout?: number
     route_metric?: number
     route_table?: number
     routes?: IPRoute[]
@@ -12453,13 +12656,12 @@ export class SettingIPConfig {
     may_fail: boolean
     method: string
     never_default: boolean
+    required_timeout: number
     route_metric: number
     route_table: number
     routes: IPRoute[]
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingIPConfig */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingIPConfig */
@@ -12501,6 +12703,7 @@ export class SettingIPConfig {
     get_num_dns_searches(): number
     get_num_routes(): number
     get_num_routing_rules(): number
+    get_required_timeout(): number
     get_route(idx: number): IPRoute
     get_route_metric(): number
     get_route_table(): number
@@ -12560,14 +12763,6 @@ export class SettingIPConfig {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -12616,6 +12811,8 @@ export class SettingIPConfig {
     connect_after(sigName: "notify::method", callback: (($obj: SettingIPConfig, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::never-default", callback: (($obj: SettingIPConfig, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::never-default", callback: (($obj: SettingIPConfig, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::required-timeout", callback: (($obj: SettingIPConfig, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::required-timeout", callback: (($obj: SettingIPConfig, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::route-metric", callback: (($obj: SettingIPConfig, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::route-metric", callback: (($obj: SettingIPConfig, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::route-table", callback: (($obj: SettingIPConfig, pspec: GObject.ParamSpec) => void)): number
@@ -12723,14 +12920,6 @@ export class SettingIPTunnel {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -12849,14 +13038,6 @@ export class SettingInfiniband {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -12970,14 +13151,6 @@ export class SettingMacsec {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13084,14 +13257,6 @@ export class SettingMacvlan {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13139,8 +13304,6 @@ export class SettingMatch {
     path: string[]
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingMatch */
@@ -13214,14 +13377,6 @@ export class SettingMatch {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13267,8 +13422,6 @@ export class SettingOlpcMesh {
     ssid: GLib.Bytes
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingOlpcMesh */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingOlpcMesh */
@@ -13317,14 +13470,6 @@ export class SettingOlpcMesh {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13372,8 +13517,6 @@ export class SettingOvsBridge {
     stp_enable: boolean
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingOvsBridge */
@@ -13424,14 +13567,6 @@ export class SettingOvsBridge {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13475,8 +13610,6 @@ export class SettingOvsDpdk {
     devargs: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingOvsDpdk */
@@ -13523,14 +13656,6 @@ export class SettingOvsDpdk {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13566,8 +13691,6 @@ export class SettingOvsExternalIDs {
     data: GLib.HashTable
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingOvsExternalIDs */
@@ -13616,14 +13739,6 @@ export class SettingOvsExternalIDs {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13661,8 +13776,6 @@ export class SettingOvsInterface {
     type: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingOvsInterface */
@@ -13709,14 +13822,6 @@ export class SettingOvsInterface {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13752,8 +13857,6 @@ export class SettingOvsPatch {
     peer: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingOvsPatch */
@@ -13800,14 +13903,6 @@ export class SettingOvsPatch {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13853,8 +13948,6 @@ export class SettingOvsPort {
     vlan_mode: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingOvsPort */
@@ -13906,14 +13999,6 @@ export class SettingOvsPort {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -13993,8 +14078,6 @@ export class SettingPpp {
     require_mppe_128: boolean
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingPpp */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingPpp */
@@ -14058,14 +14141,6 @@ export class SettingPpp {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -14193,14 +14268,6 @@ export class SettingPppoe {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -14250,8 +14317,6 @@ export class SettingProxy {
     pac_url: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingProxy */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingProxy */
@@ -14301,14 +14366,6 @@ export class SettingProxy {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -14358,8 +14415,6 @@ export class SettingSerial {
     stopbits: number
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingSerial */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingSerial */
@@ -14410,14 +14465,6 @@ export class SettingSerial {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -14465,8 +14512,6 @@ export class SettingSriov {
     vfs: SriovVF[]
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingSriov */
@@ -14520,14 +14565,6 @@ export class SettingSriov {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -14569,8 +14606,6 @@ export class SettingTCConfig {
     tfilters: TCTfilter[]
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingTCConfig */
@@ -14628,14 +14663,6 @@ export class SettingTCConfig {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -14703,8 +14730,6 @@ export class SettingTeam {
     runner_tx_hash: string[]
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingTeam */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingTeam */
@@ -14775,14 +14800,6 @@ export class SettingTeam {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -14860,8 +14877,6 @@ export class SettingTeamPort {
     sticky: boolean
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingTeamPort */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingTeamPort */
@@ -14919,14 +14934,6 @@ export class SettingTeamPort {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -14984,8 +14991,6 @@ export class SettingTun {
     vnet_hdr: boolean
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingTun */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingTun */
@@ -15037,14 +15042,6 @@ export class SettingTun {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15090,8 +15087,6 @@ export class SettingUser {
     data: GLib.HashTable
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingUser */
@@ -15140,14 +15135,6 @@ export class SettingUser {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15185,8 +15172,6 @@ export class SettingVeth {
     peer: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingVeth */
@@ -15233,14 +15218,6 @@ export class SettingVeth {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15340,14 +15317,6 @@ export class SettingVlan {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15401,8 +15370,6 @@ export class SettingVpn {
     user_name: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingVpn */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingVpn */
@@ -15464,14 +15431,6 @@ export class SettingVpn {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15517,8 +15476,6 @@ export class SettingVrf {
     table: number
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingVrf */
@@ -15565,14 +15522,6 @@ export class SettingVrf {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15699,14 +15648,6 @@ export class SettingVxlan {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15776,8 +15717,6 @@ export class SettingWifiP2P {
     wps_method: number
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingWifiP2P */
@@ -15826,14 +15765,6 @@ export class SettingWifiP2P {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15875,8 +15806,6 @@ export class SettingWimax {
     network_name: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingWimax */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingWimax */
@@ -15924,14 +15853,6 @@ export class SettingWimax {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -15983,8 +15904,6 @@ export class SettingWireGuard {
     private_key_flags: SettingSecretFlags
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingWireGuard */
@@ -16045,14 +15964,6 @@ export class SettingWireGuard {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -16095,6 +16006,7 @@ export class SettingWireGuard {
     static $gtype: GObject.Type
 }
 export interface SettingWired_ConstructProps extends Setting_ConstructProps {
+    accept_all_mac_addresses?: Ternary
     auto_negotiate?: boolean
     cloned_mac_address?: string
     duplex?: string
@@ -16112,6 +16024,7 @@ export interface SettingWired_ConstructProps extends Setting_ConstructProps {
 }
 export class SettingWired {
     /* Properties of NM-1.0.NM.SettingWired */
+    accept_all_mac_addresses: Ternary
     auto_negotiate: boolean
     cloned_mac_address: string
     duplex: string
@@ -16128,14 +16041,13 @@ export class SettingWired {
     wake_on_lan_password: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingWired */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingWired */
     add_mac_blacklist_item(mac: string): boolean
     add_s390_option(key: string, value: string): boolean
     clear_mac_blacklist_items(): void
+    get_accept_all_mac_addresses(): Ternary
     get_auto_negotiate(): boolean
     get_cloned_mac_address(): string
     get_duplex(): string
@@ -16148,7 +16060,7 @@ export class SettingWired {
     get_num_s390_options(): number
     get_port(): string
     get_s390_nettype(): string
-    get_s390_option(idx: number): [ /* returnType */ boolean, /* out_key */ string, /* out_value */ string ]
+    get_s390_option(idx: number): [ /* returnType */ boolean, /* out_key */ string | null, /* out_value */ string | null ]
     get_s390_option_by_key(key: string): string
     get_s390_subchannels(): string[]
     get_speed(): number
@@ -16200,14 +16112,6 @@ export class SettingWired {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -16220,6 +16124,8 @@ export class SettingWired {
     connect(sigName: "notify", callback: (($obj: SettingWired, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SettingWired, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::accept-all-mac-addresses", callback: (($obj: SettingWired, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::accept-all-mac-addresses", callback: (($obj: SettingWired, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::auto-negotiate", callback: (($obj: SettingWired, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::auto-negotiate", callback: (($obj: SettingWired, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::cloned-mac-address", callback: (($obj: SettingWired, pspec: GObject.ParamSpec) => void)): number
@@ -16303,8 +16209,6 @@ export class SettingWireless {
     wake_on_wlan: number
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingWireless */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingWireless */
@@ -16377,14 +16281,6 @@ export class SettingWireless {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -16492,8 +16388,6 @@ export class SettingWirelessSecurity {
     wps_method: number
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingWirelessSecurity */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingWirelessSecurity */
@@ -16572,14 +16466,6 @@ export class SettingWirelessSecurity {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -16661,8 +16547,6 @@ export class SettingWpan {
     short_address: number
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingWpan */
@@ -16713,14 +16597,6 @@ export class SettingWpan {
     thaw_notify(): void
     unref(): void
     watch_closure(closure: Function): void
-    /* Virtual methods of NM-1.0.NM.Setting */
-    vfunc_aggregate(type_i: number, arg?: object | null): boolean
-    vfunc_get_secret_flags(secret_name: string, out_flags: SettingSecretFlags): boolean
-    vfunc_init_from_dbus(keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number): boolean
-    vfunc_set_secret_flags(secret_name: string, flags: SettingSecretFlags): boolean
-    vfunc_update_one_secret(key: string, value: GLib.Variant): number
-    vfunc_verify(connection: Connection): number
-    vfunc_verify_secrets(connection?: Connection | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -16759,8 +16635,6 @@ export class SettingWpan {
 export interface SimpleConnection_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SimpleConnection {
-    /* Fields of NM-1.0.NM.SimpleConnection */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -16915,6 +16789,7 @@ export class VpnConnection {
     readonly uuid: string
     readonly vpn: boolean
     /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     readonly path: string
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
@@ -17020,6 +16895,8 @@ export class VpnConnection {
     connect_after(sigName: "notify::uuid", callback: (($obj: VpnConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::vpn", callback: (($obj: VpnConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::vpn", callback: (($obj: VpnConnection, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: VpnConnection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: VpnConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::path", callback: (($obj: VpnConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::path", callback: (($obj: VpnConnection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -17356,6 +17233,7 @@ export class WifiP2PPeer {
     readonly strength: number
     readonly wfd_ies: GLib.Bytes
     /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     readonly path: string
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
@@ -17429,6 +17307,8 @@ export class WifiP2PPeer {
     connect_after(sigName: "notify::strength", callback: (($obj: WifiP2PPeer, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::wfd-ies", callback: (($obj: WifiP2PPeer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::wfd-ies", callback: (($obj: WifiP2PPeer, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: WifiP2PPeer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: WifiP2PPeer, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::path", callback: (($obj: WifiP2PPeer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::path", callback: (($obj: WifiP2PPeer, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -17448,6 +17328,7 @@ export class WimaxNsp {
     readonly network_type: WimaxNspNetworkType
     readonly signal_quality: number
     /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     readonly path: string
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
@@ -17500,6 +17381,8 @@ export class WimaxNsp {
     connect_after(sigName: "notify::network-type", callback: (($obj: WimaxNsp, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::signal-quality", callback: (($obj: WimaxNsp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::signal-quality", callback: (($obj: WimaxNsp, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::client", callback: (($obj: WimaxNsp, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: WimaxNsp, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::path", callback: (($obj: WimaxNsp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::path", callback: (($obj: WimaxNsp, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -17731,6 +17614,7 @@ export class IPRoutingRule {
     get_to(): string
     get_to_len(): number
     get_tos(): number
+    get_uid_range(): [ /* returnType */ boolean, /* out_range_start */ number | null, /* out_range_end */ number | null ]
     is_sealed(): boolean
     new_clone(): IPRoutingRule
     ref(): IPRoutingRule
@@ -17749,6 +17633,7 @@ export class IPRoutingRule {
     set_table(table: number): void
     set_to(to: string | null, len: number): void
     set_tos(tos: number): void
+    set_uid_range(uid_range_start: number, uid_range_end: number): void
     to_string(to_string_flags: IPRoutingRuleAsStringFlags, extra_args?: GLib.HashTable | null): string
     unref(): void
     validate(): boolean
@@ -17800,126 +17685,78 @@ export abstract class Setting6LowpanClass {
     static name: string
 }
 export abstract class Setting8021xClass {
-    /* Fields of NM-1.0.NM.Setting8021xClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingAdslClass {
-    /* Fields of NM-1.0.NM.SettingAdslClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingBluetoothClass {
-    /* Fields of NM-1.0.NM.SettingBluetoothClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingBondClass {
-    /* Fields of NM-1.0.NM.SettingBondClass */
-    parent: SettingClass
+    static name: string
+}
+export abstract class SettingBondPortClass {
     static name: string
 }
 export abstract class SettingBridgeClass {
     static name: string
 }
 export abstract class SettingBridgePortClass {
-    /* Fields of NM-1.0.NM.SettingBridgePortClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingCdmaClass {
-    /* Fields of NM-1.0.NM.SettingCdmaClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingClass {
-    /* Fields of NM-1.0.NM.SettingClass */
-    parent: GObject.ObjectClass
-    verify: (setting: Setting, connection: Connection) => number
-    verify_secrets: (setting: Setting, connection?: Connection | null) => boolean
-    update_one_secret: (setting: Setting, key: string, value: GLib.Variant) => number
-    get_secret_flags: (setting: Setting, secret_name: string, out_flags: SettingSecretFlags) => boolean
-    set_secret_flags: (setting: Setting, secret_name: string, flags: SettingSecretFlags) => boolean
-    compare_property: (sett_info: object, property_idx: number, con_a: Connection, set_a: Setting, con_b: Connection, set_b: Setting, flags: SettingCompareFlags) => Ternary
-    duplicate_copy_properties: (sett_info: object, src: Setting, dst: Setting) => void
-    aggregate: (setting: Setting, type_i: number, arg?: object | null) => boolean
-    init_from_dbus: (setting: Setting, keys: GLib.HashTable, setting_dict: GLib.Variant, connection_dict: GLib.Variant, parse_flags: number) => boolean
-    setting_info: object
     static name: string
 }
 export abstract class SettingConnectionClass {
-    /* Fields of NM-1.0.NM.SettingConnectionClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingDcbClass {
-    /* Fields of NM-1.0.NM.SettingDcbClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingDummyClass {
-    /* Fields of NM-1.0.NM.SettingDummyClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingEthtoolClass {
     static name: string
 }
 export abstract class SettingGenericClass {
-    /* Fields of NM-1.0.NM.SettingGenericClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingGsmClass {
-    /* Fields of NM-1.0.NM.SettingGsmClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingHostnameClass {
     static name: string
 }
 export abstract class SettingIP4ConfigClass {
-    /* Fields of NM-1.0.NM.SettingIP4ConfigClass */
-    parent: SettingIPConfigClass
     static name: string
 }
 export abstract class SettingIP6ConfigClass {
-    /* Fields of NM-1.0.NM.SettingIP6ConfigClass */
-    parent: SettingIPConfigClass
     static name: string
 }
 export abstract class SettingIPConfigClass {
-    /* Fields of NM-1.0.NM.SettingIPConfigClass */
-    parent: SettingClass
-    padding: object[]
     static name: string
 }
 export abstract class SettingIPTunnelClass {
-    /* Fields of NM-1.0.NM.SettingIPTunnelClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingInfinibandClass {
-    /* Fields of NM-1.0.NM.SettingInfinibandClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingMacsecClass {
-    /* Fields of NM-1.0.NM.SettingMacsecClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingMacvlanClass {
-    /* Fields of NM-1.0.NM.SettingMacvlanClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingMatchClass {
     static name: string
 }
 export abstract class SettingOlpcMeshClass {
-    /* Fields of NM-1.0.NM.SettingOlpcMeshClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingOvsBridgeClass {
@@ -17941,24 +17778,15 @@ export abstract class SettingOvsPortClass {
     static name: string
 }
 export abstract class SettingPppClass {
-    /* Fields of NM-1.0.NM.SettingPppClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingPppoeClass {
-    /* Fields of NM-1.0.NM.SettingPppoeClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingProxyClass {
-    /* Fields of NM-1.0.NM.SettingProxyClass */
-    parent: SettingClass
-    padding: object[]
     static name: string
 }
 export abstract class SettingSerialClass {
-    /* Fields of NM-1.0.NM.SettingSerialClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingSriovClass {
@@ -17968,18 +17796,12 @@ export abstract class SettingTCConfigClass {
     static name: string
 }
 export abstract class SettingTeamClass {
-    /* Fields of NM-1.0.NM.SettingTeamClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingTeamPortClass {
-    /* Fields of NM-1.0.NM.SettingTeamPortClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingTunClass {
-    /* Fields of NM-1.0.NM.SettingTunClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingUserClass {
@@ -17989,55 +17811,39 @@ export abstract class SettingVethClass {
     static name: string
 }
 export abstract class SettingVlanClass {
-    /* Fields of NM-1.0.NM.SettingVlanClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingVpnClass {
-    /* Fields of NM-1.0.NM.SettingVpnClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingVrfClass {
     static name: string
 }
 export abstract class SettingVxlanClass {
-    /* Fields of NM-1.0.NM.SettingVxlanClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingWifiP2PClass {
     static name: string
 }
 export abstract class SettingWimaxClass {
-    /* Fields of NM-1.0.NM.SettingWimaxClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingWireGuardClass {
     static name: string
 }
 export abstract class SettingWiredClass {
-    /* Fields of NM-1.0.NM.SettingWiredClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingWirelessClass {
-    /* Fields of NM-1.0.NM.SettingWirelessClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingWirelessSecurityClass {
-    /* Fields of NM-1.0.NM.SettingWirelessSecurityClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingWpanClass {
     static name: string
 }
 export abstract class SimpleConnectionClass {
-    /* Fields of NM-1.0.NM.SimpleConnectionClass */
-    parent_class: GObject.ObjectClass
     static name: string
 }
 export class SriovVF {

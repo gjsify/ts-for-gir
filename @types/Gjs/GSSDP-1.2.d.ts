@@ -48,7 +48,8 @@ export class Client {
     g_type_instance: GObject.TypeInstance
     /* Methods of GSSDP-1.2.GSSDP.Client */
     add_cache_entry(ip_address: string, user_agent: string): void
-    append_header(name: string, value: string): void
+    append_header(name: string, value?: string | null): void
+    can_reach(address: Gio.InetSocketAddress): boolean
     clear_headers(): void
     get_active(): boolean
     get_address(): Gio.InetAddress

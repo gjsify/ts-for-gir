@@ -1928,6 +1928,7 @@ export class Store {
     getOrigin(): string
     getSearchMatch(): number
     getSize(): number
+    getVersion(): string
     getWatchFlags(): number
     load(flags: number, cancellable?: Gio.Cancellable | null): boolean
     loadAsync(flags: StoreLoadFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -1947,6 +1948,7 @@ export class Store {
     setDestdir(destdir: string): void
     setOrigin(origin: string): void
     setSearchMatch(searchMatch: number): void
+    setVersion(apiVersion: string): void
     setWatchFlags(watchFlags: number): void
     toFile(file: Gio.File, flags: number, cancellable?: Gio.Cancellable | null): boolean
     toXml(flags: number): GLib.String

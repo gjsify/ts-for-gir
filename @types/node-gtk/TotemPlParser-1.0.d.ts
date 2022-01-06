@@ -28,6 +28,9 @@ export enum ParserType {
     XSPF,
     IRIVER_PLA,
 }
+export const PARSER_CONTENT_RATING_CLEAN: string
+export const PARSER_CONTENT_RATING_EXPLICIT: string
+export const PARSER_CONTENT_RATING_UNRATED: string
 export const PARSER_FIELD_ABSTRACT: string
 export const PARSER_FIELD_ALBUM: string
 export const PARSER_FIELD_AUDIO_TRACK: string
@@ -35,6 +38,7 @@ export const PARSER_FIELD_AUTHOR: string
 export const PARSER_FIELD_AUTOPLAY: string
 export const PARSER_FIELD_BASE: string
 export const PARSER_FIELD_CONTACT: string
+export const PARSER_FIELD_CONTENT_RATING: string
 export const PARSER_FIELD_CONTENT_TYPE: string
 export const PARSER_FIELD_COPYRIGHT: string
 export const PARSER_FIELD_DESCRIPTION: string
@@ -44,6 +48,7 @@ export const PARSER_FIELD_DURATION_MS: string
 export const PARSER_FIELD_ENDTIME: string
 export const PARSER_FIELD_FILESIZE: string
 export const PARSER_FIELD_GENRE: string
+export const PARSER_FIELD_GENRES: string
 export const PARSER_FIELD_ID: string
 export const PARSER_FIELD_IMAGE_URI: string
 export const PARSER_FIELD_IS_PLAYLIST: string

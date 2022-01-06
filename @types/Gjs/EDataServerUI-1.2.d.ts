@@ -208,17 +208,18 @@ export class CredentialsPrompter {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of EDataServerUI-1.2.EDataServerUI.CredentialsPrompter */
-    complete_prompt_call(async_result: Gio.SimpleAsyncResult, source: EDataServer.Source, credentials?: EDataServer.NamedParameters | null, error?: GLib.Error | null): void
+    complete_prompt_call(async_result: Gio.SimpleAsyncResult, source: EDataServer.Source, credentials: EDataServer.NamedParameters | null, error: GLib.Error): void
     get_auto_prompt(): boolean
     get_auto_prompt_disabled_for(source: EDataServer.Source): boolean
     get_dialog_parent(): Gtk.Window
+    get_dialog_parent_full(auth_source?: EDataServer.Source | null): Gtk.Window
     get_provider(): EDataServer.SourceCredentialsProvider
     get_registry(): EDataServer.SourceRegistry
     loop_prompt_sync(source: EDataServer.Source, flags: CredentialsPrompterPromptFlags, func: CredentialsPrompterLoopPromptFunc, cancellable?: Gio.Cancellable | null): boolean
     process_awaiting_credentials(): void
     process_source(source: EDataServer.Source): boolean
     prompt(source: EDataServer.Source, error_text: string | null, flags: CredentialsPrompterPromptFlags, callback?: Gio.AsyncReadyCallback | null): void
-    prompt_finish(result: Gio.AsyncResult, out_source: EDataServer.Source | null, out_credentials: EDataServer.NamedParameters): boolean
+    prompt_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_source */ EDataServer.Source | null, /* out_credentials */ EDataServer.NamedParameters | null ]
     register_impl(authentication_method: string | null, prompter_impl: CredentialsPrompterImpl): boolean
     set_auto_prompt(auto_prompt: boolean): void
     set_auto_prompt_disabled_for(source: EDataServer.Source, is_disabled: boolean): void
@@ -262,6 +263,9 @@ export class CredentialsPrompter {
     connect(sigName: "get-dialog-parent", callback: (($obj: CredentialsPrompter) => Gtk.Window)): number
     connect_after(sigName: "get-dialog-parent", callback: (($obj: CredentialsPrompter) => Gtk.Window)): number
     emit(sigName: "get-dialog-parent"): void
+    connect(sigName: "get-dialog-parent-full", callback: (($obj: CredentialsPrompter, auth_source?: EDataServer.Source | null) => Gtk.Window)): number
+    connect_after(sigName: "get-dialog-parent-full", callback: (($obj: CredentialsPrompter, auth_source?: EDataServer.Source | null) => Gtk.Window)): number
+    emit(sigName: "get-dialog-parent-full", auth_source?: EDataServer.Source | null): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CredentialsPrompter, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CredentialsPrompter, pspec: GObject.ParamSpec) => void)): number
@@ -1430,7 +1434,7 @@ export class WebDAVDiscoverContent {
     refresh_finish(result: Gio.AsyncResult): boolean
     set_base_url(base_url: string): void
     set_multiselect(multiselect: boolean): void
-    show_error(error?: GLib.Error | null): void
+    show_error(error: GLib.Error): void
     /* Methods of Gtk-3.0.Gtk.Grid */
     attach(child: Gtk.Widget, left: number, top: number, width: number, height: number): void
     attach_next_to(child: Gtk.Widget, sibling: Gtk.Widget | null, side: Gtk.PositionType, width: number, height: number): void

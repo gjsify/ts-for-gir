@@ -2482,6 +2482,7 @@ export class Repository {
     revparse(spec: string): Object | null
     saveStash(stasher: Signature, message: string, flags: StashFlags): OId | null
     setHead(refName: string): boolean
+    setHeadDetached(oid: OId): boolean
     setRemoteUrl(remote: string, url: string): boolean
     setSubmoduleFetchRecurse(name: string, fetchRecurseSubmodules: SubmoduleRecurse): void
     setSubmoduleIgnore(name: string, ignore: SubmoduleIgnore): void

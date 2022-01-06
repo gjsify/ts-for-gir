@@ -2,6 +2,7 @@
  * RygelCore-2.4
  */
 
+<<<<<<< HEAD
 import type * as Gjs from './Gjs';
 import type * as GLib from './GLib-2.0';
 import type * as Gio from './Gio-2.0';
@@ -11,6 +12,18 @@ import type * as GUPnP from './GUPnP-1.0';
 import type * as libxml2 from './libxml2-2.0';
 import type * as Soup from './Soup-2.4';
 import type * as GSSDP from './GSSDP-1.0';
+=======
+import * as Gjs from './Gjs';
+import * as GLib from './GLib-2.0';
+import * as Gio from './Gio-2.0';
+import * as GObject from './GObject-2.0';
+import * as Gee from './Gee-0.8';
+import * as GUPnP from './GUPnP-1.0';
+import * as libxml2 from './libxml2-2.0';
+// WARN: Dependency not found: 'GstPbutils-0.10'
+// WARN: Dependency not found: 'Gst-0.10'
+import * as GModule from './GModule-2.0';
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
 
 export enum LogLevel {
     INVALID,
@@ -56,6 +69,7 @@ export function get_pretty_host_name(): string
 export interface DBusInterface_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DBusInterface {
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelCore-2.4.RygelCore.DBusInterface */
@@ -69,6 +83,21 @@ export class DBusInterface {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of RygelCore.DBusInterface */
+    shutdown(): void
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -76,23 +105,41 @@ export class DBusInterface {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of RygelCore-2.4.RygelCore.DBusInterface */
     vfunc_shutdown(): void
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of RygelCore.DBusInterface */
+    vfunc_shutdown(): void
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: DBusInterface, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DBusInterface, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -108,9 +155,15 @@ export class DBusInterface {
 export interface Configuration_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Configuration {
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelCore-2.4.RygelCore.Configuration */
+=======
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of RygelCore.Configuration */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_upnp_enabled(): boolean
     get_interface(): string
     get_interfaces(): string[]
@@ -132,6 +185,7 @@ export class Configuration {
     get_int(section: string, key: string, min: number, max: number): number
     get_int_list(section: string, key: string): Gee.ArrayList
     get_bool(section: string, key: string): boolean
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -141,6 +195,17 @@ export class Configuration {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -148,13 +213,22 @@ export class Configuration {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of RygelCore-2.4.RygelCore.Configuration */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of RygelCore.Configuration */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_upnp_enabled(): boolean
     vfunc_get_interface(): string
     vfunc_get_interfaces(): string[]
@@ -176,15 +250,26 @@ export class Configuration {
     vfunc_get_int(section: string, key: string, min: number, max: number): number
     vfunc_get_int_list(section: string, key: string): Gee.ArrayList
     vfunc_get_bool(section: string, key: string): boolean
+<<<<<<< HEAD
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of RygelCore-2.4.RygelCore.Configuration */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of RygelCore.Configuration */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "configuration_changed", callback: (($obj: Configuration, entry: ConfigurationEntry) => void)): number
     connect_after(sigName: "configuration_changed", callback: (($obj: Configuration, entry: ConfigurationEntry) => void)): number
     emit(sigName: "configuration_changed", entry: ConfigurationEntry): void
@@ -194,7 +279,11 @@ export class Configuration {
     connect(sigName: "setting_changed", callback: (($obj: Configuration, section: string, key: string) => void)): number
     connect_after(sigName: "setting_changed", callback: (($obj: Configuration, section: string, key: string) => void)): number
     emit(sigName: "setting_changed", section: string, key: string): void
+<<<<<<< HEAD
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: Configuration, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Configuration, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -211,15 +300,24 @@ export interface StateMachine_ConstructProps extends GObject.Object_ConstructPro
     cancellable?: Gio.Cancellable
 }
 export class StateMachine {
+<<<<<<< HEAD
     /* Properties of RygelCore-2.4.RygelCore.StateMachine */
     cancellable: Gio.Cancellable
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelCore-2.4.RygelCore.StateMachine */
+=======
+    /* Properties of RygelCore.StateMachine */
+    cancellable: Gio.Cancellable
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of RygelCore.StateMachine */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     run(_callback_?: Gio.AsyncReadyCallback | null): void
     run_finish(_res_: Gio.AsyncResult): void
     get_cancellable(): Gio.Cancellable
     set_cancellable(value: Gio.Cancellable): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -229,6 +327,17 @@ export class StateMachine {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -236,22 +345,36 @@ export class StateMachine {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of RygelCore-2.4.RygelCore.StateMachine */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of RygelCore.StateMachine */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_run(_callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_run_finish(_res_: Gio.AsyncResult): void
     vfunc_get_cancellable(): Gio.Cancellable
     vfunc_set_cancellable(value: Gio.Cancellable): void
+<<<<<<< HEAD
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
@@ -260,6 +383,16 @@ export class StateMachine {
     connect_after(sigName: "completed", callback: (($obj: StateMachine) => void)): number
     emit(sigName: "completed"): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of RygelCore.StateMachine */
+    connect(sigName: "completed", callback: (($obj: StateMachine) => void)): number
+    connect_after(sigName: "completed", callback: (($obj: StateMachine) => void)): number
+    emit(sigName: "completed"): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: StateMachine, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: StateMachine, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -277,7 +410,11 @@ export class StateMachine {
 export interface ConnectionManager_ConstructProps extends GUPnP.Service_ConstructProps {
 }
 export class ConnectionManager {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.ConnectionManager */
+=======
+    /* Fields of RygelCore.ConnectionManager */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_instance: GUPnP.Service
     priv: ConnectionManagerPrivate
     sink_protocol_info: string
@@ -286,6 +423,7 @@ export class ConnectionManager {
     rcs_id: number
     av_transport_id: number
     direction: string
+<<<<<<< HEAD
     /* Fields of GUPnP-1.0.GUPnP.Service */
     parent: GUPnP.ServiceInfo
     /* Fields of GObject-2.0.GObject.Object */
@@ -293,16 +431,30 @@ export class ConnectionManager {
     /* Methods of RygelCore-2.4.RygelCore.ConnectionManager */
     get_current_protocol_info(): string
     /* Methods of GUPnP-1.0.GUPnP.Service */
+=======
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of RygelCore.ConnectionManager */
+    get_current_protocol_info(): string
+    /* Methods of GUPnP.Service */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     freeze_notify(): void
     notify_value(variable: string, value: any): void
     signals_autoconnect(user_data?: object | null): void
     thaw_notify(): void
+<<<<<<< HEAD
     /* Methods of GUPnP-1.0.GUPnP.ServiceInfo */
+=======
+    /* Methods of GUPnP.ServiceInfo */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_context(): GUPnP.Context
     get_control_url(): string
     get_event_subscription_url(): string
     get_id(): string
+<<<<<<< HEAD
     get_introspection(): GUPnP.ServiceIntrospection
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_introspection_async(callback: GUPnP.ServiceIntrospectionCallback): void
     get_introspection_async_full(callback: GUPnP.ServiceIntrospectionCallback, cancellable?: Gio.Cancellable | null): void
     get_location(): string
@@ -310,6 +462,7 @@ export class ConnectionManager {
     get_service_type(): string
     get_udn(): string
     get_url_base(): Soup.URI
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -318,6 +471,18 @@ export class ConnectionManager {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    introspect_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    introspect_finish(res: Gio.AsyncResult): GUPnP.ServiceIntrospection
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -325,6 +490,7 @@ export class ConnectionManager {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -336,14 +502,34 @@ export class ConnectionManager {
     vfunc_action_invoked(action: GUPnP.ServiceAction): void
     vfunc_query_variable(variable: string, value: any): void
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of RygelCore.ConnectionManager */
+    vfunc_get_current_protocol_info(): string
+    /* Virtual methods of GUPnP.Service */
+    vfunc_action_invoked(action: GUPnP.ServiceAction): void
+    vfunc_query_variable(variable: string, value: any): void
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GUPnP-1.0.GUPnP.Service */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GUPnP.Service */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "action-invoked", callback: (($obj: ConnectionManager, action: GUPnP.ServiceAction) => void)): number
     connect_after(sigName: "action-invoked", callback: (($obj: ConnectionManager, action: GUPnP.ServiceAction) => void)): number
     emit(sigName: "action-invoked", action: GUPnP.ServiceAction): void
@@ -353,7 +539,11 @@ export class ConnectionManager {
     connect(sigName: "query-variable", callback: (($obj: ConnectionManager, variable: string, value: any) => void)): number
     connect_after(sigName: "query-variable", callback: (($obj: ConnectionManager, variable: string, value: any) => void)): number
     emit(sigName: "query-variable", variable: string, value: any): void
+<<<<<<< HEAD
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: ConnectionManager, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ConnectionManager, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -372,6 +562,7 @@ export interface BasicManagement_ConstructProps extends GUPnP.Service_ConstructP
     max_history_size?: number
 }
 export class BasicManagement {
+<<<<<<< HEAD
     /* Properties of RygelCore-2.4.RygelCore.BasicManagement */
     max_history_size: number
     /* Fields of RygelCore-2.4.RygelCore.BasicManagement */
@@ -386,16 +577,37 @@ export class BasicManagement {
     get_max_history_size(): number
     set_max_history_size(value: number): void
     /* Methods of GUPnP-1.0.GUPnP.Service */
+=======
+    /* Properties of RygelCore.BasicManagement */
+    max_history_size: number
+    /* Fields of RygelCore.BasicManagement */
+    parent_instance: GUPnP.Service
+    priv: BasicManagementPrivate
+    device_status: string
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of RygelCore.BasicManagement */
+    get_max_history_size(): number
+    set_max_history_size(value: number): void
+    /* Methods of GUPnP.Service */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     freeze_notify(): void
     notify_value(variable: string, value: any): void
     signals_autoconnect(user_data?: object | null): void
     thaw_notify(): void
+<<<<<<< HEAD
     /* Methods of GUPnP-1.0.GUPnP.ServiceInfo */
+=======
+    /* Methods of GUPnP.ServiceInfo */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_context(): GUPnP.Context
     get_control_url(): string
     get_event_subscription_url(): string
     get_id(): string
+<<<<<<< HEAD
     get_introspection(): GUPnP.ServiceIntrospection
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_introspection_async(callback: GUPnP.ServiceIntrospectionCallback): void
     get_introspection_async_full(callback: GUPnP.ServiceIntrospectionCallback, cancellable?: Gio.Cancellable | null): void
     get_location(): string
@@ -403,6 +615,7 @@ export class BasicManagement {
     get_service_type(): string
     get_udn(): string
     get_url_base(): Soup.URI
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -411,6 +624,18 @@ export class BasicManagement {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    introspect_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    introspect_finish(res: Gio.AsyncResult): GUPnP.ServiceIntrospection
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -418,6 +643,7 @@ export class BasicManagement {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
@@ -427,14 +653,32 @@ export class BasicManagement {
     vfunc_action_invoked(action: GUPnP.ServiceAction): void
     vfunc_query_variable(variable: string, value: any): void
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    set_property(property_name: string, value: GObject.Value): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    unref(): void
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GUPnP.Service */
+    vfunc_action_invoked(action: GUPnP.ServiceAction): void
+    vfunc_query_variable(variable: string, value: any): void
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GUPnP-1.0.GUPnP.Service */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GUPnP.Service */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "action-invoked", callback: (($obj: BasicManagement, action: GUPnP.ServiceAction) => void)): number
     connect_after(sigName: "action-invoked", callback: (($obj: BasicManagement, action: GUPnP.ServiceAction) => void)): number
     emit(sigName: "action-invoked", action: GUPnP.ServiceAction): void
@@ -444,7 +688,11 @@ export class BasicManagement {
     connect(sigName: "query-variable", callback: (($obj: BasicManagement, variable: string, value: any) => void)): number
     connect_after(sigName: "query-variable", callback: (($obj: BasicManagement, variable: string, value: any) => void)): number
     emit(sigName: "query-variable", variable: string, value: any): void
+<<<<<<< HEAD
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: BasicManagement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BasicManagement, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -464,12 +712,21 @@ export class BasicManagement {
 export interface DescriptionFile_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DescriptionFile {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.DescriptionFile */
     parent_instance: GObject.Object
     priv: DescriptionFilePrivate
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelCore-2.4.RygelCore.DescriptionFile */
+=======
+    /* Fields of RygelCore.DescriptionFile */
+    parent_instance: GObject.Object
+    priv: DescriptionFilePrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of RygelCore.DescriptionFile */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     set_device_type(device_type: string): void
     set_model_description(model_description: string): void
     set_model_name(model_name: string): void
@@ -485,6 +742,7 @@ export class DescriptionFile {
     add_icon(device_name: string, icon_info: IconInfo, url: string): void
     modify_service_type(old_type: string, new_type: string): void
     save(path: string): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -494,6 +752,17 @@ export class DescriptionFile {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -501,21 +770,37 @@ export class DescriptionFile {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: DescriptionFile, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DescriptionFile, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -535,6 +820,7 @@ export interface RootDevice_ConstructProps extends GUPnP.RootDevice_ConstructPro
     services?: Gee.ArrayList
 }
 export class RootDevice {
+<<<<<<< HEAD
     /* Properties of RygelCore-2.4.RygelCore.RootDevice */
     services: Gee.ArrayList
     /* Properties of GUPnP-1.0.GUPnP.RootDevice */
@@ -549,13 +835,35 @@ export class RootDevice {
     /* Methods of RygelCore-2.4.RygelCore.RootDevice */
     get_services(): Gee.ArrayList
     /* Methods of GUPnP-1.0.GUPnP.RootDevice */
+=======
+    /* Properties of RygelCore.RootDevice */
+    services: Gee.ArrayList
+    /* Properties of GUPnP.RootDevice */
+    available: boolean
+    /* Properties of GUPnP.DeviceInfo */
+    element: object
+    location: string
+    url_base: Soup.URI
+    /* Fields of RygelCore.RootDevice */
+    parent_instance: GUPnP.RootDevice
+    priv: RootDevicePrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of RygelCore.RootDevice */
+    get_services(): Gee.ArrayList
+    /* Methods of GUPnP.RootDevice */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_available(): boolean
     get_description_dir(): string
     get_description_path(): string
     get_relative_location(): string
     get_ssdp_resource_group(): GSSDP.ResourceGroup
     set_available(available: boolean): void
+<<<<<<< HEAD
     /* Methods of GUPnP-1.0.GUPnP.DeviceInfo */
+=======
+    /* Methods of GUPnP.DeviceInfo */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_context(): GUPnP.Context
     get_description_value(element: string): string
     get_device(type: string): GUPnP.DeviceInfo | null
@@ -582,6 +890,7 @@ export class RootDevice {
     list_dlna_device_class_identifier(): string[]
     list_service_types(): string[]
     list_services(): GUPnP.ServiceInfo[]
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -591,6 +900,17 @@ export class RootDevice {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -598,21 +918,39 @@ export class RootDevice {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GUPnP.RootDevice */
+    vfunc_init(cancellable?: Gio.Cancellable | null): boolean
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -620,6 +958,15 @@ export class RootDevice {
     connect_after(sigName: "notify::services", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::available", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::available", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
+=======
+    connect(sigName: "notify::element", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::element", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::location", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::location", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::url-base", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::url-base", callback: (($obj: RootDevice, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -636,6 +983,7 @@ export interface RootDeviceFactory_ConstructProps extends GObject.Object_Constru
     context?: GUPnP.Context
 }
 export class RootDeviceFactory {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.RootDeviceFactory */
     parent_instance: GObject.Object
     priv: RootDeviceFactoryPrivate
@@ -653,6 +1001,25 @@ export class RootDeviceFactory {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of RygelCore.RootDeviceFactory */
+    parent_instance: GObject.Object
+    priv: RootDeviceFactoryPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of RygelCore.RootDeviceFactory */
+    create(plugin: Plugin): RootDevice
+    get_context(): GUPnP.Context
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -660,25 +1027,45 @@ export class RootDeviceFactory {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of RygelCore-2.4.RygelCore.RootDeviceFactory */
     vfunc_init(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of Gio.Initable */
+    init(cancellable?: Gio.Cancellable | null): boolean
+    /* Virtual methods of RygelCore.RootDeviceFactory */
+    vfunc_init(cancellable?: Gio.Cancellable | null): boolean
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: RootDeviceFactory, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RootDeviceFactory, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -697,6 +1084,7 @@ export class RootDeviceFactory {
 export interface LogHandler_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class LogHandler {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.LogHandler */
     parent_instance: GObject.Object
     priv: LogHandlerPrivate
@@ -711,6 +1099,22 @@ export class LogHandler {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of RygelCore.LogHandler */
+    parent_instance: GObject.Object
+    priv: LogHandlerPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -718,21 +1122,37 @@ export class LogHandler {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: LogHandler, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: LogHandler, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -750,6 +1170,7 @@ export class LogHandler {
 export interface MetaConfig_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class MetaConfig {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.MetaConfig */
     parent_instance: GObject.Object
     priv: MetaConfigPrivate
@@ -764,6 +1185,22 @@ export class MetaConfig {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of RygelCore.MetaConfig */
+    parent_instance: GObject.Object
+    priv: MetaConfigPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -771,14 +1208,23 @@ export class MetaConfig {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of RygelCore-2.4.RygelCore.Configuration */
     get_upnp_enabled(): boolean
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of RygelCore.Configuration */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_interface(): string
     get_interfaces(): string[]
     get_port(): number
@@ -789,9 +1235,15 @@ export class MetaConfig {
     get_plugin_path(): string
     get_engine_path(): string
     get_media_engine(): string
+<<<<<<< HEAD
     get_video_upload_folder(): string
     get_music_upload_folder(): string
     get_picture_upload_folder(): string
+=======
+    get_video_upload_folder(): string | null
+    get_music_upload_folder(): string | null
+    get_picture_upload_folder(): string | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_enabled(section: string): boolean
     get_title(section: string): string
     get_string(section: string, key: string): string
@@ -799,8 +1251,12 @@ export class MetaConfig {
     get_int(section: string, key: string, min: number, max: number): number
     get_int_list(section: string, key: string): Gee.ArrayList
     get_bool(section: string, key: string): boolean
+<<<<<<< HEAD
     /* Virtual methods of RygelCore-2.4.RygelCore.MetaConfig */
     vfunc_get_upnp_enabled(): boolean
+=======
+    /* Virtual methods of RygelCore.MetaConfig */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_interface(): string
     vfunc_get_interfaces(): string[]
     vfunc_get_port(): number
@@ -811,9 +1267,15 @@ export class MetaConfig {
     vfunc_get_plugin_path(): string
     vfunc_get_engine_path(): string
     vfunc_get_media_engine(): string
+<<<<<<< HEAD
     vfunc_get_video_upload_folder(): string
     vfunc_get_music_upload_folder(): string
     vfunc_get_picture_upload_folder(): string
+=======
+    vfunc_get_video_upload_folder(): string | null
+    vfunc_get_music_upload_folder(): string | null
+    vfunc_get_picture_upload_folder(): string | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_enabled(section: string): boolean
     vfunc_get_title(section: string): string
     vfunc_get_string(section: string, key: string): string
@@ -821,11 +1283,16 @@ export class MetaConfig {
     vfunc_get_int(section: string, key: string, min: number, max: number): number
     vfunc_get_int_list(section: string, key: string): Gee.ArrayList
     vfunc_get_bool(section: string, key: string): boolean
+<<<<<<< HEAD
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
@@ -843,6 +1310,25 @@ export class MetaConfig {
     connect(sigName: "setting_changed", callback: (($obj: MetaConfig, section: string, key: string) => void)): number
     connect_after(sigName: "setting_changed", callback: (($obj: MetaConfig, section: string, key: string) => void)): number
     emit(sigName: "setting_changed", section: string, key: string): void
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: MetaConfig, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: MetaConfig, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    /* Signals of RygelCore.Configuration */
+    connect(sigName: "configuration-changed", callback: (($obj: MetaConfig, entry: ConfigurationEntry) => void)): number
+    connect_after(sigName: "configuration-changed", callback: (($obj: MetaConfig, entry: ConfigurationEntry) => void)): number
+    emit(sigName: "configuration-changed", entry: ConfigurationEntry): void
+    connect(sigName: "section-changed", callback: (($obj: MetaConfig, section: string, entry: SectionEntry) => void)): number
+    connect_after(sigName: "section-changed", callback: (($obj: MetaConfig, section: string, entry: SectionEntry) => void)): number
+    emit(sigName: "section-changed", section: string, entry: SectionEntry): void
+    connect(sigName: "setting-changed", callback: (($obj: MetaConfig, section: string, key: string) => void)): number
+    connect_after(sigName: "setting-changed", callback: (($obj: MetaConfig, section: string, key: string) => void)): number
+    emit(sigName: "setting-changed", section: string, key: string): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -859,6 +1345,7 @@ export class MetaConfig {
 export interface PluginLoader_ConstructProps extends RecursiveModuleLoader_ConstructProps {
 }
 export class PluginLoader {
+<<<<<<< HEAD
     /* Properties of RygelCore-2.4.RygelCore.RecursiveModuleLoader */
     base_path: string
     /* Fields of RygelCore-2.4.RygelCore.PluginLoader */
@@ -867,17 +1354,32 @@ export class PluginLoader {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelCore-2.4.RygelCore.PluginLoader */
+=======
+    /* Properties of RygelCore.RecursiveModuleLoader */
+    base_path: string
+    /* Fields of RygelCore.PluginLoader */
+    parent_instance: RecursiveModuleLoader
+    priv: PluginLoaderPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of RygelCore.PluginLoader */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     plugin_disabled(name: string): boolean
     add_plugin(plugin: Plugin): void
     get_plugin_by_name(name: string): Plugin | null
     list_plugins(): Gee.Collection
+<<<<<<< HEAD
     /* Methods of RygelCore-2.4.RygelCore.RecursiveModuleLoader */
+=======
+    /* Methods of RygelCore.RecursiveModuleLoader */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     load_modules(): void
     load_modules_sync(cancellable?: Gio.Cancellable | null): void
     load_module_from_file(file: Gio.File): boolean
     load_module_from_info(info: PluginInformation): boolean
     get_base_path(): string
     set_base_path(value: string): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -887,6 +1389,17 @@ export class PluginLoader {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -894,20 +1407,33 @@ export class PluginLoader {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of RygelCore-2.4.RygelCore.RecursiveModuleLoader */
     vfunc_load_module_from_file(file: Gio.File): boolean
     vfunc_load_module_from_info(info: PluginInformation): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of RygelCore.RecursiveModuleLoader */
+    vfunc_load_module_from_file(file: Gio.File): boolean
+    vfunc_load_module_from_info(info: PluginInformation): boolean
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
@@ -916,6 +1442,16 @@ export class PluginLoader {
     connect_after(sigName: "plugin_available", callback: (($obj: PluginLoader, plugin: Plugin) => void)): number
     emit(sigName: "plugin_available", plugin: Plugin): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of RygelCore.PluginLoader */
+    connect(sigName: "plugin_available", callback: (($obj: PluginLoader, plugin: Plugin) => void)): number
+    connect_after(sigName: "plugin_available", callback: (($obj: PluginLoader, plugin: Plugin) => void)): number
+    emit(sigName: "plugin_available", plugin: Plugin): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: PluginLoader, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PluginLoader, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -936,6 +1472,7 @@ export interface RecursiveModuleLoader_ConstructProps extends GObject.Object_Con
     base_path?: string
 }
 export class RecursiveModuleLoader {
+<<<<<<< HEAD
     /* Properties of RygelCore-2.4.RygelCore.RecursiveModuleLoader */
     base_path: string
     /* Fields of RygelCore-2.4.RygelCore.RecursiveModuleLoader */
@@ -944,12 +1481,23 @@ export class RecursiveModuleLoader {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelCore-2.4.RygelCore.RecursiveModuleLoader */
+=======
+    /* Properties of RygelCore.RecursiveModuleLoader */
+    base_path: string
+    /* Fields of RygelCore.RecursiveModuleLoader */
+    parent_instance: GObject.Object
+    priv: RecursiveModuleLoaderPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of RygelCore.RecursiveModuleLoader */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     load_modules(): void
     load_modules_sync(cancellable?: Gio.Cancellable | null): void
     load_module_from_file(file: Gio.File): boolean
     load_module_from_info(info: PluginInformation): boolean
     get_base_path(): string
     set_base_path(value: string): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -959,6 +1507,17 @@ export class RecursiveModuleLoader {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -966,24 +1525,43 @@ export class RecursiveModuleLoader {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of RygelCore-2.4.RygelCore.RecursiveModuleLoader */
     vfunc_load_module_from_file(file: Gio.File): boolean
     vfunc_load_module_from_info(info: PluginInformation): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of RygelCore.RecursiveModuleLoader */
+    vfunc_load_module_from_file(file: Gio.File): boolean
+    vfunc_load_module_from_info(info: PluginInformation): boolean
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: RecursiveModuleLoader, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: RecursiveModuleLoader, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1010,13 +1588,18 @@ export interface Plugin_ConstructProps extends GUPnP.ResourceFactory_ConstructPr
     default_icons?: Gee.ArrayList
 }
 export class Plugin {
+<<<<<<< HEAD
     /* Properties of RygelCore-2.4.RygelCore.Plugin */
+=======
+    /* Properties of RygelCore.Plugin */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     capabilities: PluginCapabilities
     title: string
     active: boolean
     resource_infos: Gee.ArrayList
     icon_infos: Gee.ArrayList
     default_icons: Gee.ArrayList
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.Plugin */
     parent_instance: GUPnP.ResourceFactory
     priv: PluginPrivate
@@ -1025,6 +1608,14 @@ export class Plugin {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelCore-2.4.RygelCore.Plugin */
+=======
+    /* Fields of RygelCore.Plugin */
+    parent_instance: GUPnP.ResourceFactory
+    priv: PluginPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of RygelCore.Plugin */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     add_resource(resource_info: ResourceInfo): void
     add_icon(icon_info: IconInfo): void
     apply_hacks(device: RootDevice, description_path: string): void
@@ -1040,11 +1631,16 @@ export class Plugin {
     get_resource_infos(): Gee.ArrayList
     get_icon_infos(): Gee.ArrayList
     get_default_icons(): Gee.ArrayList
+<<<<<<< HEAD
     /* Methods of GUPnP-1.0.GUPnP.ResourceFactory */
+=======
+    /* Methods of GUPnP.ResourceFactory */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     register_resource_proxy_type(upnp_type: string, type: GObject.Type): void
     register_resource_type(upnp_type: string, type: GObject.Type): void
     unregister_resource_proxy_type(upnp_type: string): boolean
     unregister_resource_type(upnp_type: string): boolean
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -1054,6 +1650,17 @@ export class Plugin {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1061,23 +1668,41 @@ export class Plugin {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of RygelCore-2.4.RygelCore.Plugin */
     vfunc_apply_hacks(device: RootDevice, description_path: string): void
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of RygelCore.Plugin */
+    vfunc_apply_hacks(device: RootDevice, description_path: string): void
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: Plugin, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Plugin, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1111,6 +1736,7 @@ export interface MediaDevice_ConstructProps extends GObject.Object_ConstructProp
     capabilities?: PluginCapabilities
 }
 export class MediaDevice {
+<<<<<<< HEAD
     /* Properties of RygelCore-2.4.RygelCore.MediaDevice */
     plugin: Plugin
     /* Fields of RygelCore-2.4.RygelCore.MediaDevice */
@@ -1119,6 +1745,16 @@ export class MediaDevice {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelCore-2.4.RygelCore.MediaDevice */
+=======
+    /* Properties of RygelCore.MediaDevice */
+    plugin: Plugin
+    /* Fields of RygelCore.MediaDevice */
+    parent_instance: GObject.Object
+    priv: MediaDevicePrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of RygelCore.MediaDevice */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     add_interface(iface: string): void
     remove_interface(iface: string): void
     get_interfaces(): string[]
@@ -1126,6 +1762,7 @@ export class MediaDevice {
     set_plugin(value: Plugin): void
     get_title(): string
     get_capabilities(): PluginCapabilities
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -1135,6 +1772,17 @@ export class MediaDevice {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1142,21 +1790,37 @@ export class MediaDevice {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: MediaDevice, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MediaDevice, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1174,12 +1838,21 @@ export class MediaDevice {
 export interface BaseConfiguration_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class BaseConfiguration {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.BaseConfiguration */
     parent_instance: GObject.Object
     priv: BaseConfigurationPrivate
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelCore-2.4.RygelCore.BaseConfiguration */
+=======
+    /* Fields of RygelCore.BaseConfiguration */
+    parent_instance: GObject.Object
+    priv: BaseConfigurationPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of RygelCore.BaseConfiguration */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_upnp_enabled(): boolean
     get_interface(): string
     get_interfaces(): string[]
@@ -1201,6 +1874,7 @@ export class BaseConfiguration {
     get_int(section: string, key: string, min: number, max: number): number
     get_int_list(section: string, key: string): Gee.ArrayList
     get_bool(section: string, key: string): boolean
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -1210,6 +1884,17 @@ export class BaseConfiguration {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1217,13 +1902,26 @@ export class BaseConfiguration {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of RygelCore-2.4.RygelCore.BaseConfiguration */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of RygelCore.Configuration */
+    get_video_upload_folder(): string | null
+    get_music_upload_folder(): string | null
+    get_picture_upload_folder(): string | null
+    /* Virtual methods of RygelCore.BaseConfiguration */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_upnp_enabled(): boolean
     vfunc_get_interface(): string
     vfunc_get_interfaces(): string[]
@@ -1236,8 +1934,16 @@ export class BaseConfiguration {
     vfunc_get_engine_path(): string
     vfunc_get_media_engine(): string
     vfunc_get_video_upload_folder(): string
+<<<<<<< HEAD
     vfunc_get_music_upload_folder(): string
     vfunc_get_picture_upload_folder(): string
+=======
+    vfunc_get_video_upload_folder(): string | null
+    vfunc_get_music_upload_folder(): string
+    vfunc_get_music_upload_folder(): string | null
+    vfunc_get_picture_upload_folder(): string
+    vfunc_get_picture_upload_folder(): string | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_enabled(section: string): boolean
     vfunc_get_title(section: string): string
     vfunc_get_string(section: string, key: string): string
@@ -1245,11 +1951,16 @@ export class BaseConfiguration {
     vfunc_get_int(section: string, key: string, min: number, max: number): number
     vfunc_get_int_list(section: string, key: string): Gee.ArrayList
     vfunc_get_bool(section: string, key: string): boolean
+<<<<<<< HEAD
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
@@ -1267,6 +1978,25 @@ export class BaseConfiguration {
     connect(sigName: "setting_changed", callback: (($obj: BaseConfiguration, section: string, key: string) => void)): number
     connect_after(sigName: "setting_changed", callback: (($obj: BaseConfiguration, section: string, key: string) => void)): number
     emit(sigName: "setting_changed", section: string, key: string): void
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: BaseConfiguration, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: BaseConfiguration, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    /* Signals of RygelCore.Configuration */
+    connect(sigName: "configuration-changed", callback: (($obj: BaseConfiguration, entry: ConfigurationEntry) => void)): number
+    connect_after(sigName: "configuration-changed", callback: (($obj: BaseConfiguration, entry: ConfigurationEntry) => void)): number
+    emit(sigName: "configuration-changed", entry: ConfigurationEntry): void
+    connect(sigName: "section-changed", callback: (($obj: BaseConfiguration, section: string, entry: SectionEntry) => void)): number
+    connect_after(sigName: "section-changed", callback: (($obj: BaseConfiguration, section: string, entry: SectionEntry) => void)): number
+    emit(sigName: "section-changed", section: string, entry: SectionEntry): void
+    connect(sigName: "setting-changed", callback: (($obj: BaseConfiguration, section: string, key: string) => void)): number
+    connect_after(sigName: "setting-changed", callback: (($obj: BaseConfiguration, section: string, key: string) => void)): number
+    emit(sigName: "setting-changed", section: string, key: string): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1283,6 +2013,7 @@ export interface V1Hacks_ConstructProps extends GObject.Object_ConstructProps {
     service_types?: string[]
 }
 export class V1Hacks {
+<<<<<<< HEAD
     /* Properties of RygelCore-2.4.RygelCore.V1Hacks */
     device_type: string
     /* Fields of RygelCore-2.4.RygelCore.V1Hacks */
@@ -1292,10 +2023,22 @@ export class V1Hacks {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of RygelCore-2.4.RygelCore.V1Hacks */
+=======
+    /* Properties of RygelCore.V1Hacks */
+    device_type: string
+    /* Fields of RygelCore.V1Hacks */
+    parent_instance: GObject.Object
+    priv: V1HacksPrivate
+    description_path: string
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of RygelCore.V1Hacks */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     apply_on_device(device: RootDevice, template_path?: string | null): void
     get_device_type(): string
     set_device_type(value: string): void
     get_service_types(): string[]
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -1305,6 +2048,17 @@ export class V1Hacks {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1312,21 +2066,37 @@ export class V1Hacks {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: V1Hacks, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: V1Hacks, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1348,6 +2118,7 @@ export interface PluginInformation_ConstructProps extends GObject.Object_Constru
     name?: string
 }
 export class PluginInformation {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.PluginInformation */
     parent_instance: GObject.Object
     priv: PluginInformationPrivate
@@ -1365,6 +2136,25 @@ export class PluginInformation {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of RygelCore.PluginInformation */
+    parent_instance: GObject.Object
+    priv: PluginInformationPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of RygelCore.PluginInformation */
+    get_module_path(): string
+    get_name(): string
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1372,21 +2162,37 @@ export class PluginInformation {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: PluginInformation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: PluginInformation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1402,7 +2208,11 @@ export class PluginInformation {
     static $gtype: GObject.Type
 }
 export abstract class ConnectionManagerClass {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.ConnectionManagerClass */
+=======
+    /* Fields of RygelCore.ConnectionManagerClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GUPnP.ServiceClass
     get_current_protocol_info: (self: ConnectionManager) => string
     static name: string
@@ -1411,7 +2221,11 @@ export class ConnectionManagerPrivate {
     static name: string
 }
 export abstract class BasicManagementClass {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.BasicManagementClass */
+=======
+    /* Fields of RygelCore.BasicManagementClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GUPnP.ServiceClass
     static name: string
 }
@@ -1419,7 +2233,11 @@ export class BasicManagementPrivate {
     static name: string
 }
 export abstract class DescriptionFileClass {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.DescriptionFileClass */
+=======
+    /* Fields of RygelCore.DescriptionFileClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1427,7 +2245,11 @@ export class DescriptionFilePrivate {
     static name: string
 }
 export class DLNAProfile {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.DLNAProfile */
+=======
+    /* Fields of RygelCore.DLNAProfile */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     mime: string
     name: string
     static name: string
@@ -1438,7 +2260,11 @@ export class DLNAProfile {
     static compare_by_name(a: DLNAProfile, b: DLNAProfile): number
 }
 export abstract class RootDeviceClass {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.RootDeviceClass */
+=======
+    /* Fields of RygelCore.RootDeviceClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GUPnP.RootDeviceClass
     static name: string
 }
@@ -1446,7 +2272,11 @@ export class RootDevicePrivate {
     static name: string
 }
 export abstract class RootDeviceFactoryClass {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.RootDeviceFactoryClass */
+=======
+    /* Fields of RygelCore.RootDeviceFactoryClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1454,7 +2284,11 @@ export class RootDeviceFactoryPrivate {
     static name: string
 }
 export abstract class LogHandlerClass {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.LogHandlerClass */
+=======
+    /* Fields of RygelCore.LogHandlerClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1462,7 +2296,11 @@ export class LogHandlerPrivate {
     static name: string
 }
 export abstract class MetaConfigClass {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.MetaConfigClass */
+=======
+    /* Fields of RygelCore.MetaConfigClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1470,7 +2308,11 @@ export class MetaConfigPrivate {
     static name: string
 }
 export abstract class PluginLoaderClass {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.PluginLoaderClass */
+=======
+    /* Fields of RygelCore.PluginLoaderClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: RecursiveModuleLoaderClass
     static name: string
 }
@@ -1478,7 +2320,11 @@ export class PluginLoaderPrivate {
     static name: string
 }
 export abstract class RecursiveModuleLoaderClass {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.RecursiveModuleLoaderClass */
+=======
+    /* Fields of RygelCore.RecursiveModuleLoaderClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     load_module_from_file: (self: RecursiveModuleLoader, file: Gio.File) => boolean
     load_module_from_info: (self: RecursiveModuleLoader, info: PluginInformation) => boolean
@@ -1488,7 +2334,11 @@ export class RecursiveModuleLoaderPrivate {
     static name: string
 }
 export abstract class PluginClass {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.PluginClass */
+=======
+    /* Fields of RygelCore.PluginClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GUPnP.ResourceFactoryClass
     apply_hacks: (self: Plugin, device: RootDevice, description_path: string) => void
     static name: string
@@ -1497,7 +2347,11 @@ export class PluginPrivate {
     static name: string
 }
 export class ResourceInfo {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.ResourceInfo */
+=======
+    /* Fields of RygelCore.ResourceInfo */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     upnp_type: string
     upnp_id: string
     description_path: string
@@ -1509,7 +2363,11 @@ export class ResourceInfo {
     static new(upnp_id: string, upnp_type: string, description_path: string, type: GObject.Type): ResourceInfo
 }
 export abstract class MediaDeviceClass {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.MediaDeviceClass */
+=======
+    /* Fields of RygelCore.MediaDeviceClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1517,7 +2375,11 @@ export class MediaDevicePrivate {
     static name: string
 }
 export abstract class BaseConfigurationClass {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.BaseConfigurationClass */
+=======
+    /* Fields of RygelCore.BaseConfigurationClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     get_upnp_enabled: (self: BaseConfiguration) => boolean
     get_interface: (self: BaseConfiguration) => string
@@ -1546,7 +2408,11 @@ export class BaseConfigurationPrivate {
     static name: string
 }
 export abstract class V1HacksClass {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.V1HacksClass */
+=======
+    /* Fields of RygelCore.V1HacksClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1554,7 +2420,11 @@ export class V1HacksPrivate {
     static name: string
 }
 export class IconInfo {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.IconInfo */
+=======
+    /* Fields of RygelCore.IconInfo */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     mime_type: string
     uri: string
     file_extension: string
@@ -1576,7 +2446,11 @@ export class XMLUtils {
     static new(): XMLUtils
 }
 export abstract class PluginInformationClass {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.PluginInformationClass */
+=======
+    /* Fields of RygelCore.PluginInformationClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -1584,13 +2458,21 @@ export class PluginInformationPrivate {
     static name: string
 }
 export abstract class DBusInterfaceIface {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.DBusInterfaceIface */
+=======
+    /* Fields of RygelCore.DBusInterfaceIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_iface: GObject.TypeInterface
     shutdown: (self: DBusInterface) => void
     static name: string
 }
 export abstract class ConfigurationIface {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.ConfigurationIface */
+=======
+    /* Fields of RygelCore.ConfigurationIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_iface: GObject.TypeInterface
     get_upnp_enabled: (self: Configuration) => boolean
     get_interface: (self: Configuration) => string
@@ -1616,7 +2498,11 @@ export abstract class ConfigurationIface {
     static name: string
 }
 export abstract class StateMachineIface {
+<<<<<<< HEAD
     /* Fields of RygelCore-2.4.RygelCore.StateMachineIface */
+=======
+    /* Fields of RygelCore.StateMachineIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_iface: GObject.TypeInterface
     run: (self: StateMachine, _callback_?: Gio.AsyncReadyCallback | null) => void
     run_finish: (self: StateMachine, _res_: Gio.AsyncResult) => void

@@ -17,8 +17,7 @@ export interface AudioInformation_ConstructProps extends GObject.Object_Construc
 }
 export class AudioInformation {
     /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.AudioInformation */
-    parent: GObject.Object
-    priv: AudioInformationPrivate
+    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -65,8 +64,7 @@ export interface ContainerInformation_ConstructProps extends GObject.Object_Cons
 }
 export class ContainerInformation {
     /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.ContainerInformation */
-    parent: GObject.Object
-    priv: ContainerInformationPrivate
+    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -113,8 +111,7 @@ export interface ImageInformation_ConstructProps extends GObject.Object_Construc
 }
 export class ImageInformation {
     /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.ImageInformation */
-    parent: GObject.Object
-    priv: ImageInformationPrivate
+    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -167,8 +164,7 @@ export class Information {
     readonly imageInformation: ImageInformation
     readonly videoInformation: VideoInformation
     /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.Information */
-    parent: GObject.Object
-    priv: InformationPrivate
+    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GUPnPDLNA-2.0.GUPnPDLNA.Information */
@@ -249,8 +245,7 @@ export interface Profile_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Profile {
     /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.Profile */
-    parent: GObject.Object
-    priv: ProfilePrivate
+    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GUPnPDLNA-2.0.GUPnPDLNA.Profile */
@@ -307,8 +302,7 @@ export interface ProfileGuesser_ConstructProps extends GObject.Object_ConstructP
 }
 export class ProfileGuesser {
     /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.ProfileGuesser */
-    parent: GObject.Object
-    priv: ProfileGuesserPrivate
+    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GUPnPDLNA-2.0.GUPnPDLNA.ProfileGuesser */
@@ -372,8 +366,7 @@ export interface VideoInformation_ConstructProps extends GObject.Object_Construc
 }
 export class VideoInformation {
     /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.VideoInformation */
-    parent: GObject.Object
-    priv: VideoInformationPrivate
+    parentInstance: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -422,9 +415,6 @@ export abstract class AudioInformationClass {
     reserved: object[]
     static name: string
 }
-export class AudioInformationPrivate {
-    static name: string
-}
 export class BoolValue {
     /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.BoolValue */
     value: boolean
@@ -435,9 +425,6 @@ export abstract class ContainerInformationClass {
     /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.ContainerInformationClass */
     parentClass: GObject.ObjectClass
     reserved: object[]
-    static name: string
-}
-export class ContainerInformationPrivate {
     static name: string
 }
 export class Fraction {
@@ -469,9 +456,6 @@ export abstract class ImageInformationClass {
     reserved: object[]
     static name: string
 }
-export class ImageInformationPrivate {
-    static name: string
-}
 export abstract class InformationClass {
     /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.InformationClass */
     parentClass: GObject.ObjectClass
@@ -481,9 +465,6 @@ export abstract class InformationClass {
     getVideoInformation: (info: Information) => VideoInformation
     getProfileName: (info: Information) => string
     reserved: object[]
-    static name: string
-}
-export class InformationPrivate {
     static name: string
 }
 export class IntRange {
@@ -508,12 +489,6 @@ export abstract class ProfileClass {
 export abstract class ProfileGuesserClass {
     /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.ProfileGuesserClass */
     parentClass: GObject.ObjectClass
-    static name: string
-}
-export class ProfileGuesserPrivate {
-    static name: string
-}
-export class ProfilePrivate {
     static name: string
 }
 export class Restriction {
@@ -545,9 +520,6 @@ export abstract class VideoInformationClass {
     /* Fields of GUPnPDLNA-2.0.GUPnPDLNA.VideoInformationClass */
     parentClass: GObject.ObjectClass
     reserved: object[]
-    static name: string
-}
-export class VideoInformationPrivate {
     static name: string
 }
 }

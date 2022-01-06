@@ -215,6 +215,7 @@ export class Device {
     get_spec(): number
     get_string_descriptor(desc_index: number): string
     get_string_descriptor_bytes(desc_index: number, langid: number): GLib.Bytes
+    get_string_descriptor_bytes_full(desc_index: number, langid: number, length: number): GLib.Bytes
     get_vid(): number
     get_vid_as_str(): string
     interrupt_transfer(endpoint: number, data: Uint8Array[], timeout: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* actual_length */ number | null ]

@@ -42,23 +42,23 @@ export const MICRO_VERSION: number
 export const MINOR_VERSION: number
 export const VERSION_S: string
 export function boxedCanDeserialize(gboxedType: GObject.Type, nodeType: NodeType): boolean
-export function boxedCanSerialize(gboxedType: GObject.Type): { returnType: boolean, nodeType: NodeType }
+export function boxedCanSerialize(gboxedType: GObject.Type): { returnType: boolean, nodeType: NodeType | null }
 export function boxedDeserialize(gboxedType: GObject.Type, node: Node): object | null
 export function boxedSerialize(gboxedType: GObject.Type, boxed?: object | null): Node | null
-export function constructGobject(gtype: GObject.Type, data: string, length: number): GObject.Object
+export function constructGobject(gtype: GObject.Type, data: string, length: number): GObject.Object | null
 export function fromString(str: string): Node | null
 export function gobjectDeserialize(gtype: GObject.Type, node: Node): GObject.Object
-export function gobjectFromData(gtype: GObject.Type, data: string, length: number): GObject.Object
+export function gobjectFromData(gtype: GObject.Type, data: string, length: number): GObject.Object | null
 export function gobjectSerialize(gobject: GObject.Object): Node
-export function gobjectToData(gobject: GObject.Object): { returnType: string, length: number }
-export function gvariantDeserialize(jsonNode: Node, signature?: string | null): GLib.Variant
-export function gvariantDeserializeData(json: string, length: number, signature?: string | null): GLib.Variant
+export function gobjectToData(gobject: GObject.Object): { returnType: string, length: number | null }
+export function gvariantDeserialize(jsonNode: Node, signature?: string | null): GLib.Variant | null
+export function gvariantDeserializeData(json: string, length: number, signature?: string | null): GLib.Variant | null
 export function gvariantSerialize(variant: GLib.Variant): Node
 export function gvariantSerializeData(variant: GLib.Variant): { returnType: string, length: number | null }
 export function parserErrorQuark(): GLib.Quark
 export function pathErrorQuark(): GLib.Quark
 export function readerErrorQuark(): GLib.Quark
-export function serializeGobject(gobject: GObject.Object): { returnType: string, length: number }
+export function serializeGobject(gobject: GObject.Object): { returnType: string, length: number | null }
 export function stringCompare(a: string, b: string): number
 export function stringEqual(a: string, b: string): boolean
 export function stringHash(key: string): number
@@ -173,7 +173,7 @@ export class Generator {
     setIndentChar(indentChar: number): void
     setPretty(isPretty: boolean): void
     setRoot(node: Node): void
-    toData(): { returnType: string, length: number }
+    toData(): { returnType: string, length: number | null }
     toFile(filename: string): boolean
     toGstring(string: GLib.String): GLib.String
     toStream(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): boolean
@@ -480,7 +480,7 @@ export class Array {
     addElement(node: Node): void
     addIntElement(value: number): void
     addNullElement(): void
-    addObjectElement(value: Object): void
+    addObjectElement(value?: Object | null): void
     addStringElement(value: string): void
     dupElement(index: number): Node
     equal(b: Array): boolean
@@ -489,7 +489,7 @@ export class Array {
     getBooleanElement(index: number): boolean
     getDoubleElement(index: number): number
     getElement(index: number): Node
-    getElements(): Node[]
+    getElements(): Node[] | null
     getIntElement(index: number): number
     getLength(): number
     getNullElement(index: number): boolean
@@ -556,7 +556,7 @@ export class Node {
     setDouble(value: number): void
     setInt(value: number): void
     setObject(object?: Object | null): void
-    setParent(parent: Node): void
+    setParent(parent?: Node | null): void
     setString(value: string): void
     setValue(value: any): void
     takeArray(array: Array): void
@@ -576,7 +576,7 @@ export class Object {
     dupMember(memberName: string): Node | null
     equal(b: Object): boolean
     foreachMember(func: ObjectForeach): void
-    getArrayMember(memberName: string): Array
+    getArrayMember(memberName: string): Array | null
     getBooleanMember(memberName: string): boolean
     getBooleanMemberWithDefault(memberName: string, defaultValue: boolean): boolean
     getDoubleMember(memberName: string): number

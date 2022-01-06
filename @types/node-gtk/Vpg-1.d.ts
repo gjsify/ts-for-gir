@@ -4,11 +4,14 @@
 
 import "node"
 import type { Vda } from './Vda-1';
-import type { GCalc } from './GCalc-1';
+import type { GCalc } from './GCalc-2';
+import type { Gio } from './Gio-2.0';
 import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
-import type { Gio } from './Gio-2.0';
 import type { Gee } from './Gee-0.8';
+import type { Json } from './Json-1.0';
+import type { GXml } from './GXml-0.20';
+import type { libxml2 } from './libxml2-2.0';
 
 export declare namespace Vpg {
 
@@ -21,9 +24,6 @@ export class Connection {
     parameters: Vda.ConnectionParameters
     readonly isOpened: boolean
     readonly connectionString: string
-    /* Fields of Vpg-1.Vpg.Connection */
-    parentInstance: GObject.Object
-    priv: ConnectionPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -55,18 +55,11 @@ export class Connection {
     openFinish(res: Gio.AsyncResult): Vda.ConnectionStatus
     openFromString(cncString: string, callback?: Gio.AsyncReadyCallback | null): void
     openFromStringFinish(res: Gio.AsyncResult): Vda.ConnectionStatus
-    addSavepoint(name?: string | null): boolean
-    deleteSavepoint(name?: string | null): boolean
-    rollbackSavepoint(name?: string | null): boolean
-    beginTransaction(name?: string | null): boolean
-    commitTransaction(name?: string | null): boolean
-    rollbackTransaction(name?: string | null): boolean
     parseString(sql: string): Vda.Query
     parseStringPrepared(name: string | null, sql: string): Vda.PreparedQuery | null
     getPreparedQuery(name: string): Vda.PreparedQuery | null
     queryFromCommand(cmd: Vda.SqlCommand, name?: string | null): Vda.PreparedQuery | null
     valueToQuotedString(v: Vda.SqlValue): string
-    currentUser(): Vda.Role | null
     locale(category: string): string
     getStatus(): Vda.ConnectionStatus
     getParameters(): Vda.ConnectionParameters
@@ -145,8 +138,6 @@ export class Connection {
     static $gtype: GObject.Type
 }
 export abstract class ConnectionClass {
-    /* Fields of Vpg-1.Vpg.ConnectionClass */
-    parentClass: GObject.ObjectClass
     static name: string
 }
 export class ConnectionPrivate {

@@ -40,23 +40,23 @@ export const MICRO_VERSION: number
 export const MINOR_VERSION: number
 export const VERSION_S: string
 export function boxed_can_deserialize(gboxed_type: GObject.Type, node_type: NodeType): boolean
-export function boxed_can_serialize(gboxed_type: GObject.Type): [ /* returnType */ boolean, /* node_type */ NodeType ]
+export function boxed_can_serialize(gboxed_type: GObject.Type): [ /* returnType */ boolean, /* node_type */ NodeType | null ]
 export function boxed_deserialize(gboxed_type: GObject.Type, node: Node): object | null
 export function boxed_serialize(gboxed_type: GObject.Type, boxed?: object | null): Node | null
-export function construct_gobject(gtype: GObject.Type, data: string, length: number): GObject.Object
+export function construct_gobject(gtype: GObject.Type, data: string, length: number): GObject.Object | null
 export function from_string(str: string): Node | null
 export function gobject_deserialize(gtype: GObject.Type, node: Node): GObject.Object
-export function gobject_from_data(gtype: GObject.Type, data: string, length: number): GObject.Object
+export function gobject_from_data(gtype: GObject.Type, data: string, length: number): GObject.Object | null
 export function gobject_serialize(gobject: GObject.Object): Node
-export function gobject_to_data(gobject: GObject.Object): [ /* returnType */ string, /* length */ number ]
-export function gvariant_deserialize(json_node: Node, signature?: string | null): GLib.Variant
-export function gvariant_deserialize_data(json: string, length: number, signature?: string | null): GLib.Variant
+export function gobject_to_data(gobject: GObject.Object): [ /* returnType */ string, /* length */ number | null ]
+export function gvariant_deserialize(json_node: Node, signature?: string | null): GLib.Variant | null
+export function gvariant_deserialize_data(json: string, length: number, signature?: string | null): GLib.Variant | null
 export function gvariant_serialize(variant: GLib.Variant): Node
 export function gvariant_serialize_data(variant: GLib.Variant): [ /* returnType */ string, /* length */ number | null ]
 export function parser_error_quark(): GLib.Quark
 export function path_error_quark(): GLib.Quark
 export function reader_error_quark(): GLib.Quark
-export function serialize_gobject(gobject: GObject.Object): [ /* returnType */ string, /* length */ number ]
+export function serialize_gobject(gobject: GObject.Object): [ /* returnType */ string, /* length */ number | null ]
 export function string_compare(a: string, b: string): number
 export function string_equal(a: string, b: string): boolean
 export function string_hash(key: string): number
@@ -180,7 +180,7 @@ export class Generator {
     set_indent_char(indent_char: number): void
     set_pretty(is_pretty: boolean): void
     set_root(node: Node): void
-    to_data(): [ /* returnType */ string, /* length */ number ]
+    to_data(): [ /* returnType */ string, /* length */ number | null ]
     to_file(filename: string): boolean
     to_gstring(string: GLib.String): GLib.String
     to_stream(stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): boolean
@@ -476,7 +476,7 @@ export class Array {
     add_element(node: Node): void
     add_int_element(value: number): void
     add_null_element(): void
-    add_object_element(value: Object): void
+    add_object_element(value?: Object | null): void
     add_string_element(value: string): void
     dup_element(index_: number): Node
     equal(b: Array): boolean
@@ -485,7 +485,7 @@ export class Array {
     get_boolean_element(index_: number): boolean
     get_double_element(index_: number): number
     get_element(index_: number): Node
-    get_elements(): Node[]
+    get_elements(): Node[] | null
     get_int_element(index_: number): number
     get_length(): number
     get_null_element(index_: number): boolean
@@ -552,7 +552,7 @@ export class Node {
     set_double(value: number): void
     set_int(value: number): void
     set_object(object?: Object | null): void
-    set_parent(parent: Node): void
+    set_parent(parent?: Node | null): void
     set_string(value: string): void
     set_value(value: any): void
     take_array(array: Array): void
@@ -572,7 +572,7 @@ export class Object {
     dup_member(member_name: string): Node | null
     equal(b: Object): boolean
     foreach_member(func: ObjectForeach): void
-    get_array_member(member_name: string): Array
+    get_array_member(member_name: string): Array | null
     get_boolean_member(member_name: string): boolean
     get_boolean_member_with_default(member_name: string, default_value: boolean): boolean
     get_double_member(member_name: string): number

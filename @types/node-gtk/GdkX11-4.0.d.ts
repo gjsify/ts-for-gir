@@ -6,6 +6,7 @@ import "node"
 import type { xlib } from './xlib-2.0';
 import type { Gdk } from './Gdk-4.0';
 import type { cairo } from './cairo-1.0';
+import type { PangoCairo } from './PangoCairo-1.0';
 import type { Pango } from './Pango-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { GObject } from './GObject-2.0';
@@ -78,6 +79,11 @@ export class X11AppLaunchContext {
     once(sigName: "launch-failed", callback: (startupNotifyId: string) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "launch-failed", callback: (startupNotifyId: string) => void): NodeJS.EventEmitter
     emit(sigName: "launch-failed", startupNotifyId: string): void
+    connect(sigName: "launch-started", callback: (($obj: X11AppLaunchContext, info: Gio.AppInfo, platformData?: GLib.Variant | null) => void)): number
+    on(sigName: "launch-started", callback: (info: Gio.AppInfo, platformData?: GLib.Variant | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "launch-started", callback: (info: Gio.AppInfo, platformData?: GLib.Variant | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "launch-started", callback: (info: Gio.AppInfo, platformData?: GLib.Variant | null) => void): NodeJS.EventEmitter
+    emit(sigName: "launch-started", info: Gio.AppInfo, platformData?: GLib.Variant | null): void
     connect(sigName: "launched", callback: (($obj: X11AppLaunchContext, info: Gio.AppInfo, platformData: GLib.Variant) => void)): number
     on(sigName: "launched", callback: (info: Gio.AppInfo, platformData: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "launched", callback: (info: Gio.AppInfo, platformData: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
@@ -181,6 +187,7 @@ export class X11DeviceXI2 {
     getSeat(): Gdk.Seat
     getSource(): Gdk.InputSource
     getSurfaceAtPosition(): { returnType: Gdk.Surface | null, winX: number | null, winY: number | null }
+    getTimestamp(): number
     getVendorId(): string | null
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -292,6 +299,8 @@ export class X11Display {
     errorTrapPopIgnored(): void
     errorTrapPush(): void
     getDefaultGroup(): Gdk.Surface
+    getEglDisplay(): object | null
+    getEglVersion(): { returnType: boolean, major: number, minor: number }
     getGlxVersion(): { returnType: boolean, major: number, minor: number }
     getPrimaryMonitor(): Gdk.Monitor
     getScreen(): X11Screen
@@ -312,6 +321,7 @@ export class X11Display {
     /* Methods of Gdk-4.0.Gdk.Display */
     beep(): void
     close(): void
+    createGlContext(): Gdk.GLContext
     deviceIsGrabbed(device: Gdk.Device): boolean
     flush(): void
     getAppLaunchContext(): Gdk.AppLaunchContext
@@ -330,6 +340,7 @@ export class X11Display {
     mapKeycode(keycode: number): { returnType: boolean, keys: Gdk.KeymapKey[] | null, keyvals: number[] | null }
     mapKeyval(keyval: number): { returnType: boolean, keys: Gdk.KeymapKey[] }
     notifyStartupComplete(startupId: string): void
+    prepareGl(): boolean
     putEvent(event: Gdk.Event): void
     supportsInputShapes(): boolean
     sync(): void
@@ -519,11 +530,14 @@ export class X11Drag {
 export interface X11GLContext_ConstructProps extends Gdk.GLContext_ConstructProps {
 }
 export class X11GLContext {
-    /* Properties of Gdk-4.0.Gdk.DrawContext */
-    readonly display: Gdk.Display
+    /* Properties of Gdk-4.0.Gdk.GLContext */
+    allowedApis: Gdk.GLAPI
+    readonly api: Gdk.GLAPI
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.GLContext */
+    getAllowedApis(): Gdk.GLAPI
+    getApi(): Gdk.GLAPI
     getDebugEnabled(): boolean
     getDisplay(): Gdk.Display | null
     getForwardCompatible(): boolean
@@ -533,8 +547,10 @@ export class X11GLContext {
     getUseEs(): boolean
     getVersion(): { major: number, minor: number }
     isLegacy(): boolean
+    isShared(other: Gdk.GLContext): boolean
     makeCurrent(): void
     realize(): boolean
+    setAllowedApis(apis: Gdk.GLAPI): void
     setDebugEnabled(enabled: boolean): void
     setForwardCompatible(compatible: boolean): void
     setRequiredVersion(major: number, minor: number): void
@@ -572,11 +588,16 @@ export class X11GLContext {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::display", callback: (($obj: X11GLContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::display", callback: (($obj: X11GLContext, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::display", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::display", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::display", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::allowed-apis", callback: (($obj: X11GLContext, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::allowed-apis", callback: (($obj: X11GLContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::allowed-apis", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::allowed-apis", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::allowed-apis", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::api", callback: (($obj: X11GLContext, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::api", callback: (($obj: X11GLContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::api", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::api", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::api", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void

@@ -219,7 +219,6 @@ export enum FindOptions {
     WHOLE_WORDS_ONLY,
 }
 export const MAJOR_VERSION: number
-export const MICRO_VERSION: number
 export const MINOR_VERSION: number
 export function backendsManagerGetDocument(mimeType: string): Document
 export function backendsManagerGetDocumentModuleName(document: Document): string
@@ -291,6 +290,7 @@ export class AnnotationMarkup {
     setContents(contents: string): boolean
     setModified(modified: string): boolean
     setModifiedFromTime(utime: GLib.Time): boolean
+    setModifiedFromTimeT(utime: number): boolean
     setName(name: string): boolean
     setRgba(rgba: Gdk.RGBA): boolean
     /* Methods of GObject-2.0.GObject.Object */
@@ -566,6 +566,7 @@ export class Annotation {
     setContents(contents: string): boolean
     setModified(modified: string): boolean
     setModifiedFromTime(utime: GLib.Time): boolean
+    setModifiedFromTimeT(utime: number): boolean
     setName(name: string): boolean
     setRgba(rgba: Gdk.RGBA): boolean
     /* Methods of GObject-2.0.GObject.Object */
@@ -685,6 +686,7 @@ export class AnnotationAttachment {
     setContents(contents: string): boolean
     setModified(modified: string): boolean
     setModifiedFromTime(utime: GLib.Time): boolean
+    setModifiedFromTimeT(utime: number): boolean
     setName(name: string): boolean
     setRgba(rgba: Gdk.RGBA): boolean
     /* Methods of GObject-2.0.GObject.Object */
@@ -855,6 +857,7 @@ export class AnnotationText {
     setContents(contents: string): boolean
     setModified(modified: string): boolean
     setModifiedFromTime(utime: GLib.Time): boolean
+    setModifiedFromTimeT(utime: number): boolean
     setName(name: string): boolean
     setRgba(rgba: Gdk.RGBA): boolean
     /* Methods of GObject-2.0.GObject.Object */
@@ -1026,6 +1029,7 @@ export class AnnotationTextMarkup {
     setContents(contents: string): boolean
     setModified(modified: string): boolean
     setModifiedFromTime(utime: GLib.Time): boolean
+    setModifiedFromTimeT(utime: number): boolean
     setName(name: string): boolean
     setRgba(rgba: Gdk.RGBA): boolean
     /* Methods of GObject-2.0.GObject.Object */
@@ -2122,6 +2126,7 @@ export interface TransitionEffect_ConstructProps extends GObject.Object_Construc
     angle?: number
     direction?: TransitionEffectDirection
     duration?: number
+    durationReal?: number
     rectangular?: boolean
     scale?: number
     type?: TransitionEffectType
@@ -2132,6 +2137,7 @@ export class TransitionEffect {
     angle: number
     direction: TransitionEffectDirection
     duration: number
+    durationReal: number
     rectangular: boolean
     scale: number
     type: TransitionEffectType
@@ -2187,6 +2193,11 @@ export class TransitionEffect {
     on(sigName: "notify::duration", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::duration", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::duration", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::duration-real", callback: (($obj: TransitionEffect, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::duration-real", callback: (($obj: TransitionEffect, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::duration-real", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::duration-real", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::duration-real", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::rectangular", callback: (($obj: TransitionEffect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::rectangular", callback: (($obj: TransitionEffect, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::rectangular", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2339,8 +2350,8 @@ export class DocumentInfo {
     producer: string
     linearized: string
     security: string
-    creationDate: GLib.Time
-    modifiedDate: GLib.Time
+    creationDate: GLib.DateTime
+    modifiedDate: GLib.DateTime
     layout: DocumentLayout
     mode: DocumentMode
     uiHints: number

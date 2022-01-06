@@ -4,6 +4,7 @@
 
 import type * as Gjs from './Gjs';
 import type * as cairo from './cairo-1.0';
+import type * as PangoCairo from './PangoCairo-1.0';
 import type * as Pango from './Pango-1.0';
 import type * as HarfBuzz from './HarfBuzz-0.0';
 import type * as GObject from './GObject-2.0';
@@ -136,6 +137,15 @@ export enum MemoryFormat {
     A8B8G8R8,
     R8G8B8,
     B8G8R8,
+    R16G16B16,
+    R16G16B16A16_PREMULTIPLIED,
+    R16G16B16A16,
+    R16G16B16_FLOAT,
+    R16G16B16A16_FLOAT_PREMULTIPLIED,
+    R16G16B16A16_FLOAT,
+    R32G32B32_FLOAT,
+    R32G32B32A32_FLOAT_PREMULTIPLIED,
+    R32G32B32A32_FLOAT,
     N_FORMATS,
 }
 export enum NotifyType {
@@ -170,6 +180,17 @@ export enum SurfaceEdge {
     SOUTH_WEST,
     SOUTH,
     SOUTH_EAST,
+}
+export enum TextureError {
+    TOO_LARGE,
+    CORRUPT_IMAGE,
+    UNSUPPORTED_CONTENT,
+    UNSUPPORTED_FORMAT,
+}
+export enum TitlebarGesture {
+    DOUBLE_CLICK,
+    RIGHT_CLICK,
+    MIDDLE_CLICK,
 }
 export enum TouchpadGesturePhase {
     BEGIN,
@@ -220,6 +241,10 @@ export enum FrameClockPhase {
     PAINT,
     RESUME_EVENTS,
     AFTER_PAINT,
+}
+export enum GLAPI {
+    GL,
+    GLES,
 }
 export enum ModifierType {
     SHIFT_MASK,
@@ -2562,6 +2587,7 @@ export function cairo_set_source_pixbuf(cr: cairo.Context, pixbuf: GdkPixbuf.Pix
 export function cairo_set_source_rgba(cr: cairo.Context, rgba: RGBA): void
 export function content_deserialize_async(stream: Gio.InputStream, mime_type: string, type: GObject.Type, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
 export function content_deserialize_finish(result: Gio.AsyncResult, value: any): boolean
+export function content_formats_parse(string: string): ContentFormats | null
 export function content_register_deserializer(mime_type: string, type: GObject.Type, deserialize: ContentDeserializeFunc): void
 export function content_register_serializer(type: GObject.Type, mime_type: string, serialize: ContentSerializeFunc): void
 export function content_serialize_async(stream: Gio.OutputStream, mime_type: string, value: any, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -2571,7 +2597,7 @@ export function events_get_angle(event1: Event, event2: Event): [ /* returnType 
 export function events_get_center(event1: Event, event2: Event): [ /* returnType */ boolean, /* x */ number, /* y */ number ]
 export function events_get_distance(event1: Event, event2: Event): [ /* returnType */ boolean, /* distance */ number ]
 export function gl_error_quark(): GLib.Quark
-export function intern_mime_type(string: string): string
+export function intern_mime_type(string: string): string | null
 export function keyval_convert_case(symbol: number): [ /* lower */ number, /* upper */ number ]
 export function keyval_from_name(keyval_name: string): number
 export function keyval_is_lower(keyval: number): boolean
@@ -2584,6 +2610,7 @@ export function paintable_new_empty(intrinsic_width: number, intrinsic_height: n
 export function pixbuf_get_from_surface(surface: cairo.Surface, src_x: number, src_y: number, width: number, height: number): GdkPixbuf.Pixbuf | null
 export function pixbuf_get_from_texture(texture: Texture): GdkPixbuf.Pixbuf | null
 export function set_allowed_backends(backends: string): void
+export function texture_error_quark(): GLib.Quark
 export function toplevel_size_get_type(): GObject.Type
 export function unicode_to_keyval(wc: number): number
 export function vulkan_error_quark(): GLib.Quark
@@ -2628,6 +2655,7 @@ export class DevicePad {
     get_seat(): Seat
     get_source(): InputSource
     get_surface_at_position(): [ /* returnType */ Surface | null, /* win_x */ number | null, /* win_y */ number | null ]
+    get_timestamp(): number
     get_vendor_id(): string | null
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -2997,6 +3025,7 @@ export class Toplevel {
     set_transient_for(parent: Surface): void
     show_window_menu(event: Event): boolean
     supports_edge_constraints(): boolean
+    titlebar_gesture(gesture: TitlebarGesture): boolean
     /* Methods of Gdk-4.0.Gdk.Surface */
     beep(): void
     create_cairo_context(): CairoContext
@@ -3162,6 +3191,7 @@ export class AppLaunchContext {
     vfunc_get_display(info: Gio.AppInfo, files: Gio.File[]): string | null
     vfunc_get_startup_notify_id(info: Gio.AppInfo, files: Gio.File[]): string | null
     vfunc_launch_failed(startup_notify_id: string): void
+    vfunc_launch_started(info: Gio.AppInfo, platform_data: GLib.Variant): void
     vfunc_launched(info: Gio.AppInfo, platform_data: GLib.Variant): void
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
@@ -3175,6 +3205,9 @@ export class AppLaunchContext {
     connect(sigName: "launch-failed", callback: (($obj: AppLaunchContext, startup_notify_id: string) => void)): number
     connect_after(sigName: "launch-failed", callback: (($obj: AppLaunchContext, startup_notify_id: string) => void)): number
     emit(sigName: "launch-failed", startup_notify_id: string): void
+    connect(sigName: "launch-started", callback: (($obj: AppLaunchContext, info: Gio.AppInfo, platform_data?: GLib.Variant | null) => void)): number
+    connect_after(sigName: "launch-started", callback: (($obj: AppLaunchContext, info: Gio.AppInfo, platform_data?: GLib.Variant | null) => void)): number
+    emit(sigName: "launch-started", info: Gio.AppInfo, platform_data?: GLib.Variant | null): void
     connect(sigName: "launched", callback: (($obj: AppLaunchContext, info: Gio.AppInfo, platform_data: GLib.Variant) => void)): number
     connect_after(sigName: "launched", callback: (($obj: AppLaunchContext, info: Gio.AppInfo, platform_data: GLib.Variant) => void)): number
     emit(sigName: "launched", info: Gio.AppInfo, platform_data: GLib.Variant): void
@@ -3220,8 +3253,6 @@ export class ButtonEvent {
 export interface CairoContext_ConstructProps extends DrawContext_ConstructProps {
 }
 export class CairoContext {
-    /* Properties of Gdk-4.0.Gdk.DrawContext */
-    readonly display: Display
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.CairoContext */
@@ -3267,8 +3298,6 @@ export class CairoContext {
     connect(sigName: "notify", callback: (($obj: CairoContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CairoContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::display", callback: (($obj: CairoContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::display", callback: (($obj: CairoContext, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3293,7 +3322,7 @@ export class Clipboard {
     get_display(): Display
     get_formats(): ContentFormats
     is_local(): boolean
-    read_async(mime_types: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    read_async(mime_types: string[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     read_finish(result: Gio.AsyncResult): [ /* returnType */ Gio.InputStream | null, /* out_mime_type */ string | null ]
     read_text_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     read_text_finish(result: Gio.AsyncResult): string | null
@@ -3753,6 +3782,7 @@ export class Device {
     get_seat(): Seat
     get_source(): InputSource
     get_surface_at_position(): [ /* returnType */ Surface | null, /* win_x */ number | null, /* win_y */ number | null ]
+    get_timestamp(): number
     get_vendor_id(): string | null
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -3891,6 +3921,7 @@ export class Display {
     /* Methods of Gdk-4.0.Gdk.Display */
     beep(): void
     close(): void
+    create_gl_context(): GLContext
     device_is_grabbed(device: Device): boolean
     flush(): void
     get_app_launch_context(): AppLaunchContext
@@ -3909,6 +3940,7 @@ export class Display {
     map_keycode(keycode: number): [ /* returnType */ boolean, /* keys */ KeymapKey[] | null, /* keyvals */ number[] | null ]
     map_keyval(keyval: number): [ /* returnType */ boolean, /* keys */ KeymapKey[] ]
     notify_startup_complete(startup_id: string): void
+    prepare_gl(): boolean
     put_event(event: Event): void
     supports_input_shapes(): boolean
     sync(): void
@@ -4133,11 +4165,10 @@ export class Drag {
     static $gtype: GObject.Type
 }
 export interface DrawContext_ConstructProps extends GObject.Object_ConstructProps {
+    display?: Display
     surface?: Surface
 }
 export class DrawContext {
-    /* Properties of Gdk-4.0.Gdk.DrawContext */
-    readonly display: Display
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.DrawContext */
@@ -4181,8 +4212,6 @@ export class DrawContext {
     connect(sigName: "notify", callback: (($obj: DrawContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DrawContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::display", callback: (($obj: DrawContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::display", callback: (($obj: DrawContext, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4394,14 +4423,18 @@ export class FrameClock {
     static $gtype: GObject.Type
 }
 export interface GLContext_ConstructProps extends DrawContext_ConstructProps {
+    allowed_apis?: GLAPI
     shared_context?: GLContext
 }
 export class GLContext {
-    /* Properties of Gdk-4.0.Gdk.DrawContext */
-    readonly display: Display
+    /* Properties of Gdk-4.0.Gdk.GLContext */
+    allowed_apis: GLAPI
+    readonly api: GLAPI
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.GLContext */
+    get_allowed_apis(): GLAPI
+    get_api(): GLAPI
     get_debug_enabled(): boolean
     get_display(): Display | null
     get_forward_compatible(): boolean
@@ -4411,8 +4444,10 @@ export class GLContext {
     get_use_es(): boolean
     get_version(): [ /* major */ number, /* minor */ number ]
     is_legacy(): boolean
+    is_shared(other: GLContext): boolean
     make_current(): void
     realize(): boolean
+    set_allowed_apis(apis: GLAPI): void
     set_debug_enabled(enabled: boolean): void
     set_forward_compatible(compatible: boolean): void
     set_required_version(major: number, minor: number): void
@@ -4456,8 +4491,10 @@ export class GLContext {
     connect(sigName: "notify", callback: (($obj: GLContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GLContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::display", callback: (($obj: GLContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::display", callback: (($obj: GLContext, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::allowed-apis", callback: (($obj: GLContext, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::allowed-apis", callback: (($obj: GLContext, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::api", callback: (($obj: GLContext, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::api", callback: (($obj: GLContext, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4479,9 +4516,13 @@ export class GLTexture {
     release(): void
     /* Methods of Gdk-4.0.Gdk.Texture */
     download(data: Uint8Array[], stride: number): void
+    download_float(data: number[], stride: number): void
     get_height(): number
     get_width(): number
     save_to_png(filename: string): boolean
+    save_to_png_bytes(): GLib.Bytes
+    save_to_tiff(filename: string): boolean
+    save_to_tiff_bytes(): GLib.Bytes
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -4514,6 +4555,14 @@ export class GLTexture {
     invalidate_contents(): void
     invalidate_size(): void
     snapshot(snapshot: Snapshot, width: number, height: number): void
+    /* Methods of Gio-2.0.Gio.Icon */
+    equal(icon2?: Gio.Icon | null): boolean
+    serialize(): GLib.Variant | null
+    to_string(): string | null
+    /* Methods of Gio-2.0.Gio.LoadableIcon */
+    load(size: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ Gio.InputStream, /* type */ string | null ]
+    load_async(size: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    load_finish(res: Gio.AsyncResult): [ /* returnType */ Gio.InputStream, /* type */ string | null ]
     /* Virtual methods of Gdk-4.0.Gdk.Texture */
     vfunc_get_current_image(): Paintable
     vfunc_get_flags(): PaintableFlags
@@ -4521,6 +4570,12 @@ export class GLTexture {
     vfunc_get_intrinsic_height(): number
     vfunc_get_intrinsic_width(): number
     vfunc_snapshot(snapshot: Snapshot, width: number, height: number): void
+    vfunc_equal(icon2?: Gio.Icon | null): boolean
+    vfunc_hash(): number
+    vfunc_serialize(): GLib.Variant | null
+    vfunc_load(size: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ Gio.InputStream, /* type */ string | null ]
+    vfunc_load_async(size: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfunc_load_finish(res: Gio.AsyncResult): [ /* returnType */ Gio.InputStream, /* type */ string | null ]
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4618,9 +4673,13 @@ export class MemoryTexture {
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.Texture */
     download(data: Uint8Array[], stride: number): void
+    download_float(data: number[], stride: number): void
     get_height(): number
     get_width(): number
     save_to_png(filename: string): boolean
+    save_to_png_bytes(): GLib.Bytes
+    save_to_tiff(filename: string): boolean
+    save_to_tiff_bytes(): GLib.Bytes
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -4653,6 +4712,14 @@ export class MemoryTexture {
     invalidate_contents(): void
     invalidate_size(): void
     snapshot(snapshot: Snapshot, width: number, height: number): void
+    /* Methods of Gio-2.0.Gio.Icon */
+    equal(icon2?: Gio.Icon | null): boolean
+    serialize(): GLib.Variant | null
+    to_string(): string | null
+    /* Methods of Gio-2.0.Gio.LoadableIcon */
+    load(size: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ Gio.InputStream, /* type */ string | null ]
+    load_async(size: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    load_finish(res: Gio.AsyncResult): [ /* returnType */ Gio.InputStream, /* type */ string | null ]
     /* Virtual methods of Gdk-4.0.Gdk.Texture */
     vfunc_get_current_image(): Paintable
     vfunc_get_flags(): PaintableFlags
@@ -4660,6 +4727,12 @@ export class MemoryTexture {
     vfunc_get_intrinsic_height(): number
     vfunc_get_intrinsic_width(): number
     vfunc_snapshot(snapshot: Snapshot, width: number, height: number): void
+    vfunc_equal(icon2?: Gio.Icon | null): boolean
+    vfunc_hash(): number
+    vfunc_serialize(): GLib.Variant | null
+    vfunc_load(size: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ Gio.InputStream, /* type */ string | null ]
+    vfunc_load_async(size: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfunc_load_finish(res: Gio.AsyncResult): [ /* returnType */ Gio.InputStream, /* type */ string | null ]
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -5129,9 +5202,13 @@ export class Texture {
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.Texture */
     download(data: Uint8Array[], stride: number): void
+    download_float(data: number[], stride: number): void
     get_height(): number
     get_width(): number
     save_to_png(filename: string): boolean
+    save_to_png_bytes(): GLib.Bytes
+    save_to_tiff(filename: string): boolean
+    save_to_tiff_bytes(): GLib.Bytes
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -5164,6 +5241,14 @@ export class Texture {
     invalidate_contents(): void
     invalidate_size(): void
     snapshot(snapshot: Snapshot, width: number, height: number): void
+    /* Methods of Gio-2.0.Gio.Icon */
+    equal(icon2?: Gio.Icon | null): boolean
+    serialize(): GLib.Variant | null
+    to_string(): string | null
+    /* Methods of Gio-2.0.Gio.LoadableIcon */
+    load(size: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ Gio.InputStream, /* type */ string | null ]
+    load_async(size: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    load_finish(res: Gio.AsyncResult): [ /* returnType */ Gio.InputStream, /* type */ string | null ]
     /* Virtual methods of Gdk-4.0.Gdk.Texture */
     vfunc_get_current_image(): Paintable
     vfunc_get_flags(): PaintableFlags
@@ -5171,6 +5256,12 @@ export class Texture {
     vfunc_get_intrinsic_height(): number
     vfunc_get_intrinsic_width(): number
     vfunc_snapshot(snapshot: Snapshot, width: number, height: number): void
+    vfunc_equal(icon2?: Gio.Icon | null): boolean
+    vfunc_hash(): number
+    vfunc_serialize(): GLib.Variant | null
+    vfunc_load(size: number, cancellable?: Gio.Cancellable | null): [ /* returnType */ Gio.InputStream, /* type */ string | null ]
+    vfunc_load_async(size: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    vfunc_load_finish(res: Gio.AsyncResult): [ /* returnType */ Gio.InputStream, /* type */ string | null ]
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -5199,9 +5290,14 @@ export class Texture {
     _init (config?: Texture_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new_for_pixbuf(pixbuf: GdkPixbuf.Pixbuf): Texture
+    static new_from_bytes(bytes: GLib.Bytes): Texture
     static new_from_file(file: Gio.File): Texture
+    static new_from_filename(path: string): Texture
     static new_from_resource(resource_path: string): Texture
     static new_empty(intrinsic_width: number, intrinsic_height: number): Paintable
+    static deserialize(value: GLib.Variant): Gio.Icon | null
+    static hash(icon: object): number
+    static new_for_string(str: string): Gio.Icon
     static $gtype: GObject.Type
 }
 export class TouchEvent {
@@ -5263,8 +5359,6 @@ export class TouchpadEvent {
 export interface VulkanContext_ConstructProps extends DrawContext_ConstructProps {
 }
 export class VulkanContext {
-    /* Properties of Gdk-4.0.Gdk.DrawContext */
-    readonly display: Display
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.DrawContext */
@@ -5316,8 +5410,6 @@ export class VulkanContext {
     connect(sigName: "notify", callback: (($obj: VulkanContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: VulkanContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::display", callback: (($obj: VulkanContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::display", callback: (($obj: VulkanContext, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5334,7 +5426,7 @@ export class ContentFormats {
     contain_gtype(type: GObject.Type): boolean
     contain_mime_type(mime_type: string): boolean
     get_gtypes(): GObject.Type[] | null
-    get_mime_types(): [ /* returnType */ string[] | null, /* n_mime_types */ number | null ]
+    get_mime_types(): string[] | null
     match(second: ContentFormats): boolean
     match_gtype(second: ContentFormats): GObject.Type
     match_mime_type(second: ContentFormats): string | null
@@ -5353,6 +5445,7 @@ export class ContentFormats {
     /* Static methods and pseudo-constructors */
     static new(mime_types: string[] | null): ContentFormats
     static new_for_gtype(type: GObject.Type): ContentFormats
+    static parse(string: string): ContentFormats | null
 }
 export class ContentFormatsBuilder {
     /* Methods of Gdk-4.0.Gdk.ContentFormatsBuilder */
@@ -5387,10 +5480,12 @@ export abstract class DevicePadInterface {
 export abstract class DragSurfaceInterface {
     static name: string
 }
-export class DrawingContext {
+export class EventSequence {
     static name: string
 }
-export class EventSequence {
+export class FileList {
+    /* Methods of Gdk-4.0.Gdk.FileList */
+    get_files(): Gio.File[]
     static name: string
 }
 export abstract class FrameClockClass {

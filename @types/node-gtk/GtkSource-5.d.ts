@@ -10,6 +10,7 @@ import type { GObject } from './GObject-2.0';
 import type { GLib } from './GLib-2.0';
 import type { Gdk } from './Gdk-4.0';
 import type { cairo } from './cairo-1.0';
+import type { PangoCairo } from './PangoCairo-1.0';
 import type { Pango } from './Pango-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { Gio } from './Gio-2.0';
@@ -116,8 +117,14 @@ export function fileLoaderErrorQuark(): GLib.Quark
 export function fileSaverErrorQuark(): GLib.Quark
 export function finalize(): void
 export function init(): void
+export function schedulerAdd(callback: SchedulerCallback): number
+export function schedulerAddFull(callback: SchedulerCallback): number
+export function schedulerRemove(handlerId: number): void
 export function utilsEscapeSearchText(text: string): string
 export function utilsUnescapeSearchText(text: string): string
+export interface SchedulerCallback {
+    (deadline: number): boolean
+}
 export class CompletionProposal {
     static name: string
 }
@@ -126,13 +133,25 @@ export class CompletionProvider {
     activate(context: CompletionContext, proposal: CompletionProposal): void
     display(context: CompletionContext, proposal: CompletionProposal, cell: CompletionCell): void
     getPriority(context: CompletionContext): number
-    getTitle(): string
+    getTitle(): string | null
     isTrigger(iter: Gtk.TextIter, ch: number): boolean
     keyActivates(context: CompletionContext, proposal: CompletionProposal, keyval: number, state: Gdk.ModifierType): boolean
     listAlternates(context: CompletionContext, proposal: CompletionProposal): CompletionProposal[] | null
     populateAsync(context: CompletionContext, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     populateFinish(result: Gio.AsyncResult): Gio.ListModel
     refilter(context: CompletionContext, model: Gio.ListModel): void
+    static name: string
+}
+export class HoverProvider {
+    /* Methods of GtkSource-5.GtkSource.HoverProvider */
+    populateAsync(context: HoverContext, display: HoverDisplay, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    populateFinish(result: Gio.AsyncResult): boolean
+    static name: string
+}
+export class Indenter {
+    /* Methods of GtkSource-5.GtkSource.Indenter */
+    indent(view: View, iter: Gtk.TextIter): { iter: Gtk.TextIter }
+    isTrigger(view: View, location: Gtk.TextIter, state: Gdk.ModifierType, keyval: number): boolean
     static name: string
 }
 export class StyleSchemeChooser {
@@ -1118,7 +1137,6 @@ export class CompletionContext {
     getCompletion(): Completion | null
     getEmpty(): boolean
     getLanguage(): Language | null
-    getStartIter(iter: Gtk.TextIter): void
     getView(): View | null
     getWord(): string
     setProposalsForProvider(provider: CompletionProvider, results?: Gio.ListModel | null): void
@@ -1221,7 +1239,7 @@ export class CompletionSnippets {
     activate(context: CompletionContext, proposal: CompletionProposal): void
     display(context: CompletionContext, proposal: CompletionProposal, cell: CompletionCell): void
     getPriority(context: CompletionContext): number
-    getTitle(): string
+    getTitle(): string | null
     isTrigger(iter: Gtk.TextIter, ch: number): boolean
     keyActivates(context: CompletionContext, proposal: CompletionProposal, keyval: number, state: Gdk.ModifierType): boolean
     listAlternates(context: CompletionContext, proposal: CompletionProposal): CompletionProposal[] | null
@@ -1305,7 +1323,7 @@ export class CompletionWords {
     activate(context: CompletionContext, proposal: CompletionProposal): void
     display(context: CompletionContext, proposal: CompletionProposal, cell: CompletionCell): void
     getPriority(context: CompletionContext): number
-    getTitle(): string
+    getTitle(): string | null
     isTrigger(iter: Gtk.TextIter, ch: number): boolean
     keyActivates(context: CompletionContext, proposal: CompletionProposal, keyval: number, state: Gdk.ModifierType): boolean
     listAlternates(context: CompletionContext, proposal: CompletionProposal): CompletionProposal[] | null
@@ -3916,6 +3934,604 @@ export class GutterRendererText {
     static new(): GutterRendererText
     static $gtype: GObject.Type
 }
+export interface Hover_ConstructProps extends GObject.Object_ConstructProps {
+    hoverDelay?: number
+}
+export class Hover {
+    /* Properties of GtkSource-5.GtkSource.Hover */
+    hoverDelay: number
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GtkSource-5.GtkSource.Hover */
+    addProvider(provider: HoverProvider): void
+    removeProvider(provider: HoverProvider): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: Hover, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::hover-delay", callback: (($obj: Hover, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::hover-delay", callback: (($obj: Hover, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::hover-delay", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::hover-delay", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::hover-delay", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: Hover_ConstructProps)
+    _init (config?: Hover_ConstructProps): void
+    static $gtype: GObject.Type
+}
+export interface HoverContext_ConstructProps extends GObject.Object_ConstructProps {
+}
+export class HoverContext {
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GtkSource-5.GtkSource.HoverContext */
+    getBounds(): { returnType: boolean, begin: Gtk.TextIter | null, end: Gtk.TextIter | null }
+    getBuffer(): Buffer
+    getIter(iter: Gtk.TextIter): boolean
+    getView(): View
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: HoverContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: HoverContext_ConstructProps)
+    _init (config?: HoverContext_ConstructProps): void
+    static $gtype: GObject.Type
+}
+export interface HoverDisplay_ConstructProps extends Gtk.Widget_ConstructProps {
+    accessibleRole?: Gtk.AccessibleRole
+}
+export class HoverDisplay {
+    /* Properties of Gtk-4.0.Gtk.Widget */
+    canFocus: boolean
+    canTarget: boolean
+    cssClasses: string[]
+    cursor: Gdk.Cursor
+    focusOnClick: boolean
+    focusable: boolean
+    halign: Gtk.Align
+    readonly hasDefault: boolean
+    readonly hasFocus: boolean
+    hasTooltip: boolean
+    heightRequest: number
+    hexpand: boolean
+    hexpandSet: boolean
+    layoutManager: Gtk.LayoutManager
+    marginBottom: number
+    marginEnd: number
+    marginStart: number
+    marginTop: number
+    name: string
+    opacity: number
+    overflow: Gtk.Overflow
+    readonly parent: Gtk.Widget
+    receivesDefault: boolean
+    readonly root: Gtk.Root
+    readonly scaleFactor: number
+    sensitive: boolean
+    tooltipMarkup: string
+    tooltipText: string
+    valign: Gtk.Align
+    vexpand: boolean
+    vexpandSet: boolean
+    visible: boolean
+    widthRequest: number
+    /* Properties of Gtk-4.0.Gtk.Accessible */
+    accessibleRole: Gtk.AccessibleRole
+    /* Fields of Gtk-4.0.Gtk.Widget */
+    parentInstance: GObject.InitiallyUnowned
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GtkSource-5.GtkSource.HoverDisplay */
+    append(child: Gtk.Widget): void
+    insertAfter(child: Gtk.Widget, sibling: Gtk.Widget): void
+    prepend(child: Gtk.Widget): void
+    remove(child: Gtk.Widget): void
+    /* Methods of Gtk-4.0.Gtk.Widget */
+    actionSetEnabled(actionName: string, enabled: boolean): void
+    activate(): boolean
+    activateAction(name: string, args?: GLib.Variant | null): boolean
+    activateDefault(): void
+    addController(controller: Gtk.EventController): void
+    addCssClass(cssClass: string): void
+    addMnemonicLabel(label: Gtk.Widget): void
+    addTickCallback(callback: Gtk.TickCallback): number
+    allocate(width: number, height: number, baseline: number, transform?: Gsk.Transform | null): void
+    childFocus(direction: Gtk.DirectionType): boolean
+    computeBounds(target: Gtk.Widget): { returnType: boolean, outBounds: Graphene.Rect }
+    computeExpand(orientation: Gtk.Orientation): boolean
+    computePoint(target: Gtk.Widget, point: Graphene.Point): { returnType: boolean, outPoint: Graphene.Point }
+    computeTransform(target: Gtk.Widget): { returnType: boolean, outTransform: Graphene.Matrix }
+    contains(x: number, y: number): boolean
+    createPangoContext(): Pango.Context
+    createPangoLayout(text?: string | null): Pango.Layout
+    dragCheckThreshold(startX: number, startY: number, currentX: number, currentY: number): boolean
+    errorBell(): void
+    getAllocatedBaseline(): number
+    getAllocatedHeight(): number
+    getAllocatedWidth(): number
+    getAllocation(): { allocation: Gtk.Allocation }
+    getAncestor(widgetType: GObject.Type): Gtk.Widget | null
+    getCanFocus(): boolean
+    getCanTarget(): boolean
+    getChildVisible(): boolean
+    getClipboard(): Gdk.Clipboard
+    getCssClasses(): string[]
+    getCssName(): string
+    getCursor(): Gdk.Cursor | null
+    getDirection(): Gtk.TextDirection
+    getDisplay(): Gdk.Display
+    getFirstChild(): Gtk.Widget | null
+    getFocusChild(): Gtk.Widget | null
+    getFocusOnClick(): boolean
+    getFocusable(): boolean
+    getFontMap(): Pango.FontMap | null
+    getFontOptions(): cairo.FontOptions | null
+    getFrameClock(): Gdk.FrameClock | null
+    getHalign(): Gtk.Align
+    getHasTooltip(): boolean
+    getHeight(): number
+    getHexpand(): boolean
+    getHexpandSet(): boolean
+    getLastChild(): Gtk.Widget | null
+    getLayoutManager(): Gtk.LayoutManager | null
+    getMapped(): boolean
+    getMarginBottom(): number
+    getMarginEnd(): number
+    getMarginStart(): number
+    getMarginTop(): number
+    getName(): string
+    getNative(): Gtk.Native | null
+    getNextSibling(): Gtk.Widget | null
+    getOpacity(): number
+    getOverflow(): Gtk.Overflow
+    getPangoContext(): Pango.Context
+    getParent(): Gtk.Widget | null
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
+    getPrevSibling(): Gtk.Widget | null
+    getPrimaryClipboard(): Gdk.Clipboard
+    getRealized(): boolean
+    getReceivesDefault(): boolean
+    getRequestMode(): Gtk.SizeRequestMode
+    getRoot(): Gtk.Root | null
+    getScaleFactor(): number
+    getSensitive(): boolean
+    getSettings(): Gtk.Settings
+    getSize(orientation: Gtk.Orientation): number
+    getSizeRequest(): { width: number | null, height: number | null }
+    getStateFlags(): Gtk.StateFlags
+    getStyleContext(): Gtk.StyleContext
+    getTemplateChild(widgetType: GObject.Type, name: string): GObject.Object
+    getTooltipMarkup(): string | null
+    getTooltipText(): string | null
+    getValign(): Gtk.Align
+    getVexpand(): boolean
+    getVexpandSet(): boolean
+    getVisible(): boolean
+    getWidth(): number
+    grabFocus(): boolean
+    hasCssClass(cssClass: string): boolean
+    hasVisibleFocus(): boolean
+    hide(): void
+    inDestruction(): boolean
+    initTemplate(): void
+    insertActionGroup(name: string, group?: Gio.ActionGroup | null): void
+    insertAfter(parent: Gtk.Widget, previousSibling?: Gtk.Widget | null): void
+    insertBefore(parent: Gtk.Widget, nextSibling?: Gtk.Widget | null): void
+    isAncestor(ancestor: Gtk.Widget): boolean
+    isDrawable(): boolean
+    isFocus(): boolean
+    isSensitive(): boolean
+    isVisible(): boolean
+    keynavFailed(direction: Gtk.DirectionType): boolean
+    listMnemonicLabels(): Gtk.Widget[]
+    map(): void
+    measure(orientation: Gtk.Orientation, forSize: number): { minimum: number | null, natural: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
+    mnemonicActivate(groupCycling: boolean): boolean
+    observeChildren(): Gio.ListModel
+    observeControllers(): Gio.ListModel
+    pick(x: number, y: number, flags: Gtk.PickFlags): Gtk.Widget | null
+    queueAllocate(): void
+    queueDraw(): void
+    queueResize(): void
+    realize(): void
+    removeController(controller: Gtk.EventController): void
+    removeCssClass(cssClass: string): void
+    removeMnemonicLabel(label: Gtk.Widget): void
+    removeTickCallback(id: number): void
+    setCanFocus(canFocus: boolean): void
+    setCanTarget(canTarget: boolean): void
+    setChildVisible(childVisible: boolean): void
+    setCssClasses(classes: string[]): void
+    setCursor(cursor?: Gdk.Cursor | null): void
+    setCursorFromName(name?: string | null): void
+    setDirection(dir: Gtk.TextDirection): void
+    setFocusChild(child?: Gtk.Widget | null): void
+    setFocusOnClick(focusOnClick: boolean): void
+    setFocusable(focusable: boolean): void
+    setFontMap(fontMap?: Pango.FontMap | null): void
+    setFontOptions(options?: cairo.FontOptions | null): void
+    setHalign(align: Gtk.Align): void
+    setHasTooltip(hasTooltip: boolean): void
+    setHexpand(expand: boolean): void
+    setHexpandSet(set: boolean): void
+    setLayoutManager(layoutManager?: Gtk.LayoutManager | null): void
+    setMarginBottom(margin: number): void
+    setMarginEnd(margin: number): void
+    setMarginStart(margin: number): void
+    setMarginTop(margin: number): void
+    setName(name: string): void
+    setOpacity(opacity: number): void
+    setOverflow(overflow: Gtk.Overflow): void
+    setParent(parent: Gtk.Widget): void
+    setReceivesDefault(receivesDefault: boolean): void
+    setSensitive(sensitive: boolean): void
+    setSizeRequest(width: number, height: number): void
+    setStateFlags(flags: Gtk.StateFlags, clear: boolean): void
+    setTooltipMarkup(markup?: string | null): void
+    setTooltipText(text?: string | null): void
+    setValign(align: Gtk.Align): void
+    setVexpand(expand: boolean): void
+    setVexpandSet(set: boolean): void
+    setVisible(visible: boolean): void
+    shouldLayout(): boolean
+    show(): void
+    sizeAllocate(allocation: Gtk.Allocation, baseline: number): void
+    snapshotChild(child: Gtk.Widget, snapshot: Gtk.Snapshot): void
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
+    triggerTooltipQuery(): void
+    unmap(): void
+    unparent(): void
+    unrealize(): void
+    unsetStateFlags(flags: Gtk.StateFlags): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Methods of Gtk-4.0.Gtk.Accessible */
+    getAccessibleRole(): Gtk.AccessibleRole
+    resetProperty(property: Gtk.AccessibleProperty): void
+    resetRelation(relation: Gtk.AccessibleRelation): void
+    resetState(state: Gtk.AccessibleState): void
+    updateProperty(properties: Gtk.AccessibleProperty[], values: any[]): void
+    updateRelation(relations: Gtk.AccessibleRelation[], values: any[]): void
+    updateState(states: Gtk.AccessibleState[], values: any[]): void
+    /* Methods of Gtk-4.0.Gtk.Buildable */
+    getBuildableId(): string
+    /* Signals of Gtk-4.0.Gtk.Widget */
+    connect(sigName: "destroy", callback: (($obj: HoverDisplay) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "destroy"): void
+    connect(sigName: "direction-changed", callback: (($obj: HoverDisplay, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
+    emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
+    connect(sigName: "hide", callback: (($obj: HoverDisplay) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "hide"): void
+    connect(sigName: "keynav-failed", callback: (($obj: HoverDisplay, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
+    emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
+    connect(sigName: "map", callback: (($obj: HoverDisplay) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "map"): void
+    connect(sigName: "mnemonic-activate", callback: (($obj: HoverDisplay, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
+    emit(sigName: "mnemonic-activate", groupCycling: boolean): void
+    connect(sigName: "move-focus", callback: (($obj: HoverDisplay, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
+    emit(sigName: "move-focus", direction: Gtk.DirectionType): void
+    connect(sigName: "query-tooltip", callback: (($obj: HoverDisplay, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
+    emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
+    connect(sigName: "realize", callback: (($obj: HoverDisplay) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "realize"): void
+    connect(sigName: "show", callback: (($obj: HoverDisplay) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "show"): void
+    connect(sigName: "state-flags-changed", callback: (($obj: HoverDisplay, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
+    emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
+    connect(sigName: "unmap", callback: (($obj: HoverDisplay) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "unmap"): void
+    connect(sigName: "unrealize", callback: (($obj: HoverDisplay) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "unrealize"): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::can-focus", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::can-focus", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::can-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::can-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::can-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::can-target", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::can-target", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::can-target", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::can-target", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::can-target", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::css-classes", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::css-classes", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::css-classes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::css-classes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::css-classes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::cursor", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::cursor", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::cursor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::cursor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::cursor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::focus-on-click", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::focus-on-click", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::focus-on-click", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::focus-on-click", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::focus-on-click", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::focusable", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::focusable", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::focusable", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::focusable", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::focusable", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::halign", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::halign", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::halign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::halign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::halign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::has-default", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::has-default", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::has-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::has-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::has-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::has-focus", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::has-focus", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::has-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::has-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::has-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::has-tooltip", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::has-tooltip", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::has-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::has-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::has-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::height-request", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::height-request", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::height-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::height-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::height-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::hexpand", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::hexpand", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::hexpand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::hexpand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::hexpand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::hexpand-set", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::hexpand-set", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::hexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::hexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::hexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::layout-manager", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::layout-manager", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::layout-manager", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::layout-manager", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::layout-manager", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::margin-bottom", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin-bottom", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-bottom", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::margin-bottom", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::margin-bottom", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::margin-end", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin-end", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::margin-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::margin-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::margin-start", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin-start", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::margin-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::margin-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::margin-top", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin-top", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-top", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::margin-top", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::margin-top", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::name", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::name", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::opacity", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::opacity", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::opacity", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::opacity", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::opacity", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::overflow", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::overflow", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::overflow", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::overflow", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::overflow", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::parent", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parent", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::receives-default", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::receives-default", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::receives-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::receives-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::receives-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::root", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::root", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::root", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::root", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::root", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::scale-factor", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::scale-factor", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::scale-factor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::scale-factor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::scale-factor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::sensitive", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::sensitive", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::sensitive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::sensitive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::sensitive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::tooltip-markup", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::tooltip-markup", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tooltip-markup", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::tooltip-markup", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::tooltip-markup", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::tooltip-text", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::tooltip-text", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tooltip-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::tooltip-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::tooltip-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::valign", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::valign", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::valign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::valign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::valign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::vexpand", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::vexpand", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::vexpand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::vexpand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::vexpand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::vexpand-set", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::vexpand-set", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::vexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::vexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::vexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::visible", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::visible", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::width-request", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::width-request", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::width-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::width-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::width-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::accessible-role", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::accessible-role", callback: (($obj: HoverDisplay, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-role", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::accessible-role", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::accessible-role", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: HoverDisplay_ConstructProps)
+    _init (config?: HoverDisplay_ConstructProps): void
+    static $gtype: GObject.Type
+}
 export interface Language_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Language {
@@ -4086,6 +4702,7 @@ export class Map {
     highlightCurrentLine: boolean
     indentOnTab: boolean
     indentWidth: number
+    indenter: Indenter
     insertSpacesInsteadOfTabs: boolean
     rightMarginPosition: number
     showLineMarks: boolean
@@ -4172,8 +4789,10 @@ export class Map {
     getEnableSnippets(): boolean
     getGutter(windowType: Gtk.TextWindowType): Gutter
     getHighlightCurrentLine(): boolean
+    getHover(): Hover
     getIndentOnTab(): boolean
     getIndentWidth(): number
+    getIndenter(): Indenter | null
     getInsertSpacesInsteadOfTabs(): boolean
     getMarkAttributes(category: string, priority: number): MarkAttributes
     getRightMarginPosition(): number
@@ -4193,6 +4812,7 @@ export class Map {
     setHighlightCurrentLine(highlight: boolean): void
     setIndentOnTab(enable: boolean): void
     setIndentWidth(width: number): void
+    setIndenter(indenter?: Indenter | null): void
     setInsertSpacesInsteadOfTabs(enable: boolean): void
     setMarkAttributes(category: string, attributes: MarkAttributes, priority: number): void
     setRightMarginPosition(pos: number): void
@@ -4229,12 +4849,14 @@ export class Map {
     getLeftMargin(): number
     getLineAtY(y: number): { targetIter: Gtk.TextIter, lineTop: number }
     getLineYrange(iter: Gtk.TextIter): { y: number, height: number }
+    getLtrContext(): Pango.Context
     getMonospace(): boolean
     getOverwrite(): boolean
     getPixelsAboveLines(): number
     getPixelsBelowLines(): number
     getPixelsInsideWrap(): number
     getRightMargin(): number
+    getRtlContext(): Pango.Context
     getTabs(): Pango.TabArray | null
     getTopMargin(): number
     getVisibleRect(): { visibleRect: Gdk.Rectangle }
@@ -4716,6 +5338,11 @@ export class Map {
     on(sigName: "notify::indent-width", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::indent-width", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::indent-width", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::indenter", callback: (($obj: Map, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::indenter", callback: (($obj: Map, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::indenter", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::indenter", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::indenter", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::insert-spaces-instead-of-tabs", callback: (($obj: Map, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::insert-spaces-instead-of-tabs", callback: (($obj: Map, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::insert-spaces-instead-of-tabs", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5130,7 +5757,7 @@ export class Mark {
     constructor (config?: Mark_ConstructProps)
     _init (config?: Mark_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(name: string, category: string): Mark
+    static new(name: string | null, category: string): Mark
     static new(name: string | null, leftGravity: boolean): Mark
     static $gtype: GObject.Type
 }
@@ -5282,6 +5909,7 @@ export class PrintCompositor {
     getTabWidth(): number
     getTopMargin(unit: Gtk.Unit): number
     getWrapMode(): Gtk.WrapMode
+    ignoreTag(tag: Gtk.TextTag): void
     paginate(context: Gtk.PrintContext): boolean
     setBodyFontName(fontName: string): void
     setBottomMargin(margin: number, unit: Gtk.Unit): void
@@ -6130,6 +6758,7 @@ export class StyleScheme {
     getDescription(): string | null
     getFilename(): string | null
     getId(): string
+    getMetadata(name: string): string | null
     getName(): string
     getStyle(styleId: string): Style | null
     /* Methods of GObject-2.0.GObject.Object */
@@ -7331,6 +7960,535 @@ export class StyleSchemeManager {
     static getDefault(): StyleSchemeManager
     static $gtype: GObject.Type
 }
+export interface StyleSchemePreview_ConstructProps extends Gtk.Widget_ConstructProps {
+    scheme?: StyleScheme
+    selected?: boolean
+    accessibleRole?: Gtk.AccessibleRole
+    actionName?: string
+    actionTarget?: GLib.Variant
+}
+export class StyleSchemePreview {
+    /* Properties of GtkSource-5.GtkSource.StyleSchemePreview */
+    selected: boolean
+    /* Properties of Gtk-4.0.Gtk.Widget */
+    canFocus: boolean
+    canTarget: boolean
+    cssClasses: string[]
+    cursor: Gdk.Cursor
+    focusOnClick: boolean
+    focusable: boolean
+    halign: Gtk.Align
+    readonly hasDefault: boolean
+    readonly hasFocus: boolean
+    hasTooltip: boolean
+    heightRequest: number
+    hexpand: boolean
+    hexpandSet: boolean
+    layoutManager: Gtk.LayoutManager
+    marginBottom: number
+    marginEnd: number
+    marginStart: number
+    marginTop: number
+    name: string
+    opacity: number
+    overflow: Gtk.Overflow
+    readonly parent: Gtk.Widget
+    receivesDefault: boolean
+    readonly root: Gtk.Root
+    readonly scaleFactor: number
+    sensitive: boolean
+    tooltipMarkup: string
+    tooltipText: string
+    valign: Gtk.Align
+    vexpand: boolean
+    vexpandSet: boolean
+    visible: boolean
+    widthRequest: number
+    /* Properties of Gtk-4.0.Gtk.Accessible */
+    accessibleRole: Gtk.AccessibleRole
+    /* Properties of Gtk-4.0.Gtk.Actionable */
+    actionName: string
+    actionTarget: GLib.Variant
+    /* Fields of Gtk-4.0.Gtk.Widget */
+    parentInstance: GObject.InitiallyUnowned
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GtkSource-5.GtkSource.StyleSchemePreview */
+    getScheme(): StyleScheme
+    getSelected(): boolean
+    setSelected(selected: boolean): void
+    /* Methods of Gtk-4.0.Gtk.Widget */
+    actionSetEnabled(actionName: string, enabled: boolean): void
+    activate(): boolean
+    activateAction(name: string, args?: GLib.Variant | null): boolean
+    activateDefault(): void
+    addController(controller: Gtk.EventController): void
+    addCssClass(cssClass: string): void
+    addMnemonicLabel(label: Gtk.Widget): void
+    addTickCallback(callback: Gtk.TickCallback): number
+    allocate(width: number, height: number, baseline: number, transform?: Gsk.Transform | null): void
+    childFocus(direction: Gtk.DirectionType): boolean
+    computeBounds(target: Gtk.Widget): { returnType: boolean, outBounds: Graphene.Rect }
+    computeExpand(orientation: Gtk.Orientation): boolean
+    computePoint(target: Gtk.Widget, point: Graphene.Point): { returnType: boolean, outPoint: Graphene.Point }
+    computeTransform(target: Gtk.Widget): { returnType: boolean, outTransform: Graphene.Matrix }
+    contains(x: number, y: number): boolean
+    createPangoContext(): Pango.Context
+    createPangoLayout(text?: string | null): Pango.Layout
+    dragCheckThreshold(startX: number, startY: number, currentX: number, currentY: number): boolean
+    errorBell(): void
+    getAllocatedBaseline(): number
+    getAllocatedHeight(): number
+    getAllocatedWidth(): number
+    getAllocation(): { allocation: Gtk.Allocation }
+    getAncestor(widgetType: GObject.Type): Gtk.Widget | null
+    getCanFocus(): boolean
+    getCanTarget(): boolean
+    getChildVisible(): boolean
+    getClipboard(): Gdk.Clipboard
+    getCssClasses(): string[]
+    getCssName(): string
+    getCursor(): Gdk.Cursor | null
+    getDirection(): Gtk.TextDirection
+    getDisplay(): Gdk.Display
+    getFirstChild(): Gtk.Widget | null
+    getFocusChild(): Gtk.Widget | null
+    getFocusOnClick(): boolean
+    getFocusable(): boolean
+    getFontMap(): Pango.FontMap | null
+    getFontOptions(): cairo.FontOptions | null
+    getFrameClock(): Gdk.FrameClock | null
+    getHalign(): Gtk.Align
+    getHasTooltip(): boolean
+    getHeight(): number
+    getHexpand(): boolean
+    getHexpandSet(): boolean
+    getLastChild(): Gtk.Widget | null
+    getLayoutManager(): Gtk.LayoutManager | null
+    getMapped(): boolean
+    getMarginBottom(): number
+    getMarginEnd(): number
+    getMarginStart(): number
+    getMarginTop(): number
+    getName(): string
+    getNative(): Gtk.Native | null
+    getNextSibling(): Gtk.Widget | null
+    getOpacity(): number
+    getOverflow(): Gtk.Overflow
+    getPangoContext(): Pango.Context
+    getParent(): Gtk.Widget | null
+    getPreferredSize(): { minimumSize: Gtk.Requisition | null, naturalSize: Gtk.Requisition | null }
+    getPrevSibling(): Gtk.Widget | null
+    getPrimaryClipboard(): Gdk.Clipboard
+    getRealized(): boolean
+    getReceivesDefault(): boolean
+    getRequestMode(): Gtk.SizeRequestMode
+    getRoot(): Gtk.Root | null
+    getScaleFactor(): number
+    getSensitive(): boolean
+    getSettings(): Gtk.Settings
+    getSize(orientation: Gtk.Orientation): number
+    getSizeRequest(): { width: number | null, height: number | null }
+    getStateFlags(): Gtk.StateFlags
+    getStyleContext(): Gtk.StyleContext
+    getTemplateChild(widgetType: GObject.Type, name: string): GObject.Object
+    getTooltipMarkup(): string | null
+    getTooltipText(): string | null
+    getValign(): Gtk.Align
+    getVexpand(): boolean
+    getVexpandSet(): boolean
+    getVisible(): boolean
+    getWidth(): number
+    grabFocus(): boolean
+    hasCssClass(cssClass: string): boolean
+    hasVisibleFocus(): boolean
+    hide(): void
+    inDestruction(): boolean
+    initTemplate(): void
+    insertActionGroup(name: string, group?: Gio.ActionGroup | null): void
+    insertAfter(parent: Gtk.Widget, previousSibling?: Gtk.Widget | null): void
+    insertBefore(parent: Gtk.Widget, nextSibling?: Gtk.Widget | null): void
+    isAncestor(ancestor: Gtk.Widget): boolean
+    isDrawable(): boolean
+    isFocus(): boolean
+    isSensitive(): boolean
+    isVisible(): boolean
+    keynavFailed(direction: Gtk.DirectionType): boolean
+    listMnemonicLabels(): Gtk.Widget[]
+    map(): void
+    measure(orientation: Gtk.Orientation, forSize: number): { minimum: number | null, natural: number | null, minimumBaseline: number | null, naturalBaseline: number | null }
+    mnemonicActivate(groupCycling: boolean): boolean
+    observeChildren(): Gio.ListModel
+    observeControllers(): Gio.ListModel
+    pick(x: number, y: number, flags: Gtk.PickFlags): Gtk.Widget | null
+    queueAllocate(): void
+    queueDraw(): void
+    queueResize(): void
+    realize(): void
+    removeController(controller: Gtk.EventController): void
+    removeCssClass(cssClass: string): void
+    removeMnemonicLabel(label: Gtk.Widget): void
+    removeTickCallback(id: number): void
+    setCanFocus(canFocus: boolean): void
+    setCanTarget(canTarget: boolean): void
+    setChildVisible(childVisible: boolean): void
+    setCssClasses(classes: string[]): void
+    setCursor(cursor?: Gdk.Cursor | null): void
+    setCursorFromName(name?: string | null): void
+    setDirection(dir: Gtk.TextDirection): void
+    setFocusChild(child?: Gtk.Widget | null): void
+    setFocusOnClick(focusOnClick: boolean): void
+    setFocusable(focusable: boolean): void
+    setFontMap(fontMap?: Pango.FontMap | null): void
+    setFontOptions(options?: cairo.FontOptions | null): void
+    setHalign(align: Gtk.Align): void
+    setHasTooltip(hasTooltip: boolean): void
+    setHexpand(expand: boolean): void
+    setHexpandSet(set: boolean): void
+    setLayoutManager(layoutManager?: Gtk.LayoutManager | null): void
+    setMarginBottom(margin: number): void
+    setMarginEnd(margin: number): void
+    setMarginStart(margin: number): void
+    setMarginTop(margin: number): void
+    setName(name: string): void
+    setOpacity(opacity: number): void
+    setOverflow(overflow: Gtk.Overflow): void
+    setParent(parent: Gtk.Widget): void
+    setReceivesDefault(receivesDefault: boolean): void
+    setSensitive(sensitive: boolean): void
+    setSizeRequest(width: number, height: number): void
+    setStateFlags(flags: Gtk.StateFlags, clear: boolean): void
+    setTooltipMarkup(markup?: string | null): void
+    setTooltipText(text?: string | null): void
+    setValign(align: Gtk.Align): void
+    setVexpand(expand: boolean): void
+    setVexpandSet(set: boolean): void
+    setVisible(visible: boolean): void
+    shouldLayout(): boolean
+    show(): void
+    sizeAllocate(allocation: Gtk.Allocation, baseline: number): void
+    snapshotChild(child: Gtk.Widget, snapshot: Gtk.Snapshot): void
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
+    triggerTooltipQuery(): void
+    unmap(): void
+    unparent(): void
+    unrealize(): void
+    unsetStateFlags(flags: Gtk.StateFlags): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Methods of Gtk-4.0.Gtk.Accessible */
+    getAccessibleRole(): Gtk.AccessibleRole
+    resetProperty(property: Gtk.AccessibleProperty): void
+    resetRelation(relation: Gtk.AccessibleRelation): void
+    resetState(state: Gtk.AccessibleState): void
+    updateProperty(properties: Gtk.AccessibleProperty[], values: any[]): void
+    updateRelation(relations: Gtk.AccessibleRelation[], values: any[]): void
+    updateState(states: Gtk.AccessibleState[], values: any[]): void
+    /* Methods of Gtk-4.0.Gtk.Actionable */
+    getActionName(): string | null
+    getActionTargetValue(): GLib.Variant | null
+    setActionName(actionName?: string | null): void
+    setActionTargetValue(targetValue?: GLib.Variant | null): void
+    setDetailedActionName(detailedActionName: string): void
+    /* Methods of Gtk-4.0.Gtk.Buildable */
+    getBuildableId(): string
+    /* Signals of GtkSource-5.GtkSource.StyleSchemePreview */
+    connect(sigName: "activate", callback: (($obj: StyleSchemePreview) => void)): number
+    on(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "activate", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "activate", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "activate"): void
+    /* Signals of Gtk-4.0.Gtk.Widget */
+    connect(sigName: "destroy", callback: (($obj: StyleSchemePreview) => void)): number
+    on(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "destroy"): void
+    connect(sigName: "direction-changed", callback: (($obj: StyleSchemePreview, previousDirection: Gtk.TextDirection) => void)): number
+    on(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (previousDirection: Gtk.TextDirection) => void): NodeJS.EventEmitter
+    emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
+    connect(sigName: "hide", callback: (($obj: StyleSchemePreview) => void)): number
+    on(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "hide", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "hide", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "hide"): void
+    connect(sigName: "keynav-failed", callback: (($obj: StyleSchemePreview, direction: Gtk.DirectionType) => boolean)): number
+    on(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
+    emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
+    connect(sigName: "map", callback: (($obj: StyleSchemePreview) => void)): number
+    on(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "map", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "map", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "map"): void
+    connect(sigName: "mnemonic-activate", callback: (($obj: StyleSchemePreview, groupCycling: boolean) => boolean)): number
+    on(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (groupCycling: boolean) => void): NodeJS.EventEmitter
+    emit(sigName: "mnemonic-activate", groupCycling: boolean): void
+    connect(sigName: "move-focus", callback: (($obj: StyleSchemePreview, direction: Gtk.DirectionType) => void)): number
+    on(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (direction: Gtk.DirectionType) => void): NodeJS.EventEmitter
+    emit(sigName: "move-focus", direction: Gtk.DirectionType): void
+    connect(sigName: "query-tooltip", callback: (($obj: StyleSchemePreview, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    on(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => void): NodeJS.EventEmitter
+    emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
+    connect(sigName: "realize", callback: (($obj: StyleSchemePreview) => void)): number
+    on(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "realize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "realize", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "realize"): void
+    connect(sigName: "show", callback: (($obj: StyleSchemePreview) => void)): number
+    on(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "show"): void
+    connect(sigName: "state-flags-changed", callback: (($obj: StyleSchemePreview, flags: Gtk.StateFlags) => void)): number
+    on(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (flags: Gtk.StateFlags) => void): NodeJS.EventEmitter
+    emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
+    connect(sigName: "unmap", callback: (($obj: StyleSchemePreview) => void)): number
+    on(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "unmap"): void
+    connect(sigName: "unrealize", callback: (($obj: StyleSchemePreview) => void)): number
+    on(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "unrealize"): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::selected", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::selected", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::selected", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::selected", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::selected", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::can-focus", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::can-focus", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::can-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::can-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::can-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::can-target", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::can-target", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::can-target", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::can-target", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::can-target", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::css-classes", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::css-classes", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::css-classes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::css-classes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::css-classes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::cursor", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::cursor", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::cursor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::cursor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::cursor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::focus-on-click", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::focus-on-click", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::focus-on-click", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::focus-on-click", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::focus-on-click", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::focusable", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::focusable", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::focusable", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::focusable", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::focusable", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::halign", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::halign", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::halign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::halign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::halign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::has-default", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::has-default", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::has-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::has-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::has-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::has-focus", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::has-focus", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::has-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::has-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::has-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::has-tooltip", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::has-tooltip", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::has-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::has-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::has-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::height-request", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::height-request", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::height-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::height-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::height-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::hexpand", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::hexpand", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::hexpand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::hexpand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::hexpand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::hexpand-set", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::hexpand-set", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::hexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::hexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::hexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::layout-manager", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::layout-manager", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::layout-manager", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::layout-manager", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::layout-manager", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::margin-bottom", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin-bottom", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-bottom", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::margin-bottom", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::margin-bottom", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::margin-end", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin-end", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::margin-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::margin-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::margin-start", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin-start", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::margin-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::margin-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::margin-top", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::margin-top", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::margin-top", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::margin-top", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::margin-top", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::name", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::name", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::opacity", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::opacity", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::opacity", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::opacity", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::opacity", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::overflow", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::overflow", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::overflow", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::overflow", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::overflow", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::parent", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parent", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::receives-default", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::receives-default", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::receives-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::receives-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::receives-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::root", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::root", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::root", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::root", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::root", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::scale-factor", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::scale-factor", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::scale-factor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::scale-factor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::scale-factor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::sensitive", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::sensitive", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::sensitive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::sensitive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::sensitive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::tooltip-markup", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::tooltip-markup", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tooltip-markup", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::tooltip-markup", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::tooltip-markup", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::tooltip-text", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::tooltip-text", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::tooltip-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::tooltip-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::tooltip-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::valign", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::valign", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::valign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::valign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::valign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::vexpand", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::vexpand", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::vexpand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::vexpand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::vexpand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::vexpand-set", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::vexpand-set", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::vexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::vexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::vexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::visible", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::visible", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::width-request", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::width-request", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::width-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::width-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::width-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::accessible-role", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::accessible-role", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accessible-role", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::accessible-role", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::accessible-role", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::action-name", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::action-name", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::action-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::action-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::action-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::action-target", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::action-target", callback: (($obj: StyleSchemePreview, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::action-target", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::action-target", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::action-target", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: StyleSchemePreview_ConstructProps)
+    _init (config?: StyleSchemePreview_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(scheme: StyleScheme): StyleSchemePreview
+    static $gtype: GObject.Type
+}
 export interface Tag_ConstructProps extends Gtk.TextTag_ConstructProps {
     drawSpaces?: boolean
     drawSpacesSet?: boolean
@@ -7376,6 +8534,8 @@ export class Tag {
     leftMarginSet: boolean
     letterSpacing: number
     letterSpacingSet: boolean
+    lineHeight: number
+    lineHeightSet: boolean
     overline: Pango.Overline
     overlineRgba: Gdk.RGBA
     overlineRgbaSet: boolean
@@ -7395,6 +8555,8 @@ export class Tag {
     riseSet: boolean
     scale: number
     scaleSet: boolean
+    sentence: boolean
+    sentenceSet: boolean
     showSpaces: Pango.ShowFlags
     showSpacesSet: boolean
     size: number
@@ -7410,6 +8572,8 @@ export class Tag {
     styleSet: boolean
     tabs: Pango.TabArray
     tabsSet: boolean
+    textTransform: Pango.TextTransform
+    textTransformSet: boolean
     underline: Pango.Underline
     underlineRgba: Gdk.RGBA
     underlineRgbaSet: boolean
@@ -7418,6 +8582,8 @@ export class Tag {
     variantSet: boolean
     weight: number
     weightSet: boolean
+    word: boolean
+    wordSet: boolean
     wrapMode: Gtk.WrapMode
     wrapModeSet: boolean
     /* Fields of GtkSource-5.GtkSource.Tag */
@@ -7648,6 +8814,16 @@ export class Tag {
     on(sigName: "notify::letter-spacing-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::letter-spacing-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::letter-spacing-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::line-height", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::line-height", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::line-height", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::line-height", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::line-height", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::line-height-set", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::line-height-set", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::line-height-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::line-height-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::line-height-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::overline", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::overline", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::overline", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7743,6 +8919,16 @@ export class Tag {
     on(sigName: "notify::scale-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::scale-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::scale-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::sentence", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::sentence", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::sentence", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::sentence", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::sentence", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::sentence-set", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::sentence-set", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::sentence-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::sentence-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::sentence-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::show-spaces", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::show-spaces", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::show-spaces", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7818,6 +9004,16 @@ export class Tag {
     on(sigName: "notify::tabs-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::tabs-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::tabs-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::text-transform", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::text-transform", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::text-transform", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::text-transform", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::text-transform", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::text-transform-set", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::text-transform-set", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::text-transform-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::text-transform-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::text-transform-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::underline", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::underline", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::underline", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7858,6 +9054,16 @@ export class Tag {
     on(sigName: "notify::weight-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::weight-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::weight-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::word", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::word", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::word", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::word", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::word", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::word-set", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::word-set", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::word-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::word-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::word-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::wrap-mode", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::wrap-mode", callback: (($obj: Tag, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::wrap-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7889,6 +9095,7 @@ export interface View_ConstructProps extends Gtk.TextView_ConstructProps {
     highlightCurrentLine?: boolean
     indentOnTab?: boolean
     indentWidth?: number
+    indenter?: Indenter
     insertSpacesInsteadOfTabs?: boolean
     rightMarginPosition?: number
     showLineMarks?: boolean
@@ -7912,6 +9119,7 @@ export class View {
     highlightCurrentLine: boolean
     indentOnTab: boolean
     indentWidth: number
+    indenter: Indenter
     insertSpacesInsteadOfTabs: boolean
     rightMarginPosition: number
     showLineMarks: boolean
@@ -7995,8 +9203,10 @@ export class View {
     getEnableSnippets(): boolean
     getGutter(windowType: Gtk.TextWindowType): Gutter
     getHighlightCurrentLine(): boolean
+    getHover(): Hover
     getIndentOnTab(): boolean
     getIndentWidth(): number
+    getIndenter(): Indenter | null
     getInsertSpacesInsteadOfTabs(): boolean
     getMarkAttributes(category: string, priority: number): MarkAttributes
     getRightMarginPosition(): number
@@ -8016,6 +9226,7 @@ export class View {
     setHighlightCurrentLine(highlight: boolean): void
     setIndentOnTab(enable: boolean): void
     setIndentWidth(width: number): void
+    setIndenter(indenter?: Indenter | null): void
     setInsertSpacesInsteadOfTabs(enable: boolean): void
     setMarkAttributes(category: string, attributes: MarkAttributes, priority: number): void
     setRightMarginPosition(pos: number): void
@@ -8052,12 +9263,14 @@ export class View {
     getLeftMargin(): number
     getLineAtY(y: number): { targetIter: Gtk.TextIter, lineTop: number }
     getLineYrange(iter: Gtk.TextIter): { y: number, height: number }
+    getLtrContext(): Pango.Context
     getMonospace(): boolean
     getOverwrite(): boolean
     getPixelsAboveLines(): number
     getPixelsBelowLines(): number
     getPixelsInsideWrap(): number
     getRightMargin(): number
+    getRtlContext(): Pango.Context
     getTabs(): Pango.TabArray | null
     getTopMargin(): number
     getVisibleRect(): { visibleRect: Gdk.Rectangle }
@@ -8529,6 +9742,11 @@ export class View {
     on(sigName: "notify::indent-width", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::indent-width", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::indent-width", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::indenter", callback: (($obj: View, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::indenter", callback: (($obj: View, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::indenter", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::indenter", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::indenter", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::insert-spaces-instead-of-tabs", callback: (($obj: View, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::insert-spaces-instead-of-tabs", callback: (($obj: View, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::insert-spaces-instead-of-tabs", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8885,6 +10103,152 @@ export class View {
     static newWithBuffer(buffer: Gtk.TextBuffer): View
     static $gtype: GObject.Type
 }
+export interface VimIMContext_ConstructProps extends Gtk.IMContext_ConstructProps {
+}
+export class VimIMContext {
+    /* Properties of GtkSource-5.GtkSource.VimIMContext */
+    readonly commandBarText: string
+    readonly commandText: string
+    /* Properties of Gtk-4.0.Gtk.IMContext */
+    inputHints: Gtk.InputHints
+    inputPurpose: Gtk.InputPurpose
+    /* Fields of Gtk-4.0.Gtk.IMContext */
+    parentInstance: GObject.Object
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GtkSource-5.GtkSource.VimIMContext */
+    executeCommand(command: string): void
+    getCommandBarText(): string
+    getCommandText(): string
+    /* Methods of Gtk-4.0.Gtk.IMContext */
+    deleteSurrounding(offset: number, nChars: number): boolean
+    filterKey(press: boolean, surface: Gdk.Surface, device: Gdk.Device, time: number, keycode: number, state: Gdk.ModifierType, group: number): boolean
+    filterKeypress(event: Gdk.Event): boolean
+    focusIn(): void
+    focusOut(): void
+    getPreeditString(): { str: string, attrs: Pango.AttrList, cursorPos: number }
+    getSurrounding(): { returnType: boolean, text: string, cursorIndex: number }
+    getSurroundingWithSelection(): { returnType: boolean, text: string, cursorIndex: number, anchorIndex: number }
+    reset(): void
+    setClientWidget(widget?: Gtk.Widget | null): void
+    setCursorLocation(area: Gdk.Rectangle): void
+    setSurrounding(text: string, len: number, cursorIndex: number): void
+    setSurroundingWithSelection(text: string, len: number, cursorIndex: number, anchorIndex: number): void
+    setUsePreedit(usePreedit: boolean): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GtkSource-5.GtkSource.VimIMContext */
+    connect(sigName: "edit", callback: (($obj: VimIMContext, view: View, path?: string | null) => void)): number
+    on(sigName: "edit", callback: (view: View, path?: string | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "edit", callback: (view: View, path?: string | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "edit", callback: (view: View, path?: string | null) => void): NodeJS.EventEmitter
+    emit(sigName: "edit", view: View, path?: string | null): void
+    connect(sigName: "execute-command", callback: (($obj: VimIMContext, command: string) => boolean)): number
+    on(sigName: "execute-command", callback: (command: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "execute-command", callback: (command: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "execute-command", callback: (command: string) => void): NodeJS.EventEmitter
+    emit(sigName: "execute-command", command: string): void
+    connect(sigName: "format-text", callback: (($obj: VimIMContext, begin: Gtk.TextIter, end: Gtk.TextIter) => void)): number
+    on(sigName: "format-text", callback: (begin: Gtk.TextIter, end: Gtk.TextIter) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "format-text", callback: (begin: Gtk.TextIter, end: Gtk.TextIter) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "format-text", callback: (begin: Gtk.TextIter, end: Gtk.TextIter) => void): NodeJS.EventEmitter
+    emit(sigName: "format-text", begin: Gtk.TextIter, end: Gtk.TextIter): void
+    connect(sigName: "write", callback: (($obj: VimIMContext, view: View, path?: string | null) => void)): number
+    on(sigName: "write", callback: (view: View, path?: string | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "write", callback: (view: View, path?: string | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "write", callback: (view: View, path?: string | null) => void): NodeJS.EventEmitter
+    emit(sigName: "write", view: View, path?: string | null): void
+    /* Signals of Gtk-4.0.Gtk.IMContext */
+    connect(sigName: "commit", callback: (($obj: VimIMContext, str: string) => void)): number
+    on(sigName: "commit", callback: (str: string) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "commit", callback: (str: string) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "commit", callback: (str: string) => void): NodeJS.EventEmitter
+    emit(sigName: "commit", str: string): void
+    connect(sigName: "delete-surrounding", callback: (($obj: VimIMContext, offset: number, nChars: number) => boolean)): number
+    on(sigName: "delete-surrounding", callback: (offset: number, nChars: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "delete-surrounding", callback: (offset: number, nChars: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "delete-surrounding", callback: (offset: number, nChars: number) => void): NodeJS.EventEmitter
+    emit(sigName: "delete-surrounding", offset: number, nChars: number): void
+    connect(sigName: "preedit-changed", callback: (($obj: VimIMContext) => void)): number
+    on(sigName: "preedit-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "preedit-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "preedit-changed", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "preedit-changed"): void
+    connect(sigName: "preedit-end", callback: (($obj: VimIMContext) => void)): number
+    on(sigName: "preedit-end", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "preedit-end", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "preedit-end", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "preedit-end"): void
+    connect(sigName: "preedit-start", callback: (($obj: VimIMContext) => void)): number
+    on(sigName: "preedit-start", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "preedit-start", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "preedit-start", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "preedit-start"): void
+    connect(sigName: "retrieve-surrounding", callback: (($obj: VimIMContext) => boolean)): number
+    on(sigName: "retrieve-surrounding", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "retrieve-surrounding", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "retrieve-surrounding", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "retrieve-surrounding"): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: VimIMContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::command-bar-text", callback: (($obj: VimIMContext, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::command-bar-text", callback: (($obj: VimIMContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::command-bar-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::command-bar-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::command-bar-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::command-text", callback: (($obj: VimIMContext, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::command-text", callback: (($obj: VimIMContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::command-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::command-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::command-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::input-hints", callback: (($obj: VimIMContext, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::input-hints", callback: (($obj: VimIMContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::input-hints", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::input-hints", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::input-hints", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::input-purpose", callback: (($obj: VimIMContext, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::input-purpose", callback: (($obj: VimIMContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::input-purpose", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::input-purpose", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::input-purpose", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: VimIMContext_ConstructProps)
+    _init (config?: VimIMContext_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): VimIMContext
+    static $gtype: GObject.Type
+}
 export abstract class BufferClass {
     /* Fields of GtkSource-5.GtkSource.BufferClass */
     parentClass: Gtk.TextBufferClass
@@ -8914,7 +10278,7 @@ export abstract class CompletionProposalInterface {
 export abstract class CompletionProviderInterface {
     /* Fields of GtkSource-5.GtkSource.CompletionProviderInterface */
     parentIface: GObject.TypeInterface
-    getTitle: (self: CompletionProvider) => string
+    getTitle: (self: CompletionProvider) => string | null
     getPriority: (self: CompletionProvider, context: CompletionContext) => number
     isTrigger: (self: CompletionProvider, iter: Gtk.TextIter, ch: number) => boolean
     keyActivates: (self: CompletionProvider, context: CompletionContext, proposal: CompletionProposal, keyval: number, state: Gdk.ModifierType) => boolean
@@ -8997,6 +10361,36 @@ export abstract class GutterRendererPixbufClass {
 export abstract class GutterRendererTextClass {
     /* Fields of GtkSource-5.GtkSource.GutterRendererTextClass */
     parentClass: GutterRendererClass
+    static name: string
+}
+export abstract class HoverClass {
+    /* Fields of GtkSource-5.GtkSource.HoverClass */
+    parentClass: GObject.ObjectClass
+    static name: string
+}
+export abstract class HoverContextClass {
+    /* Fields of GtkSource-5.GtkSource.HoverContextClass */
+    parentClass: GObject.ObjectClass
+    static name: string
+}
+export abstract class HoverDisplayClass {
+    /* Fields of GtkSource-5.GtkSource.HoverDisplayClass */
+    parentClass: Gtk.WidgetClass
+    static name: string
+}
+export abstract class HoverProviderInterface {
+    /* Fields of GtkSource-5.GtkSource.HoverProviderInterface */
+    parentIface: GObject.TypeInterface
+    populate: (self: HoverProvider, context: HoverContext, display: HoverDisplay) => boolean
+    populateAsync: (self: HoverProvider, context: HoverContext, display: HoverDisplay, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    populateFinish: (self: HoverProvider, result: Gio.AsyncResult) => boolean
+    static name: string
+}
+export abstract class IndenterInterface {
+    /* Fields of GtkSource-5.GtkSource.IndenterInterface */
+    parentIface: GObject.TypeInterface
+    isTrigger: (self: Indenter, view: View, location: Gtk.TextIter, state: Gdk.ModifierType, keyval: number) => boolean
+    indent: (self: Indenter, view: View, iter: Gtk.TextIter) => { iter: Gtk.TextIter }
     static name: string
 }
 export abstract class LanguageClass {
@@ -9108,6 +10502,11 @@ export abstract class StyleSchemeManagerClass {
     parentClass: GObject.ObjectClass
     static name: string
 }
+export abstract class StyleSchemePreviewClass {
+    /* Fields of GtkSource-5.GtkSource.StyleSchemePreviewClass */
+    parentClass: Gtk.WidgetClass
+    static name: string
+}
 export abstract class TagClass {
     /* Fields of GtkSource-5.GtkSource.TagClass */
     parentClass: Gtk.TextTagClass
@@ -9121,6 +10520,11 @@ export abstract class ViewClass {
     moveLines: (view: View, down: boolean) => void
     moveWords: (view: View, step: number) => void
     pushSnippet: (view: View, snippet: Snippet, location?: Gtk.TextIter | null) => void
+    static name: string
+}
+export abstract class VimIMContextClass {
+    /* Fields of GtkSource-5.GtkSource.VimIMContextClass */
+    parentClass: Gtk.IMContextClass
     static name: string
 }
 }

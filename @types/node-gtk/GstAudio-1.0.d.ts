@@ -320,6 +320,7 @@ export class StreamVolume {
 export interface AudioAggregator_ConstructProps extends GstBase.Aggregator_ConstructProps {
     alignmentThreshold?: number
     discontWait?: number
+    ignoreInactivePads?: boolean
     outputBufferDuration?: number
     outputBufferDurationFraction?: Gst.Fraction
 }
@@ -327,6 +328,7 @@ export class AudioAggregator {
     /* Properties of GstAudio-1.0.GstAudio.AudioAggregator */
     alignmentThreshold: number
     discontWait: number
+    ignoreInactivePads: boolean
     outputBufferDuration: number
     outputBufferDurationFraction: Gst.Fraction
     /* Properties of GstBase-1.0.GstBase.Aggregator */
@@ -375,10 +377,12 @@ export class AudioAggregator {
     finishBufferList(bufferlist: Gst.BufferList): Gst.FlowReturn
     getAllocator(): { allocator: Gst.Allocator | null, params: Gst.AllocationParams | null }
     getBufferPool(): Gst.BufferPool | null
+    getIgnoreInactivePads(): boolean
     getLatency(): Gst.ClockTime
     negotiate(): boolean
     peekNextSample(pad: GstBase.AggregatorPad): Gst.Sample | null
     selectedSamples(pts: Gst.ClockTime, dts: Gst.ClockTime, duration: Gst.ClockTime, info?: Gst.Structure | null): void
+    setIgnoreInactivePads(ignore: boolean): void
     setLatency(minLatency: Gst.ClockTime, maxLatency: Gst.ClockTime): void
     setSrcCaps(caps: Gst.Caps): void
     simpleGetNextTime(): Gst.ClockTime
@@ -436,6 +440,7 @@ export class AudioAggregator {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -539,6 +544,11 @@ export class AudioAggregator {
     on(sigName: "notify::discont-wait", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::discont-wait", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::discont-wait", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ignore-inactive-pads", callback: (($obj: AudioAggregator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ignore-inactive-pads", callback: (($obj: AudioAggregator, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ignore-inactive-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ignore-inactive-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ignore-inactive-pads", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::output-buffer-duration", callback: (($obj: AudioAggregator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::output-buffer-duration", callback: (($obj: AudioAggregator, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::output-buffer-duration", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -602,6 +612,8 @@ export interface AudioAggregatorConvertPad_ConstructProps extends AudioAggregato
 export class AudioAggregatorConvertPad {
     /* Properties of GstAudio-1.0.GstAudio.AudioAggregatorConvertPad */
     converterConfig: Gst.Structure
+    /* Properties of GstAudio-1.0.GstAudio.AudioAggregatorPad */
+    qosMessages: boolean
     /* Properties of GstBase-1.0.GstBase.AggregatorPad */
     emitSignals: boolean
     /* Properties of Gst-1.0.Gst.Pad */
@@ -629,6 +641,7 @@ export class AudioAggregatorConvertPad {
     dropBuffer(): boolean
     hasBuffer(): boolean
     isEos(): boolean
+    isInactive(): boolean
     peekBuffer(): Gst.Buffer | null
     popBuffer(): Gst.Buffer | null
     /* Methods of Gst-1.0.Gst.Pad */
@@ -792,6 +805,11 @@ export class AudioAggregatorConvertPad {
     on(sigName: "notify::converter-config", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::converter-config", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::converter-config", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::qos-messages", callback: (($obj: AudioAggregatorConvertPad, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::qos-messages", callback: (($obj: AudioAggregatorConvertPad, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::qos-messages", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::qos-messages", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::qos-messages", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::emit-signals", callback: (($obj: AudioAggregatorConvertPad, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::emit-signals", callback: (($obj: AudioAggregatorConvertPad, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::emit-signals", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -835,8 +853,11 @@ export class AudioAggregatorConvertPad {
     static $gtype: GObject.Type
 }
 export interface AudioAggregatorPad_ConstructProps extends GstBase.AggregatorPad_ConstructProps {
+    qosMessages?: boolean
 }
 export class AudioAggregatorPad {
+    /* Properties of GstAudio-1.0.GstAudio.AudioAggregatorPad */
+    qosMessages: boolean
     /* Properties of GstBase-1.0.GstBase.AggregatorPad */
     emitSignals: boolean
     /* Properties of Gst-1.0.Gst.Pad */
@@ -864,6 +885,7 @@ export class AudioAggregatorPad {
     dropBuffer(): boolean
     hasBuffer(): boolean
     isEos(): boolean
+    isInactive(): boolean
     peekBuffer(): Gst.Buffer | null
     popBuffer(): Gst.Buffer | null
     /* Methods of Gst-1.0.Gst.Pad */
@@ -1022,6 +1044,11 @@ export class AudioAggregatorPad {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::qos-messages", callback: (($obj: AudioAggregatorPad, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::qos-messages", callback: (($obj: AudioAggregatorPad, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::qos-messages", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::qos-messages", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::qos-messages", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::emit-signals", callback: (($obj: AudioAggregatorPad, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::emit-signals", callback: (($obj: AudioAggregatorPad, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::emit-signals", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1246,6 +1273,7 @@ export class AudioBaseSink {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -1608,6 +1636,7 @@ export class AudioBaseSrc {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -1908,6 +1937,7 @@ export class AudioCdSrc {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -2352,6 +2382,7 @@ export class AudioDecoder {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -2615,6 +2646,7 @@ export class AudioEncoder {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -2871,6 +2903,7 @@ export class AudioFilter {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -3299,6 +3332,7 @@ export class AudioSink {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -3658,6 +3692,7 @@ export class AudioSrc {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean

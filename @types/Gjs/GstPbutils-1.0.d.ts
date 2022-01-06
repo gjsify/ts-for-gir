@@ -51,6 +51,15 @@ export enum DiscovererSerializeFlags {
     MISC,
     ALL,
 }
+export enum PbUtilsCapsDescriptionFlags {
+    CONTAINER,
+    AUDIO,
+    VIDEO,
+    IMAGE,
+    SUBTITLE,
+    TAG,
+    GENERIC,
+}
 export const ENCODING_CATEGORY_CAPTURE: string
 export const ENCODING_CATEGORY_DEVICE: string
 export const ENCODING_CATEGORY_FILE_EXTENSION: string
@@ -67,10 +76,12 @@ export function codec_utils_aac_get_level(audio_config: Uint8Array[]): string
 export function codec_utils_aac_get_profile(audio_config: Uint8Array[]): string
 export function codec_utils_aac_get_sample_rate(audio_config: Uint8Array[]): number
 export function codec_utils_aac_get_sample_rate_from_index(sr_idx: number): number
+export function codec_utils_caps_get_mime_codec(caps: Gst.Caps): string
 export function codec_utils_h264_caps_set_level_and_profile(caps: Gst.Caps, sps: Uint8Array[]): boolean
 export function codec_utils_h264_get_level(sps: Uint8Array[]): string
 export function codec_utils_h264_get_level_idc(level: string): number
 export function codec_utils_h264_get_profile(sps: Uint8Array[]): string
+export function codec_utils_h264_get_profile_flags_level(codec_data: number, len: number, profile: number, flags: number, level: number): boolean
 export function codec_utils_h265_caps_set_level_tier_and_profile(caps: Gst.Caps, profile_tier_level: Uint8Array[]): boolean
 export function codec_utils_h265_get_level(profile_tier_level: Uint8Array[]): string
 export function codec_utils_h265_get_level_idc(level: string): number
@@ -105,10 +116,12 @@ export function missing_uri_sink_message_new(element: Gst.Element, protocol: str
 export function missing_uri_source_installer_detail_new(protocol: string): string
 export function missing_uri_source_message_new(element: Gst.Element, protocol: string): Gst.Message
 export function pb_utils_add_codec_description_to_tag_list(taglist: Gst.TagList, codec_tag: string | null, caps: Gst.Caps): boolean
+export function pb_utils_get_caps_description_flags(caps: Gst.Caps): PbUtilsCapsDescriptionFlags
 export function pb_utils_get_codec_description(caps: Gst.Caps): string
 export function pb_utils_get_decoder_description(caps: Gst.Caps): string
 export function pb_utils_get_element_description(factory_name: string): string
 export function pb_utils_get_encoder_description(caps: Gst.Caps): string
+export function pb_utils_get_file_extension_from_caps(caps: Gst.Caps): string | null
 export function pb_utils_get_sink_description(protocol: string): string
 export function pb_utils_get_source_description(protocol: string): string
 export function pb_utils_init(): void
@@ -215,6 +228,7 @@ export class AudioVisualizer {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -443,6 +457,7 @@ export class DiscovererAudioInfo {
     get_next(): DiscovererStreamInfo
     get_previous(): DiscovererStreamInfo
     get_stream_id(): string
+    get_stream_number(): number
     get_stream_type_nick(): string
     get_tags(): Gst.TagList
     get_toc(): Gst.Toc
@@ -496,14 +511,15 @@ export class DiscovererContainerInfo {
     g_type_instance: GObject.TypeInstance
     /* Methods of GstPbutils-1.0.GstPbutils.DiscovererContainerInfo */
     get_streams(): DiscovererStreamInfo[]
+    get_tags(): Gst.TagList
     /* Methods of GstPbutils-1.0.GstPbutils.DiscovererStreamInfo */
     get_caps(): Gst.Caps
     get_misc(): Gst.Structure
     get_next(): DiscovererStreamInfo
     get_previous(): DiscovererStreamInfo
     get_stream_id(): string
+    get_stream_number(): number
     get_stream_type_nick(): string
-    get_tags(): Gst.TagList
     get_toc(): Gst.Toc
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -628,6 +644,7 @@ export class DiscovererStreamInfo {
     get_next(): DiscovererStreamInfo
     get_previous(): DiscovererStreamInfo
     get_stream_id(): string
+    get_stream_number(): number
     get_stream_type_nick(): string
     get_tags(): Gst.TagList
     get_toc(): Gst.Toc
@@ -689,6 +706,7 @@ export class DiscovererSubtitleInfo {
     get_next(): DiscovererStreamInfo
     get_previous(): DiscovererStreamInfo
     get_stream_id(): string
+    get_stream_number(): number
     get_stream_type_nick(): string
     get_tags(): Gst.TagList
     get_toc(): Gst.Toc
@@ -758,6 +776,7 @@ export class DiscovererVideoInfo {
     get_next(): DiscovererStreamInfo
     get_previous(): DiscovererStreamInfo
     get_stream_id(): string
+    get_stream_number(): number
     get_stream_type_nick(): string
     get_tags(): Gst.TagList
     get_toc(): Gst.Toc

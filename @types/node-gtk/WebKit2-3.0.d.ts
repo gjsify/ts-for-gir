@@ -2,6 +2,7 @@
  * WebKit2-3.0
  */
 
+<<<<<<< HEAD
 import "node"
 import type { Soup } from './Soup-2.4';
 import type { Gio } from './Gio-2.0';
@@ -19,6 +20,25 @@ import type { GModule } from './GModule-2.0';
 import type { Atk } from './Atk-1.0';
 
 export declare namespace WebKit2 {
+=======
+/// <reference types="node" />
+/// <reference path="Soup-2.4.d.ts" />
+/// <reference path="Gio-2.0.d.ts" />
+/// <reference path="GObject-2.0.d.ts" />
+/// <reference path="GLib-2.0.d.ts" />
+/// <reference path="JavaScriptCore-3.0.d.ts" />
+/// <reference path="Gtk-3.0.d.ts" />
+/// <reference path="xlib-2.0.d.ts" />
+/// <reference path="Gdk-3.0.d.ts" />
+/// <reference path="cairo-1.0.d.ts" />
+/// <reference path="Pango-1.0.d.ts" />
+/// <reference path="HarfBuzz-0.0.d.ts" />
+/// <reference path="GdkPixbuf-2.0.d.ts" />
+/// <reference path="GModule-2.0.d.ts" />
+/// <reference path="Atk-1.0.d.ts" />
+
+declare namespace WebKit2 {
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
 
 export enum AuthenticationScheme {
     DEFAULT,
@@ -233,19 +253,36 @@ export interface URISchemeRequestCallback {
     (request: URISchemeRequest): void
 }
 export class PermissionRequest {
+<<<<<<< HEAD
     /* Methods of WebKit2-3.0.WebKit2.PermissionRequest */
     allow(): void
     deny(): void
+=======
+    /* Methods of WebKit2.PermissionRequest */
+    allow(): void
+    deny(): void
+    /* Virtual methods of WebKit2.PermissionRequest */
+    vfuncAllow(): void
+    vfuncDeny(): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     static name: string
 }
 export interface AuthenticationRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AuthenticationRequest {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.AuthenticationRequest */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2-3.0.WebKit2.AuthenticationRequest */
+=======
+    /* Fields of WebKit2.AuthenticationRequest */
+    parent: GObject.Object
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.AuthenticationRequest */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     authenticate(credential?: Credential | null): void
     canSaveCredentials(): boolean
     cancel(): void
@@ -256,6 +293,7 @@ export class AuthenticationRequest {
     getScheme(): AuthenticationScheme
     isForProxy(): boolean
     isRetry(): boolean
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -265,6 +303,17 @@ export class AuthenticationRequest {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -272,11 +321,16 @@ export class AuthenticationRequest {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of WebKit2-3.0.WebKit2.AuthenticationRequest */
     connect(sigName: "cancelled", callback: (($obj: AuthenticationRequest) => void)): number
@@ -290,6 +344,31 @@ export class AuthenticationRequest {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of WebKit2.AuthenticationRequest */
+    connect(sigName: "cancelled", callback: (($obj: AuthenticationRequest) => void)): number
+    connect_after(sigName: "cancelled", callback: (($obj: AuthenticationRequest) => void)): number
+    emit(sigName: "cancelled"): void
+    on(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "cancelled", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: AuthenticationRequest, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: AuthenticationRequest, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -305,12 +384,21 @@ export class AuthenticationRequest {
 export interface BackForwardList_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class BackForwardList {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.BackForwardList */
     parent: GObject.Object
     priv: BackForwardListPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2-3.0.WebKit2.BackForwardList */
+=======
+    /* Fields of WebKit2.BackForwardList */
+    parent: GObject.Object
+    priv: BackForwardListPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.BackForwardList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getBackItem(): BackForwardListItem
     getBackList(): BackForwardListItem[]
     getBackListWithLimit(limit: number): BackForwardListItem[]
@@ -320,6 +408,7 @@ export class BackForwardList {
     getForwardListWithLimit(limit: number): BackForwardListItem[]
     getLength(): number
     getNthItem(index: number): BackForwardListItem
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -329,6 +418,17 @@ export class BackForwardList {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -336,11 +436,16 @@ export class BackForwardList {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of WebKit2-3.0.WebKit2.BackForwardList */
     connect(sigName: "changed", callback: (($obj: BackForwardList, itemAdded: BackForwardListItem | null, itemsRemoved: object) => void)): number
@@ -354,6 +459,31 @@ export class BackForwardList {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of WebKit2.BackForwardList */
+    connect(sigName: "changed", callback: (($obj: BackForwardList, itemAdded: BackForwardListItem | null, itemsRemoved: object) => void)): number
+    connect_after(sigName: "changed", callback: (($obj: BackForwardList, itemAdded: BackForwardListItem | null, itemsRemoved: object) => void)): number
+    emit(sigName: "changed", itemAdded: BackForwardListItem | null, itemsRemoved: object): void
+    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: BackForwardList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: BackForwardList, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -369,6 +499,7 @@ export class BackForwardList {
 export interface BackForwardListItem_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
 export class BackForwardListItem {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.BackForwardListItem */
     parent: GObject.InitiallyUnowned
     priv: BackForwardListItemPrivate
@@ -387,6 +518,26 @@ export class BackForwardListItem {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of WebKit2.BackForwardListItem */
+    parent: GObject.InitiallyUnowned
+    priv: BackForwardListItemPrivate
+    /* Fields of GObject.InitiallyUnowned */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.BackForwardListItem */
+    getOriginalUri(): string
+    getTitle(): string
+    getUri(): string
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -394,11 +545,16 @@ export class BackForwardListItem {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: BackForwardListItem, pspec: GObject.ParamSpec) => void)): number
@@ -406,6 +562,24 @@ export class BackForwardListItem {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: BackForwardListItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: BackForwardListItem, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -421,12 +595,21 @@ export class BackForwardListItem {
 export interface ContextMenu_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ContextMenu {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.ContextMenu */
     parent: GObject.Object
     priv: ContextMenuPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2-3.0.WebKit2.ContextMenu */
+=======
+    /* Fields of WebKit2.ContextMenu */
+    parent: GObject.Object
+    priv: ContextMenuPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.ContextMenu */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     append(item: ContextMenuItem): void
     first(): ContextMenuItem
     getItemAtPosition(position: number): ContextMenuItem
@@ -438,6 +621,7 @@ export class ContextMenu {
     prepend(item: ContextMenuItem): void
     remove(item: ContextMenuItem): void
     removeAll(): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -447,6 +631,17 @@ export class ContextMenu {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -454,11 +649,16 @@ export class ContextMenu {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ContextMenu, pspec: GObject.ParamSpec) => void)): number
@@ -466,6 +666,24 @@ export class ContextMenu {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ContextMenu, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: ContextMenu, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -484,17 +702,27 @@ export class ContextMenu {
 export interface ContextMenuItem_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
 }
 export class ContextMenuItem {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.ContextMenuItem */
     parent: GObject.InitiallyUnowned
     priv: ContextMenuItemPrivate
     /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2-3.0.WebKit2.ContextMenuItem */
+=======
+    /* Fields of WebKit2.ContextMenuItem */
+    parent: GObject.InitiallyUnowned
+    priv: ContextMenuItemPrivate
+    /* Fields of GObject.InitiallyUnowned */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.ContextMenuItem */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getAction(): Gtk.Action
     getStockAction(): ContextMenuAction
     getSubmenu(): ContextMenu
     isSeparator(): boolean
     setSubmenu(submenu?: ContextMenu | null): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -504,6 +732,17 @@ export class ContextMenuItem {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -511,11 +750,16 @@ export class ContextMenuItem {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ContextMenuItem, pspec: GObject.ParamSpec) => void)): number
@@ -523,6 +767,24 @@ export class ContextMenuItem {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ContextMenuItem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: ContextMenuItem, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -544,12 +806,21 @@ export class ContextMenuItem {
 export interface CookieManager_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CookieManager {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.CookieManager */
     parent: GObject.Object
     priv: CookieManagerPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2-3.0.WebKit2.CookieManager */
+=======
+    /* Fields of WebKit2.CookieManager */
+    parent: GObject.Object
+    priv: CookieManagerPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.CookieManager */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     deleteAllCookies(): void
     deleteCookiesForDomain(domain: string): void
     getAcceptPolicy(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
@@ -558,6 +829,7 @@ export class CookieManager {
     getDomainsWithCookiesFinish(result: Gio.AsyncResult): string[]
     setAcceptPolicy(policy: CookieAcceptPolicy): void
     setPersistentStorage(filename: string, storage: CookiePersistentStorage): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -567,6 +839,17 @@ export class CookieManager {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -574,11 +857,16 @@ export class CookieManager {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of WebKit2-3.0.WebKit2.CookieManager */
     connect(sigName: "changed", callback: (($obj: CookieManager) => void)): number
@@ -592,6 +880,31 @@ export class CookieManager {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of WebKit2.CookieManager */
+    connect(sigName: "changed", callback: (($obj: CookieManager) => void)): number
+    connect_after(sigName: "changed", callback: (($obj: CookieManager) => void)): number
+    emit(sigName: "changed"): void
+    on(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: CookieManager, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: CookieManager, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -607,6 +920,7 @@ export class CookieManager {
 export interface Download_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Download {
+<<<<<<< HEAD
     /* Properties of WebKit2-3.0.WebKit2.Download */
     readonly destination: string
     readonly estimatedProgress: number
@@ -617,6 +931,18 @@ export class Download {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2-3.0.WebKit2.Download */
+=======
+    /* Properties of WebKit2.Download */
+    readonly destination: string
+    readonly estimatedProgress: number
+    readonly response: URIResponse
+    /* Fields of WebKit2.Download */
+    parent: GObject.Object
+    priv: DownloadPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.Download */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     cancel(): void
     getDestination(): string
     getElapsedTime(): number
@@ -626,6 +952,7 @@ export class Download {
     getResponse(): URIResponse
     getWebView(): WebView
     setDestination(uri: string): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -635,6 +962,17 @@ export class Download {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -642,11 +980,16 @@ export class Download {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of WebKit2-3.0.WebKit2.Download */
     connect(sigName: "created-destination", callback: (($obj: Download, destination: string) => void)): number
@@ -680,6 +1023,57 @@ export class Download {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of WebKit2.Download */
+    vfuncDecideDestination(suggestedFilename: string): boolean
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of WebKit2.Download */
+    connect(sigName: "created-destination", callback: (($obj: Download, destination: string) => void)): number
+    connect_after(sigName: "created-destination", callback: (($obj: Download, destination: string) => void)): number
+    emit(sigName: "created-destination", destination: string): void
+    on(sigName: "created-destination", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "created-destination", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "created-destination", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "decide-destination", callback: (($obj: Download, suggestedFilename: string) => boolean)): number
+    connect_after(sigName: "decide-destination", callback: (($obj: Download, suggestedFilename: string) => boolean)): number
+    emit(sigName: "decide-destination", suggestedFilename: string): void
+    on(sigName: "decide-destination", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "decide-destination", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "decide-destination", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "failed", callback: (($obj: Download, error: object) => void)): number
+    connect_after(sigName: "failed", callback: (($obj: Download, error: object) => void)): number
+    emit(sigName: "failed", error: object): void
+    on(sigName: "failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "finished", callback: (($obj: Download) => void)): number
+    connect_after(sigName: "finished", callback: (($obj: Download) => void)): number
+    emit(sigName: "finished"): void
+    on(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "received-data", callback: (($obj: Download, dataLength: number) => void)): number
+    connect_after(sigName: "received-data", callback: (($obj: Download, dataLength: number) => void)): number
+    emit(sigName: "received-data", dataLength: number): void
+    on(sigName: "received-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "received-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "received-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: Download, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: Download, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::destination", callback: (($obj: Download, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::destination", callback: (($obj: Download, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::destination", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -710,16 +1104,26 @@ export class Download {
 export interface FaviconDatabase_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FaviconDatabase {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.FaviconDatabase */
     parent: GObject.Object
     priv: FaviconDatabasePrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2-3.0.WebKit2.FaviconDatabase */
+=======
+    /* Fields of WebKit2.FaviconDatabase */
+    parent: GObject.Object
+    priv: FaviconDatabasePrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.FaviconDatabase */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     clear(): void
     getFavicon(pageUri: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     getFaviconFinish(result: Gio.AsyncResult): cairo.Surface
     getFaviconUri(pageUri: string): string
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -729,6 +1133,17 @@ export class FaviconDatabase {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -736,11 +1151,16 @@ export class FaviconDatabase {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of WebKit2-3.0.WebKit2.FaviconDatabase */
     connect(sigName: "favicon-changed", callback: (($obj: FaviconDatabase, pageUri: string, faviconUri: string) => void)): number
@@ -754,6 +1174,31 @@ export class FaviconDatabase {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of WebKit2.FaviconDatabase */
+    connect(sigName: "favicon-changed", callback: (($obj: FaviconDatabase, pageUri: string, faviconUri: string) => void)): number
+    connect_after(sigName: "favicon-changed", callback: (($obj: FaviconDatabase, pageUri: string, faviconUri: string) => void)): number
+    emit(sigName: "favicon-changed", pageUri: string, faviconUri: string): void
+    on(sigName: "favicon-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "favicon-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "favicon-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: FaviconDatabase, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: FaviconDatabase, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -769,22 +1214,35 @@ export class FaviconDatabase {
 export interface FileChooserRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FileChooserRequest {
+<<<<<<< HEAD
     /* Properties of WebKit2-3.0.WebKit2.FileChooserRequest */
+=======
+    /* Properties of WebKit2.FileChooserRequest */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly filter: Gtk.FileFilter
     readonly mimeTypes: string[]
     readonly selectMultiple: boolean
     readonly selectedFiles: string[]
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.FileChooserRequest */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2-3.0.WebKit2.FileChooserRequest */
+=======
+    /* Fields of WebKit2.FileChooserRequest */
+    parent: GObject.Object
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.FileChooserRequest */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     cancel(): void
     getMimeTypes(): string[]
     getMimeTypesFilter(): Gtk.FileFilter
     getSelectMultiple(): boolean
     getSelectedFiles(): string[]
     selectFiles(files: string[]): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -794,6 +1252,17 @@ export class FileChooserRequest {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -801,11 +1270,16 @@ export class FileChooserRequest {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FileChooserRequest, pspec: GObject.ParamSpec) => void)): number
@@ -813,6 +1287,24 @@ export class FileChooserRequest {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: FileChooserRequest, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: FileChooserRequest, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::filter", callback: (($obj: FileChooserRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::filter", callback: (($obj: FileChooserRequest, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::filter", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -849,6 +1341,7 @@ export interface FindController_ConstructProps extends GObject.Object_ConstructP
     webView?: WebView
 }
 export class FindController {
+<<<<<<< HEAD
     /* Properties of WebKit2-3.0.WebKit2.FindController */
     readonly maxMatchCount: number
     readonly options: FindOptions
@@ -858,6 +1351,17 @@ export class FindController {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2-3.0.WebKit2.FindController */
+=======
+    /* Properties of WebKit2.FindController */
+    readonly maxMatchCount: number
+    readonly options: FindOptions
+    readonly text: string
+    /* Fields of WebKit2.FindController */
+    parent: GObject.Object
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.FindController */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     countMatches(searchText: string, findOptions: number, maxMatchCount: number): void
     getMaxMatchCount(): number
     getOptions(): number
@@ -867,6 +1371,7 @@ export class FindController {
     searchFinish(): void
     searchNext(): void
     searchPrevious(): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -876,6 +1381,17 @@ export class FindController {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -883,11 +1399,16 @@ export class FindController {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of WebKit2-3.0.WebKit2.FindController */
     connect(sigName: "counted-matches", callback: (($obj: FindController, matchCount: number) => void)): number
@@ -911,6 +1432,43 @@ export class FindController {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of WebKit2.FindController */
+    connect(sigName: "counted-matches", callback: (($obj: FindController, matchCount: number) => void)): number
+    connect_after(sigName: "counted-matches", callback: (($obj: FindController, matchCount: number) => void)): number
+    emit(sigName: "counted-matches", matchCount: number): void
+    on(sigName: "counted-matches", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "counted-matches", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "counted-matches", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "failed-to-find-text", callback: (($obj: FindController) => void)): number
+    connect_after(sigName: "failed-to-find-text", callback: (($obj: FindController) => void)): number
+    emit(sigName: "failed-to-find-text"): void
+    on(sigName: "failed-to-find-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "failed-to-find-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "failed-to-find-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "found-text", callback: (($obj: FindController, matchCount: number) => void)): number
+    connect_after(sigName: "found-text", callback: (($obj: FindController, matchCount: number) => void)): number
+    emit(sigName: "found-text", matchCount: number): void
+    on(sigName: "found-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "found-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "found-text", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: FindController, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: FindController, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::max-match-count", callback: (($obj: FindController, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::max-match-count", callback: (($obj: FindController, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::max-match-count", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -941,6 +1499,7 @@ export class FindController {
 export interface FormSubmissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class FormSubmissionRequest {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.FormSubmissionRequest */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -957,6 +1516,24 @@ export class FormSubmissionRequest {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of WebKit2.FormSubmissionRequest */
+    parent: GObject.Object
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.FormSubmissionRequest */
+    getTextFields(): GLib.HashTable
+    submit(): void
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -964,11 +1541,16 @@ export class FormSubmissionRequest {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: FormSubmissionRequest, pspec: GObject.ParamSpec) => void)): number
@@ -976,6 +1558,24 @@ export class FormSubmissionRequest {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: FormSubmissionRequest, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: FormSubmissionRequest, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -991,6 +1591,7 @@ export class FormSubmissionRequest {
 export interface GeolocationPermissionRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GeolocationPermissionRequest {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.GeolocationPermissionRequest */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1004,6 +1605,21 @@ export class GeolocationPermissionRequest {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of WebKit2.GeolocationPermissionRequest */
+    parent: GObject.Object
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -1011,11 +1627,16 @@ export class GeolocationPermissionRequest {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Methods of WebKit2-3.0.WebKit2.PermissionRequest */
     allow(): void
@@ -1026,6 +1647,30 @@ export class GeolocationPermissionRequest {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Methods of WebKit2.PermissionRequest */
+    allow(): void
+    deny(): void
+    /* Virtual methods of WebKit2.GeolocationPermissionRequest */
+    vfuncAllow(): void
+    vfuncDeny(): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: GeolocationPermissionRequest, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: GeolocationPermissionRequest, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1047,12 +1692,21 @@ export interface HitTestResult_ConstructProps extends GObject.Object_ConstructPr
     mediaUri?: string
 }
 export class HitTestResult {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.HitTestResult */
     parent: GObject.Object
     priv: HitTestResultPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2-3.0.WebKit2.HitTestResult */
+=======
+    /* Fields of WebKit2.HitTestResult */
+    parent: GObject.Object
+    priv: HitTestResultPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.HitTestResult */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     contextIsEditable(): boolean
     contextIsImage(): boolean
     contextIsLink(): boolean
@@ -1064,6 +1718,7 @@ export class HitTestResult {
     getLinkTitle(): string
     getLinkUri(): string
     getMediaUri(): string
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -1073,6 +1728,17 @@ export class HitTestResult {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -1080,11 +1746,16 @@ export class HitTestResult {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: HitTestResult, pspec: GObject.ParamSpec) => void)): number
@@ -1092,6 +1763,24 @@ export class HitTestResult {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: HitTestResult, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: HitTestResult, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1107,22 +1796,35 @@ export class HitTestResult {
 export interface NavigationPolicyDecision_ConstructProps extends PolicyDecision_ConstructProps {
 }
 export class NavigationPolicyDecision {
+<<<<<<< HEAD
     /* Properties of WebKit2-3.0.WebKit2.NavigationPolicyDecision */
+=======
+    /* Properties of WebKit2.NavigationPolicyDecision */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly frameName: string
     readonly modifiers: number
     readonly mouseButton: number
     readonly navigationType: NavigationType
     readonly request: URIRequest
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.NavigationPolicyDecision */
     parent: PolicyDecision
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2-3.0.WebKit2.NavigationPolicyDecision */
+=======
+    /* Fields of WebKit2.NavigationPolicyDecision */
+    parent: PolicyDecision
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.NavigationPolicyDecision */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getFrameName(): string
     getModifiers(): number
     getMouseButton(): number
     getNavigationType(): NavigationType
     getRequest(): URIRequest
+<<<<<<< HEAD
     /* Methods of WebKit2-3.0.WebKit2.PolicyDecision */
     download(): void
     ignore(): void
@@ -1136,6 +1838,22 @@ export class NavigationPolicyDecision {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of WebKit2.PolicyDecision */
+    download(): void
+    ignore(): void
+    use(): void
+    useWithPolicies(policies: WebsitePolicies): void
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -1143,11 +1861,16 @@ export class NavigationPolicyDecision {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): number
@@ -1155,6 +1878,24 @@ export class NavigationPolicyDecision {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::frame-name", callback: (($obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::frame-name", callback: (($obj: NavigationPolicyDecision, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::frame-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1195,16 +1936,26 @@ export class NavigationPolicyDecision {
 export interface Plugin_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Plugin {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.Plugin */
     parent: GObject.Object
     priv: PluginPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2-3.0.WebKit2.Plugin */
+=======
+    /* Fields of WebKit2.Plugin */
+    parent: GObject.Object
+    priv: PluginPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.Plugin */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getDescription(): string
     getMimeInfoList(): MimeInfo[]
     getName(): string
     getPath(): string
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -1214,6 +1965,17 @@ export class Plugin {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -1221,11 +1983,16 @@ export class Plugin {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Plugin, pspec: GObject.ParamSpec) => void)): number
@@ -1233,6 +2000,24 @@ export class Plugin {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: Plugin, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: Plugin, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1248,6 +2033,7 @@ export class Plugin {
 export interface PolicyDecision_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class PolicyDecision {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.PolicyDecision */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -1265,6 +2051,25 @@ export class PolicyDecision {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of WebKit2.PolicyDecision */
+    parent: GObject.Object
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.PolicyDecision */
+    download(): void
+    ignore(): void
+    use(): void
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -1272,11 +2077,16 @@ export class PolicyDecision {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: PolicyDecision, pspec: GObject.ParamSpec) => void)): number
@@ -1284,6 +2094,24 @@ export class PolicyDecision {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: PolicyDecision, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: PolicyDecision, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1302,6 +2130,7 @@ export interface PrintOperation_ConstructProps extends GObject.Object_ConstructP
     webView?: WebView
 }
 export class PrintOperation {
+<<<<<<< HEAD
     /* Properties of WebKit2-3.0.WebKit2.PrintOperation */
     pageSetup: Gtk.PageSetup
     printSettings: Gtk.PrintSettings
@@ -1311,12 +2140,24 @@ export class PrintOperation {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2-3.0.WebKit2.PrintOperation */
+=======
+    /* Properties of WebKit2.PrintOperation */
+    pageSetup: Gtk.PageSetup
+    printSettings: Gtk.PrintSettings
+    /* Fields of WebKit2.PrintOperation */
+    parent: GObject.Object
+    priv: PrintOperationPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.PrintOperation */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getPageSetup(): Gtk.PageSetup
     getPrintSettings(): Gtk.PrintSettings
     print(): void
     runDialog(parent?: Gtk.Window | null): PrintOperationResponse
     setPageSetup(pageSetup: Gtk.PageSetup): void
     setPrintSettings(printSettings: Gtk.PrintSettings): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -1326,6 +2167,17 @@ export class PrintOperation {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -1333,11 +2185,16 @@ export class PrintOperation {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of WebKit2-3.0.WebKit2.PrintOperation */
     connect(sigName: "failed", callback: (($obj: PrintOperation, error: object) => void)): number
@@ -1356,6 +2213,37 @@ export class PrintOperation {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of WebKit2.PrintOperation */
+    connect(sigName: "failed", callback: (($obj: PrintOperation, error: object) => void)): number
+    connect_after(sigName: "failed", callback: (($obj: PrintOperation, error: object) => void)): number
+    emit(sigName: "failed", error: object): void
+    on(sigName: "failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "finished", callback: (($obj: PrintOperation) => void)): number
+    connect_after(sigName: "finished", callback: (($obj: PrintOperation) => void)): number
+    emit(sigName: "finished"): void
+    on(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: PrintOperation, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: PrintOperation, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::page-setup", callback: (($obj: PrintOperation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::page-setup", callback: (($obj: PrintOperation, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::page-setup", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1383,6 +2271,7 @@ export class PrintOperation {
 export interface ResponsePolicyDecision_ConstructProps extends PolicyDecision_ConstructProps {
 }
 export class ResponsePolicyDecision {
+<<<<<<< HEAD
     /* Properties of WebKit2-3.0.WebKit2.ResponsePolicyDecision */
     readonly request: URIRequest
     readonly response: URIResponse
@@ -1407,6 +2296,33 @@ export class ResponsePolicyDecision {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Properties of WebKit2.ResponsePolicyDecision */
+    readonly request: URIRequest
+    readonly response: URIResponse
+    /* Fields of WebKit2.ResponsePolicyDecision */
+    parent: PolicyDecision
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.ResponsePolicyDecision */
+    getRequest(): URIRequest
+    getResponse(): URIResponse
+    isMimeTypeSupported(): boolean
+    /* Methods of WebKit2.PolicyDecision */
+    download(): void
+    ignore(): void
+    use(): void
+    useWithPolicies(policies: WebsitePolicies): void
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -1414,11 +2330,16 @@ export class ResponsePolicyDecision {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: ResponsePolicyDecision, pspec: GObject.ParamSpec) => void)): number
@@ -1426,6 +2347,24 @@ export class ResponsePolicyDecision {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ResponsePolicyDecision, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: ResponsePolicyDecision, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::request", callback: (($obj: ResponsePolicyDecision, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::request", callback: (($obj: ResponsePolicyDecision, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::request", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1451,12 +2390,21 @@ export class ResponsePolicyDecision {
 export interface SecurityManager_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SecurityManager {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.SecurityManager */
     parent: GObject.Object
     priv: SecurityManagerPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2-3.0.WebKit2.SecurityManager */
+=======
+    /* Fields of WebKit2.SecurityManager */
+    parent: GObject.Object
+    priv: SecurityManagerPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.SecurityManager */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     registerUriSchemeAsCorsEnabled(scheme: string): void
     registerUriSchemeAsDisplayIsolated(scheme: string): void
     registerUriSchemeAsEmptyDocument(scheme: string): void
@@ -1469,6 +2417,7 @@ export class SecurityManager {
     uriSchemeIsLocal(scheme: string): boolean
     uriSchemeIsNoAccess(scheme: string): boolean
     uriSchemeIsSecure(scheme: string): boolean
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -1478,6 +2427,17 @@ export class SecurityManager {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -1485,11 +2445,16 @@ export class SecurityManager {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: SecurityManager, pspec: GObject.ParamSpec) => void)): number
@@ -1497,6 +2462,24 @@ export class SecurityManager {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SecurityManager, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: SecurityManager, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1560,7 +2543,11 @@ export interface Settings_ConstructProps extends GObject.Object_ConstructProps {
     zoomTextOnly?: boolean
 }
 export class Settings {
+<<<<<<< HEAD
     /* Properties of WebKit2-3.0.WebKit2.Settings */
+=======
+    /* Properties of WebKit2.Settings */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     allowModalDialogs: boolean
     autoLoadImages: boolean
     cursiveFontFamily: string
@@ -1609,12 +2596,21 @@ export class Settings {
     serifFontFamily: string
     userAgent: string
     zoomTextOnly: boolean
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.Settings */
     parentInstance: GObject.Object
     priv: SettingsPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2-3.0.WebKit2.Settings */
+=======
+    /* Fields of WebKit2.Settings */
+    parentInstance: GObject.Object
+    priv: SettingsPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.Settings */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getAllowModalDialogs(): boolean
     getAutoLoadImages(): boolean
     getCursiveFontFamily(): string
@@ -1712,6 +2708,7 @@ export class Settings {
     setUserAgent(userAgent?: string | null): void
     setUserAgentWithApplicationDetails(applicationName?: string | null, applicationVersion?: string | null): void
     setZoomTextOnly(zoomTextOnly: boolean): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -1721,6 +2718,17 @@ export class Settings {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -1728,11 +2736,16 @@ export class Settings {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
@@ -1740,6 +2753,24 @@ export class Settings {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::allow-modal-dialogs", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::allow-modal-dialogs", callback: (($obj: Settings, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::allow-modal-dialogs", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1998,6 +3029,7 @@ export interface URIRequest_ConstructProps extends GObject.Object_ConstructProps
     uri?: string
 }
 export class URIRequest {
+<<<<<<< HEAD
     /* Properties of WebKit2-3.0.WebKit2.URIRequest */
     uri: string
     /* Fields of WebKit2-3.0.WebKit2.URIRequest */
@@ -2017,6 +3049,27 @@ export class URIRequest {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Properties of WebKit2.URIRequest */
+    uri: string
+    /* Fields of WebKit2.URIRequest */
+    parent: GObject.Object
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.URIRequest */
+    getHttpHeaders(): Soup.MessageHeaders
+    getUri(): string
+    setUri(uri: string): void
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2024,11 +3077,16 @@ export class URIRequest {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: URIRequest, pspec: GObject.ParamSpec) => void)): number
@@ -2036,6 +3094,24 @@ export class URIRequest {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: URIRequest, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: URIRequest, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::uri", callback: (($obj: URIRequest, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::uri", callback: (($obj: URIRequest, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2058,22 +3134,35 @@ export class URIRequest {
 export interface URIResponse_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class URIResponse {
+<<<<<<< HEAD
     /* Properties of WebKit2-3.0.WebKit2.URIResponse */
+=======
+    /* Properties of WebKit2.URIResponse */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly contentLength: number
     readonly mimeType: string
     readonly statusCode: number
     readonly suggestedFilename: string
     readonly uri: string
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.URIResponse */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2-3.0.WebKit2.URIResponse */
+=======
+    /* Fields of WebKit2.URIResponse */
+    parent: GObject.Object
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.URIResponse */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getContentLength(): number
     getMimeType(): string
     getStatusCode(): number
     getSuggestedFilename(): string
     getUri(): string
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -2083,6 +3172,17 @@ export class URIResponse {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2090,11 +3190,16 @@ export class URIResponse {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
@@ -2102,6 +3207,24 @@ export class URIResponse {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::content-length", callback: (($obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::content-length", callback: (($obj: URIResponse, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::content-length", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2142,18 +3265,28 @@ export class URIResponse {
 export interface URISchemeRequest_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class URISchemeRequest {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.URISchemeRequest */
     parent: GObject.Object
     priv: URISchemeRequestPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2-3.0.WebKit2.URISchemeRequest */
+=======
+    /* Fields of WebKit2.URISchemeRequest */
+    parent: GObject.Object
+    priv: URISchemeRequestPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.URISchemeRequest */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     finish(stream: Gio.InputStream, streamLength: number, mimeType?: string | null): void
     finishError(error: GLib.Error): void
     getPath(): string
     getScheme(): string
     getUri(): string
     getWebView(): WebView
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -2163,6 +3296,17 @@ export class URISchemeRequest {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2170,11 +3314,16 @@ export class URISchemeRequest {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: URISchemeRequest, pspec: GObject.ParamSpec) => void)): number
@@ -2182,6 +3331,24 @@ export class URISchemeRequest {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: URISchemeRequest, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: URISchemeRequest, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2197,11 +3364,19 @@ export class URISchemeRequest {
 export interface WebContext_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class WebContext {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.WebContext */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2-3.0.WebKit2.WebContext */
+=======
+    /* Fields of WebKit2.WebContext */
+    parent: GObject.Object
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.WebContext */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     allowTlsCertificateForHost(info: CertificateInfo, host: string): void
     clearCache(): void
     downloadUri(uri: string): Download
@@ -2229,6 +3404,7 @@ export class WebContext {
     setTlsErrorsPolicy(policy: TLSErrorsPolicy): void
     setWebExtensionsDirectory(directory: string): void
     setWebExtensionsInitializationUserData(userData: GLib.Variant): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -2238,6 +3414,17 @@ export class WebContext {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2245,11 +3432,16 @@ export class WebContext {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of WebKit2-3.0.WebKit2.WebContext */
     connect(sigName: "download-started", callback: (($obj: WebContext, download: Download) => void)): number
@@ -2268,6 +3460,37 @@ export class WebContext {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of WebKit2.WebContext */
+    connect(sigName: "download-started", callback: (($obj: WebContext, download: Download) => void)): number
+    connect_after(sigName: "download-started", callback: (($obj: WebContext, download: Download) => void)): number
+    emit(sigName: "download-started", download: Download): void
+    on(sigName: "download-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "download-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "download-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "initialize-web-extensions", callback: (($obj: WebContext) => void)): number
+    connect_after(sigName: "initialize-web-extensions", callback: (($obj: WebContext) => void)): number
+    emit(sigName: "initialize-web-extensions"): void
+    on(sigName: "initialize-web-extensions", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "initialize-web-extensions", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "initialize-web-extensions", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: WebContext, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: WebContext, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2285,6 +3508,7 @@ export class WebContext {
 export interface WebInspector_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class WebInspector {
+<<<<<<< HEAD
     /* Properties of WebKit2-3.0.WebKit2.WebInspector */
     readonly attachedHeight: number
     readonly inspectedUri: string
@@ -2294,6 +3518,17 @@ export class WebInspector {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2-3.0.WebKit2.WebInspector */
+=======
+    /* Properties of WebKit2.WebInspector */
+    readonly attachedHeight: number
+    readonly inspectedUri: string
+    /* Fields of WebKit2.WebInspector */
+    parent: GObject.Object
+    priv: WebInspectorPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.WebInspector */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     attach(): void
     close(): void
     detach(): void
@@ -2302,6 +3537,7 @@ export class WebInspector {
     getWebView(): WebViewBase
     isAttached(): boolean
     show(): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -2311,6 +3547,17 @@ export class WebInspector {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2318,11 +3565,16 @@ export class WebInspector {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of WebKit2-3.0.WebKit2.WebInspector */
     connect(sigName: "attach", callback: (($obj: WebInspector) => boolean)): number
@@ -2356,6 +3608,55 @@ export class WebInspector {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of WebKit2.WebInspector */
+    connect(sigName: "attach", callback: (($obj: WebInspector) => boolean)): number
+    connect_after(sigName: "attach", callback: (($obj: WebInspector) => boolean)): number
+    emit(sigName: "attach"): void
+    on(sigName: "attach", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "attach", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "attach", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "bring-to-front", callback: (($obj: WebInspector) => boolean)): number
+    connect_after(sigName: "bring-to-front", callback: (($obj: WebInspector) => boolean)): number
+    emit(sigName: "bring-to-front"): void
+    on(sigName: "bring-to-front", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "bring-to-front", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "bring-to-front", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "closed", callback: (($obj: WebInspector) => void)): number
+    connect_after(sigName: "closed", callback: (($obj: WebInspector) => void)): number
+    emit(sigName: "closed"): void
+    on(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "closed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "detach", callback: (($obj: WebInspector) => boolean)): number
+    connect_after(sigName: "detach", callback: (($obj: WebInspector) => boolean)): number
+    emit(sigName: "detach"): void
+    on(sigName: "detach", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "detach", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "detach", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "open-window", callback: (($obj: WebInspector) => boolean)): number
+    connect_after(sigName: "open-window", callback: (($obj: WebInspector) => boolean)): number
+    emit(sigName: "open-window"): void
+    on(sigName: "open-window", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "open-window", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "open-window", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: WebInspector, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: WebInspector, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::attached-height", callback: (($obj: WebInspector, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attached-height", callback: (($obj: WebInspector, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::attached-height", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2381,6 +3682,7 @@ export class WebInspector {
 export interface WebResource_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class WebResource {
+<<<<<<< HEAD
     /* Properties of WebKit2-3.0.WebKit2.WebResource */
     readonly response: URIResponse
     readonly uri: string
@@ -2403,6 +3705,30 @@ export class WebResource {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Properties of WebKit2.WebResource */
+    readonly response: URIResponse
+    readonly uri: string
+    /* Fields of WebKit2.WebResource */
+    parent: GObject.Object
+    priv: WebResourcePrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.WebResource */
+    getData(cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
+    getDataFinish(result: Gio.AsyncResult): any
+    getResponse(): URIResponse
+    getUri(): string
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2410,11 +3736,16 @@ export class WebResource {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of WebKit2-3.0.WebKit2.WebResource */
     connect(sigName: "failed", callback: (($obj: WebResource, error: object) => void)): number
@@ -2443,6 +3774,49 @@ export class WebResource {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of WebKit2.WebResource */
+    connect(sigName: "failed", callback: (($obj: WebResource, error: object) => void)): number
+    connect_after(sigName: "failed", callback: (($obj: WebResource, error: object) => void)): number
+    emit(sigName: "failed", error: object): void
+    on(sigName: "failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "finished", callback: (($obj: WebResource) => void)): number
+    connect_after(sigName: "finished", callback: (($obj: WebResource) => void)): number
+    emit(sigName: "finished"): void
+    on(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "finished", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "received-data", callback: (($obj: WebResource, dataLength: number) => void)): number
+    connect_after(sigName: "received-data", callback: (($obj: WebResource, dataLength: number) => void)): number
+    emit(sigName: "received-data", dataLength: number): void
+    on(sigName: "received-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "received-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "received-data", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "sent-request", callback: (($obj: WebResource, request: URIRequest, redirectedResponse: URIResponse) => void)): number
+    connect_after(sigName: "sent-request", callback: (($obj: WebResource, request: URIRequest, redirectedResponse: URIResponse) => void)): number
+    emit(sigName: "sent-request", request: URIRequest, redirectedResponse: URIResponse): void
+    on(sigName: "sent-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "sent-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "sent-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: WebResource, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: WebResource, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::response", callback: (($obj: WebResource, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::response", callback: (($obj: WebResource, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::response", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2473,7 +3847,11 @@ export interface WebView_ConstructProps extends WebViewBase_ConstructProps {
     zoomLevel?: number
 }
 export class WebView {
+<<<<<<< HEAD
     /* Properties of WebKit2-3.0.WebKit2.WebView */
+=======
+    /* Properties of WebKit2.WebView */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly estimatedLoadProgress: number
     readonly favicon: object
     readonly isLoading: boolean
@@ -2481,6 +3859,7 @@ export class WebView {
     readonly uri: string
     viewMode: ViewMode
     zoomLevel: number
+<<<<<<< HEAD
     /* Properties of Gtk-3.0.Gtk.Container */
     borderWidth: number
     child: Gtk.Widget
@@ -2497,10 +3876,27 @@ export class WebView {
     halign: Gtk.Align
     hasDefault: boolean
     hasFocus: boolean
+=======
+    /* Properties of Gtk.Container */
+    borderWidth: number
+    child: Gtk.Widget
+    resizeMode: Gtk.ResizeMode
+    /* Properties of Gtk.Widget */
+    canFocus: boolean
+    canTarget: boolean
+    cssClasses: string[]
+    cursor: Gdk.Cursor
+    focusOnClick: boolean
+    focusable: boolean
+    halign: Gtk.Align
+    readonly hasDefault: boolean
+    readonly hasFocus: boolean
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     hasTooltip: boolean
     heightRequest: number
     hexpand: boolean
     hexpandSet: boolean
+<<<<<<< HEAD
     isFocus: boolean
     margin: number
     marginBottom: number
@@ -2517,6 +3913,21 @@ export class WebView {
     readonly scaleFactor: number
     sensitive: boolean
     style: Gtk.Style
+=======
+    layoutManager: Gtk.LayoutManager
+    marginBottom: number
+    marginEnd: number
+    marginStart: number
+    marginTop: number
+    name: string
+    opacity: number
+    overflow: Gtk.Overflow
+    readonly parent: Gtk.Widget
+    receivesDefault: boolean
+    readonly root: Gtk.Root
+    readonly scaleFactor: number
+    sensitive: boolean
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     tooltipMarkup: string
     tooltipText: string
     valign: Gtk.Align
@@ -2524,6 +3935,7 @@ export class WebView {
     vexpandSet: boolean
     visible: boolean
     widthRequest: number
+<<<<<<< HEAD
     readonly window: Gdk.Window
     /* Fields of WebKit2-3.0.WebKit2.WebViewBase */
     parentInstance: Gtk.Container
@@ -2532,6 +3944,15 @@ export class WebView {
     /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2-3.0.WebKit2.WebView */
+=======
+    /* Fields of WebKit2.WebViewBase */
+    parentInstance: Gtk.Container
+    /* Fields of Gtk.Container */
+    widget: Gtk.Widget
+    /* Fields of GObject.InitiallyUnowned */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.WebView */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     canExecuteEditingCommand(command: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     canExecuteEditingCommandFinish(result: Gio.AsyncResult): boolean
     canGoBack(): boolean
@@ -2554,7 +3975,11 @@ export class WebView {
     getSnapshot(region: SnapshotRegion, options: SnapshotOptions, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
     getSnapshotFinish(result: Gio.AsyncResult): cairo.Surface
     getTitle(): string
+<<<<<<< HEAD
     getTlsInfo(): { returnType: boolean, certificate: Gio.TlsCertificate, errors: Gio.TlsCertificateFlags }
+=======
+    getTlsInfo(): [ /* returnType */ boolean, /* certificate */ Gio.TlsCertificate, /* errors */ Gio.TlsCertificateFlags ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getUri(): string
     getViewMode(): ViewMode
     getWindowProperties(): WindowProperties
@@ -2583,11 +4008,18 @@ export class WebView {
     setViewMode(viewMode: ViewMode): void
     setZoomLevel(zoomLevel: number): void
     stopLoading(): void
+<<<<<<< HEAD
     /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     /* child_notify clashes with Gtk.Widget.child_notify */
+=======
+    /* Methods of Gtk.Container */
+    add(widget: Gtk.Widget): void
+    checkResize(): void
+    childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -2595,7 +4027,11 @@ export class WebView {
     foreach(callback: Gtk.Callback): void
     getBorderWidth(): number
     getChildren(): Gtk.Widget[]
+<<<<<<< HEAD
     getFocusChain(): { returnType: boolean, focusableWidgets: Gtk.Widget[] }
+=======
+    getFocusChain(): [ /* returnType */ boolean, /* focusableWidgets */ Gtk.Widget[] ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getFocusChild(): Gtk.Widget | null
     getFocusHadjustment(): Gtk.Adjustment | null
     getFocusVadjustment(): Gtk.Adjustment | null
@@ -2612,6 +4048,7 @@ export class WebView {
     setReallocateRedraws(needsRedraws: boolean): void
     setResizeMode(resizeMode: Gtk.ResizeMode): void
     unsetFocusChain(): void
+<<<<<<< HEAD
     /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     addAccelerator(accelSignal: string, accelGroup: Gtk.AccelGroup, accelKey: number, accelMods: Gdk.ModifierType, accelFlags: Gtk.AccelFlags): void
@@ -2685,11 +4122,51 @@ export class WebView {
     getDoubleBuffered(): boolean
     getEvents(): number
     getFocusOnClick(): boolean
+=======
+    /* Methods of Gtk.Widget */
+    actionSetEnabled(actionName: string, enabled: boolean): void
+    activate(): boolean
+    activateAction(name: string, args?: GLib.Variant | null): boolean
+    activateDefault(): void
+    addController(controller: Gtk.EventController): void
+    addCssClass(cssClass: string): void
+    addMnemonicLabel(label: Gtk.Widget): void
+    addTickCallback(callback: Gtk.TickCallback): number
+    allocate(width: number, height: number, baseline: number, transform?: Gsk.Transform | null): void
+    childFocus(direction: Gtk.DirectionType): boolean
+    computeBounds(target: Gtk.Widget): [ /* returnType */ boolean, /* outBounds */ Graphene.Rect ]
+    computeExpand(orientation: Gtk.Orientation): boolean
+    computePoint(target: Gtk.Widget, point: Graphene.Point): [ /* returnType */ boolean, /* outPoint */ Graphene.Point ]
+    computeTransform(target: Gtk.Widget): [ /* returnType */ boolean, /* outTransform */ Graphene.Matrix ]
+    contains(x: number, y: number): boolean
+    createPangoContext(): Pango.Context
+    createPangoLayout(text?: string | null): Pango.Layout
+    dragCheckThreshold(startX: number, startY: number, currentX: number, currentY: number): boolean
+    errorBell(): void
+    getAllocatedBaseline(): number
+    getAllocatedHeight(): number
+    getAllocatedWidth(): number
+    getAllocation(): /* allocation */ Gtk.Allocation
+    getAncestor(widgetType: GObject.Type): Gtk.Widget | null
+    getCanFocus(): boolean
+    getCanTarget(): boolean
+    getChildVisible(): boolean
+    getClipboard(): Gdk.Clipboard
+    getCssClasses(): string[]
+    getCssName(): string
+    getCursor(): Gdk.Cursor | null
+    getDirection(): Gtk.TextDirection
+    getDisplay(): Gdk.Display
+    getFirstChild(): Gtk.Widget | null
+    getFocusOnClick(): boolean
+    getFocusable(): boolean
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getFontMap(): Pango.FontMap | null
     getFontOptions(): cairo.FontOptions | null
     getFrameClock(): Gdk.FrameClock | null
     getHalign(): Gtk.Align
     getHasTooltip(): boolean
+<<<<<<< HEAD
     getHasWindow(): boolean
     getHexpand(): boolean
     getHexpandSet(): boolean
@@ -2817,10 +4294,91 @@ export class WebView {
     setDoubleBuffered(doubleBuffered: boolean): void
     setEvents(events: number): void
     setFocusOnClick(focusOnClick: boolean): void
+=======
+    getHeight(): number
+    getHexpand(): boolean
+    getHexpandSet(): boolean
+    getLastChild(): Gtk.Widget | null
+    getLayoutManager(): Gtk.LayoutManager | null
+    getMapped(): boolean
+    getMarginBottom(): number
+    getMarginEnd(): number
+    getMarginStart(): number
+    getMarginTop(): number
+    getName(): string
+    getNative(): Gtk.Native | null
+    getNextSibling(): Gtk.Widget | null
+    getOpacity(): number
+    getOverflow(): Gtk.Overflow
+    getPangoContext(): Pango.Context
+    getParent(): Gtk.Widget | null
+    getPreferredSize(): [ /* minimumSize */ Gtk.Requisition | null, /* naturalSize */ Gtk.Requisition | null ]
+    getPrevSibling(): Gtk.Widget | null
+    getPrimaryClipboard(): Gdk.Clipboard
+    getRealized(): boolean
+    getReceivesDefault(): boolean
+    getRequestMode(): Gtk.SizeRequestMode
+    getRoot(): Gtk.Root | null
+    getScaleFactor(): number
+    getSensitive(): boolean
+    getSettings(): Gtk.Settings
+    getSize(orientation: Gtk.Orientation): number
+    getSizeRequest(): [ /* width */ number | null, /* height */ number | null ]
+    getStateFlags(): Gtk.StateFlags
+    getStyleContext(): Gtk.StyleContext
+    getTemplateChild(widgetType: GObject.Type, name: string): GObject.Object
+    getTooltipMarkup(): string | null
+    getTooltipText(): string | null
+    getValign(): Gtk.Align
+    getVexpand(): boolean
+    getVexpandSet(): boolean
+    getVisible(): boolean
+    getWidth(): number
+    grabFocus(): boolean
+    hasCssClass(cssClass: string): boolean
+    hasVisibleFocus(): boolean
+    hide(): void
+    inDestruction(): boolean
+    initTemplate(): void
+    insertActionGroup(name: string, group?: Gio.ActionGroup | null): void
+    insertAfter(parent: Gtk.Widget, previousSibling?: Gtk.Widget | null): void
+    insertBefore(parent: Gtk.Widget, nextSibling?: Gtk.Widget | null): void
+    isAncestor(ancestor: Gtk.Widget): boolean
+    isDrawable(): boolean
+    isFocus(): boolean
+    isSensitive(): boolean
+    isVisible(): boolean
+    keynavFailed(direction: Gtk.DirectionType): boolean
+    listMnemonicLabels(): Gtk.Widget[]
+    map(): void
+    measure(orientation: Gtk.Orientation, forSize: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
+    mnemonicActivate(groupCycling: boolean): boolean
+    observeChildren(): Gio.ListModel
+    observeControllers(): Gio.ListModel
+    pick(x: number, y: number, flags: Gtk.PickFlags): Gtk.Widget | null
+    queueAllocate(): void
+    queueDraw(): void
+    queueResize(): void
+    realize(): void
+    removeController(controller: Gtk.EventController): void
+    removeCssClass(cssClass: string): void
+    removeMnemonicLabel(label: Gtk.Widget): void
+    removeTickCallback(id: number): void
+    setCanFocus(canFocus: boolean): void
+    setCanTarget(canTarget: boolean): void
+    setChildVisible(childVisible: boolean): void
+    setCssClasses(classes: string[]): void
+    setCursor(cursor?: Gdk.Cursor | null): void
+    setCursorFromName(name?: string | null): void
+    setDirection(dir: Gtk.TextDirection): void
+    setFocusOnClick(focusOnClick: boolean): void
+    setFocusable(focusable: boolean): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     setFontMap(fontMap?: Pango.FontMap | null): void
     setFontOptions(options?: cairo.FontOptions | null): void
     setHalign(align: Gtk.Align): void
     setHasTooltip(hasTooltip: boolean): void
+<<<<<<< HEAD
     setHasWindow(hasWindow: boolean): void
     setHexpand(expand: boolean): void
     setHexpandSet(set: boolean): void
@@ -2848,10 +4406,30 @@ export class WebView {
     setTooltipMarkup(markup?: string | null): void
     setTooltipText(text?: string | null): void
     setTooltipWindow(customWindow?: Gtk.Window | null): void
+=======
+    setHexpand(expand: boolean): void
+    setHexpandSet(set: boolean): void
+    setLayoutManager(layoutManager?: Gtk.LayoutManager | null): void
+    setMarginBottom(margin: number): void
+    setMarginEnd(margin: number): void
+    setMarginStart(margin: number): void
+    setMarginTop(margin: number): void
+    setName(name: string): void
+    setOpacity(opacity: number): void
+    setOverflow(overflow: Gtk.Overflow): void
+    setParent(parent: Gtk.Widget): void
+    setReceivesDefault(receivesDefault: boolean): void
+    setSensitive(sensitive: boolean): void
+    setSizeRequest(width: number, height: number): void
+    setStateFlags(flags: Gtk.StateFlags, clear: boolean): void
+    setTooltipMarkup(markup?: string | null): void
+    setTooltipText(text?: string | null): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     setValign(align: Gtk.Align): void
     setVexpand(expand: boolean): void
     setVexpandSet(set: boolean): void
     setVisible(visible: boolean): void
+<<<<<<< HEAD
     setVisual(visual?: Gdk.Visual | null): void
     setWindow(window: Gdk.Window): void
     shapeCombineRegion(region?: cairo.Region | null): void
@@ -2865,10 +4443,18 @@ export class WebView {
     styleGetProperty(propertyName: string, value: any): void
     thawChildNotify(): void
     translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
+=======
+    shouldLayout(): boolean
+    show(): void
+    sizeAllocate(allocation: Gtk.Allocation, baseline: number): void
+    snapshotChild(child: Gtk.Widget, snapshot: Gtk.Snapshot): void
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): [ /* returnType */ boolean, /* destX */ number | null, /* destY */ number | null ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     triggerTooltipQuery(): void
     unmap(): void
     unparent(): void
     unrealize(): void
+<<<<<<< HEAD
     unregisterWindow(window: Gdk.Window): void
     unsetStateFlags(flags: Gtk.StateFlags): void
     /* Methods of GObject-2.0.GObject.Object */
@@ -2880,6 +4466,18 @@ export class WebView {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    unsetStateFlags(flags: Gtk.StateFlags): void
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -2887,11 +4485,16 @@ export class WebView {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
@@ -3386,6 +4989,332 @@ export class WebView {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Methods of Gtk.Buildable */
+    getBuildableId(): string
+    /* Virtual methods of WebKit2.WebView */
+    vfuncAuthenticate(request: AuthenticationRequest): boolean
+    vfuncClose(): void
+    vfuncContextMenu(contextMenu: ContextMenu, event: Gdk.Event, hitTestResult: HitTestResult): boolean
+    vfuncContextMenuDismissed(): void
+    vfuncDecidePolicy(decision: PolicyDecision, type: PolicyDecisionType): boolean
+    vfuncEnterFullscreen(): boolean
+    vfuncInsecureContentDetected(event: InsecureContentEvent): void
+    vfuncLeaveFullscreen(): boolean
+    vfuncLoadChanged(loadEvent: LoadEvent): void
+    vfuncLoadFailed(loadEvent: LoadEvent, failingUri: string, error: GLib.Error): boolean
+    vfuncLoadFailedWithTlsErrors(info: CertificateInfo, host: string): boolean
+    vfuncMouseTargetChanged(hitTestResult: HitTestResult, modifiers: number): void
+    vfuncPermissionRequest(permissionRequest: PermissionRequest): boolean
+    vfuncPrint(printOperation: PrintOperation): boolean
+    vfuncReadyToShow(): void
+    vfuncResourceLoadStarted(resource: WebResource, request: URIRequest): void
+    vfuncRunAsModal(): void
+    vfuncRunFileChooser(request: FileChooserRequest): boolean
+    vfuncScriptDialog(dialog: ScriptDialog): boolean
+    vfuncSubmitForm(request: FormSubmissionRequest): void
+    vfuncWebProcessCrashed(): boolean
+    /* Virtual methods of WebKit2.WebViewBase */
+    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
+    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
+    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
+    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ Gtk.BuildableParser, /* data */ object | null ]
+    vfuncGetId(): string
+    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
+    vfuncParserFinished(builder: Gtk.Builder): void
+    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
+    vfuncSetId(id: string): void
+    /* Virtual methods of Gtk.Container */
+    vfuncAdd(widget: Gtk.Widget): void
+    vfuncCheckResize(): void
+    vfuncChildType(): GObject.Type
+    vfuncCompositeName(child: Gtk.Widget): string
+    vfuncForall(includeInternals: boolean, callback: Gtk.Callback): void
+    vfuncGetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
+    vfuncGetPathForChild(child: Gtk.Widget): Gtk.WidgetPath
+    vfuncRemove(widget: Gtk.Widget): void
+    vfuncSetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
+    vfuncSetFocusChild(child?: Gtk.Widget | null): void
+    /* Virtual methods of Gtk.Widget */
+    vfuncComputeExpand(hexpandP: boolean, vexpandP: boolean): void
+    vfuncContains(x: number, y: number): boolean
+    vfuncCssChanged(change: Gtk.CssStyleChange): void
+    vfuncDirectionChanged(previousDirection: Gtk.TextDirection): void
+    vfuncFocus(direction: Gtk.DirectionType): boolean
+    vfuncGetRequestMode(): Gtk.SizeRequestMode
+    vfuncGrabFocus(): boolean
+    vfuncHide(): void
+    vfuncKeynavFailed(direction: Gtk.DirectionType): boolean
+    vfuncMap(): void
+    vfuncMeasure(orientation: Gtk.Orientation, forSize: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
+    vfuncMnemonicActivate(groupCycling: boolean): boolean
+    vfuncMoveFocus(direction: Gtk.DirectionType): void
+    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
+    vfuncRealize(): void
+    vfuncRoot(): void
+    vfuncSetFocusChild(child?: Gtk.Widget | null): void
+    vfuncShow(): void
+    vfuncSizeAllocate(width: number, height: number, baseline: number): void
+    vfuncSnapshot(snapshot: Gtk.Snapshot): void
+    vfuncStateFlagsChanged(previousStateFlags: Gtk.StateFlags): void
+    vfuncSystemSettingChanged(settings: Gtk.SystemSetting): void
+    vfuncUnmap(): void
+    vfuncUnrealize(): void
+    vfuncUnroot(): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of WebKit2.WebView */
+    connect(sigName: "authenticate", callback: (($obj: WebView, request: AuthenticationRequest) => boolean)): number
+    connect_after(sigName: "authenticate", callback: (($obj: WebView, request: AuthenticationRequest) => boolean)): number
+    emit(sigName: "authenticate", request: AuthenticationRequest): void
+    on(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "authenticate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "close", callback: (($obj: WebView) => void)): number
+    connect_after(sigName: "close", callback: (($obj: WebView) => void)): number
+    emit(sigName: "close"): void
+    on(sigName: "close", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "close", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "close", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "context-menu", callback: (($obj: WebView, contextMenu: ContextMenu, event: Gdk.Event, hitTestResult: HitTestResult) => boolean)): number
+    connect_after(sigName: "context-menu", callback: (($obj: WebView, contextMenu: ContextMenu, event: Gdk.Event, hitTestResult: HitTestResult) => boolean)): number
+    emit(sigName: "context-menu", contextMenu: ContextMenu, event: Gdk.Event, hitTestResult: HitTestResult): void
+    on(sigName: "context-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "context-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "context-menu", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "context-menu-dismissed", callback: (($obj: WebView) => void)): number
+    connect_after(sigName: "context-menu-dismissed", callback: (($obj: WebView) => void)): number
+    emit(sigName: "context-menu-dismissed"): void
+    on(sigName: "context-menu-dismissed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "context-menu-dismissed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "context-menu-dismissed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "create", callback: (($obj: WebView) => Gtk.Widget)): number
+    connect_after(sigName: "create", callback: (($obj: WebView) => Gtk.Widget)): number
+    emit(sigName: "create"): void
+    on(sigName: "create", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "create", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "create", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "decide-policy", callback: (($obj: WebView, decision: PolicyDecision, decisionType: PolicyDecisionType) => boolean)): number
+    connect_after(sigName: "decide-policy", callback: (($obj: WebView, decision: PolicyDecision, decisionType: PolicyDecisionType) => boolean)): number
+    emit(sigName: "decide-policy", decision: PolicyDecision, decisionType: PolicyDecisionType): void
+    on(sigName: "decide-policy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "decide-policy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "decide-policy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "enter-fullscreen", callback: (($obj: WebView) => boolean)): number
+    connect_after(sigName: "enter-fullscreen", callback: (($obj: WebView) => boolean)): number
+    emit(sigName: "enter-fullscreen"): void
+    on(sigName: "enter-fullscreen", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "enter-fullscreen", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "enter-fullscreen", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "insecure-content-detected", callback: (($obj: WebView, event: InsecureContentEvent) => void)): number
+    connect_after(sigName: "insecure-content-detected", callback: (($obj: WebView, event: InsecureContentEvent) => void)): number
+    emit(sigName: "insecure-content-detected", event: InsecureContentEvent): void
+    on(sigName: "insecure-content-detected", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "insecure-content-detected", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "insecure-content-detected", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "leave-fullscreen", callback: (($obj: WebView) => boolean)): number
+    connect_after(sigName: "leave-fullscreen", callback: (($obj: WebView) => boolean)): number
+    emit(sigName: "leave-fullscreen"): void
+    on(sigName: "leave-fullscreen", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "leave-fullscreen", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "leave-fullscreen", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "load-changed", callback: (($obj: WebView, loadEvent: LoadEvent) => void)): number
+    connect_after(sigName: "load-changed", callback: (($obj: WebView, loadEvent: LoadEvent) => void)): number
+    emit(sigName: "load-changed", loadEvent: LoadEvent): void
+    on(sigName: "load-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "load-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "load-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "load-failed", callback: (($obj: WebView, loadEvent: LoadEvent, failingUri: string, error: object) => boolean)): number
+    connect_after(sigName: "load-failed", callback: (($obj: WebView, loadEvent: LoadEvent, failingUri: string, error: object) => boolean)): number
+    emit(sigName: "load-failed", loadEvent: LoadEvent, failingUri: string, error: object): void
+    on(sigName: "load-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "load-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "load-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "load-failed-with-tls-errors", callback: (($obj: WebView, info: CertificateInfo, host: string) => boolean)): number
+    connect_after(sigName: "load-failed-with-tls-errors", callback: (($obj: WebView, info: CertificateInfo, host: string) => boolean)): number
+    emit(sigName: "load-failed-with-tls-errors", info: CertificateInfo, host: string): void
+    on(sigName: "load-failed-with-tls-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "load-failed-with-tls-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "load-failed-with-tls-errors", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "mouse-target-changed", callback: (($obj: WebView, hitTestResult: HitTestResult, modifiers: number) => void)): number
+    connect_after(sigName: "mouse-target-changed", callback: (($obj: WebView, hitTestResult: HitTestResult, modifiers: number) => void)): number
+    emit(sigName: "mouse-target-changed", hitTestResult: HitTestResult, modifiers: number): void
+    on(sigName: "mouse-target-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "mouse-target-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "mouse-target-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "permission-request", callback: (($obj: WebView, request: PermissionRequest) => boolean)): number
+    connect_after(sigName: "permission-request", callback: (($obj: WebView, request: PermissionRequest) => boolean)): number
+    emit(sigName: "permission-request", request: PermissionRequest): void
+    on(sigName: "permission-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "permission-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "permission-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "print", callback: (($obj: WebView, printOperation: PrintOperation) => boolean)): number
+    connect_after(sigName: "print", callback: (($obj: WebView, printOperation: PrintOperation) => boolean)): number
+    emit(sigName: "print", printOperation: PrintOperation): void
+    on(sigName: "print", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "print", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "print", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "ready-to-show", callback: (($obj: WebView) => void)): number
+    connect_after(sigName: "ready-to-show", callback: (($obj: WebView) => void)): number
+    emit(sigName: "ready-to-show"): void
+    on(sigName: "ready-to-show", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "ready-to-show", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "ready-to-show", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "resource-load-started", callback: (($obj: WebView, resource: WebResource, request: URIRequest) => void)): number
+    connect_after(sigName: "resource-load-started", callback: (($obj: WebView, resource: WebResource, request: URIRequest) => void)): number
+    emit(sigName: "resource-load-started", resource: WebResource, request: URIRequest): void
+    on(sigName: "resource-load-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "resource-load-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "resource-load-started", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "run-as-modal", callback: (($obj: WebView) => void)): number
+    connect_after(sigName: "run-as-modal", callback: (($obj: WebView) => void)): number
+    emit(sigName: "run-as-modal"): void
+    on(sigName: "run-as-modal", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "run-as-modal", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "run-as-modal", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "run-file-chooser", callback: (($obj: WebView, request: FileChooserRequest) => boolean)): number
+    connect_after(sigName: "run-file-chooser", callback: (($obj: WebView, request: FileChooserRequest) => boolean)): number
+    emit(sigName: "run-file-chooser", request: FileChooserRequest): void
+    on(sigName: "run-file-chooser", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "run-file-chooser", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "run-file-chooser", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "script-dialog", callback: (($obj: WebView, dialog: ScriptDialog) => boolean)): number
+    connect_after(sigName: "script-dialog", callback: (($obj: WebView, dialog: ScriptDialog) => boolean)): number
+    emit(sigName: "script-dialog", dialog: ScriptDialog): void
+    on(sigName: "script-dialog", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "script-dialog", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "script-dialog", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "submit-form", callback: (($obj: WebView, request: FormSubmissionRequest) => void)): number
+    connect_after(sigName: "submit-form", callback: (($obj: WebView, request: FormSubmissionRequest) => void)): number
+    emit(sigName: "submit-form", request: FormSubmissionRequest): void
+    on(sigName: "submit-form", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "submit-form", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "submit-form", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "web-process-crashed", callback: (($obj: WebView) => boolean)): number
+    connect_after(sigName: "web-process-crashed", callback: (($obj: WebView) => boolean)): number
+    emit(sigName: "web-process-crashed"): void
+    on(sigName: "web-process-crashed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "web-process-crashed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "web-process-crashed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of Gtk.Container */
+    connect(sigName: "add", callback: (($obj: WebView, object: Gtk.Widget) => void)): number
+    connect_after(sigName: "add", callback: (($obj: WebView, object: Gtk.Widget) => void)): number
+    emit(sigName: "add", object: Gtk.Widget): void
+    on(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "check-resize", callback: (($obj: WebView) => void)): number
+    connect_after(sigName: "check-resize", callback: (($obj: WebView) => void)): number
+    emit(sigName: "check-resize"): void
+    on(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "remove", callback: (($obj: WebView, object: Gtk.Widget) => void)): number
+    connect_after(sigName: "remove", callback: (($obj: WebView, object: Gtk.Widget) => void)): number
+    emit(sigName: "remove", object: Gtk.Widget): void
+    on(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "set-focus-child", callback: (($obj: WebView, object: Gtk.Widget) => void)): number
+    connect_after(sigName: "set-focus-child", callback: (($obj: WebView, object: Gtk.Widget) => void)): number
+    emit(sigName: "set-focus-child", object: Gtk.Widget): void
+    on(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of Gtk.Widget */
+    connect(sigName: "destroy", callback: (($obj: WebView) => void)): number
+    connect_after(sigName: "destroy", callback: (($obj: WebView) => void)): number
+    emit(sigName: "destroy"): void
+    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "direction-changed", callback: (($obj: WebView, previousDirection: Gtk.TextDirection) => void)): number
+    connect_after(sigName: "direction-changed", callback: (($obj: WebView, previousDirection: Gtk.TextDirection) => void)): number
+    emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
+    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "hide", callback: (($obj: WebView) => void)): number
+    connect_after(sigName: "hide", callback: (($obj: WebView) => void)): number
+    emit(sigName: "hide"): void
+    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "keynav-failed", callback: (($obj: WebView, direction: Gtk.DirectionType) => boolean)): number
+    connect_after(sigName: "keynav-failed", callback: (($obj: WebView, direction: Gtk.DirectionType) => boolean)): number
+    emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
+    on(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "map", callback: (($obj: WebView) => void)): number
+    connect_after(sigName: "map", callback: (($obj: WebView) => void)): number
+    emit(sigName: "map"): void
+    on(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "mnemonic-activate", callback: (($obj: WebView, groupCycling: boolean) => boolean)): number
+    connect_after(sigName: "mnemonic-activate", callback: (($obj: WebView, groupCycling: boolean) => boolean)): number
+    emit(sigName: "mnemonic-activate", groupCycling: boolean): void
+    on(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "move-focus", callback: (($obj: WebView, direction: Gtk.DirectionType) => void)): number
+    connect_after(sigName: "move-focus", callback: (($obj: WebView, direction: Gtk.DirectionType) => void)): number
+    emit(sigName: "move-focus", direction: Gtk.DirectionType): void
+    on(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "query-tooltip", callback: (($obj: WebView, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    connect_after(sigName: "query-tooltip", callback: (($obj: WebView, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
+    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "realize", callback: (($obj: WebView) => void)): number
+    connect_after(sigName: "realize", callback: (($obj: WebView) => void)): number
+    emit(sigName: "realize"): void
+    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "show", callback: (($obj: WebView) => void)): number
+    connect_after(sigName: "show", callback: (($obj: WebView) => void)): number
+    emit(sigName: "show"): void
+    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "state-flags-changed", callback: (($obj: WebView, flags: Gtk.StateFlags) => void)): number
+    connect_after(sigName: "state-flags-changed", callback: (($obj: WebView, flags: Gtk.StateFlags) => void)): number
+    emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
+    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "unmap", callback: (($obj: WebView) => void)): number
+    connect_after(sigName: "unmap", callback: (($obj: WebView) => void)): number
+    emit(sigName: "unmap"): void
+    on(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "unrealize", callback: (($obj: WebView) => void)): number
+    connect_after(sigName: "unrealize", callback: (($obj: WebView) => void)): number
+    emit(sigName: "unrealize"): void
+    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::estimated-load-progress", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::estimated-load-progress", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::estimated-load-progress", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3436,6 +5365,7 @@ export class WebView {
     on(sigName: "notify::resize-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::resize-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::resize-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
     connect(sigName: "notify::app-paintable", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::app-paintable", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::app-paintable", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3446,11 +5376,14 @@ export class WebView {
     on(sigName: "notify::can-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::can-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::can-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::can-focus", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-focus", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::can-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::can-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::can-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
     connect(sigName: "notify::composite-child", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::composite-child", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::composite-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3471,11 +5404,36 @@ export class WebView {
     on(sigName: "notify::expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+=======
+    connect(sigName: "notify::can-target", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::can-target", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::can-target", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::can-target", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::can-target", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::css-classes", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::css-classes", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::css-classes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::css-classes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::css-classes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::cursor", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::cursor", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::cursor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::cursor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::cursor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::focus-on-click", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::focus-on-click", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::focus-on-click", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::focus-on-click", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::focus-on-click", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
+=======
+    connect(sigName: "notify::focusable", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::focusable", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::focusable", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::focusable", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::focusable", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::halign", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::halign", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::halign", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3511,6 +5469,7 @@ export class WebView {
     on(sigName: "notify::hexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::hexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::hexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
     connect(sigName: "notify::is-focus", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-focus", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::is-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3521,6 +5480,13 @@ export class WebView {
     on(sigName: "notify::margin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::margin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::margin", callback: (...args: any[]) => void): NodeJS.EventEmitter
+=======
+    connect(sigName: "notify::layout-manager", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::layout-manager", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::layout-manager", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::layout-manager", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::layout-manager", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::margin-bottom", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::margin-bottom", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::margin-bottom", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3531,6 +5497,7 @@ export class WebView {
     on(sigName: "notify::margin-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::margin-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::margin-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
     connect(sigName: "notify::margin-left", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::margin-left", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::margin-left", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3541,6 +5508,8 @@ export class WebView {
     on(sigName: "notify::margin-right", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::margin-right", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::margin-right", callback: (...args: any[]) => void): NodeJS.EventEmitter
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::margin-start", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::margin-start", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::margin-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3556,16 +5525,27 @@ export class WebView {
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
     connect(sigName: "notify::no-show-all", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::no-show-all", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::no-show-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::no-show-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::no-show-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::opacity", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::opacity", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::opacity", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::opacity", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::opacity", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
+=======
+    connect(sigName: "notify::overflow", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::overflow", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::overflow", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::overflow", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::overflow", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::parent", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3576,6 +5556,14 @@ export class WebView {
     on(sigName: "notify::receives-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::receives-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::receives-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
+=======
+    connect(sigName: "notify::root", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::root", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::root", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::root", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::root", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::scale-factor", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::scale-factor", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::scale-factor", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3586,11 +5574,14 @@ export class WebView {
     on(sigName: "notify::sensitive", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::sensitive", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::sensitive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
     connect(sigName: "notify::style", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::style", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::style", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::style", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::style", callback: (...args: any[]) => void): NodeJS.EventEmitter
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::tooltip-markup", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tooltip-markup", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::tooltip-markup", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3626,11 +5617,14 @@ export class WebView {
     on(sigName: "notify::width-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::width-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::width-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
     connect(sigName: "notify::window", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::window", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::window", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::window", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::window", callback: (...args: any[]) => void): NodeJS.EventEmitter
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3650,6 +5644,7 @@ export class WebView {
 export interface WebViewBase_ConstructProps extends Gtk.Container_ConstructProps {
 }
 export class WebViewBase {
+<<<<<<< HEAD
     /* Properties of Gtk-3.0.Gtk.Container */
     borderWidth: number
     child: Gtk.Widget
@@ -3666,10 +5661,27 @@ export class WebViewBase {
     halign: Gtk.Align
     hasDefault: boolean
     hasFocus: boolean
+=======
+    /* Properties of Gtk.Container */
+    borderWidth: number
+    child: Gtk.Widget
+    resizeMode: Gtk.ResizeMode
+    /* Properties of Gtk.Widget */
+    canFocus: boolean
+    canTarget: boolean
+    cssClasses: string[]
+    cursor: Gdk.Cursor
+    focusOnClick: boolean
+    focusable: boolean
+    halign: Gtk.Align
+    readonly hasDefault: boolean
+    readonly hasFocus: boolean
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     hasTooltip: boolean
     heightRequest: number
     hexpand: boolean
     hexpandSet: boolean
+<<<<<<< HEAD
     isFocus: boolean
     margin: number
     marginBottom: number
@@ -3686,6 +5698,21 @@ export class WebViewBase {
     readonly scaleFactor: number
     sensitive: boolean
     style: Gtk.Style
+=======
+    layoutManager: Gtk.LayoutManager
+    marginBottom: number
+    marginEnd: number
+    marginStart: number
+    marginTop: number
+    name: string
+    opacity: number
+    overflow: Gtk.Overflow
+    readonly parent: Gtk.Widget
+    receivesDefault: boolean
+    readonly root: Gtk.Root
+    readonly scaleFactor: number
+    sensitive: boolean
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     tooltipMarkup: string
     tooltipText: string
     valign: Gtk.Align
@@ -3693,6 +5720,7 @@ export class WebViewBase {
     vexpandSet: boolean
     visible: boolean
     widthRequest: number
+<<<<<<< HEAD
     readonly window: Gdk.Window
     /* Fields of WebKit2-3.0.WebKit2.WebViewBase */
     parentInstance: Gtk.Container
@@ -3705,6 +5733,18 @@ export class WebViewBase {
     checkResize(): void
     childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     /* child_notify clashes with Gtk.Widget.child_notify */
+=======
+    /* Fields of WebKit2.WebViewBase */
+    parentInstance: Gtk.Container
+    /* Fields of Gtk.Container */
+    widget: Gtk.Widget
+    /* Fields of GObject.InitiallyUnowned */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Gtk.Container */
+    add(widget: Gtk.Widget): void
+    checkResize(): void
+    childGetProperty(child: Gtk.Widget, propertyName: string, value: any): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     childNotifyByPspec(child: Gtk.Widget, pspec: GObject.ParamSpec): void
     childSetProperty(child: Gtk.Widget, propertyName: string, value: any): void
     childType(): GObject.Type
@@ -3712,7 +5752,11 @@ export class WebViewBase {
     foreach(callback: Gtk.Callback): void
     getBorderWidth(): number
     getChildren(): Gtk.Widget[]
+<<<<<<< HEAD
     getFocusChain(): { returnType: boolean, focusableWidgets: Gtk.Widget[] }
+=======
+    getFocusChain(): [ /* returnType */ boolean, /* focusableWidgets */ Gtk.Widget[] ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getFocusChild(): Gtk.Widget | null
     getFocusHadjustment(): Gtk.Adjustment | null
     getFocusVadjustment(): Gtk.Adjustment | null
@@ -3729,6 +5773,7 @@ export class WebViewBase {
     setReallocateRedraws(needsRedraws: boolean): void
     setResizeMode(resizeMode: Gtk.ResizeMode): void
     unsetFocusChain(): void
+<<<<<<< HEAD
     /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     addAccelerator(accelSignal: string, accelGroup: Gtk.AccelGroup, accelKey: number, accelMods: Gdk.ModifierType, accelFlags: Gtk.AccelFlags): void
@@ -3802,11 +5847,51 @@ export class WebViewBase {
     getDoubleBuffered(): boolean
     getEvents(): number
     getFocusOnClick(): boolean
+=======
+    /* Methods of Gtk.Widget */
+    actionSetEnabled(actionName: string, enabled: boolean): void
+    activate(): boolean
+    activateAction(name: string, args?: GLib.Variant | null): boolean
+    activateDefault(): void
+    addController(controller: Gtk.EventController): void
+    addCssClass(cssClass: string): void
+    addMnemonicLabel(label: Gtk.Widget): void
+    addTickCallback(callback: Gtk.TickCallback): number
+    allocate(width: number, height: number, baseline: number, transform?: Gsk.Transform | null): void
+    childFocus(direction: Gtk.DirectionType): boolean
+    computeBounds(target: Gtk.Widget): [ /* returnType */ boolean, /* outBounds */ Graphene.Rect ]
+    computeExpand(orientation: Gtk.Orientation): boolean
+    computePoint(target: Gtk.Widget, point: Graphene.Point): [ /* returnType */ boolean, /* outPoint */ Graphene.Point ]
+    computeTransform(target: Gtk.Widget): [ /* returnType */ boolean, /* outTransform */ Graphene.Matrix ]
+    contains(x: number, y: number): boolean
+    createPangoContext(): Pango.Context
+    createPangoLayout(text?: string | null): Pango.Layout
+    dragCheckThreshold(startX: number, startY: number, currentX: number, currentY: number): boolean
+    errorBell(): void
+    getAllocatedBaseline(): number
+    getAllocatedHeight(): number
+    getAllocatedWidth(): number
+    getAllocation(): /* allocation */ Gtk.Allocation
+    getAncestor(widgetType: GObject.Type): Gtk.Widget | null
+    getCanFocus(): boolean
+    getCanTarget(): boolean
+    getChildVisible(): boolean
+    getClipboard(): Gdk.Clipboard
+    getCssClasses(): string[]
+    getCssName(): string
+    getCursor(): Gdk.Cursor | null
+    getDirection(): Gtk.TextDirection
+    getDisplay(): Gdk.Display
+    getFirstChild(): Gtk.Widget | null
+    getFocusOnClick(): boolean
+    getFocusable(): boolean
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getFontMap(): Pango.FontMap | null
     getFontOptions(): cairo.FontOptions | null
     getFrameClock(): Gdk.FrameClock | null
     getHalign(): Gtk.Align
     getHasTooltip(): boolean
+<<<<<<< HEAD
     getHasWindow(): boolean
     getHexpand(): boolean
     getHexpandSet(): boolean
@@ -3934,10 +6019,91 @@ export class WebViewBase {
     setDoubleBuffered(doubleBuffered: boolean): void
     setEvents(events: number): void
     setFocusOnClick(focusOnClick: boolean): void
+=======
+    getHeight(): number
+    getHexpand(): boolean
+    getHexpandSet(): boolean
+    getLastChild(): Gtk.Widget | null
+    getLayoutManager(): Gtk.LayoutManager | null
+    getMapped(): boolean
+    getMarginBottom(): number
+    getMarginEnd(): number
+    getMarginStart(): number
+    getMarginTop(): number
+    getName(): string
+    getNative(): Gtk.Native | null
+    getNextSibling(): Gtk.Widget | null
+    getOpacity(): number
+    getOverflow(): Gtk.Overflow
+    getPangoContext(): Pango.Context
+    getParent(): Gtk.Widget | null
+    getPreferredSize(): [ /* minimumSize */ Gtk.Requisition | null, /* naturalSize */ Gtk.Requisition | null ]
+    getPrevSibling(): Gtk.Widget | null
+    getPrimaryClipboard(): Gdk.Clipboard
+    getRealized(): boolean
+    getReceivesDefault(): boolean
+    getRequestMode(): Gtk.SizeRequestMode
+    getRoot(): Gtk.Root | null
+    getScaleFactor(): number
+    getSensitive(): boolean
+    getSettings(): Gtk.Settings
+    getSize(orientation: Gtk.Orientation): number
+    getSizeRequest(): [ /* width */ number | null, /* height */ number | null ]
+    getStateFlags(): Gtk.StateFlags
+    getStyleContext(): Gtk.StyleContext
+    getTemplateChild(widgetType: GObject.Type, name: string): GObject.Object
+    getTooltipMarkup(): string | null
+    getTooltipText(): string | null
+    getValign(): Gtk.Align
+    getVexpand(): boolean
+    getVexpandSet(): boolean
+    getVisible(): boolean
+    getWidth(): number
+    grabFocus(): boolean
+    hasCssClass(cssClass: string): boolean
+    hasVisibleFocus(): boolean
+    hide(): void
+    inDestruction(): boolean
+    initTemplate(): void
+    insertActionGroup(name: string, group?: Gio.ActionGroup | null): void
+    insertAfter(parent: Gtk.Widget, previousSibling?: Gtk.Widget | null): void
+    insertBefore(parent: Gtk.Widget, nextSibling?: Gtk.Widget | null): void
+    isAncestor(ancestor: Gtk.Widget): boolean
+    isDrawable(): boolean
+    isFocus(): boolean
+    isSensitive(): boolean
+    isVisible(): boolean
+    keynavFailed(direction: Gtk.DirectionType): boolean
+    listMnemonicLabels(): Gtk.Widget[]
+    map(): void
+    measure(orientation: Gtk.Orientation, forSize: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
+    mnemonicActivate(groupCycling: boolean): boolean
+    observeChildren(): Gio.ListModel
+    observeControllers(): Gio.ListModel
+    pick(x: number, y: number, flags: Gtk.PickFlags): Gtk.Widget | null
+    queueAllocate(): void
+    queueDraw(): void
+    queueResize(): void
+    realize(): void
+    removeController(controller: Gtk.EventController): void
+    removeCssClass(cssClass: string): void
+    removeMnemonicLabel(label: Gtk.Widget): void
+    removeTickCallback(id: number): void
+    setCanFocus(canFocus: boolean): void
+    setCanTarget(canTarget: boolean): void
+    setChildVisible(childVisible: boolean): void
+    setCssClasses(classes: string[]): void
+    setCursor(cursor?: Gdk.Cursor | null): void
+    setCursorFromName(name?: string | null): void
+    setDirection(dir: Gtk.TextDirection): void
+    setFocusOnClick(focusOnClick: boolean): void
+    setFocusable(focusable: boolean): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     setFontMap(fontMap?: Pango.FontMap | null): void
     setFontOptions(options?: cairo.FontOptions | null): void
     setHalign(align: Gtk.Align): void
     setHasTooltip(hasTooltip: boolean): void
+<<<<<<< HEAD
     setHasWindow(hasWindow: boolean): void
     setHexpand(expand: boolean): void
     setHexpandSet(set: boolean): void
@@ -3965,10 +6131,30 @@ export class WebViewBase {
     setTooltipMarkup(markup?: string | null): void
     setTooltipText(text?: string | null): void
     setTooltipWindow(customWindow?: Gtk.Window | null): void
+=======
+    setHexpand(expand: boolean): void
+    setHexpandSet(set: boolean): void
+    setLayoutManager(layoutManager?: Gtk.LayoutManager | null): void
+    setMarginBottom(margin: number): void
+    setMarginEnd(margin: number): void
+    setMarginStart(margin: number): void
+    setMarginTop(margin: number): void
+    setName(name: string): void
+    setOpacity(opacity: number): void
+    setOverflow(overflow: Gtk.Overflow): void
+    setParent(parent: Gtk.Widget): void
+    setReceivesDefault(receivesDefault: boolean): void
+    setSensitive(sensitive: boolean): void
+    setSizeRequest(width: number, height: number): void
+    setStateFlags(flags: Gtk.StateFlags, clear: boolean): void
+    setTooltipMarkup(markup?: string | null): void
+    setTooltipText(text?: string | null): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     setValign(align: Gtk.Align): void
     setVexpand(expand: boolean): void
     setVexpandSet(set: boolean): void
     setVisible(visible: boolean): void
+<<<<<<< HEAD
     setVisual(visual?: Gdk.Visual | null): void
     setWindow(window: Gdk.Window): void
     shapeCombineRegion(region?: cairo.Region | null): void
@@ -3982,10 +6168,18 @@ export class WebViewBase {
     styleGetProperty(propertyName: string, value: any): void
     thawChildNotify(): void
     translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): { returnType: boolean, destX: number | null, destY: number | null }
+=======
+    shouldLayout(): boolean
+    show(): void
+    sizeAllocate(allocation: Gtk.Allocation, baseline: number): void
+    snapshotChild(child: Gtk.Widget, snapshot: Gtk.Snapshot): void
+    translateCoordinates(destWidget: Gtk.Widget, srcX: number, srcY: number): [ /* returnType */ boolean, /* destX */ number | null, /* destY */ number | null ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     triggerTooltipQuery(): void
     unmap(): void
     unparent(): void
     unrealize(): void
+<<<<<<< HEAD
     unregisterWindow(window: Gdk.Window): void
     unsetStateFlags(flags: Gtk.StateFlags): void
     /* Methods of GObject-2.0.GObject.Object */
@@ -3997,6 +6191,18 @@ export class WebViewBase {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    unsetStateFlags(flags: Gtk.StateFlags): void
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -4004,11 +6210,16 @@ export class WebViewBase {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Methods of Gtk-3.0.Gtk.Buildable */
     addChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
@@ -4392,6 +6603,177 @@ export class WebViewBase {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Methods of Gtk.Buildable */
+    getBuildableId(): string
+    /* Virtual methods of WebKit2.WebViewBase */
+    vfuncAddChild(builder: Gtk.Builder, child: GObject.Object, type?: string | null): void
+    vfuncCustomFinished(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
+    vfuncCustomTagEnd(builder: Gtk.Builder, child: GObject.Object | null, tagname: string, data?: object | null): void
+    vfuncCustomTagStart(builder: Gtk.Builder, child: GObject.Object | null, tagname: string): [ /* returnType */ boolean, /* parser */ Gtk.BuildableParser, /* data */ object | null ]
+    vfuncGetId(): string
+    vfuncGetInternalChild(builder: Gtk.Builder, childname: string): GObject.Object
+    vfuncParserFinished(builder: Gtk.Builder): void
+    vfuncSetBuildableProperty(builder: Gtk.Builder, name: string, value: any): void
+    vfuncSetId(id: string): void
+    /* Virtual methods of Gtk.Container */
+    vfuncAdd(widget: Gtk.Widget): void
+    vfuncCheckResize(): void
+    vfuncChildType(): GObject.Type
+    vfuncCompositeName(child: Gtk.Widget): string
+    vfuncForall(includeInternals: boolean, callback: Gtk.Callback): void
+    vfuncGetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
+    vfuncGetPathForChild(child: Gtk.Widget): Gtk.WidgetPath
+    vfuncRemove(widget: Gtk.Widget): void
+    vfuncSetChildProperty(child: Gtk.Widget, propertyId: number, value: any, pspec: GObject.ParamSpec): void
+    vfuncSetFocusChild(child?: Gtk.Widget | null): void
+    /* Virtual methods of Gtk.Widget */
+    vfuncComputeExpand(hexpandP: boolean, vexpandP: boolean): void
+    vfuncContains(x: number, y: number): boolean
+    vfuncCssChanged(change: Gtk.CssStyleChange): void
+    vfuncDirectionChanged(previousDirection: Gtk.TextDirection): void
+    vfuncFocus(direction: Gtk.DirectionType): boolean
+    vfuncGetRequestMode(): Gtk.SizeRequestMode
+    vfuncGrabFocus(): boolean
+    vfuncHide(): void
+    vfuncKeynavFailed(direction: Gtk.DirectionType): boolean
+    vfuncMap(): void
+    vfuncMeasure(orientation: Gtk.Orientation, forSize: number): [ /* minimum */ number | null, /* natural */ number | null, /* minimumBaseline */ number | null, /* naturalBaseline */ number | null ]
+    vfuncMnemonicActivate(groupCycling: boolean): boolean
+    vfuncMoveFocus(direction: Gtk.DirectionType): void
+    vfuncQueryTooltip(x: number, y: number, keyboardTooltip: boolean, tooltip: Gtk.Tooltip): boolean
+    vfuncRealize(): void
+    vfuncRoot(): void
+    vfuncSetFocusChild(child?: Gtk.Widget | null): void
+    vfuncShow(): void
+    vfuncSizeAllocate(width: number, height: number, baseline: number): void
+    vfuncSnapshot(snapshot: Gtk.Snapshot): void
+    vfuncStateFlagsChanged(previousStateFlags: Gtk.StateFlags): void
+    vfuncSystemSettingChanged(settings: Gtk.SystemSetting): void
+    vfuncUnmap(): void
+    vfuncUnrealize(): void
+    vfuncUnroot(): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of Gtk.Container */
+    connect(sigName: "add", callback: (($obj: WebViewBase, object: Gtk.Widget) => void)): number
+    connect_after(sigName: "add", callback: (($obj: WebViewBase, object: Gtk.Widget) => void)): number
+    emit(sigName: "add", object: Gtk.Widget): void
+    on(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "add", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "check-resize", callback: (($obj: WebViewBase) => void)): number
+    connect_after(sigName: "check-resize", callback: (($obj: WebViewBase) => void)): number
+    emit(sigName: "check-resize"): void
+    on(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "check-resize", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "remove", callback: (($obj: WebViewBase, object: Gtk.Widget) => void)): number
+    connect_after(sigName: "remove", callback: (($obj: WebViewBase, object: Gtk.Widget) => void)): number
+    emit(sigName: "remove", object: Gtk.Widget): void
+    on(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "remove", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "set-focus-child", callback: (($obj: WebViewBase, object: Gtk.Widget) => void)): number
+    connect_after(sigName: "set-focus-child", callback: (($obj: WebViewBase, object: Gtk.Widget) => void)): number
+    emit(sigName: "set-focus-child", object: Gtk.Widget): void
+    on(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "set-focus-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of Gtk.Widget */
+    connect(sigName: "destroy", callback: (($obj: WebViewBase) => void)): number
+    connect_after(sigName: "destroy", callback: (($obj: WebViewBase) => void)): number
+    emit(sigName: "destroy"): void
+    on(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "destroy", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "direction-changed", callback: (($obj: WebViewBase, previousDirection: Gtk.TextDirection) => void)): number
+    connect_after(sigName: "direction-changed", callback: (($obj: WebViewBase, previousDirection: Gtk.TextDirection) => void)): number
+    emit(sigName: "direction-changed", previousDirection: Gtk.TextDirection): void
+    on(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "direction-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "hide", callback: (($obj: WebViewBase) => void)): number
+    connect_after(sigName: "hide", callback: (($obj: WebViewBase) => void)): number
+    emit(sigName: "hide"): void
+    on(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "hide", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "keynav-failed", callback: (($obj: WebViewBase, direction: Gtk.DirectionType) => boolean)): number
+    connect_after(sigName: "keynav-failed", callback: (($obj: WebViewBase, direction: Gtk.DirectionType) => boolean)): number
+    emit(sigName: "keynav-failed", direction: Gtk.DirectionType): void
+    on(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "keynav-failed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "map", callback: (($obj: WebViewBase) => void)): number
+    connect_after(sigName: "map", callback: (($obj: WebViewBase) => void)): number
+    emit(sigName: "map"): void
+    on(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "map", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "mnemonic-activate", callback: (($obj: WebViewBase, groupCycling: boolean) => boolean)): number
+    connect_after(sigName: "mnemonic-activate", callback: (($obj: WebViewBase, groupCycling: boolean) => boolean)): number
+    emit(sigName: "mnemonic-activate", groupCycling: boolean): void
+    on(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "mnemonic-activate", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "move-focus", callback: (($obj: WebViewBase, direction: Gtk.DirectionType) => void)): number
+    connect_after(sigName: "move-focus", callback: (($obj: WebViewBase, direction: Gtk.DirectionType) => void)): number
+    emit(sigName: "move-focus", direction: Gtk.DirectionType): void
+    on(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "move-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "query-tooltip", callback: (($obj: WebViewBase, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    connect_after(sigName: "query-tooltip", callback: (($obj: WebViewBase, x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip) => boolean)): number
+    emit(sigName: "query-tooltip", x: number, y: number, keyboardMode: boolean, tooltip: Gtk.Tooltip): void
+    on(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "query-tooltip", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "realize", callback: (($obj: WebViewBase) => void)): number
+    connect_after(sigName: "realize", callback: (($obj: WebViewBase) => void)): number
+    emit(sigName: "realize"): void
+    on(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "realize", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "show", callback: (($obj: WebViewBase) => void)): number
+    connect_after(sigName: "show", callback: (($obj: WebViewBase) => void)): number
+    emit(sigName: "show"): void
+    on(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "show", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "state-flags-changed", callback: (($obj: WebViewBase, flags: Gtk.StateFlags) => void)): number
+    connect_after(sigName: "state-flags-changed", callback: (($obj: WebViewBase, flags: Gtk.StateFlags) => void)): number
+    emit(sigName: "state-flags-changed", flags: Gtk.StateFlags): void
+    on(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "state-flags-changed", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "unmap", callback: (($obj: WebViewBase) => void)): number
+    connect_after(sigName: "unmap", callback: (($obj: WebViewBase) => void)): number
+    emit(sigName: "unmap"): void
+    on(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "unmap", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "unrealize", callback: (($obj: WebViewBase) => void)): number
+    connect_after(sigName: "unrealize", callback: (($obj: WebViewBase) => void)): number
+    emit(sigName: "unrealize"): void
+    on(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "unrealize", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::border-width", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::border-width", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::border-width", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4407,6 +6789,7 @@ export class WebViewBase {
     on(sigName: "notify::resize-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::resize-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::resize-mode", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
     connect(sigName: "notify::app-paintable", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::app-paintable", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::app-paintable", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4417,11 +6800,14 @@ export class WebViewBase {
     on(sigName: "notify::can-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::can-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::can-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::can-focus", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-focus", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::can-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::can-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::can-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
     connect(sigName: "notify::composite-child", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::composite-child", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::composite-child", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4442,11 +6828,36 @@ export class WebViewBase {
     on(sigName: "notify::expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::expand", callback: (...args: any[]) => void): NodeJS.EventEmitter
+=======
+    connect(sigName: "notify::can-target", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::can-target", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::can-target", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::can-target", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::can-target", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::css-classes", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::css-classes", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::css-classes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::css-classes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::css-classes", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::cursor", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::cursor", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::cursor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::cursor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::cursor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::focus-on-click", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::focus-on-click", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::focus-on-click", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::focus-on-click", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::focus-on-click", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
+=======
+    connect(sigName: "notify::focusable", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::focusable", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::focusable", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::focusable", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::focusable", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::halign", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::halign", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::halign", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4482,6 +6893,7 @@ export class WebViewBase {
     on(sigName: "notify::hexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::hexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::hexpand-set", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
     connect(sigName: "notify::is-focus", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-focus", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::is-focus", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4492,6 +6904,13 @@ export class WebViewBase {
     on(sigName: "notify::margin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::margin", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::margin", callback: (...args: any[]) => void): NodeJS.EventEmitter
+=======
+    connect(sigName: "notify::layout-manager", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::layout-manager", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::layout-manager", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::layout-manager", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::layout-manager", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::margin-bottom", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::margin-bottom", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::margin-bottom", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4502,6 +6921,7 @@ export class WebViewBase {
     on(sigName: "notify::margin-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::margin-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::margin-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
     connect(sigName: "notify::margin-left", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::margin-left", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::margin-left", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4512,6 +6932,8 @@ export class WebViewBase {
     on(sigName: "notify::margin-right", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::margin-right", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::margin-right", callback: (...args: any[]) => void): NodeJS.EventEmitter
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::margin-start", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::margin-start", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::margin-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4527,16 +6949,27 @@ export class WebViewBase {
     on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
     connect(sigName: "notify::no-show-all", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::no-show-all", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::no-show-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::no-show-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::no-show-all", callback: (...args: any[]) => void): NodeJS.EventEmitter
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::opacity", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::opacity", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::opacity", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::opacity", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::opacity", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
+=======
+    connect(sigName: "notify::overflow", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::overflow", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::overflow", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::overflow", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::overflow", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::parent", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4547,6 +6980,14 @@ export class WebViewBase {
     on(sigName: "notify::receives-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::receives-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::receives-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
+=======
+    connect(sigName: "notify::root", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::root", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::root", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::root", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::root", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::scale-factor", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::scale-factor", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::scale-factor", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4557,11 +6998,14 @@ export class WebViewBase {
     on(sigName: "notify::sensitive", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::sensitive", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::sensitive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
     connect(sigName: "notify::style", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::style", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::style", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::style", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::style", callback: (...args: any[]) => void): NodeJS.EventEmitter
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::tooltip-markup", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tooltip-markup", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::tooltip-markup", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4597,11 +7041,14 @@ export class WebViewBase {
     on(sigName: "notify::width-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::width-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::width-request", callback: (...args: any[]) => void): NodeJS.EventEmitter
+<<<<<<< HEAD
     connect(sigName: "notify::window", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::window", callback: (($obj: WebViewBase, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::window", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::window", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::window", callback: (...args: any[]) => void): NodeJS.EventEmitter
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4618,6 +7065,7 @@ export interface WebViewGroup_ConstructProps extends GObject.Object_ConstructPro
     settings?: Settings
 }
 export class WebViewGroup {
+<<<<<<< HEAD
     /* Properties of WebKit2-3.0.WebKit2.WebViewGroup */
     settings: Settings
     /* Fields of WebKit2-3.0.WebKit2.WebViewGroup */
@@ -4626,11 +7074,22 @@ export class WebViewGroup {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of WebKit2-3.0.WebKit2.WebViewGroup */
+=======
+    /* Properties of WebKit2.WebViewGroup */
+    settings: Settings
+    /* Fields of WebKit2.WebViewGroup */
+    parent: GObject.Object
+    priv: WebViewGroupPrivate
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.WebViewGroup */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     addUserStyleSheet(source: string, baseUri: string | null, whitelist: string[] | null, blacklist: string[] | null, injectedFrames: InjectedContentFrames): void
     getName(): string
     getSettings(): Settings
     removeAllUserStyleSheets(): void
     setSettings(settings: Settings): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -4640,6 +7099,17 @@ export class WebViewGroup {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -4647,11 +7117,16 @@ export class WebViewGroup {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WebViewGroup, pspec: GObject.ParamSpec) => void)): number
@@ -4659,6 +7134,24 @@ export class WebViewGroup {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: WebViewGroup, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: WebViewGroup, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::settings", callback: (($obj: WebViewGroup, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::settings", callback: (($obj: WebViewGroup, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::settings", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4689,6 +7182,7 @@ export interface WindowProperties_ConstructProps extends GObject.Object_Construc
     toolbarVisible?: boolean
 }
 export class WindowProperties {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.WindowProperties */
     parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
@@ -4696,12 +7190,22 @@ export class WindowProperties {
     /* Methods of WebKit2-3.0.WebKit2.WindowProperties */
     getFullscreen(): boolean
     getGeometry(): { geometry: Gdk.Rectangle }
+=======
+    /* Fields of WebKit2.WindowProperties */
+    parent: GObject.Object
+    /* Fields of GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of WebKit2.WindowProperties */
+    getFullscreen(): boolean
+    getGeometry(): /* geometry */ Gdk.Rectangle
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getLocationbarVisible(): boolean
     getMenubarVisible(): boolean
     getResizable(): boolean
     getScrollbarsVisible(): boolean
     getStatusbarVisible(): boolean
     getToolbarVisible(): boolean
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -4711,6 +7215,17 @@ export class WindowProperties {
     getProperty(propertyName: string, value: any): void
     getQdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: GObject.Value): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     isFloating(): boolean
     notify(propertyName: string): void
     notifyByPspec(pspec: GObject.ParamSpec): void
@@ -4718,11 +7233,16 @@ export class WindowProperties {
     refSink(): GObject.Object
     runDispose(): void
     setData(key: string, data?: object | null): void
+<<<<<<< HEAD
     setProperty(propertyName: string, value: any): void
+=======
+    setProperty(propertyName: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     stealData(key: string): object | null
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     unref(): void
+<<<<<<< HEAD
     watchClosure(closure: Function): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: WindowProperties, pspec: GObject.ParamSpec) => void)): number
@@ -4730,6 +7250,24 @@ export class WindowProperties {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    watchClosure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+    vfuncConstructed(): void
+    vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
+    vfuncDispose(): void
+    vfuncFinalize(): void
+    vfuncGetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfuncNotify(pspec: GObject.ParamSpec): void
+    vfuncSetProperty(propertyId: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: WindowProperties, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: WindowProperties, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    on(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (...args: any[]) => void): NodeJS.EventEmitter
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4743,7 +7281,11 @@ export class WindowProperties {
     static $gtype: GObject.Type
 }
 export abstract class AuthenticationRequestClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.AuthenticationRequestClass */
+=======
+    /* Fields of WebKit2.AuthenticationRequestClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4751,12 +7293,20 @@ export class AuthenticationRequestPrivate {
     static name: string
 }
 export abstract class BackForwardListClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.BackForwardListClass */
+=======
+    /* Fields of WebKit2.BackForwardListClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class BackForwardListItemClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.BackForwardListItemClass */
+=======
+    /* Fields of WebKit2.BackForwardListItemClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.InitiallyUnownedClass
     static name: string
 }
@@ -4767,7 +7317,11 @@ export class BackForwardListPrivate {
     static name: string
 }
 export class CertificateInfo {
+<<<<<<< HEAD
     /* Methods of WebKit2-3.0.WebKit2.CertificateInfo */
+=======
+    /* Methods of WebKit2.CertificateInfo */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     copy(): CertificateInfo
     free(): void
     getTlsCertificate(): Gio.TlsCertificate
@@ -4775,12 +7329,20 @@ export class CertificateInfo {
     static name: string
 }
 export abstract class ContextMenuClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.ContextMenuClass */
+=======
+    /* Fields of WebKit2.ContextMenuClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
 export abstract class ContextMenuItemClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.ContextMenuItemClass */
+=======
+    /* Fields of WebKit2.ContextMenuItemClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.InitiallyUnownedClass
     static name: string
 }
@@ -4791,7 +7353,11 @@ export class ContextMenuPrivate {
     static name: string
 }
 export abstract class CookieManagerClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.CookieManagerClass */
+=======
+    /* Fields of WebKit2.CookieManagerClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4799,7 +7365,11 @@ export class CookieManagerPrivate {
     static name: string
 }
 export class Credential {
+<<<<<<< HEAD
     /* Methods of WebKit2-3.0.WebKit2.Credential */
+=======
+    /* Methods of WebKit2.Credential */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     copy(): Credential
     free(): void
     getPassword(): string
@@ -4813,7 +7383,11 @@ export class Credential {
     static new(username: string, password: string, persistence: CredentialPersistence): Credential
 }
 export abstract class DownloadClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.DownloadClass */
+=======
+    /* Fields of WebKit2.DownloadClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     decideDestination: (download: Download, suggestedFilename: string) => boolean
     static name: string
@@ -4822,7 +7396,11 @@ export class DownloadPrivate {
     static name: string
 }
 export abstract class FaviconDatabaseClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.FaviconDatabaseClass */
+=======
+    /* Fields of WebKit2.FaviconDatabaseClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4830,7 +7408,11 @@ export class FaviconDatabasePrivate {
     static name: string
 }
 export abstract class FileChooserRequestClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.FileChooserRequestClass */
+=======
+    /* Fields of WebKit2.FileChooserRequestClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4838,7 +7420,11 @@ export class FileChooserRequestPrivate {
     static name: string
 }
 export abstract class FindControllerClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.FindControllerClass */
+=======
+    /* Fields of WebKit2.FindControllerClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4846,7 +7432,11 @@ export class FindControllerPrivate {
     static name: string
 }
 export abstract class FormSubmissionRequestClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.FormSubmissionRequestClass */
+=======
+    /* Fields of WebKit2.FormSubmissionRequestClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4854,7 +7444,11 @@ export class FormSubmissionRequestPrivate {
     static name: string
 }
 export abstract class GeolocationPermissionRequestClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.GeolocationPermissionRequestClass */
+=======
+    /* Fields of WebKit2.GeolocationPermissionRequestClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4862,7 +7456,11 @@ export class GeolocationPermissionRequestPrivate {
     static name: string
 }
 export abstract class HitTestResultClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.HitTestResultClass */
+=======
+    /* Fields of WebKit2.HitTestResultClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4870,7 +7468,11 @@ export class HitTestResultPrivate {
     static name: string
 }
 export class JavascriptResult {
+<<<<<<< HEAD
     /* Methods of WebKit2-3.0.WebKit2.JavascriptResult */
+=======
+    /* Methods of WebKit2.JavascriptResult */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getGlobalContext(): JavaScriptCore.GlobalContext
     getValue(): JavaScriptCore.Value
     ref(): JavascriptResult
@@ -4878,7 +7480,11 @@ export class JavascriptResult {
     static name: string
 }
 export class MimeInfo {
+<<<<<<< HEAD
     /* Methods of WebKit2-3.0.WebKit2.MimeInfo */
+=======
+    /* Methods of WebKit2.MimeInfo */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     getDescription(): string
     getExtensions(): string[]
     getMimeType(): string
@@ -4887,7 +7493,11 @@ export class MimeInfo {
     static name: string
 }
 export abstract class NavigationPolicyDecisionClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.NavigationPolicyDecisionClass */
+=======
+    /* Fields of WebKit2.NavigationPolicyDecisionClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: PolicyDecisionClass
     static name: string
 }
@@ -4895,14 +7505,22 @@ export class NavigationPolicyDecisionPrivate {
     static name: string
 }
 export abstract class PermissionRequestIface {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.PermissionRequestIface */
+=======
+    /* Fields of WebKit2.PermissionRequestIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentInterface: GObject.TypeInterface
     allow: (request: PermissionRequest) => void
     deny: (request: PermissionRequest) => void
     static name: string
 }
 export abstract class PluginClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.PluginClass */
+=======
+    /* Fields of WebKit2.PluginClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4910,7 +7528,11 @@ export class PluginPrivate {
     static name: string
 }
 export abstract class PolicyDecisionClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.PolicyDecisionClass */
+=======
+    /* Fields of WebKit2.PolicyDecisionClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4918,7 +7540,11 @@ export class PolicyDecisionPrivate {
     static name: string
 }
 export abstract class PrintOperationClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.PrintOperationClass */
+=======
+    /* Fields of WebKit2.PrintOperationClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4926,7 +7552,11 @@ export class PrintOperationPrivate {
     static name: string
 }
 export abstract class ResponsePolicyDecisionClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.ResponsePolicyDecisionClass */
+=======
+    /* Fields of WebKit2.ResponsePolicyDecisionClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: PolicyDecisionClass
     static name: string
 }
@@ -4934,7 +7564,11 @@ export class ResponsePolicyDecisionPrivate {
     static name: string
 }
 export class ScriptDialog {
+<<<<<<< HEAD
     /* Methods of WebKit2-3.0.WebKit2.ScriptDialog */
+=======
+    /* Methods of WebKit2.ScriptDialog */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     confirmSetConfirmed(confirmed: boolean): void
     getDialogType(): ScriptDialogType
     getMessage(): string
@@ -4943,7 +7577,11 @@ export class ScriptDialog {
     static name: string
 }
 export abstract class SecurityManagerClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.SecurityManagerClass */
+=======
+    /* Fields of WebKit2.SecurityManagerClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4951,7 +7589,11 @@ export class SecurityManagerPrivate {
     static name: string
 }
 export abstract class SettingsClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.SettingsClass */
+=======
+    /* Fields of WebKit2.SettingsClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4959,7 +7601,11 @@ export class SettingsPrivate {
     static name: string
 }
 export abstract class URIRequestClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.URIRequestClass */
+=======
+    /* Fields of WebKit2.URIRequestClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4967,7 +7613,11 @@ export class URIRequestPrivate {
     static name: string
 }
 export abstract class URIResponseClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.URIResponseClass */
+=======
+    /* Fields of WebKit2.URIResponseClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4975,7 +7625,11 @@ export class URIResponsePrivate {
     static name: string
 }
 export abstract class URISchemeRequestClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.URISchemeRequestClass */
+=======
+    /* Fields of WebKit2.URISchemeRequestClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4983,7 +7637,11 @@ export class URISchemeRequestPrivate {
     static name: string
 }
 export abstract class WebContextClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.WebContextClass */
+=======
+    /* Fields of WebKit2.WebContextClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent: GObject.ObjectClass
     static name: string
 }
@@ -4991,7 +7649,11 @@ export class WebContextPrivate {
     static name: string
 }
 export abstract class WebInspectorClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.WebInspectorClass */
+=======
+    /* Fields of WebKit2.WebInspectorClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -4999,7 +7661,11 @@ export class WebInspectorPrivate {
     static name: string
 }
 export abstract class WebResourceClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.WebResourceClass */
+=======
+    /* Fields of WebKit2.WebResourceClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -5007,7 +7673,11 @@ export class WebResourcePrivate {
     static name: string
 }
 export abstract class WebViewBaseClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.WebViewBaseClass */
+=======
+    /* Fields of WebKit2.WebViewBaseClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: Gtk.ContainerClass
     static name: string
 }
@@ -5015,7 +7685,11 @@ export class WebViewBasePrivate {
     static name: string
 }
 export abstract class WebViewClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.WebViewClass */
+=======
+    /* Fields of WebKit2.WebViewClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent: WebViewBaseClass
     loadChanged: (webView: WebView, loadEvent: LoadEvent) => void
     loadFailed: (webView: WebView, loadEvent: LoadEvent, failingUri: string, error: GLib.Error) => boolean
@@ -5041,7 +7715,11 @@ export abstract class WebViewClass {
     static name: string
 }
 export abstract class WebViewGroupClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.WebViewGroupClass */
+=======
+    /* Fields of WebKit2.WebViewGroupClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }
@@ -5052,7 +7730,11 @@ export class WebViewPrivate {
     static name: string
 }
 export abstract class WindowPropertiesClass {
+<<<<<<< HEAD
     /* Fields of WebKit2-3.0.WebKit2.WindowPropertiesClass */
+=======
+    /* Fields of WebKit2.WindowPropertiesClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parentClass: GObject.ObjectClass
     static name: string
 }

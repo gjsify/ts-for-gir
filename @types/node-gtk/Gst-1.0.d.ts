@@ -906,8 +906,11 @@ export const VERSION_MICRO: number
 export const VERSION_MINOR: number
 export const VERSION_NANO: number
 export function bufferGetMaxMemory(): number
+export function bufferListReplace(oldList?: BufferList | null, newList?: BufferList | null): { returnType: boolean, oldList: BufferList | null }
+export function bufferListTake(oldList: BufferList, newList?: BufferList | null): { returnType: boolean, oldList: BufferList }
 export function capsFeaturesFromString(features: string): CapsFeatures | null
 export function capsFromString(string: string): Caps | null
+export function contextReplace(oldContext: Context, newContext?: Context | null): { returnType: boolean, oldContext: Context }
 export function coreErrorQuark(): GLib.Quark
 export function debugAddLogFunction(func: LogFunction): void
 export function debugAddRingBufferLogger(maxSizePerThread: number, threadTimeout: number): void
@@ -925,6 +928,7 @@ export function debugIsColored(): boolean
 export function debugLevelGetName(level: DebugLevel): string
 export function debugLogDefault(category: DebugCategory, level: DebugLevel, file: string, function_: string, line: number, object: GObject.Object | null, message: DebugMessage, userData?: object | null): void
 export function debugLogGetLine(category: DebugCategory, level: DebugLevel, file: string, function_: string, line: number, object: GObject.Object | null, message: DebugMessage): string
+export function debugLogLiteral(category: DebugCategory, level: DebugLevel, file: string, function_: string, line: number, object: GObject.Object | null, messageString: string): void
 export function debugPrintStackTrace(): void
 export function debugRemoveLogFunction(func?: LogFunction | null): number
 export function debugRemoveLogFunctionByData(data?: object | null): number
@@ -960,6 +964,7 @@ export function initCheck(argv?: string[] | null): { returnType: boolean, argv: 
 export function isCapsFeatures(obj?: object | null): boolean
 export function isInitialized(): boolean
 export function libraryErrorQuark(): GLib.Quark
+export function messageTake(oldMessage: Message, newMessage?: Message | null): { returnType: boolean, oldMessage: Message }
 export function messageTypeGetName(type: MessageType): string
 export function messageTypeToQuark(type: MessageType): GLib.Quark
 export function metaApiTypeGetTags(api: GObject.Type): string[]
@@ -989,6 +994,7 @@ export function protectionFilterSystemsByAvailableDecryptors(systemIdentifiers: 
 export function protectionMetaApiGetType(): GObject.Type
 export function protectionMetaGetInfo(): MetaInfo
 export function protectionSelectSystem(systemIdentifiers: string[]): string | null
+export function queryTake(oldQuery?: Query | null, newQuery?: Query | null): { returnType: boolean, oldQuery: Query | null }
 export function queryTypeGetFlags(type: QueryType): QueryTypeFlags
 export function queryTypeGetName(type: QueryType): string
 export function queryTypeToQuark(type: QueryType): GLib.Quark
@@ -1010,6 +1016,8 @@ export function tagGetNick(tag: string): string | null
 export function tagGetType(tag: string): GObject.Type
 export function tagIsFixed(tag: string): boolean
 export function tagListCopyValue(list: TagList, tag: string): { returnType: boolean, dest: any }
+export function tagListReplace(oldTaglist?: TagList | null, newTaglist?: TagList | null): { returnType: boolean, oldTaglist: TagList | null }
+export function tagListTake(oldTaglist: TagList, newTaglist?: TagList | null): { returnType: boolean, oldTaglist: TagList }
 export function tagMergeStringsWithComma(src: any): { dest: any }
 export function tagMergeUseFirst(src: any): { dest: any }
 export function tocEntryTypeGetNick(type: TocEntryType): string
@@ -1206,6 +1214,9 @@ export interface MetaInitFunction {
 }
 export interface MetaTransformFunction {
     (transbuf: Buffer, meta: Meta, buffer: Buffer, type: GLib.Quark, data?: object | null): boolean
+}
+export interface MiniObjectCopyFunction {
+    (obj: MiniObject): MiniObject
 }
 export interface MiniObjectDisposeFunction {
     (obj: MiniObject): boolean
@@ -1444,6 +1455,7 @@ export class TagSetter {
     removePad(pad: Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: PadTemplate, name?: string | null, caps?: Caps | null): Pad | null
+    requestPadSimple(name: string): Pad | null
     seek(rate: number, format: Format, flags: SeekFlags, startType: SeekType, start: number, stopType: SeekType, stop: number): boolean
     seekSimple(format: Format, seekFlags: SeekFlags, seekPos: number): boolean
     sendEvent(event: Event): boolean
@@ -1643,6 +1655,7 @@ export class TocSetter {
     removePad(pad: Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: PadTemplate, name?: string | null, caps?: Caps | null): Pad | null
+    requestPadSimple(name: string): Pad | null
     seek(rate: number, format: Format, flags: SeekFlags, startType: SeekType, start: number, stopType: SeekType, stop: number): boolean
     seekSimple(format: Format, seekFlags: SeekFlags, seekPos: number): boolean
     sendEvent(event: Event): boolean
@@ -1989,6 +2002,7 @@ export class Bin {
     removePad(pad: Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: PadTemplate, name?: string | null, caps?: Caps | null): Pad | null
+    requestPadSimple(name: string): Pad | null
     seek(rate: number, format: Format, flags: SeekFlags, startType: SeekType, start: number, stopType: SeekType, stop: number): boolean
     seekSimple(format: Format, seekFlags: SeekFlags, seekPos: number): boolean
     sendEvent(event: Event): boolean
@@ -3407,6 +3421,7 @@ export class Element {
     removePad(pad: Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: PadTemplate, name?: string | null, caps?: Caps | null): Pad | null
+    requestPadSimple(name: string): Pad | null
     seek(rate: number, format: Format, flags: SeekFlags, startType: SeekType, start: number, stopType: SeekType, stop: number): boolean
     seekSimple(format: Format, seekFlags: SeekFlags, seekPos: number): boolean
     sendEvent(event: Event): boolean
@@ -3519,6 +3534,7 @@ export class Element {
     static register(plugin: Plugin | null, name: string, rank: number, type: GObject.Type): boolean
     static stateChangeReturnGetName(stateRet: StateChangeReturn): string
     static stateGetName(state: State): string
+    static typeSetSkipDocumentation(type: GObject.Type): void
     static addMetadata(klass: Element | Function | GObject.Type, key: string, value: string): void
     static addPadTemplate(klass: Element | Function | GObject.Type, templ: PadTemplate): void
     static addStaticMetadata(klass: Element | Function | GObject.Type, key: string, value: string): void
@@ -3549,10 +3565,12 @@ export class ElementFactory {
     canSrcAllCaps(caps: Caps): boolean
     canSrcAnyCaps(caps: Caps): boolean
     create(name?: string | null): Element | null
+    createWithProperties(names?: string[] | null, values?: any[] | null): Element | null
     getElementType(): GObject.Type
     getMetadata(key: string): string | null
     getMetadataKeys(): string[] | null
     getNumPadTemplates(): number
+    getSkipDocumentation(): boolean
     getStaticPadTemplates(): StaticPadTemplate[]
     getUriProtocols(): string[]
     getUriType(): URIType
@@ -3648,6 +3666,7 @@ export class ElementFactory {
     static listFilter(list: ElementFactory[], caps: Caps, direction: PadDirection, subsetonly: boolean): ElementFactory[]
     static listGetElements(type: ElementFactoryListType, minrank: Rank): ElementFactory[]
     static make(factoryname: string, name?: string | null): Element | null
+    static makeWithProperties(factoryname: string, names?: string[] | null, values?: any[] | null): Element | null
     static $gtype: GObject.Type
 }
 export class FlagSet {
@@ -4502,6 +4521,7 @@ export class Pipeline {
     removePad(pad: Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: PadTemplate, name?: string | null, caps?: Caps | null): Pad | null
+    requestPadSimple(name: string): Pad | null
     seek(rate: number, format: Format, flags: SeekFlags, startType: SeekType, start: number, stopType: SeekType, stop: number): boolean
     seekSimple(format: Format, seekFlags: SeekFlags, seekPos: number): boolean
     sendEvent(event: Event): boolean
@@ -6402,6 +6422,10 @@ export class AllocationParams {
     free(): void
     init(): void
     static name: string
+    static new(): AllocationParams
+    constructor()
+    /* Static methods and pseudo-constructors */
+    static new(): AllocationParams
 }
 export abstract class AllocatorClass {
     /* Fields of Gst-1.0.Gst.AllocatorClass */
@@ -6510,6 +6534,7 @@ export class Buffer {
     /* Static methods and pseudo-constructors */
     static new(): Buffer
     static newAllocate(allocator: Allocator | null, size: number, params?: AllocationParams | null): Buffer
+    static newMemdup(data: any[]): Buffer
     static newWrapped(data: any[]): Buffer
     static newWrappedBytes(bytes: any): Buffer
     static newWrappedFull(flags: MemoryFlags, data: any[], maxsize: number, offset: number, notify?: GLib.DestroyNotify | null): Buffer
@@ -6531,6 +6556,8 @@ export class BufferList {
     /* Static methods and pseudo-constructors */
     static new(): BufferList
     static newSized(size: number): BufferList
+    static replace(oldList?: BufferList | null, newList?: BufferList | null): { returnType: boolean, oldList: BufferList | null }
+    static take(oldList: BufferList, newList?: BufferList | null): { returnType: boolean, oldList: BufferList }
 }
 export class BufferPoolAcquireParams {
     /* Fields of Gst-1.0.Gst.BufferPoolAcquireParams */
@@ -6640,6 +6667,7 @@ export class CapsFeatures {
     /* Static methods and pseudo-constructors */
     static newAny(): CapsFeatures
     static newEmpty(): CapsFeatures
+    static newSingle(feature: string): CapsFeatures
     static fromString(features: string): CapsFeatures | null
 }
 export abstract class ChildProxyInterface {
@@ -6673,16 +6701,20 @@ export class ClockPrivate {
 }
 export class Context {
     /* Methods of Gst-1.0.Gst.Context */
+    copy(): Context
     getContextType(): string
     getStructure(): Structure
     hasContextType(contextType: string): boolean
     isPersistent(): boolean
+    ref(): Context
+    unref(): void
     writableStructure(): Structure
     static name: string
     static new(contextType: string, persistent: boolean): Context
     constructor(contextType: string, persistent: boolean)
     /* Static methods and pseudo-constructors */
     static new(contextType: string, persistent: boolean): Context
+    static replace(oldContext: Context, newContext?: Context | null): { returnType: boolean, oldContext: Context }
 }
 export abstract class ControlBindingClass {
     /* Fields of Gst-1.0.Gst.ControlBindingClass */
@@ -7097,6 +7129,7 @@ export class Message {
     static newToc(src: Object, toc: Toc, updated: boolean): Message
     static newWarning(src: Object | null, error: GLib.Error, debug: string): Message
     static newWarningWithDetails(src: Object | null, error: GLib.Error, debug: string, details?: Structure | null): Message
+    static take(oldMessage: Message, newMessage?: Message | null): { returnType: boolean, oldMessage: Message }
 }
 export class Meta {
     /* Fields of Gst-1.0.Gst.Meta */
@@ -7139,6 +7172,7 @@ export class MiniObject {
     refcount: number
     lockstate: number
     flags: number
+    copy: MiniObjectCopyFunction
     dispose: MiniObjectDisposeFunction
     free: MiniObjectFreeFunction
     /* Methods of Gst-1.0.Gst.MiniObject */
@@ -7307,7 +7341,9 @@ export class Promise {
     expire(): void
     getReply(): Structure | null
     interrupt(): void
+    ref(): Promise
     reply(s?: Structure | null): void
+    unref(): void
     wait(): PromiseResult
     static name: string
     static new(): Promise
@@ -7379,6 +7415,7 @@ export class Query {
     parseUri(): { uri: string | null }
     parseUriRedirection(): { uri: string | null }
     parseUriRedirectionPermanent(): { permanent: boolean | null }
+    ref(): Query
     removeNthAllocationMeta(index: number): void
     removeNthAllocationParam(index: number): void
     removeNthAllocationPool(index: number): void
@@ -7422,6 +7459,7 @@ export class Query {
     static newSeeking(format: Format): Query
     static newSegment(format: Format): Query
     static newUri(): Query
+    static take(oldQuery?: Query | null, newQuery?: Query | null): { returnType: boolean, oldQuery: Query | null }
 }
 export class ReferenceTimestampMeta {
     /* Fields of Gst-1.0.Gst.ReferenceTimestampMeta */
@@ -7666,6 +7704,8 @@ export class TagList {
     static newEmpty(): TagList
     static newFromString(str: string): TagList
     static copyValue(list: TagList, tag: string): { returnType: boolean, dest: any }
+    static replace(oldTaglist?: TagList | null, newTaglist?: TagList | null): { returnType: boolean, oldTaglist: TagList | null }
+    static take(oldTaglist: TagList, newTaglist?: TagList | null): { returnType: boolean, oldTaglist: TagList }
 }
 export abstract class TagSetterInterface {
     /* Fields of Gst-1.0.Gst.TagSetterInterface */
@@ -7760,6 +7800,8 @@ export class TypeFind {
     suggest: (data: object, probability: number, caps: Caps) => void
     data: object
     getLength: (data: object) => number
+    /* Methods of Gst-1.0.Gst.TypeFind */
+    suggestEmptySimple(probability: number, mediaType: string): void
     static name: string
     /* Static methods and pseudo-constructors */
     static register(plugin: Plugin | null, name: string, rank: number, func: TypeFindFunction, extensions: string | null, possibleCaps: Caps | null): boolean
@@ -7780,6 +7822,7 @@ export class Uri {
     /* Methods of Gst-1.0.Gst.Uri */
     appendPath(relativePath: string): boolean
     appendPathSegment(pathSegment: string): boolean
+    copy(): Uri
     equal(second: Uri): boolean
     fromStringWithBase(uri: string): Uri
     getFragment(): string | null
@@ -7802,6 +7845,7 @@ export class Uri {
     newWithBase(scheme: string | null, userinfo: string | null, host: string | null, port: number, path?: string | null, query?: string | null, fragment?: string | null): Uri
     normalize(): boolean
     queryHasKey(queryKey: string): boolean
+    ref(): Uri
     removeQueryKey(queryKey: string): boolean
     setFragment(fragment?: string | null): boolean
     setHost(host: string): boolean
@@ -7815,6 +7859,7 @@ export class Uri {
     setScheme(scheme: string): boolean
     setUserinfo(userinfo: string): boolean
     toString(): string
+    unref(): void
     static name: string
     static new(scheme: string | null, userinfo: string | null, host: string | null, port: number, path?: string | null, query?: string | null, fragment?: string | null): Uri
     constructor(scheme: string | null, userinfo: string | null, host: string | null, port: number, path?: string | null, query?: string | null, fragment?: string | null)

@@ -333,7 +333,7 @@ export class ConnectionManager {
     getUdn(): string
     getUrlBase(): Soup.URI
     introspectAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    introspectFinish(res: Gio.AsyncResult): GUPnP.ServiceIntrospection
+    introspectFinish(res: Gio.AsyncResult): GUPnP.ServiceIntrospection | null
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -423,7 +423,7 @@ export class BasicManagement {
     getUdn(): string
     getUrlBase(): Soup.URI
     introspectAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    introspectFinish(res: Gio.AsyncResult): GUPnP.ServiceIntrospection
+    introspectFinish(res: Gio.AsyncResult): GUPnP.ServiceIntrospection | null
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -589,7 +589,7 @@ export class EnergyManagement {
     getUdn(): string
     getUrlBase(): Soup.URI
     introspectAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    introspectFinish(res: Gio.AsyncResult): GUPnP.ServiceIntrospection
+    introspectFinish(res: Gio.AsyncResult): GUPnP.ServiceIntrospection | null
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -673,31 +673,31 @@ export class RootDevice {
     setAvailable(available: boolean): void
     /* Methods of GUPnP-1.2.GUPnP.DeviceInfo */
     getContext(): GUPnP.Context
-    getDescriptionValue(element: string): string
+    getDescriptionValue(element: string): string | null
     getDevice(type: string): GUPnP.DeviceInfo | null
     getDeviceType(): string
     getFriendlyName(): string
-    getIconUrl(requestedMimeType: string | null, requestedDepth: number, requestedWidth: number, requestedHeight: number, preferBigger: boolean): { returnType: string, mimeType: string | null, depth: number | null, width: number | null, height: number | null }
+    getIconUrl(requestedMimeType: string | null, requestedDepth: number, requestedWidth: number, requestedHeight: number, preferBigger: boolean): { returnType: string | null, mimeType: string | null, depth: number | null, width: number | null, height: number | null }
     getLocation(): string
-    getManufacturer(): string
-    getManufacturerUrl(): string
-    getModelDescription(): string
-    getModelName(): string
-    getModelNumber(): string
-    getModelUrl(): string
-    getPresentationUrl(): string
+    getManufacturer(): string | null
+    getManufacturerUrl(): string | null
+    getModelDescription(): string | null
+    getModelName(): string | null
+    getModelNumber(): string | null
+    getModelUrl(): string | null
+    getPresentationUrl(): string | null
     getResourceFactory(): GUPnP.ResourceFactory
-    getSerialNumber(): string
-    getService(type: string): GUPnP.ServiceInfo
+    getSerialNumber(): string | null
+    getService(type: string): GUPnP.ServiceInfo | null
     getUdn(): string
-    getUpc(): string
+    getUpc(): string | null
     getUrlBase(): Soup.URI
-    listDeviceTypes(): string[]
-    listDevices(): GUPnP.DeviceInfo[]
-    listDlnaCapabilities(): string[]
-    listDlnaDeviceClassIdentifier(): string[]
-    listServiceTypes(): string[]
-    listServices(): GUPnP.ServiceInfo[]
+    listDeviceTypes(): string[] | null
+    listDevices(): GUPnP.DeviceInfo[] | null
+    listDlnaCapabilities(): string[] | null
+    listDlnaDeviceClassIdentifier(): string[] | null
+    listServiceTypes(): string[] | null
+    listServices(): GUPnP.ServiceInfo[] | null
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -1809,7 +1809,7 @@ export class PluginInformation {
 }
 export abstract class ConnectionManagerClass {
     /* Fields of RygelCore-2.6.RygelCore.ConnectionManagerClass */
-    getCurrentProtocolInfo: () => string
+    getCurrentProtocolInfo: (self: ConnectionManager) => string
     static name: string
 }
 export class ConnectionManagerPrivate {
@@ -1871,8 +1871,8 @@ export class PluginLoaderPrivate {
 }
 export abstract class RecursiveModuleLoaderClass {
     /* Fields of RygelCore-2.6.RygelCore.RecursiveModuleLoaderClass */
-    loadModuleFromFile: (file: Gio.File) => boolean
-    loadModuleFromInfo: (info: PluginInformation) => boolean
+    loadModuleFromFile: (self: RecursiveModuleLoader, file: Gio.File) => boolean
+    loadModuleFromInfo: (self: RecursiveModuleLoader, info: PluginInformation) => boolean
     static name: string
 }
 export class RecursiveModuleLoaderPrivate {
@@ -1880,7 +1880,7 @@ export class RecursiveModuleLoaderPrivate {
 }
 export abstract class PluginClass {
     /* Fields of RygelCore-2.6.RygelCore.PluginClass */
-    applyHacks: (device: RootDevice, descriptionPath: string) => void
+    applyHacks: (self: Plugin, device: RootDevice, descriptionPath: string) => void
     static name: string
 }
 export class PluginPrivate {
@@ -1900,26 +1900,26 @@ export class MediaDevicePrivate {
 }
 export abstract class BaseConfigurationClass {
     /* Fields of RygelCore-2.6.RygelCore.BaseConfigurationClass */
-    getInterface: () => string
-    getInterfaces: () => string[]
-    getPort: () => number
-    getTranscoding: () => boolean
-    getAllowUpload: () => boolean
-    getAllowDeletion: () => boolean
-    getLogLevels: () => string
-    getPluginPath: () => string
-    getEnginePath: () => string
-    getMediaEngine: () => string
-    getVideoUploadFolder: () => string | null
-    getMusicUploadFolder: () => string | null
-    getPictureUploadFolder: () => string | null
-    getEnabled: (section: string) => boolean
-    getTitle: (section: string) => string
-    getString: (section: string, key: string) => string
-    getStringList: (section: string, key: string) => Gee.ArrayList
-    getInt: (section: string, key: string, min: number, max: number) => number
-    getIntList: (section: string, key: string) => Gee.ArrayList
-    getBool: (section: string, key: string) => boolean
+    getInterface: (self: BaseConfiguration) => string
+    getInterfaces: (self: BaseConfiguration) => string[]
+    getPort: (self: BaseConfiguration) => number
+    getTranscoding: (self: BaseConfiguration) => boolean
+    getAllowUpload: (self: BaseConfiguration) => boolean
+    getAllowDeletion: (self: BaseConfiguration) => boolean
+    getLogLevels: (self: BaseConfiguration) => string
+    getPluginPath: (self: BaseConfiguration) => string
+    getEnginePath: (self: BaseConfiguration) => string
+    getMediaEngine: (self: BaseConfiguration) => string
+    getVideoUploadFolder: (self: BaseConfiguration) => string | null
+    getMusicUploadFolder: (self: BaseConfiguration) => string | null
+    getPictureUploadFolder: (self: BaseConfiguration) => string | null
+    getEnabled: (self: BaseConfiguration, section: string) => boolean
+    getTitle: (self: BaseConfiguration, section: string) => string
+    getString: (self: BaseConfiguration, section: string, key: string) => string
+    getStringList: (self: BaseConfiguration, section: string, key: string) => Gee.ArrayList
+    getInt: (self: BaseConfiguration, section: string, key: string, min: number, max: number) => number
+    getIntList: (self: BaseConfiguration, section: string, key: string) => Gee.ArrayList
+    getBool: (self: BaseConfiguration, section: string, key: string) => boolean
     static name: string
 }
 export class BaseConfigurationPrivate {
@@ -1981,45 +1981,45 @@ export class PluginInformationPrivate {
 }
 export abstract class DBusInterfaceIface {
     /* Fields of RygelCore-2.6.RygelCore.DBusInterfaceIface */
-    shutdown: () => void
+    shutdown: (self: DBusInterface) => void
     static name: string
 }
 export abstract class DBusAclProviderIface {
     /* Fields of RygelCore-2.6.RygelCore.DBusAclProviderIface */
-    isAllowed: (device: GLib.HashTable, service: GLib.HashTable, path: string, address: string, agent?: string | null, callback?: Gio.AsyncReadyCallback | null) => void
-    isAllowedFinish: (res: Gio.AsyncResult) => boolean
+    isAllowed: (self: DBusAclProvider, device: GLib.HashTable, service: GLib.HashTable, path: string, address: string, agent?: string | null, callback?: Gio.AsyncReadyCallback | null) => void
+    isAllowedFinish: (self: DBusAclProvider, res: Gio.AsyncResult) => boolean
     static name: string
 }
 export abstract class ConfigurationIface {
     /* Fields of RygelCore-2.6.RygelCore.ConfigurationIface */
-    getInterface: () => string
-    getInterfaces: () => string[]
-    getPort: () => number
-    getTranscoding: () => boolean
-    getAllowUpload: () => boolean
-    getAllowDeletion: () => boolean
-    getLogLevels: () => string
-    getPluginPath: () => string
-    getEnginePath: () => string
-    getMediaEngine: () => string
-    getVideoUploadFolder: () => string | null
-    getMusicUploadFolder: () => string | null
-    getPictureUploadFolder: () => string | null
-    getEnabled: (section: string) => boolean
-    getTitle: (section: string) => string
-    getString: (section: string, key: string) => string
-    getStringList: (section: string, key: string) => Gee.ArrayList
-    getInt: (section: string, key: string, min: number, max: number) => number
-    getIntList: (section: string, key: string) => Gee.ArrayList
-    getBool: (section: string, key: string) => boolean
+    getInterface: (self: Configuration) => string
+    getInterfaces: (self: Configuration) => string[]
+    getPort: (self: Configuration) => number
+    getTranscoding: (self: Configuration) => boolean
+    getAllowUpload: (self: Configuration) => boolean
+    getAllowDeletion: (self: Configuration) => boolean
+    getLogLevels: (self: Configuration) => string
+    getPluginPath: (self: Configuration) => string
+    getEnginePath: (self: Configuration) => string
+    getMediaEngine: (self: Configuration) => string
+    getVideoUploadFolder: (self: Configuration) => string | null
+    getMusicUploadFolder: (self: Configuration) => string | null
+    getPictureUploadFolder: (self: Configuration) => string | null
+    getEnabled: (self: Configuration, section: string) => boolean
+    getTitle: (self: Configuration, section: string) => string
+    getString: (self: Configuration, section: string, key: string) => string
+    getStringList: (self: Configuration, section: string, key: string) => Gee.ArrayList
+    getInt: (self: Configuration, section: string, key: string, min: number, max: number) => number
+    getIntList: (self: Configuration, section: string, key: string) => Gee.ArrayList
+    getBool: (self: Configuration, section: string, key: string) => boolean
     static name: string
 }
 export abstract class StateMachineIface {
     /* Fields of RygelCore-2.6.RygelCore.StateMachineIface */
-    run: (callback?: Gio.AsyncReadyCallback | null) => void
-    runFinish: (res: Gio.AsyncResult) => void
-    getCancellable: () => Gio.Cancellable
-    setCancellable: (value: Gio.Cancellable) => void
+    run: (self: StateMachine, callback?: Gio.AsyncReadyCallback | null) => void
+    runFinish: (self: StateMachine, res: Gio.AsyncResult) => void
+    getCancellable: (self: StateMachine) => Gio.Cancellable
+    setCancellable: (self: StateMachine, value: Gio.Cancellable) => void
     static name: string
 }
 }

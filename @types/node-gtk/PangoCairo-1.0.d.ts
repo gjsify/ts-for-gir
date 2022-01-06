@@ -15,7 +15,7 @@ export function contextGetFontOptions(context: Pango.Context): cairo.FontOptions
 export function contextGetResolution(context: Pango.Context): number
 export function contextSetFontOptions(context: Pango.Context, options?: cairo.FontOptions | null): void
 export function contextSetResolution(context: Pango.Context, dpi: number): void
-export function contextSetShapeRenderer(context: Pango.Context, func: ShapeRendererFunc | null): void
+export function contextSetShapeRenderer(context: Pango.Context, func?: ShapeRendererFunc | null): void
 export function createContext(cr: cairo.Context): Pango.Context
 export function createLayout(cr: cairo.Context): Pango.Layout
 export function errorUnderlinePath(cr: cairo.Context, x: number, y: number, width: number, height: number): void
@@ -47,14 +47,15 @@ export class Font {
     /* Methods of Pango-1.0.Pango.Font */
     describe(): Pango.FontDescription
     describeWithAbsoluteSize(): Pango.FontDescription
-    findShaper(language: Pango.Language, ch: number): Pango.EngineShape
     getCoverage(language: Pango.Language): Pango.Coverage
     getFace(): Pango.FontFace
     getFeatures(numFeatures: number): { features: HarfBuzz.feature_t[], numFeatures: number }
     getFontMap(): Pango.FontMap | null
     getGlyphExtents(glyph: Pango.Glyph): { inkRect: Pango.Rectangle | null, logicalRect: Pango.Rectangle | null }
+    getLanguages(): Pango.Language[] | null
     getMetrics(language?: Pango.Language | null): Pango.FontMetrics
     hasChar(wc: number): boolean
+    serialize(): any
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding

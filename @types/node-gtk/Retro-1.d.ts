@@ -176,6 +176,7 @@ export interface Core_ConstructProps extends GObject.Object_ConstructProps {
     saveDirectory?: string
     speedRate?: number
     systemDirectory?: string
+    userName?: string
 }
 export class Core {
     /* Properties of Retro-1.Retro.Core */
@@ -189,6 +190,7 @@ export class Core {
     speedRate: number
     readonly supportNoGame: boolean
     systemDirectory: string
+    userName: string
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Retro-1.Retro.Core */
@@ -207,6 +209,7 @@ export class Core {
     getSpeedRate(): number
     getSupportNoGame(): boolean
     getSystemDirectory(): string
+    getUserName(): string
     hasOption(key: string): boolean
     iterateControllers(): ControllerIterator
     iterateOptions(): OptionIterator
@@ -228,6 +231,7 @@ export class Core {
     setSaveDirectory(saveDirectory: string): void
     setSpeedRate(speedRate: number): void
     setSystemDirectory(systemDirectory: string): void
+    setUserName(userName: string): void
     stop(): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -333,6 +337,11 @@ export class Core {
     on(sigName: "notify::system-directory", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::system-directory", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::system-directory", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::user-name", callback: (($obj: Core, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::user-name", callback: (($obj: Core, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::user-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::user-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::user-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void

@@ -81,6 +81,7 @@ export enum DBKnownColumnNames {
     MLIST,
     NEXTUID,
     PART,
+    PREVIEW,
     READ,
     REPLIED,
     SAVED_COUNT,
@@ -89,6 +90,7 @@ export enum DBKnownColumnNames {
     TIME,
     UID,
     UNREAD_COUNT,
+    USERHEADERS,
     USERTAGS,
     VERSION,
     VISIBLE_COUNT,
@@ -398,6 +400,15 @@ export enum MessageFlags {
     JUNK_LEARN,
     USER,
 }
+export enum MimeFilterCanonFlags {
+    CRLF,
+    FROM,
+    STRIP,
+}
+export enum MimeFilterEnrichedFlags {
+    NONE,
+    IS_RICHTEXT,
+}
 export enum MimeFilterToHTMLFlags {
     PRE,
     CONVERT_NL,
@@ -579,7 +590,6 @@ export const LOCK_DOT_STALE: number
 export const LOCK_RETRY: number
 export const MESSAGE_DATE_CURRENT: number
 export const MESSAGE_SYSTEM_MASK: number
-export const MIME_FILTER_ENRICHED_IS_RICHTEXT: number
 export const MIME_YDECODE_STATE_BEGIN: number
 export const MIME_YDECODE_STATE_DECODE: number
 export const MIME_YDECODE_STATE_END: number
@@ -601,6 +611,8 @@ export const RECIPIENT_TYPE_RESENT_BCC: string
 export const RECIPIENT_TYPE_RESENT_CC: string
 export const RECIPIENT_TYPE_RESENT_TO: string
 export const RECIPIENT_TYPE_TO: string
+export const SESSION_BOOK_UID_ANY: string
+export const SESSION_BOOK_UID_COMPLETION: string
 export const STORE_INFO_FOLDER_TYPE_BIT: number
 export const STORE_INFO_FOLDER_TYPE_MASK: number
 export const STORE_INFO_FOLDER_UNKNOWN: number
@@ -619,6 +631,7 @@ export const URL_PART_PATH: number
 export const URL_PART_PATH_DIR: number
 export const URL_PART_PORT: number
 export const URL_PART_USER: number
+export const UTILS_MAX_USER_HEADERS: number
 export const UUDECODE_STATE_MASK: number
 export const VJUNK_NAME: string
 export const VTRASH_NAME: string
@@ -643,7 +656,7 @@ export function debugRefUnrefDumpBacktraces(): void
 export function debugRefUnrefPushBacktrace(backtrace: GLib.String, objectRefCount: number): void
 export function debugRefUnrefPushBacktraceForObject(object?: object | null): void
 export function debugStart(mode: string): boolean
-export function enrichedToHtml(in_: string, flags: number): string
+export function enrichedToHtml(in_: string, flags: MimeFilterEnrichedFlags): string
 export function errorQuark(): GLib.Quark
 export function fileUtilDecodeFixedInt32(in_: object | null, dest: number): number
 export function fileUtilDecodeFixedString(in_: object | null, str: string, len: number): number
@@ -698,6 +711,7 @@ export function headerTokenDecode(in_: string): string
 export function headerUnfold(in_: string): string
 export function headersDupMailingList(headers: NameValueArray): string | null
 export function hostIdnaToAscii(host: string): string
+export function hostnameUtilsRequiresAscii(hostname: string): boolean
 export function iconvCharsetLanguage(charset: string): string
 export function iconvCharsetName(charset: string): string
 export function iconvLocaleCharset(): string
@@ -750,6 +764,7 @@ export function storeInfoSetString(summary: StoreSummary, info: StoreInfo, type:
 export function strcaseEqual(a?: object | null, b?: object | null): number
 export function strcaseHash(v?: object | null): number
 export function strdown(str: string): string
+export function stringIsAllAscii(str?: string | null): boolean
 export function strstrcase(haystack: string, needle: string): string
 export function systemFlag(name: string): MessageFlags
 export function systemFlagGet(flags: MessageFlags, name: string): boolean
@@ -785,6 +800,13 @@ export function utilBdataGetNumber(bdataPtr: string, defaultValue: number): numb
 export function utilBdataGetString(bdataPtr: string, defaultValue: string): string
 export function utilBdataPutNumber(bdataStr: GLib.String, value: number): void
 export function utilBdataPutString(bdataStr: GLib.String, value: string): void
+export function utilDecodeUserHeaderSetting(settingValue: string): { outDisplayName: string | null, outHeaderName: string }
+export function utilEncodeUserHeaderSetting(displayName: string | null, headerName: string): string
+export function utilFillMessageInfoUserHeaders(info: MessageInfo, headers: NameValueArray): boolean
+export function utilGetDirectoryVariants(mainPath: string, replacePrefix: string, withModulesDir: boolean): string[]
+export function utilsSanitizeAsciiDomainInAddress(emailAddress: string, doFormat: boolean): string | null
+export function utilsSanitizeAsciiDomainInUrl(url: URL): boolean
+export function utilsSanitizeAsciiDomainInUrlStr(urlStr: string): string | null
 export function uudecodeStep(in_: any[], out: any[], save: number[]): { returnType: number, out: any[], save: number[] }
 export function uuencodeClose(in_: any[], out: any[], uubuf: any[], save: number[]): { returnType: number, out: any[], uubuf: any[], save: number[] }
 export function uuencodeStep(in_: any[], out: any[], uubuf: any[], save: number[]): { returnType: number, out: any[], uubuf: any[], save: number[] }
@@ -1764,7 +1786,7 @@ export class DataWrapper {
     getByteArray(): any[]
     getEncoding(): TransferEncoding
     getMimeType(): string
-    getMimeTypeField(): ContentType
+    getMimeTypeField(): ContentType | null
     isOffline(): boolean
     setEncoding(encoding: TransferEncoding): void
     setMimeType(mimeType: string): void
@@ -2082,9 +2104,9 @@ export class Folder {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel-1.2.Camel.Folder */
-    appendMessage(message: MimeMessage, info: MessageInfo, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    appendMessageFinish(result: Gio.AsyncResult, appendedUid: string): boolean
-    appendMessageSync(message: MimeMessage, info: MessageInfo, appendedUid: string, cancellable?: Gio.Cancellable | null): boolean
+    appendMessage(message: MimeMessage, info: MessageInfo | null, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    appendMessageFinish(result: Gio.AsyncResult): { returnType: boolean, appendedUid: string | null }
+    appendMessageSync(message: MimeMessage, info?: MessageInfo | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, appendedUid: string | null }
     changed(changes: FolderChangeInfo): void
     cmpUids(uid1: string, uid2: string): number
     countByExpression(expression: string, cancellable?: Gio.Cancellable | null): number
@@ -2162,8 +2184,8 @@ export class Folder {
     takeFolderSummary(summary: FolderSummary): void
     thaw(): void
     transferMessagesTo(messageUids: string[], destination: Folder, deleteOriginals: boolean, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    transferMessagesToFinish(result: Gio.AsyncResult): { returnType: boolean, transferredUids: string[] }
-    transferMessagesToSync(messageUids: string[], destination: Folder, deleteOriginals: boolean, cancellable?: Gio.Cancellable | null): { returnType: boolean, transferredUids: string[] }
+    transferMessagesToFinish(result: Gio.AsyncResult): { returnType: boolean, transferredUids: string[] | null }
+    transferMessagesToSync(messageUids: string[], destination: Folder, deleteOriginals: boolean, cancellable?: Gio.Cancellable | null): { returnType: boolean, transferredUids: string[] | null }
     unlock(): void
     /* Methods of Camel-1.2.Camel.Object */
     getStateFilename(): string
@@ -2799,6 +2821,7 @@ export class InternetAddress {
     findAddress(address: string): { returnType: number, namep: string | null }
     findName(name: string): { returnType: number, addressp: string | null }
     get(index: number): { returnType: boolean, namep: string | null, addressp: string | null }
+    sanitizeAsciiDomain(): boolean
     /* Methods of Camel-1.2.Camel.Address */
     cat(source: Address): number
     copy(source: Address): number
@@ -3088,8 +3111,8 @@ export class Medium {
     getHeader(name: string): string | null
     getHeaders(): NameValueArray
     removeHeader(name: string): void
-    setContent(content: DataWrapper): void
-    setHeader(name: string, value: string): void
+    setContent(content?: DataWrapper | null): void
+    setHeader(name: string, value?: string | null): void
     /* Methods of Camel-1.2.Camel.DataWrapper */
     calculateDecodedSizeSync(cancellable?: Gio.Cancellable | null): number
     calculateSizeSync(cancellable?: Gio.Cancellable | null): number
@@ -3108,7 +3131,7 @@ export class Medium {
     getByteArray(): any[]
     getEncoding(): TransferEncoding
     getMimeType(): string
-    getMimeTypeField(): ContentType
+    getMimeTypeField(): ContentType | null
     isOffline(): boolean
     setEncoding(encoding: TransferEncoding): void
     setMimeType(mimeType: string): void
@@ -3172,12 +3195,13 @@ export interface MessageInfo_ConstructProps extends GObject.Object_ConstructProp
     dateReceived?: number
     dateSent?: number
     dirty?: boolean
-    flags?: number
+    flags?: MessageFlags
     folderFlagged?: boolean
     from?: string
     headers?: NameValueArray
     messageId?: number
     mlist?: string
+    preview?: string
     references?: object[]
     size?: number
     subject?: string
@@ -3185,6 +3209,7 @@ export interface MessageInfo_ConstructProps extends GObject.Object_ConstructProp
     to?: string
     uid?: string
     userFlags?: NamedFlags
+    userHeaders?: NameValueArray
     userTags?: NameValueArray
 }
 export class MessageInfo {
@@ -3194,19 +3219,21 @@ export class MessageInfo {
     dateReceived: number
     dateSent: number
     dirty: boolean
-    flags: number
+    flags: MessageFlags
     folderFlagged: boolean
     readonly folderFlaggedStamp: number
     from: string
     headers: NameValueArray
     messageId: number
     mlist: string
+    preview: string
     references: object[]
     size: number
     subject: string
     to: string
     uid: string
     userFlags: NamedFlags
+    userHeaders: NameValueArray
     userTags: NameValueArray
     /* Fields of Camel-1.2.Camel.MessageInfo */
     parent: GObject.Object
@@ -3217,8 +3244,11 @@ export class MessageInfo {
     clone(assignSummary?: FolderSummary | null): MessageInfo
     dump(): void
     dupHeaders(): NameValueArray | null
+    dupPreview(): string | null
     dupReferences(): number[] | null
     dupUserFlags(): NamedFlags
+    dupUserHeader(name: string): string | null
+    dupUserHeaders(): NameValueArray | null
     dupUserTag(name: string): string | null
     dupUserTags(): NameValueArray | null
     freezeNotifications(): void
@@ -3235,6 +3265,7 @@ export class MessageInfo {
     getMessageId(): number
     getMlist(): string
     getNotificationsFrozen(): boolean
+    getPreview(): string | null
     getReferences(): number[] | null
     getSize(): number
     getSubject(): string
@@ -3242,6 +3273,8 @@ export class MessageInfo {
     getUid(): string
     getUserFlag(name: string): boolean
     getUserFlags(): NamedFlags | null
+    getUserHeader(name: string): string | null
+    getUserHeaders(): NameValueArray | null
     getUserTag(name: string): string | null
     getUserTags(): NameValueArray | null
     load(record: MIRecord, bdataPtr: string): boolean
@@ -3260,15 +3293,18 @@ export class MessageInfo {
     setFrom(from?: string | null): boolean
     setMessageId(messageId: number): boolean
     setMlist(mlist?: string | null): boolean
+    setPreview(preview?: string | null): boolean
     setSize(size: number): boolean
     setSubject(subject?: string | null): boolean
     setTo(to?: string | null): boolean
     setUid(uid: string): boolean
     setUserFlag(name: string, state: boolean): boolean
+    setUserHeader(name: string, value?: string | null): boolean
     setUserTag(name: string, value?: string | null): boolean
     takeHeaders(headers?: NameValueArray | null): boolean
     takeReferences(references?: number[] | null): boolean
     takeUserFlags(userFlags?: NamedFlags | null): boolean
+    takeUserHeaders(headers?: NameValueArray | null): boolean
     takeUserTags(userTags?: NameValueArray | null): boolean
     thawNotifications(): void
     /* Methods of GObject-2.0.GObject.Object */
@@ -3359,6 +3395,11 @@ export class MessageInfo {
     on(sigName: "notify::mlist", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::mlist", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::mlist", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::preview", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::preview", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::preview", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::preview", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::preview", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::references", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::references", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::references", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3389,6 +3430,11 @@ export class MessageInfo {
     on(sigName: "notify::user-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::user-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::user-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::user-headers", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::user-headers", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::user-headers", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::user-headers", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::user-headers", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::user-tags", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::user-tags", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::user-tags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3418,19 +3464,21 @@ export class MessageInfoBase {
     dateReceived: number
     dateSent: number
     dirty: boolean
-    flags: number
+    flags: MessageFlags
     folderFlagged: boolean
     readonly folderFlaggedStamp: number
     from: string
     headers: NameValueArray
     messageId: number
     mlist: string
+    preview: string
     references: object[]
     size: number
     subject: string
     to: string
     uid: string
     userFlags: NamedFlags
+    userHeaders: NameValueArray
     userTags: NameValueArray
     /* Fields of Camel-1.2.Camel.MessageInfoBase */
     parent: MessageInfo
@@ -3441,8 +3489,11 @@ export class MessageInfoBase {
     clone(assignSummary?: FolderSummary | null): MessageInfo
     dump(): void
     dupHeaders(): NameValueArray | null
+    dupPreview(): string | null
     dupReferences(): number[] | null
     dupUserFlags(): NamedFlags
+    dupUserHeader(name: string): string | null
+    dupUserHeaders(): NameValueArray | null
     dupUserTag(name: string): string | null
     dupUserTags(): NameValueArray | null
     freezeNotifications(): void
@@ -3459,6 +3510,7 @@ export class MessageInfoBase {
     getMessageId(): number
     getMlist(): string
     getNotificationsFrozen(): boolean
+    getPreview(): string | null
     getReferences(): number[] | null
     getSize(): number
     getSubject(): string
@@ -3466,6 +3518,8 @@ export class MessageInfoBase {
     getUid(): string
     getUserFlag(name: string): boolean
     getUserFlags(): NamedFlags | null
+    getUserHeader(name: string): string | null
+    getUserHeaders(): NameValueArray | null
     getUserTag(name: string): string | null
     getUserTags(): NameValueArray | null
     load(record: MIRecord, bdataPtr: string): boolean
@@ -3484,15 +3538,18 @@ export class MessageInfoBase {
     setFrom(from?: string | null): boolean
     setMessageId(messageId: number): boolean
     setMlist(mlist?: string | null): boolean
+    setPreview(preview?: string | null): boolean
     setSize(size: number): boolean
     setSubject(subject?: string | null): boolean
     setTo(to?: string | null): boolean
     setUid(uid: string): boolean
     setUserFlag(name: string, state: boolean): boolean
+    setUserHeader(name: string, value?: string | null): boolean
     setUserTag(name: string, value?: string | null): boolean
     takeHeaders(headers?: NameValueArray | null): boolean
     takeReferences(references?: number[] | null): boolean
     takeUserFlags(userFlags?: NamedFlags | null): boolean
+    takeUserHeaders(headers?: NameValueArray | null): boolean
     takeUserTags(userTags?: NameValueArray | null): boolean
     thawNotifications(): void
     /* Methods of GObject-2.0.GObject.Object */
@@ -3583,6 +3640,11 @@ export class MessageInfoBase {
     on(sigName: "notify::mlist", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::mlist", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::mlist", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::preview", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::preview", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::preview", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::preview", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::preview", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::references", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::references", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::references", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3613,6 +3675,11 @@ export class MessageInfoBase {
     on(sigName: "notify::user-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::user-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::user-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::user-headers", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::user-headers", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::user-headers", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::user-headers", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::user-headers", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::user-tags", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::user-tags", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::user-tags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3847,6 +3914,9 @@ export class MimeFilterCRLF {
     backlen: number
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of Camel-1.2.Camel.MimeFilterCRLF */
+    getEnsureCrlfEnd(): boolean
+    setEnsureCrlfEnd(ensureCrlfEnd: boolean): void
     /* Methods of Camel-1.2.Camel.MimeFilter */
     backup(data: any[]): void
     complete(in_: any[], prespace: number): { out: any[], outprespace: number }
@@ -3958,7 +4028,7 @@ export class MimeFilterCanon {
     constructor (config?: MimeFilterCanon_ConstructProps)
     _init (config?: MimeFilterCanon_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(flags: number): MimeFilterCanon
+    static new(flags: MimeFilterCanonFlags): MimeFilterCanon
     static new(): MimeFilterCanon
     static $gtype: GObject.Type
 }
@@ -4090,7 +4160,7 @@ export class MimeFilterEnriched {
     constructor (config?: MimeFilterEnriched_ConstructProps)
     _init (config?: MimeFilterEnriched_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(flags: number): MimeFilterEnriched
+    static new(flags: MimeFilterEnrichedFlags): MimeFilterEnriched
     static new(): MimeFilterEnriched
     static $gtype: GObject.Type
 }
@@ -4805,26 +4875,26 @@ export class MimeMessage {
     constructFromParser(parser: MimeParser, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     constructFromParserFinish(result: Gio.AsyncResult): boolean
     constructFromParserSync(parser: MimeParser, cancellable?: Gio.Cancellable | null): boolean
-    getContentDisposition(): ContentDisposition
-    getContentId(): string
-    getContentLanguages(): string[]
-    getContentLocation(): string
-    getContentMd5(): string
-    getContentType(): ContentType
-    getDescription(): string
-    getDisposition(): string
+    getContentDisposition(): ContentDisposition | null
+    getContentId(): string | null
+    getContentLanguages(): string[] | null
+    getContentLocation(): string | null
+    getContentMd5(): string | null
+    getContentType(): ContentType | null
+    getDescription(): string | null
+    getDisposition(): string | null
     getEncoding(): TransferEncoding
-    getFilename(): string
+    getFilename(): string | null
     setContent(data: any[] | null, type?: string | null): void
-    setContentId(contentid: string): void
-    setContentLanguages(contentLanguages: string[]): void
-    setContentLocation(location: string): void
-    setContentMd5(md5sum: string): void
-    setContentType(contentType: string): void
+    setContentId(contentid?: string | null): void
+    setContentLanguages(contentLanguages?: string[] | null): void
+    setContentLocation(location?: string | null): void
+    setContentMd5(md5sum?: string | null): void
+    setContentType(contentType?: string | null): void
     setDescription(description: string): void
-    setDisposition(disposition: string): void
+    setDisposition(disposition?: string | null): void
     setEncoding(encoding: TransferEncoding): void
-    setFilename(filename: string): void
+    setFilename(filename?: string | null): void
     /* Methods of Camel-1.2.Camel.Medium */
     addHeader(name: string, value: string): void
     dupHeaders(): NameValueArray
@@ -4832,8 +4902,8 @@ export class MimeMessage {
     getHeader(name: string): string | null
     getHeaders(): NameValueArray
     removeHeader(name: string): void
-    setContent(content: DataWrapper): void
-    setHeader(name: string, value: string): void
+    setContent(content?: DataWrapper | null): void
+    setHeader(name: string, value?: string | null): void
     /* Methods of Camel-1.2.Camel.DataWrapper */
     calculateDecodedSizeSync(cancellable?: Gio.Cancellable | null): number
     calculateSizeSync(cancellable?: Gio.Cancellable | null): number
@@ -4851,7 +4921,7 @@ export class MimeMessage {
     decodeToStreamSync(stream: Stream, cancellable?: Gio.Cancellable | null): number
     getByteArray(): any[]
     getMimeType(): string
-    getMimeTypeField(): ContentType
+    getMimeTypeField(): ContentType | null
     isOffline(): boolean
     setMimeType(mimeType: string): void
     setMimeTypeField(mimeType?: ContentType | null): void
@@ -5033,26 +5103,26 @@ export class MimePart {
     constructFromParser(parser: MimeParser, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     constructFromParserFinish(result: Gio.AsyncResult): boolean
     constructFromParserSync(parser: MimeParser, cancellable?: Gio.Cancellable | null): boolean
-    getContentDisposition(): ContentDisposition
-    getContentId(): string
-    getContentLanguages(): string[]
-    getContentLocation(): string
-    getContentMd5(): string
-    getContentType(): ContentType
-    getDescription(): string
-    getDisposition(): string
+    getContentDisposition(): ContentDisposition | null
+    getContentId(): string | null
+    getContentLanguages(): string[] | null
+    getContentLocation(): string | null
+    getContentMd5(): string | null
+    getContentType(): ContentType | null
+    getDescription(): string | null
+    getDisposition(): string | null
     getEncoding(): TransferEncoding
-    getFilename(): string
+    getFilename(): string | null
     setContent(data: any[] | null, type?: string | null): void
-    setContentId(contentid: string): void
-    setContentLanguages(contentLanguages: string[]): void
-    setContentLocation(location: string): void
-    setContentMd5(md5sum: string): void
-    setContentType(contentType: string): void
+    setContentId(contentid?: string | null): void
+    setContentLanguages(contentLanguages?: string[] | null): void
+    setContentLocation(location?: string | null): void
+    setContentMd5(md5sum?: string | null): void
+    setContentType(contentType?: string | null): void
     setDescription(description: string): void
-    setDisposition(disposition: string): void
+    setDisposition(disposition?: string | null): void
     setEncoding(encoding: TransferEncoding): void
-    setFilename(filename: string): void
+    setFilename(filename?: string | null): void
     /* Methods of Camel-1.2.Camel.Medium */
     addHeader(name: string, value: string): void
     dupHeaders(): NameValueArray
@@ -5060,8 +5130,8 @@ export class MimePart {
     getHeader(name: string): string | null
     getHeaders(): NameValueArray
     removeHeader(name: string): void
-    setContent(content: DataWrapper): void
-    setHeader(name: string, value: string): void
+    setContent(content?: DataWrapper | null): void
+    setHeader(name: string, value?: string | null): void
     /* Methods of Camel-1.2.Camel.DataWrapper */
     calculateDecodedSizeSync(cancellable?: Gio.Cancellable | null): number
     calculateSizeSync(cancellable?: Gio.Cancellable | null): number
@@ -5079,7 +5149,7 @@ export class MimePart {
     decodeToStreamSync(stream: Stream, cancellable?: Gio.Cancellable | null): number
     getByteArray(): any[]
     getMimeType(): string
-    getMimeTypeField(): ContentType
+    getMimeTypeField(): ContentType | null
     isOffline(): boolean
     setMimeType(mimeType: string): void
     setMimeTypeField(mimeType?: ContentType | null): void
@@ -5195,7 +5265,7 @@ export class Multipart {
     getByteArray(): any[]
     getEncoding(): TransferEncoding
     getMimeType(): string
-    getMimeTypeField(): ContentType
+    getMimeTypeField(): ContentType | null
     isOffline(): boolean
     setEncoding(encoding: TransferEncoding): void
     setMimeType(mimeType: string): void
@@ -5287,7 +5357,7 @@ export class MultipartEncrypted {
     getByteArray(): any[]
     getEncoding(): TransferEncoding
     getMimeType(): string
-    getMimeTypeField(): ContentType
+    getMimeTypeField(): ContentType | null
     isOffline(): boolean
     setEncoding(encoding: TransferEncoding): void
     setMimeType(mimeType: string): void
@@ -5383,7 +5453,7 @@ export class MultipartSigned {
     getByteArray(): any[]
     getEncoding(): TransferEncoding
     getMimeType(): string
-    getMimeTypeField(): ContentType
+    getMimeTypeField(): ContentType | null
     isOffline(): boolean
     setEncoding(encoding: TransferEncoding): void
     setMimeType(mimeType: string): void
@@ -5674,9 +5744,9 @@ export class OfflineFolder {
     getOfflineSync(): ThreeState
     setOfflineSync(offlineSync: ThreeState): void
     /* Methods of Camel-1.2.Camel.Folder */
-    appendMessage(message: MimeMessage, info: MessageInfo, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    appendMessageFinish(result: Gio.AsyncResult, appendedUid: string): boolean
-    appendMessageSync(message: MimeMessage, info: MessageInfo, appendedUid: string, cancellable?: Gio.Cancellable | null): boolean
+    appendMessage(message: MimeMessage, info: MessageInfo | null, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    appendMessageFinish(result: Gio.AsyncResult): { returnType: boolean, appendedUid: string | null }
+    appendMessageSync(message: MimeMessage, info?: MessageInfo | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, appendedUid: string | null }
     changed(changes: FolderChangeInfo): void
     cmpUids(uid1: string, uid2: string): number
     countByExpression(expression: string, cancellable?: Gio.Cancellable | null): number
@@ -5754,8 +5824,8 @@ export class OfflineFolder {
     takeFolderSummary(summary: FolderSummary): void
     thaw(): void
     transferMessagesTo(messageUids: string[], destination: Folder, deleteOriginals: boolean, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    transferMessagesToFinish(result: Gio.AsyncResult): { returnType: boolean, transferredUids: string[] }
-    transferMessagesToSync(messageUids: string[], destination: Folder, deleteOriginals: boolean, cancellable?: Gio.Cancellable | null): { returnType: boolean, transferredUids: string[] }
+    transferMessagesToFinish(result: Gio.AsyncResult): { returnType: boolean, transferredUids: string[] | null }
+    transferMessagesToSync(messageUids: string[], destination: Folder, deleteOriginals: boolean, cancellable?: Gio.Cancellable | null): { returnType: boolean, transferredUids: string[] | null }
     unlock(): void
     /* Methods of Camel-1.2.Camel.Object */
     getStateFilename(): string
@@ -6527,7 +6597,7 @@ export class Sasl {
     _init (config?: Sasl_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(serviceName: string, mechanism: string, service: Service): Sasl
-    static authtype(mechanism: string): ServiceAuthType
+    static authtype(mechanism: string): ServiceAuthType | null
     static authtypeList(includePlain: boolean): ServiceAuthType[]
     static isXoauth2Alias(mechanism?: string | null): boolean
     static $gtype: GObject.Type
@@ -7309,6 +7379,76 @@ export class SaslXOAuth2Outlook {
     _init (config?: SaslXOAuth2Outlook_ConstructProps): void
     static $gtype: GObject.Type
 }
+export interface SaslXOAuth2Yahoo_ConstructProps extends SaslXOAuth2_ConstructProps {
+}
+export class SaslXOAuth2Yahoo {
+    /* Properties of Camel-1.2.Camel.Sasl */
+    authenticated: boolean
+    /* Fields of Camel-1.2.Camel.SaslXOAuth2Yahoo */
+    parent: SaslXOAuth2
+    priv: SaslXOAuth2YahooPrivate
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of Camel-1.2.Camel.Sasl */
+    challenge(token: any[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challengeBase64(token: string, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challengeBase64Finish(result: Gio.AsyncResult): string
+    challengeBase64Sync(token: string, cancellable?: Gio.Cancellable | null): string
+    challengeFinish(result: Gio.AsyncResult): any[]
+    challengeSync(token: any[], cancellable?: Gio.Cancellable | null): any[]
+    getAuthenticated(): boolean
+    getMechanism(): string
+    getService(): Service
+    getServiceName(): string
+    setAuthenticated(authenticated: boolean): void
+    tryEmptyPassword(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    tryEmptyPasswordFinish(result: Gio.AsyncResult): boolean
+    tryEmptyPasswordSync(cancellable?: Gio.Cancellable | null): boolean
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SaslXOAuth2Yahoo, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::authenticated", callback: (($obj: SaslXOAuth2Yahoo, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::authenticated", callback: (($obj: SaslXOAuth2Yahoo, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::authenticated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::authenticated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::authenticated", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: SaslXOAuth2Yahoo_ConstructProps)
+    _init (config?: SaslXOAuth2Yahoo_ConstructProps): void
+    static $gtype: GObject.Type
+}
 export interface Service_ConstructProps extends Object_ConstructProps {
     displayName?: string
     password?: string
@@ -7466,6 +7606,7 @@ export class Session {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Camel-1.2.Camel.Session */
     addService(uid: string, protocol: string, type: ProviderType): Service
+    addressbookContainsSync(bookUid: string, emailAddress: string, cancellable?: Gio.Cancellable | null): boolean
     authenticate(service: Service, mechanism: string | null, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     authenticateFinish(result: Gio.AsyncResult): boolean
     authenticateSync(service: Service, mechanism?: string | null, cancellable?: Gio.Cancellable | null): boolean
@@ -8914,9 +9055,9 @@ export class VTrashFolder {
     setExpression(expression: string): void
     setFolders(folders: Folder[], cancellable?: Gio.Cancellable | null): void
     /* Methods of Camel-1.2.Camel.Folder */
-    appendMessage(message: MimeMessage, info: MessageInfo, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    appendMessageFinish(result: Gio.AsyncResult, appendedUid: string): boolean
-    appendMessageSync(message: MimeMessage, info: MessageInfo, appendedUid: string, cancellable?: Gio.Cancellable | null): boolean
+    appendMessage(message: MimeMessage, info: MessageInfo | null, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    appendMessageFinish(result: Gio.AsyncResult): { returnType: boolean, appendedUid: string | null }
+    appendMessageSync(message: MimeMessage, info?: MessageInfo | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, appendedUid: string | null }
     changed(changes: FolderChangeInfo): void
     cmpUids(uid1: string, uid2: string): number
     countByExpression(expression: string, cancellable?: Gio.Cancellable | null): number
@@ -8993,8 +9134,8 @@ export class VTrashFolder {
     takeFolderSummary(summary: FolderSummary): void
     thaw(): void
     transferMessagesTo(messageUids: string[], destination: Folder, deleteOriginals: boolean, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    transferMessagesToFinish(result: Gio.AsyncResult): { returnType: boolean, transferredUids: string[] }
-    transferMessagesToSync(messageUids: string[], destination: Folder, deleteOriginals: boolean, cancellable?: Gio.Cancellable | null): { returnType: boolean, transferredUids: string[] }
+    transferMessagesToFinish(result: Gio.AsyncResult): { returnType: boolean, transferredUids: string[] | null }
+    transferMessagesToSync(messageUids: string[], destination: Folder, deleteOriginals: boolean, cancellable?: Gio.Cancellable | null): { returnType: boolean, transferredUids: string[] | null }
     unlock(): void
     /* Methods of Camel-1.2.Camel.Object */
     getStateFilename(): string
@@ -9190,9 +9331,9 @@ export class VeeFolder {
     setExpression(expression: string): void
     setFolders(folders: Folder[], cancellable?: Gio.Cancellable | null): void
     /* Methods of Camel-1.2.Camel.Folder */
-    appendMessage(message: MimeMessage, info: MessageInfo, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    appendMessageFinish(result: Gio.AsyncResult, appendedUid: string): boolean
-    appendMessageSync(message: MimeMessage, info: MessageInfo, appendedUid: string, cancellable?: Gio.Cancellable | null): boolean
+    appendMessage(message: MimeMessage, info: MessageInfo | null, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    appendMessageFinish(result: Gio.AsyncResult): { returnType: boolean, appendedUid: string | null }
+    appendMessageSync(message: MimeMessage, info?: MessageInfo | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, appendedUid: string | null }
     changed(changes: FolderChangeInfo): void
     cmpUids(uid1: string, uid2: string): number
     countByExpression(expression: string, cancellable?: Gio.Cancellable | null): number
@@ -9269,8 +9410,8 @@ export class VeeFolder {
     takeFolderSummary(summary: FolderSummary): void
     thaw(): void
     transferMessagesTo(messageUids: string[], destination: Folder, deleteOriginals: boolean, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    transferMessagesToFinish(result: Gio.AsyncResult): { returnType: boolean, transferredUids: string[] }
-    transferMessagesToSync(messageUids: string[], destination: Folder, deleteOriginals: boolean, cancellable?: Gio.Cancellable | null): { returnType: boolean, transferredUids: string[] }
+    transferMessagesToFinish(result: Gio.AsyncResult): { returnType: boolean, transferredUids: string[] | null }
+    transferMessagesToSync(messageUids: string[], destination: Folder, deleteOriginals: boolean, cancellable?: Gio.Cancellable | null): { returnType: boolean, transferredUids: string[] | null }
     unlock(): void
     /* Methods of Camel-1.2.Camel.Object */
     getStateFilename(): string
@@ -9379,19 +9520,21 @@ export class VeeMessageInfo {
     dateReceived: number
     dateSent: number
     dirty: boolean
-    flags: number
+    flags: MessageFlags
     folderFlagged: boolean
     readonly folderFlaggedStamp: number
     from: string
     headers: NameValueArray
     messageId: number
     mlist: string
+    preview: string
     references: object[]
     size: number
     subject: string
     to: string
     uid: string
     userFlags: NamedFlags
+    userHeaders: NameValueArray
     userTags: NameValueArray
     /* Fields of Camel-1.2.Camel.VeeMessageInfo */
     parent: MessageInfo
@@ -9405,8 +9548,11 @@ export class VeeMessageInfo {
     clone(assignSummary?: FolderSummary | null): MessageInfo
     dump(): void
     dupHeaders(): NameValueArray | null
+    dupPreview(): string | null
     dupReferences(): number[] | null
     dupUserFlags(): NamedFlags
+    dupUserHeader(name: string): string | null
+    dupUserHeaders(): NameValueArray | null
     dupUserTag(name: string): string | null
     dupUserTags(): NameValueArray | null
     freezeNotifications(): void
@@ -9423,6 +9569,7 @@ export class VeeMessageInfo {
     getMessageId(): number
     getMlist(): string
     getNotificationsFrozen(): boolean
+    getPreview(): string | null
     getReferences(): number[] | null
     getSize(): number
     getSubject(): string
@@ -9430,6 +9577,8 @@ export class VeeMessageInfo {
     getUid(): string
     getUserFlag(name: string): boolean
     getUserFlags(): NamedFlags | null
+    getUserHeader(name: string): string | null
+    getUserHeaders(): NameValueArray | null
     getUserTag(name: string): string | null
     getUserTags(): NameValueArray | null
     load(record: MIRecord, bdataPtr: string): boolean
@@ -9448,15 +9597,18 @@ export class VeeMessageInfo {
     setFrom(from?: string | null): boolean
     setMessageId(messageId: number): boolean
     setMlist(mlist?: string | null): boolean
+    setPreview(preview?: string | null): boolean
     setSize(size: number): boolean
     setSubject(subject?: string | null): boolean
     setTo(to?: string | null): boolean
     setUid(uid: string): boolean
     setUserFlag(name: string, state: boolean): boolean
+    setUserHeader(name: string, value?: string | null): boolean
     setUserTag(name: string, value?: string | null): boolean
     takeHeaders(headers?: NameValueArray | null): boolean
     takeReferences(references?: number[] | null): boolean
     takeUserFlags(userFlags?: NamedFlags | null): boolean
+    takeUserHeaders(headers?: NameValueArray | null): boolean
     takeUserTags(userTags?: NameValueArray | null): boolean
     thawNotifications(): void
     /* Methods of GObject-2.0.GObject.Object */
@@ -9547,6 +9699,11 @@ export class VeeMessageInfo {
     on(sigName: "notify::mlist", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::mlist", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::mlist", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::preview", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::preview", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::preview", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::preview", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::preview", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::references", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::references", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::references", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9577,6 +9734,11 @@ export class VeeMessageInfo {
     on(sigName: "notify::user-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::user-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::user-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::user-headers", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::user-headers", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::user-headers", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::user-headers", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::user-headers", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::user-tags", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::user-tags", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::user-tags", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10275,7 +10437,7 @@ export abstract class DataWrapperClass {
     parentClass: GObject.ObjectClass
     setMimeType: (dataWrapper: DataWrapper, mimeType: string) => void
     getMimeType: (dataWrapper: DataWrapper) => string
-    getMimeTypeField: (dataWrapper: DataWrapper) => ContentType
+    getMimeTypeField: (dataWrapper: DataWrapper) => ContentType | null
     setMimeTypeField: (dataWrapper: DataWrapper, mimeType?: ContentType | null) => void
     isOffline: (dataWrapper: DataWrapper) => boolean
     writeToStreamSync: (dataWrapper: DataWrapper, stream: Stream, cancellable?: Gio.Cancellable | null) => number
@@ -10398,7 +10560,7 @@ export abstract class FolderClass {
     getUncachedUids: (folder: Folder, uids: string[]) => string[]
     getFilename: (folder: Folder, uid: string) => string
     getMessageCached: (folder: Folder, messageUid: string, cancellable?: Gio.Cancellable | null) => MimeMessage | null
-    appendMessageSync: (folder: Folder, message: MimeMessage, info: MessageInfo, appendedUid: string, cancellable?: Gio.Cancellable | null) => boolean
+    appendMessageSync: (folder: Folder, message: MimeMessage, info?: MessageInfo | null, cancellable?: Gio.Cancellable | null) => { returnType: boolean, appendedUid: string | null }
     expungeSync: (folder: Folder, cancellable?: Gio.Cancellable | null) => boolean
     getMessageSync: (folder: Folder, messageUid: string, cancellable?: Gio.Cancellable | null) => MimeMessage
     getQuotaInfoSync: (folder: Folder, cancellable?: Gio.Cancellable | null) => FolderQuotaInfo
@@ -10406,7 +10568,7 @@ export abstract class FolderClass {
     refreshInfoSync: (folder: Folder, cancellable?: Gio.Cancellable | null) => boolean
     synchronizeSync: (folder: Folder, expunge: boolean, cancellable?: Gio.Cancellable | null) => boolean
     synchronizeMessageSync: (folder: Folder, messageUid: string, cancellable?: Gio.Cancellable | null) => boolean
-    transferMessagesToSync: (source: Folder, messageUids: string[], destination: Folder, deleteOriginals: boolean, cancellable?: Gio.Cancellable | null) => { returnType: boolean, transferredUids: string[] }
+    transferMessagesToSync: (source: Folder, messageUids: string[], destination: Folder, deleteOriginals: boolean, cancellable?: Gio.Cancellable | null) => { returnType: boolean, transferredUids: string[] | null }
     prepareContentRefresh: (folder: Folder) => void
     reservedMethods: object[]
     changed: (folder: Folder, changes: FolderChangeInfo) => void
@@ -10692,19 +10854,21 @@ export class MIRecord {
     usertags: string
     cinfo: string
     bdata: string
+    userheaders: string
+    preview: string
     static name: string
 }
 export abstract class MediumClass {
     /* Fields of Camel-1.2.Camel.MediumClass */
     parentClass: DataWrapperClass
     addHeader: (medium: Medium, name: string, value: string) => void
-    setHeader: (medium: Medium, name: string, value: string) => void
+    setHeader: (medium: Medium, name: string, value?: string | null) => void
     removeHeader: (medium: Medium, name: string) => void
     getHeader: (medium: Medium, name: string) => string | null
     dupHeaders: (medium: Medium) => NameValueArray
     getHeaders: (medium: Medium) => NameValueArray
     getContent: (medium: Medium) => DataWrapper | null
-    setContent: (medium: Medium, content: DataWrapper) => void
+    setContent: (medium: Medium, content?: DataWrapper | null) => void
     reserved: object[]
     static name: string
 }
@@ -10791,6 +10955,12 @@ export abstract class MessageInfoClass {
     takeReferences: (mi: MessageInfo, references?: number[] | null) => boolean
     getHeaders: (mi: MessageInfo) => NameValueArray | null
     takeHeaders: (mi: MessageInfo, headers?: NameValueArray | null) => boolean
+    getUserHeader: (mi: MessageInfo, name: string) => string | null
+    setUserHeader: (mi: MessageInfo, name: string, value?: string | null) => boolean
+    getUserHeaders: (mi: MessageInfo) => NameValueArray | null
+    takeUserHeaders: (mi: MessageInfo, headers?: NameValueArray | null) => boolean
+    getPreview: (mi: MessageInfo) => string | null
+    setPreview: (mi: MessageInfo, preview?: string | null) => boolean
     reserved: object[]
     static name: string
 }
@@ -11395,6 +11565,14 @@ export class SaslXOAuth2OutlookPrivate {
 export class SaslXOAuth2Private {
     static name: string
 }
+export abstract class SaslXOAuth2YahooClass {
+    /* Fields of Camel-1.2.Camel.SaslXOAuth2YahooClass */
+    parentClass: SaslXOAuth2Class
+    static name: string
+}
+export class SaslXOAuth2YahooPrivate {
+    static name: string
+}
 export class ServiceAuthType {
     /* Fields of Camel-1.2.Camel.ServiceAuthType */
     name: string
@@ -11435,6 +11613,7 @@ export abstract class SessionClass {
     forwardToSync: (session: Session, folder: Folder, message: MimeMessage, address: string, cancellable?: Gio.Cancellable | null) => boolean
     getOauth2AccessTokenSync: (session: Session, service: Service, cancellable?: Gio.Cancellable | null) => { returnType: boolean, outAccessToken: string | null, outExpiresIn: number | null }
     getRecipientCertificatesSync: (session: Session, flags: number, recipients: string[], cancellable?: Gio.Cancellable | null) => { returnType: boolean, outCertificates: string[] }
+    addressbookContainsSync: (session: Session, bookUid: string, emailAddress: string, cancellable?: Gio.Cancellable | null) => boolean
     reservedMethods: object[]
     jobStarted: (session: Session, cancellable?: Gio.Cancellable | null) => void
     jobFinished: (session: Session, cancellable: Gio.Cancellable | null, error: GLib.Error) => void

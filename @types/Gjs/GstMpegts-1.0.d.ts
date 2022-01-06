@@ -653,6 +653,7 @@ export function descriptor_from_registration(format_identifier: string, addition
 export function descriptor_parse_audio_preselection_dump(source: AudioPreselectionDescriptor): void
 export function descriptor_parse_audio_preselection_free(source: AudioPreselectionDescriptor): void
 export function dvb_component_descriptor_free(source: ComponentDescriptor): void
+export function event_new_mpegts_section(section: Section): Gst.Event
 export function event_parse_mpegts_section(event: Gst.Event): Section
 export function find_descriptor(descriptors: Descriptor[], tag: number): Descriptor
 export function find_descriptor_with_extension(descriptors: Descriptor[], tag: number, tag_extension: number): Descriptor
@@ -663,8 +664,8 @@ export function parse_descriptors(buffer: number, buf_len: number): Descriptor[]
 export function pat_new(): PatProgram[]
 export function scte_cancel_new(event_id: number): SCTESIT
 export function scte_null_new(): SCTESIT
-export function scte_splice_in_new(event_id: number, splice_time: number): SCTESIT
-export function scte_splice_out_new(event_id: number, splice_time: number, duration: number): SCTESIT
+export function scte_splice_in_new(event_id: number, splice_time: Gst.ClockTime): SCTESIT
+export function scte_splice_out_new(event_id: number, splice_time: Gst.ClockTime, duration: Gst.ClockTime): SCTESIT
 export function section_from_atsc_mgt(mgt: AtscMGT): Section
 export function section_from_atsc_rrt(rrt: AtscRRT): Section
 export function section_from_atsc_stt(stt: AtscSTT): Section
@@ -1157,11 +1158,25 @@ export class SCTESIT {
     splice_time: number
     splices: object[]
     descriptors: object[]
+    fully_parsed: boolean
+    is_running_time: boolean
     static name: string
     static new(): SCTESIT
     constructor()
     /* Static methods and pseudo-constructors */
     static new(): SCTESIT
+}
+export class SCTESpliceComponent {
+    /* Fields of GstMpegts-1.0.GstMpegts.SCTESpliceComponent */
+    tag: number
+    splice_time_specified: boolean
+    splice_time: number
+    utc_splice_time: number
+    static name: string
+    static new(tag: number): SCTESpliceComponent
+    constructor(tag: number)
+    /* Static methods and pseudo-constructors */
+    static new(tag: number): SCTESpliceComponent
 }
 export class SCTESpliceEvent {
     /* Fields of GstMpegts-1.0.GstMpegts.SCTESpliceEvent */
@@ -1174,6 +1189,8 @@ export class SCTESpliceEvent {
     splice_immediate_flag: boolean
     program_splice_time_specified: boolean
     program_splice_time: number
+    utc_splice_time: number
+    components: object[]
     break_duration_auto_return: boolean
     break_duration: number
     unique_program_id: number

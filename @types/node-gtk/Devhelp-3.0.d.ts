@@ -45,12 +45,16 @@ export interface AssistantView_ConstructProps extends WebKit2.WebView_ConstructP
 }
 export class AssistantView {
     /* Properties of WebKit2-4.0.WebKit2.WebView */
+    cameraCaptureState: WebKit2.MediaCaptureState
+    displayCaptureState: WebKit2.MediaCaptureState
     editable: boolean
     readonly estimatedLoadProgress: number
     readonly favicon: object
     readonly isLoading: boolean
     isMuted: boolean
     readonly isPlayingAudio: boolean
+    readonly isWebProcessResponsive: boolean
+    microphoneCaptureState: WebKit2.MediaCaptureState
     readonly pageId: number
     settings: WebKit2.Settings
     readonly title: string
@@ -121,8 +125,10 @@ export class AssistantView {
     getAutomationPresentationType(): WebKit2.AutomationBrowsingContextPresentation
     getBackForwardList(): WebKit2.BackForwardList
     getBackgroundColor(): { rgba: Gdk.RGBA }
+    getCameraCaptureState(): WebKit2.MediaCaptureState
     getContext(): WebKit2.WebContext
     getCustomCharset(): string
+    getDisplayCaptureState(): WebKit2.MediaCaptureState
     getEditorState(): WebKit2.EditorState
     getEstimatedLoadProgress(): number
     getFavicon(): cairo.Surface
@@ -130,7 +136,9 @@ export class AssistantView {
     getInputMethodContext(): WebKit2.InputMethodContext | null
     getInspector(): WebKit2.WebInspector
     getIsMuted(): boolean
+    getIsWebProcessResponsive(): boolean
     getMainResource(): WebKit2.WebResource
+    getMicrophoneCaptureState(): WebKit2.MediaCaptureState
     getPageId(): number
     getSessionState(): WebKit2.WebViewSessionState
     getSettings(): WebKit2.Settings
@@ -172,13 +180,18 @@ export class AssistantView {
     sendMessageToPage(message: WebKit2.UserMessage, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     sendMessageToPageFinish(result: Gio.AsyncResult): WebKit2.UserMessage
     setBackgroundColor(rgba: Gdk.RGBA): void
+    setCameraCaptureState(state: WebKit2.MediaCaptureState): void
+    setCorsAllowlist(allowlist?: string[] | null): void
     setCustomCharset(charset?: string | null): void
+    setDisplayCaptureState(state: WebKit2.MediaCaptureState): void
     setEditable(editable: boolean): void
     setInputMethodContext(context?: WebKit2.InputMethodContext | null): void
     setIsMuted(muted: boolean): void
+    setMicrophoneCaptureState(state: WebKit2.MediaCaptureState): void
     setSettings(settings: WebKit2.Settings): void
     setZoomLevel(zoomLevel: number): void
     stopLoading(): void
+    terminateWebProcess(): void
     tryClose(): void
     /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
@@ -616,11 +629,11 @@ export class AssistantView {
     once(sigName: "show-notification", callback: (notification: WebKit2.Notification) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "show-notification", callback: (notification: WebKit2.Notification) => void): NodeJS.EventEmitter
     emit(sigName: "show-notification", notification: WebKit2.Notification): void
-    connect(sigName: "show-option-menu", callback: (($obj: AssistantView, object: WebKit2.OptionMenu, p0: Gdk.Event, p1: Gdk.Rectangle) => boolean)): number
-    on(sigName: "show-option-menu", callback: (object: WebKit2.OptionMenu, p0: Gdk.Event, p1: Gdk.Rectangle) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "show-option-menu", callback: (object: WebKit2.OptionMenu, p0: Gdk.Event, p1: Gdk.Rectangle) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "show-option-menu", callback: (object: WebKit2.OptionMenu, p0: Gdk.Event, p1: Gdk.Rectangle) => void): NodeJS.EventEmitter
-    emit(sigName: "show-option-menu", object: WebKit2.OptionMenu, p0: Gdk.Event, p1: Gdk.Rectangle): void
+    connect(sigName: "show-option-menu", callback: (($obj: AssistantView, menu: WebKit2.OptionMenu, event: Gdk.Event, rectangle: Gdk.Rectangle) => boolean)): number
+    on(sigName: "show-option-menu", callback: (menu: WebKit2.OptionMenu, event: Gdk.Event, rectangle: Gdk.Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-option-menu", callback: (menu: WebKit2.OptionMenu, event: Gdk.Event, rectangle: Gdk.Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-option-menu", callback: (menu: WebKit2.OptionMenu, event: Gdk.Event, rectangle: Gdk.Rectangle) => void): NodeJS.EventEmitter
+    emit(sigName: "show-option-menu", menu: WebKit2.OptionMenu, event: Gdk.Event, rectangle: Gdk.Rectangle): void
     connect(sigName: "submit-form", callback: (($obj: AssistantView, request: WebKit2.FormSubmissionRequest) => void)): number
     on(sigName: "submit-form", callback: (request: WebKit2.FormSubmissionRequest) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "submit-form", callback: (request: WebKit2.FormSubmissionRequest) => void, after?: boolean): NodeJS.EventEmitter
@@ -1014,6 +1027,16 @@ export class AssistantView {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::camera-capture-state", callback: (($obj: AssistantView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::camera-capture-state", callback: (($obj: AssistantView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::camera-capture-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::camera-capture-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::camera-capture-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::display-capture-state", callback: (($obj: AssistantView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::display-capture-state", callback: (($obj: AssistantView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::display-capture-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::display-capture-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::display-capture-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::editable", callback: (($obj: AssistantView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::editable", callback: (($obj: AssistantView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::editable", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1044,6 +1067,16 @@ export class AssistantView {
     on(sigName: "notify::is-playing-audio", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::is-playing-audio", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::is-playing-audio", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::is-web-process-responsive", callback: (($obj: AssistantView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::is-web-process-responsive", callback: (($obj: AssistantView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-web-process-responsive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-web-process-responsive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-web-process-responsive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::microphone-capture-state", callback: (($obj: AssistantView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::microphone-capture-state", callback: (($obj: AssistantView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::microphone-capture-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::microphone-capture-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::microphone-capture-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::page-id", callback: (($obj: AssistantView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::page-id", callback: (($obj: AssistantView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::page-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8575,12 +8608,16 @@ export interface WebView_ConstructProps extends WebKit2.WebView_ConstructProps {
 }
 export class WebView {
     /* Properties of WebKit2-4.0.WebKit2.WebView */
+    cameraCaptureState: WebKit2.MediaCaptureState
+    displayCaptureState: WebKit2.MediaCaptureState
     editable: boolean
     readonly estimatedLoadProgress: number
     readonly favicon: object
     readonly isLoading: boolean
     isMuted: boolean
     readonly isPlayingAudio: boolean
+    readonly isWebProcessResponsive: boolean
+    microphoneCaptureState: WebKit2.MediaCaptureState
     readonly pageId: number
     settings: WebKit2.Settings
     readonly title: string
@@ -8662,8 +8699,10 @@ export class WebView {
     getAutomationPresentationType(): WebKit2.AutomationBrowsingContextPresentation
     getBackForwardList(): WebKit2.BackForwardList
     getBackgroundColor(): { rgba: Gdk.RGBA }
+    getCameraCaptureState(): WebKit2.MediaCaptureState
     getContext(): WebKit2.WebContext
     getCustomCharset(): string
+    getDisplayCaptureState(): WebKit2.MediaCaptureState
     getEditorState(): WebKit2.EditorState
     getEstimatedLoadProgress(): number
     getFavicon(): cairo.Surface
@@ -8671,7 +8710,9 @@ export class WebView {
     getInputMethodContext(): WebKit2.InputMethodContext | null
     getInspector(): WebKit2.WebInspector
     getIsMuted(): boolean
+    getIsWebProcessResponsive(): boolean
     getMainResource(): WebKit2.WebResource
+    getMicrophoneCaptureState(): WebKit2.MediaCaptureState
     getPageId(): number
     getSessionState(): WebKit2.WebViewSessionState
     getSettings(): WebKit2.Settings
@@ -8713,13 +8754,18 @@ export class WebView {
     sendMessageToPage(message: WebKit2.UserMessage, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     sendMessageToPageFinish(result: Gio.AsyncResult): WebKit2.UserMessage
     setBackgroundColor(rgba: Gdk.RGBA): void
+    setCameraCaptureState(state: WebKit2.MediaCaptureState): void
+    setCorsAllowlist(allowlist?: string[] | null): void
     setCustomCharset(charset?: string | null): void
+    setDisplayCaptureState(state: WebKit2.MediaCaptureState): void
     setEditable(editable: boolean): void
     setInputMethodContext(context?: WebKit2.InputMethodContext | null): void
     setIsMuted(muted: boolean): void
+    setMicrophoneCaptureState(state: WebKit2.MediaCaptureState): void
     setSettings(settings: WebKit2.Settings): void
     setZoomLevel(zoomLevel: number): void
     stopLoading(): void
+    terminateWebProcess(): void
     tryClose(): void
     /* Methods of Gtk-3.0.Gtk.Container */
     add(widget: Gtk.Widget): void
@@ -9157,11 +9203,11 @@ export class WebView {
     once(sigName: "show-notification", callback: (notification: WebKit2.Notification) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "show-notification", callback: (notification: WebKit2.Notification) => void): NodeJS.EventEmitter
     emit(sigName: "show-notification", notification: WebKit2.Notification): void
-    connect(sigName: "show-option-menu", callback: (($obj: WebView, object: WebKit2.OptionMenu, p0: Gdk.Event, p1: Gdk.Rectangle) => boolean)): number
-    on(sigName: "show-option-menu", callback: (object: WebKit2.OptionMenu, p0: Gdk.Event, p1: Gdk.Rectangle) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "show-option-menu", callback: (object: WebKit2.OptionMenu, p0: Gdk.Event, p1: Gdk.Rectangle) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "show-option-menu", callback: (object: WebKit2.OptionMenu, p0: Gdk.Event, p1: Gdk.Rectangle) => void): NodeJS.EventEmitter
-    emit(sigName: "show-option-menu", object: WebKit2.OptionMenu, p0: Gdk.Event, p1: Gdk.Rectangle): void
+    connect(sigName: "show-option-menu", callback: (($obj: WebView, menu: WebKit2.OptionMenu, event: Gdk.Event, rectangle: Gdk.Rectangle) => boolean)): number
+    on(sigName: "show-option-menu", callback: (menu: WebKit2.OptionMenu, event: Gdk.Event, rectangle: Gdk.Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "show-option-menu", callback: (menu: WebKit2.OptionMenu, event: Gdk.Event, rectangle: Gdk.Rectangle) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "show-option-menu", callback: (menu: WebKit2.OptionMenu, event: Gdk.Event, rectangle: Gdk.Rectangle) => void): NodeJS.EventEmitter
+    emit(sigName: "show-option-menu", menu: WebKit2.OptionMenu, event: Gdk.Event, rectangle: Gdk.Rectangle): void
     connect(sigName: "submit-form", callback: (($obj: WebView, request: WebKit2.FormSubmissionRequest) => void)): number
     on(sigName: "submit-form", callback: (request: WebKit2.FormSubmissionRequest) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "submit-form", callback: (request: WebKit2.FormSubmissionRequest) => void, after?: boolean): NodeJS.EventEmitter
@@ -9555,6 +9601,16 @@ export class WebView {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::camera-capture-state", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::camera-capture-state", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::camera-capture-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::camera-capture-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::camera-capture-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::display-capture-state", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::display-capture-state", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::display-capture-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::display-capture-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::display-capture-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::editable", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::editable", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::editable", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9585,6 +9641,16 @@ export class WebView {
     on(sigName: "notify::is-playing-audio", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::is-playing-audio", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::is-playing-audio", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::is-web-process-responsive", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::is-web-process-responsive", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::is-web-process-responsive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::is-web-process-responsive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::is-web-process-responsive", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::microphone-capture-state", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::microphone-capture-state", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::microphone-capture-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::microphone-capture-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::microphone-capture-state", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::page-id", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::page-id", callback: (($obj: WebView, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::page-id", callback: (...args: any[]) => void): NodeJS.EventEmitter

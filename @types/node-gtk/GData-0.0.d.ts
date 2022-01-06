@@ -19,24 +19,8 @@ export enum BatchOperationType {
     UPDATE,
     DELETION,
 }
-export enum ClientLoginAuthorizerError {
-    BAD_AUTHENTICATION,
-    NOT_VERIFIED,
-    TERMS_NOT_AGREED,
-    CAPTCHA_REQUIRED,
-    ACCOUNT_DELETED,
-    ACCOUNT_DISABLED,
-    SERVICE_DISABLED,
-    ACCOUNT_MIGRATED,
-    INVALID_SECOND_FACTOR,
-}
 export enum DocumentsServiceError {
     TYPE,
-}
-export enum FreebaseSearchFilterType {
-    ALL,
-    ANY,
-    NOT,
 }
 export enum MediaExpression {
     SAMPLE,
@@ -89,12 +73,6 @@ export enum YouTubeAge {
     THIS_WEEK,
     THIS_MONTH,
 }
-export enum YouTubeFormat {
-    UNKNOWN,
-    RTSP_H263_AMR,
-    HTTP_SWF,
-    RTSP_MPEG4_AAC,
-}
 export enum YouTubePermission {
     ALLOWED,
     DENIED,
@@ -110,26 +88,8 @@ export enum YouTubeServiceError {
     ENTRY_QUOTA_EXCEEDED,
     CHANNEL_REQUIRED,
 }
-export enum YouTubeSortOrder {
-    NONE,
-    ASCENDING,
-    DESCENDING,
-}
 export enum YouTubeStandardFeedType {
-    TOP_RATED_FEED,
-    TOP_FAVORITES_FEED,
-    MOST_VIEWED_FEED,
-    MOST_POPULAR_FEED,
-    MOST_RECENT_FEED,
-    MOST_DISCUSSED_FEED,
-    MOST_LINKED_FEED,
-    MOST_RESPONDED_FEED,
-    RECENTLY_FEATURED_FEED,
-    WATCH_ON_MOBILE_FEED,
-}
-export enum YouTubeUploader {
-    ALL,
-    PARTNER,
+    FEED,
 }
 export const ACCESS_ROLE_NONE: string
 export const ACCESS_SCOPE_DEFAULT: string
@@ -141,19 +101,6 @@ export const CALENDAR_ACCESS_ROLE_OWNER: string
 export const CALENDAR_ACCESS_ROLE_READ: string
 export const CALENDAR_ACCESS_ROLE_ROOT: string
 export const CATEGORY_SCHEMA_LABELS: string
-export const CONTACTS_GENDER_FEMALE: string
-export const CONTACTS_GENDER_MALE: string
-export const CONTACTS_GROUP_CONTACTS: string
-export const CONTACTS_GROUP_COWORKERS: string
-export const CONTACTS_GROUP_FAMILY: string
-export const CONTACTS_GROUP_FRIENDS: string
-export const CONTACTS_PRIORITY_HIGH: string
-export const CONTACTS_PRIORITY_LOW: string
-export const CONTACTS_PRIORITY_NORMAL: string
-export const CONTACTS_SENSITIVITY_CONFIDENTIAL: string
-export const CONTACTS_SENSITIVITY_NORMAL: string
-export const CONTACTS_SENSITIVITY_PERSONAL: string
-export const CONTACTS_SENSITIVITY_PRIVATE: string
 export const DOCUMENTS_ACCESS_ROLE_OWNER: string
 export const DOCUMENTS_ACCESS_ROLE_READER: string
 export const DOCUMENTS_ACCESS_ROLE_WRITER: string
@@ -164,7 +111,6 @@ export const DOCUMENTS_DRAWING_SVG: string
 export const DOCUMENTS_PRESENTATION_PDF: string
 export const DOCUMENTS_PRESENTATION_PNG: string
 export const DOCUMENTS_PRESENTATION_PPT: string
-export const DOCUMENTS_PRESENTATION_SWF: string
 export const DOCUMENTS_PRESENTATION_TXT: string
 export const DOCUMENTS_PROPERTY_VISIBILITY_PRIVATE: string
 export const DOCUMENTS_PROPERTY_VISIBILITY_PUBLIC: string
@@ -313,13 +259,10 @@ export const YOUTUBE_ACTION_RATE: string
 export const YOUTUBE_ACTION_SYNDICATE: string
 export const YOUTUBE_ACTION_VIDEO_RESPOND: string
 export const YOUTUBE_ASPECT_RATIO_WIDESCREEN: string
-export const YOUTUBE_CREDIT_ENTITY_PARTNER: string
 export const YOUTUBE_LICENSE_CC: string
 export const YOUTUBE_LICENSE_STANDARD: string
 export const YOUTUBE_RATING_TYPE_MPAA: string
-export const YOUTUBE_RATING_TYPE_SIMPLE: string
 export const YOUTUBE_RATING_TYPE_V_CHIP: string
-export function clientLoginAuthorizerErrorQuark(): GLib.Quark
 export function colorFromHexadecimal(hexadecimal: string): { returnType: boolean, color: Color }
 export function documentsServiceErrorQuark(): GLib.Quark
 export function parserErrorQuark(): GLib.Quark
@@ -474,7 +417,6 @@ export class Batchable {
     authorizer: Authorizer
     locale: string
     proxyResolver: Gio.ProxyResolver
-    proxyUri: Soup.URI
     timeout: number
     /* Fields of GData-0.0.GData.Service */
     parent: GObject.Object
@@ -490,7 +432,6 @@ export class Batchable {
     getAuthorizer(): Authorizer
     getLocale(): string
     getProxyResolver(): Gio.ProxyResolver | null
-    getProxyUri(): Soup.URI
     getTimeout(): number
     insertEntry(domain: AuthorizationDomain | null, uploadUri: string, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     insertEntryAsync(domain: AuthorizationDomain | null, uploadUri: string, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -505,7 +446,6 @@ export class Batchable {
     setAuthorizer(authorizer: Authorizer): void
     setLocale(locale?: string | null): void
     setProxyResolver(proxyResolver?: Gio.ProxyResolver | null): void
-    setProxyUri(proxyUri?: Soup.URI | null): void
     setTimeout(timeout: number): void
     updateEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     updateEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -553,11 +493,6 @@ export class Batchable {
     on(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::proxy-uri", callback: (($obj: Batchable, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-uri", callback: (($obj: Batchable, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::timeout", callback: (($obj: Batchable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::timeout", callback: (($obj: Batchable, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1316,10 +1251,8 @@ export class CalendarCalendar {
     /* Properties of GData-0.0.GData.CalendarCalendar */
     readonly accessLevel: string
     color: Color
-    readonly edited: number
     isHidden: boolean
     isSelected: boolean
-    readonly timesCleaned: number
     timezone: string
     /* Properties of GData-0.0.GData.Entry */
     content: string
@@ -1338,8 +1271,6 @@ export class CalendarCalendar {
     /* Methods of GData-0.0.GData.CalendarCalendar */
     getAccessLevel(): string
     getColor(): { color: Color }
-    getEdited(): number
-    getTimesCleaned(): number
     getTimezone(): string
     setColor(color: Color): void
     setIsHidden(isHidden: boolean): void
@@ -1413,11 +1344,6 @@ export class CalendarCalendar {
     on(sigName: "notify::color", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::color", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::color", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::edited", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::edited", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-hidden", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-hidden", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::is-hidden", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1428,11 +1354,6 @@ export class CalendarCalendar {
     on(sigName: "notify::is-selected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::is-selected", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::is-selected", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::times-cleaned", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::times-cleaned", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::times-cleaned", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::times-cleaned", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::times-cleaned", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::timezone", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::timezone", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::timezone", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1741,9 +1662,6 @@ export class CalendarEvent {
 export interface CalendarFeed_ConstructProps extends Feed_ConstructProps {
 }
 export class CalendarFeed {
-    /* Properties of GData-0.0.GData.CalendarFeed */
-    readonly timesCleaned: number
-    readonly timezone: string
     /* Properties of GData-0.0.GData.Feed */
     readonly etag: string
     readonly generator: Generator
@@ -1763,9 +1681,6 @@ export class CalendarFeed {
     priv: CalendarFeedPrivate
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.CalendarFeed */
-    getTimesCleaned(): number
-    getTimezone(): string
     /* Methods of GData-0.0.GData.Feed */
     getAuthors(): Author[]
     getCategories(): Category[]
@@ -1818,16 +1733,6 @@ export class CalendarFeed {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::times-cleaned", callback: (($obj: CalendarFeed, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::times-cleaned", callback: (($obj: CalendarFeed, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::times-cleaned", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::times-cleaned", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::times-cleaned", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::timezone", callback: (($obj: CalendarFeed, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::timezone", callback: (($obj: CalendarFeed, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::timezone", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::timezone", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::timezone", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::etag", callback: (($obj: CalendarFeed, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::etag", callback: (($obj: CalendarFeed, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::etag", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1909,11 +1814,8 @@ export interface CalendarQuery_ConstructProps extends Query_ConstructProps {
     futureEvents?: boolean
     maxAttendees?: number
     orderBy?: string
-    recurrenceExpansionEnd?: number
-    recurrenceExpansionStart?: number
     showDeleted?: boolean
     singleEvents?: boolean
-    sortOrder?: string
     startMax?: number
     startMin?: number
     timezone?: string
@@ -1923,11 +1825,8 @@ export class CalendarQuery {
     futureEvents: boolean
     maxAttendees: number
     orderBy: string
-    recurrenceExpansionEnd: number
-    recurrenceExpansionStart: number
     showDeleted: boolean
     singleEvents: boolean
-    sortOrder: string
     startMax: number
     startMin: number
     timezone: string
@@ -1952,21 +1851,15 @@ export class CalendarQuery {
     getFutureEvents(): boolean
     getMaxAttendees(): number
     getOrderBy(): string
-    getRecurrenceExpansionEnd(): number
-    getRecurrenceExpansionStart(): number
     getSingleEvents(): boolean
-    getSortOrder(): string
     getStartMax(): number
     getStartMin(): number
     getTimezone(): string
     setFutureEvents(futureEvents: boolean): void
     setMaxAttendees(maxAttendees: number): void
     setOrderBy(orderBy?: string | null): void
-    setRecurrenceExpansionEnd(end: number): void
-    setRecurrenceExpansionStart(start: number): void
     setShowDeleted(showDeleted: boolean): void
     setSingleEvents(singleEvents: boolean): void
-    setSortOrder(sortOrder?: string | null): void
     setStartMax(startMax: number): void
     setStartMin(startMin: number): void
     setTimezone(timezone?: string | null): void
@@ -2038,16 +1931,6 @@ export class CalendarQuery {
     on(sigName: "notify::order-by", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::order-by", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::order-by", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::recurrence-expansion-end", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::recurrence-expansion-end", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::recurrence-expansion-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::recurrence-expansion-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::recurrence-expansion-end", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::recurrence-expansion-start", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::recurrence-expansion-start", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::recurrence-expansion-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::recurrence-expansion-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::recurrence-expansion-start", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::show-deleted", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::show-deleted", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::show-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2058,11 +1941,6 @@ export class CalendarQuery {
     on(sigName: "notify::single-events", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::single-events", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::single-events", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::sort-order", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::sort-order", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::sort-order", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::sort-order", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::sort-order", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::start-max", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::start-max", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::start-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2155,7 +2033,6 @@ export class CalendarService {
     authorizer: Authorizer
     locale: string
     proxyResolver: Gio.ProxyResolver
-    proxyUri: Soup.URI
     timeout: number
     /* Fields of GData-0.0.GData.CalendarService */
     parent: Service
@@ -2166,8 +2043,6 @@ export class CalendarService {
     /* Methods of GData-0.0.GData.CalendarService */
     insertCalendarEvent(calendar: CalendarCalendar, event: CalendarEvent, cancellable?: Gio.Cancellable | null): CalendarEvent
     insertCalendarEventAsync(calendar: CalendarCalendar, event: CalendarEvent, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    insertEvent(event: CalendarEvent, cancellable?: Gio.Cancellable | null): CalendarEvent
-    insertEventAsync(event: CalendarEvent, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     queryAllCalendars(query?: Query | null, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
     queryAllCalendarsAsync(query?: Query | null, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
     queryEvents(calendar: CalendarCalendar, query?: Query | null, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
@@ -2181,7 +2056,6 @@ export class CalendarService {
     getAuthorizer(): Authorizer
     getLocale(): string
     getProxyResolver(): Gio.ProxyResolver | null
-    getProxyUri(): Soup.URI
     getTimeout(): number
     insertEntry(domain: AuthorizationDomain | null, uploadUri: string, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     insertEntryAsync(domain: AuthorizationDomain | null, uploadUri: string, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -2196,7 +2070,6 @@ export class CalendarService {
     setAuthorizer(authorizer: Authorizer): void
     setLocale(locale?: string | null): void
     setProxyResolver(proxyResolver?: Gio.ProxyResolver | null): void
-    setProxyUri(proxyUri?: Soup.URI | null): void
     setTimeout(timeout: number): void
     updateEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     updateEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -2246,11 +2119,6 @@ export class CalendarService {
     on(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::proxy-uri", callback: (($obj: CalendarService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-uri", callback: (($obj: CalendarService, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::timeout", callback: (($obj: CalendarService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::timeout", callback: (($obj: CalendarService, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2354,114 +2222,6 @@ export class Category {
     _init (config?: Category_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(term: string, scheme?: string | null, label?: string | null): Category
-    static $gtype: GObject.Type
-}
-export interface ClientLoginAuthorizer_ConstructProps extends GObject.Object_ConstructProps {
-    clientId?: string
-    proxyResolver?: Gio.ProxyResolver
-    proxyUri?: Soup.URI
-    timeout?: number
-}
-export class ClientLoginAuthorizer {
-    /* Properties of GData-0.0.GData.ClientLoginAuthorizer */
-    readonly password: string
-    proxyResolver: Gio.ProxyResolver
-    proxyUri: Soup.URI
-    timeout: number
-    readonly username: string
-    /* Fields of GObject-2.0.GObject.Object */
-    gTypeInstance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.ClientLoginAuthorizer */
-    authenticate(username: string, password: string, cancellable?: Gio.Cancellable | null): boolean
-    authenticateAsync(username: string, password: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    authenticateFinish(asyncResult: Gio.AsyncResult): boolean
-    getClientId(): string
-    getPassword(): string
-    getProxyResolver(): Gio.ProxyResolver | null
-    getProxyUri(): Soup.URI
-    getTimeout(): number
-    getUsername(): string
-    setProxyResolver(proxyResolver?: Gio.ProxyResolver | null): void
-    setProxyUri(proxyUri?: Soup.URI | null): void
-    setTimeout(timeout: number): void
-    /* Methods of GObject-2.0.GObject.Object */
-    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
-    forceFloating(): void
-    freezeNotify(): void
-    getData(key: string): object | null
-    getProperty(propertyName: string, value: any): void
-    getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    isFloating(): boolean
-    notify(propertyName: string): void
-    notifyByPspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    refSink(): GObject.Object
-    runDispose(): void
-    setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: any): void
-    stealData(key: string): object | null
-    stealQdata(quark: GLib.Quark): object | null
-    thawNotify(): void
-    unref(): void
-    watchClosure(closure: Function): void
-    /* Methods of GData-0.0.GData.Authorizer */
-    isAuthorizedForDomain(domain: AuthorizationDomain): boolean
-    processRequest(domain: AuthorizationDomain | null, message: Soup.Message): void
-    refreshAuthorization(cancellable?: Gio.Cancellable | null): boolean
-    refreshAuthorizationAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    refreshAuthorizationFinish(asyncResult: Gio.AsyncResult): boolean
-    /* Signals of GData-0.0.GData.ClientLoginAuthorizer */
-    connect(sigName: "captcha-challenge", callback: (($obj: ClientLoginAuthorizer, uri: string) => string)): number
-    on(sigName: "captcha-challenge", callback: (uri: string) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "captcha-challenge", callback: (uri: string) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "captcha-challenge", callback: (uri: string) => void): NodeJS.EventEmitter
-    emit(sigName: "captcha-challenge", uri: string): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::password", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::password", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::password", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::password", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::password", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::proxy-resolver", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-resolver", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::proxy-uri", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-uri", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::timeout", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::timeout", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::username", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::username", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::username", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::username", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::username", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    on(sigName: string, callback: any): NodeJS.EventEmitter
-    once(sigName: string, callback: any): NodeJS.EventEmitter
-    off(sigName: string, callback: any): NodeJS.EventEmitter
-    static name: string
-    constructor (config?: ClientLoginAuthorizer_ConstructProps)
-    _init (config?: ClientLoginAuthorizer_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(clientId: string, serviceType: GObject.Type): ClientLoginAuthorizer
-    static newForAuthorizationDomains(clientId: string, authorizationDomains: AuthorizationDomain[]): ClientLoginAuthorizer
     static $gtype: GObject.Type
 }
 export interface Comment_ConstructProps extends Entry_ConstructProps {
@@ -2586,812 +2346,6 @@ export class Comment {
     static name: string
     constructor (config?: Comment_ConstructProps)
     _init (config?: Comment_ConstructProps): void
-    static $gtype: GObject.Type
-}
-export interface ContactsContact_ConstructProps extends Entry_ConstructProps {
-    billingInformation?: string
-    birthday?: GLib.Date
-    birthdayHasYear?: boolean
-    directoryServer?: string
-    fileAs?: string
-    gender?: string
-    initials?: string
-    maidenName?: string
-    mileage?: string
-    name?: GDName
-    nickname?: string
-    occupation?: string
-    priority?: string
-    sensitivity?: string
-    shortName?: string
-    subject?: string
-}
-export class ContactsContact {
-    /* Properties of GData-0.0.GData.ContactsContact */
-    billingInformation: string
-    birthday: GLib.Date
-    birthdayHasYear: boolean
-    readonly deleted: boolean
-    directoryServer: string
-    readonly edited: number
-    fileAs: string
-    gender: string
-    initials: string
-    maidenName: string
-    mileage: string
-    name: GDName
-    nickname: string
-    occupation: string
-    readonly photoEtag: string
-    priority: string
-    sensitivity: string
-    shortName: string
-    subject: string
-    /* Properties of GData-0.0.GData.Entry */
-    content: string
-    contentUri: string
-    readonly isInserted: boolean
-    readonly published: number
-    rights: string
-    summary: string
-    title: string
-    readonly updated: number
-    /* Fields of GData-0.0.GData.ContactsContact */
-    parent: Entry
-    priv: ContactsContactPrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    gTypeInstance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.ContactsContact */
-    addCalendar(calendar: GContactCalendar): void
-    addEmailAddress(emailAddress: GDEmailAddress): void
-    addEvent(event: GContactEvent): void
-    addExternalId(externalId: GContactExternalID): void
-    addGroup(href: string): void
-    addHobby(hobby: string): void
-    addImAddress(imAddress: GDIMAddress): void
-    addJot(jot: GContactJot): void
-    addLanguage(language: GContactLanguage): void
-    addOrganization(organization: GDOrganization): void
-    addPhoneNumber(phoneNumber: GDPhoneNumber): void
-    addPostalAddress(postalAddress: GDPostalAddress): void
-    addRelation(relation: GContactRelation): void
-    addWebsite(website: GContactWebsite): void
-    getBillingInformation(): string
-    getBirthday(): { returnType: boolean, birthday: GLib.Date | null }
-    getCalendars(): GContactCalendar[]
-    getDirectoryServer(): string
-    getEdited(): number
-    getEmailAddresses(): GDEmailAddress[]
-    getEvents(): GContactEvent[]
-    getExtendedProperties(): GLib.HashTable
-    getExtendedProperty(name: string): string
-    getExternalIds(): GContactExternalID[]
-    getFileAs(): string
-    getGender(): string
-    getGroups(): string[]
-    getHobbies(): string[]
-    getImAddresses(): GDIMAddress[]
-    getInitials(): string
-    getJots(): GContactJot[]
-    getLanguages(): GContactLanguage[]
-    getMaidenName(): string
-    getMileage(): string
-    getName(): GDName
-    getNickname(): string
-    getOccupation(): string
-    getOrganizations(): GDOrganization[]
-    getPhoneNumbers(): GDPhoneNumber[]
-    getPhoto(service: ContactsService, cancellable?: Gio.Cancellable | null): { returnType: any[], contentType: string | null }
-    getPhotoAsync(service: ContactsService, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    getPhotoEtag(): string
-    getPhotoFinish(asyncResult: Gio.AsyncResult): { returnType: any[], contentType: string | null }
-    getPostalAddresses(): GDPostalAddress[]
-    getPrimaryCalendar(): GContactCalendar
-    getPrimaryEmailAddress(): GDEmailAddress
-    getPrimaryImAddress(): GDIMAddress
-    getPrimaryOrganization(): GDOrganization
-    getPrimaryPhoneNumber(): GDPhoneNumber
-    getPrimaryPostalAddress(): GDPostalAddress
-    getPrimaryWebsite(): GContactWebsite
-    getPriority(): string
-    getRelations(): GContactRelation[]
-    getSensitivity(): string
-    getShortName(): string
-    getSubject(): string
-    getUserDefinedField(name: string): string
-    getUserDefinedFields(): GLib.HashTable
-    getWebsites(): GContactWebsite[]
-    isDeleted(): boolean
-    isGroupDeleted(href: string): boolean
-    removeAllCalendars(): void
-    removeAllEmailAddresses(): void
-    removeAllEvents(): void
-    removeAllExternalIds(): void
-    removeAllHobbies(): void
-    removeAllImAddresses(): void
-    removeAllJots(): void
-    removeAllLanguages(): void
-    removeAllOrganizations(): void
-    removeAllPhoneNumbers(): void
-    removeAllPostalAddresses(): void
-    removeAllRelations(): void
-    removeAllWebsites(): void
-    removeGroup(href: string): void
-    setBillingInformation(billingInformation?: string | null): void
-    setBirthday(birthday: GLib.Date | null, birthdayHasYear: boolean): void
-    setDirectoryServer(directoryServer?: string | null): void
-    setExtendedProperty(name: string, value?: string | null): boolean
-    setFileAs(fileAs?: string | null): void
-    setGender(gender?: string | null): void
-    setInitials(initials?: string | null): void
-    setMaidenName(maidenName?: string | null): void
-    setMileage(mileage?: string | null): void
-    setName(name: GDName): void
-    setNickname(nickname?: string | null): void
-    setOccupation(occupation?: string | null): void
-    setPhoto(service: ContactsService, data: number | null, length: number, contentType?: string | null, cancellable?: Gio.Cancellable | null): boolean
-    setPhotoAsync(service: ContactsService, data: number | null, length: number, contentType?: string | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    setPhotoFinish(asyncResult: Gio.AsyncResult): boolean
-    setPriority(priority?: string | null): void
-    setSensitivity(sensitivity?: string | null): void
-    setShortName(shortName?: string | null): void
-    setSubject(subject?: string | null): void
-    setUserDefinedField(name: string, value?: string | null): void
-    /* Methods of GData-0.0.GData.Entry */
-    addAuthor(author: Author): void
-    addCategory(category: Category): void
-    addLink(link: Link): void
-    getAuthors(): Author[]
-    getCategories(): Category[]
-    getContent(): string
-    getContentUri(): string
-    getEtag(): string | null
-    getId(): string | null
-    getPublished(): number
-    getRights(): string
-    getSummary(): string
-    getTitle(): string
-    getUpdated(): number
-    lookUpLink(rel: string): Link
-    lookUpLinks(rel: string): Link[]
-    removeLink(link: Link): boolean
-    setContent(content?: string | null): void
-    setContentUri(contentUri?: string | null): void
-    setRights(rights?: string | null): void
-    setSummary(summary?: string | null): void
-    setTitle(title?: string | null): void
-    /* Methods of GData-0.0.GData.Parsable */
-    getContentType(): string
-    getJson(): string
-    getXml(): string
-    /* Methods of GObject-2.0.GObject.Object */
-    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
-    forceFloating(): void
-    freezeNotify(): void
-    getData(key: string): object | null
-    getProperty(propertyName: string, value: any): void
-    getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    isFloating(): boolean
-    notify(propertyName: string): void
-    notifyByPspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    refSink(): GObject.Object
-    runDispose(): void
-    setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: any): void
-    stealData(key: string): object | null
-    stealQdata(quark: GLib.Quark): object | null
-    thawNotify(): void
-    unref(): void
-    watchClosure(closure: Function): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::billing-information", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::billing-information", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::billing-information", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::billing-information", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::billing-information", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::birthday", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::birthday", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::birthday", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::birthday", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::birthday", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::birthday-has-year", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::birthday-has-year", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::birthday-has-year", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::birthday-has-year", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::birthday-has-year", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::deleted", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::deleted", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::directory-server", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::directory-server", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::directory-server", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::directory-server", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::directory-server", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::edited", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::edited", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::file-as", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::file-as", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::file-as", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::file-as", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::file-as", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::gender", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::gender", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::gender", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::gender", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::gender", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::initials", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::initials", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::initials", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::initials", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::initials", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::maiden-name", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::maiden-name", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::maiden-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::maiden-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::maiden-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::mileage", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::mileage", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::mileage", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::mileage", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::mileage", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::name", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::name", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::nickname", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::nickname", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::nickname", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::nickname", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::nickname", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::occupation", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::occupation", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::occupation", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::occupation", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::occupation", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::photo-etag", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::photo-etag", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::photo-etag", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::photo-etag", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::photo-etag", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::priority", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::priority", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::priority", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::priority", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::priority", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::sensitivity", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::sensitivity", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::sensitivity", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::sensitivity", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::sensitivity", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::short-name", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::short-name", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::short-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::short-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::short-name", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::subject", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::subject", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::subject", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::subject", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::subject", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::content", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::content-uri", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content-uri", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::content-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::content-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::content-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::is-inserted", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-inserted", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::is-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::is-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::published", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::published", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::published", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::published", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::rights", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::rights", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::rights", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::rights", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::rights", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::summary", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::summary", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::summary", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::summary", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::summary", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::title", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::title", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::title", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::title", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::title", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::updated", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    on(sigName: string, callback: any): NodeJS.EventEmitter
-    once(sigName: string, callback: any): NodeJS.EventEmitter
-    off(sigName: string, callback: any): NodeJS.EventEmitter
-    static name: string
-    constructor (config?: ContactsContact_ConstructProps)
-    _init (config?: ContactsContact_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(id?: string | null): ContactsContact
-    static $gtype: GObject.Type
-}
-export interface ContactsGroup_ConstructProps extends Entry_ConstructProps {
-}
-export class ContactsGroup {
-    /* Properties of GData-0.0.GData.ContactsGroup */
-    readonly deleted: boolean
-    readonly edited: number
-    readonly systemGroupId: string
-    /* Properties of GData-0.0.GData.Entry */
-    content: string
-    contentUri: string
-    readonly isInserted: boolean
-    readonly published: number
-    rights: string
-    summary: string
-    title: string
-    readonly updated: number
-    /* Fields of GData-0.0.GData.ContactsGroup */
-    parent: Entry
-    priv: ContactsGroupPrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    gTypeInstance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.ContactsGroup */
-    getEdited(): number
-    getExtendedProperties(): GLib.HashTable
-    getExtendedProperty(name: string): string
-    getSystemGroupId(): string
-    isDeleted(): boolean
-    setExtendedProperty(name: string, value?: string | null): boolean
-    /* Methods of GData-0.0.GData.Entry */
-    addAuthor(author: Author): void
-    addCategory(category: Category): void
-    addLink(link: Link): void
-    getAuthors(): Author[]
-    getCategories(): Category[]
-    getContent(): string
-    getContentUri(): string
-    getEtag(): string | null
-    getId(): string | null
-    getPublished(): number
-    getRights(): string
-    getSummary(): string
-    getTitle(): string
-    getUpdated(): number
-    lookUpLink(rel: string): Link
-    lookUpLinks(rel: string): Link[]
-    removeLink(link: Link): boolean
-    setContent(content?: string | null): void
-    setContentUri(contentUri?: string | null): void
-    setRights(rights?: string | null): void
-    setSummary(summary?: string | null): void
-    setTitle(title?: string | null): void
-    /* Methods of GData-0.0.GData.Parsable */
-    getContentType(): string
-    getJson(): string
-    getXml(): string
-    /* Methods of GObject-2.0.GObject.Object */
-    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
-    forceFloating(): void
-    freezeNotify(): void
-    getData(key: string): object | null
-    getProperty(propertyName: string, value: any): void
-    getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    isFloating(): boolean
-    notify(propertyName: string): void
-    notifyByPspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    refSink(): GObject.Object
-    runDispose(): void
-    setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: any): void
-    stealData(key: string): object | null
-    stealQdata(quark: GLib.Quark): object | null
-    thawNotify(): void
-    unref(): void
-    watchClosure(closure: Function): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::deleted", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::deleted", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::edited", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::edited", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::system-group-id", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::system-group-id", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::system-group-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::system-group-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::system-group-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::content", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::content-uri", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content-uri", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::content-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::content-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::content-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::is-inserted", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-inserted", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::is-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::is-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::published", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::published", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::published", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::published", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::rights", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::rights", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::rights", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::rights", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::rights", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::summary", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::summary", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::summary", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::summary", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::summary", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::title", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::title", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::title", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::title", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::title", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::updated", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    on(sigName: string, callback: any): NodeJS.EventEmitter
-    once(sigName: string, callback: any): NodeJS.EventEmitter
-    off(sigName: string, callback: any): NodeJS.EventEmitter
-    static name: string
-    constructor (config?: ContactsGroup_ConstructProps)
-    _init (config?: ContactsGroup_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(id?: string | null): ContactsGroup
-    static $gtype: GObject.Type
-}
-export interface ContactsQuery_ConstructProps extends Query_ConstructProps {
-    group?: string
-    orderBy?: string
-    showDeleted?: boolean
-    sortOrder?: string
-}
-export class ContactsQuery {
-    /* Properties of GData-0.0.GData.ContactsQuery */
-    group: string
-    orderBy: string
-    showDeleted: boolean
-    sortOrder: string
-    /* Properties of GData-0.0.GData.Query */
-    author: string
-    categories: string
-    etag: string
-    isStrict: boolean
-    maxResults: number
-    publishedMax: number
-    publishedMin: number
-    q: string
-    startIndex: number
-    updatedMax: number
-    updatedMin: number
-    /* Fields of GData-0.0.GData.ContactsQuery */
-    parent: Query
-    priv: ContactsQueryPrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    gTypeInstance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.ContactsQuery */
-    getGroup(): string
-    getOrderBy(): string
-    getSortOrder(): string
-    setGroup(group?: string | null): void
-    setOrderBy(orderBy?: string | null): void
-    setShowDeleted(showDeleted: boolean): void
-    setSortOrder(sortOrder?: string | null): void
-    /* Methods of GData-0.0.GData.Query */
-    getAuthor(): string
-    getCategories(): string
-    getEtag(): string
-    getMaxResults(): number
-    getPublishedMax(): number
-    getPublishedMin(): number
-    getQ(): string
-    getQueryUri(feedUri: string): string
-    getStartIndex(): number
-    getUpdatedMax(): number
-    getUpdatedMin(): number
-    nextPage(): void
-    previousPage(): boolean
-    setAuthor(author?: string | null): void
-    setCategories(categories?: string | null): void
-    setEtag(etag?: string | null): void
-    setIsStrict(isStrict: boolean): void
-    setMaxResults(maxResults: number): void
-    setPublishedMax(publishedMax: number): void
-    setPublishedMin(publishedMin: number): void
-    setQ(q?: string | null): void
-    setStartIndex(startIndex: number): void
-    setUpdatedMax(updatedMax: number): void
-    setUpdatedMin(updatedMin: number): void
-    /* Methods of GObject-2.0.GObject.Object */
-    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
-    forceFloating(): void
-    freezeNotify(): void
-    getData(key: string): object | null
-    getProperty(propertyName: string, value: any): void
-    getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    isFloating(): boolean
-    notify(propertyName: string): void
-    notifyByPspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    refSink(): GObject.Object
-    runDispose(): void
-    setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: any): void
-    stealData(key: string): object | null
-    stealQdata(quark: GLib.Quark): object | null
-    thawNotify(): void
-    unref(): void
-    watchClosure(closure: Function): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::group", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::group", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::group", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::group", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::group", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::order-by", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::order-by", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::order-by", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::order-by", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::order-by", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::show-deleted", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::show-deleted", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::show-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::show-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::show-deleted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::sort-order", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::sort-order", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::sort-order", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::sort-order", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::sort-order", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::author", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::author", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::author", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::author", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::author", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::categories", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::categories", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::categories", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::categories", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::categories", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::etag", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::etag", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::etag", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::etag", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::etag", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::is-strict", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-strict", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-strict", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::is-strict", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::is-strict", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::max-results", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::max-results", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::max-results", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::max-results", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::max-results", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::published-max", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published-max", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::published-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::published-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::published-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::published-min", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published-min", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::published-min", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::published-min", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::published-min", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::q", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::q", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::q", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::q", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::q", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::start-index", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::start-index", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::start-index", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::start-index", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::start-index", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::updated-max", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated-max", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::updated-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::updated-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::updated-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::updated-min", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated-min", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::updated-min", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::updated-min", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::updated-min", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    on(sigName: string, callback: any): NodeJS.EventEmitter
-    once(sigName: string, callback: any): NodeJS.EventEmitter
-    off(sigName: string, callback: any): NodeJS.EventEmitter
-    static name: string
-    constructor (config?: ContactsQuery_ConstructProps)
-    _init (config?: ContactsQuery_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(q?: string | null): ContactsQuery
-    static newWithLimits(q: string | null, startIndex: number, maxResults: number): ContactsQuery
-    static $gtype: GObject.Type
-}
-export interface ContactsService_ConstructProps extends Service_ConstructProps {
-}
-export class ContactsService {
-    /* Properties of GData-0.0.GData.Service */
-    authorizer: Authorizer
-    locale: string
-    proxyResolver: Gio.ProxyResolver
-    proxyUri: Soup.URI
-    timeout: number
-    /* Fields of GData-0.0.GData.ContactsService */
-    parent: Service
-    /* Fields of GData-0.0.GData.Service */
-    priv: ServicePrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    gTypeInstance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.ContactsService */
-    insertContact(contact: ContactsContact, cancellable?: Gio.Cancellable | null): ContactsContact
-    insertContactAsync(contact: ContactsContact, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    insertGroup(group: ContactsGroup, cancellable?: Gio.Cancellable | null): ContactsGroup
-    insertGroupAsync(group: ContactsGroup, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    queryContacts(query?: Query | null, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
-    queryContactsAsync(query?: Query | null, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
-    queryGroups(query?: Query | null, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
-    queryGroupsAsync(query?: Query | null, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
-    /* Methods of GData-0.0.GData.Service */
-    deleteEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): boolean
-    deleteEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    deleteEntryFinish(asyncResult: Gio.AsyncResult): boolean
-    getAuthorizer(): Authorizer
-    getLocale(): string
-    getProxyResolver(): Gio.ProxyResolver | null
-    getProxyUri(): Soup.URI
-    getTimeout(): number
-    insertEntry(domain: AuthorizationDomain | null, uploadUri: string, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
-    insertEntryAsync(domain: AuthorizationDomain | null, uploadUri: string, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    insertEntryFinish(asyncResult: Gio.AsyncResult): Entry
-    isAuthorized(): boolean
-    query(domain: AuthorizationDomain | null, feedUri: string, query: Query | null, entryType: GObject.Type, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
-    queryAsync(domain: AuthorizationDomain | null, feedUri: string, query: Query | null, entryType: GObject.Type, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
-    queryFinish(asyncResult: Gio.AsyncResult): Feed
-    querySingleEntry(domain: AuthorizationDomain | null, entryId: string, query: Query | null, entryType: GObject.Type, cancellable?: Gio.Cancellable | null): Entry
-    querySingleEntryAsync(domain: AuthorizationDomain | null, entryId: string, query: Query | null, entryType: GObject.Type, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    querySingleEntryFinish(asyncResult: Gio.AsyncResult): Entry
-    setAuthorizer(authorizer: Authorizer): void
-    setLocale(locale?: string | null): void
-    setProxyResolver(proxyResolver?: Gio.ProxyResolver | null): void
-    setProxyUri(proxyUri?: Soup.URI | null): void
-    setTimeout(timeout: number): void
-    updateEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
-    updateEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    updateEntryFinish(asyncResult: Gio.AsyncResult): Entry
-    /* Methods of GObject-2.0.GObject.Object */
-    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
-    forceFloating(): void
-    freezeNotify(): void
-    getData(key: string): object | null
-    getProperty(propertyName: string, value: any): void
-    getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    isFloating(): boolean
-    notify(propertyName: string): void
-    notifyByPspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    refSink(): GObject.Object
-    runDispose(): void
-    setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: any): void
-    stealData(key: string): object | null
-    stealQdata(quark: GLib.Quark): object | null
-    thawNotify(): void
-    unref(): void
-    watchClosure(closure: Function): void
-    /* Methods of GData-0.0.GData.Batchable */
-    createOperation(domain: AuthorizationDomain | null, feedUri: string): BatchOperation
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::authorizer", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::authorizer", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::authorizer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::authorizer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::authorizer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::locale", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::locale", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::locale", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::locale", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::locale", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::proxy-resolver", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-resolver", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::proxy-uri", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-uri", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::timeout", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::timeout", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    on(sigName: string, callback: any): NodeJS.EventEmitter
-    once(sigName: string, callback: any): NodeJS.EventEmitter
-    off(sigName: string, callback: any): NodeJS.EventEmitter
-    static name: string
-    constructor (config?: ContactsService_ConstructProps)
-    _init (config?: ContactsService_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(authorizer?: Authorizer | null): ContactsService
-    static getPrimaryAuthorizationDomain(): AuthorizationDomain
     static $gtype: GObject.Type
 }
 export interface DocumentsAccessRule_ConstructProps extends AccessRule_ConstructProps {
@@ -3565,8 +2519,6 @@ export interface DocumentsDocument_ConstructProps extends DocumentsEntry_Constru
 export class DocumentsDocument {
     /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly canEdit: boolean
-    readonly documentId: string
-    readonly edited: number
     readonly fileSize: number
     isDeleted: boolean
     readonly lastModifiedBy: Author
@@ -3595,9 +2547,7 @@ export class DocumentsDocument {
     getThumbnailUri(): string | null
     /* Methods of GData-0.0.GData.DocumentsEntry */
     addDocumentsProperty(property: DocumentsProperty): boolean
-    getDocumentId(): string
     getDocumentProperties(): DocumentsProperty[]
-    getEdited(): number
     getFileSize(): number
     getLastModifiedBy(): Author
     getLastViewed(): number
@@ -3670,16 +2620,6 @@ export class DocumentsDocument {
     on(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::document-id", callback: (($obj: DocumentsDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::document-id", callback: (($obj: DocumentsDocument, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::document-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::document-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::document-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::edited", callback: (($obj: DocumentsDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::edited", callback: (($obj: DocumentsDocument, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::file-size", callback: (($obj: DocumentsDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::file-size", callback: (($obj: DocumentsDocument, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::file-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3779,8 +2719,6 @@ export interface DocumentsDrawing_ConstructProps extends DocumentsDocument_Const
 export class DocumentsDrawing {
     /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly canEdit: boolean
-    readonly documentId: string
-    readonly edited: number
     readonly fileSize: number
     isDeleted: boolean
     readonly lastModifiedBy: Author
@@ -3809,9 +2747,7 @@ export class DocumentsDrawing {
     getThumbnailUri(): string | null
     /* Methods of GData-0.0.GData.DocumentsEntry */
     addDocumentsProperty(property: DocumentsProperty): boolean
-    getDocumentId(): string
     getDocumentProperties(): DocumentsProperty[]
-    getEdited(): number
     getFileSize(): number
     getLastModifiedBy(): Author
     getLastViewed(): number
@@ -3884,16 +2820,6 @@ export class DocumentsDrawing {
     on(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::document-id", callback: (($obj: DocumentsDrawing, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::document-id", callback: (($obj: DocumentsDrawing, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::document-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::document-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::document-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::edited", callback: (($obj: DocumentsDrawing, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::edited", callback: (($obj: DocumentsDrawing, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::file-size", callback: (($obj: DocumentsDrawing, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::file-size", callback: (($obj: DocumentsDrawing, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::file-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4274,8 +3200,6 @@ export interface DocumentsEntry_ConstructProps extends Entry_ConstructProps {
 export class DocumentsEntry {
     /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly canEdit: boolean
-    readonly documentId: string
-    readonly edited: number
     readonly fileSize: number
     isDeleted: boolean
     readonly lastModifiedBy: Author
@@ -4300,9 +3224,7 @@ export class DocumentsEntry {
     gTypeInstance: GObject.TypeInstance
     /* Methods of GData-0.0.GData.DocumentsEntry */
     addDocumentsProperty(property: DocumentsProperty): boolean
-    getDocumentId(): string
     getDocumentProperties(): DocumentsProperty[]
-    getEdited(): number
     getFileSize(): number
     getLastModifiedBy(): Author
     getLastViewed(): number
@@ -4375,16 +3297,6 @@ export class DocumentsEntry {
     on(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::document-id", callback: (($obj: DocumentsEntry, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::document-id", callback: (($obj: DocumentsEntry, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::document-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::document-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::document-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::edited", callback: (($obj: DocumentsEntry, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::edited", callback: (($obj: DocumentsEntry, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::file-size", callback: (($obj: DocumentsEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::file-size", callback: (($obj: DocumentsEntry, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::file-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4633,8 +3545,6 @@ export interface DocumentsFolder_ConstructProps extends DocumentsEntry_Construct
 export class DocumentsFolder {
     /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly canEdit: boolean
-    readonly documentId: string
-    readonly edited: number
     readonly fileSize: number
     isDeleted: boolean
     readonly lastModifiedBy: Author
@@ -4659,9 +3569,7 @@ export class DocumentsFolder {
     gTypeInstance: GObject.TypeInstance
     /* Methods of GData-0.0.GData.DocumentsEntry */
     addDocumentsProperty(property: DocumentsProperty): boolean
-    getDocumentId(): string
     getDocumentProperties(): DocumentsProperty[]
-    getEdited(): number
     getFileSize(): number
     getLastModifiedBy(): Author
     getLastViewed(): number
@@ -4734,16 +3642,6 @@ export class DocumentsFolder {
     on(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::document-id", callback: (($obj: DocumentsFolder, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::document-id", callback: (($obj: DocumentsFolder, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::document-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::document-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::document-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::edited", callback: (($obj: DocumentsFolder, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::edited", callback: (($obj: DocumentsFolder, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::file-size", callback: (($obj: DocumentsFolder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::file-size", callback: (($obj: DocumentsFolder, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::file-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4911,8 +3809,6 @@ export interface DocumentsPdf_ConstructProps extends DocumentsDocument_Construct
 export class DocumentsPdf {
     /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly canEdit: boolean
-    readonly documentId: string
-    readonly edited: number
     readonly fileSize: number
     isDeleted: boolean
     readonly lastModifiedBy: Author
@@ -4941,9 +3837,7 @@ export class DocumentsPdf {
     getThumbnailUri(): string | null
     /* Methods of GData-0.0.GData.DocumentsEntry */
     addDocumentsProperty(property: DocumentsProperty): boolean
-    getDocumentId(): string
     getDocumentProperties(): DocumentsProperty[]
-    getEdited(): number
     getFileSize(): number
     getLastModifiedBy(): Author
     getLastViewed(): number
@@ -5016,16 +3910,6 @@ export class DocumentsPdf {
     on(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::document-id", callback: (($obj: DocumentsPdf, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::document-id", callback: (($obj: DocumentsPdf, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::document-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::document-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::document-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::edited", callback: (($obj: DocumentsPdf, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::edited", callback: (($obj: DocumentsPdf, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::file-size", callback: (($obj: DocumentsPdf, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::file-size", callback: (($obj: DocumentsPdf, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::file-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5125,8 +4009,6 @@ export interface DocumentsPresentation_ConstructProps extends DocumentsDocument_
 export class DocumentsPresentation {
     /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly canEdit: boolean
-    readonly documentId: string
-    readonly edited: number
     readonly fileSize: number
     isDeleted: boolean
     readonly lastModifiedBy: Author
@@ -5155,9 +4037,7 @@ export class DocumentsPresentation {
     getThumbnailUri(): string | null
     /* Methods of GData-0.0.GData.DocumentsEntry */
     addDocumentsProperty(property: DocumentsProperty): boolean
-    getDocumentId(): string
     getDocumentProperties(): DocumentsProperty[]
-    getEdited(): number
     getFileSize(): number
     getLastModifiedBy(): Author
     getLastViewed(): number
@@ -5230,16 +4110,6 @@ export class DocumentsPresentation {
     on(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::document-id", callback: (($obj: DocumentsPresentation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::document-id", callback: (($obj: DocumentsPresentation, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::document-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::document-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::document-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::edited", callback: (($obj: DocumentsPresentation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::edited", callback: (($obj: DocumentsPresentation, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::file-size", callback: (($obj: DocumentsPresentation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::file-size", callback: (($obj: DocumentsPresentation, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::file-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5618,7 +4488,6 @@ export class DocumentsService {
     authorizer: Authorizer
     locale: string
     proxyResolver: Gio.ProxyResolver
-    proxyUri: Soup.URI
     timeout: number
     /* Fields of GData-0.0.GData.DocumentsService */
     parent: Service
@@ -5654,7 +4523,6 @@ export class DocumentsService {
     getAuthorizer(): Authorizer
     getLocale(): string
     getProxyResolver(): Gio.ProxyResolver | null
-    getProxyUri(): Soup.URI
     getTimeout(): number
     insertEntry(domain: AuthorizationDomain | null, uploadUri: string, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     insertEntryAsync(domain: AuthorizationDomain | null, uploadUri: string, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -5669,7 +4537,6 @@ export class DocumentsService {
     setAuthorizer(authorizer: Authorizer): void
     setLocale(locale?: string | null): void
     setProxyResolver(proxyResolver?: Gio.ProxyResolver | null): void
-    setProxyUri(proxyUri?: Soup.URI | null): void
     setTimeout(timeout: number): void
     updateEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     updateEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -5719,11 +4586,6 @@ export class DocumentsService {
     on(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::proxy-uri", callback: (($obj: DocumentsService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-uri", callback: (($obj: DocumentsService, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::timeout", callback: (($obj: DocumentsService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::timeout", callback: (($obj: DocumentsService, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5751,8 +4613,6 @@ export interface DocumentsSpreadsheet_ConstructProps extends DocumentsDocument_C
 export class DocumentsSpreadsheet {
     /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly canEdit: boolean
-    readonly documentId: string
-    readonly edited: number
     readonly fileSize: number
     isDeleted: boolean
     readonly lastModifiedBy: Author
@@ -5783,9 +4643,7 @@ export class DocumentsSpreadsheet {
     getThumbnailUri(): string | null
     /* Methods of GData-0.0.GData.DocumentsEntry */
     addDocumentsProperty(property: DocumentsProperty): boolean
-    getDocumentId(): string
     getDocumentProperties(): DocumentsProperty[]
-    getEdited(): number
     getFileSize(): number
     getLastModifiedBy(): Author
     getLastViewed(): number
@@ -5858,16 +4716,6 @@ export class DocumentsSpreadsheet {
     on(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::document-id", callback: (($obj: DocumentsSpreadsheet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::document-id", callback: (($obj: DocumentsSpreadsheet, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::document-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::document-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::document-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::edited", callback: (($obj: DocumentsSpreadsheet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::edited", callback: (($obj: DocumentsSpreadsheet, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::file-size", callback: (($obj: DocumentsSpreadsheet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::file-size", callback: (($obj: DocumentsSpreadsheet, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::file-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5967,8 +4815,6 @@ export interface DocumentsText_ConstructProps extends DocumentsDocument_Construc
 export class DocumentsText {
     /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly canEdit: boolean
-    readonly documentId: string
-    readonly edited: number
     readonly fileSize: number
     isDeleted: boolean
     readonly lastModifiedBy: Author
@@ -5997,9 +4843,7 @@ export class DocumentsText {
     getThumbnailUri(): string | null
     /* Methods of GData-0.0.GData.DocumentsEntry */
     addDocumentsProperty(property: DocumentsProperty): boolean
-    getDocumentId(): string
     getDocumentProperties(): DocumentsProperty[]
-    getEdited(): number
     getFileSize(): number
     getLastModifiedBy(): Author
     getLastViewed(): number
@@ -6072,16 +4916,6 @@ export class DocumentsText {
     on(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::can-edit", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::document-id", callback: (($obj: DocumentsText, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::document-id", callback: (($obj: DocumentsText, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::document-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::document-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::document-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::edited", callback: (($obj: DocumentsText, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::edited", callback: (($obj: DocumentsText, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::edited", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::file-size", callback: (($obj: DocumentsText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::file-size", callback: (($obj: DocumentsText, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::file-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6631,1015 +5465,6 @@ export class Feed {
     static name: string
     constructor (config?: Feed_ConstructProps)
     _init (config?: Feed_ConstructProps): void
-    static $gtype: GObject.Type
-}
-export interface FreebaseQuery_ConstructProps extends Query_ConstructProps {
-    variant?: GLib.Variant
-}
-export class FreebaseQuery {
-    /* Properties of GData-0.0.GData.Query */
-    author: string
-    categories: string
-    etag: string
-    isStrict: boolean
-    maxResults: number
-    publishedMax: number
-    publishedMin: number
-    q: string
-    startIndex: number
-    updatedMax: number
-    updatedMin: number
-    /* Fields of GData-0.0.GData.FreebaseQuery */
-    parent: Query
-    /* Fields of GData-0.0.GData.Query */
-    priv: QueryPrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    gTypeInstance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.Query */
-    getAuthor(): string
-    getCategories(): string
-    getEtag(): string
-    getMaxResults(): number
-    getPublishedMax(): number
-    getPublishedMin(): number
-    getQ(): string
-    getQueryUri(feedUri: string): string
-    getStartIndex(): number
-    getUpdatedMax(): number
-    getUpdatedMin(): number
-    nextPage(): void
-    previousPage(): boolean
-    setAuthor(author?: string | null): void
-    setCategories(categories?: string | null): void
-    setEtag(etag?: string | null): void
-    setIsStrict(isStrict: boolean): void
-    setMaxResults(maxResults: number): void
-    setPublishedMax(publishedMax: number): void
-    setPublishedMin(publishedMin: number): void
-    setQ(q?: string | null): void
-    setStartIndex(startIndex: number): void
-    setUpdatedMax(updatedMax: number): void
-    setUpdatedMin(updatedMin: number): void
-    /* Methods of GObject-2.0.GObject.Object */
-    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
-    forceFloating(): void
-    freezeNotify(): void
-    getData(key: string): object | null
-    getProperty(propertyName: string, value: any): void
-    getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    isFloating(): boolean
-    notify(propertyName: string): void
-    notifyByPspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    refSink(): GObject.Object
-    runDispose(): void
-    setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: any): void
-    stealData(key: string): object | null
-    stealQdata(quark: GLib.Quark): object | null
-    thawNotify(): void
-    unref(): void
-    watchClosure(closure: Function): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::author", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::author", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::author", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::author", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::author", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::categories", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::categories", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::categories", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::categories", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::categories", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::etag", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::etag", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::etag", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::etag", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::etag", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::is-strict", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-strict", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-strict", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::is-strict", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::is-strict", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::max-results", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::max-results", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::max-results", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::max-results", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::max-results", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::published-max", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published-max", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::published-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::published-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::published-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::published-min", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published-min", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::published-min", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::published-min", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::published-min", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::q", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::q", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::q", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::q", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::q", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::start-index", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::start-index", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::start-index", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::start-index", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::start-index", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::updated-max", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated-max", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::updated-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::updated-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::updated-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::updated-min", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated-min", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::updated-min", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::updated-min", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::updated-min", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    on(sigName: string, callback: any): NodeJS.EventEmitter
-    once(sigName: string, callback: any): NodeJS.EventEmitter
-    off(sigName: string, callback: any): NodeJS.EventEmitter
-    static name: string
-    constructor (config?: FreebaseQuery_ConstructProps)
-    _init (config?: FreebaseQuery_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(mql: string): FreebaseQuery
-    static new(q?: string | null): FreebaseQuery
-    static newFromVariant(variant: GLib.Variant): FreebaseQuery
-    static $gtype: GObject.Type
-}
-export interface FreebaseResult_ConstructProps extends Entry_ConstructProps {
-}
-export class FreebaseResult {
-    /* Properties of GData-0.0.GData.FreebaseResult */
-    readonly variant: GLib.Variant
-    /* Properties of GData-0.0.GData.Entry */
-    content: string
-    contentUri: string
-    readonly isInserted: boolean
-    readonly published: number
-    rights: string
-    summary: string
-    title: string
-    readonly updated: number
-    /* Fields of GData-0.0.GData.FreebaseResult */
-    parent: Entry
-    priv: FreebaseResultPrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    gTypeInstance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.FreebaseResult */
-    dupVariant(): GLib.Variant | null
-    /* Methods of GData-0.0.GData.Entry */
-    addAuthor(author: Author): void
-    addCategory(category: Category): void
-    addLink(link: Link): void
-    getAuthors(): Author[]
-    getCategories(): Category[]
-    getContent(): string
-    getContentUri(): string
-    getEtag(): string | null
-    getId(): string | null
-    getPublished(): number
-    getRights(): string
-    getSummary(): string
-    getTitle(): string
-    getUpdated(): number
-    lookUpLink(rel: string): Link
-    lookUpLinks(rel: string): Link[]
-    removeLink(link: Link): boolean
-    setContent(content?: string | null): void
-    setContentUri(contentUri?: string | null): void
-    setRights(rights?: string | null): void
-    setSummary(summary?: string | null): void
-    setTitle(title?: string | null): void
-    /* Methods of GData-0.0.GData.Parsable */
-    getContentType(): string
-    getJson(): string
-    getXml(): string
-    /* Methods of GObject-2.0.GObject.Object */
-    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
-    forceFloating(): void
-    freezeNotify(): void
-    getData(key: string): object | null
-    getProperty(propertyName: string, value: any): void
-    getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    isFloating(): boolean
-    notify(propertyName: string): void
-    notifyByPspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    refSink(): GObject.Object
-    runDispose(): void
-    setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: any): void
-    stealData(key: string): object | null
-    stealQdata(quark: GLib.Quark): object | null
-    thawNotify(): void
-    unref(): void
-    watchClosure(closure: Function): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::variant", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::variant", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::variant", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::variant", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::variant", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::content", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::content-uri", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content-uri", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::content-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::content-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::content-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::is-inserted", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-inserted", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::is-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::is-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::published", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::published", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::published", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::published", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::rights", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::rights", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::rights", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::rights", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::rights", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::summary", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::summary", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::summary", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::summary", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::summary", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::title", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::title", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::title", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::title", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::title", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::updated", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    on(sigName: string, callback: any): NodeJS.EventEmitter
-    once(sigName: string, callback: any): NodeJS.EventEmitter
-    off(sigName: string, callback: any): NodeJS.EventEmitter
-    static name: string
-    constructor (config?: FreebaseResult_ConstructProps)
-    _init (config?: FreebaseResult_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): FreebaseResult
-    static new(id?: string | null): FreebaseResult
-    static $gtype: GObject.Type
-}
-export interface FreebaseSearchQuery_ConstructProps extends Query_ConstructProps {
-    language?: string
-    stemmed?: boolean
-}
-export class FreebaseSearchQuery {
-    /* Properties of GData-0.0.GData.FreebaseSearchQuery */
-    language: string
-    stemmed: boolean
-    /* Properties of GData-0.0.GData.Query */
-    author: string
-    categories: string
-    etag: string
-    isStrict: boolean
-    maxResults: number
-    publishedMax: number
-    publishedMin: number
-    q: string
-    startIndex: number
-    updatedMax: number
-    updatedMin: number
-    /* Fields of GData-0.0.GData.FreebaseSearchQuery */
-    parent: Query
-    priv: FreebaseSearchQueryPrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    gTypeInstance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.FreebaseSearchQuery */
-    addFilter(property: string, value: string): void
-    addLocation(radius: number, lat: number, lon: number): void
-    closeFilter(): void
-    getLanguage(): string | null
-    getStemmed(): boolean
-    openFilter(filterType: FreebaseSearchFilterType): void
-    setLanguage(lang?: string | null): void
-    setStemmed(stemmed: boolean): void
-    /* Methods of GData-0.0.GData.Query */
-    getAuthor(): string
-    getCategories(): string
-    getEtag(): string
-    getMaxResults(): number
-    getPublishedMax(): number
-    getPublishedMin(): number
-    getQ(): string
-    getQueryUri(feedUri: string): string
-    getStartIndex(): number
-    getUpdatedMax(): number
-    getUpdatedMin(): number
-    nextPage(): void
-    previousPage(): boolean
-    setAuthor(author?: string | null): void
-    setCategories(categories?: string | null): void
-    setEtag(etag?: string | null): void
-    setIsStrict(isStrict: boolean): void
-    setMaxResults(maxResults: number): void
-    setPublishedMax(publishedMax: number): void
-    setPublishedMin(publishedMin: number): void
-    setQ(q?: string | null): void
-    setStartIndex(startIndex: number): void
-    setUpdatedMax(updatedMax: number): void
-    setUpdatedMin(updatedMin: number): void
-    /* Methods of GObject-2.0.GObject.Object */
-    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
-    forceFloating(): void
-    freezeNotify(): void
-    getData(key: string): object | null
-    getProperty(propertyName: string, value: any): void
-    getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    isFloating(): boolean
-    notify(propertyName: string): void
-    notifyByPspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    refSink(): GObject.Object
-    runDispose(): void
-    setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: any): void
-    stealData(key: string): object | null
-    stealQdata(quark: GLib.Quark): object | null
-    thawNotify(): void
-    unref(): void
-    watchClosure(closure: Function): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::language", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::language", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::language", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::language", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::language", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::stemmed", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::stemmed", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::stemmed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::stemmed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::stemmed", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::author", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::author", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::author", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::author", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::author", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::categories", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::categories", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::categories", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::categories", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::categories", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::etag", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::etag", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::etag", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::etag", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::etag", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::is-strict", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-strict", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-strict", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::is-strict", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::is-strict", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::max-results", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::max-results", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::max-results", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::max-results", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::max-results", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::published-max", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published-max", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::published-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::published-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::published-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::published-min", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published-min", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::published-min", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::published-min", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::published-min", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::q", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::q", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::q", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::q", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::q", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::start-index", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::start-index", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::start-index", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::start-index", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::start-index", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::updated-max", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated-max", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::updated-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::updated-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::updated-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::updated-min", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated-min", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::updated-min", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::updated-min", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::updated-min", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    on(sigName: string, callback: any): NodeJS.EventEmitter
-    once(sigName: string, callback: any): NodeJS.EventEmitter
-    off(sigName: string, callback: any): NodeJS.EventEmitter
-    static name: string
-    constructor (config?: FreebaseSearchQuery_ConstructProps)
-    _init (config?: FreebaseSearchQuery_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(searchTerms: string): FreebaseSearchQuery
-    static new(q?: string | null): FreebaseSearchQuery
-    static $gtype: GObject.Type
-}
-export interface FreebaseSearchResult_ConstructProps extends FreebaseResult_ConstructProps {
-}
-export class FreebaseSearchResult {
-    /* Properties of GData-0.0.GData.FreebaseResult */
-    readonly variant: GLib.Variant
-    /* Properties of GData-0.0.GData.Entry */
-    content: string
-    contentUri: string
-    readonly isInserted: boolean
-    readonly published: number
-    rights: string
-    summary: string
-    title: string
-    readonly updated: number
-    /* Fields of GData-0.0.GData.FreebaseSearchResult */
-    parent: FreebaseResult
-    priv: FreebaseSearchResultPrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    gTypeInstance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.FreebaseSearchResult */
-    getItem(i: number): FreebaseSearchResultItem | null
-    getNumItems(): number
-    getTotalHits(): number
-    /* Methods of GData-0.0.GData.FreebaseResult */
-    dupVariant(): GLib.Variant | null
-    /* Methods of GData-0.0.GData.Entry */
-    addAuthor(author: Author): void
-    addCategory(category: Category): void
-    addLink(link: Link): void
-    getAuthors(): Author[]
-    getCategories(): Category[]
-    getContent(): string
-    getContentUri(): string
-    getEtag(): string | null
-    getId(): string | null
-    getPublished(): number
-    getRights(): string
-    getSummary(): string
-    getTitle(): string
-    getUpdated(): number
-    lookUpLink(rel: string): Link
-    lookUpLinks(rel: string): Link[]
-    removeLink(link: Link): boolean
-    setContent(content?: string | null): void
-    setContentUri(contentUri?: string | null): void
-    setRights(rights?: string | null): void
-    setSummary(summary?: string | null): void
-    setTitle(title?: string | null): void
-    /* Methods of GData-0.0.GData.Parsable */
-    getContentType(): string
-    getJson(): string
-    getXml(): string
-    /* Methods of GObject-2.0.GObject.Object */
-    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
-    forceFloating(): void
-    freezeNotify(): void
-    getData(key: string): object | null
-    getProperty(propertyName: string, value: any): void
-    getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    isFloating(): boolean
-    notify(propertyName: string): void
-    notifyByPspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    refSink(): GObject.Object
-    runDispose(): void
-    setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: any): void
-    stealData(key: string): object | null
-    stealQdata(quark: GLib.Quark): object | null
-    thawNotify(): void
-    unref(): void
-    watchClosure(closure: Function): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::variant", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::variant", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::variant", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::variant", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::variant", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::content", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::content-uri", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content-uri", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::content-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::content-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::content-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::is-inserted", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-inserted", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::is-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::is-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::published", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::published", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::published", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::published", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::rights", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::rights", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::rights", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::rights", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::rights", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::summary", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::summary", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::summary", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::summary", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::summary", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::title", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::title", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::title", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::title", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::title", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::updated", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    on(sigName: string, callback: any): NodeJS.EventEmitter
-    once(sigName: string, callback: any): NodeJS.EventEmitter
-    off(sigName: string, callback: any): NodeJS.EventEmitter
-    static name: string
-    constructor (config?: FreebaseSearchResult_ConstructProps)
-    _init (config?: FreebaseSearchResult_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): FreebaseSearchResult
-    static new(id?: string | null): FreebaseSearchResult
-    static $gtype: GObject.Type
-}
-export interface FreebaseService_ConstructProps extends Service_ConstructProps {
-    developerKey?: string
-}
-export class FreebaseService {
-    /* Properties of GData-0.0.GData.Service */
-    authorizer: Authorizer
-    locale: string
-    proxyResolver: Gio.ProxyResolver
-    proxyUri: Soup.URI
-    timeout: number
-    /* Fields of GData-0.0.GData.FreebaseService */
-    parent: Service
-    /* Fields of GData-0.0.GData.Service */
-    priv: ServicePrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    gTypeInstance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.FreebaseService */
-    getImage(value: FreebaseTopicValue, cancellable: Gio.Cancellable | null, maxWidth: number, maxHeight: number): Gio.InputStream
-    getTopic(query: FreebaseTopicQuery, cancellable?: Gio.Cancellable | null): FreebaseTopicResult
-    getTopicAsync(query: FreebaseTopicQuery, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    query(query: FreebaseQuery, cancellable?: Gio.Cancellable | null): FreebaseResult
-    queryAsync(query: FreebaseQuery, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    search(query: FreebaseSearchQuery, cancellable?: Gio.Cancellable | null): FreebaseSearchResult
-    searchAsync(query: FreebaseSearchQuery, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    /* Methods of GData-0.0.GData.Service */
-    deleteEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): boolean
-    deleteEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    deleteEntryFinish(asyncResult: Gio.AsyncResult): boolean
-    getAuthorizer(): Authorizer
-    getLocale(): string
-    getProxyResolver(): Gio.ProxyResolver | null
-    getProxyUri(): Soup.URI
-    getTimeout(): number
-    insertEntry(domain: AuthorizationDomain | null, uploadUri: string, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
-    insertEntryAsync(domain: AuthorizationDomain | null, uploadUri: string, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    insertEntryFinish(asyncResult: Gio.AsyncResult): Entry
-    isAuthorized(): boolean
-    query(domain: AuthorizationDomain | null, feedUri: string, query: Query | null, entryType: GObject.Type, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null): Feed
-    queryAsync(domain: AuthorizationDomain | null, feedUri: string, query: Query | null, entryType: GObject.Type, cancellable?: Gio.Cancellable | null, progressCallback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
-    queryFinish(asyncResult: Gio.AsyncResult): Feed
-    querySingleEntry(domain: AuthorizationDomain | null, entryId: string, query: Query | null, entryType: GObject.Type, cancellable?: Gio.Cancellable | null): Entry
-    querySingleEntryAsync(domain: AuthorizationDomain | null, entryId: string, query: Query | null, entryType: GObject.Type, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    querySingleEntryFinish(asyncResult: Gio.AsyncResult): Entry
-    setAuthorizer(authorizer: Authorizer): void
-    setLocale(locale?: string | null): void
-    setProxyResolver(proxyResolver?: Gio.ProxyResolver | null): void
-    setProxyUri(proxyUri?: Soup.URI | null): void
-    setTimeout(timeout: number): void
-    updateEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
-    updateEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    updateEntryFinish(asyncResult: Gio.AsyncResult): Entry
-    /* Methods of GObject-2.0.GObject.Object */
-    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
-    forceFloating(): void
-    freezeNotify(): void
-    getData(key: string): object | null
-    getProperty(propertyName: string, value: any): void
-    getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    isFloating(): boolean
-    notify(propertyName: string): void
-    notifyByPspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    refSink(): GObject.Object
-    runDispose(): void
-    setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: any): void
-    stealData(key: string): object | null
-    stealQdata(quark: GLib.Quark): object | null
-    thawNotify(): void
-    unref(): void
-    watchClosure(closure: Function): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::authorizer", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::authorizer", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::authorizer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::authorizer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::authorizer", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::locale", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::locale", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::locale", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::locale", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::locale", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::proxy-resolver", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-resolver", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::proxy-uri", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-uri", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::timeout", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::timeout", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    on(sigName: string, callback: any): NodeJS.EventEmitter
-    once(sigName: string, callback: any): NodeJS.EventEmitter
-    off(sigName: string, callback: any): NodeJS.EventEmitter
-    static name: string
-    constructor (config?: FreebaseService_ConstructProps)
-    _init (config?: FreebaseService_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(developerKey?: string | null, authorizer?: Authorizer | null): FreebaseService
-    static getPrimaryAuthorizationDomain(): AuthorizationDomain
-    static $gtype: GObject.Type
-}
-export interface FreebaseTopicQuery_ConstructProps extends Query_ConstructProps {
-    filter?: string[]
-    language?: string
-}
-export class FreebaseTopicQuery {
-    /* Properties of GData-0.0.GData.FreebaseTopicQuery */
-    filter: string[]
-    language: string
-    /* Properties of GData-0.0.GData.Query */
-    author: string
-    categories: string
-    etag: string
-    isStrict: boolean
-    maxResults: number
-    publishedMax: number
-    publishedMin: number
-    q: string
-    startIndex: number
-    updatedMax: number
-    updatedMin: number
-    /* Fields of GData-0.0.GData.FreebaseTopicQuery */
-    parent: Query
-    priv: FreebaseTopicQueryPrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    gTypeInstance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.FreebaseTopicQuery */
-    getFilter(): string[] | null
-    getLanguage(): string | null
-    setFilter(filter?: string[] | null): void
-    setLanguage(lang?: string | null): void
-    /* Methods of GData-0.0.GData.Query */
-    getAuthor(): string
-    getCategories(): string
-    getEtag(): string
-    getMaxResults(): number
-    getPublishedMax(): number
-    getPublishedMin(): number
-    getQ(): string
-    getQueryUri(feedUri: string): string
-    getStartIndex(): number
-    getUpdatedMax(): number
-    getUpdatedMin(): number
-    nextPage(): void
-    previousPage(): boolean
-    setAuthor(author?: string | null): void
-    setCategories(categories?: string | null): void
-    setEtag(etag?: string | null): void
-    setIsStrict(isStrict: boolean): void
-    setMaxResults(maxResults: number): void
-    setPublishedMax(publishedMax: number): void
-    setPublishedMin(publishedMin: number): void
-    setQ(q?: string | null): void
-    setStartIndex(startIndex: number): void
-    setUpdatedMax(updatedMax: number): void
-    setUpdatedMin(updatedMin: number): void
-    /* Methods of GObject-2.0.GObject.Object */
-    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
-    forceFloating(): void
-    freezeNotify(): void
-    getData(key: string): object | null
-    getProperty(propertyName: string, value: any): void
-    getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    isFloating(): boolean
-    notify(propertyName: string): void
-    notifyByPspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    refSink(): GObject.Object
-    runDispose(): void
-    setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: any): void
-    stealData(key: string): object | null
-    stealQdata(quark: GLib.Quark): object | null
-    thawNotify(): void
-    unref(): void
-    watchClosure(closure: Function): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::filter", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::filter", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::filter", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::filter", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::filter", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::language", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::language", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::language", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::language", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::language", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::author", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::author", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::author", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::author", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::author", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::categories", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::categories", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::categories", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::categories", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::categories", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::etag", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::etag", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::etag", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::etag", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::etag", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::is-strict", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-strict", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-strict", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::is-strict", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::is-strict", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::max-results", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::max-results", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::max-results", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::max-results", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::max-results", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::published-max", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published-max", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::published-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::published-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::published-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::published-min", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published-min", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::published-min", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::published-min", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::published-min", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::q", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::q", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::q", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::q", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::q", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::start-index", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::start-index", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::start-index", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::start-index", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::start-index", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::updated-max", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated-max", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::updated-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::updated-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::updated-max", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::updated-min", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated-min", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::updated-min", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::updated-min", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::updated-min", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    on(sigName: string, callback: any): NodeJS.EventEmitter
-    once(sigName: string, callback: any): NodeJS.EventEmitter
-    off(sigName: string, callback: any): NodeJS.EventEmitter
-    static name: string
-    constructor (config?: FreebaseTopicQuery_ConstructProps)
-    _init (config?: FreebaseTopicQuery_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(id: string): FreebaseTopicQuery
-    static new(q?: string | null): FreebaseTopicQuery
-    static $gtype: GObject.Type
-}
-export interface FreebaseTopicResult_ConstructProps extends FreebaseResult_ConstructProps {
-}
-export class FreebaseTopicResult {
-    /* Properties of GData-0.0.GData.FreebaseResult */
-    readonly variant: GLib.Variant
-    /* Properties of GData-0.0.GData.Entry */
-    content: string
-    contentUri: string
-    readonly isInserted: boolean
-    readonly published: number
-    rights: string
-    summary: string
-    title: string
-    readonly updated: number
-    /* Fields of GData-0.0.GData.FreebaseTopicResult */
-    parent: FreebaseResult
-    priv: FreebaseTopicResultPrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    gTypeInstance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.FreebaseTopicResult */
-    dupObject(): FreebaseTopicObject
-    /* Methods of GData-0.0.GData.FreebaseResult */
-    dupVariant(): GLib.Variant | null
-    /* Methods of GData-0.0.GData.Entry */
-    addAuthor(author: Author): void
-    addCategory(category: Category): void
-    addLink(link: Link): void
-    getAuthors(): Author[]
-    getCategories(): Category[]
-    getContent(): string
-    getContentUri(): string
-    getEtag(): string | null
-    getId(): string | null
-    getPublished(): number
-    getRights(): string
-    getSummary(): string
-    getTitle(): string
-    getUpdated(): number
-    lookUpLink(rel: string): Link
-    lookUpLinks(rel: string): Link[]
-    removeLink(link: Link): boolean
-    setContent(content?: string | null): void
-    setContentUri(contentUri?: string | null): void
-    setRights(rights?: string | null): void
-    setSummary(summary?: string | null): void
-    setTitle(title?: string | null): void
-    /* Methods of GData-0.0.GData.Parsable */
-    getContentType(): string
-    getJson(): string
-    getXml(): string
-    /* Methods of GObject-2.0.GObject.Object */
-    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
-    forceFloating(): void
-    freezeNotify(): void
-    getData(key: string): object | null
-    getProperty(propertyName: string, value: any): void
-    getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    isFloating(): boolean
-    notify(propertyName: string): void
-    notifyByPspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    refSink(): GObject.Object
-    runDispose(): void
-    setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: any): void
-    stealData(key: string): object | null
-    stealQdata(quark: GLib.Quark): object | null
-    thawNotify(): void
-    unref(): void
-    watchClosure(closure: Function): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::variant", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::variant", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::variant", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::variant", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::variant", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::content", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::content", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::content-uri", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content-uri", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::content-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::content-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::content-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::is-inserted", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-inserted", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::is-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::is-inserted", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::published", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::published", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::published", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::published", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::rights", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::rights", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::rights", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::rights", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::rights", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::summary", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::summary", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::summary", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::summary", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::summary", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::title", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::title", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::title", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::title", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::title", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::updated", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::updated", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    on(sigName: string, callback: any): NodeJS.EventEmitter
-    once(sigName: string, callback: any): NodeJS.EventEmitter
-    off(sigName: string, callback: any): NodeJS.EventEmitter
-    static name: string
-    constructor (config?: FreebaseTopicResult_ConstructProps)
-    _init (config?: FreebaseTopicResult_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): FreebaseTopicResult
-    static new(id?: string | null): FreebaseTopicResult
     static $gtype: GObject.Type
 }
 export interface GContactCalendar_ConstructProps extends Parsable_ConstructProps {
@@ -9950,106 +7775,6 @@ export class MediaThumbnail {
     _init (config?: MediaThumbnail_ConstructProps): void
     static $gtype: GObject.Type
 }
-export interface OAuth1Authorizer_ConstructProps extends GObject.Object_ConstructProps {
-    applicationName?: string
-    locale?: string
-    proxyResolver?: Gio.ProxyResolver
-    proxyUri?: Soup.URI
-    timeout?: number
-}
-export class OAuth1Authorizer {
-    /* Properties of GData-0.0.GData.OAuth1Authorizer */
-    locale: string
-    proxyResolver: Gio.ProxyResolver
-    proxyUri: Soup.URI
-    timeout: number
-    /* Fields of GObject-2.0.GObject.Object */
-    gTypeInstance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.OAuth1Authorizer */
-    getApplicationName(): string | null
-    getLocale(): string | null
-    getProxyResolver(): Gio.ProxyResolver | null
-    getProxyUri(): Soup.URI | null
-    getTimeout(): number
-    requestAuthenticationUri(cancellable?: Gio.Cancellable | null): { returnType: string, token: string, tokenSecret: string }
-    requestAuthenticationUriAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    requestAuthenticationUriFinish(asyncResult: Gio.AsyncResult): { returnType: string, token: string, tokenSecret: string }
-    requestAuthorization(token: string, tokenSecret: string, verifier: string, cancellable?: Gio.Cancellable | null): boolean
-    requestAuthorizationAsync(token: string, tokenSecret: string, verifier: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    requestAuthorizationFinish(asyncResult: Gio.AsyncResult): boolean
-    setLocale(locale?: string | null): void
-    setProxyResolver(proxyResolver?: Gio.ProxyResolver | null): void
-    setProxyUri(proxyUri?: Soup.URI | null): void
-    setTimeout(timeout: number): void
-    /* Methods of GObject-2.0.GObject.Object */
-    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
-    forceFloating(): void
-    freezeNotify(): void
-    getData(key: string): object | null
-    getProperty(propertyName: string, value: any): void
-    getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    isFloating(): boolean
-    notify(propertyName: string): void
-    notifyByPspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    refSink(): GObject.Object
-    runDispose(): void
-    setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: any): void
-    stealData(key: string): object | null
-    stealQdata(quark: GLib.Quark): object | null
-    thawNotify(): void
-    unref(): void
-    watchClosure(closure: Function): void
-    /* Methods of GData-0.0.GData.Authorizer */
-    isAuthorizedForDomain(domain: AuthorizationDomain): boolean
-    processRequest(domain: AuthorizationDomain | null, message: Soup.Message): void
-    refreshAuthorization(cancellable?: Gio.Cancellable | null): boolean
-    refreshAuthorizationAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    refreshAuthorizationFinish(asyncResult: Gio.AsyncResult): boolean
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: OAuth1Authorizer, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::locale", callback: (($obj: OAuth1Authorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::locale", callback: (($obj: OAuth1Authorizer, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::locale", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::locale", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::locale", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::proxy-resolver", callback: (($obj: OAuth1Authorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-resolver", callback: (($obj: OAuth1Authorizer, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::proxy-uri", callback: (($obj: OAuth1Authorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-uri", callback: (($obj: OAuth1Authorizer, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::timeout", callback: (($obj: OAuth1Authorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::timeout", callback: (($obj: OAuth1Authorizer, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    on(sigName: string, callback: any): NodeJS.EventEmitter
-    once(sigName: string, callback: any): NodeJS.EventEmitter
-    off(sigName: string, callback: any): NodeJS.EventEmitter
-    static name: string
-    constructor (config?: OAuth1Authorizer_ConstructProps)
-    _init (config?: OAuth1Authorizer_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(applicationName: string | null, serviceType: GObject.Type): OAuth1Authorizer
-    static newForAuthorizationDomains(applicationName: string | null, authorizationDomains: AuthorizationDomain[]): OAuth1Authorizer
-    static $gtype: GObject.Type
-}
 export interface OAuth2Authorizer_ConstructProps extends GObject.Object_ConstructProps {
     clientId?: string
     clientSecret?: string
@@ -11261,7 +8986,6 @@ export class PicasaWebService {
     authorizer: Authorizer
     locale: string
     proxyResolver: Gio.ProxyResolver
-    proxyUri: Soup.URI
     timeout: number
     /* Fields of GData-0.0.GData.PicasaWebService */
     parent: Service
@@ -11288,7 +9012,6 @@ export class PicasaWebService {
     getAuthorizer(): Authorizer
     getLocale(): string
     getProxyResolver(): Gio.ProxyResolver | null
-    getProxyUri(): Soup.URI
     getTimeout(): number
     insertEntry(domain: AuthorizationDomain | null, uploadUri: string, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     insertEntryAsync(domain: AuthorizationDomain | null, uploadUri: string, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -11303,7 +9026,6 @@ export class PicasaWebService {
     setAuthorizer(authorizer: Authorizer): void
     setLocale(locale?: string | null): void
     setProxyResolver(proxyResolver?: Gio.ProxyResolver | null): void
-    setProxyUri(proxyUri?: Soup.URI | null): void
     setTimeout(timeout: number): void
     updateEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     updateEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -11351,11 +9073,6 @@ export class PicasaWebService {
     on(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::proxy-uri", callback: (($obj: PicasaWebService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-uri", callback: (($obj: PicasaWebService, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::timeout", callback: (($obj: PicasaWebService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::timeout", callback: (($obj: PicasaWebService, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11702,7 +9419,6 @@ export interface Service_ConstructProps extends GObject.Object_ConstructProps {
     authorizer?: Authorizer
     locale?: string
     proxyResolver?: Gio.ProxyResolver
-    proxyUri?: Soup.URI
     timeout?: number
 }
 export class Service {
@@ -11710,7 +9426,6 @@ export class Service {
     authorizer: Authorizer
     locale: string
     proxyResolver: Gio.ProxyResolver
-    proxyUri: Soup.URI
     timeout: number
     /* Fields of GData-0.0.GData.Service */
     parent: GObject.Object
@@ -11724,7 +9439,6 @@ export class Service {
     getAuthorizer(): Authorizer
     getLocale(): string
     getProxyResolver(): Gio.ProxyResolver | null
-    getProxyUri(): Soup.URI
     getTimeout(): number
     insertEntry(domain: AuthorizationDomain | null, uploadUri: string, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     insertEntryAsync(domain: AuthorizationDomain | null, uploadUri: string, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -11739,7 +9453,6 @@ export class Service {
     setAuthorizer(authorizer: Authorizer): void
     setLocale(locale?: string | null): void
     setProxyResolver(proxyResolver?: Gio.ProxyResolver | null): void
-    setProxyUri(proxyUri?: Soup.URI | null): void
     setTimeout(timeout: number): void
     updateEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     updateEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -11787,11 +9500,6 @@ export class Service {
     on(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::proxy-uri", callback: (($obj: Service, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-uri", callback: (($obj: Service, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::timeout", callback: (($obj: Service, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::timeout", callback: (($obj: Service, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12025,7 +9733,6 @@ export class TasksService {
     authorizer: Authorizer
     locale: string
     proxyResolver: Gio.ProxyResolver
-    proxyUri: Soup.URI
     timeout: number
     /* Fields of GData-0.0.GData.TasksService */
     parent: Service
@@ -12057,7 +9764,6 @@ export class TasksService {
     getAuthorizer(): Authorizer
     getLocale(): string
     getProxyResolver(): Gio.ProxyResolver | null
-    getProxyUri(): Soup.URI
     getTimeout(): number
     insertEntry(domain: AuthorizationDomain | null, uploadUri: string, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     insertEntryAsync(domain: AuthorizationDomain | null, uploadUri: string, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -12072,7 +9778,6 @@ export class TasksService {
     setAuthorizer(authorizer: Authorizer): void
     setLocale(locale?: string | null): void
     setProxyResolver(proxyResolver?: Gio.ProxyResolver | null): void
-    setProxyUri(proxyUri?: Soup.URI | null): void
     setTimeout(timeout: number): void
     updateEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     updateEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -12120,11 +9825,6 @@ export class TasksService {
     on(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::proxy-uri", callback: (($obj: TasksService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-uri", callback: (($obj: TasksService, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::timeout", callback: (($obj: TasksService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::timeout", callback: (($obj: TasksService, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12803,215 +10503,6 @@ export class YouTubeComment {
     static new(id?: string | null): YouTubeComment
     static $gtype: GObject.Type
 }
-export interface YouTubeContent_ConstructProps extends MediaContent_ConstructProps {
-}
-export class YouTubeContent {
-    /* Properties of GData-0.0.GData.YouTubeContent */
-    readonly format: YouTubeFormat
-    /* Properties of GData-0.0.GData.MediaContent */
-    readonly contentType: string
-    readonly duration: number
-    readonly expression: MediaExpression
-    readonly filesize: number
-    readonly height: number
-    readonly isDefault: boolean
-    readonly medium: MediaMedium
-    readonly uri: string
-    readonly width: number
-    /* Fields of GData-0.0.GData.YouTubeContent */
-    parent: MediaContent
-    priv: YouTubeContentPrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    gTypeInstance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.YouTubeContent */
-    getFormat(): YouTubeFormat
-    /* Methods of GData-0.0.GData.MediaContent */
-    download(service: Service, cancellable?: Gio.Cancellable | null): DownloadStream
-    getContentType(): string
-    getDuration(): number
-    getExpression(): MediaExpression
-    getFilesize(): number
-    getHeight(): number
-    getMedium(): MediaMedium
-    getUri(): string
-    getWidth(): number
-    /* Methods of GData-0.0.GData.Parsable */
-    getJson(): string
-    getXml(): string
-    /* Methods of GObject-2.0.GObject.Object */
-    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
-    forceFloating(): void
-    freezeNotify(): void
-    getData(key: string): object | null
-    getProperty(propertyName: string, value: any): void
-    getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    isFloating(): boolean
-    notify(propertyName: string): void
-    notifyByPspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    refSink(): GObject.Object
-    runDispose(): void
-    setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: any): void
-    stealData(key: string): object | null
-    stealQdata(quark: GLib.Quark): object | null
-    thawNotify(): void
-    unref(): void
-    watchClosure(closure: Function): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::format", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::format", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::format", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::format", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::format", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::content-type", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content-type", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::content-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::content-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::content-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::duration", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::duration", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::duration", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::duration", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::duration", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::expression", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::expression", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::expression", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::expression", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::expression", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::filesize", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::filesize", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::filesize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::filesize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::filesize", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::height", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::height", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::height", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::height", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::height", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::is-default", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-default", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::is-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::is-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::medium", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::medium", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::medium", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::medium", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::medium", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::uri", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::uri", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::width", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::width", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::width", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::width", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::width", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    on(sigName: string, callback: any): NodeJS.EventEmitter
-    once(sigName: string, callback: any): NodeJS.EventEmitter
-    off(sigName: string, callback: any): NodeJS.EventEmitter
-    static name: string
-    constructor (config?: YouTubeContent_ConstructProps)
-    _init (config?: YouTubeContent_ConstructProps): void
-    static $gtype: GObject.Type
-}
-export interface YouTubeCredit_ConstructProps extends MediaCredit_ConstructProps {
-}
-export class YouTubeCredit {
-    /* Properties of GData-0.0.GData.YouTubeCredit */
-    readonly entityType: string
-    /* Properties of GData-0.0.GData.MediaCredit */
-    readonly credit: string
-    readonly role: string
-    readonly scheme: string
-    /* Fields of GData-0.0.GData.YouTubeCredit */
-    parent: MediaCredit
-    priv: YouTubeCreditPrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    gTypeInstance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.YouTubeCredit */
-    getEntityType(): string
-    /* Methods of GData-0.0.GData.MediaCredit */
-    getCredit(): string
-    getRole(): string
-    getScheme(): string
-    /* Methods of GData-0.0.GData.Parsable */
-    getContentType(): string
-    getJson(): string
-    getXml(): string
-    /* Methods of GObject-2.0.GObject.Object */
-    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
-    forceFloating(): void
-    freezeNotify(): void
-    getData(key: string): object | null
-    getProperty(propertyName: string, value: any): void
-    getQdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    isFloating(): boolean
-    notify(propertyName: string): void
-    notifyByPspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    refSink(): GObject.Object
-    runDispose(): void
-    setData(key: string, data?: object | null): void
-    setProperty(propertyName: string, value: any): void
-    stealData(key: string): object | null
-    stealQdata(quark: GLib.Quark): object | null
-    thawNotify(): void
-    unref(): void
-    watchClosure(closure: Function): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: YouTubeCredit, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::entity-type", callback: (($obj: YouTubeCredit, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::entity-type", callback: (($obj: YouTubeCredit, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::entity-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::entity-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::entity-type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::credit", callback: (($obj: YouTubeCredit, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::credit", callback: (($obj: YouTubeCredit, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::credit", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::credit", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::credit", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::role", callback: (($obj: YouTubeCredit, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::role", callback: (($obj: YouTubeCredit, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::role", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::role", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::role", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::scheme", callback: (($obj: YouTubeCredit, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::scheme", callback: (($obj: YouTubeCredit, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::scheme", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::scheme", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::scheme", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    on(sigName: string, callback: any): NodeJS.EventEmitter
-    once(sigName: string, callback: any): NodeJS.EventEmitter
-    off(sigName: string, callback: any): NodeJS.EventEmitter
-    static name: string
-    constructor (config?: YouTubeCredit_ConstructProps)
-    _init (config?: YouTubeCredit_ConstructProps): void
-    static $gtype: GObject.Type
-}
 export interface YouTubeFeed_ConstructProps extends Feed_ConstructProps {
 }
 export class YouTubeFeed {
@@ -13165,9 +10656,6 @@ export class YouTubeFeed {
 }
 export interface YouTubeQuery_ConstructProps extends Query_ConstructProps {
     age?: YouTubeAge
-    format?: YouTubeFormat
-    hasLocation?: boolean
-    language?: string
     latitude?: number
     license?: string
     locationRadius?: number
@@ -13175,15 +10663,10 @@ export interface YouTubeQuery_ConstructProps extends Query_ConstructProps {
     orderBy?: string
     restriction?: string
     safeSearch?: YouTubeSafeSearch
-    sortOrder?: YouTubeSortOrder
-    uploader?: YouTubeUploader
 }
 export class YouTubeQuery {
     /* Properties of GData-0.0.GData.YouTubeQuery */
     age: YouTubeAge
-    format: YouTubeFormat
-    hasLocation: boolean
-    language: string
     latitude: number
     license: string
     locationRadius: number
@@ -13191,8 +10674,6 @@ export class YouTubeQuery {
     orderBy: string
     restriction: string
     safeSearch: YouTubeSafeSearch
-    sortOrder: YouTubeSortOrder
-    uploader: YouTubeUploader
     /* Properties of GData-0.0.GData.Query */
     author: string
     categories: string
@@ -13212,25 +10693,17 @@ export class YouTubeQuery {
     gTypeInstance: GObject.TypeInstance
     /* Methods of GData-0.0.GData.YouTubeQuery */
     getAge(): YouTubeAge
-    getFormat(): YouTubeFormat
-    getLanguage(): string
     getLicense(): string
-    getLocation(): { latitude: number | null, longitude: number | null, radius: number | null, hasLocation: boolean | null }
+    getLocation(): { latitude: number | null, longitude: number | null, radius: number | null }
     getOrderBy(): string
     getRestriction(): string
     getSafeSearch(): YouTubeSafeSearch
-    getSortOrder(): YouTubeSortOrder
-    getUploader(): YouTubeUploader
     setAge(age: YouTubeAge): void
-    setFormat(format: YouTubeFormat): void
-    setLanguage(language?: string | null): void
     setLicense(license?: string | null): void
-    setLocation(latitude: number, longitude: number, radius: number, hasLocation: boolean): void
+    setLocation(latitude: number, longitude: number, radius: number): void
     setOrderBy(orderBy?: string | null): void
     setRestriction(restriction?: string | null): void
     setSafeSearch(safeSearch: YouTubeSafeSearch): void
-    setSortOrder(sortOrder: YouTubeSortOrder): void
-    setUploader(uploader: YouTubeUploader): void
     /* Methods of GData-0.0.GData.Query */
     getAuthor(): string
     getCategories(): string
@@ -13289,21 +10762,6 @@ export class YouTubeQuery {
     on(sigName: "notify::age", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::age", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::age", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::format", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::format", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::format", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::format", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::format", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::has-location", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::has-location", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::has-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::has-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::has-location", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::language", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::language", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::language", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::language", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::language", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::latitude", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::latitude", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::latitude", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13339,16 +10797,6 @@ export class YouTubeQuery {
     on(sigName: "notify::safe-search", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::safe-search", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::safe-search", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::sort-order", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::sort-order", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::sort-order", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::sort-order", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::sort-order", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::uploader", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::uploader", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::uploader", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::uploader", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::uploader", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::author", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::author", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::author", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13426,7 +10874,6 @@ export class YouTubeService {
     authorizer: Authorizer
     locale: string
     proxyResolver: Gio.ProxyResolver
-    proxyUri: Soup.URI
     timeout: number
     /* Fields of GData-0.0.GData.YouTubeService */
     parent: Service
@@ -13453,7 +10900,6 @@ export class YouTubeService {
     getAuthorizer(): Authorizer
     getLocale(): string
     getProxyResolver(): Gio.ProxyResolver | null
-    getProxyUri(): Soup.URI
     getTimeout(): number
     insertEntry(domain: AuthorizationDomain | null, uploadUri: string, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     insertEntryAsync(domain: AuthorizationDomain | null, uploadUri: string, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -13468,7 +10914,6 @@ export class YouTubeService {
     setAuthorizer(authorizer: Authorizer): void
     setLocale(locale?: string | null): void
     setProxyResolver(proxyResolver?: Gio.ProxyResolver | null): void
-    setProxyUri(proxyUri?: Soup.URI | null): void
     setTimeout(timeout: number): void
     updateEntry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     updateEntryAsync(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -13518,11 +10963,6 @@ export class YouTubeService {
     on(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::proxy-resolver", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::proxy-uri", callback: (($obj: YouTubeService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-uri", callback: (($obj: YouTubeService, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::proxy-uri", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::timeout", callback: (($obj: YouTubeService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::timeout", callback: (($obj: YouTubeService, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13608,7 +11048,6 @@ export interface YouTubeVideo_ConstructProps extends Entry_ConstructProps {
     aspectRatio?: string
     category?: MediaCategory
     description?: string
-    isDraft?: boolean
     isPrivate?: boolean
     keywords?: string[]
     latitude?: number
@@ -13621,11 +11060,9 @@ export class YouTubeVideo {
     aspectRatio: string
     readonly averageRating: number
     category: MediaCategory
-    readonly credit: YouTubeCredit
     description: string
     readonly duration: number
     readonly favoriteCount: number
-    isDraft: boolean
     isPrivate: boolean
     keywords: string[]
     latitude: number
@@ -13638,7 +11075,6 @@ export class YouTubeVideo {
     recorded: number
     readonly state: YouTubeState
     readonly uploaded: number
-    readonly videoId: string
     readonly viewCount: number
     /* Properties of GData-0.0.GData.Entry */
     content: string
@@ -13659,7 +11095,6 @@ export class YouTubeVideo {
     getAspectRatio(): string
     getCategory(): MediaCategory
     getCoordinates(): { latitude: number | null, longitude: number | null }
-    getCredit(): YouTubeCredit
     getDescription(): string
     getDuration(): number
     getFavoriteCount(): number
@@ -13672,16 +11107,13 @@ export class YouTubeVideo {
     getState(): YouTubeState
     getThumbnails(): MediaThumbnail[]
     getUploaded(): number
-    getVideoId(): string
     getViewCount(): number
     isRestrictedInCountry(country: string): boolean
-    lookUpContent(type: string): YouTubeContent
     setAccessControl(action: string, permission: YouTubePermission): void
     setAspectRatio(aspectRatio?: string | null): void
     setCategory(category: MediaCategory): void
     setCoordinates(latitude: number, longitude: number): void
     setDescription(description?: string | null): void
-    setIsDraft(isDraft: boolean): void
     setIsPrivate(isPrivate: boolean): void
     setKeywords(keywords: string[]): void
     setLocation(location?: string | null): void
@@ -13766,11 +11198,6 @@ export class YouTubeVideo {
     on(sigName: "notify::category", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::category", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::category", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::credit", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::credit", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::credit", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::credit", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::credit", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::description", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::description", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13786,11 +11213,6 @@ export class YouTubeVideo {
     on(sigName: "notify::favorite-count", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::favorite-count", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::favorite-count", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::is-draft", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-draft", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::is-draft", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::is-draft", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::is-draft", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::is-private", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-private", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::is-private", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13851,11 +11273,6 @@ export class YouTubeVideo {
     on(sigName: "notify::uploaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::uploaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::uploaded", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::video-id", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::video-id", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::video-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::video-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::video-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::view-count", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::view-count", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::view-count", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -14007,12 +11424,6 @@ export abstract class CategoryClass {
 export class CategoryPrivate {
     static name: string
 }
-export abstract class ClientLoginAuthorizerClass {
-    static name: string
-}
-export class ClientLoginAuthorizerPrivate {
-    static name: string
-}
 export class Color {
     /* Fields of GData-0.0.GData.Color */
     red: number
@@ -14043,30 +11454,6 @@ export abstract class ComparableIface {
     /* Fields of GData-0.0.GData.ComparableIface */
     parent: GObject.TypeInterface
     compareWith: (self: Comparable, other: Comparable) => number
-    static name: string
-}
-export abstract class ContactsContactClass {
-    static name: string
-}
-export class ContactsContactPrivate {
-    static name: string
-}
-export abstract class ContactsGroupClass {
-    static name: string
-}
-export class ContactsGroupPrivate {
-    static name: string
-}
-export abstract class ContactsQueryClass {
-    static name: string
-}
-export class ContactsQueryPrivate {
-    static name: string
-}
-export abstract class ContactsServiceClass {
-    static name: string
-}
-export class ContactsServicePrivate {
     static name: string
 }
 export abstract class DocumentsAccessRuleClass {
@@ -14182,88 +11569,6 @@ export abstract class FeedClass {
     static name: string
 }
 export class FeedPrivate {
-    static name: string
-}
-export abstract class FreebaseQueryClass {
-    static name: string
-}
-export class FreebaseQueryPrivate {
-    static name: string
-}
-export abstract class FreebaseResultClass {
-    static name: string
-}
-export class FreebaseResultPrivate {
-    static name: string
-}
-export abstract class FreebaseSearchQueryClass {
-    static name: string
-}
-export class FreebaseSearchQueryPrivate {
-    static name: string
-}
-export abstract class FreebaseSearchResultClass {
-    static name: string
-}
-export class FreebaseSearchResultItem {
-    /* Methods of GData-0.0.GData.FreebaseSearchResultItem */
-    getId(): string
-    getLanguage(): string
-    getMid(): string
-    getName(): string
-    getNotableId(): string | null
-    getNotableName(): string | null
-    getScore(): number
-    static name: string
-}
-export class FreebaseSearchResultPrivate {
-    static name: string
-}
-export abstract class FreebaseServiceClass {
-    static name: string
-}
-export class FreebaseServicePrivate {
-    static name: string
-}
-export class FreebaseTopicObject {
-    /* Methods of GData-0.0.GData.FreebaseTopicObject */
-    getId(): string
-    getPropertyCount(property: string): number
-    getPropertyHits(property: string): number
-    getPropertyValue(property: string, item: number): FreebaseTopicValue | null
-    listProperties(): string[]
-    ref(): FreebaseTopicObject
-    unref(): void
-    static name: string
-}
-export abstract class FreebaseTopicQueryClass {
-    static name: string
-}
-export class FreebaseTopicQueryPrivate {
-    static name: string
-}
-export abstract class FreebaseTopicResultClass {
-    static name: string
-}
-export class FreebaseTopicResultPrivate {
-    static name: string
-}
-export class FreebaseTopicValue {
-    /* Methods of GData-0.0.GData.FreebaseTopicValue */
-    copyValue(): { gvalue: any }
-    getCreator(): string
-    getDouble(): number
-    getInt(): number
-    getLanguage(): string
-    getObject(): FreebaseTopicObject
-    getProperty(): string
-    getString(): string
-    getText(): string
-    getTimestamp(): number
-    getValueType(): GObject.Type
-    isImage(): boolean
-    ref(): FreebaseTopicValue
-    unref(): void
     static name: string
 }
 export abstract class GContactCalendarClass {
@@ -14410,12 +11715,6 @@ export abstract class MediaThumbnailClass {
 export class MediaThumbnailPrivate {
     static name: string
 }
-export abstract class OAuth1AuthorizerClass {
-    static name: string
-}
-export class OAuth1AuthorizerPrivate {
-    static name: string
-}
 export abstract class OAuth2AuthorizerClass {
     static name: string
 }
@@ -14532,18 +11831,6 @@ export abstract class YouTubeCommentClass {
     static name: string
 }
 export class YouTubeCommentPrivate {
-    static name: string
-}
-export abstract class YouTubeContentClass {
-    static name: string
-}
-export class YouTubeContentPrivate {
-    static name: string
-}
-export abstract class YouTubeCreditClass {
-    static name: string
-}
-export class YouTubeCreditPrivate {
     static name: string
 }
 export abstract class YouTubeFeedClass {

@@ -224,6 +224,7 @@ export class Conference {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean

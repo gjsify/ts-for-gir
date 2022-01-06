@@ -17,24 +17,8 @@ export enum BatchOperationType {
     UPDATE,
     DELETION,
 }
-export enum ClientLoginAuthorizerError {
-    BAD_AUTHENTICATION,
-    NOT_VERIFIED,
-    TERMS_NOT_AGREED,
-    CAPTCHA_REQUIRED,
-    ACCOUNT_DELETED,
-    ACCOUNT_DISABLED,
-    SERVICE_DISABLED,
-    ACCOUNT_MIGRATED,
-    INVALID_SECOND_FACTOR,
-}
 export enum DocumentsServiceError {
     TYPE,
-}
-export enum FreebaseSearchFilterType {
-    ALL,
-    ANY,
-    NOT,
 }
 export enum MediaExpression {
     SAMPLE,
@@ -87,12 +71,6 @@ export enum YouTubeAge {
     THIS_WEEK,
     THIS_MONTH,
 }
-export enum YouTubeFormat {
-    UNKNOWN,
-    RTSP_H263_AMR,
-    HTTP_SWF,
-    RTSP_MPEG4_AAC,
-}
 export enum YouTubePermission {
     ALLOWED,
     DENIED,
@@ -108,26 +86,8 @@ export enum YouTubeServiceError {
     ENTRY_QUOTA_EXCEEDED,
     CHANNEL_REQUIRED,
 }
-export enum YouTubeSortOrder {
-    NONE,
-    ASCENDING,
-    DESCENDING,
-}
 export enum YouTubeStandardFeedType {
-    TOP_RATED_FEED,
-    TOP_FAVORITES_FEED,
-    MOST_VIEWED_FEED,
-    MOST_POPULAR_FEED,
-    MOST_RECENT_FEED,
-    MOST_DISCUSSED_FEED,
-    MOST_LINKED_FEED,
-    MOST_RESPONDED_FEED,
-    RECENTLY_FEATURED_FEED,
-    WATCH_ON_MOBILE_FEED,
-}
-export enum YouTubeUploader {
-    ALL,
-    PARTNER,
+    FEED,
 }
 export const ACCESS_ROLE_NONE: string
 export const ACCESS_SCOPE_DEFAULT: string
@@ -139,19 +99,6 @@ export const CALENDAR_ACCESS_ROLE_OWNER: string
 export const CALENDAR_ACCESS_ROLE_READ: string
 export const CALENDAR_ACCESS_ROLE_ROOT: string
 export const CATEGORY_SCHEMA_LABELS: string
-export const CONTACTS_GENDER_FEMALE: string
-export const CONTACTS_GENDER_MALE: string
-export const CONTACTS_GROUP_CONTACTS: string
-export const CONTACTS_GROUP_COWORKERS: string
-export const CONTACTS_GROUP_FAMILY: string
-export const CONTACTS_GROUP_FRIENDS: string
-export const CONTACTS_PRIORITY_HIGH: string
-export const CONTACTS_PRIORITY_LOW: string
-export const CONTACTS_PRIORITY_NORMAL: string
-export const CONTACTS_SENSITIVITY_CONFIDENTIAL: string
-export const CONTACTS_SENSITIVITY_NORMAL: string
-export const CONTACTS_SENSITIVITY_PERSONAL: string
-export const CONTACTS_SENSITIVITY_PRIVATE: string
 export const DOCUMENTS_ACCESS_ROLE_OWNER: string
 export const DOCUMENTS_ACCESS_ROLE_READER: string
 export const DOCUMENTS_ACCESS_ROLE_WRITER: string
@@ -162,7 +109,6 @@ export const DOCUMENTS_DRAWING_SVG: string
 export const DOCUMENTS_PRESENTATION_PDF: string
 export const DOCUMENTS_PRESENTATION_PNG: string
 export const DOCUMENTS_PRESENTATION_PPT: string
-export const DOCUMENTS_PRESENTATION_SWF: string
 export const DOCUMENTS_PRESENTATION_TXT: string
 export const DOCUMENTS_PROPERTY_VISIBILITY_PRIVATE: string
 export const DOCUMENTS_PROPERTY_VISIBILITY_PUBLIC: string
@@ -311,13 +257,10 @@ export const YOUTUBE_ACTION_RATE: string
 export const YOUTUBE_ACTION_SYNDICATE: string
 export const YOUTUBE_ACTION_VIDEO_RESPOND: string
 export const YOUTUBE_ASPECT_RATIO_WIDESCREEN: string
-export const YOUTUBE_CREDIT_ENTITY_PARTNER: string
 export const YOUTUBE_LICENSE_CC: string
 export const YOUTUBE_LICENSE_STANDARD: string
 export const YOUTUBE_RATING_TYPE_MPAA: string
-export const YOUTUBE_RATING_TYPE_SIMPLE: string
 export const YOUTUBE_RATING_TYPE_V_CHIP: string
-export function client_login_authorizer_error_quark(): GLib.Quark
 export function color_from_hexadecimal(hexadecimal: string): [ /* returnType */ boolean, /* color */ Color ]
 export function documents_service_error_quark(): GLib.Quark
 export function parser_error_quark(): GLib.Quark
@@ -469,7 +412,6 @@ export class Batchable {
     authorizer: Authorizer
     locale: string
     proxy_resolver: Gio.ProxyResolver
-    proxy_uri: Soup.URI
     timeout: number
     /* Fields of GData-0.0.GData.Service */
     parent: GObject.Object
@@ -485,7 +427,6 @@ export class Batchable {
     get_authorizer(): Authorizer
     get_locale(): string
     get_proxy_resolver(): Gio.ProxyResolver | null
-    get_proxy_uri(): Soup.URI
     get_timeout(): number
     insert_entry(domain: AuthorizationDomain | null, upload_uri: string, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     insert_entry_async(domain: AuthorizationDomain | null, upload_uri: string, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -500,7 +441,6 @@ export class Batchable {
     set_authorizer(authorizer: Authorizer): void
     set_locale(locale?: string | null): void
     set_proxy_resolver(proxy_resolver?: Gio.ProxyResolver | null): void
-    set_proxy_uri(proxy_uri?: Soup.URI | null): void
     set_timeout(timeout: number): void
     update_entry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     update_entry_async(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -548,8 +488,6 @@ export class Batchable {
     connect_after(sigName: "notify::locale", callback: (($obj: Batchable, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::proxy-resolver", callback: (($obj: Batchable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::proxy-resolver", callback: (($obj: Batchable, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::proxy-uri", callback: (($obj: Batchable, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-uri", callback: (($obj: Batchable, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::timeout", callback: (($obj: Batchable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::timeout", callback: (($obj: Batchable, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -1267,10 +1205,8 @@ export class CalendarCalendar {
     /* Properties of GData-0.0.GData.CalendarCalendar */
     readonly access_level: string
     color: Color
-    readonly edited: number
     is_hidden: boolean
     is_selected: boolean
-    readonly times_cleaned: number
     timezone: string
     /* Properties of GData-0.0.GData.Entry */
     content: string
@@ -1289,8 +1225,6 @@ export class CalendarCalendar {
     /* Methods of GData-0.0.GData.CalendarCalendar */
     get_access_level(): string
     get_color(): /* color */ Color
-    get_edited(): number
-    get_times_cleaned(): number
     get_timezone(): string
     set_color(color: Color): void
     set_is_hidden(is_hidden: boolean): void
@@ -1376,14 +1310,10 @@ export class CalendarCalendar {
     connect_after(sigName: "notify::access-level", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::color", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::color", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::edited", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::edited", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-hidden", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-hidden", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-selected", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-selected", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::times-cleaned", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::times-cleaned", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::timezone", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::timezone", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::content", callback: (($obj: CalendarCalendar, pspec: GObject.ParamSpec) => void)): number
@@ -1612,9 +1542,6 @@ export class CalendarEvent {
 export interface CalendarFeed_ConstructProps extends Feed_ConstructProps {
 }
 export class CalendarFeed {
-    /* Properties of GData-0.0.GData.CalendarFeed */
-    readonly times_cleaned: number
-    readonly timezone: string
     /* Properties of GData-0.0.GData.Feed */
     readonly etag: string
     readonly generator: Generator
@@ -1634,9 +1561,6 @@ export class CalendarFeed {
     priv: CalendarFeedPrivate
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.CalendarFeed */
-    get_times_cleaned(): number
-    get_timezone(): string
     /* Methods of GData-0.0.GData.Feed */
     get_authors(): Author[]
     get_categories(): Category[]
@@ -1705,10 +1629,6 @@ export class CalendarFeed {
     connect(sigName: "notify", callback: (($obj: CalendarFeed, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CalendarFeed, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::times-cleaned", callback: (($obj: CalendarFeed, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::times-cleaned", callback: (($obj: CalendarFeed, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::timezone", callback: (($obj: CalendarFeed, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::timezone", callback: (($obj: CalendarFeed, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::etag", callback: (($obj: CalendarFeed, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::etag", callback: (($obj: CalendarFeed, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::generator", callback: (($obj: CalendarFeed, pspec: GObject.ParamSpec) => void)): number
@@ -1748,11 +1668,8 @@ export interface CalendarQuery_ConstructProps extends Query_ConstructProps {
     future_events?: boolean
     max_attendees?: number
     order_by?: string
-    recurrence_expansion_end?: number
-    recurrence_expansion_start?: number
     show_deleted?: boolean
     single_events?: boolean
-    sort_order?: string
     start_max?: number
     start_min?: number
     timezone?: string
@@ -1762,11 +1679,8 @@ export class CalendarQuery {
     future_events: boolean
     max_attendees: number
     order_by: string
-    recurrence_expansion_end: number
-    recurrence_expansion_start: number
     show_deleted: boolean
     single_events: boolean
-    sort_order: string
     start_max: number
     start_min: number
     timezone: string
@@ -1791,21 +1705,15 @@ export class CalendarQuery {
     get_future_events(): boolean
     get_max_attendees(): number
     get_order_by(): string
-    get_recurrence_expansion_end(): number
-    get_recurrence_expansion_start(): number
     get_single_events(): boolean
-    get_sort_order(): string
     get_start_max(): number
     get_start_min(): number
     get_timezone(): string
     set_future_events(future_events: boolean): void
     set_max_attendees(max_attendees: number): void
     set_order_by(order_by?: string | null): void
-    set_recurrence_expansion_end(end: number): void
-    set_recurrence_expansion_start(start: number): void
     set_show_deleted(show_deleted: boolean): void
     set_single_events(single_events: boolean): void
-    set_sort_order(sort_order?: string | null): void
     set_start_max(start_max: number): void
     set_start_min(start_min: number): void
     set_timezone(_timezone?: string | null): void
@@ -1876,16 +1784,10 @@ export class CalendarQuery {
     connect_after(sigName: "notify::max-attendees", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::order-by", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::order-by", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::recurrence-expansion-end", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::recurrence-expansion-end", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::recurrence-expansion-start", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::recurrence-expansion-start", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::show-deleted", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::show-deleted", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::single-events", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::single-events", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::sort-order", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::sort-order", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::start-max", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::start-max", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::start-min", callback: (($obj: CalendarQuery, pspec: GObject.ParamSpec) => void)): number
@@ -1933,7 +1835,6 @@ export class CalendarService {
     authorizer: Authorizer
     locale: string
     proxy_resolver: Gio.ProxyResolver
-    proxy_uri: Soup.URI
     timeout: number
     /* Fields of GData-0.0.GData.CalendarService */
     parent: Service
@@ -1944,8 +1845,6 @@ export class CalendarService {
     /* Methods of GData-0.0.GData.CalendarService */
     insert_calendar_event(calendar: CalendarCalendar, event: CalendarEvent, cancellable?: Gio.Cancellable | null): CalendarEvent
     insert_calendar_event_async(calendar: CalendarCalendar, event: CalendarEvent, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    insert_event(event: CalendarEvent, cancellable?: Gio.Cancellable | null): CalendarEvent
-    insert_event_async(event: CalendarEvent, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     query_all_calendars(query?: Query | null, cancellable?: Gio.Cancellable | null, progress_callback?: QueryProgressCallback | null): Feed
     query_all_calendars_async(query?: Query | null, cancellable?: Gio.Cancellable | null, progress_callback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
     query_events(calendar: CalendarCalendar, query?: Query | null, cancellable?: Gio.Cancellable | null, progress_callback?: QueryProgressCallback | null): Feed
@@ -1959,7 +1858,6 @@ export class CalendarService {
     get_authorizer(): Authorizer
     get_locale(): string
     get_proxy_resolver(): Gio.ProxyResolver | null
-    get_proxy_uri(): Soup.URI
     get_timeout(): number
     insert_entry(domain: AuthorizationDomain | null, upload_uri: string, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     insert_entry_async(domain: AuthorizationDomain | null, upload_uri: string, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -1974,7 +1872,6 @@ export class CalendarService {
     set_authorizer(authorizer: Authorizer): void
     set_locale(locale?: string | null): void
     set_proxy_resolver(proxy_resolver?: Gio.ProxyResolver | null): void
-    set_proxy_uri(proxy_uri?: Soup.URI | null): void
     set_timeout(timeout: number): void
     update_entry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     update_entry_async(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -2024,8 +1921,6 @@ export class CalendarService {
     connect_after(sigName: "notify::locale", callback: (($obj: CalendarService, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::proxy-resolver", callback: (($obj: CalendarService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::proxy-resolver", callback: (($obj: CalendarService, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::proxy-uri", callback: (($obj: CalendarService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-uri", callback: (($obj: CalendarService, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::timeout", callback: (($obj: CalendarService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::timeout", callback: (($obj: CalendarService, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -2129,106 +2024,6 @@ export class Category {
     _init (config?: Category_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(term: string, scheme?: string | null, label?: string | null): Category
-    static $gtype: GObject.Type
-}
-export interface ClientLoginAuthorizer_ConstructProps extends GObject.Object_ConstructProps {
-    client_id?: string
-    proxy_resolver?: Gio.ProxyResolver
-    proxy_uri?: Soup.URI
-    timeout?: number
-}
-export class ClientLoginAuthorizer {
-    /* Properties of GData-0.0.GData.ClientLoginAuthorizer */
-    readonly password: string
-    proxy_resolver: Gio.ProxyResolver
-    proxy_uri: Soup.URI
-    timeout: number
-    readonly username: string
-    /* Fields of GObject-2.0.GObject.Object */
-    g_type_instance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.ClientLoginAuthorizer */
-    authenticate(username: string, password: string, cancellable?: Gio.Cancellable | null): boolean
-    authenticate_async(username: string, password: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    authenticate_finish(async_result: Gio.AsyncResult): boolean
-    get_client_id(): string
-    get_password(): string
-    get_proxy_resolver(): Gio.ProxyResolver | null
-    get_proxy_uri(): Soup.URI
-    get_timeout(): number
-    get_username(): string
-    set_proxy_resolver(proxy_resolver?: Gio.ProxyResolver | null): void
-    set_proxy_uri(proxy_uri?: Soup.URI | null): void
-    set_timeout(timeout: number): void
-    /* Methods of GObject-2.0.GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: any): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: any): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: Function): void
-    /* Methods of GData-0.0.GData.Authorizer */
-    is_authorized_for_domain(domain: AuthorizationDomain): boolean
-    process_request(domain: AuthorizationDomain | null, message: Soup.Message): void
-    refresh_authorization(cancellable?: Gio.Cancellable | null): boolean
-    refresh_authorization_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    refresh_authorization_finish(async_result: Gio.AsyncResult): boolean
-    /* Virtual methods of GData-0.0.GData.ClientLoginAuthorizer */
-    vfunc_is_authorized_for_domain(domain: AuthorizationDomain): boolean
-    vfunc_process_request(domain: AuthorizationDomain | null, message: Soup.Message): void
-    vfunc_refresh_authorization(cancellable?: Gio.Cancellable | null): boolean
-    vfunc_refresh_authorization_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfunc_refresh_authorization_finish(async_result: Gio.AsyncResult): boolean
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    /* Signals of GData-0.0.GData.ClientLoginAuthorizer */
-    connect(sigName: "captcha-challenge", callback: (($obj: ClientLoginAuthorizer, uri: string) => string)): number
-    connect_after(sigName: "captcha-challenge", callback: (($obj: ClientLoginAuthorizer, uri: string) => string)): number
-    emit(sigName: "captcha-challenge", uri: string): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::password", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::password", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::proxy-resolver", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-resolver", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::proxy-uri", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-uri", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::timeout", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::timeout", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::username", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::username", callback: (($obj: ClientLoginAuthorizer, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    static name: string
-    constructor (config?: ClientLoginAuthorizer_ConstructProps)
-    _init (config?: ClientLoginAuthorizer_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(client_id: string, service_type: GObject.Type): ClientLoginAuthorizer
-    static new_for_authorization_domains(client_id: string, authorization_domains: AuthorizationDomain[]): ClientLoginAuthorizer
     static $gtype: GObject.Type
 }
 export interface Comment_ConstructProps extends Entry_ConstructProps {
@@ -2342,675 +2137,6 @@ export class Comment {
     static name: string
     constructor (config?: Comment_ConstructProps)
     _init (config?: Comment_ConstructProps): void
-    static $gtype: GObject.Type
-}
-export interface ContactsContact_ConstructProps extends Entry_ConstructProps {
-    billing_information?: string
-    birthday?: GLib.Date
-    birthday_has_year?: boolean
-    directory_server?: string
-    file_as?: string
-    gender?: string
-    initials?: string
-    maiden_name?: string
-    mileage?: string
-    name?: GDName
-    nickname?: string
-    occupation?: string
-    priority?: string
-    sensitivity?: string
-    short_name?: string
-    subject?: string
-}
-export class ContactsContact {
-    /* Properties of GData-0.0.GData.ContactsContact */
-    billing_information: string
-    birthday: GLib.Date
-    birthday_has_year: boolean
-    readonly deleted: boolean
-    directory_server: string
-    readonly edited: number
-    file_as: string
-    gender: string
-    initials: string
-    maiden_name: string
-    mileage: string
-    name: GDName
-    nickname: string
-    occupation: string
-    readonly photo_etag: string
-    priority: string
-    sensitivity: string
-    short_name: string
-    subject: string
-    /* Properties of GData-0.0.GData.Entry */
-    content: string
-    content_uri: string
-    readonly is_inserted: boolean
-    readonly published: number
-    rights: string
-    summary: string
-    title: string
-    readonly updated: number
-    /* Fields of GData-0.0.GData.ContactsContact */
-    parent: Entry
-    priv: ContactsContactPrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    g_type_instance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.ContactsContact */
-    add_calendar(calendar: GContactCalendar): void
-    add_email_address(email_address: GDEmailAddress): void
-    add_event(event: GContactEvent): void
-    add_external_id(external_id: GContactExternalID): void
-    add_group(href: string): void
-    add_hobby(hobby: string): void
-    add_im_address(im_address: GDIMAddress): void
-    add_jot(jot: GContactJot): void
-    add_language(language: GContactLanguage): void
-    add_organization(organization: GDOrganization): void
-    add_phone_number(phone_number: GDPhoneNumber): void
-    add_postal_address(postal_address: GDPostalAddress): void
-    add_relation(relation: GContactRelation): void
-    add_website(website: GContactWebsite): void
-    get_billing_information(): string
-    get_birthday(): [ /* returnType */ boolean, /* birthday */ GLib.Date | null ]
-    get_calendars(): GContactCalendar[]
-    get_directory_server(): string
-    get_edited(): number
-    get_email_addresses(): GDEmailAddress[]
-    get_events(): GContactEvent[]
-    get_extended_properties(): GLib.HashTable
-    get_extended_property(name: string): string
-    get_external_ids(): GContactExternalID[]
-    get_file_as(): string
-    get_gender(): string
-    get_groups(): string[]
-    get_hobbies(): string[]
-    get_im_addresses(): GDIMAddress[]
-    get_initials(): string
-    get_jots(): GContactJot[]
-    get_languages(): GContactLanguage[]
-    get_maiden_name(): string
-    get_mileage(): string
-    get_name(): GDName
-    get_nickname(): string
-    get_occupation(): string
-    get_organizations(): GDOrganization[]
-    get_phone_numbers(): GDPhoneNumber[]
-    get_photo(service: ContactsService, cancellable?: Gio.Cancellable | null): [ /* returnType */ Uint8Array[], /* content_type */ string | null ]
-    get_photo_async(service: ContactsService, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    get_photo_etag(): string
-    get_photo_finish(async_result: Gio.AsyncResult): [ /* returnType */ Uint8Array[], /* content_type */ string | null ]
-    get_postal_addresses(): GDPostalAddress[]
-    get_primary_calendar(): GContactCalendar
-    get_primary_email_address(): GDEmailAddress
-    get_primary_im_address(): GDIMAddress
-    get_primary_organization(): GDOrganization
-    get_primary_phone_number(): GDPhoneNumber
-    get_primary_postal_address(): GDPostalAddress
-    get_primary_website(): GContactWebsite
-    get_priority(): string
-    get_relations(): GContactRelation[]
-    get_sensitivity(): string
-    get_short_name(): string
-    get_subject(): string
-    get_user_defined_field(name: string): string
-    get_user_defined_fields(): GLib.HashTable
-    get_websites(): GContactWebsite[]
-    is_deleted(): boolean
-    is_group_deleted(href: string): boolean
-    remove_all_calendars(): void
-    remove_all_email_addresses(): void
-    remove_all_events(): void
-    remove_all_external_ids(): void
-    remove_all_hobbies(): void
-    remove_all_im_addresses(): void
-    remove_all_jots(): void
-    remove_all_languages(): void
-    remove_all_organizations(): void
-    remove_all_phone_numbers(): void
-    remove_all_postal_addresses(): void
-    remove_all_relations(): void
-    remove_all_websites(): void
-    remove_group(href: string): void
-    set_billing_information(billing_information?: string | null): void
-    set_birthday(birthday: GLib.Date | null, birthday_has_year: boolean): void
-    set_directory_server(directory_server?: string | null): void
-    set_extended_property(name: string, value?: string | null): boolean
-    set_file_as(file_as?: string | null): void
-    set_gender(gender?: string | null): void
-    set_initials(initials?: string | null): void
-    set_maiden_name(maiden_name?: string | null): void
-    set_mileage(mileage?: string | null): void
-    set_name(name: GDName): void
-    set_nickname(nickname?: string | null): void
-    set_occupation(occupation?: string | null): void
-    set_photo(service: ContactsService, data: number | null, length: number, content_type?: string | null, cancellable?: Gio.Cancellable | null): boolean
-    set_photo_async(service: ContactsService, data: number | null, length: number, content_type?: string | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    set_photo_finish(async_result: Gio.AsyncResult): boolean
-    set_priority(priority?: string | null): void
-    set_sensitivity(sensitivity?: string | null): void
-    set_short_name(short_name?: string | null): void
-    set_subject(subject?: string | null): void
-    set_user_defined_field(name: string, value?: string | null): void
-    /* Methods of GData-0.0.GData.Entry */
-    add_author(author: Author): void
-    add_category(category: Category): void
-    add_link(_link: Link): void
-    get_authors(): Author[]
-    get_categories(): Category[]
-    get_content(): string
-    get_content_uri(): string
-    get_etag(): string | null
-    get_id(): string | null
-    get_published(): number
-    get_rights(): string
-    get_summary(): string
-    get_title(): string
-    get_updated(): number
-    look_up_link(rel: string): Link
-    look_up_links(rel: string): Link[]
-    remove_link(_link: Link): boolean
-    set_content(content?: string | null): void
-    set_content_uri(content_uri?: string | null): void
-    set_rights(rights?: string | null): void
-    set_summary(summary?: string | null): void
-    set_title(title?: string | null): void
-    /* Methods of GData-0.0.GData.Parsable */
-    get_content_type(): string
-    get_json(): string
-    get_xml(): string
-    /* Methods of GObject-2.0.GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: any): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: any): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: Function): void
-    /* Virtual methods of GData-0.0.GData.Parsable */
-    vfunc_get_json(builder: Json.Builder): void
-    vfunc_get_namespaces(namespaces: GLib.HashTable): void
-    vfunc_get_xml(xml_string: GLib.String): void
-    vfunc_parse_json(reader: Json.Reader): boolean
-    vfunc_parse_xml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfunc_post_parse_json(): boolean
-    vfunc_post_parse_xml(): boolean
-    vfunc_pre_get_xml(xml_string: GLib.String): void
-    vfunc_pre_parse_xml(doc: libxml2.Doc, root_node: libxml2.Node): boolean
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::billing-information", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::billing-information", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::birthday", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::birthday", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::birthday-has-year", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::birthday-has-year", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::deleted", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::deleted", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::directory-server", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::directory-server", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::edited", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::edited", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::file-as", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::file-as", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::gender", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::gender", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::initials", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::initials", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::maiden-name", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::maiden-name", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::mileage", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::mileage", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::name", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::name", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::nickname", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::nickname", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::occupation", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::occupation", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::photo-etag", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::photo-etag", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::priority", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::priority", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::sensitivity", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::sensitivity", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::short-name", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::short-name", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::subject", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::subject", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content-uri", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content-uri", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-inserted", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-inserted", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::published", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::rights", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::rights", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::summary", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::summary", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::title", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::title", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::updated", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated", callback: (($obj: ContactsContact, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    static name: string
-    constructor (config?: ContactsContact_ConstructProps)
-    _init (config?: ContactsContact_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(id?: string | null): ContactsContact
-    static $gtype: GObject.Type
-}
-export interface ContactsGroup_ConstructProps extends Entry_ConstructProps {
-}
-export class ContactsGroup {
-    /* Properties of GData-0.0.GData.ContactsGroup */
-    readonly deleted: boolean
-    readonly edited: number
-    readonly system_group_id: string
-    /* Properties of GData-0.0.GData.Entry */
-    content: string
-    content_uri: string
-    readonly is_inserted: boolean
-    readonly published: number
-    rights: string
-    summary: string
-    title: string
-    readonly updated: number
-    /* Fields of GData-0.0.GData.ContactsGroup */
-    parent: Entry
-    priv: ContactsGroupPrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    g_type_instance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.ContactsGroup */
-    get_edited(): number
-    get_extended_properties(): GLib.HashTable
-    get_extended_property(name: string): string
-    get_system_group_id(): string
-    is_deleted(): boolean
-    set_extended_property(name: string, value?: string | null): boolean
-    /* Methods of GData-0.0.GData.Entry */
-    add_author(author: Author): void
-    add_category(category: Category): void
-    add_link(_link: Link): void
-    get_authors(): Author[]
-    get_categories(): Category[]
-    get_content(): string
-    get_content_uri(): string
-    get_etag(): string | null
-    get_id(): string | null
-    get_published(): number
-    get_rights(): string
-    get_summary(): string
-    get_title(): string
-    get_updated(): number
-    look_up_link(rel: string): Link
-    look_up_links(rel: string): Link[]
-    remove_link(_link: Link): boolean
-    set_content(content?: string | null): void
-    set_content_uri(content_uri?: string | null): void
-    set_rights(rights?: string | null): void
-    set_summary(summary?: string | null): void
-    set_title(title?: string | null): void
-    /* Methods of GData-0.0.GData.Parsable */
-    get_content_type(): string
-    get_json(): string
-    get_xml(): string
-    /* Methods of GObject-2.0.GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: any): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: any): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: Function): void
-    /* Virtual methods of GData-0.0.GData.Parsable */
-    vfunc_get_json(builder: Json.Builder): void
-    vfunc_get_namespaces(namespaces: GLib.HashTable): void
-    vfunc_get_xml(xml_string: GLib.String): void
-    vfunc_parse_json(reader: Json.Reader): boolean
-    vfunc_parse_xml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfunc_post_parse_json(): boolean
-    vfunc_post_parse_xml(): boolean
-    vfunc_pre_get_xml(xml_string: GLib.String): void
-    vfunc_pre_parse_xml(doc: libxml2.Doc, root_node: libxml2.Node): boolean
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::deleted", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::deleted", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::edited", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::edited", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::system-group-id", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::system-group-id", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content-uri", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content-uri", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-inserted", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-inserted", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::published", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::rights", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::rights", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::summary", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::summary", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::title", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::title", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::updated", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated", callback: (($obj: ContactsGroup, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    static name: string
-    constructor (config?: ContactsGroup_ConstructProps)
-    _init (config?: ContactsGroup_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(id?: string | null): ContactsGroup
-    static $gtype: GObject.Type
-}
-export interface ContactsQuery_ConstructProps extends Query_ConstructProps {
-    group?: string
-    order_by?: string
-    show_deleted?: boolean
-    sort_order?: string
-}
-export class ContactsQuery {
-    /* Properties of GData-0.0.GData.ContactsQuery */
-    group: string
-    order_by: string
-    show_deleted: boolean
-    sort_order: string
-    /* Properties of GData-0.0.GData.Query */
-    author: string
-    categories: string
-    etag: string
-    is_strict: boolean
-    max_results: number
-    published_max: number
-    published_min: number
-    q: string
-    start_index: number
-    updated_max: number
-    updated_min: number
-    /* Fields of GData-0.0.GData.ContactsQuery */
-    parent: Query
-    priv: ContactsQueryPrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    g_type_instance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.ContactsQuery */
-    get_group(): string
-    get_order_by(): string
-    get_sort_order(): string
-    set_group(group?: string | null): void
-    set_order_by(order_by?: string | null): void
-    set_show_deleted(show_deleted: boolean): void
-    set_sort_order(sort_order?: string | null): void
-    /* Methods of GData-0.0.GData.Query */
-    get_author(): string
-    get_categories(): string
-    get_etag(): string
-    get_max_results(): number
-    get_published_max(): number
-    get_published_min(): number
-    get_q(): string
-    get_query_uri(feed_uri: string): string
-    get_start_index(): number
-    get_updated_max(): number
-    get_updated_min(): number
-    next_page(): void
-    previous_page(): boolean
-    set_author(author?: string | null): void
-    set_categories(categories?: string | null): void
-    set_etag(etag?: string | null): void
-    set_is_strict(is_strict: boolean): void
-    set_max_results(max_results: number): void
-    set_published_max(published_max: number): void
-    set_published_min(published_min: number): void
-    set_q(q?: string | null): void
-    set_start_index(start_index: number): void
-    set_updated_max(updated_max: number): void
-    set_updated_min(updated_min: number): void
-    /* Methods of GObject-2.0.GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: any): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: any): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: Function): void
-    /* Virtual methods of GData-0.0.GData.Query */
-    vfunc_get_query_uri(feed_uri: string, query_uri: GLib.String, params_started: boolean): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::group", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::group", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::order-by", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::order-by", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::show-deleted", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::show-deleted", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::sort-order", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::sort-order", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::author", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::author", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::categories", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::categories", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::etag", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::etag", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-strict", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-strict", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::max-results", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::max-results", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::published-max", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published-max", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::published-min", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published-min", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::q", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::q", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::start-index", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::start-index", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::updated-max", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated-max", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::updated-min", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated-min", callback: (($obj: ContactsQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    static name: string
-    constructor (config?: ContactsQuery_ConstructProps)
-    _init (config?: ContactsQuery_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(q?: string | null): ContactsQuery
-    static new_with_limits(q: string | null, start_index: number, max_results: number): ContactsQuery
-    static $gtype: GObject.Type
-}
-export interface ContactsService_ConstructProps extends Service_ConstructProps {
-}
-export class ContactsService {
-    /* Properties of GData-0.0.GData.Service */
-    authorizer: Authorizer
-    locale: string
-    proxy_resolver: Gio.ProxyResolver
-    proxy_uri: Soup.URI
-    timeout: number
-    /* Fields of GData-0.0.GData.ContactsService */
-    parent: Service
-    /* Fields of GData-0.0.GData.Service */
-    priv: ServicePrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    g_type_instance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.ContactsService */
-    insert_contact(contact: ContactsContact, cancellable?: Gio.Cancellable | null): ContactsContact
-    insert_contact_async(contact: ContactsContact, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    insert_group(group: ContactsGroup, cancellable?: Gio.Cancellable | null): ContactsGroup
-    insert_group_async(group: ContactsGroup, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    query_contacts(query?: Query | null, cancellable?: Gio.Cancellable | null, progress_callback?: QueryProgressCallback | null): Feed
-    query_contacts_async(query?: Query | null, cancellable?: Gio.Cancellable | null, progress_callback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
-    query_groups(query?: Query | null, cancellable?: Gio.Cancellable | null, progress_callback?: QueryProgressCallback | null): Feed
-    query_groups_async(query?: Query | null, cancellable?: Gio.Cancellable | null, progress_callback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
-    /* Methods of GData-0.0.GData.Service */
-    delete_entry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): boolean
-    delete_entry_async(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    delete_entry_finish(async_result: Gio.AsyncResult): boolean
-    get_authorizer(): Authorizer
-    get_locale(): string
-    get_proxy_resolver(): Gio.ProxyResolver | null
-    get_proxy_uri(): Soup.URI
-    get_timeout(): number
-    insert_entry(domain: AuthorizationDomain | null, upload_uri: string, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
-    insert_entry_async(domain: AuthorizationDomain | null, upload_uri: string, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    insert_entry_finish(async_result: Gio.AsyncResult): Entry
-    is_authorized(): boolean
-    query(domain: AuthorizationDomain | null, feed_uri: string, query: Query | null, entry_type: GObject.Type, cancellable?: Gio.Cancellable | null, progress_callback?: QueryProgressCallback | null): Feed
-    query_async(domain: AuthorizationDomain | null, feed_uri: string, query: Query | null, entry_type: GObject.Type, cancellable?: Gio.Cancellable | null, progress_callback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
-    query_finish(async_result: Gio.AsyncResult): Feed
-    query_single_entry(domain: AuthorizationDomain | null, entry_id: string, query: Query | null, entry_type: GObject.Type, cancellable?: Gio.Cancellable | null): Entry
-    query_single_entry_async(domain: AuthorizationDomain | null, entry_id: string, query: Query | null, entry_type: GObject.Type, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    query_single_entry_finish(async_result: Gio.AsyncResult): Entry
-    set_authorizer(authorizer: Authorizer): void
-    set_locale(locale?: string | null): void
-    set_proxy_resolver(proxy_resolver?: Gio.ProxyResolver | null): void
-    set_proxy_uri(proxy_uri?: Soup.URI | null): void
-    set_timeout(timeout: number): void
-    update_entry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
-    update_entry_async(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    update_entry_finish(async_result: Gio.AsyncResult): Entry
-    /* Methods of GObject-2.0.GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: any): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: any): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: Function): void
-    /* Methods of GData-0.0.GData.Batchable */
-    create_operation(domain: AuthorizationDomain | null, feed_uri: string): BatchOperation
-    /* Virtual methods of GData-0.0.GData.Service */
-    vfunc_append_query_headers(domain: AuthorizationDomain, message: Soup.Message): void
-    vfunc_parse_error_response(operation_type: OperationType, status: number, reason_phrase: string, response_body: string, length: number): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::authorizer", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::authorizer", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::locale", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::locale", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::proxy-resolver", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-resolver", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::proxy-uri", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-uri", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::timeout", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::timeout", callback: (($obj: ContactsService, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    static name: string
-    constructor (config?: ContactsService_ConstructProps)
-    _init (config?: ContactsService_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(authorizer?: Authorizer | null): ContactsService
-    static get_primary_authorization_domain(): AuthorizationDomain
     static $gtype: GObject.Type
 }
 export interface DocumentsAccessRule_ConstructProps extends AccessRule_ConstructProps {
@@ -3158,8 +2284,6 @@ export interface DocumentsDocument_ConstructProps extends DocumentsEntry_Constru
 export class DocumentsDocument {
     /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly can_edit: boolean
-    readonly document_id: string
-    readonly edited: number
     readonly file_size: number
     is_deleted: boolean
     readonly last_modified_by: Author
@@ -3188,9 +2312,7 @@ export class DocumentsDocument {
     get_thumbnail_uri(): string | null
     /* Methods of GData-0.0.GData.DocumentsEntry */
     add_documents_property(property: DocumentsProperty): boolean
-    get_document_id(): string
     get_document_properties(): DocumentsProperty[]
-    get_edited(): number
     get_file_size(): number
     get_last_modified_by(): Author
     get_last_viewed(): number
@@ -3278,10 +2400,6 @@ export class DocumentsDocument {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::can-edit", callback: (($obj: DocumentsDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-edit", callback: (($obj: DocumentsDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::document-id", callback: (($obj: DocumentsDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::document-id", callback: (($obj: DocumentsDocument, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::edited", callback: (($obj: DocumentsDocument, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::edited", callback: (($obj: DocumentsDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::file-size", callback: (($obj: DocumentsDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::file-size", callback: (($obj: DocumentsDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-deleted", callback: (($obj: DocumentsDocument, pspec: GObject.ParamSpec) => void)): number
@@ -3330,8 +2448,6 @@ export interface DocumentsDrawing_ConstructProps extends DocumentsDocument_Const
 export class DocumentsDrawing {
     /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly can_edit: boolean
-    readonly document_id: string
-    readonly edited: number
     readonly file_size: number
     is_deleted: boolean
     readonly last_modified_by: Author
@@ -3360,9 +2476,7 @@ export class DocumentsDrawing {
     get_thumbnail_uri(): string | null
     /* Methods of GData-0.0.GData.DocumentsEntry */
     add_documents_property(property: DocumentsProperty): boolean
-    get_document_id(): string
     get_document_properties(): DocumentsProperty[]
-    get_edited(): number
     get_file_size(): number
     get_last_modified_by(): Author
     get_last_viewed(): number
@@ -3450,10 +2564,6 @@ export class DocumentsDrawing {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::can-edit", callback: (($obj: DocumentsDrawing, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-edit", callback: (($obj: DocumentsDrawing, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::document-id", callback: (($obj: DocumentsDrawing, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::document-id", callback: (($obj: DocumentsDrawing, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::edited", callback: (($obj: DocumentsDrawing, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::edited", callback: (($obj: DocumentsDrawing, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::file-size", callback: (($obj: DocumentsDrawing, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::file-size", callback: (($obj: DocumentsDrawing, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-deleted", callback: (($obj: DocumentsDrawing, pspec: GObject.ParamSpec) => void)): number
@@ -3741,8 +2851,6 @@ export interface DocumentsEntry_ConstructProps extends Entry_ConstructProps {
 export class DocumentsEntry {
     /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly can_edit: boolean
-    readonly document_id: string
-    readonly edited: number
     readonly file_size: number
     is_deleted: boolean
     readonly last_modified_by: Author
@@ -3767,9 +2875,7 @@ export class DocumentsEntry {
     g_type_instance: GObject.TypeInstance
     /* Methods of GData-0.0.GData.DocumentsEntry */
     add_documents_property(property: DocumentsProperty): boolean
-    get_document_id(): string
     get_document_properties(): DocumentsProperty[]
-    get_edited(): number
     get_file_size(): number
     get_last_modified_by(): Author
     get_last_viewed(): number
@@ -3857,10 +2963,6 @@ export class DocumentsEntry {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::can-edit", callback: (($obj: DocumentsEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-edit", callback: (($obj: DocumentsEntry, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::document-id", callback: (($obj: DocumentsEntry, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::document-id", callback: (($obj: DocumentsEntry, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::edited", callback: (($obj: DocumentsEntry, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::edited", callback: (($obj: DocumentsEntry, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::file-size", callback: (($obj: DocumentsEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::file-size", callback: (($obj: DocumentsEntry, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-deleted", callback: (($obj: DocumentsEntry, pspec: GObject.ParamSpec) => void)): number
@@ -4032,8 +3134,6 @@ export interface DocumentsFolder_ConstructProps extends DocumentsEntry_Construct
 export class DocumentsFolder {
     /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly can_edit: boolean
-    readonly document_id: string
-    readonly edited: number
     readonly file_size: number
     is_deleted: boolean
     readonly last_modified_by: Author
@@ -4058,9 +3158,7 @@ export class DocumentsFolder {
     g_type_instance: GObject.TypeInstance
     /* Methods of GData-0.0.GData.DocumentsEntry */
     add_documents_property(property: DocumentsProperty): boolean
-    get_document_id(): string
     get_document_properties(): DocumentsProperty[]
-    get_edited(): number
     get_file_size(): number
     get_last_modified_by(): Author
     get_last_viewed(): number
@@ -4148,10 +3246,6 @@ export class DocumentsFolder {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::can-edit", callback: (($obj: DocumentsFolder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-edit", callback: (($obj: DocumentsFolder, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::document-id", callback: (($obj: DocumentsFolder, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::document-id", callback: (($obj: DocumentsFolder, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::edited", callback: (($obj: DocumentsFolder, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::edited", callback: (($obj: DocumentsFolder, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::file-size", callback: (($obj: DocumentsFolder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::file-size", callback: (($obj: DocumentsFolder, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-deleted", callback: (($obj: DocumentsFolder, pspec: GObject.ParamSpec) => void)): number
@@ -4275,8 +3369,6 @@ export interface DocumentsPdf_ConstructProps extends DocumentsDocument_Construct
 export class DocumentsPdf {
     /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly can_edit: boolean
-    readonly document_id: string
-    readonly edited: number
     readonly file_size: number
     is_deleted: boolean
     readonly last_modified_by: Author
@@ -4305,9 +3397,7 @@ export class DocumentsPdf {
     get_thumbnail_uri(): string | null
     /* Methods of GData-0.0.GData.DocumentsEntry */
     add_documents_property(property: DocumentsProperty): boolean
-    get_document_id(): string
     get_document_properties(): DocumentsProperty[]
-    get_edited(): number
     get_file_size(): number
     get_last_modified_by(): Author
     get_last_viewed(): number
@@ -4395,10 +3485,6 @@ export class DocumentsPdf {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::can-edit", callback: (($obj: DocumentsPdf, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-edit", callback: (($obj: DocumentsPdf, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::document-id", callback: (($obj: DocumentsPdf, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::document-id", callback: (($obj: DocumentsPdf, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::edited", callback: (($obj: DocumentsPdf, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::edited", callback: (($obj: DocumentsPdf, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::file-size", callback: (($obj: DocumentsPdf, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::file-size", callback: (($obj: DocumentsPdf, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-deleted", callback: (($obj: DocumentsPdf, pspec: GObject.ParamSpec) => void)): number
@@ -4447,8 +3533,6 @@ export interface DocumentsPresentation_ConstructProps extends DocumentsDocument_
 export class DocumentsPresentation {
     /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly can_edit: boolean
-    readonly document_id: string
-    readonly edited: number
     readonly file_size: number
     is_deleted: boolean
     readonly last_modified_by: Author
@@ -4477,9 +3561,7 @@ export class DocumentsPresentation {
     get_thumbnail_uri(): string | null
     /* Methods of GData-0.0.GData.DocumentsEntry */
     add_documents_property(property: DocumentsProperty): boolean
-    get_document_id(): string
     get_document_properties(): DocumentsProperty[]
-    get_edited(): number
     get_file_size(): number
     get_last_modified_by(): Author
     get_last_viewed(): number
@@ -4567,10 +3649,6 @@ export class DocumentsPresentation {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::can-edit", callback: (($obj: DocumentsPresentation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-edit", callback: (($obj: DocumentsPresentation, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::document-id", callback: (($obj: DocumentsPresentation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::document-id", callback: (($obj: DocumentsPresentation, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::edited", callback: (($obj: DocumentsPresentation, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::edited", callback: (($obj: DocumentsPresentation, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::file-size", callback: (($obj: DocumentsPresentation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::file-size", callback: (($obj: DocumentsPresentation, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-deleted", callback: (($obj: DocumentsPresentation, pspec: GObject.ParamSpec) => void)): number
@@ -4861,7 +3939,6 @@ export class DocumentsService {
     authorizer: Authorizer
     locale: string
     proxy_resolver: Gio.ProxyResolver
-    proxy_uri: Soup.URI
     timeout: number
     /* Fields of GData-0.0.GData.DocumentsService */
     parent: Service
@@ -4897,7 +3974,6 @@ export class DocumentsService {
     get_authorizer(): Authorizer
     get_locale(): string
     get_proxy_resolver(): Gio.ProxyResolver | null
-    get_proxy_uri(): Soup.URI
     get_timeout(): number
     insert_entry(domain: AuthorizationDomain | null, upload_uri: string, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     insert_entry_async(domain: AuthorizationDomain | null, upload_uri: string, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -4912,7 +3988,6 @@ export class DocumentsService {
     set_authorizer(authorizer: Authorizer): void
     set_locale(locale?: string | null): void
     set_proxy_resolver(proxy_resolver?: Gio.ProxyResolver | null): void
-    set_proxy_uri(proxy_uri?: Soup.URI | null): void
     set_timeout(timeout: number): void
     update_entry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     update_entry_async(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -4962,8 +4037,6 @@ export class DocumentsService {
     connect_after(sigName: "notify::locale", callback: (($obj: DocumentsService, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::proxy-resolver", callback: (($obj: DocumentsService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::proxy-resolver", callback: (($obj: DocumentsService, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::proxy-uri", callback: (($obj: DocumentsService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-uri", callback: (($obj: DocumentsService, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::timeout", callback: (($obj: DocumentsService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::timeout", callback: (($obj: DocumentsService, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -4985,8 +4058,6 @@ export interface DocumentsSpreadsheet_ConstructProps extends DocumentsDocument_C
 export class DocumentsSpreadsheet {
     /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly can_edit: boolean
-    readonly document_id: string
-    readonly edited: number
     readonly file_size: number
     is_deleted: boolean
     readonly last_modified_by: Author
@@ -5017,9 +4088,7 @@ export class DocumentsSpreadsheet {
     get_thumbnail_uri(): string | null
     /* Methods of GData-0.0.GData.DocumentsEntry */
     add_documents_property(property: DocumentsProperty): boolean
-    get_document_id(): string
     get_document_properties(): DocumentsProperty[]
-    get_edited(): number
     get_file_size(): number
     get_last_modified_by(): Author
     get_last_viewed(): number
@@ -5107,10 +4176,6 @@ export class DocumentsSpreadsheet {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::can-edit", callback: (($obj: DocumentsSpreadsheet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-edit", callback: (($obj: DocumentsSpreadsheet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::document-id", callback: (($obj: DocumentsSpreadsheet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::document-id", callback: (($obj: DocumentsSpreadsheet, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::edited", callback: (($obj: DocumentsSpreadsheet, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::edited", callback: (($obj: DocumentsSpreadsheet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::file-size", callback: (($obj: DocumentsSpreadsheet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::file-size", callback: (($obj: DocumentsSpreadsheet, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-deleted", callback: (($obj: DocumentsSpreadsheet, pspec: GObject.ParamSpec) => void)): number
@@ -5159,8 +4224,6 @@ export interface DocumentsText_ConstructProps extends DocumentsDocument_Construc
 export class DocumentsText {
     /* Properties of GData-0.0.GData.DocumentsEntry */
     readonly can_edit: boolean
-    readonly document_id: string
-    readonly edited: number
     readonly file_size: number
     is_deleted: boolean
     readonly last_modified_by: Author
@@ -5189,9 +4252,7 @@ export class DocumentsText {
     get_thumbnail_uri(): string | null
     /* Methods of GData-0.0.GData.DocumentsEntry */
     add_documents_property(property: DocumentsProperty): boolean
-    get_document_id(): string
     get_document_properties(): DocumentsProperty[]
-    get_edited(): number
     get_file_size(): number
     get_last_modified_by(): Author
     get_last_viewed(): number
@@ -5279,10 +4340,6 @@ export class DocumentsText {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::can-edit", callback: (($obj: DocumentsText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::can-edit", callback: (($obj: DocumentsText, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::document-id", callback: (($obj: DocumentsText, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::document-id", callback: (($obj: DocumentsText, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::edited", callback: (($obj: DocumentsText, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::edited", callback: (($obj: DocumentsText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::file-size", callback: (($obj: DocumentsText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::file-size", callback: (($obj: DocumentsText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-deleted", callback: (($obj: DocumentsText, pspec: GObject.ParamSpec) => void)): number
@@ -5754,868 +4811,6 @@ export class Feed {
     static name: string
     constructor (config?: Feed_ConstructProps)
     _init (config?: Feed_ConstructProps): void
-    static $gtype: GObject.Type
-}
-export interface FreebaseQuery_ConstructProps extends Query_ConstructProps {
-    variant?: GLib.Variant
-}
-export class FreebaseQuery {
-    /* Properties of GData-0.0.GData.Query */
-    author: string
-    categories: string
-    etag: string
-    is_strict: boolean
-    max_results: number
-    published_max: number
-    published_min: number
-    q: string
-    start_index: number
-    updated_max: number
-    updated_min: number
-    /* Fields of GData-0.0.GData.FreebaseQuery */
-    parent: Query
-    /* Fields of GData-0.0.GData.Query */
-    priv: QueryPrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    g_type_instance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.Query */
-    get_author(): string
-    get_categories(): string
-    get_etag(): string
-    get_max_results(): number
-    get_published_max(): number
-    get_published_min(): number
-    get_q(): string
-    get_query_uri(feed_uri: string): string
-    get_start_index(): number
-    get_updated_max(): number
-    get_updated_min(): number
-    next_page(): void
-    previous_page(): boolean
-    set_author(author?: string | null): void
-    set_categories(categories?: string | null): void
-    set_etag(etag?: string | null): void
-    set_is_strict(is_strict: boolean): void
-    set_max_results(max_results: number): void
-    set_published_max(published_max: number): void
-    set_published_min(published_min: number): void
-    set_q(q?: string | null): void
-    set_start_index(start_index: number): void
-    set_updated_max(updated_max: number): void
-    set_updated_min(updated_min: number): void
-    /* Methods of GObject-2.0.GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: any): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: any): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: Function): void
-    /* Virtual methods of GData-0.0.GData.Query */
-    vfunc_get_query_uri(feed_uri: string, query_uri: GLib.String, params_started: boolean): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::author", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::author", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::categories", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::categories", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::etag", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::etag", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-strict", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-strict", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::max-results", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::max-results", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::published-max", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published-max", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::published-min", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published-min", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::q", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::q", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::start-index", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::start-index", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::updated-max", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated-max", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::updated-min", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated-min", callback: (($obj: FreebaseQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    static name: string
-    constructor (config?: FreebaseQuery_ConstructProps)
-    _init (config?: FreebaseQuery_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(mql: string): FreebaseQuery
-    static new(q?: string | null): FreebaseQuery
-    static new_from_variant(variant: GLib.Variant): FreebaseQuery
-    static $gtype: GObject.Type
-}
-export interface FreebaseResult_ConstructProps extends Entry_ConstructProps {
-}
-export class FreebaseResult {
-    /* Properties of GData-0.0.GData.FreebaseResult */
-    readonly variant: GLib.Variant
-    /* Properties of GData-0.0.GData.Entry */
-    content: string
-    content_uri: string
-    readonly is_inserted: boolean
-    readonly published: number
-    rights: string
-    summary: string
-    title: string
-    readonly updated: number
-    /* Fields of GData-0.0.GData.FreebaseResult */
-    parent: Entry
-    priv: FreebaseResultPrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    g_type_instance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.FreebaseResult */
-    dup_variant(): GLib.Variant | null
-    /* Methods of GData-0.0.GData.Entry */
-    add_author(author: Author): void
-    add_category(category: Category): void
-    add_link(_link: Link): void
-    get_authors(): Author[]
-    get_categories(): Category[]
-    get_content(): string
-    get_content_uri(): string
-    get_etag(): string | null
-    get_id(): string | null
-    get_published(): number
-    get_rights(): string
-    get_summary(): string
-    get_title(): string
-    get_updated(): number
-    look_up_link(rel: string): Link
-    look_up_links(rel: string): Link[]
-    remove_link(_link: Link): boolean
-    set_content(content?: string | null): void
-    set_content_uri(content_uri?: string | null): void
-    set_rights(rights?: string | null): void
-    set_summary(summary?: string | null): void
-    set_title(title?: string | null): void
-    /* Methods of GData-0.0.GData.Parsable */
-    get_content_type(): string
-    get_json(): string
-    get_xml(): string
-    /* Methods of GObject-2.0.GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: any): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: any): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: Function): void
-    /* Virtual methods of GData-0.0.GData.Parsable */
-    vfunc_get_json(builder: Json.Builder): void
-    vfunc_get_namespaces(namespaces: GLib.HashTable): void
-    vfunc_get_xml(xml_string: GLib.String): void
-    vfunc_parse_json(reader: Json.Reader): boolean
-    vfunc_parse_xml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfunc_post_parse_json(): boolean
-    vfunc_post_parse_xml(): boolean
-    vfunc_pre_get_xml(xml_string: GLib.String): void
-    vfunc_pre_parse_xml(doc: libxml2.Doc, root_node: libxml2.Node): boolean
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::variant", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::variant", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content-uri", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content-uri", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-inserted", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-inserted", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::published", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::rights", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::rights", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::summary", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::summary", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::title", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::title", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::updated", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated", callback: (($obj: FreebaseResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    static name: string
-    constructor (config?: FreebaseResult_ConstructProps)
-    _init (config?: FreebaseResult_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): FreebaseResult
-    static new(id?: string | null): FreebaseResult
-    static $gtype: GObject.Type
-}
-export interface FreebaseSearchQuery_ConstructProps extends Query_ConstructProps {
-    language?: string
-    stemmed?: boolean
-}
-export class FreebaseSearchQuery {
-    /* Properties of GData-0.0.GData.FreebaseSearchQuery */
-    language: string
-    stemmed: boolean
-    /* Properties of GData-0.0.GData.Query */
-    author: string
-    categories: string
-    etag: string
-    is_strict: boolean
-    max_results: number
-    published_max: number
-    published_min: number
-    q: string
-    start_index: number
-    updated_max: number
-    updated_min: number
-    /* Fields of GData-0.0.GData.FreebaseSearchQuery */
-    parent: Query
-    priv: FreebaseSearchQueryPrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    g_type_instance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.FreebaseSearchQuery */
-    add_filter(property: string, value: string): void
-    add_location(radius: number, lat: number, lon: number): void
-    close_filter(): void
-    get_language(): string | null
-    get_stemmed(): boolean
-    open_filter(filter_type: FreebaseSearchFilterType): void
-    set_language(lang?: string | null): void
-    set_stemmed(stemmed: boolean): void
-    /* Methods of GData-0.0.GData.Query */
-    get_author(): string
-    get_categories(): string
-    get_etag(): string
-    get_max_results(): number
-    get_published_max(): number
-    get_published_min(): number
-    get_q(): string
-    get_query_uri(feed_uri: string): string
-    get_start_index(): number
-    get_updated_max(): number
-    get_updated_min(): number
-    next_page(): void
-    previous_page(): boolean
-    set_author(author?: string | null): void
-    set_categories(categories?: string | null): void
-    set_etag(etag?: string | null): void
-    set_is_strict(is_strict: boolean): void
-    set_max_results(max_results: number): void
-    set_published_max(published_max: number): void
-    set_published_min(published_min: number): void
-    set_q(q?: string | null): void
-    set_start_index(start_index: number): void
-    set_updated_max(updated_max: number): void
-    set_updated_min(updated_min: number): void
-    /* Methods of GObject-2.0.GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: any): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: any): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: Function): void
-    /* Virtual methods of GData-0.0.GData.Query */
-    vfunc_get_query_uri(feed_uri: string, query_uri: GLib.String, params_started: boolean): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::language", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::language", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::stemmed", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::stemmed", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::author", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::author", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::categories", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::categories", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::etag", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::etag", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-strict", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-strict", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::max-results", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::max-results", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::published-max", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published-max", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::published-min", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published-min", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::q", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::q", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::start-index", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::start-index", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::updated-max", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated-max", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::updated-min", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated-min", callback: (($obj: FreebaseSearchQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    static name: string
-    constructor (config?: FreebaseSearchQuery_ConstructProps)
-    _init (config?: FreebaseSearchQuery_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(search_terms: string): FreebaseSearchQuery
-    static new(q?: string | null): FreebaseSearchQuery
-    static $gtype: GObject.Type
-}
-export interface FreebaseSearchResult_ConstructProps extends FreebaseResult_ConstructProps {
-}
-export class FreebaseSearchResult {
-    /* Properties of GData-0.0.GData.FreebaseResult */
-    readonly variant: GLib.Variant
-    /* Properties of GData-0.0.GData.Entry */
-    content: string
-    content_uri: string
-    readonly is_inserted: boolean
-    readonly published: number
-    rights: string
-    summary: string
-    title: string
-    readonly updated: number
-    /* Fields of GData-0.0.GData.FreebaseSearchResult */
-    parent: FreebaseResult
-    priv: FreebaseSearchResultPrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    g_type_instance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.FreebaseSearchResult */
-    get_item(i: number): FreebaseSearchResultItem | null
-    get_num_items(): number
-    get_total_hits(): number
-    /* Methods of GData-0.0.GData.FreebaseResult */
-    dup_variant(): GLib.Variant | null
-    /* Methods of GData-0.0.GData.Entry */
-    add_author(author: Author): void
-    add_category(category: Category): void
-    add_link(_link: Link): void
-    get_authors(): Author[]
-    get_categories(): Category[]
-    get_content(): string
-    get_content_uri(): string
-    get_etag(): string | null
-    get_id(): string | null
-    get_published(): number
-    get_rights(): string
-    get_summary(): string
-    get_title(): string
-    get_updated(): number
-    look_up_link(rel: string): Link
-    look_up_links(rel: string): Link[]
-    remove_link(_link: Link): boolean
-    set_content(content?: string | null): void
-    set_content_uri(content_uri?: string | null): void
-    set_rights(rights?: string | null): void
-    set_summary(summary?: string | null): void
-    set_title(title?: string | null): void
-    /* Methods of GData-0.0.GData.Parsable */
-    get_content_type(): string
-    get_json(): string
-    get_xml(): string
-    /* Methods of GObject-2.0.GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: any): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: any): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: Function): void
-    /* Virtual methods of GData-0.0.GData.Parsable */
-    vfunc_get_json(builder: Json.Builder): void
-    vfunc_get_namespaces(namespaces: GLib.HashTable): void
-    vfunc_get_xml(xml_string: GLib.String): void
-    vfunc_parse_json(reader: Json.Reader): boolean
-    vfunc_parse_xml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfunc_post_parse_json(): boolean
-    vfunc_post_parse_xml(): boolean
-    vfunc_pre_get_xml(xml_string: GLib.String): void
-    vfunc_pre_parse_xml(doc: libxml2.Doc, root_node: libxml2.Node): boolean
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::variant", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::variant", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content-uri", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content-uri", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-inserted", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-inserted", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::published", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::rights", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::rights", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::summary", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::summary", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::title", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::title", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::updated", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated", callback: (($obj: FreebaseSearchResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    static name: string
-    constructor (config?: FreebaseSearchResult_ConstructProps)
-    _init (config?: FreebaseSearchResult_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): FreebaseSearchResult
-    static new(id?: string | null): FreebaseSearchResult
-    static $gtype: GObject.Type
-}
-export interface FreebaseService_ConstructProps extends Service_ConstructProps {
-    developer_key?: string
-}
-export class FreebaseService {
-    /* Properties of GData-0.0.GData.Service */
-    authorizer: Authorizer
-    locale: string
-    proxy_resolver: Gio.ProxyResolver
-    proxy_uri: Soup.URI
-    timeout: number
-    /* Fields of GData-0.0.GData.FreebaseService */
-    parent: Service
-    /* Fields of GData-0.0.GData.Service */
-    priv: ServicePrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    g_type_instance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.FreebaseService */
-    get_image(value: FreebaseTopicValue, cancellable: Gio.Cancellable | null, max_width: number, max_height: number): Gio.InputStream
-    get_topic(query: FreebaseTopicQuery, cancellable?: Gio.Cancellable | null): FreebaseTopicResult
-    get_topic_async(query: FreebaseTopicQuery, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    query(query: FreebaseQuery, cancellable?: Gio.Cancellable | null): FreebaseResult
-    query_async(query: FreebaseQuery, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    search(query: FreebaseSearchQuery, cancellable?: Gio.Cancellable | null): FreebaseSearchResult
-    search_async(query: FreebaseSearchQuery, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    /* Methods of GData-0.0.GData.Service */
-    delete_entry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): boolean
-    delete_entry_async(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    delete_entry_finish(async_result: Gio.AsyncResult): boolean
-    get_authorizer(): Authorizer
-    get_locale(): string
-    get_proxy_resolver(): Gio.ProxyResolver | null
-    get_proxy_uri(): Soup.URI
-    get_timeout(): number
-    insert_entry(domain: AuthorizationDomain | null, upload_uri: string, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
-    insert_entry_async(domain: AuthorizationDomain | null, upload_uri: string, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    insert_entry_finish(async_result: Gio.AsyncResult): Entry
-    is_authorized(): boolean
-    query(domain: AuthorizationDomain | null, feed_uri: string, query: Query | null, entry_type: GObject.Type, cancellable?: Gio.Cancellable | null, progress_callback?: QueryProgressCallback | null): Feed
-    query_async(domain: AuthorizationDomain | null, feed_uri: string, query: Query | null, entry_type: GObject.Type, cancellable?: Gio.Cancellable | null, progress_callback?: QueryProgressCallback | null, callback?: Gio.AsyncReadyCallback | null): void
-    query_finish(async_result: Gio.AsyncResult): Feed
-    query_single_entry(domain: AuthorizationDomain | null, entry_id: string, query: Query | null, entry_type: GObject.Type, cancellable?: Gio.Cancellable | null): Entry
-    query_single_entry_async(domain: AuthorizationDomain | null, entry_id: string, query: Query | null, entry_type: GObject.Type, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    query_single_entry_finish(async_result: Gio.AsyncResult): Entry
-    set_authorizer(authorizer: Authorizer): void
-    set_locale(locale?: string | null): void
-    set_proxy_resolver(proxy_resolver?: Gio.ProxyResolver | null): void
-    set_proxy_uri(proxy_uri?: Soup.URI | null): void
-    set_timeout(timeout: number): void
-    update_entry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
-    update_entry_async(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    update_entry_finish(async_result: Gio.AsyncResult): Entry
-    /* Methods of GObject-2.0.GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: any): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: any): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: Function): void
-    /* Virtual methods of GData-0.0.GData.Service */
-    vfunc_append_query_headers(domain: AuthorizationDomain, message: Soup.Message): void
-    vfunc_parse_error_response(operation_type: OperationType, status: number, reason_phrase: string, response_body: string, length: number): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::authorizer", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::authorizer", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::locale", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::locale", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::proxy-resolver", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-resolver", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::proxy-uri", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-uri", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::timeout", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::timeout", callback: (($obj: FreebaseService, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    static name: string
-    constructor (config?: FreebaseService_ConstructProps)
-    _init (config?: FreebaseService_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(developer_key?: string | null, authorizer?: Authorizer | null): FreebaseService
-    static get_primary_authorization_domain(): AuthorizationDomain
-    static $gtype: GObject.Type
-}
-export interface FreebaseTopicQuery_ConstructProps extends Query_ConstructProps {
-    filter?: string[]
-    language?: string
-}
-export class FreebaseTopicQuery {
-    /* Properties of GData-0.0.GData.FreebaseTopicQuery */
-    filter: string[]
-    language: string
-    /* Properties of GData-0.0.GData.Query */
-    author: string
-    categories: string
-    etag: string
-    is_strict: boolean
-    max_results: number
-    published_max: number
-    published_min: number
-    q: string
-    start_index: number
-    updated_max: number
-    updated_min: number
-    /* Fields of GData-0.0.GData.FreebaseTopicQuery */
-    parent: Query
-    priv: FreebaseTopicQueryPrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    g_type_instance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.FreebaseTopicQuery */
-    get_filter(): string[] | null
-    get_language(): string | null
-    set_filter(filter?: string[] | null): void
-    set_language(lang?: string | null): void
-    /* Methods of GData-0.0.GData.Query */
-    get_author(): string
-    get_categories(): string
-    get_etag(): string
-    get_max_results(): number
-    get_published_max(): number
-    get_published_min(): number
-    get_q(): string
-    get_query_uri(feed_uri: string): string
-    get_start_index(): number
-    get_updated_max(): number
-    get_updated_min(): number
-    next_page(): void
-    previous_page(): boolean
-    set_author(author?: string | null): void
-    set_categories(categories?: string | null): void
-    set_etag(etag?: string | null): void
-    set_is_strict(is_strict: boolean): void
-    set_max_results(max_results: number): void
-    set_published_max(published_max: number): void
-    set_published_min(published_min: number): void
-    set_q(q?: string | null): void
-    set_start_index(start_index: number): void
-    set_updated_max(updated_max: number): void
-    set_updated_min(updated_min: number): void
-    /* Methods of GObject-2.0.GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: any): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: any): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: Function): void
-    /* Virtual methods of GData-0.0.GData.Query */
-    vfunc_get_query_uri(feed_uri: string, query_uri: GLib.String, params_started: boolean): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::filter", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::filter", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::language", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::language", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::author", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::author", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::categories", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::categories", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::etag", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::etag", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-strict", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-strict", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::max-results", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::max-results", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::published-max", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published-max", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::published-min", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published-min", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::q", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::q", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::start-index", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::start-index", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::updated-max", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated-max", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::updated-min", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated-min", callback: (($obj: FreebaseTopicQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    static name: string
-    constructor (config?: FreebaseTopicQuery_ConstructProps)
-    _init (config?: FreebaseTopicQuery_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(id: string): FreebaseTopicQuery
-    static new(q?: string | null): FreebaseTopicQuery
-    static $gtype: GObject.Type
-}
-export interface FreebaseTopicResult_ConstructProps extends FreebaseResult_ConstructProps {
-}
-export class FreebaseTopicResult {
-    /* Properties of GData-0.0.GData.FreebaseResult */
-    readonly variant: GLib.Variant
-    /* Properties of GData-0.0.GData.Entry */
-    content: string
-    content_uri: string
-    readonly is_inserted: boolean
-    readonly published: number
-    rights: string
-    summary: string
-    title: string
-    readonly updated: number
-    /* Fields of GData-0.0.GData.FreebaseTopicResult */
-    parent: FreebaseResult
-    priv: FreebaseTopicResultPrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    g_type_instance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.FreebaseTopicResult */
-    dup_object(): FreebaseTopicObject
-    /* Methods of GData-0.0.GData.FreebaseResult */
-    dup_variant(): GLib.Variant | null
-    /* Methods of GData-0.0.GData.Entry */
-    add_author(author: Author): void
-    add_category(category: Category): void
-    add_link(_link: Link): void
-    get_authors(): Author[]
-    get_categories(): Category[]
-    get_content(): string
-    get_content_uri(): string
-    get_etag(): string | null
-    get_id(): string | null
-    get_published(): number
-    get_rights(): string
-    get_summary(): string
-    get_title(): string
-    get_updated(): number
-    look_up_link(rel: string): Link
-    look_up_links(rel: string): Link[]
-    remove_link(_link: Link): boolean
-    set_content(content?: string | null): void
-    set_content_uri(content_uri?: string | null): void
-    set_rights(rights?: string | null): void
-    set_summary(summary?: string | null): void
-    set_title(title?: string | null): void
-    /* Methods of GData-0.0.GData.Parsable */
-    get_content_type(): string
-    get_json(): string
-    get_xml(): string
-    /* Methods of GObject-2.0.GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: any): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: any): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: Function): void
-    /* Virtual methods of GData-0.0.GData.Parsable */
-    vfunc_get_json(builder: Json.Builder): void
-    vfunc_get_namespaces(namespaces: GLib.HashTable): void
-    vfunc_get_xml(xml_string: GLib.String): void
-    vfunc_parse_json(reader: Json.Reader): boolean
-    vfunc_parse_xml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfunc_post_parse_json(): boolean
-    vfunc_post_parse_xml(): boolean
-    vfunc_pre_get_xml(xml_string: GLib.String): void
-    vfunc_pre_parse_xml(doc: libxml2.Doc, root_node: libxml2.Node): boolean
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::variant", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::variant", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content-uri", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content-uri", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-inserted", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-inserted", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::published", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::published", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::rights", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::rights", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::summary", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::summary", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::title", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::title", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::updated", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::updated", callback: (($obj: FreebaseTopicResult, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    static name: string
-    constructor (config?: FreebaseTopicResult_ConstructProps)
-    _init (config?: FreebaseTopicResult_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): FreebaseTopicResult
-    static new(id?: string | null): FreebaseTopicResult
     static $gtype: GObject.Type
 }
 export interface GContactCalendar_ConstructProps extends Parsable_ConstructProps {
@@ -8936,103 +7131,6 @@ export class MediaThumbnail {
     _init (config?: MediaThumbnail_ConstructProps): void
     static $gtype: GObject.Type
 }
-export interface OAuth1Authorizer_ConstructProps extends GObject.Object_ConstructProps {
-    application_name?: string
-    locale?: string
-    proxy_resolver?: Gio.ProxyResolver
-    proxy_uri?: Soup.URI
-    timeout?: number
-}
-export class OAuth1Authorizer {
-    /* Properties of GData-0.0.GData.OAuth1Authorizer */
-    locale: string
-    proxy_resolver: Gio.ProxyResolver
-    proxy_uri: Soup.URI
-    timeout: number
-    /* Fields of GObject-2.0.GObject.Object */
-    g_type_instance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.OAuth1Authorizer */
-    get_application_name(): string | null
-    get_locale(): string | null
-    get_proxy_resolver(): Gio.ProxyResolver | null
-    get_proxy_uri(): Soup.URI | null
-    get_timeout(): number
-    request_authentication_uri(cancellable?: Gio.Cancellable | null): [ /* returnType */ string, /* token */ string, /* token_secret */ string ]
-    request_authentication_uri_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    request_authentication_uri_finish(async_result: Gio.AsyncResult): [ /* returnType */ string, /* token */ string, /* token_secret */ string ]
-    request_authorization(token: string, token_secret: string, verifier: string, cancellable?: Gio.Cancellable | null): boolean
-    request_authorization_async(token: string, token_secret: string, verifier: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    request_authorization_finish(async_result: Gio.AsyncResult): boolean
-    set_locale(locale?: string | null): void
-    set_proxy_resolver(proxy_resolver?: Gio.ProxyResolver | null): void
-    set_proxy_uri(proxy_uri?: Soup.URI | null): void
-    set_timeout(timeout: number): void
-    /* Methods of GObject-2.0.GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: any): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: any): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: Function): void
-    /* Methods of GData-0.0.GData.Authorizer */
-    is_authorized_for_domain(domain: AuthorizationDomain): boolean
-    process_request(domain: AuthorizationDomain | null, message: Soup.Message): void
-    refresh_authorization(cancellable?: Gio.Cancellable | null): boolean
-    refresh_authorization_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    refresh_authorization_finish(async_result: Gio.AsyncResult): boolean
-    /* Virtual methods of GData-0.0.GData.OAuth1Authorizer */
-    vfunc_is_authorized_for_domain(domain: AuthorizationDomain): boolean
-    vfunc_process_request(domain: AuthorizationDomain | null, message: Soup.Message): void
-    vfunc_refresh_authorization(cancellable?: Gio.Cancellable | null): boolean
-    vfunc_refresh_authorization_async(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    vfunc_refresh_authorization_finish(async_result: Gio.AsyncResult): boolean
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: OAuth1Authorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: OAuth1Authorizer, pspec: GObject.ParamSpec) => void)): number
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::locale", callback: (($obj: OAuth1Authorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::locale", callback: (($obj: OAuth1Authorizer, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::proxy-resolver", callback: (($obj: OAuth1Authorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-resolver", callback: (($obj: OAuth1Authorizer, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::proxy-uri", callback: (($obj: OAuth1Authorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-uri", callback: (($obj: OAuth1Authorizer, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::timeout", callback: (($obj: OAuth1Authorizer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::timeout", callback: (($obj: OAuth1Authorizer, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    static name: string
-    constructor (config?: OAuth1Authorizer_ConstructProps)
-    _init (config?: OAuth1Authorizer_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(application_name: string | null, service_type: GObject.Type): OAuth1Authorizer
-    static new_for_authorization_domains(application_name: string | null, authorization_domains: AuthorizationDomain[]): OAuth1Authorizer
-    static $gtype: GObject.Type
-}
 export interface OAuth2Authorizer_ConstructProps extends GObject.Object_ConstructProps {
     client_id?: string
     client_secret?: string
@@ -10039,7 +8137,6 @@ export class PicasaWebService {
     authorizer: Authorizer
     locale: string
     proxy_resolver: Gio.ProxyResolver
-    proxy_uri: Soup.URI
     timeout: number
     /* Fields of GData-0.0.GData.PicasaWebService */
     parent: Service
@@ -10066,7 +8163,6 @@ export class PicasaWebService {
     get_authorizer(): Authorizer
     get_locale(): string
     get_proxy_resolver(): Gio.ProxyResolver | null
-    get_proxy_uri(): Soup.URI
     get_timeout(): number
     insert_entry(domain: AuthorizationDomain | null, upload_uri: string, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     insert_entry_async(domain: AuthorizationDomain | null, upload_uri: string, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -10081,7 +8177,6 @@ export class PicasaWebService {
     set_authorizer(authorizer: Authorizer): void
     set_locale(locale?: string | null): void
     set_proxy_resolver(proxy_resolver?: Gio.ProxyResolver | null): void
-    set_proxy_uri(proxy_uri?: Soup.URI | null): void
     set_timeout(timeout: number): void
     update_entry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     update_entry_async(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -10129,8 +8224,6 @@ export class PicasaWebService {
     connect_after(sigName: "notify::locale", callback: (($obj: PicasaWebService, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::proxy-resolver", callback: (($obj: PicasaWebService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::proxy-resolver", callback: (($obj: PicasaWebService, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::proxy-uri", callback: (($obj: PicasaWebService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-uri", callback: (($obj: PicasaWebService, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::timeout", callback: (($obj: PicasaWebService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::timeout", callback: (($obj: PicasaWebService, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -10414,7 +8507,6 @@ export interface Service_ConstructProps extends GObject.Object_ConstructProps {
     authorizer?: Authorizer
     locale?: string
     proxy_resolver?: Gio.ProxyResolver
-    proxy_uri?: Soup.URI
     timeout?: number
 }
 export class Service {
@@ -10422,7 +8514,6 @@ export class Service {
     authorizer: Authorizer
     locale: string
     proxy_resolver: Gio.ProxyResolver
-    proxy_uri: Soup.URI
     timeout: number
     /* Fields of GData-0.0.GData.Service */
     parent: GObject.Object
@@ -10436,7 +8527,6 @@ export class Service {
     get_authorizer(): Authorizer
     get_locale(): string
     get_proxy_resolver(): Gio.ProxyResolver | null
-    get_proxy_uri(): Soup.URI
     get_timeout(): number
     insert_entry(domain: AuthorizationDomain | null, upload_uri: string, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     insert_entry_async(domain: AuthorizationDomain | null, upload_uri: string, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -10451,7 +8541,6 @@ export class Service {
     set_authorizer(authorizer: Authorizer): void
     set_locale(locale?: string | null): void
     set_proxy_resolver(proxy_resolver?: Gio.ProxyResolver | null): void
-    set_proxy_uri(proxy_uri?: Soup.URI | null): void
     set_timeout(timeout: number): void
     update_entry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     update_entry_async(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -10499,8 +8588,6 @@ export class Service {
     connect_after(sigName: "notify::locale", callback: (($obj: Service, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::proxy-resolver", callback: (($obj: Service, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::proxy-resolver", callback: (($obj: Service, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::proxy-uri", callback: (($obj: Service, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-uri", callback: (($obj: Service, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::timeout", callback: (($obj: Service, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::timeout", callback: (($obj: Service, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -10679,7 +8766,6 @@ export class TasksService {
     authorizer: Authorizer
     locale: string
     proxy_resolver: Gio.ProxyResolver
-    proxy_uri: Soup.URI
     timeout: number
     /* Fields of GData-0.0.GData.TasksService */
     parent: Service
@@ -10711,7 +8797,6 @@ export class TasksService {
     get_authorizer(): Authorizer
     get_locale(): string
     get_proxy_resolver(): Gio.ProxyResolver | null
-    get_proxy_uri(): Soup.URI
     get_timeout(): number
     insert_entry(domain: AuthorizationDomain | null, upload_uri: string, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     insert_entry_async(domain: AuthorizationDomain | null, upload_uri: string, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -10726,7 +8811,6 @@ export class TasksService {
     set_authorizer(authorizer: Authorizer): void
     set_locale(locale?: string | null): void
     set_proxy_resolver(proxy_resolver?: Gio.ProxyResolver | null): void
-    set_proxy_uri(proxy_uri?: Soup.URI | null): void
     set_timeout(timeout: number): void
     update_entry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     update_entry_async(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -10774,8 +8858,6 @@ export class TasksService {
     connect_after(sigName: "notify::locale", callback: (($obj: TasksService, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::proxy-resolver", callback: (($obj: TasksService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::proxy-resolver", callback: (($obj: TasksService, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::proxy-uri", callback: (($obj: TasksService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-uri", callback: (($obj: TasksService, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::timeout", callback: (($obj: TasksService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::timeout", callback: (($obj: TasksService, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -11407,199 +9489,6 @@ export class YouTubeComment {
     static new(id?: string | null): YouTubeComment
     static $gtype: GObject.Type
 }
-export interface YouTubeContent_ConstructProps extends MediaContent_ConstructProps {
-}
-export class YouTubeContent {
-    /* Properties of GData-0.0.GData.YouTubeContent */
-    readonly format: YouTubeFormat
-    /* Properties of GData-0.0.GData.MediaContent */
-    readonly content_type: string
-    readonly duration: number
-    readonly expression: MediaExpression
-    readonly filesize: number
-    readonly height: number
-    readonly is_default: boolean
-    readonly medium: MediaMedium
-    readonly uri: string
-    readonly width: number
-    /* Fields of GData-0.0.GData.YouTubeContent */
-    parent: MediaContent
-    priv: YouTubeContentPrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    g_type_instance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.YouTubeContent */
-    get_format(): YouTubeFormat
-    /* Methods of GData-0.0.GData.MediaContent */
-    download(service: Service, cancellable?: Gio.Cancellable | null): DownloadStream
-    get_content_type(): string
-    get_duration(): number
-    get_expression(): MediaExpression
-    get_filesize(): number
-    get_height(): number
-    get_medium(): MediaMedium
-    get_uri(): string
-    get_width(): number
-    /* Methods of GData-0.0.GData.Parsable */
-    get_json(): string
-    get_xml(): string
-    /* Methods of GObject-2.0.GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: any): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: any): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: Function): void
-    /* Virtual methods of GData-0.0.GData.Parsable */
-    vfunc_get_json(builder: Json.Builder): void
-    vfunc_get_namespaces(namespaces: GLib.HashTable): void
-    vfunc_get_xml(xml_string: GLib.String): void
-    vfunc_parse_json(reader: Json.Reader): boolean
-    vfunc_parse_xml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfunc_post_parse_json(): boolean
-    vfunc_post_parse_xml(): boolean
-    vfunc_pre_get_xml(xml_string: GLib.String): void
-    vfunc_pre_parse_xml(doc: libxml2.Doc, root_node: libxml2.Node): boolean
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::format", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::format", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::content-type", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::content-type", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::duration", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::duration", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::expression", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::expression", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::filesize", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::filesize", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::height", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::height", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-default", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-default", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::medium", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::medium", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::uri", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::uri", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::width", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::width", callback: (($obj: YouTubeContent, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    static name: string
-    constructor (config?: YouTubeContent_ConstructProps)
-    _init (config?: YouTubeContent_ConstructProps): void
-    static $gtype: GObject.Type
-}
-export interface YouTubeCredit_ConstructProps extends MediaCredit_ConstructProps {
-}
-export class YouTubeCredit {
-    /* Properties of GData-0.0.GData.YouTubeCredit */
-    readonly entity_type: string
-    /* Properties of GData-0.0.GData.MediaCredit */
-    readonly credit: string
-    readonly role: string
-    readonly scheme: string
-    /* Fields of GData-0.0.GData.YouTubeCredit */
-    parent: MediaCredit
-    priv: YouTubeCreditPrivate
-    /* Fields of GObject-2.0.GObject.Object */
-    g_type_instance: GObject.TypeInstance
-    /* Methods of GData-0.0.GData.YouTubeCredit */
-    get_entity_type(): string
-    /* Methods of GData-0.0.GData.MediaCredit */
-    get_credit(): string
-    get_role(): string
-    get_scheme(): string
-    /* Methods of GData-0.0.GData.Parsable */
-    get_content_type(): string
-    get_json(): string
-    get_xml(): string
-    /* Methods of GObject-2.0.GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: any): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: any): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: Function): void
-    /* Virtual methods of GData-0.0.GData.Parsable */
-    vfunc_get_json(builder: Json.Builder): void
-    vfunc_get_namespaces(namespaces: GLib.HashTable): void
-    vfunc_get_xml(xml_string: GLib.String): void
-    vfunc_parse_json(reader: Json.Reader): boolean
-    vfunc_parse_xml(doc: libxml2.Doc, node: libxml2.Node): boolean
-    vfunc_post_parse_json(): boolean
-    vfunc_post_parse_xml(): boolean
-    vfunc_pre_get_xml(xml_string: GLib.String): void
-    vfunc_pre_parse_xml(doc: libxml2.Doc, root_node: libxml2.Node): boolean
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: YouTubeCredit, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: YouTubeCredit, pspec: GObject.ParamSpec) => void)): number
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::entity-type", callback: (($obj: YouTubeCredit, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::entity-type", callback: (($obj: YouTubeCredit, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::credit", callback: (($obj: YouTubeCredit, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::credit", callback: (($obj: YouTubeCredit, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::role", callback: (($obj: YouTubeCredit, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::role", callback: (($obj: YouTubeCredit, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::scheme", callback: (($obj: YouTubeCredit, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::scheme", callback: (($obj: YouTubeCredit, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    static name: string
-    constructor (config?: YouTubeCredit_ConstructProps)
-    _init (config?: YouTubeCredit_ConstructProps): void
-    static $gtype: GObject.Type
-}
 export interface YouTubeFeed_ConstructProps extends Feed_ConstructProps {
 }
 export class YouTubeFeed {
@@ -11727,9 +9616,6 @@ export class YouTubeFeed {
 }
 export interface YouTubeQuery_ConstructProps extends Query_ConstructProps {
     age?: YouTubeAge
-    format?: YouTubeFormat
-    has_location?: boolean
-    language?: string
     latitude?: number
     license?: string
     location_radius?: number
@@ -11737,15 +9623,10 @@ export interface YouTubeQuery_ConstructProps extends Query_ConstructProps {
     order_by?: string
     restriction?: string
     safe_search?: YouTubeSafeSearch
-    sort_order?: YouTubeSortOrder
-    uploader?: YouTubeUploader
 }
 export class YouTubeQuery {
     /* Properties of GData-0.0.GData.YouTubeQuery */
     age: YouTubeAge
-    format: YouTubeFormat
-    has_location: boolean
-    language: string
     latitude: number
     license: string
     location_radius: number
@@ -11753,8 +9634,6 @@ export class YouTubeQuery {
     order_by: string
     restriction: string
     safe_search: YouTubeSafeSearch
-    sort_order: YouTubeSortOrder
-    uploader: YouTubeUploader
     /* Properties of GData-0.0.GData.Query */
     author: string
     categories: string
@@ -11774,25 +9653,17 @@ export class YouTubeQuery {
     g_type_instance: GObject.TypeInstance
     /* Methods of GData-0.0.GData.YouTubeQuery */
     get_age(): YouTubeAge
-    get_format(): YouTubeFormat
-    get_language(): string
     get_license(): string
-    get_location(): [ /* latitude */ number | null, /* longitude */ number | null, /* radius */ number | null, /* has_location */ boolean | null ]
+    get_location(): [ /* latitude */ number | null, /* longitude */ number | null, /* radius */ number | null ]
     get_order_by(): string
     get_restriction(): string
     get_safe_search(): YouTubeSafeSearch
-    get_sort_order(): YouTubeSortOrder
-    get_uploader(): YouTubeUploader
     set_age(age: YouTubeAge): void
-    set_format(format: YouTubeFormat): void
-    set_language(language?: string | null): void
     set_license(license?: string | null): void
-    set_location(latitude: number, longitude: number, radius: number, has_location: boolean): void
+    set_location(latitude: number, longitude: number, radius: number): void
     set_order_by(order_by?: string | null): void
     set_restriction(restriction?: string | null): void
     set_safe_search(safe_search: YouTubeSafeSearch): void
-    set_sort_order(sort_order: YouTubeSortOrder): void
-    set_uploader(uploader: YouTubeUploader): void
     /* Methods of GData-0.0.GData.Query */
     get_author(): string
     get_categories(): string
@@ -11856,12 +9727,6 @@ export class YouTubeQuery {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::age", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::age", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::format", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::format", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::has-location", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::has-location", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::language", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::language", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::latitude", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::latitude", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::license", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
@@ -11876,10 +9741,6 @@ export class YouTubeQuery {
     connect_after(sigName: "notify::restriction", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::safe-search", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::safe-search", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::sort-order", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::sort-order", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::uploader", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::uploader", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::author", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::author", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::categories", callback: (($obj: YouTubeQuery, pspec: GObject.ParamSpec) => void)): number
@@ -11921,7 +9782,6 @@ export class YouTubeService {
     authorizer: Authorizer
     locale: string
     proxy_resolver: Gio.ProxyResolver
-    proxy_uri: Soup.URI
     timeout: number
     /* Fields of GData-0.0.GData.YouTubeService */
     parent: Service
@@ -11948,7 +9808,6 @@ export class YouTubeService {
     get_authorizer(): Authorizer
     get_locale(): string
     get_proxy_resolver(): Gio.ProxyResolver | null
-    get_proxy_uri(): Soup.URI
     get_timeout(): number
     insert_entry(domain: AuthorizationDomain | null, upload_uri: string, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     insert_entry_async(domain: AuthorizationDomain | null, upload_uri: string, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -11963,7 +9822,6 @@ export class YouTubeService {
     set_authorizer(authorizer: Authorizer): void
     set_locale(locale?: string | null): void
     set_proxy_resolver(proxy_resolver?: Gio.ProxyResolver | null): void
-    set_proxy_uri(proxy_uri?: Soup.URI | null): void
     set_timeout(timeout: number): void
     update_entry(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null): Entry
     update_entry_async(domain: AuthorizationDomain | null, entry: Entry, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -12013,8 +9871,6 @@ export class YouTubeService {
     connect_after(sigName: "notify::locale", callback: (($obj: YouTubeService, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::proxy-resolver", callback: (($obj: YouTubeService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::proxy-resolver", callback: (($obj: YouTubeService, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::proxy-uri", callback: (($obj: YouTubeService, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::proxy-uri", callback: (($obj: YouTubeService, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::timeout", callback: (($obj: YouTubeService, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::timeout", callback: (($obj: YouTubeService, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -12107,7 +9963,6 @@ export interface YouTubeVideo_ConstructProps extends Entry_ConstructProps {
     aspect_ratio?: string
     category?: MediaCategory
     description?: string
-    is_draft?: boolean
     is_private?: boolean
     keywords?: string[]
     latitude?: number
@@ -12120,11 +9975,9 @@ export class YouTubeVideo {
     aspect_ratio: string
     readonly average_rating: number
     category: MediaCategory
-    readonly credit: YouTubeCredit
     description: string
     readonly duration: number
     readonly favorite_count: number
-    is_draft: boolean
     is_private: boolean
     keywords: string[]
     latitude: number
@@ -12137,7 +9990,6 @@ export class YouTubeVideo {
     recorded: number
     readonly state: YouTubeState
     readonly uploaded: number
-    readonly video_id: string
     readonly view_count: number
     /* Properties of GData-0.0.GData.Entry */
     content: string
@@ -12158,7 +10010,6 @@ export class YouTubeVideo {
     get_aspect_ratio(): string
     get_category(): MediaCategory
     get_coordinates(): [ /* latitude */ number | null, /* longitude */ number | null ]
-    get_credit(): YouTubeCredit
     get_description(): string
     get_duration(): number
     get_favorite_count(): number
@@ -12171,16 +10022,13 @@ export class YouTubeVideo {
     get_state(): YouTubeState
     get_thumbnails(): MediaThumbnail[]
     get_uploaded(): number
-    get_video_id(): string
     get_view_count(): number
     is_restricted_in_country(country: string): boolean
-    look_up_content(type: string): YouTubeContent
     set_access_control(action: string, permission: YouTubePermission): void
     set_aspect_ratio(aspect_ratio?: string | null): void
     set_category(category: MediaCategory): void
     set_coordinates(latitude: number, longitude: number): void
     set_description(description?: string | null): void
-    set_is_draft(is_draft: boolean): void
     set_is_private(is_private: boolean): void
     set_keywords(keywords: string[]): void
     set_location(location?: string | null): void
@@ -12276,16 +10124,12 @@ export class YouTubeVideo {
     connect_after(sigName: "notify::average-rating", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::category", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::category", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::credit", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::credit", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::description", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::description", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::duration", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::favorite-count", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::favorite-count", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::is-draft", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::is-draft", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::is-private", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-private", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::keywords", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
@@ -12310,8 +10154,6 @@ export class YouTubeVideo {
     connect_after(sigName: "notify::state", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::uploaded", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::uploaded", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::video-id", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::video-id", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::view-count", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::view-count", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::content", callback: (($obj: YouTubeVideo, pspec: GObject.ParamSpec) => void)): number
@@ -12433,12 +10275,6 @@ export abstract class CategoryClass {
 export class CategoryPrivate {
     static name: string
 }
-export abstract class ClientLoginAuthorizerClass {
-    static name: string
-}
-export class ClientLoginAuthorizerPrivate {
-    static name: string
-}
 export class Color {
     /* Fields of GData-0.0.GData.Color */
     red: number
@@ -12469,30 +10305,6 @@ export abstract class ComparableIface {
     /* Fields of GData-0.0.GData.ComparableIface */
     parent: GObject.TypeInterface
     compare_with: (self: Comparable, other: Comparable) => number
-    static name: string
-}
-export abstract class ContactsContactClass {
-    static name: string
-}
-export class ContactsContactPrivate {
-    static name: string
-}
-export abstract class ContactsGroupClass {
-    static name: string
-}
-export class ContactsGroupPrivate {
-    static name: string
-}
-export abstract class ContactsQueryClass {
-    static name: string
-}
-export class ContactsQueryPrivate {
-    static name: string
-}
-export abstract class ContactsServiceClass {
-    static name: string
-}
-export class ContactsServicePrivate {
     static name: string
 }
 export abstract class DocumentsAccessRuleClass {
@@ -12608,88 +10420,6 @@ export abstract class FeedClass {
     static name: string
 }
 export class FeedPrivate {
-    static name: string
-}
-export abstract class FreebaseQueryClass {
-    static name: string
-}
-export class FreebaseQueryPrivate {
-    static name: string
-}
-export abstract class FreebaseResultClass {
-    static name: string
-}
-export class FreebaseResultPrivate {
-    static name: string
-}
-export abstract class FreebaseSearchQueryClass {
-    static name: string
-}
-export class FreebaseSearchQueryPrivate {
-    static name: string
-}
-export abstract class FreebaseSearchResultClass {
-    static name: string
-}
-export class FreebaseSearchResultItem {
-    /* Methods of GData-0.0.GData.FreebaseSearchResultItem */
-    get_id(): string
-    get_language(): string
-    get_mid(): string
-    get_name(): string
-    get_notable_id(): string | null
-    get_notable_name(): string | null
-    get_score(): number
-    static name: string
-}
-export class FreebaseSearchResultPrivate {
-    static name: string
-}
-export abstract class FreebaseServiceClass {
-    static name: string
-}
-export class FreebaseServicePrivate {
-    static name: string
-}
-export class FreebaseTopicObject {
-    /* Methods of GData-0.0.GData.FreebaseTopicObject */
-    get_id(): string
-    get_property_count(property: string): number
-    get_property_hits(property: string): number
-    get_property_value(property: string, item: number): FreebaseTopicValue | null
-    list_properties(): string[]
-    ref(): FreebaseTopicObject
-    unref(): void
-    static name: string
-}
-export abstract class FreebaseTopicQueryClass {
-    static name: string
-}
-export class FreebaseTopicQueryPrivate {
-    static name: string
-}
-export abstract class FreebaseTopicResultClass {
-    static name: string
-}
-export class FreebaseTopicResultPrivate {
-    static name: string
-}
-export class FreebaseTopicValue {
-    /* Methods of GData-0.0.GData.FreebaseTopicValue */
-    copy_value(): /* gvalue */ any
-    get_creator(): string
-    get_double(): number
-    get_int(): number
-    get_language(): string
-    get_object(): FreebaseTopicObject
-    get_property(): string
-    get_string(): string
-    get_text(): string
-    get_timestamp(): number
-    get_value_type(): GObject.Type
-    is_image(): boolean
-    ref(): FreebaseTopicValue
-    unref(): void
     static name: string
 }
 export abstract class GContactCalendarClass {
@@ -12836,12 +10566,6 @@ export abstract class MediaThumbnailClass {
 export class MediaThumbnailPrivate {
     static name: string
 }
-export abstract class OAuth1AuthorizerClass {
-    static name: string
-}
-export class OAuth1AuthorizerPrivate {
-    static name: string
-}
 export abstract class OAuth2AuthorizerClass {
     static name: string
 }
@@ -12958,18 +10682,6 @@ export abstract class YouTubeCommentClass {
     static name: string
 }
 export class YouTubeCommentPrivate {
-    static name: string
-}
-export abstract class YouTubeContentClass {
-    static name: string
-}
-export class YouTubeContentPrivate {
-    static name: string
-}
-export abstract class YouTubeCreditClass {
-    static name: string
-}
-export class YouTubeCreditPrivate {
     static name: string
 }
 export abstract class YouTubeFeedClass {

@@ -3629,8 +3629,8 @@ export class ErrorResultPrivate {
 }
 export abstract class ExpressionClass {
     /* Fields of GCalc-2.GCalc.ExpressionClass */
-    toString: () => string
-    solve: () => MathResult
+    toString: (self: Expression) => string
+    solve: (self: Expression) => MathResult
     static name: string
 }
 export class ExpressionPrivate {
@@ -3656,7 +3656,7 @@ export class ExpressionHashMapPrivate {
 }
 export abstract class FunctionClass {
     /* Fields of GCalc-2.GCalc.FunctionClass */
-    evaluate: () => MathExpression
+    evaluate: (self: Function) => MathExpression
     static name: string
 }
 export class FunctionPrivate {
@@ -3826,7 +3826,7 @@ export class VariablePrivate {
 }
 export abstract class HashableIface {
     /* Fields of GCalc-2.GCalc.HashableIface */
-    hash: () => number
+    hash: (self: Hashable) => number
     static name: string
 }
 export abstract class MathAssignIface {
@@ -3837,24 +3837,24 @@ export abstract class MathBinaryOperatorIface {
 }
 export abstract class MathConstantIface {
     /* Fields of GCalc-2.GCalc.MathConstantIface */
-    add: (c: MathConstant) => MathConstant
-    subtract: (c: MathConstant) => MathConstant
-    multiply: (c: MathConstant) => MathConstant
-    divide: (c: MathConstant) => MathConstant
-    neg: () => MathConstant
-    pow: (c: MathConstant) => MathConstant
+    add: (self: MathConstant, c: MathConstant) => MathConstant
+    subtract: (self: MathConstant, c: MathConstant) => MathConstant
+    multiply: (self: MathConstant, c: MathConstant) => MathConstant
+    divide: (self: MathConstant, c: MathConstant) => MathConstant
+    neg: (self: MathConstant) => MathConstant
+    pow: (self: MathConstant, c: MathConstant) => MathConstant
     static name: string
 }
 export abstract class MathConstantComplexIface {
     /* Fields of GCalc-2.GCalc.MathConstantComplexIface */
-    real: () => number
-    imag: () => number
-    zero: () => void
+    real: (self: MathConstantComplex) => number
+    imag: (self: MathConstantComplex) => number
+    zero: (self: MathConstantComplex) => void
     static name: string
 }
 export abstract class MathConstantNumberIface {
     /* Fields of GCalc-2.GCalc.MathConstantNumberIface */
-    value: () => number
+    value: (self: MathConstantNumber) => number
     static name: string
 }
 export abstract class MathDivisionIface {
@@ -3862,50 +3862,50 @@ export abstract class MathDivisionIface {
 }
 export abstract class MathEquationIface {
     /* Fields of GCalc-2.GCalc.MathEquationIface */
-    getVariables: () => ExpressionHashMap
+    getVariables: (self: MathEquation) => ExpressionHashMap
     static name: string
 }
 export abstract class MathEquationManagerIface {
     /* Fields of GCalc-2.GCalc.MathEquationManagerIface */
-    findVariable: (name: string) => MathVariable
-    getEquations: () => ExpressionContainer
-    getFunctions: () => ExpressionContainer
+    findVariable: (self: MathEquationManager, name: string) => MathVariable
+    getEquations: (self: MathEquationManager) => ExpressionContainer
+    getFunctions: (self: MathEquationManager) => ExpressionContainer
     static name: string
 }
 export abstract class MathErrorResultIface {
     /* Fields of GCalc-2.GCalc.MathErrorResultIface */
-    getMessage: () => string
+    getMessage: (self: MathErrorResult) => string
     static name: string
 }
 export abstract class MathExpressionIface {
     /* Fields of GCalc-2.GCalc.MathExpressionIface */
-    toString: () => string
-    solve: () => MathResult
-    getParent: () => MathExpression
-    setParent: (value: MathExpression) => void
-    getExpressions: () => ExpressionContainer
+    toString: (self: MathExpression) => string
+    solve: (self: MathExpression) => MathResult
+    getParent: (self: MathExpression) => MathExpression
+    setParent: (self: MathExpression, value: MathExpression) => void
+    getExpressions: (self: MathExpression) => ExpressionContainer
     static name: string
 }
 export abstract class MathFunctionIface {
     /* Fields of GCalc-2.GCalc.MathFunctionIface */
-    evaluate: () => MathExpression
-    verifyParams: () => boolean
-    getParamTypes: () => ExpressionContainer
-    getName: () => string
-    setName: (value: string) => void
-    getNParams: () => number
-    setNParams: (value: number) => void
-    getClosed: () => boolean
-    setClosed: (value: boolean) => void
+    evaluate: (self: MathFunction) => MathExpression
+    verifyParams: (self: MathFunction) => boolean
+    getParamTypes: (self: MathFunction) => ExpressionContainer
+    getName: (self: MathFunction) => string
+    setName: (self: MathFunction, value: string) => void
+    getNParams: (self: MathFunction) => number
+    setNParams: (self: MathFunction, value: number) => void
+    getClosed: (self: MathFunction) => boolean
+    setClosed: (self: MathFunction, value: boolean) => void
     static name: string
 }
 export abstract class MathGroupIface {
     /* Fields of GCalc-2.GCalc.MathGroupIface */
-    evaluate: () => MathExpression
-    getLevel: () => MathGroupLevel
-    setLevel: (value: MathGroupLevel) => void
-    getClosed: () => boolean
-    setClosed: (value: boolean) => void
+    evaluate: (self: MathGroup) => MathExpression
+    getLevel: (self: MathGroup) => MathGroupLevel
+    setLevel: (self: MathGroup, value: MathGroupLevel) => void
+    getClosed: (self: MathGroup) => boolean
+    setClosed: (self: MathGroup, value: boolean) => void
     static name: string
 }
 export abstract class MathMinusIface {
@@ -3919,8 +3919,8 @@ export abstract class MathOperatorIface {
 }
 export abstract class MathParameterIface {
     /* Fields of GCalc-2.GCalc.MathParameterIface */
-    setValue: (val?: any | null) => void
-    getValue: () => any | null
+    setValue: (self: MathParameter, val?: any | null) => void
+    getValue: (self: MathParameter) => any | null
     static name: string
 }
 export abstract class MathPlusIface {
@@ -3928,7 +3928,7 @@ export abstract class MathPlusIface {
 }
 export abstract class MathPolynomialIface {
     /* Fields of GCalc-2.GCalc.MathPolynomialIface */
-    evaluate: () => MathExpression
+    evaluate: (self: MathPolynomial) => MathExpression
     static name: string
 }
 export abstract class MathPowIface {
@@ -3936,26 +3936,26 @@ export abstract class MathPowIface {
 }
 export abstract class MathResultIface {
     /* Fields of GCalc-2.GCalc.MathResultIface */
-    toString: () => string
-    getExpression: () => MathExpression
+    toString: (self: MathResult) => string
+    getExpression: (self: MathResult) => MathExpression
     static name: string
 }
 export abstract class MathTermIface {
     /* Fields of GCalc-2.GCalc.MathTermIface */
-    add: (t: MathTerm) => MathExpression
-    evaluate: () => MathExpression
+    add: (self: MathTerm, t: MathTerm) => MathExpression
+    evaluate: (self: MathTerm) => MathExpression
     static name: string
 }
 export abstract class MathVariableIface {
     /* Fields of GCalc-2.GCalc.MathVariableIface */
-    evaluate: () => MathExpression
-    getName: () => string
-    setName: (value: string) => void
-    getValue: () => MathConstant
-    setValue: (value: MathConstant) => void
-    getBind: () => MathVariable
-    setBind: (value: MathVariable) => void
-    getBinded: () => boolean
+    evaluate: (self: MathVariable) => MathExpression
+    getName: (self: MathVariable) => string
+    setName: (self: MathVariable, value: string) => void
+    getValue: (self: MathVariable) => MathConstant
+    setValue: (self: MathVariable, value: MathConstant) => void
+    getBind: (self: MathVariable) => MathVariable
+    setBind: (self: MathVariable, value: MathVariable) => void
+    getBinded: (self: MathVariable) => boolean
     static name: string
 }
 }

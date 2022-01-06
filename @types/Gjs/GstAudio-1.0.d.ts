@@ -318,6 +318,7 @@ export class StreamVolume {
 export interface AudioAggregator_ConstructProps extends GstBase.Aggregator_ConstructProps {
     alignment_threshold?: number
     discont_wait?: number
+    ignore_inactive_pads?: boolean
     output_buffer_duration?: number
     output_buffer_duration_fraction?: Gst.Fraction
 }
@@ -325,6 +326,7 @@ export class AudioAggregator {
     /* Properties of GstAudio-1.0.GstAudio.AudioAggregator */
     alignment_threshold: number
     discont_wait: number
+    ignore_inactive_pads: boolean
     output_buffer_duration: number
     output_buffer_duration_fraction: Gst.Fraction
     /* Properties of GstBase-1.0.GstBase.Aggregator */
@@ -373,10 +375,12 @@ export class AudioAggregator {
     finish_buffer_list(bufferlist: Gst.BufferList): Gst.FlowReturn
     get_allocator(): [ /* allocator */ Gst.Allocator | null, /* params */ Gst.AllocationParams | null ]
     get_buffer_pool(): Gst.BufferPool | null
+    get_ignore_inactive_pads(): boolean
     get_latency(): Gst.ClockTime
     negotiate(): boolean
     peek_next_sample(pad: GstBase.AggregatorPad): Gst.Sample | null
     selected_samples(pts: Gst.ClockTime, dts: Gst.ClockTime, duration: Gst.ClockTime, info?: Gst.Structure | null): void
+    set_ignore_inactive_pads(ignore: boolean): void
     set_latency(min_latency: Gst.ClockTime, max_latency: Gst.ClockTime): void
     set_src_caps(caps: Gst.Caps): void
     simple_get_next_time(): Gst.ClockTime
@@ -434,6 +438,7 @@ export class AudioAggregator {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -572,6 +577,8 @@ export class AudioAggregator {
     connect_after(sigName: "notify::alignment-threshold", callback: (($obj: AudioAggregator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::discont-wait", callback: (($obj: AudioAggregator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::discont-wait", callback: (($obj: AudioAggregator, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::ignore-inactive-pads", callback: (($obj: AudioAggregator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ignore-inactive-pads", callback: (($obj: AudioAggregator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::output-buffer-duration", callback: (($obj: AudioAggregator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::output-buffer-duration", callback: (($obj: AudioAggregator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::output-buffer-duration-fraction", callback: (($obj: AudioAggregator, pspec: GObject.ParamSpec) => void)): number
@@ -605,6 +612,8 @@ export interface AudioAggregatorConvertPad_ConstructProps extends AudioAggregato
 export class AudioAggregatorConvertPad {
     /* Properties of GstAudio-1.0.GstAudio.AudioAggregatorConvertPad */
     converter_config: Gst.Structure
+    /* Properties of GstAudio-1.0.GstAudio.AudioAggregatorPad */
+    qos_messages: boolean
     /* Properties of GstBase-1.0.GstBase.AggregatorPad */
     emit_signals: boolean
     /* Properties of Gst-1.0.Gst.Pad */
@@ -632,6 +641,7 @@ export class AudioAggregatorConvertPad {
     drop_buffer(): boolean
     has_buffer(): boolean
     is_eos(): boolean
+    is_inactive(): boolean
     peek_buffer(): Gst.Buffer | null
     pop_buffer(): Gst.Buffer | null
     /* Methods of Gst-1.0.Gst.Pad */
@@ -801,6 +811,8 @@ export class AudioAggregatorConvertPad {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::converter-config", callback: (($obj: AudioAggregatorConvertPad, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::converter-config", callback: (($obj: AudioAggregatorConvertPad, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::qos-messages", callback: (($obj: AudioAggregatorConvertPad, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::qos-messages", callback: (($obj: AudioAggregatorConvertPad, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::emit-signals", callback: (($obj: AudioAggregatorConvertPad, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::emit-signals", callback: (($obj: AudioAggregatorConvertPad, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::caps", callback: (($obj: AudioAggregatorConvertPad, pspec: GObject.ParamSpec) => void)): number
@@ -823,8 +835,11 @@ export class AudioAggregatorConvertPad {
     static $gtype: GObject.Type
 }
 export interface AudioAggregatorPad_ConstructProps extends GstBase.AggregatorPad_ConstructProps {
+    qos_messages?: boolean
 }
 export class AudioAggregatorPad {
+    /* Properties of GstAudio-1.0.GstAudio.AudioAggregatorPad */
+    qos_messages: boolean
     /* Properties of GstBase-1.0.GstBase.AggregatorPad */
     emit_signals: boolean
     /* Properties of Gst-1.0.Gst.Pad */
@@ -852,6 +867,7 @@ export class AudioAggregatorPad {
     drop_buffer(): boolean
     has_buffer(): boolean
     is_eos(): boolean
+    is_inactive(): boolean
     peek_buffer(): Gst.Buffer | null
     pop_buffer(): Gst.Buffer | null
     /* Methods of Gst-1.0.Gst.Pad */
@@ -1019,6 +1035,8 @@ export class AudioAggregatorPad {
     connect(sigName: "notify", callback: (($obj: AudioAggregatorPad, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AudioAggregatorPad, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::qos-messages", callback: (($obj: AudioAggregatorPad, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::qos-messages", callback: (($obj: AudioAggregatorPad, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::emit-signals", callback: (($obj: AudioAggregatorPad, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::emit-signals", callback: (($obj: AudioAggregatorPad, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::caps", callback: (($obj: AudioAggregatorPad, pspec: GObject.ParamSpec) => void)): number
@@ -1222,6 +1240,7 @@ export class AudioBaseSink {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -1551,6 +1570,7 @@ export class AudioBaseSrc {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -1612,29 +1632,29 @@ export class AudioBaseSrc {
     watch_closure(closure: Function): void
     /* Virtual methods of GstAudio-1.0.GstAudio.AudioBaseSrc */
     vfunc_create_ringbuffer(): AudioRingBuffer
-    vfunc_alloc(buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(offset: number, size: number, buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_fill(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_fill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
     /* Virtual methods of GstBase-1.0.GstBase.PushSrc */
-    vfunc_alloc(buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(offset: number, size: number, buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_fill(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_fill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
     /* Virtual methods of GstBase-1.0.GstBase.BaseSrc */
-    vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(offset: number, size: number, buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_decide_allocation(query: Gst.Query): boolean
     vfunc_do_seek(segment: Gst.Segment): boolean
     vfunc_event(event: Gst.Event): boolean
     vfunc_fill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
     vfunc_fixate(caps: Gst.Caps): Gst.Caps
     vfunc_get_caps(filter?: Gst.Caps | null): Gst.Caps
-    vfunc_get_size(size: number): boolean
+    vfunc_get_size(): [ /* returnType */ boolean, /* size */ number ]
     vfunc_get_times(buffer: Gst.Buffer): [ /* start */ Gst.ClockTime, /* end */ Gst.ClockTime ]
     vfunc_is_seekable(): boolean
     vfunc_negotiate(): boolean
@@ -1864,6 +1884,7 @@ export class AudioCdSrc {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -1934,29 +1955,29 @@ export class AudioCdSrc {
     vfunc_read_sector(sector: number): Gst.Buffer
     vfunc_get_uri(): string | null
     vfunc_set_uri(uri: string): boolean
-    vfunc_alloc(buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(offset: number, size: number, buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_fill(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_fill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
     /* Virtual methods of GstBase-1.0.GstBase.PushSrc */
-    vfunc_alloc(buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(offset: number, size: number, buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_fill(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_fill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
     /* Virtual methods of GstBase-1.0.GstBase.BaseSrc */
-    vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(offset: number, size: number, buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_decide_allocation(query: Gst.Query): boolean
     vfunc_do_seek(segment: Gst.Segment): boolean
     vfunc_event(event: Gst.Event): boolean
     vfunc_fill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
     vfunc_fixate(caps: Gst.Caps): Gst.Caps
     vfunc_get_caps(filter?: Gst.Caps | null): Gst.Caps
-    vfunc_get_size(size: number): boolean
+    vfunc_get_size(): [ /* returnType */ boolean, /* size */ number ]
     vfunc_get_times(buffer: Gst.Buffer): [ /* start */ Gst.ClockTime, /* end */ Gst.ClockTime ]
     vfunc_is_seekable(): boolean
     vfunc_negotiate(): boolean
@@ -2324,6 +2345,7 @@ export class AudioDecoder {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -2602,6 +2624,7 @@ export class AudioEncoder {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -2880,6 +2903,7 @@ export class AudioFilter {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -3351,6 +3375,7 @@ export class AudioSink {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -3690,6 +3715,7 @@ export class AudioSrc {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -3757,37 +3783,37 @@ export class AudioSrc {
     vfunc_read(data: object | null, length: number, timestamp: Gst.ClockTime): number
     vfunc_reset(): void
     vfunc_unprepare(): boolean
-    vfunc_alloc(buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(offset: number, size: number, buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_fill(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_fill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
     /* Virtual methods of GstAudio-1.0.GstAudio.AudioBaseSrc */
     vfunc_create_ringbuffer(): AudioRingBuffer
-    vfunc_alloc(buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(offset: number, size: number, buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_fill(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_fill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
     /* Virtual methods of GstBase-1.0.GstBase.PushSrc */
-    vfunc_alloc(buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(offset: number, size: number, buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_fill(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_fill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
     /* Virtual methods of GstBase-1.0.GstBase.BaseSrc */
-    vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(offset: number, size: number, buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_decide_allocation(query: Gst.Query): boolean
     vfunc_do_seek(segment: Gst.Segment): boolean
     vfunc_event(event: Gst.Event): boolean
     vfunc_fill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
     vfunc_fixate(caps: Gst.Caps): Gst.Caps
     vfunc_get_caps(filter?: Gst.Caps | null): Gst.Caps
-    vfunc_get_size(size: number): boolean
+    vfunc_get_size(): [ /* returnType */ boolean, /* size */ number ]
     vfunc_get_times(buffer: Gst.Buffer): [ /* start */ Gst.ClockTime, /* end */ Gst.ClockTime ]
     vfunc_is_seekable(): boolean
     vfunc_negotiate(): boolean

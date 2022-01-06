@@ -87,6 +87,11 @@ export class X11AppLaunchContext {
     once(sigName: "launch-failed", callback: (startupNotifyId: string) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "launch-failed", callback: (startupNotifyId: string) => void): NodeJS.EventEmitter
     emit(sigName: "launch-failed", startupNotifyId: string): void
+    connect(sigName: "launch-started", callback: (($obj: X11AppLaunchContext, info: Gio.AppInfo, platformData?: GLib.Variant | null) => void)): number
+    on(sigName: "launch-started", callback: (info: Gio.AppInfo, platformData?: GLib.Variant | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "launch-started", callback: (info: Gio.AppInfo, platformData?: GLib.Variant | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "launch-started", callback: (info: Gio.AppInfo, platformData?: GLib.Variant | null) => void): NodeJS.EventEmitter
+    emit(sigName: "launch-started", info: Gio.AppInfo, platformData?: GLib.Variant | null): void
     connect(sigName: "launched", callback: (($obj: X11AppLaunchContext, info: Gio.AppInfo, platformData: GLib.Variant) => void)): number
     on(sigName: "launched", callback: (info: Gio.AppInfo, platformData: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "launched", callback: (info: Gio.AppInfo, platformData: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter

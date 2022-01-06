@@ -18,6 +18,12 @@ import type { Atk } from './Atk-1.0';
 
 export declare namespace Vte {
 
+export enum Align {
+    START,
+    CENTER,
+    END,
+    START_FILL,
+}
 export enum CursorBlinkMode {
     SYSTEM,
     ON,
@@ -186,8 +192,11 @@ export interface Terminal_ConstructProps extends Gtk.Widget_ConstructProps {
     rewrapOnResize?: boolean
     scrollOnKeystroke?: boolean
     scrollOnOutput?: boolean
+    scrollUnitIsPixels?: boolean
     scrollbackLines?: number
     textBlinkMode?: TextBlinkMode
+    xalign?: Align
+    yalign?: Align
     hadjustment?: Gtk.Adjustment
     hscrollPolicy?: Gtk.ScrollablePolicy
     vadjustment?: Gtk.Adjustment
@@ -223,10 +232,13 @@ export class Terminal {
     rewrapOnResize: boolean
     scrollOnKeystroke: boolean
     scrollOnOutput: boolean
+    scrollUnitIsPixels: boolean
     scrollbackLines: number
     textBlinkMode: TextBlinkMode
     readonly windowTitle: string
     readonly wordCharExceptions: string
+    xalign: Align
+    yalign: Align
     /* Properties of Gtk-3.0.Gtk.Widget */
     appPaintable: boolean
     canDefault: boolean
@@ -320,13 +332,16 @@ export class Terminal {
     getRowCount(): number
     getScrollOnKeystroke(): boolean
     getScrollOnOutput(): boolean
+    getScrollUnitIsPixels(): boolean
     getScrollbackLines(): number
-    getText(isSelected?: SelectionFunc | null): { returnType: string, attributes: CharAttributes[] }
+    getText(isSelected?: SelectionFunc | null): { returnType: string | null, attributes: CharAttributes[] | null }
     getTextBlinkMode(): TextBlinkMode
     getTextIncludeTrailingSpaces(isSelected?: SelectionFunc | null): { returnType: string, attributes: CharAttributes[] }
-    getTextRange(startRow: number, startCol: number, endRow: number, endCol: number, isSelected?: SelectionFunc | null): { returnType: string, attributes: CharAttributes[] }
+    getTextRange(startRow: number, startCol: number, endRow: number, endCol: number, isSelected?: SelectionFunc | null): { returnType: string | null, attributes: CharAttributes[] | null }
     getWindowTitle(): string | null
     getWordCharExceptions(): string | null
+    getXalign(): Align
+    getYalign(): Align
     hyperlinkCheckEvent(event: Gdk.Event): string | null
     matchAddGregex(gregex: GLib.Regex, gflags: GLib.RegexMatchFlags): number
     matchAddRegex(regex: Regex, flags: number): number
@@ -339,6 +354,7 @@ export class Terminal {
     matchSetCursorType(tag: number, cursorType: Gdk.CursorType): void
     pasteClipboard(): void
     pastePrimary(): void
+    pasteText(text: string): void
     ptyNewSync(flags: PtyFlags, cancellable?: Gio.Cancellable | null): Pty
     reset(clearTabstops: boolean, clearHistory: boolean): void
     searchFindNext(): boolean
@@ -385,10 +401,13 @@ export class Terminal {
     setRewrapOnResize(rewrap: boolean): void
     setScrollOnKeystroke(scroll: boolean): void
     setScrollOnOutput(scroll: boolean): void
+    setScrollUnitIsPixels(enable: boolean): void
     setScrollbackLines(lines: number): void
     setSize(columns: number, rows: number): void
     setTextBlinkMode(textBlinkMode: TextBlinkMode): void
     setWordCharExceptions(exceptions: string): void
+    setXalign(align: Align): void
+    setYalign(align: Align): void
     spawnAsync(ptyFlags: PtyFlags, workingDirectory: string | null, argv: string[], envv: string[] | null, spawnFlags: GLib.SpawnFlags, timeout: number, cancellable?: Gio.Cancellable | null): void
     spawnSync(ptyFlags: PtyFlags, workingDirectory: string | null, argv: string[], envv: string[] | null, spawnFlags: GLib.SpawnFlags, childSetup?: GLib.SpawnChildSetupFunc | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, childPid: GLib.Pid | null }
     spawnWithFdsAsync(ptyFlags: PtyFlags, workingDirectory: string | null, argv: string[], envv: string[] | null, fds: number[] | null, mapFds: number[] | null, spawnFlags: GLib.SpawnFlags, timeout: number, cancellable?: Gio.Cancellable | null): void
@@ -1343,6 +1362,11 @@ export class Terminal {
     on(sigName: "notify::scroll-on-output", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::scroll-on-output", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::scroll-on-output", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::scroll-unit-is-pixels", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::scroll-unit-is-pixels", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::scroll-unit-is-pixels", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::scroll-unit-is-pixels", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::scroll-unit-is-pixels", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::scrollback-lines", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::scrollback-lines", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::scrollback-lines", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1363,6 +1387,16 @@ export class Terminal {
     on(sigName: "notify::word-char-exceptions", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::word-char-exceptions", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::word-char-exceptions", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::xalign", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::xalign", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::xalign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::xalign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::xalign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::yalign", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::yalign", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::yalign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::yalign", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::yalign", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::app-paintable", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::app-paintable", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::app-paintable", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1640,8 +1674,6 @@ export abstract class TerminalClass {
     copyClipboard: (terminal: Terminal) => void
     pasteClipboard: (terminal: Terminal) => void
     bell: (terminal: Terminal) => void
-    padding: object[]
-    priv: TerminalClassPrivate
     static name: string
 }
 export class TerminalClassPrivate {

@@ -96,6 +96,7 @@ export enum ControlKind {
     VOICE,
     VISION,
     TV_REMOTE,
+    TABLET,
 }
 export enum DisplayLengthKind {
     UNKNOWN,
@@ -122,15 +123,16 @@ export enum FormatStyle {
     COLLECTION,
 }
 export enum FormatVersion {
-    /* 6 (invalid, starts with a number) */
-    /* 7 (invalid, starts with a number) */
-    /* 8 (invalid, starts with a number) */
-    /* 9 (invalid, starts with a number) */
-    /* 10 (invalid, starts with a number) */
-    /* 11 (invalid, starts with a number) */
-    /* 12 (invalid, starts with a number) */
-    /* 13 (invalid, starts with a number) */
-    /* 14 (invalid, starts with a number) */
+    V0_6,
+    V0_7,
+    V0_8,
+    V0_9,
+    V0_10,
+    V0_11,
+    V0_12,
+    V0_13,
+    V0_14,
+    UNKNOWN,
 }
 export enum IconKind {
     UNKNOWN,
@@ -222,11 +224,13 @@ export enum RelationItemKind {
     FIRMWARE,
     CONTROL,
     DISPLAY_LENGTH,
+    HARDWARE,
 }
 export enum RelationKind {
     UNKNOWN,
     REQUIRES,
     RECOMMENDS,
+    SUPPORTS,
 }
 export enum ReleaseKind {
     UNKNOWN,
@@ -297,6 +301,7 @@ export enum CacheFlags {
     USE_USER,
     USE_SYSTEM,
     NO_CLEAR,
+    REFRESH_SYSTEM,
 }
 export enum DataIdMatchFlags {
     NONE,
@@ -312,9 +317,14 @@ export enum ParseFlags {
 }
 export enum PoolFlags {
     NONE,
-    READ_COLLECTION,
-    READ_METAINFO,
-    READ_DESKTOP_FILES,
+    LOAD_OS_COLLECTION,
+    LOAD_OS_METAINFO,
+    LOAD_OS_DESKTOP_FILES,
+    LOAD_FLATPAK,
+    IGNORE_CACHE_AGE,
+    RESOLVE_ADDONS,
+    PREFER_OS_METAINFO,
+    MONITOR,
 }
 export enum ReviewFlags {
     NONE,
@@ -383,7 +393,8 @@ export function getAppstreamVersion(): string
 export function getCurrentDistroComponentId(): string
 export function getDefaultCategories(withSpecial: boolean): Category[]
 export function getLicenseUrl(license: string): string
-export function gstringReplace(string: GLib.String, search: string, replace: string): number
+export function gstringReplace(string: GLib.String, find: string, replace: string): number
+export function gstringReplace2(string: GLib.String, find: string, replace: string, limit: number): number
 export function iconKindFromString(kindStr: string): IconKind
 export function iconKindToString(kind: IconKind): string
 export function imageKindFromString(kind: string): ImageKind
@@ -399,6 +410,7 @@ export function launchableKindFromString(kindStr: string): LaunchableKind
 export function launchableKindToString(kind: LaunchableKind): string
 export function licenseIsFreeLicense(license: string): boolean
 export function licenseIsMetadataLicense(license: string): boolean
+export function licenseIsMetadataLicenseId(licenseId: string): boolean
 export function licenseToSpdxId(license: string): string
 export function markupConvertSimple(markup: string): string
 export function markupStrsplitWords(text: string, lineLen: number): string[]
@@ -442,6 +454,7 @@ export function utilsDataIdHash(dataId: string): number
 export function utilsDataIdMatch(dataId1: string, dataId2: string, matchFlags: DataIdMatchFlags): boolean
 export function utilsDataIdValid(dataId: string): boolean
 export function utilsErrorQuark(): GLib.Quark
+export function utilsGuessScopeFromPath(path: string): ComponentScope
 export function utilsInstallMetadataFile(location: MetadataLocation, filename: string, origin: string, destdir: string): boolean
 export function utilsIsCategoryName(categoryName: string): boolean
 export function utilsIsDesktopEnvironment(desktop: string): boolean
@@ -895,11 +908,15 @@ export class Component {
     addReview(review: Review): void
     addScreenshot(sshot: Screenshot): void
     addSuggested(suggested: Suggested): void
+    addTag(ns: string, tag: string): boolean
     addTranslation(tr: Translation): void
     addUrl(urlKind: UrlKind, url: string): void
+    clearLanguages(): void
+    clearTags(): void
     getActiveLocale(): string
     getAddons(): Component[]
     getAgreementByKind(kind: AgreementKind): Agreement | null
+    getAgreements(): Agreement[]
     getBranch(): string
     getBundle(bundleKind: BundleKind): Bundle | null
     getBundles(): Bundle[]
@@ -933,6 +950,7 @@ export class Component {
     getOrigin(): string
     getPkgname(): string
     getPkgnames(): string[]
+    getPriority(): number
     getProjectGroup(): string
     getProjectLicense(): string
     getProvided(): Provided[]
@@ -949,11 +967,13 @@ export class Component {
     getSuggested(): Suggested[]
     getSummary(): string
     getSummaryTable(): GLib.HashTable
+    getSupports(): Relation[]
     getTranslations(): Translation[]
     getUrl(urlKind: UrlKind): string | null
     getValueFlags(): ValueFlags
     hasBundle(): boolean
     hasCategory(category: string): boolean
+    hasTag(ns: string, tag: string): boolean
     insertCustomValue(key: string, value: string): boolean
     isCompulsoryForDesktop(desktop: string): boolean
     isIgnored(): boolean
@@ -961,6 +981,7 @@ export class Component {
     isValid(): boolean
     loadFromBytes(context: Context, format: FormatKind, bytes: any): boolean
     loadFromXmlData(context: Context, data: string): boolean
+    removeTag(ns: string, tag: string): boolean
     searchMatches(term: string): number
     searchMatchesAll(terms: string): number
     setActiveLocale(locale?: string | null): void
@@ -977,7 +998,9 @@ export class Component {
     setName(value: string, locale?: string | null): void
     setNameVariantSuffix(value: string, locale?: string | null): void
     setOrigin(origin: string): void
+    setPkgname(pkgname: string): void
     setPkgnames(packages: string[]): void
+    setPriority(priority: number): void
     setProjectGroup(value: string): void
     setProjectLicense(value: string): void
     setScope(scope: ComponentScope): void
@@ -1632,6 +1655,9 @@ export class Pool {
     gTypeInstance: GObject.TypeInstance
     /* Methods of AppStream-1.0.AppStream.Pool */
     addComponent(cpt: Component): boolean
+    addComponents(cpts: Component[]): boolean
+    addExtraDataLocation(directory: string, formatStyle: FormatStyle): void
+    addFlags(flags: PoolFlags): void
     addMetadataLocation(directory: string): void
     buildSearchTokens(search: string): string[]
     clear(): void
@@ -1641,6 +1667,7 @@ export class Pool {
     getCacheLocation(): string
     getComponents(): Component[]
     getComponentsByCategories(categories: string): Component[]
+    getComponentsByExtends(extendedId: string): Component[]
     getComponentsById(cid: string): Component[]
     getComponentsByKind(kind: ComponentKind): Component[]
     getComponentsByLaunchable(kind: LaunchableKind, id: string): Component[]
@@ -1652,11 +1679,14 @@ export class Pool {
     loadCacheFile(fname: string): boolean
     loadFinish(result: Gio.AsyncResult): boolean
     refreshCache(force: boolean): boolean
+    removeFlags(flags: PoolFlags): void
+    resetExtraDataLocations(): void
     saveCacheFile(fname: string): boolean
     search(search: string): Component[]
     setCacheFlags(flags: CacheFlags): void
     setCacheLocation(fname: string): void
     setFlags(flags: PoolFlags): void
+    setLoadStdDataLocations(enabled: boolean): void
     setLocale(locale: string): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -1680,6 +1710,12 @@ export class Pool {
     thawNotify(): void
     unref(): void
     watchClosure(closure: Function): void
+    /* Signals of AppStream-1.0.AppStream.Pool */
+    connect(sigName: "changed", callback: (($obj: Pool) => void)): number
+    on(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "changed", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "changed"): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Pool, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -2186,8 +2222,10 @@ export class Translation {
     /* Methods of AppStream-1.0.AppStream.Translation */
     getId(): string
     getKind(): TranslationKind
+    getSourceLocale(): string
     setId(id: string): void
     setKind(kind: TranslationKind): void
+    setSourceLocale(locale?: string | null): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -2502,6 +2540,7 @@ export abstract class MetadataClass {
 export abstract class PoolClass {
     /* Fields of AppStream-1.0.AppStream.PoolClass */
     parentClass: GObject.ObjectClass
+    changed: (pool: Pool) => void
     static name: string
 }
 export abstract class ProvidedClass {

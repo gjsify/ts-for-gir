@@ -885,7 +885,7 @@ export class ServerSideSource {
     deletePasswordFinish(result: Gio.AsyncResult): boolean
     deletePasswordSync(cancellable?: Gio.Cancellable | null): boolean
     dupDisplayName(): string
-    dupParent(): string
+    dupParent(): string | null
     dupSecretLabel(): string
     dupUid(): string
     emitCredentialsRequired(reason: EDataServer.SourceCredentialsReason, certificatePem: string, certificateErrors: Gio.TlsCertificateFlags, opError?: GLib.Error | null): void
@@ -900,7 +900,7 @@ export class ServerSideSource {
     getOauth2AccessToken(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getOauth2AccessTokenFinish(result: Gio.AsyncResult): { returnType: boolean, outAccessToken: string | null, outExpiresIn: number | null }
     getOauth2AccessTokenSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outAccessToken: string | null, outExpiresIn: number | null }
-    getParent(): string
+    getParent(): string | null
     getRemoteCreatable(): boolean
     getRemoteDeletable(): boolean
     getRemovable(): boolean
@@ -915,8 +915,8 @@ export class ServerSideSource {
     invokeCredentialsRequiredFinish(result: Gio.AsyncResult): boolean
     invokeCredentialsRequiredSync(reason: EDataServer.SourceCredentialsReason, certificatePem: string, certificateErrors: Gio.TlsCertificateFlags, opError?: GLib.Error | null, cancellable?: Gio.Cancellable | null): boolean
     lookupPassword(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    lookupPasswordFinish(result: Gio.AsyncResult): { returnType: boolean, outPassword: string }
-    lookupPasswordSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outPassword: string }
+    lookupPasswordFinish(result: Gio.AsyncResult): { returnType: boolean, outPassword: string | null }
+    lookupPasswordSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outPassword: string | null }
     mailSignatureLoad(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     mailSignatureLoadFinish(result: Gio.AsyncResult): { returnType: boolean, contents: string, length: number | null }
     mailSignatureLoadSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, contents: string, length: number | null }
@@ -929,7 +929,7 @@ export class ServerSideSource {
     proxyLookup(uri: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     proxyLookupFinish(result: Gio.AsyncResult): string[]
     proxyLookupSync(uri: string, cancellable?: Gio.Cancellable | null): string[]
-    refDbusObject(): Gio.DBusObject
+    refDbusObject(): Gio.DBusObject | null
     refMainContext(): GLib.MainContext
     refreshAddTimeout(context: GLib.MainContext | null, callback: EDataServer.SourceRefreshFunc): number
     refreshForceTimeout(): void
@@ -951,7 +951,7 @@ export class ServerSideSource {
     storePassword(password: string, permanently: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     storePasswordFinish(result: Gio.AsyncResult): boolean
     storePasswordSync(password: string, permanently: boolean, cancellable?: Gio.Cancellable | null): boolean
-    toString(length?: number | null): string
+    toString(): { returnType: string, length: number | null }
     unsetLastCredentialsRequiredArguments(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     unsetLastCredentialsRequiredArgumentsFinish(result: Gio.AsyncResult): boolean
     unsetLastCredentialsRequiredArgumentsSync(cancellable?: Gio.Cancellable | null): boolean

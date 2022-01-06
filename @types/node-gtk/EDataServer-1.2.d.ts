@@ -297,6 +297,7 @@ export const SOURCE_EXTENSION_TASK_LIST: string
 export const SOURCE_EXTENSION_UOA: string
 export const SOURCE_EXTENSION_WEATHER_BACKEND: string
 export const SOURCE_EXTENSION_WEBDAV_BACKEND: string
+export const SOURCE_EXTENSION_WEBDAV_NOTES: string
 export const SOURCE_PARAM_SETTING: number
 export const WEBDAV_CAPABILITY_ACCESS_CONTROL: string
 export const WEBDAV_CAPABILITY_ADDRESSBOOK: string
@@ -329,7 +330,7 @@ export const WEBDAV_NS_CARDDAV: string
 export const WEBDAV_NS_DAV: string
 export const WEBDAV_NS_ICAL: string
 export function bindingBindProperty(source: GObject.Object, sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
-export function bindingBindPropertyFull(source: GObject.Object, sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+export function bindingBindPropertyFull(source: GObject.Object, sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo?: Function | null, transformFrom?: Function | null): GObject.Binding
 export function bindingTransformEnumNickToValue(binding: GObject.Binding, sourceValue: any, targetValue: any, notUsed?: object | null): boolean
 export function bindingTransformEnumValueToNick(binding: GObject.Binding, sourceValue: any, targetValue: any, notUsed?: object | null): boolean
 export function categoriesAdd(category: string, unused: string, iconFile: string, searchable: boolean): void
@@ -399,34 +400,35 @@ export function utilFreeNullableObjectSlist(objects: GObject.Object[]): void
 export function utilFreeObjectSlist(objects: GObject.Object[]): void
 export function utilFreeStringSlist(strings: string[]): void
 export function utilGenerateUid(): string
+export function utilGetDirectoryVariants(mainPath: string, replacePrefix: string, withModulesDir: boolean): string[]
 export function utilGetSourceFullName(registry?: object | null, source?: object | null): string
 export function utilGthreadId(thread: GLib.Thread): number
 export function utilIdentityCanSend(registry?: object | null, identitySource?: object | null): boolean
 export function utilSafeFreeString(str: string): void
 export function utilSlistToStrv(strings: string[]): string[]
 export function utilSourceCompareForSort(sourceA?: object | null, sourceB?: object | null): number
-export function utilStrcmp0(str1: string, str2: string): number
-export function utilStrdupStrip(string?: string | null): string
-export function utilStrstrcase(haystack: string, needle: string): string
-export function utilStrvEqual(v1?: object | null, v2?: object | null): boolean
+export function utilStrcmp0(str1?: string | null, str2?: string | null): number
+export function utilStrdupStrip(string?: string | null): string | null
+export function utilStrstrcase(haystack: string, needle: string): string | null
+export function utilStrvEqual(v1: string[], v2: string[]): boolean
 export function utilStrvToSlist(strv: string): string[]
-export function utilUnicodeGetUtf8(text: string, out: number): string
+export function utilUnicodeGetUtf8(text: string, out: number): string | null
 export function utilUnrefInThread(object?: object | null): void
 export function utilUtf8DataMakeValid(data: string, dataBytes: number): string
 export function utilUtf8Decompose(text: string): string
 export function utilUtf8MakeValid(str: string): string
-export function utilUtf8Normalize(str: string): string
+export function utilUtf8Normalize(str?: string | null): string | null
 export function utilUtf8RemoveAccents(str: string): string
 export function utilUtf8Strcasecmp(s1: string, s2: string): number
-export function utilUtf8Strstrcase(haystack: string, needle: string): string
+export function utilUtf8Strstrcase(haystack?: string | null, needle?: string | null): string | null
 export function utilUtf8Strstrcasedecomp(haystack: string, needle: string): string
 export function webdavAccessControlEntryFree(ptr?: object | null): void
 export function webdavDiscoverFreeDiscoveredSources(discoveredSources: WebDAVDiscoveredSource[]): void
 export function webdavDiscoverSources(source: Source, urlUsePath: string | null, onlySupports: number, credentials?: NamedParameters | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function webdavDiscoverSourcesFinish(source: Source, result: Gio.AsyncResult): { returnType: boolean, outCertificatePem: string | null, outCertificateErrors: Gio.TlsCertificateFlags | null, outDiscoveredSources: WebDAVDiscoveredSource[], outCalendarUserAddresses: string[] | null }
+export function webdavDiscoverSourcesFinish(source: Source, result: Gio.AsyncResult): { returnType: boolean, outCertificatePem: string | null, outCertificateErrors: Gio.TlsCertificateFlags | null, outDiscoveredSources: WebDAVDiscoveredSource[] | null, outCalendarUserAddresses: string[] | null }
 export function webdavDiscoverSourcesFull(source: Source, urlUsePath: string | null, onlySupports: number, credentials?: NamedParameters | null, refSourceFunc?: WebDAVDiscoverRefSourceFunc | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-export function webdavDiscoverSourcesFullSync(source: Source, urlUsePath: string | null, onlySupports: number, credentials?: NamedParameters | null, refSourceFunc?: WebDAVDiscoverRefSourceFunc | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCertificatePem: string | null, outCertificateErrors: Gio.TlsCertificateFlags | null, outDiscoveredSources: WebDAVDiscoveredSource[], outCalendarUserAddresses: string[] | null }
-export function webdavDiscoverSourcesSync(source: Source, urlUsePath: string | null, onlySupports: number, credentials?: NamedParameters | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCertificatePem: string | null, outCertificateErrors: Gio.TlsCertificateFlags | null, outDiscoveredSources: WebDAVDiscoveredSource[], outCalendarUserAddresses: string[] | null }
+export function webdavDiscoverSourcesFullSync(source: Source, urlUsePath: string | null, onlySupports: number, credentials?: NamedParameters | null, refSourceFunc?: WebDAVDiscoverRefSourceFunc | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCertificatePem: string | null, outCertificateErrors: Gio.TlsCertificateFlags | null, outDiscoveredSources: WebDAVDiscoveredSource[] | null, outCalendarUserAddresses: string[] | null }
+export function webdavDiscoverSourcesSync(source: Source, urlUsePath: string | null, onlySupports: number, credentials?: NamedParameters | null, cancellable?: Gio.Cancellable | null): { returnType: boolean, outCertificatePem: string | null, outCertificateErrors: Gio.TlsCertificateFlags | null, outDiscoveredSources: WebDAVDiscoveredSource[] | null, outCalendarUserAddresses: string[] | null }
 export function webdavPrivilegeFree(ptr?: object | null): void
 export function webdavPropertyChangeFree(ptr?: object | null): void
 export function webdavResourceFree(ptr?: object | null): void
@@ -826,6 +828,7 @@ export class Module {
     /* Static methods and pseudo-constructors */
     static new(filename: string): Module
     static loadAllInDirectory(dirname: string): Module[]
+    static loadAllInDirectoryAndPrefixes(dirname: string, dirprefix?: string | null): Module[]
     static loadFile(filename: string): Module
     static $gtype: GObject.Type
 }
@@ -1115,6 +1118,80 @@ export class OAuth2ServiceOutlook {
     static name: string
     constructor (config?: OAuth2ServiceOutlook_ConstructProps)
     _init (config?: OAuth2ServiceOutlook_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static utilSetToForm(form: GLib.HashTable, name: string, value?: string | null): void
+    static utilTakeToForm(form: GLib.HashTable, name: string, value?: string | null): void
+    static $gtype: GObject.Type
+}
+export interface OAuth2ServiceYahoo_ConstructProps extends OAuth2ServiceBase_ConstructProps {
+}
+export class OAuth2ServiceYahoo {
+    /* Fields of EDataServer-1.2.EDataServer.OAuth2ServiceYahoo */
+    parent: OAuth2ServiceBase
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of EDataServer-1.2.EDataServer.Extension */
+    getExtensible(): Extensible
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Methods of EDataServer-1.2.EDataServer.OAuth2Service */
+    canProcess(source: Source): boolean
+    deleteTokenSync(source: Source, cancellable?: Gio.Cancellable | null): boolean
+    extractAuthorizationCode(source: Source, pageTitle: string, pageUri: string, pageContent?: string | null): { returnType: boolean, outAuthorizationCode: string }
+    getAccessTokenSync(source: Source, refSource: OAuth2ServiceRefSourceFunc, cancellable?: Gio.Cancellable | null): { returnType: boolean, outAccessToken: string, outExpiresIn: number }
+    getAuthenticationPolicy(source: Source, uri: string): OAuth2ServiceNavigationPolicy
+    getAuthenticationUri(source: Source): string
+    getClientId(source: Source): string
+    getClientSecret(source: Source): string | null
+    getDisplayName(): string
+    getFlags(): number
+    getName(): string
+    getRedirectUri(source: Source): string | null
+    getRefreshUri(source: Source): string
+    guessCanProcess(protocol?: string | null, hostname?: string | null): boolean
+    prepareAuthenticationUriQuery(source: Source, uriQuery: GLib.HashTable): void
+    prepareGetTokenForm(source: Source, authorizationCode: string, form: GLib.HashTable): void
+    prepareGetTokenMessage(source: Source, message: Soup.Message): void
+    prepareRefreshTokenForm(source: Source, refreshToken: string, form: GLib.HashTable): void
+    prepareRefreshTokenMessage(source: Source, message: Soup.Message): void
+    receiveAndStoreTokenSync(source: Source, authorizationCode: string, refSource: OAuth2ServiceRefSourceFunc, cancellable?: Gio.Cancellable | null): boolean
+    refreshAndStoreTokenSync(source: Source, refreshToken: string, refSource: OAuth2ServiceRefSourceFunc, cancellable?: Gio.Cancellable | null): boolean
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: OAuth2ServiceYahoo, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: OAuth2ServiceYahoo_ConstructProps)
+    _init (config?: OAuth2ServiceYahoo_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static utilSetToForm(form: GLib.HashTable, name: string, value?: string | null): void
     static utilTakeToForm(form: GLib.HashTable, name: string, value?: string | null): void
@@ -1549,7 +1626,7 @@ export class Source {
     deletePasswordFinish(result: Gio.AsyncResult): boolean
     deletePasswordSync(cancellable?: Gio.Cancellable | null): boolean
     dupDisplayName(): string
-    dupParent(): string
+    dupParent(): string | null
     dupSecretLabel(): string
     dupUid(): string
     emitCredentialsRequired(reason: SourceCredentialsReason, certificatePem: string, certificateErrors: Gio.TlsCertificateFlags, opError?: GLib.Error | null): void
@@ -1564,7 +1641,7 @@ export class Source {
     getOauth2AccessToken(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getOauth2AccessTokenFinish(result: Gio.AsyncResult): { returnType: boolean, outAccessToken: string | null, outExpiresIn: number | null }
     getOauth2AccessTokenSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outAccessToken: string | null, outExpiresIn: number | null }
-    getParent(): string
+    getParent(): string | null
     getRemoteCreatable(): boolean
     getRemoteDeletable(): boolean
     getRemovable(): boolean
@@ -1579,8 +1656,8 @@ export class Source {
     invokeCredentialsRequiredFinish(result: Gio.AsyncResult): boolean
     invokeCredentialsRequiredSync(reason: SourceCredentialsReason, certificatePem: string, certificateErrors: Gio.TlsCertificateFlags, opError?: GLib.Error | null, cancellable?: Gio.Cancellable | null): boolean
     lookupPassword(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    lookupPasswordFinish(result: Gio.AsyncResult): { returnType: boolean, outPassword: string }
-    lookupPasswordSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outPassword: string }
+    lookupPasswordFinish(result: Gio.AsyncResult): { returnType: boolean, outPassword: string | null }
+    lookupPasswordSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, outPassword: string | null }
     mailSignatureLoad(ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     mailSignatureLoadFinish(result: Gio.AsyncResult): { returnType: boolean, contents: string, length: number | null }
     mailSignatureLoadSync(cancellable?: Gio.Cancellable | null): { returnType: boolean, contents: string, length: number | null }
@@ -1593,7 +1670,7 @@ export class Source {
     proxyLookup(uri: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     proxyLookupFinish(result: Gio.AsyncResult): string[]
     proxyLookupSync(uri: string, cancellable?: Gio.Cancellable | null): string[]
-    refDbusObject(): Gio.DBusObject
+    refDbusObject(): Gio.DBusObject | null
     refMainContext(): GLib.MainContext
     refreshAddTimeout(context: GLib.MainContext | null, callback: SourceRefreshFunc): number
     refreshForceTimeout(): void
@@ -1615,7 +1692,7 @@ export class Source {
     storePassword(password: string, permanently: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     storePasswordFinish(result: Gio.AsyncResult): boolean
     storePasswordSync(password: string, permanently: boolean, cancellable?: Gio.Cancellable | null): boolean
-    toString(length?: number | null): string
+    toString(): { returnType: string, length: number | null }
     unsetLastCredentialsRequiredArguments(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     unsetLastCredentialsRequiredArgumentsFinish(result: Gio.AsyncResult): boolean
     unsetLastCredentialsRequiredArgumentsSync(cancellable?: Gio.Cancellable | null): boolean
@@ -1745,8 +1822,8 @@ export class SourceAddressBook {
     getOrder(): number
     setOrder(order: number): void
     /* Methods of EDataServer-1.2.EDataServer.SourceBackend */
-    dupBackendName(): string
-    getBackendName(): string
+    dupBackendName(): string | null
+    getBackendName(): string | null
     setBackendName(backendName?: string | null): void
     /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
@@ -1898,20 +1975,20 @@ export class SourceAuthentication {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EDataServer-1.2.EDataServer.SourceAuthentication */
-    dupCredentialName(): string
-    dupHost(): string
-    dupMethod(): string
+    dupCredentialName(): string | null
+    dupHost(): string | null
+    dupMethod(): string | null
     dupProxyUid(): string
-    dupUser(): string
-    getCredentialName(): string
-    getHost(): string
+    dupUser(): string | null
+    getCredentialName(): string | null
+    getHost(): string | null
     getIsExternal(): boolean
-    getMethod(): string
+    getMethod(): string | null
     getPort(): number
     getProxyUid(): string
     getRememberPassword(): boolean
-    getUser(): string
-    refConnectable(): Gio.SocketConnectable
+    getUser(): string | null
+    refConnectable(): Gio.SocketConnectable | null
     required(): boolean
     setCredentialName(credentialName?: string | null): void
     setHost(host?: string | null): void
@@ -2143,8 +2220,8 @@ export class SourceBackend {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EDataServer-1.2.EDataServer.SourceBackend */
-    dupBackendName(): string
-    getBackendName(): string
+    dupBackendName(): string | null
+    getBackendName(): string | null
     setBackendName(backendName?: string | null): void
     /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
@@ -2216,8 +2293,8 @@ export class SourceCalendar {
     setOrder(order: number): void
     setSelected(selected: boolean): void
     /* Methods of EDataServer-1.2.EDataServer.SourceBackend */
-    dupBackendName(): string
-    getBackendName(): string
+    dupBackendName(): string | null
+    getBackendName(): string | null
     setBackendName(backendName?: string | null): void
     /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
@@ -2371,15 +2448,15 @@ export class SourceCollection {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EDataServer-1.2.EDataServer.SourceCollection */
-    dupCalendarUrl(): string
-    dupContactsUrl(): string
-    dupIdentity(): string
+    dupCalendarUrl(): string | null
+    dupContactsUrl(): string | null
+    dupIdentity(): string | null
     getAllowSourcesRename(): boolean
     getCalendarEnabled(): boolean
     getCalendarUrl(): string | null
     getContactsEnabled(): boolean
     getContactsUrl(): string | null
-    getIdentity(): string
+    getIdentity(): string | null
     getMailEnabled(): boolean
     setAllowSourcesRename(allowSourcesRename: boolean): void
     setCalendarEnabled(calendarEnabled: boolean): void
@@ -2389,8 +2466,8 @@ export class SourceCollection {
     setIdentity(identity?: string | null): void
     setMailEnabled(mailEnabled: boolean): void
     /* Methods of EDataServer-1.2.EDataServer.SourceBackend */
-    dupBackendName(): string
-    getBackendName(): string
+    dupBackendName(): string | null
+    getBackendName(): string | null
     setBackendName(backendName?: string | null): void
     /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
@@ -2839,16 +2916,16 @@ export class SourceGoa {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EDataServer-1.2.EDataServer.SourceGoa */
-    dupAccountId(): string
-    dupAddress(): string
-    dupCalendarUrl(): string
-    dupContactsUrl(): string
-    dupName(): string
-    getAccountId(): string
-    getAddress(): string
-    getCalendarUrl(): string
-    getContactsUrl(): string
-    getName(): string
+    dupAccountId(): string | null
+    dupAddress(): string | null
+    dupCalendarUrl(): string | null
+    dupContactsUrl(): string | null
+    dupName(): string | null
+    getAccountId(): string | null
+    getAddress(): string | null
+    getCalendarUrl(): string | null
+    getContactsUrl(): string | null
+    getName(): string | null
     setAccountId(accountId?: string | null): void
     setAddress(address?: string | null): void
     setCalendarUrl(calendarUrl?: string | null): void
@@ -3202,10 +3279,10 @@ export class SourceMailAccount {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EDataServer-1.2.EDataServer.SourceMailAccount */
-    dupArchiveFolder(): string
-    dupIdentityUid(): string
-    getArchiveFolder(): string
-    getIdentityUid(): string
+    dupArchiveFolder(): string | null
+    dupIdentityUid(): string | null
+    getArchiveFolder(): string | null
+    getIdentityUid(): string | null
     getMarkSeen(): ThreeState
     getMarkSeenTimeout(): number
     getNeedsInitialSetup(): boolean
@@ -3215,8 +3292,8 @@ export class SourceMailAccount {
     setMarkSeenTimeout(timeout: number): void
     setNeedsInitialSetup(needsInitialSetup: boolean): void
     /* Methods of EDataServer-1.2.EDataServer.SourceBackend */
-    dupBackendName(): string
-    getBackendName(): string
+    dupBackendName(): string | null
+    getBackendName(): string | null
     setBackendName(backendName?: string | null): void
     /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
@@ -3320,17 +3397,17 @@ export class SourceMailComposition {
     /* Methods of EDataServer-1.2.EDataServer.SourceMailComposition */
     dupBcc(): string[]
     dupCc(): string[]
-    dupDraftsFolder(): string
-    dupLanguage(): string
-    dupTemplatesFolder(): string
+    dupDraftsFolder(): string | null
+    dupLanguage(): string | null
+    dupTemplatesFolder(): string | null
     getBcc(): string[]
     getCc(): string[]
-    getDraftsFolder(): string
+    getDraftsFolder(): string | null
     getLanguage(): string | null
     getReplyStyle(): SourceMailCompositionReplyStyle
     getSignImip(): boolean
     getStartBottom(): ThreeState
-    getTemplatesFolder(): string
+    getTemplatesFolder(): string | null
     getTopSignature(): ThreeState
     setBcc(bcc: string[]): void
     setCc(cc: string[]): void
@@ -3450,19 +3527,19 @@ export class SourceMailIdentity {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EDataServer-1.2.EDataServer.SourceMailIdentity */
-    dupAddress(): string
-    dupAliases(): string
-    dupName(): string
-    dupOrganization(): string
-    dupReplyTo(): string
-    dupSignatureUid(): string
-    getAddress(): string
-    getAliases(): string
+    dupAddress(): string | null
+    dupAliases(): string | null
+    dupName(): string | null
+    dupOrganization(): string | null
+    dupReplyTo(): string | null
+    dupSignatureUid(): string | null
+    getAddress(): string | null
+    getAliases(): string | null
     getAliasesAsHashTable(): GLib.HashTable | null
-    getName(): string
-    getOrganization(): string
-    getReplyTo(): string
-    getSignatureUid(): string
+    getName(): string | null
+    getOrganization(): string | null
+    getReplyTo(): string | null
+    getSignatureUid(): string | null
     setAddress(address?: string | null): void
     setAliases(aliases?: string | null): void
     setName(name?: string | null): void
@@ -3628,11 +3705,11 @@ export class SourceMailSubmission {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EDataServer-1.2.EDataServer.SourceMailSubmission */
-    dupSentFolder(): string
-    dupTransportUid(): string
+    dupSentFolder(): string | null
+    dupTransportUid(): string | null
     getRepliesToOriginFolder(): boolean
-    getSentFolder(): string
-    getTransportUid(): string
+    getSentFolder(): string | null
+    getTransportUid(): string | null
     getUseSentFolder(): boolean
     setRepliesToOriginFolder(repliesToOriginFolder: boolean): void
     setSentFolder(sentFolder?: string | null): void
@@ -3711,8 +3788,8 @@ export class SourceMailTransport {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EDataServer-1.2.EDataServer.SourceBackend */
-    dupBackendName(): string
-    getBackendName(): string
+    dupBackendName(): string | null
+    getBackendName(): string | null
     setBackendName(backendName?: string | null): void
     /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
@@ -3784,8 +3861,8 @@ export class SourceMemoList {
     setOrder(order: number): void
     setSelected(selected: boolean): void
     /* Methods of EDataServer-1.2.EDataServer.SourceBackend */
-    dupBackendName(): string
-    getBackendName(): string
+    dupBackendName(): string | null
+    getBackendName(): string | null
     setBackendName(backendName?: string | null): void
     /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
@@ -4314,7 +4391,7 @@ export class SourceRegistry {
     createSourcesSync(listOfSources: Source[], cancellable?: Gio.Cancellable | null): boolean
     debugDump(extensionName?: string | null): void
     dupUniqueDisplayName(source: Source, extensionName?: string | null): string
-    findExtension(source: Source, extensionName: string): Source
+    findExtension(source: Source, extensionName: string): Source | null
     getOauth2Services(): OAuth2Services
     listEnabled(extensionName?: string | null): Source[]
     listSources(extensionName?: string | null): Source[]
@@ -4326,12 +4403,12 @@ export class SourceRegistry {
     refBuiltinTaskList(): Source
     refDefaultAddressBook(): Source
     refDefaultCalendar(): Source
-    refDefaultForExtensionName(extensionName: string): Source
+    refDefaultForExtensionName(extensionName: string): Source | null
     refDefaultMailAccount(): Source
     refDefaultMailIdentity(): Source
     refDefaultMemoList(): Source
     refDefaultTaskList(): Source
-    refSource(uid: string): Source
+    refSource(uid: string): Source | null
     refreshBackend(sourceUid: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     refreshBackendFinish(result: Gio.AsyncResult): boolean
     refreshBackendSync(sourceUid: string, cancellable?: Gio.Cancellable | null): boolean
@@ -4534,8 +4611,8 @@ export class SourceResource {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EDataServer-1.2.EDataServer.SourceResource */
-    dupIdentity(): string
-    getIdentity(): string
+    dupIdentity(): string | null
+    getIdentity(): string | null
     setIdentity(identity?: string | null): void
     /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
@@ -4667,15 +4744,15 @@ export class SourceSMIME {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EDataServer-1.2.EDataServer.SourceSMIME */
-    dupEncryptionCertificate(): string
-    dupSigningAlgorithm(): string
-    dupSigningCertificate(): string
+    dupEncryptionCertificate(): string | null
+    dupSigningAlgorithm(): string | null
+    dupSigningCertificate(): string | null
     getEncryptByDefault(): boolean
     getEncryptToSelf(): boolean
-    getEncryptionCertificate(): string
+    getEncryptionCertificate(): string | null
     getSignByDefault(): boolean
-    getSigningAlgorithm(): string
-    getSigningCertificate(): string
+    getSigningAlgorithm(): string | null
+    getSigningCertificate(): string | null
     setEncryptByDefault(encryptByDefault: boolean): void
     setEncryptToSelf(encryptToSelf: boolean): void
     setEncryptionCertificate(encryptionCertificate?: string | null): void
@@ -4851,8 +4928,8 @@ export class SourceSelectable {
     setOrder(order: number): void
     setSelected(selected: boolean): void
     /* Methods of EDataServer-1.2.EDataServer.SourceBackend */
-    dupBackendName(): string
-    getBackendName(): string
+    dupBackendName(): string | null
+    getBackendName(): string | null
     setBackendName(backendName?: string | null): void
     /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
@@ -4939,8 +5016,8 @@ export class SourceTaskList {
     setOrder(order: number): void
     setSelected(selected: boolean): void
     /* Methods of EDataServer-1.2.EDataServer.SourceBackend */
-    dupBackendName(): string
-    getBackendName(): string
+    dupBackendName(): string | null
+    getBackendName(): string | null
     setBackendName(backendName?: string | null): void
     /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
     getSource(): Source
@@ -5139,6 +5216,68 @@ export class SourceWeather {
     _init (config?: SourceWeather_ConstructProps): void
     static $gtype: GObject.Type
 }
+export interface SourceWebDAVNotes_ConstructProps extends SourceExtension_ConstructProps {
+    defaultExt?: string
+}
+export class SourceWebDAVNotes {
+    /* Properties of EDataServer-1.2.EDataServer.SourceWebDAVNotes */
+    defaultExt: string
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of EDataServer-1.2.EDataServer.SourceWebDAVNotes */
+    dupDefaultExt(): string | null
+    getDefaultExt(): string | null
+    setDefaultExt(defaultExt?: string | null): void
+    /* Methods of EDataServer-1.2.EDataServer.SourceExtension */
+    getSource(): Source
+    propertyLock(): void
+    propertyUnlock(): void
+    refSource(): Source
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SourceWebDAVNotes, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::default-ext", callback: (($obj: SourceWebDAVNotes, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::default-ext", callback: (($obj: SourceWebDAVNotes, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::default-ext", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::default-ext", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::default-ext", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: SourceWebDAVNotes_ConstructProps)
+    _init (config?: SourceWebDAVNotes_ConstructProps): void
+    static $gtype: GObject.Type
+}
 export interface SourceWebdav_ConstructProps extends SourceExtension_ConstructProps {
     avoidIfmatch?: boolean
     calendarAutoSchedule?: boolean
@@ -5166,22 +5305,22 @@ export class SourceWebdav {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EDataServer-1.2.EDataServer.SourceWebdav */
-    dupColor(): string
-    dupDisplayName(): string
-    dupEmailAddress(): string
-    dupResourcePath(): string
-    dupResourceQuery(): string
+    dupColor(): string | null
+    dupDisplayName(): string | null
+    dupEmailAddress(): string | null
+    dupResourcePath(): string | null
+    dupResourceQuery(): string | null
     dupSoupUri(): Soup.URI
-    dupSslTrust(): string
+    dupSslTrust(): string | null
     getAvoidIfmatch(): boolean
     getCalendarAutoSchedule(): boolean
-    getColor(): string
-    getDisplayName(): string
-    getEmailAddress(): string
+    getColor(): string | null
+    getDisplayName(): string | null
+    getEmailAddress(): string | null
     getOrder(): number
-    getResourcePath(): string
-    getResourceQuery(): string
-    getSslTrust(): string
+    getResourcePath(): string | null
+    getResourceQuery(): string | null
+    getSslTrust(): string | null
     getSslTrustResponse(): TrustPromptResponse
     setAvoidIfmatch(avoidIfmatch: boolean): void
     setCalendarAutoSchedule(calendarAutoSchedule: boolean): void
@@ -5747,12 +5886,12 @@ export class NamedParameters {
     count(): number
     exists(name: string): boolean
     free(): void
-    get(name: string): string
-    getName(index: number): string
+    get(name: string): string | null
+    getName(index: number): string | null
     newClone(): NamedParameters
     set(name: string, value?: string | null): void
     test(name: string, value: string, caseSensitively: boolean): boolean
-    toString(): string
+    toString(): string | null
     toStrv(): string[]
     static name: string
     static new(): NamedParameters
@@ -5805,6 +5944,11 @@ export abstract class OAuth2ServiceInterface {
 }
 export abstract class OAuth2ServiceOutlookClass {
     /* Fields of EDataServer-1.2.EDataServer.OAuth2ServiceOutlookClass */
+    parentClass: OAuth2ServiceBaseClass
+    static name: string
+}
+export abstract class OAuth2ServiceYahooClass {
+    /* Fields of EDataServer-1.2.EDataServer.OAuth2ServiceYahooClass */
     parentClass: OAuth2ServiceBaseClass
     static name: string
 }
@@ -6208,6 +6352,14 @@ export abstract class SourceWeatherClass {
     static name: string
 }
 export class SourceWeatherPrivate {
+    static name: string
+}
+export abstract class SourceWebDAVNotesClass {
+    /* Fields of EDataServer-1.2.EDataServer.SourceWebDAVNotesClass */
+    parentClass: SourceExtensionClass
+    static name: string
+}
+export class SourceWebDAVNotesPrivate {
     static name: string
 }
 export abstract class SourceWebdavClass {

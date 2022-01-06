@@ -2,10 +2,17 @@
  * Tracker-0.16
  */
 
+<<<<<<< HEAD
 import type * as Gjs from './Gjs';
 import type * as GLib from './GLib-2.0';
 import type * as Gio from './Gio-2.0';
 import type * as GObject from './GObject-2.0';
+=======
+import * as Gjs from './Gjs';
+import * as GLib from './GLib-2.0';
+import * as Gio from './Gio-2.0';
+import * as GObject from './GObject-2.0';
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
 
 export enum SparqlValueType {
     UNBOUND,
@@ -45,6 +52,7 @@ export interface SparqlBuilder_ConstructProps extends GObject.Object_ConstructPr
     length?: number
 }
 export class SparqlBuilder {
+<<<<<<< HEAD
     /* Properties of Tracker-0.16.Tracker.SparqlBuilder */
     readonly result: string
     length: number
@@ -55,6 +63,18 @@ export class SparqlBuilder {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Tracker-0.16.Tracker.SparqlBuilder */
+=======
+    /* Properties of Tracker.SparqlBuilder */
+    readonly result: string
+    length: number
+    readonly state: SparqlBuilderState
+    /* Fields of Tracker.SparqlBuilder */
+    parent_instance: GObject.Object
+    priv: BuilderPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of Tracker.SparqlBuilder */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     insert_open(graph?: string | null): void
     insert_silent_open(graph?: string | null): void
     insert_close(): void
@@ -82,6 +102,7 @@ export class SparqlBuilder {
     object_blank_close(): void
     prepend(raw: string): void
     append(raw: string): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -91,6 +112,17 @@ export class SparqlBuilder {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -98,21 +130,37 @@ export class SparqlBuilder {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: SparqlBuilder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SparqlBuilder, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -138,12 +186,21 @@ export class SparqlBuilder {
 export interface SparqlConnection_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SparqlConnection {
+<<<<<<< HEAD
     /* Fields of Tracker-0.16.Tracker.SparqlConnection */
     parent_instance: GObject.Object
     priv: ConnectionPrivate
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Tracker-0.16.Tracker.SparqlConnection */
+=======
+    /* Fields of Tracker.SparqlConnection */
+    parent_instance: GObject.Object
+    priv: ConnectionPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of Tracker.SparqlConnection */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     query(sparql: string, cancellable?: Gio.Cancellable | null): SparqlCursor
     query_async(sparql: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     query_finish(_res_: Gio.AsyncResult): SparqlCursor
@@ -151,7 +208,11 @@ export class SparqlConnection {
     update_async(sparql: string, priority: number, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     update_finish(_res_: Gio.AsyncResult): void
     update_array_async(sparql: string[], priority: number, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+<<<<<<< HEAD
     update_array_finish(_res_: Gio.AsyncResult): any[] | null
+=======
+    update_array_finish(_res_: Gio.AsyncResult): SparqlError[] | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     update_blank(sparql: string, priority: number, cancellable?: Gio.Cancellable | null): GLib.Variant | null
     update_blank_async(sparql: string, priority: number, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     update_blank_finish(_res_: Gio.AsyncResult): GLib.Variant | null
@@ -161,6 +222,7 @@ export class SparqlConnection {
     statistics(cancellable?: Gio.Cancellable | null): SparqlCursor | null
     statistics_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     statistics_finish(_res_: Gio.AsyncResult): SparqlCursor | null
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -170,6 +232,17 @@ export class SparqlConnection {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -177,13 +250,22 @@ export class SparqlConnection {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of Tracker-0.16.Tracker.SparqlConnection */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Tracker.SparqlConnection */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_query(sparql: string, cancellable?: Gio.Cancellable | null): SparqlCursor
     vfunc_query_async(sparql: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_query_finish(_res_: Gio.AsyncResult): SparqlCursor
@@ -191,7 +273,11 @@ export class SparqlConnection {
     vfunc_update_async(sparql: string, priority: number, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_update_finish(_res_: Gio.AsyncResult): void
     vfunc_update_array_async(sparql: string[], priority: number, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
+<<<<<<< HEAD
     vfunc_update_array_finish(_res_: Gio.AsyncResult): any[] | null
+=======
+    vfunc_update_array_finish(_res_: Gio.AsyncResult): SparqlError[] | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_update_blank(sparql: string, priority: number, cancellable?: Gio.Cancellable | null): GLib.Variant | null
     vfunc_update_blank_async(sparql: string, priority: number, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_update_blank_finish(_res_: Gio.AsyncResult): GLib.Variant | null
@@ -201,15 +287,26 @@ export class SparqlConnection {
     vfunc_statistics(cancellable?: Gio.Cancellable | null): SparqlCursor | null
     vfunc_statistics_async(cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_statistics_finish(_res_: Gio.AsyncResult): SparqlCursor | null
+<<<<<<< HEAD
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: SparqlConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SparqlConnection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -233,6 +330,7 @@ export interface SparqlCursor_ConstructProps extends GObject.Object_ConstructPro
     connection?: SparqlConnection
 }
 export class SparqlCursor {
+<<<<<<< HEAD
     /* Properties of Tracker-0.16.Tracker.SparqlCursor */
     connection: SparqlConnection
     readonly n_columns: number
@@ -242,6 +340,17 @@ export class SparqlCursor {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Tracker-0.16.Tracker.SparqlCursor */
+=======
+    /* Properties of Tracker.SparqlCursor */
+    connection: SparqlConnection
+    readonly n_columns: number
+    /* Fields of Tracker.SparqlCursor */
+    parent_instance: GObject.Object
+    priv: CursorPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of Tracker.SparqlCursor */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_value_type(column: number): SparqlValueType
     get_variable_name(column: number): string | null
     get_string(column: number): [ /* returnType */ string | null, /* length */ number ]
@@ -254,6 +363,7 @@ export class SparqlCursor {
     get_double(column: number): number
     get_boolean(column: number): boolean
     is_bound(column: number): boolean
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -263,6 +373,17 @@ export class SparqlCursor {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -270,13 +391,22 @@ export class SparqlCursor {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of Tracker-0.16.Tracker.SparqlCursor */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Tracker.SparqlCursor */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_value_type(column: number): SparqlValueType
     vfunc_get_variable_name(column: number): string | null
     vfunc_get_string(column: number): [ /* returnType */ string | null, /* length */ number ]
@@ -289,15 +419,26 @@ export class SparqlCursor {
     vfunc_get_double(column: number): number
     vfunc_get_boolean(column: number): boolean
     vfunc_is_bound(column: number): boolean
+<<<<<<< HEAD
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: SparqlCursor, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SparqlCursor, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -315,7 +456,11 @@ export class SparqlCursor {
     static $gtype: GObject.Type
 }
 export abstract class SparqlBuilderClass {
+<<<<<<< HEAD
     /* Fields of Tracker-0.16.Tracker.SparqlBuilderClass */
+=======
+    /* Fields of Tracker.SparqlBuilderClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -323,7 +468,11 @@ export class BuilderPrivate {
     static name: string
 }
 export abstract class SparqlConnectionClass {
+<<<<<<< HEAD
     /* Fields of Tracker-0.16.Tracker.SparqlConnectionClass */
+=======
+    /* Fields of Tracker.SparqlConnectionClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     query: (self: SparqlConnection, sparql: string, cancellable?: Gio.Cancellable | null) => SparqlCursor
     query_async: (self: SparqlConnection, sparql: string, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
@@ -332,7 +481,11 @@ export abstract class SparqlConnectionClass {
     update_async: (self: SparqlConnection, sparql: string, priority: number, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
     update_finish: (self: SparqlConnection, _res_: Gio.AsyncResult) => void
     update_array_async: (self: SparqlConnection, sparql: string[], priority: number, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
+<<<<<<< HEAD
     update_array_finish: (self: SparqlConnection, _res_: Gio.AsyncResult) => any[] | null
+=======
+    update_array_finish: (self: SparqlConnection, _res_: Gio.AsyncResult) => SparqlError[] | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     update_blank: (self: SparqlConnection, sparql: string, priority: number, cancellable?: Gio.Cancellable | null) => GLib.Variant | null
     update_blank_async: (self: SparqlConnection, sparql: string, priority: number, cancellable?: Gio.Cancellable | null, _callback_?: Gio.AsyncReadyCallback | null) => void
     update_blank_finish: (self: SparqlConnection, _res_: Gio.AsyncResult) => GLib.Variant | null
@@ -348,7 +501,11 @@ export class ConnectionPrivate {
     static name: string
 }
 export abstract class SparqlCursorClass {
+<<<<<<< HEAD
     /* Fields of Tracker-0.16.Tracker.SparqlCursorClass */
+=======
+    /* Fields of Tracker.SparqlCursorClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     get_value_type: (self: SparqlCursor, column: number) => SparqlValueType
     get_variable_name: (self: SparqlCursor, column: number) => string | null

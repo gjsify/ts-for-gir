@@ -45,7 +45,7 @@ export enum BookStatus {
     NOT_SUPPORTED,
 }
 export function bookErrorQuark(): GLib.Quark
-export function bookUtilsGetRecipientCertificatesSync(registry: EDataServer.SourceRegistry, onlyClients: BookClient[] | null, flags: number, recipients: string[], cancellable?: Gio.Cancellable | null): { returnType: boolean, outCertificates: string[] }
+export function bookUtilsGetRecipientCertificatesSync(registry: EDataServer.SourceRegistry, onlyClients: BookClient[] | null, flags: Camel.RecipientCertificateFlags, recipients: string[], cancellable?: Gio.Cancellable | null): { returnType: boolean, outCertificates: string[] }
 export interface BookClient_ConstructProps extends EDataServer.Client_ConstructProps {
 }
 export class BookClient {
@@ -60,14 +60,17 @@ export class BookClient {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EBook-1.2.EBook.BookClient */
-    addContact(contact: EBookContacts.Contact, opflags: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    addContactFinish(result: Gio.AsyncResult): { returnType: boolean, outAddedUid: string }
-    addContactSync(contact: EBookContacts.Contact, opflags: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outAddedUid: string }
-    addContacts(contacts: EBookContacts.Contact[], opflags: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    addContact(contact: EBookContacts.Contact, opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    addContactFinish(result: Gio.AsyncResult): { returnType: boolean, outAddedUid: string | null }
+    addContactSync(contact: EBookContacts.Contact, opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null): { returnType: boolean, outAddedUid: string | null }
+    addContacts(contacts: EBookContacts.Contact[], opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     addContactsFinish(result: Gio.AsyncResult): { returnType: boolean, outAddedUids: string[] | null }
-    addContactsSync(contacts: EBookContacts.Contact[], opflags: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outAddedUids: string[] | null }
+    addContactsSync(contacts: EBookContacts.Contact[], opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null): { returnType: boolean, outAddedUids: string[] | null }
+    containsEmail(emailAddress: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    containsEmailFinish(result: Gio.AsyncResult): boolean
+    containsEmailSync(emailAddress: string, cancellable?: Gio.Cancellable | null): boolean
     getContact(uid: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    getContactFinish(result: Gio.AsyncResult): { returnType: boolean, outContact: EBookContacts.Contact }
+    getContactFinish(result: Gio.AsyncResult): { returnType: boolean, outContact: EBookContacts.Contact | null }
     getContactSync(uid: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outContact: EBookContacts.Contact }
     getContacts(sexp: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getContactsFinish(result: Gio.AsyncResult): { returnType: boolean, outContacts: EBookContacts.Contact[] }
@@ -82,21 +85,21 @@ export class BookClient {
     getView(sexp: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     getViewFinish(result: Gio.AsyncResult): { returnType: boolean, outView: BookClientView }
     getViewSync(sexp: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outView: BookClientView }
-    modifyContact(contact: EBookContacts.Contact, opflags: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    modifyContact(contact: EBookContacts.Contact, opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     modifyContactFinish(result: Gio.AsyncResult): boolean
-    modifyContactSync(contact: EBookContacts.Contact, opflags: number, cancellable?: Gio.Cancellable | null): boolean
-    modifyContacts(contacts: EBookContacts.Contact[], opflags: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    modifyContactSync(contact: EBookContacts.Contact, opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null): boolean
+    modifyContacts(contacts: EBookContacts.Contact[], opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     modifyContactsFinish(result: Gio.AsyncResult): boolean
-    modifyContactsSync(contacts: EBookContacts.Contact[], opflags: number, cancellable?: Gio.Cancellable | null): boolean
-    removeContact(contact: EBookContacts.Contact, opflags: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    removeContactByUid(uid: string, opflags: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    modifyContactsSync(contacts: EBookContacts.Contact[], opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null): boolean
+    removeContact(contact: EBookContacts.Contact, opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    removeContactByUid(uid: string, opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     removeContactByUidFinish(result: Gio.AsyncResult): boolean
-    removeContactByUidSync(uid: string, opflags: number, cancellable?: Gio.Cancellable | null): boolean
+    removeContactByUidSync(uid: string, opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null): boolean
     removeContactFinish(result: Gio.AsyncResult): boolean
-    removeContactSync(contact: EBookContacts.Contact, opflags: number, cancellable?: Gio.Cancellable | null): boolean
-    removeContacts(uids: string[], opflags: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    removeContactSync(contact: EBookContacts.Contact, opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null): boolean
+    removeContacts(uids: string[], opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     removeContactsFinish(result: Gio.AsyncResult): boolean
-    removeContactsSync(uids: string[], opflags: number, cancellable?: Gio.Cancellable | null): boolean
+    removeContactsSync(uids: string[], opflags: EBookContacts.BookOperationFlags, cancellable?: Gio.Cancellable | null): boolean
     setSelf(contact: EBookContacts.Contact): boolean
     /* Methods of EDataServer-1.2.EDataServer.Client */
     cancelAll(): void
@@ -263,7 +266,7 @@ export class BookClientCursor {
     getContactAlphabeticIndex(contact: EBookContacts.Contact): number
     getPosition(): number
     getTotal(): number
-    refClient(): object | null
+    refClient(): BookClient
     setAlphabeticIndex(index: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     setAlphabeticIndexFinish(result: Gio.AsyncResult): boolean
     setAlphabeticIndexSync(index: number, cancellable?: Gio.Cancellable | null): boolean
@@ -347,11 +350,11 @@ export class BookClientView {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EBook-1.2.EBook.BookClientView */
-    getClient(): object | null
+    getClient(): BookClient
     getConnection(): Gio.DBusConnection
     getObjectPath(): string
     isRunning(): boolean
-    refClient(): object | null
+    refClient(): BookClient
     setFieldsOfInterest(fieldsOfInterest: string[]): void
     setFlags(flags: EBookContacts.BookClientViewFlags): void
     start(): void
@@ -386,21 +389,21 @@ export class BookClientView {
     once(sigName: "complete", callback: (object: GLib.Error) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "complete", callback: (object: GLib.Error) => void): NodeJS.EventEmitter
     emit(sigName: "complete", object: GLib.Error): void
-    connect(sigName: "objects-added", callback: (($obj: BookClientView, object?: object | null) => void)): number
-    on(sigName: "objects-added", callback: (object?: object | null) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "objects-added", callback: (object?: object | null) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "objects-added", callback: (object?: object | null) => void): NodeJS.EventEmitter
-    emit(sigName: "objects-added", object?: object | null): void
-    connect(sigName: "objects-modified", callback: (($obj: BookClientView, object?: object | null) => void)): number
-    on(sigName: "objects-modified", callback: (object?: object | null) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "objects-modified", callback: (object?: object | null) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "objects-modified", callback: (object?: object | null) => void): NodeJS.EventEmitter
-    emit(sigName: "objects-modified", object?: object | null): void
-    connect(sigName: "objects-removed", callback: (($obj: BookClientView, object?: object | null) => void)): number
-    on(sigName: "objects-removed", callback: (object?: object | null) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "objects-removed", callback: (object?: object | null) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "objects-removed", callback: (object?: object | null) => void): NodeJS.EventEmitter
-    emit(sigName: "objects-removed", object?: object | null): void
+    connect(sigName: "objects-added", callback: (($obj: BookClientView, objects: EBookContacts.Contact[]) => void)): number
+    on(sigName: "objects-added", callback: (objects: EBookContacts.Contact[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "objects-added", callback: (objects: EBookContacts.Contact[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "objects-added", callback: (objects: EBookContacts.Contact[]) => void): NodeJS.EventEmitter
+    emit(sigName: "objects-added", objects: EBookContacts.Contact[]): void
+    connect(sigName: "objects-modified", callback: (($obj: BookClientView, objects: EBookContacts.Contact[]) => void)): number
+    on(sigName: "objects-modified", callback: (objects: EBookContacts.Contact[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "objects-modified", callback: (objects: EBookContacts.Contact[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "objects-modified", callback: (objects: EBookContacts.Contact[]) => void): NodeJS.EventEmitter
+    emit(sigName: "objects-modified", objects: EBookContacts.Contact[]): void
+    connect(sigName: "objects-removed", callback: (($obj: BookClientView, uids: string[]) => void)): number
+    on(sigName: "objects-removed", callback: (uids: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "objects-removed", callback: (uids: string[]) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "objects-removed", callback: (uids: string[]) => void): NodeJS.EventEmitter
+    emit(sigName: "objects-removed", uids: string[]): void
     connect(sigName: "progress", callback: (($obj: BookClientView, object: number, p0: string) => void)): number
     on(sigName: "progress", callback: (object: number, p0: string) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "progress", callback: (object: number, p0: string) => void, after?: boolean): NodeJS.EventEmitter
@@ -452,8 +455,8 @@ export class Destination {
     isAutoRecipient(): boolean
     isEvolutionList(): boolean
     isIgnored(): boolean
-    listGetDests(): Destination[]
-    listGetRootDests(): Destination[]
+    listGetDests(): Destination[] | null
+    listGetRootDests(): Destination[] | null
     listShowAddresses(): boolean
     setAutoRecipient(value: boolean): void
     setClient(client: BookClient): void

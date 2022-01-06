@@ -32,6 +32,19 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
+    'Adw.Animation': [
+    'GObject.Object',
+],
+    'Adw.AnimationTarget': [
+    'GObject.Object',
+],
+    'Adw.Application': [
+    'Gtk.Application',
+    'Gio.ActionGroup',
+    'Gio.ActionMap',
+    'Gio.Application',
+    'GObject.Object',
+],
     'Adw.ApplicationWindow': [
     'Gtk.ApplicationWindow',
     'Gio.ActionGroup',
@@ -66,6 +79,19 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gtk.ConstraintTarget',
     'Gtk.Object',
     'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'Adw.ButtonContent': [
+    'Gtk.Widget',
+    'Gtk.Accessible',
+    'Gtk.Buildable',
+    'Gtk.ConstraintTarget',
+    'Gtk.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'Adw.CallbackAnimationTarget': [
+    'Adw.AnimationTarget',
     'GObject.Object',
 ],
     'Adw.Carousel': [
@@ -140,12 +166,12 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
+    'Adw.EnumListItem': [
+    'GObject.Object',
+],
     'Adw.EnumListModel': [
     'GObject.Object',
     'Gio.ListModel',
-],
-    'Adw.EnumValueObject': [
-    'GObject.Object',
 ],
     'Adw.ExpanderRow': [
     'Adw.PreferencesRow',
@@ -242,6 +268,20 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
+    'Adw.SplitButton': [
+    'Gtk.Widget',
+    'Gtk.Accessible',
+    'Gtk.Actionable',
+    'Gtk.Buildable',
+    'Gtk.ConstraintTarget',
+    'Gtk.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'Adw.SpringAnimation': [
+    'Adw.Animation',
+    'GObject.Object',
+],
     'Adw.Squeezer': [
     'Gtk.Widget',
     'Gtk.Accessible',
@@ -264,15 +304,60 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
-    'Adw.SwipeGroup': [
+    'Adw.StyleManager': [
     'GObject.Object',
-    'Gtk.Buildable',
 ],
     'Adw.SwipeTracker': [
     'GObject.Object',
     'Gtk.Orientable',
 ],
-    'Adw.ValueObject': [
+    'Adw.TabBar': [
+    'Gtk.Widget',
+    'Gtk.Accessible',
+    'Gtk.Buildable',
+    'Gtk.ConstraintTarget',
+    'Gtk.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'Adw.TabPage': [
+    'GObject.Object',
+],
+    'Adw.TabView': [
+    'Gtk.Widget',
+    'Gtk.Accessible',
+    'Gtk.Buildable',
+    'Gtk.ConstraintTarget',
+    'Gtk.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'Adw.TimedAnimation': [
+    'Adw.Animation',
+    'GObject.Object',
+],
+    'Adw.Toast': [
+    'GObject.Object',
+],
+    'Adw.ToastOverlay': [
+    'Gtk.Widget',
+    'Gtk.Accessible',
+    'Gtk.Buildable',
+    'Gtk.ConstraintTarget',
+    'Gtk.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'Adw.ViewStack': [
+    'Gtk.Widget',
+    'Gtk.Accessible',
+    'Gtk.Buildable',
+    'Gtk.ConstraintTarget',
+    'Gtk.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'Adw.ViewStackPage': [
     'GObject.Object',
 ],
     'Adw.ViewSwitcher': [
@@ -775,6 +860,830 @@ const inheritanceTable: { [key: string]: string[] } = {
     'AppStreamGlib.Translation': [
     'GObject.Object',
 ],
+    'Arrow.Array': [
+    'GObject.Object',
+],
+    'Arrow.ArrayBuilder': [
+    'GObject.Object',
+],
+    'Arrow.ArrayDatum': [
+    'Arrow.Datum',
+    'GObject.Object',
+],
+    'Arrow.ArraySortOptions': [
+    'GObject.Object',
+    'Arrow.FunctionOptions',
+],
+    'Arrow.BinaryArray': [
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.BinaryArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.BinaryDataType': [
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.BinaryDictionaryArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.BooleanArray': [
+    'Arrow.PrimitiveArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.BooleanArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.BooleanDataType': [
+    'Arrow.FixedWidthDataType',
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.Buffer': [
+    'GObject.Object',
+],
+    'Arrow.BufferInputStream': [
+    'Arrow.SeekableInputStream',
+    'Arrow.File',
+    'Arrow.Readable',
+    'Arrow.InputStream',
+    'Gio.InputStream',
+    'GObject.Object',
+],
+    'Arrow.BufferOutputStream': [
+    'Arrow.OutputStream',
+    'Arrow.File',
+    'Arrow.Writable',
+    'GObject.Object',
+],
+    'Arrow.CSVReadOptions': [
+    'GObject.Object',
+],
+    'Arrow.CSVReader': [
+    'GObject.Object',
+],
+    'Arrow.CastOptions': [
+    'GObject.Object',
+    'Arrow.FunctionOptions',
+],
+    'Arrow.ChunkedArray': [
+    'GObject.Object',
+],
+    'Arrow.ChunkedArrayDatum': [
+    'Arrow.Datum',
+    'GObject.Object',
+],
+    'Arrow.Codec': [
+    'GObject.Object',
+],
+    'Arrow.CompareOptions': [
+    'GObject.Object',
+    'Arrow.FunctionOptions',
+],
+    'Arrow.CompressedInputStream': [
+    'Arrow.InputStream',
+    'Arrow.File',
+    'Arrow.Readable',
+    'Gio.InputStream',
+    'GObject.Object',
+],
+    'Arrow.CompressedOutputStream': [
+    'Arrow.OutputStream',
+    'Arrow.File',
+    'Arrow.Writable',
+    'GObject.Object',
+],
+    'Arrow.CountOptions': [
+    'GObject.Object',
+    'Arrow.FunctionOptions',
+],
+    'Arrow.DataType': [
+    'GObject.Object',
+],
+    'Arrow.Date32Array': [
+    'Arrow.NumericArray',
+    'Arrow.PrimitiveArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.Date32ArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.Date32DataType': [
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.Date64Array': [
+    'Arrow.NumericArray',
+    'Arrow.PrimitiveArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.Date64ArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.Date64DataType': [
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.Datum': [
+    'GObject.Object',
+],
+    'Arrow.Decimal128': [
+    'GObject.Object',
+],
+    'Arrow.Decimal128Array': [
+    'Arrow.FixedSizeBinaryArray',
+    'Arrow.PrimitiveArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.Decimal128ArrayBuilder': [
+    'Arrow.FixedSizeBinaryArrayBuilder',
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.Decimal128DataType': [
+    'Arrow.DecimalDataType',
+    'Arrow.FixedSizeBinaryDataType',
+    'Arrow.FixedWidthDataType',
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.Decimal256': [
+    'GObject.Object',
+],
+    'Arrow.Decimal256Array': [
+    'Arrow.FixedSizeBinaryArray',
+    'Arrow.PrimitiveArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.Decimal256ArrayBuilder': [
+    'Arrow.FixedSizeBinaryArrayBuilder',
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.Decimal256DataType': [
+    'Arrow.DecimalDataType',
+    'Arrow.FixedSizeBinaryDataType',
+    'Arrow.FixedWidthDataType',
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.DecimalDataType': [
+    'Arrow.FixedSizeBinaryDataType',
+    'Arrow.FixedWidthDataType',
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.DenseUnionArray': [
+    'Arrow.UnionArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.DenseUnionDataType': [
+    'Arrow.UnionDataType',
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.DictionaryArray': [
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.DictionaryDataType': [
+    'Arrow.FixedWidthDataType',
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.DoubleArray': [
+    'Arrow.NumericArray',
+    'Arrow.PrimitiveArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.DoubleArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.DoubleDataType': [
+    'Arrow.FloatingPointDataType',
+    'Arrow.NumericDataType',
+    'Arrow.FixedWidthDataType',
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.ExecuteContext': [
+    'GObject.Object',
+],
+    'Arrow.ExtensionArray': [
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.ExtensionDataType': [
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.ExtensionDataTypeRegistry': [
+    'GObject.Object',
+],
+    'Arrow.FeatherFileReader': [
+    'GObject.Object',
+],
+    'Arrow.FeatherWriteProperties': [
+    'GObject.Object',
+],
+    'Arrow.Field': [
+    'GObject.Object',
+],
+    'Arrow.FileInfo': [
+    'GObject.Object',
+],
+    'Arrow.FileOutputStream': [
+    'Arrow.OutputStream',
+    'Arrow.File',
+    'Arrow.Writable',
+    'GObject.Object',
+],
+    'Arrow.FileSelector': [
+    'GObject.Object',
+],
+    'Arrow.FileSystem': [
+    'GObject.Object',
+],
+    'Arrow.FilterOptions': [
+    'GObject.Object',
+    'Arrow.FunctionOptions',
+],
+    'Arrow.FixedSizeBinaryArray': [
+    'Arrow.PrimitiveArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.FixedSizeBinaryArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.FixedSizeBinaryDataType': [
+    'Arrow.FixedWidthDataType',
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.FixedWidthDataType': [
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.FloatArray': [
+    'Arrow.NumericArray',
+    'Arrow.PrimitiveArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.FloatArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.FloatDataType': [
+    'Arrow.FloatingPointDataType',
+    'Arrow.NumericDataType',
+    'Arrow.FixedWidthDataType',
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.FloatingPointDataType': [
+    'Arrow.NumericDataType',
+    'Arrow.FixedWidthDataType',
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.Function': [
+    'GObject.Object',
+],
+    'Arrow.GIOInputStream': [
+    'Arrow.SeekableInputStream',
+    'Arrow.File',
+    'Arrow.Readable',
+    'Arrow.InputStream',
+    'Gio.InputStream',
+    'GObject.Object',
+],
+    'Arrow.GIOOutputStream': [
+    'Arrow.OutputStream',
+    'Arrow.File',
+    'Arrow.Writable',
+    'GObject.Object',
+],
+    'Arrow.HDFSFileSystem': [
+    'Arrow.FileSystem',
+    'GObject.Object',
+],
+    'Arrow.InputStream': [
+    'Gio.InputStream',
+    'Arrow.File',
+    'Arrow.Readable',
+    'GObject.Object',
+],
+    'Arrow.Int16Array': [
+    'Arrow.NumericArray',
+    'Arrow.PrimitiveArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.Int16ArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.Int16DataType': [
+    'Arrow.IntegerDataType',
+    'Arrow.NumericDataType',
+    'Arrow.FixedWidthDataType',
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.Int32Array': [
+    'Arrow.NumericArray',
+    'Arrow.PrimitiveArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.Int32ArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.Int32DataType': [
+    'Arrow.IntegerDataType',
+    'Arrow.NumericDataType',
+    'Arrow.FixedWidthDataType',
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.Int64Array': [
+    'Arrow.NumericArray',
+    'Arrow.PrimitiveArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.Int64ArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.Int64DataType': [
+    'Arrow.IntegerDataType',
+    'Arrow.NumericDataType',
+    'Arrow.FixedWidthDataType',
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.Int8Array': [
+    'Arrow.NumericArray',
+    'Arrow.PrimitiveArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.Int8ArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.Int8DataType': [
+    'Arrow.IntegerDataType',
+    'Arrow.NumericDataType',
+    'Arrow.FixedWidthDataType',
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.IntArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.IntegerDataType': [
+    'Arrow.NumericDataType',
+    'Arrow.FixedWidthDataType',
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.JSONReadOptions': [
+    'GObject.Object',
+],
+    'Arrow.JSONReader': [
+    'GObject.Object',
+],
+    'Arrow.LargeBinaryArray': [
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.LargeBinaryArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.LargeBinaryDataType': [
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.LargeListArray': [
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.LargeListArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.LargeListDataType': [
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.LargeStringArray': [
+    'Arrow.LargeBinaryArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.LargeStringArrayBuilder': [
+    'Arrow.LargeBinaryArrayBuilder',
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.LargeStringDataType': [
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.ListArray': [
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.ListArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.ListDataType': [
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.LocalFileSystem': [
+    'Arrow.FileSystem',
+    'GObject.Object',
+],
+    'Arrow.LocalFileSystemOptions': [
+    'GObject.Object',
+],
+    'Arrow.MapArray': [
+    'Arrow.ListArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.MapArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.MapDataType': [
+    'Arrow.ListDataType',
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.MemoryMappedInputStream': [
+    'Arrow.SeekableInputStream',
+    'Arrow.File',
+    'Arrow.Readable',
+    'Arrow.InputStream',
+    'Gio.InputStream',
+    'GObject.Object',
+],
+    'Arrow.MockFileSystem': [
+    'Arrow.FileSystem',
+    'GObject.Object',
+],
+    'Arrow.MutableBuffer': [
+    'Arrow.Buffer',
+    'GObject.Object',
+],
+    'Arrow.NullArray': [
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.NullArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.NullDataType': [
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.NumericArray': [
+    'Arrow.PrimitiveArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.NumericDataType': [
+    'Arrow.FixedWidthDataType',
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.ORCFileReader': [
+    'GObject.Object',
+],
+    'Arrow.OutputStream': [
+    'GObject.Object',
+    'Arrow.File',
+    'Arrow.Writable',
+],
+    'Arrow.PrimitiveArray': [
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.ReadOptions': [
+    'GObject.Object',
+],
+    'Arrow.RecordBatch': [
+    'GObject.Object',
+],
+    'Arrow.RecordBatchBuilder': [
+    'GObject.Object',
+],
+    'Arrow.RecordBatchDatum': [
+    'Arrow.Datum',
+    'GObject.Object',
+],
+    'Arrow.RecordBatchFileReader': [
+    'GObject.Object',
+],
+    'Arrow.RecordBatchFileWriter': [
+    'Arrow.RecordBatchStreamWriter',
+    'Arrow.RecordBatchWriter',
+    'GObject.Object',
+],
+    'Arrow.RecordBatchIterator': [
+    'GObject.Object',
+],
+    'Arrow.RecordBatchReader': [
+    'GObject.Object',
+],
+    'Arrow.RecordBatchStreamReader': [
+    'Arrow.RecordBatchReader',
+    'GObject.Object',
+],
+    'Arrow.RecordBatchStreamWriter': [
+    'Arrow.RecordBatchWriter',
+    'GObject.Object',
+],
+    'Arrow.RecordBatchWriter': [
+    'GObject.Object',
+],
+    'Arrow.ResizableBuffer': [
+    'Arrow.MutableBuffer',
+    'Arrow.Buffer',
+    'GObject.Object',
+],
+    'Arrow.S3FileSystem': [
+    'Arrow.FileSystem',
+    'GObject.Object',
+],
+    'Arrow.Schema': [
+    'GObject.Object',
+],
+    'Arrow.SeekableInputStream': [
+    'Arrow.InputStream',
+    'Arrow.File',
+    'Arrow.Readable',
+    'Gio.InputStream',
+    'GObject.Object',
+],
+    'Arrow.SlowFileSystem': [
+    'Arrow.FileSystem',
+    'GObject.Object',
+],
+    'Arrow.SortKey': [
+    'GObject.Object',
+],
+    'Arrow.SortOptions': [
+    'GObject.Object',
+    'Arrow.FunctionOptions',
+],
+    'Arrow.SparseUnionArray': [
+    'Arrow.UnionArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.SparseUnionDataType': [
+    'Arrow.UnionDataType',
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.StringArray': [
+    'Arrow.BinaryArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.StringArrayBuilder': [
+    'Arrow.BinaryArrayBuilder',
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.StringDataType': [
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.StringDictionaryArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.StructArray': [
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.StructArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.StructDataType': [
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.SubTreeFileSystem': [
+    'Arrow.FileSystem',
+    'GObject.Object',
+],
+    'Arrow.Table': [
+    'GObject.Object',
+],
+    'Arrow.TableBatchReader': [
+    'Arrow.RecordBatchReader',
+    'GObject.Object',
+],
+    'Arrow.TableDatum': [
+    'Arrow.Datum',
+    'GObject.Object',
+],
+    'Arrow.TakeOptions': [
+    'GObject.Object',
+    'Arrow.FunctionOptions',
+],
+    'Arrow.Tensor': [
+    'GObject.Object',
+],
+    'Arrow.Time32Array': [
+    'Arrow.NumericArray',
+    'Arrow.PrimitiveArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.Time32ArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.Time32DataType': [
+    'Arrow.TimeDataType',
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.Time64Array': [
+    'Arrow.NumericArray',
+    'Arrow.PrimitiveArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.Time64ArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.Time64DataType': [
+    'Arrow.TimeDataType',
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.TimeDataType': [
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.TimestampArray': [
+    'Arrow.NumericArray',
+    'Arrow.PrimitiveArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.TimestampArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.TimestampDataType': [
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.UInt16Array': [
+    'Arrow.NumericArray',
+    'Arrow.PrimitiveArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.UInt16ArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.UInt16DataType': [
+    'Arrow.IntegerDataType',
+    'Arrow.NumericDataType',
+    'Arrow.FixedWidthDataType',
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.UInt32Array': [
+    'Arrow.NumericArray',
+    'Arrow.PrimitiveArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.UInt32ArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.UInt32DataType': [
+    'Arrow.IntegerDataType',
+    'Arrow.NumericDataType',
+    'Arrow.FixedWidthDataType',
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.UInt64Array': [
+    'Arrow.NumericArray',
+    'Arrow.PrimitiveArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.UInt64ArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.UInt64DataType': [
+    'Arrow.IntegerDataType',
+    'Arrow.NumericDataType',
+    'Arrow.FixedWidthDataType',
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.UInt8Array': [
+    'Arrow.NumericArray',
+    'Arrow.PrimitiveArray',
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.UInt8ArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.UInt8DataType': [
+    'Arrow.IntegerDataType',
+    'Arrow.NumericDataType',
+    'Arrow.FixedWidthDataType',
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.UIntArrayBuilder': [
+    'Arrow.ArrayBuilder',
+    'GObject.Object',
+],
+    'Arrow.UnionArray': [
+    'Arrow.Array',
+    'GObject.Object',
+],
+    'Arrow.UnionDataType': [
+    'Arrow.DataType',
+    'GObject.Object',
+],
+    'Arrow.WriteOptions': [
+    'GObject.Object',
+],
+    'ArrowDataset.CSVFileFormat': [
+    'ArrowDataset.FileFormat',
+    'GObject.Object',
+],
+    'ArrowDataset.FileFormat': [
+    'GObject.Object',
+],
+    'ArrowDataset.IPCFileFormat': [
+    'ArrowDataset.FileFormat',
+    'GObject.Object',
+],
+    'ArrowDataset.InMemoryScanTask': [
+    'ArrowDataset.ScanTask',
+    'GObject.Object',
+],
+    'ArrowDataset.ParquetFileFormat': [
+    'ArrowDataset.FileFormat',
+    'GObject.Object',
+],
+    'ArrowDataset.ScanContext': [
+    'GObject.Object',
+],
+    'ArrowDataset.ScanOptions': [
+    'GObject.Object',
+],
+    'ArrowDataset.ScanTask': [
+    'GObject.Object',
+],
     'Atk.GObjectAccessible': [
     'Atk.Object',
     'GObject.Object',
@@ -999,6 +1908,48 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gtk.Object',
     'GObject.InitiallyUnowned',
     'GObject.Object',
+],
+    'Bump.AsyncPriorityQueue': [
+    'Gee.PriorityQueue',
+    'Gee.AbstractQueue',
+    'Gee.AbstractCollection',
+    'GObject.Object',
+],
+    'Bump.Claim': [
+    'GObject.Object',
+    'Gio.Initable',
+    'Gio.AsyncInitable',
+],
+    'Bump.Event': [
+    'GObject.Object',
+],
+    'Bump.Factory': [
+    'GObject.Object',
+],
+    'Bump.Lazy': [
+    'Bump.Factory',
+    'GObject.Object',
+],
+    'Bump.ResourceClaim': [
+    'Bump.Claim',
+    'GObject.Object',
+],
+    'Bump.ResourcePool': [
+    'Bump.Factory',
+    'GObject.Object',
+],
+    'Bump.Semaphore': [
+    'Bump.TaskQueue',
+    'GObject.Object',
+],
+    'Bump.SemaphoreClaim': [
+    'Bump.Claim',
+    'GObject.Object',
+],
+    'Bump.TaskQueue': [
+    'GObject.Object',
+    'Bump.Queue',
+    'Bump.Threading',
 ],
     'Cally.Actor': [
     'Atk.GObjectAccessible',
@@ -1336,6 +2287,11 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
 ],
     'Camel.SaslXOAuth2Outlook': [
+    'Camel.SaslXOAuth2',
+    'Camel.Sasl',
+    'GObject.Object',
+],
+    'Camel.SaslXOAuth2Yahoo': [
     'Camel.SaslXOAuth2',
     'Camel.Sasl',
     'GObject.Object',
@@ -3844,6 +4800,12 @@ const inheritanceTable: { [key: string]: string[] } = {
     'EDataServer.Extension',
     'GObject.Object',
 ],
+    'EDataServer.OAuth2ServiceYahoo': [
+    'EDataServer.OAuth2ServiceBase',
+    'EDataServer.OAuth2Service',
+    'EDataServer.Extension',
+    'GObject.Object',
+],
     'EDataServer.OAuth2Services': [
     'GObject.Object',
     'EDataServer.Extensible',
@@ -4030,6 +4992,10 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
 ],
     'EDataServer.SourceWeather': [
+    'EDataServer.SourceExtension',
+    'GObject.Object',
+],
+    'EDataServer.SourceWebDAVNotes': [
     'EDataServer.SourceExtension',
     'GObject.Object',
 ],
@@ -5584,32 +6550,9 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GData.Comparable',
     'GObject.Object',
 ],
-    'GData.ClientLoginAuthorizer': [
-    'GObject.Object',
-    'GData.Authorizer',
-],
     'GData.Comment': [
     'GData.Entry',
     'GData.Parsable',
-    'GObject.Object',
-],
-    'GData.ContactsContact': [
-    'GData.Entry',
-    'GData.Parsable',
-    'GObject.Object',
-],
-    'GData.ContactsGroup': [
-    'GData.Entry',
-    'GData.Parsable',
-    'GObject.Object',
-],
-    'GData.ContactsQuery': [
-    'GData.Query',
-    'GObject.Object',
-],
-    'GData.ContactsService': [
-    'GData.Service',
-    'GData.Batchable',
     'GObject.Object',
 ],
     'GData.DocumentsAccessRule': [
@@ -5726,39 +6669,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GData.Parsable',
     'GObject.Object',
 ],
-    'GData.FreebaseQuery': [
-    'GData.Query',
-    'GObject.Object',
-],
-    'GData.FreebaseResult': [
-    'GData.Entry',
-    'GData.Parsable',
-    'GObject.Object',
-],
-    'GData.FreebaseSearchQuery': [
-    'GData.Query',
-    'GObject.Object',
-],
-    'GData.FreebaseSearchResult': [
-    'GData.FreebaseResult',
-    'GData.Entry',
-    'GData.Parsable',
-    'GObject.Object',
-],
-    'GData.FreebaseService': [
-    'GData.Service',
-    'GObject.Object',
-],
-    'GData.FreebaseTopicQuery': [
-    'GData.Query',
-    'GObject.Object',
-],
-    'GData.FreebaseTopicResult': [
-    'GData.FreebaseResult',
-    'GData.Entry',
-    'GData.Parsable',
-    'GObject.Object',
-],
     'GData.GContactCalendar': [
     'GData.Parsable',
     'GData.Comparable',
@@ -5871,10 +6781,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GData.Parsable',
     'GObject.Object',
 ],
-    'GData.OAuth1Authorizer': [
-    'GObject.Object',
-    'GData.Authorizer',
-],
     'GData.OAuth2Authorizer': [
     'GObject.Object',
     'GData.Authorizer',
@@ -5954,16 +6860,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GData.YouTubeComment': [
     'GData.Comment',
     'GData.Entry',
-    'GData.Parsable',
-    'GObject.Object',
-],
-    'GData.YouTubeContent': [
-    'GData.MediaContent',
-    'GData.Parsable',
-    'GObject.Object',
-],
-    'GData.YouTubeCredit': [
-    'GData.MediaCredit',
     'GData.Parsable',
     'GObject.Object',
 ],
@@ -6920,10 +7816,12 @@ const inheritanceTable: { [key: string]: string[] } = {
 ],
     'GUPnP.WhiteList': [
     'GObject.Object',
-    'GObject.Object',
 ],
     'GUPnP.XMLDoc': [
     'GObject.Object',
+    'GObject.Object',
+],
+    'GUPnP.ContextFilter': [
     'GObject.Object',
 ],
     'GUPnPAV.CDSLastChangeParser': [
@@ -7057,6 +7955,7 @@ const inheritanceTable: { [key: string]: string[] } = {
 ],
     'GWeather.Info': [
     'GObject.Object',
+    'GObject.Object',
 ],
     'GWeather.LocationEntry': [
     'Gtk.SearchEntry',
@@ -7083,6 +7982,9 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
+    'GWeather.Location': [
+    'GObject.Object',
+],
     'GXPS.CoreProperties': [
     'GObject.Object',
     'Gio.Initable',
@@ -7104,7 +8006,6 @@ const inheritanceTable: { [key: string]: string[] } = {
 ],
     'GXml.ElementList': [
     'Gee.ArrayList',
-    'Gee.ArrayList',
     'GXml.DomHTMLCollection',
     'Gee.ArrayList',
     'GXml.DomHTMLCollection',
@@ -7120,138 +8021,13 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gee.ArrayList',
     'Gee.ArrayList',
     'Gee.ArrayList',
-    'Gee.ArrayList',
     'GXml.DomNodeList',
     'Gee.AbstractBidirList',
     'Gee.AbstractList',
     'Gee.AbstractCollection',
     'GObject.Object',
 ],
-    'GXml.xAttr': [
-    'GXml.BackedNode',
-    'GXml.Attribute',
-    'GXml.xNode',
-    'GObject.Object',
-],
-    'GXml.BackedNode': [
-    'GXml.xNode',
-    'GXml.Node',
-    'GObject.Object',
-],
-    'GXml.xCDATASection': [
-    'GXml.xText',
-    'GXml.CDATA',
-    'GXml.xCharacterData',
-    'GXml.BackedNode',
-    'GXml.xNode',
-    'GObject.Object',
-],
-    'GXml.xCharacterData': [
-    'GXml.BackedNode',
-    'GXml.xNode',
-    'GObject.Object',
-],
-    'GXml.xComment': [
-    'GXml.xCharacterData',
-    'GXml.Comment',
-    'GXml.BackedNode',
-    'GXml.xNode',
-    'GObject.Object',
-],
-    'GXml.DocumentFragment': [
-    'GXml.BackedNode',
-    'GXml.Node',
-    'GXml.DomParentNode',
-    'GXml.DomNonElementParentNode',
-    'GXml.DomDocumentFragment',
-    'GXml.BackedNode',
-    'GXml.xNode',
-    'GObject.Object',
-],
-    'GXml.xDocumentType': [
-    'GXml.xNode',
-    'GXml.DocumentType',
-    'GObject.Object',
-],
-    'GXml.xDocument': [
-    'GXml.xNode',
-    'GXml.Document',
-    'GObject.Object',
-],
-    'GXml.xElement': [
-    'GXml.BackedNode',
-    'GXml.Element',
-    'GXml.xNode',
-    'GObject.Object',
-],
-    'GXml.Entity': [
-    'GXml.xNode',
-    'GXml.Node',
-    'GObject.Object',
-],
-    'GXml.EntityReference': [
-    'GXml.xNode',
-    'GXml.Node',
-    'GObject.Object',
-],
-    'GXml.Implementation': [
-    'GObject.Object',
-    'GObject.Object',
-    'GXml.DomImplementation',
-    'GObject.Object',
-],
-    'GXml.AbstractNamedAttrMap': [
-    'GObject.Object',
-    'Gee.Traversable',
-    'Gee.Iterable',
-],
-    'GXml.AbstractNamedAttrMapEntry': [
-    'Gee.MapEntry',
-    'GObject.Object',
-],
-    'GXml.AbstractNamedAttrMapIterator': [
-    'GObject.Object',
-    'Gee.Traversable',
-    'Gee.Iterator',
-],
-    'GXml.NamedAttrMap': [
-    'GXml.AbstractNamedAttrMap',
-    'Gee.Map',
-    'GXml.NamedNodeMap',
-    'GObject.Object',
-    'GXml.NamedNodeMap',
-    'GObject.Object',
-],
-    'GXml.NamespaceAttr': [
-    'GXml.xNode',
-    'GXml.Namespace',
-    'GXml.Node',
-    'GObject.Object',
-],
-    'GXml.xNode': [
-    'GObject.Object',
-    'GXml.Node',
-],
-    'GXml.xNotation': [
-    'GXml.xNode',
-    'GXml.Notation',
-    'GObject.Object',
-],
-    'GXml.xProcessingInstruction': [
-    'GXml.xNode',
-    'GXml.ProcessingInstruction',
-    'GObject.Object',
-],
-    'GXml.xText': [
-    'GXml.xCharacterData',
-    'GXml.Text',
-    'GXml.BackedNode',
-    'GXml.xNode',
-    'GObject.Object',
-],
     'GXml.SerializableBool': [
-    'GObject.Object',
-    'GXml.SerializableProperty',
     'GObject.Object',
     'GXml.SerializableProperty',
     'GObject.Object',
@@ -7266,11 +8042,8 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GXml.SerializableProperty',
     'GObject.Object',
     'GXml.SerializableProperty',
-    'GObject.Object',
-    'GXml.SerializableProperty',
 ],
     'GXml.SerializableFloat': [
-    'GXml.SerializableDouble',
     'GXml.SerializableDouble',
     'GXml.SerializableDouble',
     'GXml.SerializableDouble',
@@ -7283,11 +8056,8 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GXml.SerializableProperty',
     'GObject.Object',
     'GXml.SerializableProperty',
-    'GObject.Object',
-    'GXml.SerializableProperty',
 ],
     'GXml.SerializableInt': [
-    'GXml.SerializableDouble',
     'GXml.SerializableDouble',
     'GXml.SerializableDouble',
     'GXml.SerializableDouble',
@@ -7300,14 +8070,8 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GXml.SerializableProperty',
     'GObject.Object',
     'GXml.SerializableProperty',
-    'GObject.Object',
-    'GXml.SerializableProperty',
 ],
     'GXml.SerializableObjectModel': [
-    'GObject.Object',
-    'GXml.Serializable',
-    'GObject.Object',
-    'GXml.Serializable',
     'GObject.Object',
     'GXml.Serializable',
     'GObject.Object',
@@ -7325,24 +8089,12 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gee.TreeMap',
     'GXml.Serializable',
     'GXml.SerializableCollection',
-    'Gee.TreeMap',
-    'GXml.Serializable',
-    'GXml.SerializableCollection',
-    'Gee.TreeMap',
-    'GXml.Serializable',
-    'GXml.SerializableCollection',
     'Gee.AbstractBidirSortedMap',
     'Gee.AbstractSortedMap',
     'Gee.AbstractMap',
     'GObject.Object',
 ],
     'GXml.SerializableHashMap': [
-    'Gee.HashMap',
-    'GXml.Serializable',
-    'GXml.SerializableCollection',
-    'Gee.HashMap',
-    'GXml.Serializable',
-    'GXml.SerializableCollection',
     'Gee.HashMap',
     'GXml.Serializable',
     'GXml.SerializableCollection',
@@ -7368,21 +8120,8 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gee.Traversable',
     'GXml.Serializable',
     'GXml.SerializableCollection',
-    'GObject.Object',
-    'Gee.Traversable',
-    'GXml.Serializable',
-    'GXml.SerializableCollection',
-    'GObject.Object',
-    'GXml.Serializable',
-    'GXml.SerializableCollection',
 ],
     'GXml.SerializableArrayList': [
-    'Gee.ArrayList',
-    'GXml.Serializable',
-    'GXml.SerializableCollection',
-    'Gee.ArrayList',
-    'GXml.Serializable',
-    'GXml.SerializableCollection',
     'Gee.ArrayList',
     'GXml.Serializable',
     'GXml.SerializableCollection',
@@ -7401,13 +8140,9 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GXml.SerializableObjectModel',
     'GXml.SerializableObjectModel',
     'GXml.SerializableObjectModel',
-    'GXml.SerializableObjectModel',
-    'GXml.SerializableObjectModel',
     'GObject.Object',
 ],
     'GXml.TAttribute': [
-    'GXml.TNode',
-    'GXml.Attribute',
     'GXml.TNode',
     'GXml.Attribute',
     'GXml.TNode',
@@ -7423,13 +8158,9 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GXml.Comment',
     'GXml.TNode',
     'GXml.Comment',
-    'GXml.TNode',
-    'GXml.Comment',
     'GObject.Object',
 ],
     'GXml.TCDATA': [
-    'GXml.TNode',
-    'GXml.CDATA',
     'GXml.TNode',
     'GXml.CDATA',
     'GXml.TNode',
@@ -7445,13 +8176,9 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GXml.Document',
     'GXml.TNode',
     'GXml.Document',
-    'GXml.TNode',
-    'GXml.Document',
     'GObject.Object',
 ],
     'GXml.TElement': [
-    'GXml.TNode',
-    'GXml.Element',
     'GXml.TNode',
     'GXml.Element',
     'GXml.TNode',
@@ -7467,13 +8194,9 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GXml.Namespace',
     'GXml.TNode',
     'GXml.Namespace',
-    'GXml.TNode',
-    'GXml.Namespace',
     'GObject.Object',
 ],
     'GXml.TNode': [
-    'GObject.Object',
-    'GXml.Node',
     'GObject.Object',
     'GXml.Node',
     'GObject.Object',
@@ -7485,14 +8208,11 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gee.AbstractBidirList',
     'Gee.AbstractBidirList',
     'Gee.AbstractBidirList',
-    'Gee.AbstractBidirList',
     'Gee.AbstractList',
     'Gee.AbstractCollection',
     'GObject.Object',
 ],
     'GXml.TProcessingInstruction': [
-    'GXml.TNode',
-    'GXml.ProcessingInstruction',
     'GXml.TNode',
     'GXml.ProcessingInstruction',
     'GXml.TNode',
@@ -7508,20 +8228,15 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GXml.Text',
     'GXml.TNode',
     'GXml.Text',
-    'GXml.TNode',
-    'GXml.Text',
     'GObject.Object',
 ],
     'GXml.HtmlDocument': [
-    'GXml.xDocument',
     'GXml.GDocument',
     'GXml.Document',
-    'GXml.xNode',
+    'GXml.GNode',
     'GObject.Object',
 ],
     'GXml.GAttribute': [
-    'GXml.GNode',
-    'GXml.Attribute',
     'GXml.GNode',
     'GXml.Attribute',
     'GXml.DomAttr',
@@ -7534,8 +8249,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
 ],
     'GXml.GComment': [
-    'GXml.GNode',
-    'GXml.Comment',
     'GXml.GCharacterData',
     'GXml.Comment',
     'GXml.DomComment',
@@ -7545,213 +8258,10 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GXml.GCharacterData',
     'GXml.Comment',
     'GXml.DomComment',
-    'GObject.Object',
-],
-    'GXml.GCDATA': [
-    'GXml.GNode',
-    'GXml.CDATA',
-    'GXml.GNode',
-    'GXml.CDATA',
-    'GXml.GNode',
-    'GXml.CDATA',
-    'GXml.GNode',
-    'GXml.CDATA',
-    'GObject.Object',
-],
-    'GXml.GDocument': [
-    'GXml.GNode',
-    'GXml.Document',
-    'GXml.GNode',
-    'GXml.Document',
-    'GXml.DomParentNode',
-    'GXml.DomNonElementParentNode',
-    'GXml.DomDocument',
-    'GXml.DomXMLDocument',
-    'GXml.XPathContext',
-    'GXml.GNode',
-    'GXml.Document',
-    'GXml.DomParentNode',
-    'GXml.DomNonElementParentNode',
-    'GXml.DomDocument',
-    'GXml.DomXMLDocument',
-    'GXml.XPathContext',
-    'GXml.GNode',
-    'GXml.Document',
-    'GXml.DomParentNode',
-    'GXml.DomNonElementParentNode',
-    'GXml.DomDocument',
-    'GXml.DomXMLDocument',
-    'GXml.XPathContext',
-    'GObject.Object',
-],
-    'GXml.GElement': [
-    'GXml.GNode',
-    'GXml.Element',
     'GXml.GNonDocumentChildNode',
-    'GXml.DomParentNode',
-    'GXml.DomElement',
-    'GXml.Element',
-    'GXml.XPathContext',
-    'GXml.GNonDocumentChildNode',
-    'GXml.DomParentNode',
-    'GXml.DomElement',
-    'GXml.Element',
-    'GXml.XPathContext',
-    'GXml.GNonDocumentChildNode',
-    'GXml.DomParentNode',
-    'GXml.DomElement',
-    'GXml.Element',
-    'GXml.XPathContext',
-    'GObject.Object',
-],
-    'GXml.GNamespace': [
+    'GXml.GChildNode',
     'GXml.GNode',
-    'GXml.Namespace',
     'GObject.Object',
-    'GXml.Namespace',
-    'GObject.Object',
-    'GXml.Namespace',
-    'GObject.Object',
-    'GXml.Namespace',
-    'GObject.Object',
-],
-    'GXml.GNode': [
-    'GObject.Object',
-    'GXml.Node',
-    'GObject.Object',
-    'GXml.DomEventTarget',
-    'GXml.DomNode',
-    'GXml.Node',
-    'GObject.Object',
-    'GXml.DomEventTarget',
-    'GXml.DomNode',
-    'GXml.Node',
-    'GObject.Object',
-    'GXml.DomEventTarget',
-    'GXml.DomNode',
-    'GXml.Node',
-],
-    'GXml.GProcessingInstruction': [
-    'GXml.GNode',
-    'GXml.ProcessingInstruction',
-    'GXml.GCharacterData',
-    'GXml.ProcessingInstruction',
-    'GXml.DomProcessingInstruction',
-    'GXml.GCharacterData',
-    'GXml.ProcessingInstruction',
-    'GXml.DomProcessingInstruction',
-    'GXml.GCharacterData',
-    'GXml.ProcessingInstruction',
-    'GXml.DomProcessingInstruction',
-    'GObject.Object',
-],
-    'GXml.GText': [
-    'GXml.GNode',
-    'GXml.Text',
-    'GXml.GCharacterData',
-    'GXml.Text',
-    'GXml.DomText',
-    'GXml.GCharacterData',
-    'GXml.Text',
-    'GXml.DomText',
-    'GXml.GCharacterData',
-    'GXml.Text',
-    'GXml.DomText',
-    'GObject.Object',
-],
-    'GXml.GHashMapAttr': [
-    'Gee.AbstractMap',
-    'Gee.AbstractMap',
-    'GXml.DomNamedNodeMap',
-    'Gee.AbstractMap',
-    'GXml.DomNamedNodeMap',
-    'Gee.AbstractMap',
-    'GXml.DomNamedNodeMap',
-    'GObject.Object',
-],
-    'GXml.GHashMapAttrEntry': [
-    'Gee.MapEntry',
-    'Gee.MapEntry',
-    'Gee.MapEntry',
-    'Gee.MapEntry',
-    'GObject.Object',
-],
-    'GXml.GHashMapAttrIterator': [
-    'GObject.Object',
-    'Gee.MapIterator',
-    'GObject.Object',
-    'Gee.MapIterator',
-    'GObject.Object',
-    'Gee.MapIterator',
-    'GObject.Object',
-    'Gee.MapIterator',
-],
-    'GXml.GListChildren': [
-    'Gee.AbstractBidirList',
-    'Gee.AbstractBidirList',
-    'GXml.DomNodeList',
-    'GXml.DomHTMLCollection',
-    'Gee.AbstractBidirList',
-    'GXml.DomNodeList',
-    'GXml.DomHTMLCollection',
-    'Gee.AbstractBidirList',
-    'GXml.DomNodeList',
-    'GXml.DomHTMLCollection',
-    'Gee.AbstractList',
-    'Gee.AbstractCollection',
-    'GObject.Object',
-],
-    'GXml.GListChildrenIterator': [
-    'GObject.Object',
-    'Gee.Traversable',
-    'Gee.Iterator',
-    'Gee.BidirIterator',
-    'Gee.ListIterator',
-    'Gee.BidirListIterator',
-    'GObject.Object',
-    'Gee.Traversable',
-    'Gee.Iterator',
-    'Gee.BidirIterator',
-    'Gee.ListIterator',
-    'Gee.BidirListIterator',
-    'GObject.Object',
-    'Gee.Traversable',
-    'Gee.Iterator',
-    'Gee.BidirIterator',
-    'Gee.ListIterator',
-    'Gee.BidirListIterator',
-    'GObject.Object',
-    'Gee.Traversable',
-    'Gee.Iterator',
-    'Gee.BidirIterator',
-    'Gee.ListIterator',
-    'Gee.BidirListIterator',
-],
-    'GXml.GListNamespaces': [
-    'Gee.AbstractList',
-    'Gee.AbstractList',
-    'Gee.AbstractList',
-    'Gee.AbstractList',
-    'Gee.AbstractCollection',
-    'GObject.Object',
-],
-    'GXml.GListNamespacesIterator': [
-    'GObject.Object',
-    'Gee.Traversable',
-    'Gee.Iterator',
-    'Gee.ListIterator',
-    'GObject.Object',
-    'Gee.Traversable',
-    'Gee.Iterator',
-    'Gee.ListIterator',
-    'GObject.Object',
-    'Gee.Traversable',
-    'Gee.Iterator',
-    'Gee.ListIterator',
-    'GObject.Object',
-    'Gee.Traversable',
-    'Gee.Iterator',
-    'Gee.ListIterator',
 ],
     'GXml.GCharacterData': [
     'GXml.GNonDocumentChildNode',
@@ -7784,6 +8294,39 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GXml.GChildNode',
     'GXml.DomNonDocumentTypeChildNode',
     'GXml.GNode',
+    'GObject.Object',
+],
+    'GXml.GCDATA': [
+    'GXml.GNode',
+    'GXml.CDATA',
+    'GXml.GNode',
+    'GXml.CDATA',
+    'GXml.GNode',
+    'GXml.CDATA',
+    'GObject.Object',
+],
+    'GXml.GDocument': [
+    'GXml.GNode',
+    'GXml.Document',
+    'GXml.DomParentNode',
+    'GXml.DomNonElementParentNode',
+    'GXml.DomDocument',
+    'GXml.DomXMLDocument',
+    'GXml.XPathContext',
+    'GXml.GNode',
+    'GXml.Document',
+    'GXml.DomParentNode',
+    'GXml.DomNonElementParentNode',
+    'GXml.DomDocument',
+    'GXml.DomXMLDocument',
+    'GXml.XPathContext',
+    'GXml.GNode',
+    'GXml.Document',
+    'GXml.DomParentNode',
+    'GXml.DomNonElementParentNode',
+    'GXml.DomDocument',
+    'GXml.DomXMLDocument',
+    'GXml.XPathContext',
     'GObject.Object',
 ],
     'GXml.GImplementation': [
@@ -7894,6 +8437,156 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GXml.DomRange',
     'GObject.Object',
     'GXml.DomRange',
+],
+    'GXml.GElement': [
+    'GXml.GNonDocumentChildNode',
+    'GXml.DomParentNode',
+    'GXml.DomElement',
+    'GXml.Element',
+    'GXml.XPathContext',
+    'GXml.GNonDocumentChildNode',
+    'GXml.DomParentNode',
+    'GXml.DomElement',
+    'GXml.Element',
+    'GXml.XPathContext',
+    'GXml.GNonDocumentChildNode',
+    'GXml.DomParentNode',
+    'GXml.DomElement',
+    'GXml.Element',
+    'GXml.XPathContext',
+    'GXml.GChildNode',
+    'GXml.GNode',
+    'GObject.Object',
+],
+    'GXml.GNamespace': [
+    'GObject.Object',
+    'GXml.Namespace',
+    'GObject.Object',
+    'GXml.Namespace',
+    'GObject.Object',
+    'GXml.Namespace',
+],
+    'GXml.GNode': [
+    'GObject.Object',
+    'GXml.DomEventTarget',
+    'GXml.DomNode',
+    'GXml.Node',
+    'GObject.Object',
+    'GXml.DomEventTarget',
+    'GXml.DomNode',
+    'GXml.Node',
+    'GObject.Object',
+    'GXml.DomEventTarget',
+    'GXml.DomNode',
+    'GXml.Node',
+],
+    'GXml.GProcessingInstruction': [
+    'GXml.GCharacterData',
+    'GXml.ProcessingInstruction',
+    'GXml.DomProcessingInstruction',
+    'GXml.GCharacterData',
+    'GXml.ProcessingInstruction',
+    'GXml.DomProcessingInstruction',
+    'GXml.GCharacterData',
+    'GXml.ProcessingInstruction',
+    'GXml.DomProcessingInstruction',
+    'GXml.GNonDocumentChildNode',
+    'GXml.GChildNode',
+    'GXml.GNode',
+    'GObject.Object',
+],
+    'GXml.GText': [
+    'GXml.GCharacterData',
+    'GXml.Text',
+    'GXml.DomText',
+    'GXml.GCharacterData',
+    'GXml.Text',
+    'GXml.DomText',
+    'GXml.GCharacterData',
+    'GXml.Text',
+    'GXml.DomText',
+    'GXml.GNonDocumentChildNode',
+    'GXml.GChildNode',
+    'GXml.GNode',
+    'GObject.Object',
+],
+    'GXml.GHashMapAttr': [
+    'Gee.AbstractMap',
+    'GXml.DomNamedNodeMap',
+    'Gee.AbstractMap',
+    'GXml.DomNamedNodeMap',
+    'Gee.AbstractMap',
+    'GXml.DomNamedNodeMap',
+    'GObject.Object',
+],
+    'GXml.GHashMapAttrEntry': [
+    'Gee.MapEntry',
+    'Gee.MapEntry',
+    'Gee.MapEntry',
+    'GObject.Object',
+],
+    'GXml.GHashMapAttrIterator': [
+    'GObject.Object',
+    'Gee.MapIterator',
+    'GObject.Object',
+    'Gee.MapIterator',
+    'GObject.Object',
+    'Gee.MapIterator',
+],
+    'GXml.GListChildren': [
+    'Gee.AbstractBidirList',
+    'GXml.DomNodeList',
+    'GXml.DomHTMLCollection',
+    'Gee.AbstractBidirList',
+    'GXml.DomNodeList',
+    'GXml.DomHTMLCollection',
+    'Gee.AbstractBidirList',
+    'GXml.DomNodeList',
+    'GXml.DomHTMLCollection',
+    'Gee.AbstractList',
+    'Gee.AbstractCollection',
+    'GObject.Object',
+],
+    'GXml.GListChildrenIterator': [
+    'GObject.Object',
+    'Gee.Traversable',
+    'Gee.Iterator',
+    'Gee.BidirIterator',
+    'Gee.ListIterator',
+    'Gee.BidirListIterator',
+    'GObject.Object',
+    'Gee.Traversable',
+    'Gee.Iterator',
+    'Gee.BidirIterator',
+    'Gee.ListIterator',
+    'Gee.BidirListIterator',
+    'GObject.Object',
+    'Gee.Traversable',
+    'Gee.Iterator',
+    'Gee.BidirIterator',
+    'Gee.ListIterator',
+    'Gee.BidirListIterator',
+],
+    'GXml.GListNamespaces': [
+    'Gee.AbstractList',
+    'Gee.AbstractList',
+    'Gee.AbstractList',
+    'Gee.AbstractCollection',
+    'GObject.Object',
+],
+    'GXml.GListNamespacesIterator': [
+    'GObject.Object',
+    'Gee.Traversable',
+    'Gee.Iterator',
+    'Gee.ListIterator',
+    'GObject.Object',
+    'Gee.Traversable',
+    'Gee.Iterator',
+    'Gee.ListIterator',
+    'GObject.Object',
+    'Gee.Traversable',
+    'Gee.Iterator',
+    'Gee.ListIterator',
 ],
     'GXml.DomNodeFilter': [
     'GObject.Object',
@@ -8577,7 +9270,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GXml.Attr': [
     'GXml.Node',
     'GXml.DomAttr',
-    'GXml.BackedNode',
     'GObject.Object',
 ],
     'GXml.CssSelector': [
@@ -8601,14 +9293,23 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GXml.DomNonElementParentNode',
     'GXml.DomDocument',
     'GXml.DomXMLDocument',
-    'GXml.Node',
     'GObject.Object',
+],
+    'GXml.Implementation': [
+    'GObject.Object',
+    'GXml.DomImplementation',
 ],
     'GXml.DocumentType': [
     'GXml.Node',
     'GXml.DomChildNode',
     'GXml.DomDocumentType',
+    'GObject.Object',
+],
+    'GXml.DocumentFragment': [
     'GXml.Node',
+    'GXml.DomParentNode',
+    'GXml.DomNonElementParentNode',
+    'GXml.DomDocumentFragment',
     'GObject.Object',
 ],
     'GXml.Element': [
@@ -8618,7 +9319,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GXml.DomParentNode',
     'GXml.DomElement',
     'GXml.Object',
-    'GXml.BackedNode',
     'GObject.Object',
 ],
     'GXml.ElementAttributes': [
@@ -8671,7 +9371,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
     'GXml.DomEventTarget',
     'GXml.DomNode',
-    'GObject.Object',
 ],
     'GXml.NodeIterator': [
     'GObject.Object',
@@ -8745,13 +9444,11 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GXml.DomNonDocumentTypeChildNode',
     'GXml.DomChildNode',
     'GXml.DomCharacterData',
-    'GXml.BackedNode',
     'GObject.Object',
 ],
     'GXml.Text': [
     'GXml.CharacterData',
     'GXml.DomText',
-    'GXml.CharacterData',
     'GXml.Node',
     'GObject.Object',
 ],
@@ -8759,13 +9456,11 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GXml.CharacterData',
     'GXml.DomProcessingInstruction',
     'GXml.Node',
-    'GXml.Node',
     'GObject.Object',
 ],
     'GXml.Comment': [
     'GXml.CharacterData',
     'GXml.DomComment',
-    'GXml.CharacterData',
     'GXml.Node',
     'GObject.Object',
 ],
@@ -9114,21 +9809,122 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GXml.XNode',
     'GObject.Object',
 ],
-    'GXml.CDATASection': [
-    'GXml.Text',
-    'GXml.CharacterData',
-    'GXml.Node',
+    'Gandiva.AndNode': [
+    'Gandiva.BooleanNode',
+    'Gandiva.Node',
     'GObject.Object',
 ],
-    'GXml.Notation': [
-    'GXml.Node',
+    'Gandiva.BinaryLiteralNode': [
+    'Gandiva.LiteralNode',
+    'Gandiva.Node',
     'GObject.Object',
 ],
-    'GXml.SerializableJson': [
+    'Gandiva.BooleanLiteralNode': [
+    'Gandiva.LiteralNode',
+    'Gandiva.Node',
     'GObject.Object',
-    'GXml.Serializable',
 ],
-    'GXml.Serialization': [
+    'Gandiva.BooleanNode': [
+    'Gandiva.Node',
+    'GObject.Object',
+],
+    'Gandiva.DoubleLiteralNode': [
+    'Gandiva.LiteralNode',
+    'Gandiva.Node',
+    'GObject.Object',
+],
+    'Gandiva.Expression': [
+    'GObject.Object',
+],
+    'Gandiva.FieldNode': [
+    'Gandiva.Node',
+    'GObject.Object',
+],
+    'Gandiva.FloatLiteralNode': [
+    'Gandiva.LiteralNode',
+    'Gandiva.Node',
+    'GObject.Object',
+],
+    'Gandiva.FunctionNode': [
+    'Gandiva.Node',
+    'GObject.Object',
+],
+    'Gandiva.FunctionRegistry': [
+    'GObject.Object',
+],
+    'Gandiva.FunctionSignature': [
+    'GObject.Object',
+],
+    'Gandiva.IfNode': [
+    'Gandiva.Node',
+    'GObject.Object',
+],
+    'Gandiva.Int16LiteralNode': [
+    'Gandiva.LiteralNode',
+    'Gandiva.Node',
+    'GObject.Object',
+],
+    'Gandiva.Int32LiteralNode': [
+    'Gandiva.LiteralNode',
+    'Gandiva.Node',
+    'GObject.Object',
+],
+    'Gandiva.Int64LiteralNode': [
+    'Gandiva.LiteralNode',
+    'Gandiva.Node',
+    'GObject.Object',
+],
+    'Gandiva.Int8LiteralNode': [
+    'Gandiva.LiteralNode',
+    'Gandiva.Node',
+    'GObject.Object',
+],
+    'Gandiva.LiteralNode': [
+    'Gandiva.Node',
+    'GObject.Object',
+],
+    'Gandiva.NativeFunction': [
+    'GObject.Object',
+],
+    'Gandiva.Node': [
+    'GObject.Object',
+],
+    'Gandiva.NullLiteralNode': [
+    'Gandiva.LiteralNode',
+    'Gandiva.Node',
+    'GObject.Object',
+],
+    'Gandiva.OrNode': [
+    'Gandiva.BooleanNode',
+    'Gandiva.Node',
+    'GObject.Object',
+],
+    'Gandiva.Projector': [
+    'GObject.Object',
+],
+    'Gandiva.StringLiteralNode': [
+    'Gandiva.LiteralNode',
+    'Gandiva.Node',
+    'GObject.Object',
+],
+    'Gandiva.UInt16LiteralNode': [
+    'Gandiva.LiteralNode',
+    'Gandiva.Node',
+    'GObject.Object',
+],
+    'Gandiva.UInt32LiteralNode': [
+    'Gandiva.LiteralNode',
+    'Gandiva.Node',
+    'GObject.Object',
+],
+    'Gandiva.UInt64LiteralNode': [
+    'Gandiva.LiteralNode',
+    'Gandiva.Node',
+    'GObject.Object',
+],
+    'Gandiva.UInt8LiteralNode': [
+    'Gandiva.LiteralNode',
+    'Gandiva.Node',
     'GObject.Object',
 ],
     'Gck.Enumerator': [
@@ -10505,6 +11301,8 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gdk.GLTexture': [
     'Gdk.Texture',
     'Gdk.Paintable',
+    'Gio.Icon',
+    'Gio.LoadableIcon',
     'GObject.Object',
 ],
     'Gdk.GrabBrokenEvent': [
@@ -10516,6 +11314,8 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gdk.MemoryTexture': [
     'Gdk.Texture',
     'Gdk.Paintable',
+    'Gio.Icon',
+    'Gio.LoadableIcon',
     'GObject.Object',
 ],
     'Gdk.MotionEvent': [
@@ -10539,6 +11339,8 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gdk.Texture': [
     'GObject.Object',
     'Gdk.Paintable',
+    'Gio.Icon',
+    'Gio.LoadableIcon',
 ],
     'Gdk.TouchEvent': [
     'Gdk.Event',
@@ -10950,6 +11752,19 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
 ],
     'Gedit.MessageBus': [
+    'GObject.Object',
+],
+    'Gedit.ProgressInfoBar': [
+    'Gtk.InfoBar',
+    'Atk.ImplementorIface',
+    'Gtk.Buildable',
+    'Gtk.Orientable',
+    'Gtk.HBox',
+    'Gtk.Box',
+    'Gtk.Container',
+    'Gtk.Widget',
+    'Gtk.Object',
+    'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
     'Gedit.Statusbar': [
@@ -12580,6 +13395,12 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GnomeAutoar.Extractor': [
     'GObject.Object',
 ],
+    'GnomeBG.BG': [
+    'GObject.Object',
+],
+    'GnomeBG.BGSlideShow': [
+    'GObject.Object',
+],
     'GnomeBluetooth.Chooser': [
     'Gtk.Box',
     'Atk.ImplementorIface',
@@ -12651,12 +13472,16 @@ const inheritanceTable: { [key: string]: string[] } = {
 ],
     'GnomeDesktop.DesktopThumbnailFactory': [
     'GObject.Object',
+    'GObject.Object',
 ],
     'GnomeDesktop.IdleMonitor': [
     'GObject.Object',
     'Gio.Initable',
+    'GObject.Object',
+    'Gio.Initable',
 ],
     'GnomeDesktop.PnpIds': [
+    'GObject.Object',
     'GObject.Object',
 ],
     'GnomeDesktop.RRConfig': [
@@ -12672,8 +13497,10 @@ const inheritanceTable: { [key: string]: string[] } = {
 ],
     'GnomeDesktop.WallClock': [
     'GObject.Object',
+    'GObject.Object',
 ],
     'GnomeDesktop.XkbInfo': [
+    'GObject.Object',
     'GObject.Object',
 ],
     'GnomeMaps.Contact': [
@@ -12710,6 +13537,17 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GnomeMaps.OSMWay': [
     'GnomeMaps.OSMObject',
     'GObject.Object',
+],
+    'GnomeRR.Config': [
+    'GObject.Object',
+],
+    'GnomeRR.OutputInfo': [
+    'GObject.Object',
+],
+    'GnomeRR.Screen': [
+    'GObject.Object',
+    'Gio.AsyncInitable',
+    'Gio.Initable',
 ],
     'GoVirt.Proxy': [
     'Rest.Proxy',
@@ -13510,6 +14348,14 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
+    'Granite.HyperTextView': [
+    'Gtk.TextView',
+    'Gtk.Container',
+    'Gtk.Widget',
+    'Gtk.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
     'Granite.MessageDialog': [
     'Granite.Dialog',
     'Gtk.Dialog',
@@ -13537,11 +14383,21 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
+    'Granite.SettingsSidebar': [
+    'Gtk.ScrolledWindow',
+    'Gtk.Bin',
+    'Gtk.Container',
+    'Gtk.Widget',
+    'Gtk.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
     'Granite.Settings': [
     'GObject.Object',
 ],
-    'Granite.SettingsSidebar': [
-    'Gtk.ScrolledWindow',
+    'Granite.SwitchModelButton': [
+    'Gtk.ToggleButton',
+    'Gtk.Button',
     'Gtk.Bin',
     'Gtk.Container',
     'Gtk.Widget',
@@ -13882,6 +14738,10 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gsk.LinearGradientNode': [
     'Gsk.RenderNode',
 ],
+    'Gsk.NglRenderer': [
+    'Gsk.Renderer',
+    'GObject.Object',
+],
     'Gsk.OpacityNode': [
     'Gsk.RenderNode',
 ],
@@ -13917,10 +14777,6 @@ const inheritanceTable: { [key: string]: string[] } = {
 ],
     'Gsk.TransformNode': [
     'Gsk.RenderNode',
-],
-    'Gsk.VulkanRenderer': [
-    'Gsk.Renderer',
-    'GObject.Object',
 ],
     'Gspell.Checker': [
     'GObject.Object',
@@ -14380,6 +15236,13 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
+    'GstCodecs.AV1Decoder': [
+    'GstVideo.VideoDecoder',
+    'Gst.Element',
+    'Gst.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
     'GstCodecs.H264Decoder': [
     'GstVideo.VideoDecoder',
     'Gst.Element',
@@ -14690,6 +15553,36 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GstPbutils.EncodingProfile',
     'GObject.Object',
 ],
+    'GstPlay.Play': [
+    'Gst.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'GstPlay.PlayAudioInfo': [
+    'GstPlay.PlayStreamInfo',
+    'GObject.Object',
+],
+    'GstPlay.PlayMediaInfo': [
+    'GObject.Object',
+],
+    'GstPlay.PlaySignalAdapter': [
+    'GObject.Object',
+],
+    'GstPlay.PlayStreamInfo': [
+    'GObject.Object',
+],
+    'GstPlay.PlaySubtitleInfo': [
+    'GstPlay.PlayStreamInfo',
+    'GObject.Object',
+],
+    'GstPlay.PlayVideoInfo': [
+    'GstPlay.PlayStreamInfo',
+    'GObject.Object',
+],
+    'GstPlay.PlayVideoOverlayVideoRenderer': [
+    'GObject.Object',
+    'GstPlay.PlayVideoRenderer',
+],
     'GstPlayer.Player': [
     'Gst.Object',
     'GObject.InitiallyUnowned',
@@ -14823,9 +15716,8 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
-    'GstTranscoder.TranscoderGMainContextSignalDispatcher': [
+    'GstTranscoder.TranscoderSignalAdapter': [
     'GObject.Object',
-    'GstTranscoder.TranscoderSignalDispatcher',
 ],
     'GstVideo.ColorBalanceChannel': [
     'GObject.Object',
@@ -14846,6 +15738,15 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
 ],
     'GstVideo.VideoAggregatorPad': [
+    'GstBase.AggregatorPad',
+    'Gst.Pad',
+    'Gst.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'GstVideo.VideoAggregatorParallelConvertPad': [
+    'GstVideo.VideoAggregatorConvertPad',
+    'GstVideo.VideoAggregatorPad',
     'GstBase.AggregatorPad',
     'Gst.Pad',
     'Gst.Object',
@@ -15029,6 +15930,11 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
 ],
     'GstWebRTC.WebRTCRTPTransceiver': [
+    'Gst.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'GstWebRTC.WebRTCSCTPTransport': [
     'Gst.Object',
     'GObject.InitiallyUnowned',
     'GObject.Object',
@@ -17729,6 +18635,15 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gtk.FileChooser',
     'GObject.Object',
 ],
+    'Gtk.FileChooserWidgetAccessible': [
+    'Gtk.ContainerAccessible',
+    'Atk.Action',
+    'Atk.Component',
+    'Gtk.WidgetAccessible',
+    'Gtk.Accessible',
+    'Atk.Object',
+    'GObject.Object',
+],
     'Gtk.FlowBox': [
     'Gtk.Container',
     'Atk.ImplementorIface',
@@ -18542,6 +19457,7 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gtk.Accessible',
     'Gtk.Buildable',
     'Gtk.ConstraintTarget',
+    'Gtk.Orientable',
     'Gtk.Container',
     'Gtk.Widget',
     'Gtk.Object',
@@ -18896,6 +19812,7 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gtk.IconPaintable': [
     'GObject.Object',
     'Gdk.Paintable',
+    'Gtk.SymbolicPaintable',
 ],
     'Gtk.KeyvalTrigger': [
     'Gtk.ShortcutTrigger',
@@ -19015,6 +19932,22 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gtk.LayoutChild',
     'GObject.Object',
 ],
+    'Gtk.PageSetupUnixDialog': [
+    'Gtk.Dialog',
+    'Gtk.Accessible',
+    'Gtk.Buildable',
+    'Gtk.ConstraintTarget',
+    'Gtk.Native',
+    'Gtk.Root',
+    'Gtk.ShortcutManager',
+    'Gtk.Window',
+    'Gtk.Bin',
+    'Gtk.Container',
+    'Gtk.Widget',
+    'Gtk.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
     'Gtk.ParamSpecExpression': [
     'GObject.ParamSpec',
 ],
@@ -19026,6 +19959,10 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gtk.Editable',
     'Gtk.Object',
     'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'Gtk.PasswordEntryBuffer': [
+    'Gtk.EntryBuffer',
     'GObject.Object',
 ],
     'Gtk.Picture': [
@@ -19044,6 +19981,28 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gtk.ConstraintTarget',
     'Gtk.Object',
     'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'Gtk.PrintJob': [
+    'GObject.Object',
+],
+    'Gtk.PrintUnixDialog': [
+    'Gtk.Dialog',
+    'Gtk.Accessible',
+    'Gtk.Buildable',
+    'Gtk.ConstraintTarget',
+    'Gtk.Native',
+    'Gtk.Root',
+    'Gtk.ShortcutManager',
+    'Gtk.Window',
+    'Gtk.Bin',
+    'Gtk.Container',
+    'Gtk.Widget',
+    'Gtk.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'Gtk.Printer': [
     'GObject.Object',
 ],
     'Gtk.PropertyExpression': [
@@ -19497,6 +20456,21 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GtkSource.GutterLines': [
     'GObject.Object',
 ],
+    'GtkSource.Hover': [
+    'GObject.Object',
+],
+    'GtkSource.HoverContext': [
+    'GObject.Object',
+],
+    'GtkSource.HoverDisplay': [
+    'Gtk.Widget',
+    'Gtk.Accessible',
+    'Gtk.Buildable',
+    'Gtk.ConstraintTarget',
+    'Gtk.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
     'GtkSource.Snippet': [
     'GObject.Object',
 ],
@@ -19508,6 +20482,20 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
 ],
     'GtkSource.SnippetManager': [
+    'GObject.Object',
+],
+    'GtkSource.StyleSchemePreview': [
+    'Gtk.Widget',
+    'Gtk.Accessible',
+    'Gtk.Actionable',
+    'Gtk.Buildable',
+    'Gtk.ConstraintTarget',
+    'Gtk.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'GtkSource.VimIMContext': [
+    'Gtk.IMContext',
     'GObject.Object',
 ],
     'GtkVnc.CairoFramebuffer': [
@@ -20251,6 +21239,9 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gtk.Widget',
     'Gtk.Object',
     'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'Handy.StyleManager': [
     'GObject.Object',
 ],
     'Handy.SwipeTracker': [
@@ -21141,20 +22132,26 @@ const inheritanceTable: { [key: string]: string[] } = {
 ],
     'JavaScriptCore.Class': [
     'GObject.Object',
+    'GObject.Object',
 ],
     'JavaScriptCore.Context': [
+    'GObject.Object',
     'GObject.Object',
 ],
     'JavaScriptCore.Exception': [
     'GObject.Object',
+    'GObject.Object',
 ],
     'JavaScriptCore.Value': [
+    'GObject.Object',
     'GObject.Object',
 ],
     'JavaScriptCore.VirtualMachine': [
     'GObject.Object',
+    'GObject.Object',
 ],
     'JavaScriptCore.WeakValue': [
+    'GObject.Object',
     'GObject.Object',
 ],
     'Json.Builder': [
@@ -21191,6 +22188,18 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
 ],
     'Jsonrpc.Server': [
+    'GObject.Object',
+],
+    'Libmsi.Database': [
+    'GObject.Object',
+],
+    'Libmsi.Query': [
+    'GObject.Object',
+],
+    'Libmsi.Record': [
+    'GObject.Object',
+],
+    'Libmsi.SummaryInfo': [
     'GObject.Object',
 ],
     'Libosinfo.AvatarFormat': [
@@ -21875,6 +22884,9 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
     'Gio.Initable',
 ],
+    'ModemManager.3gppProfile': [
+    'GObject.Object',
+],
     'ModemManager.Bearer': [
     'ModemManager.GdbusBearerProxy',
     'Gio.AsyncInitable',
@@ -21894,10 +22906,12 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
 ],
     'ModemManager.Call': [
-    'Gio.DBusProxy',
+    'ModemManager.GdbusCallProxy',
     'Gio.AsyncInitable',
     'Gio.DBusInterface',
     'Gio.Initable',
+    'ModemManager.GdbusCall',
+    'Gio.DBusProxy',
     'GObject.Object',
 ],
     'ModemManager.CallAudioFormat': [
@@ -21927,6 +22941,34 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gio.DBusInterfaceSkeleton',
     'Gio.DBusInterface',
     'ModemManager.GdbusBearer',
+    'GObject.Object',
+],
+    'ModemManager.GdbusCallProxy': [
+    'Gio.DBusProxy',
+    'Gio.AsyncInitable',
+    'Gio.DBusInterface',
+    'Gio.Initable',
+    'ModemManager.GdbusCall',
+    'GObject.Object',
+],
+    'ModemManager.GdbusCallSkeleton': [
+    'Gio.DBusInterfaceSkeleton',
+    'Gio.DBusInterface',
+    'ModemManager.GdbusCall',
+    'GObject.Object',
+],
+    'ModemManager.GdbusModem3gppProfileManagerProxy': [
+    'Gio.DBusProxy',
+    'Gio.AsyncInitable',
+    'Gio.DBusInterface',
+    'Gio.Initable',
+    'ModemManager.GdbusModem3gppProfileManager',
+    'GObject.Object',
+],
+    'ModemManager.GdbusModem3gppProfileManagerSkeleton': [
+    'Gio.DBusInterfaceSkeleton',
+    'Gio.DBusInterface',
+    'ModemManager.GdbusModem3gppProfileManager',
     'GObject.Object',
 ],
     'ModemManager.GdbusModem3gppProxy': [
@@ -22033,6 +23075,20 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gio.DBusInterface',
     'Gio.Initable',
     'ModemManager.GdbusModem',
+    'GObject.Object',
+],
+    'ModemManager.GdbusModemSarProxy': [
+    'Gio.DBusProxy',
+    'Gio.AsyncInitable',
+    'Gio.DBusInterface',
+    'Gio.Initable',
+    'ModemManager.GdbusModemSar',
+    'GObject.Object',
+],
+    'ModemManager.GdbusModemSarSkeleton': [
+    'Gio.DBusInterfaceSkeleton',
+    'Gio.DBusInterface',
+    'ModemManager.GdbusModemSar',
     'GObject.Object',
 ],
     'ModemManager.GdbusModemSignalProxy': [
@@ -22199,6 +23255,15 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gio.DBusProxy',
     'GObject.Object',
 ],
+    'ModemManager.Modem3gppProfileManager': [
+    'ModemManager.GdbusModem3gppProfileManagerProxy',
+    'Gio.AsyncInitable',
+    'Gio.DBusInterface',
+    'Gio.Initable',
+    'ModemManager.GdbusModem3gppProfileManager',
+    'Gio.DBusProxy',
+    'GObject.Object',
+],
     'ModemManager.Modem3gppUssd': [
     'ModemManager.GdbusModem3gppUssdProxy',
     'Gio.AsyncInitable',
@@ -22253,6 +23318,15 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gio.DBusProxy',
     'GObject.Object',
 ],
+    'ModemManager.ModemSar': [
+    'ModemManager.GdbusModemSarProxy',
+    'Gio.AsyncInitable',
+    'Gio.DBusInterface',
+    'Gio.Initable',
+    'ModemManager.GdbusModemSar',
+    'Gio.DBusProxy',
+    'GObject.Object',
+],
     'ModemManager.ModemSignal': [
     'ModemManager.GdbusModemSignalProxy',
     'Gio.AsyncInitable',
@@ -22303,6 +23377,9 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
 ],
     'ModemManager.Signal': [
+    'GObject.Object',
+],
+    'ModemManager.SignalThresholdProperties': [
     'GObject.Object',
 ],
     'ModemManager.Sim': [
@@ -23320,6 +24397,10 @@ const inheritanceTable: { [key: string]: string[] } = {
     'NM.Setting',
     'GObject.Object',
 ],
+    'NM.SettingBondPort': [
+    'NM.Setting',
+    'GObject.Object',
+],
     'NM.SettingBridge': [
     'NM.Setting',
     'GObject.Object',
@@ -23570,15 +24651,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gio.Initable',
 ],
     'NMA.MobileWizard': [
-    'Gtk.Assistant',
-    'Atk.ImplementorIface',
-    'Gtk.Buildable',
-    'Gtk.Window',
-    'Gtk.Bin',
-    'Gtk.Container',
-    'Gtk.Widget',
-    'Gtk.Object',
-    'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
     'NMA.VpnPasswordDialog': [
@@ -23599,92 +24671,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gtk.Buildable',
     'Gtk.Window',
     'Gtk.Bin',
-    'Gtk.Container',
-    'Gtk.Widget',
-    'Gtk.Object',
-    'GObject.InitiallyUnowned',
-    'GObject.Object',
-],
-    'NMA.Ws8021x': [
-    'Gtk.Grid',
-    'Atk.ImplementorIface',
-    'Gtk.Buildable',
-    'Gtk.Orientable',
-    'NMA.Ws',
-    'Gtk.Container',
-    'Gtk.Widget',
-    'Gtk.Object',
-    'GObject.InitiallyUnowned',
-    'GObject.Object',
-],
-    'NMA.WsDynamicWep': [
-    'NMA.Ws8021x',
-    'Atk.ImplementorIface',
-    'Gtk.Buildable',
-    'Gtk.Orientable',
-    'NMA.Ws',
-    'Gtk.Grid',
-    'Gtk.Container',
-    'Gtk.Widget',
-    'Gtk.Object',
-    'GObject.InitiallyUnowned',
-    'GObject.Object',
-],
-    'NMA.WsLeap': [
-    'Gtk.Grid',
-    'Atk.ImplementorIface',
-    'Gtk.Buildable',
-    'Gtk.Orientable',
-    'NMA.Ws',
-    'Gtk.Container',
-    'Gtk.Widget',
-    'Gtk.Object',
-    'GObject.InitiallyUnowned',
-    'GObject.Object',
-],
-    'NMA.WsSae': [
-    'Gtk.Grid',
-    'Atk.ImplementorIface',
-    'Gtk.Buildable',
-    'Gtk.Orientable',
-    'NMA.Ws',
-    'Gtk.Container',
-    'Gtk.Widget',
-    'Gtk.Object',
-    'GObject.InitiallyUnowned',
-    'GObject.Object',
-],
-    'NMA.WsWepKey': [
-    'Gtk.Grid',
-    'Atk.ImplementorIface',
-    'Gtk.Buildable',
-    'Gtk.Orientable',
-    'NMA.Ws',
-    'Gtk.Container',
-    'Gtk.Widget',
-    'Gtk.Object',
-    'GObject.InitiallyUnowned',
-    'GObject.Object',
-],
-    'NMA.WsWpaEap': [
-    'NMA.Ws8021x',
-    'Atk.ImplementorIface',
-    'Gtk.Buildable',
-    'Gtk.Orientable',
-    'NMA.Ws',
-    'Gtk.Grid',
-    'Gtk.Container',
-    'Gtk.Widget',
-    'Gtk.Object',
-    'GObject.InitiallyUnowned',
-    'GObject.Object',
-],
-    'NMA.WsWpaPsk': [
-    'Gtk.Grid',
-    'Atk.ImplementorIface',
-    'Gtk.Buildable',
-    'Gtk.Orientable',
-    'NMA.Ws',
     'Gtk.Container',
     'Gtk.Widget',
     'Gtk.Object',
@@ -24174,17 +25160,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Pango.Coverage': [
     'GObject.Object',
 ],
-    'Pango.Engine': [
-    'GObject.Object',
-],
-    'Pango.EngineLang': [
-    'Pango.Engine',
-    'GObject.Object',
-],
-    'Pango.EngineShape': [
-    'Pango.Engine',
-    'GObject.Object',
-],
     'Pango.Font': [
     'GObject.Object',
 ],
@@ -24246,6 +25221,15 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Pango.Renderer',
     'GObject.Object',
 ],
+    'Parquet.ArrowFileReader': [
+    'GObject.Object',
+],
+    'Parquet.ArrowFileWriter': [
+    'GObject.Object',
+],
+    'Parquet.WriterProperties': [
+    'GObject.Object',
+],
     'Peas.Engine': [
     'GObject.Object',
 ],
@@ -24280,6 +25264,29 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gtk.Widget',
     'Gtk.Object',
     'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'Plasma.Client': [
+    'GObject.Object',
+],
+    'Plasma.ClientCreateOptions': [
+    'GObject.Object',
+],
+    'Plasma.ClientOptions': [
+    'GObject.Object',
+],
+    'Plasma.CreatedObject': [
+    'Plasma.Object',
+    'GObject.Object',
+],
+    'Plasma.Object': [
+    'GObject.Object',
+],
+    'Plasma.ObjectID': [
+    'GObject.Object',
+],
+    'Plasma.ReferredObject': [
+    'Plasma.Object',
     'GObject.Object',
 ],
     'Pnl.Animation': [
@@ -24595,6 +25602,10 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Qmi.Client',
     'GObject.Object',
 ],
+    'Qmi.ClientDpm': [
+    'Qmi.Client',
+    'GObject.Object',
+],
     'Qmi.ClientDsd': [
     'Qmi.Client',
     'GObject.Object',
@@ -24717,12 +25728,15 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Retro.ControllerIterator': [
     'GObject.Object',
     'GObject.Object',
+    'GObject.Object',
 ],
     'Retro.Core': [
     'GObject.Object',
     'GObject.Object',
+    'GObject.Object',
 ],
     'Retro.CoreDescriptor': [
+    'GObject.Object',
     'GObject.Object',
     'GObject.Object',
 ],
@@ -24733,6 +25747,10 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gtk.EventBox',
     'Atk.ImplementorIface',
     'Gtk.Buildable',
+    'Gtk.Widget',
+    'Gtk.Accessible',
+    'Gtk.Buildable',
+    'Gtk.ConstraintTarget',
     'Gtk.Bin',
     'Gtk.Container',
     'Gtk.Widget',
@@ -24743,6 +25761,7 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Retro.KeyJoypadMapping': [
     'GObject.Object',
     'GObject.Object',
+    'GObject.Object',
 ],
     'Retro.MainLoop': [
     'GObject.Object',
@@ -24750,16 +25769,20 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Retro.ModuleIterator': [
     'GObject.Object',
     'GObject.Object',
+    'GObject.Object',
 ],
     'Retro.ModuleQuery': [
+    'GObject.Object',
     'GObject.Object',
     'GObject.Object',
 ],
     'Retro.Option': [
     'GObject.Object',
     'GObject.Object',
+    'GObject.Object',
 ],
     'Retro.OptionIterator': [
+    'GObject.Object',
     'GObject.Object',
     'GObject.Object',
 ],
@@ -24768,22 +25791,23 @@ const inheritanceTable: { [key: string]: string[] } = {
 ],
     'RygelCore.ConnectionManager': [
     'GUPnP.Service',
-    'GUPnP.Service',
     'GUPnP.ServiceInfo',
     'GObject.Object',
 ],
     'RygelCore.BasicManagement': [
-    'GUPnP.Service',
     'GUPnP.Service',
     'GUPnP.ServiceInfo',
     'GObject.Object',
 ],
     'RygelCore.DescriptionFile': [
     'GObject.Object',
+],
+    'RygelCore.EnergyManagement': [
+    'GUPnP.Service',
+    'GUPnP.ServiceInfo',
     'GObject.Object',
 ],
     'RygelCore.RootDevice': [
-    'GUPnP.RootDevice',
     'GUPnP.RootDevice',
     'Gio.Initable',
     'GUPnP.Device',
@@ -24793,55 +25817,31 @@ const inheritanceTable: { [key: string]: string[] } = {
     'RygelCore.RootDeviceFactory': [
     'GObject.Object',
     'Gio.Initable',
-    'GObject.Object',
-    'Gio.Initable',
 ],
     'RygelCore.LogHandler': [
-    'GObject.Object',
     'GObject.Object',
 ],
     'RygelCore.MetaConfig': [
     'GObject.Object',
     'RygelCore.Configuration',
-    'GObject.Object',
-    'RygelCore.Configuration',
 ],
     'RygelCore.PluginLoader': [
-    'RygelCore.RecursiveModuleLoader',
     'RygelCore.RecursiveModuleLoader',
     'GObject.Object',
 ],
     'RygelCore.RecursiveModuleLoader': [
     'GObject.Object',
-    'GObject.Object',
 ],
     'RygelCore.Plugin': [
-    'GUPnP.ResourceFactory',
     'GUPnP.ResourceFactory',
     'GObject.Object',
 ],
     'RygelCore.MediaDevice': [
     'GObject.Object',
-    'GObject.Object',
 ],
     'RygelCore.BaseConfiguration': [
     'GObject.Object',
     'RygelCore.Configuration',
-    'GObject.Object',
-    'RygelCore.Configuration',
-],
-    'RygelCore.V1Hacks': [
-    'GObject.Object',
-    'GObject.Object',
-],
-    'RygelCore.PluginInformation': [
-    'GObject.Object',
-    'GObject.Object',
-],
-    'RygelCore.EnergyManagement': [
-    'GUPnP.Service',
-    'GUPnP.ServiceInfo',
-    'GObject.Object',
 ],
     'RygelCore.CmdlineConfig': [
     'GObject.Object',
@@ -24855,17 +25855,21 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
     'RygelCore.Configuration',
 ],
+    'RygelCore.V1Hacks': [
+    'GObject.Object',
+],
     'RygelCore.XMLUtilsChildIterator': [
     'RygelCore.XMLUtilsIterator',
 ],
+    'RygelCore.PluginInformation': [
+    'GObject.Object',
+],
     'RygelRenderer.MediaRendererPlugin': [
-    'RygelCore.Plugin',
     'RygelCore.Plugin',
     'GUPnP.ResourceFactory',
     'GObject.Object',
 ],
     'RygelRenderer.MediaRenderer': [
-    'RygelCore.MediaDevice',
     'RygelCore.MediaDevice',
     'GObject.Object',
 ],
@@ -24879,25 +25883,25 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
 ],
     'RygelServer.AudioItem': [
-    'RygelServer.MediaItem',
     'RygelServer.MediaFileItem',
+    'RygelServer.MediaItem',
     'RygelServer.MediaObject',
     'GObject.Object',
 ],
     'RygelServer.ImageItem': [
-    'RygelServer.MediaItem',
-    'RygelServer.VisualItem',
     'RygelServer.MediaFileItem',
     'RygelServer.VisualItem',
+    'RygelServer.MediaItem',
     'RygelServer.MediaObject',
     'GObject.Object',
 ],
+    'RygelServer.LogicalExpression': [
+    'RygelServer.SearchExpression',
+],
     'RygelServer.MediaArtStore': [
-    'GObject.Object',
     'GObject.Object',
 ],
     'RygelServer.MediaObjects': [
-    'Gee.ArrayList',
     'Gee.ArrayList',
     'Gee.AbstractBidirList',
     'Gee.AbstractList',
@@ -24906,114 +25910,81 @@ const inheritanceTable: { [key: string]: string[] } = {
 ],
     'RygelServer.MusicItem': [
     'RygelServer.AudioItem',
-    'RygelServer.AudioItem',
+    'RygelServer.MediaFileItem',
     'RygelServer.MediaItem',
     'RygelServer.MediaObject',
     'GObject.Object',
 ],
     'RygelServer.PhotoItem': [
     'RygelServer.ImageItem',
-    'RygelServer.ImageItem',
+    'RygelServer.MediaFileItem',
     'RygelServer.MediaItem',
     'RygelServer.MediaObject',
     'GObject.Object',
 ],
+    'RygelServer.RelationalExpression': [
+    'RygelServer.SearchExpression',
+],
     'RygelServer.SimpleContainer': [
-    'RygelServer.MediaContainer',
-    'RygelServer.SearchableContainer',
     'RygelServer.MediaContainer',
     'RygelServer.SearchableContainer',
     'RygelServer.MediaObject',
     'GObject.Object',
 ],
+    'RygelServer.Thumbnail': [
+    'RygelCore.IconInfo',
+],
     'RygelServer.VideoItem': [
     'RygelServer.AudioItem',
     'RygelServer.VisualItem',
-    'RygelServer.AudioItem',
-    'RygelServer.VisualItem',
+    'RygelServer.MediaFileItem',
     'RygelServer.MediaItem',
     'RygelServer.MediaObject',
     'GObject.Object',
 ],
     'RygelServer.MediaContainer': [
     'RygelServer.MediaObject',
-    'RygelServer.MediaObject',
     'GObject.Object',
 ],
     'RygelServer.MediaItem': [
     'RygelServer.MediaObject',
-    'RygelServer.MediaObject',
     'GObject.Object',
-],
-    'RygelServer.MediaObject': [
-    'GObject.Object',
-    'GObject.Object',
-],
-    'RygelServer.MediaServerPlugin': [
-    'RygelCore.Plugin',
-    'RygelCore.Plugin',
-    'GUPnP.ResourceFactory',
-    'GObject.Object',
-],
-    'RygelServer.TranscodeManager': [
-    'GObject.Object',
-],
-    'RygelServer.Transcoder': [
-    'GObject.Object',
-],
-    'RygelServer.MediaServer': [
-    'RygelCore.MediaDevice',
-    'RygelCore.MediaDevice',
-    'GObject.Object',
-],
-    'RygelServer.MediaEngine': [
-    'GObject.Object',
-    'GObject.Object',
-],
-    'RygelServer.HTTPSeek': [
-    'GObject.Object',
-],
-    'RygelServer.PlaylistItem': [
-    'RygelServer.MediaItem',
-    'RygelServer.MediaFileItem',
-    'RygelServer.MediaObject',
-    'GObject.Object',
-],
-    'RygelServer.ContentDirectory': [
-    'GUPnP.Service',
-    'GUPnP.Service',
-    'GUPnP.ServiceInfo',
-    'GObject.Object',
-],
-    'RygelServer.HTTPServer': [
-    'RygelServer.TranscodeManager',
-    'RygelServer.StateMachine',
-    'GObject.Object',
-    'RygelCore.StateMachine',
-    'GObject.Object',
-],
-    'RygelServer.Serializer': [
-    'GObject.Object',
-    'GObject.Object',
-],
-    'RygelServer.LogicalExpression': [
-    'RygelServer.SearchExpression',
-],
-    'RygelServer.RelationalExpression': [
-    'RygelServer.SearchExpression',
-],
-    'RygelServer.Thumbnail': [
-    'RygelCore.IconInfo',
 ],
     'RygelServer.MediaFileItem': [
     'RygelServer.MediaItem',
     'RygelServer.MediaObject',
     'GObject.Object',
 ],
+    'RygelServer.MediaObject': [
+    'GObject.Object',
+],
     'RygelServer.MediaResource': [
     'GObject.Object',
 ],
+    'RygelServer.MediaServerPlugin': [
+    'RygelCore.Plugin',
+    'GUPnP.ResourceFactory',
+    'GObject.Object',
+],
+    'RygelServer.MediaServer': [
+    'RygelCore.MediaDevice',
+    'GObject.Object',
+],
+    'RygelServer.MediaEngine': [
+    'GObject.Object',
+],
     'RygelServer.HTTPSeekRequest': [
+    'GObject.Object',
+],
+    'RygelServer.PlaylistItem': [
+    'RygelServer.MediaFileItem',
+    'RygelServer.MediaItem',
+    'RygelServer.MediaObject',
+    'GObject.Object',
+],
+    'RygelServer.ContentDirectory': [
+    'GUPnP.Service',
+    'GUPnP.ServiceInfo',
     'GObject.Object',
 ],
     'RygelServer.HTTPByteSeekRequest': [
@@ -25045,12 +26016,19 @@ const inheritanceTable: { [key: string]: string[] } = {
     'RygelServer.HTTPResponseElement': [
     'GObject.Object',
 ],
+    'RygelServer.HTTPServer': [
+    'GObject.Object',
+    'RygelCore.StateMachine',
+],
     'RygelServer.HTTPTimeSeekRequest': [
     'RygelServer.HTTPSeekRequest',
     'GObject.Object',
 ],
     'RygelServer.HTTPTimeSeekResponse': [
     'RygelServer.HTTPResponseElement',
+    'GObject.Object',
+],
+    'RygelServer.Serializer': [
     'GObject.Object',
 ],
     'RygelServer.PlaySpeedRequest': [
@@ -25134,21 +26112,24 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gio.Initable',
     'GObject.Object',
 ],
+    'Shumate.Compass': [
+    'Gtk.Widget',
+    'Gtk.Accessible',
+    'Gtk.Buildable',
+    'Gtk.ConstraintTarget',
+    'Gtk.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
     'Shumate.Coordinate': [
     'GObject.InitiallyUnowned',
     'Shumate.Location',
     'GObject.Object',
 ],
-    'Shumate.ErrorTileSource': [
-    'Shumate.TileSource',
-    'Shumate.MapSource',
-    'GObject.InitiallyUnowned',
+    'Shumate.DataSource': [
     'GObject.Object',
 ],
     'Shumate.FileCache': [
-    'Shumate.TileCache',
-    'Shumate.MapSource',
-    'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
     'Shumate.Layer': [
@@ -25169,6 +26150,15 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
+    'Shumate.Map': [
+    'Gtk.Widget',
+    'Gtk.Accessible',
+    'Gtk.Buildable',
+    'Gtk.ConstraintTarget',
+    'Gtk.Object',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
     'Shumate.MapLayer': [
     'Shumate.Layer',
     'Gtk.Accessible',
@@ -25180,19 +26170,11 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
 ],
     'Shumate.MapSource': [
-    'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
-    'Shumate.MapSourceChain': [
-    'Shumate.MapSource',
-    'GObject.InitiallyUnowned',
+    'Shumate.MapSourceRegistry': [
     'GObject.Object',
-],
-    'Shumate.MapSourceDesc': [
-    'GObject.Object',
-],
-    'Shumate.MapSourceFactory': [
-    'GObject.Object',
+    'Gio.ListModel',
 ],
     'Shumate.Marker': [
     'Gtk.Widget',
@@ -25215,15 +26197,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
 ],
     'Shumate.MemoryCache': [
-    'Shumate.TileCache',
-    'Shumate.MapSource',
-    'GObject.InitiallyUnowned',
-    'GObject.Object',
-],
-    'Shumate.NetworkTileSource': [
-    'Shumate.TileSource',
-    'Shumate.MapSource',
-    'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
     'Shumate.PathLayer': [
@@ -25247,6 +26220,10 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
+    'Shumate.RasterRenderer': [
+    'Shumate.MapSource',
+    'GObject.Object',
+],
     'Shumate.Scale': [
     'Gtk.Widget',
     'Gtk.Accessible',
@@ -25265,23 +26242,13 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
-    'Shumate.TileCache': [
-    'Shumate.MapSource',
-    'GObject.InitiallyUnowned',
+    'Shumate.TileDownloader': [
+    'Shumate.DataSource',
     'GObject.Object',
 ],
-    'Shumate.TileSource': [
+    'Shumate.VectorRenderer': [
     'Shumate.MapSource',
-    'GObject.InitiallyUnowned',
-    'GObject.Object',
-],
-    'Shumate.View': [
-    'Gtk.Widget',
-    'Gtk.Accessible',
-    'Gtk.Buildable',
-    'Gtk.ConstraintTarget',
-    'Gtk.Object',
-    'GObject.InitiallyUnowned',
+    'Gio.Initable',
     'GObject.Object',
 ],
     'Shumate.Viewport': [
@@ -25375,55 +26342,75 @@ const inheritanceTable: { [key: string]: string[] } = {
 ],
     'Soup.Auth': [
     'GObject.Object',
+    'GObject.Object',
 ],
     'Soup.AuthBasic': [
+    'Soup.Auth',
     'Soup.Auth',
     'GObject.Object',
 ],
     'Soup.AuthDigest': [
     'Soup.Auth',
+    'Soup.Auth',
     'GObject.Object',
 ],
     'Soup.AuthDomain': [
     'GObject.Object',
+    'GObject.Object',
 ],
     'Soup.AuthDomainBasic': [
+    'Soup.AuthDomain',
     'Soup.AuthDomain',
     'GObject.Object',
 ],
     'Soup.AuthDomainDigest': [
+    'Soup.AuthDomain',
     'Soup.AuthDomain',
     'GObject.Object',
 ],
     'Soup.AuthManager': [
     'GObject.Object',
     'Soup.SessionFeature',
+    'GObject.Object',
+    'Soup.SessionFeature',
 ],
     'Soup.AuthNTLM': [
+    'Soup.Auth',
     'Soup.Auth',
     'GObject.Object',
 ],
     'Soup.AuthNegotiate': [
+    'Soup.Auth',
     'Soup.Auth',
     'GObject.Object',
 ],
     'Soup.Cache': [
     'GObject.Object',
     'Soup.SessionFeature',
+    'GObject.Object',
+    'Soup.SessionFeature',
 ],
     'Soup.ContentDecoder': [
+    'GObject.Object',
+    'Soup.SessionFeature',
     'GObject.Object',
     'Soup.SessionFeature',
 ],
     'Soup.ContentSniffer': [
     'GObject.Object',
     'Soup.SessionFeature',
+    'GObject.Object',
+    'Soup.SessionFeature',
 ],
     'Soup.CookieJar': [
     'GObject.Object',
     'Soup.SessionFeature',
+    'GObject.Object',
+    'Soup.SessionFeature',
 ],
     'Soup.CookieJarDB': [
+    'Soup.CookieJar',
+    'Soup.SessionFeature',
     'Soup.CookieJar',
     'Soup.SessionFeature',
     'GObject.Object',
@@ -25431,13 +26418,19 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Soup.CookieJarText': [
     'Soup.CookieJar',
     'Soup.SessionFeature',
+    'Soup.CookieJar',
+    'Soup.SessionFeature',
     'GObject.Object',
 ],
     'Soup.HSTSEnforcer': [
     'GObject.Object',
     'Soup.SessionFeature',
+    'GObject.Object',
+    'Soup.SessionFeature',
 ],
     'Soup.HSTSEnforcerDB': [
+    'Soup.HSTSEnforcer',
+    'Soup.SessionFeature',
     'Soup.HSTSEnforcer',
     'Soup.SessionFeature',
     'GObject.Object',
@@ -25445,11 +26438,16 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Soup.Logger': [
     'GObject.Object',
     'Soup.SessionFeature',
+    'GObject.Object',
+    'Soup.SessionFeature',
 ],
     'Soup.Message': [
     'GObject.Object',
+    'GObject.Object',
 ],
     'Soup.MultipartInputStream': [
+    'Gio.FilterInputStream',
+    'Gio.PollableInputStream',
     'Gio.FilterInputStream',
     'Gio.PollableInputStream',
     'Gio.InputStream',
@@ -25485,8 +26483,10 @@ const inheritanceTable: { [key: string]: string[] } = {
 ],
     'Soup.Server': [
     'GObject.Object',
+    'GObject.Object',
 ],
     'Soup.Session': [
+    'GObject.Object',
     'GObject.Object',
 ],
     'Soup.SessionAsync': [
@@ -25503,17 +26503,25 @@ const inheritanceTable: { [key: string]: string[] } = {
 ],
     'Soup.WebsocketConnection': [
     'GObject.Object',
+    'GObject.Object',
 ],
     'Soup.WebsocketExtension': [
     'GObject.Object',
+    'GObject.Object',
 ],
     'Soup.WebsocketExtensionDeflate': [
+    'Soup.WebsocketExtension',
     'Soup.WebsocketExtension',
     'GObject.Object',
 ],
     'Soup.WebsocketExtensionManager': [
     'GObject.Object',
     'Soup.SessionFeature',
+    'GObject.Object',
+    'Soup.SessionFeature',
+],
+    'Soup.ServerMessage': [
+    'GObject.Object',
 ],
     'SoupGNOME.CookieJarSqlite': [
     'Soup.CookieJarDB',
@@ -26180,16 +27188,13 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Tracker.SparqlBuilder': [
     'GObject.Object',
     'GObject.Object',
-    'GObject.Object',
 ],
     'Tracker.SparqlConnection': [
     'GObject.Object',
     'GObject.Object',
     'GObject.Object',
-    'GObject.Object',
 ],
     'Tracker.SparqlCursor': [
-    'GObject.Object',
     'GObject.Object',
     'GObject.Object',
     'GObject.Object',
@@ -26233,40 +27238,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
     'Gio.Initable',
 ],
-    'TrackerMiner.Crawler': [
-    'GObject.Object',
-],
-    'TrackerMiner.IndexingTree': [
-    'GObject.Object',
-    'GObject.Object',
-    'GObject.Object',
-],
-    'TrackerMiner.Miner': [
-    'GObject.Object',
-    'Gio.Initable',
-    'GObject.Object',
-    'Gio.Initable',
-    'GObject.Object',
-    'Gio.Initable',
-],
-    'TrackerMiner.MinerFS': [
-    'TrackerMiner.Miner',
-    'Gio.Initable',
-    'TrackerMiner.Miner',
-    'Gio.Initable',
-    'TrackerMiner.Miner',
-    'Gio.Initable',
-    'GObject.Object',
-],
-    'TrackerMiner.MinerManager': [
-    'GObject.Object',
-    'Gio.Initable',
-],
-    'TrackerMiner.MinerWeb': [
-    'TrackerMiner.Miner',
-    'Gio.Initable',
-    'GObject.Object',
-],
     'TrackerMiner.Decorator': [
     'TrackerMiner.Miner',
     'Gio.Initable',
@@ -26280,6 +27251,23 @@ const inheritanceTable: { [key: string]: string[] } = {
     'TrackerMiner.Decorator',
     'Gio.Initable',
     'TrackerMiner.Miner',
+    'GObject.Object',
+],
+    'TrackerMiner.IndexingTree': [
+    'GObject.Object',
+    'GObject.Object',
+],
+    'TrackerMiner.Miner': [
+    'GObject.Object',
+    'Gio.Initable',
+    'GObject.Object',
+    'Gio.Initable',
+],
+    'TrackerMiner.MinerFS': [
+    'TrackerMiner.Miner',
+    'Gio.Initable',
+    'TrackerMiner.Miner',
+    'Gio.Initable',
     'GObject.Object',
 ],
     'TrackerMiner.MinerOnline': [
@@ -27111,9 +28099,31 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gee.AbstractCollection',
     'GObject.Object',
 ],
+    'Vda.ExpressionOperatorNotLike': [
+    'Vda.ExpressionOperatorBinaryterm',
+    'Vda.SqlExpressionOperatorNotLike',
+    'Vda.ExpressionOperator',
+    'Vda.Expression',
+    'Gee.ArrayList',
+    'Gee.AbstractBidirList',
+    'Gee.AbstractList',
+    'Gee.AbstractCollection',
+    'GObject.Object',
+],
     'Vda.ExpressionOperatorIlike': [
     'Vda.ExpressionOperatorBinaryterm',
     'Vda.SqlExpressionOperatorIlike',
+    'Vda.ExpressionOperator',
+    'Vda.Expression',
+    'Gee.ArrayList',
+    'Gee.AbstractBidirList',
+    'Gee.AbstractList',
+    'Gee.AbstractCollection',
+    'GObject.Object',
+],
+    'Vda.ExpressionOperatorNotIlike': [
+    'Vda.ExpressionOperatorBinaryterm',
+    'Vda.SqlExpressionOperatorNotIlike',
     'Vda.ExpressionOperator',
     'Vda.Expression',
     'Gee.ArrayList',
@@ -27309,9 +28319,8 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
 ],
     'Vda.ExpressionOperatorIsDistinct': [
-    'Vda.ExpressionOperatorIs',
+    'Vda.ExpressionOperatorBinaryterm',
     'Vda.SqlExpressionOperatorIsDistinct',
-    'Vda.ExpressionOperatorFinalUnaryterm',
     'Vda.ExpressionOperator',
     'Vda.Expression',
     'Gee.ArrayList',
@@ -27321,10 +28330,9 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
 ],
     'Vda.ExpressionOperatorIsNotDistinct': [
-    'Vda.ExpressionOperatorIsNot',
+    'Vda.ExpressionOperatorIsDistinct',
     'Vda.SqlExpressionOperatorIsNotDistinct',
-    'Vda.ExpressionOperatorIs',
-    'Vda.ExpressionOperatorFinalUnaryterm',
+    'Vda.ExpressionOperatorBinaryterm',
     'Vda.ExpressionOperator',
     'Vda.Expression',
     'Gee.ArrayList',
@@ -27336,8 +28344,7 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Vda.ExpressionOperatorIsDistinctFrom': [
     'Vda.ExpressionOperatorIsDistinct',
     'Vda.SqlExpressionOperatorIsDistinctFrom',
-    'Vda.ExpressionOperatorIs',
-    'Vda.ExpressionOperatorFinalUnaryterm',
+    'Vda.ExpressionOperatorBinaryterm',
     'Vda.ExpressionOperator',
     'Vda.Expression',
     'Gee.ArrayList',
@@ -27349,9 +28356,8 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Vda.ExpressionOperatorIsNotDistinctFrom': [
     'Vda.ExpressionOperatorIsNotDistinct',
     'Vda.SqlExpressionOperatorIsNotDistinctFrom',
-    'Vda.ExpressionOperatorIsNot',
-    'Vda.ExpressionOperatorIs',
-    'Vda.ExpressionOperatorFinalUnaryterm',
+    'Vda.ExpressionOperatorIsDistinct',
+    'Vda.ExpressionOperatorBinaryterm',
     'Vda.ExpressionOperator',
     'Vda.Expression',
     'Gee.ArrayList',
@@ -27381,9 +28387,35 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gee.AbstractCollection',
     'GObject.Object',
 ],
-    'Vda.ExpressionOperatorNotBetween': [
+    'Vda.ExpressionOperatorBetweenAnd': [
+    'Vda.ExpressionOperatorBetween',
+    'Vda.SqlExpressionOperatorBetweenAnd',
     'Vda.ExpressionOperatorThreeterm',
+    'Vda.ExpressionOperator',
+    'Vda.Expression',
+    'Gee.ArrayList',
+    'Gee.AbstractBidirList',
+    'Gee.AbstractList',
+    'Gee.AbstractCollection',
+    'GObject.Object',
+],
+    'Vda.ExpressionOperatorNotBetween': [
+    'Vda.ExpressionOperatorBetween',
     'Vda.SqlExpressionOperatorNotBetween',
+    'Vda.ExpressionOperatorThreeterm',
+    'Vda.ExpressionOperator',
+    'Vda.Expression',
+    'Gee.ArrayList',
+    'Gee.AbstractBidirList',
+    'Gee.AbstractList',
+    'Gee.AbstractCollection',
+    'GObject.Object',
+],
+    'Vda.ExpressionOperatorNotBetweenAnd': [
+    'Vda.ExpressionOperatorNotBetween',
+    'Vda.SqlExpressionOperatorNotBetweenAnd',
+    'Vda.ExpressionOperatorBetween',
+    'Vda.ExpressionOperatorThreeterm',
     'Vda.ExpressionOperator',
     'Vda.Expression',
     'Gee.ArrayList',
@@ -27393,8 +28425,22 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
 ],
     'Vda.ExpressionOperatorBetweenSymmetric': [
-    'Vda.ExpressionOperatorThreeterm',
+    'Vda.ExpressionOperatorBetween',
     'Vda.SqlExpressionOperatorBetweenSymmetric',
+    'Vda.ExpressionOperatorThreeterm',
+    'Vda.ExpressionOperator',
+    'Vda.Expression',
+    'Gee.ArrayList',
+    'Gee.AbstractBidirList',
+    'Gee.AbstractList',
+    'Gee.AbstractCollection',
+    'GObject.Object',
+],
+    'Vda.ExpressionOperatorBetweenSymmetricAnd': [
+    'Vda.ExpressionOperatorBetweenSymmetric',
+    'Vda.SqlExpressionOperatorBetweenSymmetricAnd',
+    'Vda.ExpressionOperatorBetween',
+    'Vda.ExpressionOperatorThreeterm',
     'Vda.ExpressionOperator',
     'Vda.Expression',
     'Gee.ArrayList',
@@ -27404,8 +28450,24 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
 ],
     'Vda.ExpressionOperatorNotBetweenSymmetric': [
-    'Vda.ExpressionOperatorThreeterm',
+    'Vda.ExpressionOperatorBetweenSymmetric',
     'Vda.SqlExpressionOperatorNotBetweenSymmetric',
+    'Vda.ExpressionOperatorBetween',
+    'Vda.ExpressionOperatorThreeterm',
+    'Vda.ExpressionOperator',
+    'Vda.Expression',
+    'Gee.ArrayList',
+    'Gee.AbstractBidirList',
+    'Gee.AbstractList',
+    'Gee.AbstractCollection',
+    'GObject.Object',
+],
+    'Vda.ExpressionOperatorNotBetweenSymmetricAnd': [
+    'Vda.ExpressionOperatorNotBetweenSymmetric',
+    'Vda.SqlExpressionOperatorNotBetweenSymmetricAnd',
+    'Vda.ExpressionOperatorBetweenSymmetric',
+    'Vda.ExpressionOperatorBetween',
+    'Vda.ExpressionOperatorThreeterm',
     'Vda.ExpressionOperator',
     'Vda.Expression',
     'Gee.ArrayList',
@@ -27484,6 +28546,18 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Vda.SqlValueString',
     'GObject.Object',
 ],
+    'Vda.ValueXml': [
+    'Vda.ValueString',
+    'Vda.SqlValueXml',
+    'Vda.Value',
+    'GObject.Object',
+],
+    'Vda.ValueJson': [
+    'Vda.ValueString',
+    'Vda.SqlValueJson',
+    'Vda.Value',
+    'GObject.Object',
+],
     'Vda.ValueText': [
     'Vda.ValueString',
     'Vda.SqlValueText',
@@ -27513,6 +28587,12 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Vda.SqlValueInteger',
     'GObject.Object',
 ],
+    'Vda.ValueByte': [
+    'Vda.ValueInteger',
+    'Vda.SqlValueByte',
+    'Vda.Value',
+    'GObject.Object',
+],
     'Vda.ValueInt2': [
     'Vda.ValueInteger',
     'Vda.SqlValueInt2',
@@ -27531,21 +28611,33 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Vda.Value',
     'GObject.Object',
 ],
-    'Vda.ValueInt16': [
-    'Vda.ValueInteger',
-    'Vda.SqlValueInt16',
+    'Vda.ValueUnsignedInteger': [
+    'Vda.Value',
+    'Vda.SqlValue',
+    'Vda.SqlValueUnsignedInteger',
+    'GObject.Object',
+],
+    'Vda.ValueUnsignedByte': [
+    'Vda.ValueUnsignedInteger',
+    'Vda.SqlValueUnsignedByte',
     'Vda.Value',
     'GObject.Object',
 ],
-    'Vda.ValueInt32': [
-    'Vda.ValueInteger',
-    'Vda.SqlValueInt32',
+    'Vda.ValueUnsignedInt2': [
+    'Vda.ValueUnsignedInteger',
+    'Vda.SqlValueUnsignedInt2',
     'Vda.Value',
     'GObject.Object',
 ],
-    'Vda.ValueInt64': [
-    'Vda.ValueInteger',
-    'Vda.SqlValueInt64',
+    'Vda.ValueUnsignedInt4': [
+    'Vda.ValueUnsignedInteger',
+    'Vda.SqlValueUnsignedInt4',
+    'Vda.Value',
+    'GObject.Object',
+],
+    'Vda.ValueUnsignedInt8': [
+    'Vda.ValueUnsignedInteger',
+    'Vda.SqlValueUnsignedInt8',
     'Vda.Value',
     'GObject.Object',
 ],
@@ -27596,14 +28688,20 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
 ],
     'Vda.ValueTimeNtz': [
+    'Vda.ValueTimestampNtz',
+    'Vda.SqlValueTimeNtz',
     'Vda.ValueTimestamp',
-    'Vda.SqlValueTime',
     'Vda.Value',
     'GObject.Object',
 ],
     'Vda.ValueDate': [
     'Vda.Value',
     'Vda.SqlValueDate',
+    'GObject.Object',
+],
+    'Vda.ValueBinary': [
+    'Vda.Value',
+    'Vda.SqlValueBinary',
     'GObject.Object',
 ],
     'Vda.ValueMathExp': [
@@ -27628,6 +28726,10 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
     'Vda.Connection',
 ],
+    'Vsqlite.Connection': [
+    'GObject.Object',
+    'Vda.Connection',
+],
     'Vte.Pty': [
     'GObject.Object',
     'Gio.Initable',
@@ -27641,1035 +28743,11 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
-    'WebKit.DOMAttr': [
-    'WebKit.DOMNode',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMAudioTrack': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMAudioTrackList': [
-    'WebKit.DOMObject',
-    'WebKit.DOMEventTarget',
-    'GObject.Object',
-],
-    'WebKit.DOMBarInfo': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMBarProp': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMBatteryManager': [
-    'WebKit.DOMObject',
-    'WebKit.DOMEventTarget',
-    'GObject.Object',
-],
-    'WebKit.DOMBlob': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMCDATASection': [
-    'WebKit.DOMText',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMCharacterData',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMCSSRule': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMCSSRuleList': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMCSSStyleDeclaration': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMCSSStyleSheet': [
-    'WebKit.DOMStyleSheet',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMCSSValue': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMCharacterData': [
-    'WebKit.DOMNode',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMComment': [
-    'WebKit.DOMCharacterData',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMConsole': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMDOMApplicationCache': [
-    'WebKit.DOMObject',
-    'WebKit.DOMEventTarget',
-    'GObject.Object',
-],
-    'WebKit.DOMDOMImplementation': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMDOMMimeType': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMDOMMimeTypeArray': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMDOMNamedFlowCollection': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMDOMPlugin': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMDOMPluginArray': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMDOMSecurityPolicy': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMDOMSelection': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMDOMSettableTokenList': [
-    'WebKit.DOMDOMTokenList',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMDOMStringList': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMDOMStringMap': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMDOMTokenList': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMDOMWindow': [
-    'WebKit.DOMObject',
-    'WebKit.DOMEventTarget',
-    'GObject.Object',
-],
-    'WebKit.DOMDOMWindowCSS': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMDatabase': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMDocument': [
-    'WebKit.DOMNode',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMDocumentFragment': [
-    'WebKit.DOMNode',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMDocumentType': [
-    'WebKit.DOMNode',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMElement': [
-    'WebKit.DOMNode',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMEntityReference': [
-    'WebKit.DOMNode',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMEvent': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMFile': [
-    'WebKit.DOMBlob',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMFileList': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMGamepad': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMGamepadList': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMGeolocation': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLAnchorElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLAppletElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLAreaElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLAudioElement': [
-    'WebKit.DOMHTMLMediaElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLBRElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLBaseElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLBaseFontElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLBodyElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLButtonElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLCanvasElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLCollection': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLDListElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLDetailsElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLDirectoryElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLDivElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLDocument': [
-    'WebKit.DOMDocument',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLElement': [
-    'WebKit.DOMElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLEmbedElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLFieldSetElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLFontElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLFormElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLFrameElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLFrameSetElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLHRElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLHeadElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLHeadingElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLHtmlElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLIFrameElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLImageElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLInputElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLKeygenElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLLIElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLLabelElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLLegendElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLLinkElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLMapElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLMarqueeElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLMediaElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLMenuElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLMetaElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLModElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLOListElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLObjectElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLOptGroupElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLOptionElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLOptionsCollection': [
-    'WebKit.DOMHTMLCollection',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLParagraphElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLParamElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLPreElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLPropertiesCollection': [
-    'WebKit.DOMHTMLCollection',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLQuoteElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLScriptElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLSelectElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLStyleElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLTableCaptionElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLTableCellElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLTableColElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLTableElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLTableRowElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLTableSectionElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLTextAreaElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLTitleElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLUListElement': [
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHTMLVideoElement': [
-    'WebKit.DOMHTMLMediaElement',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMHTMLElement',
-    'WebKit.DOMElement',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMHistory': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMKeyboardEvent': [
-    'WebKit.DOMUIEvent',
-    'WebKit.DOMEvent',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMLocation': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMMediaController': [
-    'WebKit.DOMObject',
-    'WebKit.DOMEventTarget',
-    'GObject.Object',
-],
-    'WebKit.DOMMediaError': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMMediaList': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMMediaQueryList': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMMemoryInfo': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMMessagePort': [
-    'WebKit.DOMObject',
-    'WebKit.DOMEventTarget',
-    'GObject.Object',
-],
-    'WebKit.DOMMicroDataItemValue': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMMouseEvent': [
-    'WebKit.DOMUIEvent',
-    'WebKit.DOMEvent',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMNamedNodeMap': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMNavigator': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMNode': [
-    'WebKit.DOMObject',
-    'WebKit.DOMEventTarget',
-    'GObject.Object',
-],
-    'WebKit.DOMNodeFilter': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMNodeIterator': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMNodeList': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMObject': [
-    'GObject.Object',
-],
-    'WebKit.DOMPerformance': [
-    'WebKit.DOMObject',
-    'WebKit.DOMEventTarget',
-    'GObject.Object',
-],
-    'WebKit.DOMPerformanceEntry': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMPerformanceEntryList': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMPerformanceNavigation': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMPerformanceTiming': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMProcessingInstruction': [
-    'WebKit.DOMCharacterData',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMPropertyNodeList': [
-    'WebKit.DOMNodeList',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMRange': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMScreen': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMShadowRoot': [
-    'WebKit.DOMDocumentFragment',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMStorage': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMStorageInfo': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMStorageQuota': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMStyleMedia': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMStyleSheet': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMStyleSheetList': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMText': [
-    'WebKit.DOMCharacterData',
-    'WebKit.DOMEventTarget',
-    'WebKit.DOMNode',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMTextTrack': [
-    'WebKit.DOMObject',
-    'WebKit.DOMEventTarget',
-    'GObject.Object',
-],
-    'WebKit.DOMTextTrackCue': [
-    'WebKit.DOMObject',
-    'WebKit.DOMEventTarget',
-    'GObject.Object',
-],
-    'WebKit.DOMTextTrackCueList': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMTextTrackList': [
-    'WebKit.DOMObject',
-    'WebKit.DOMEventTarget',
-    'GObject.Object',
-],
-    'WebKit.DOMTimeRanges': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMTouch': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMTrackEvent': [
-    'WebKit.DOMEvent',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMTreeWalker': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMUIEvent': [
-    'WebKit.DOMEvent',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMValidityState': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMVideoPlaybackQuality': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMVideoTrack': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMVideoTrackList': [
-    'WebKit.DOMObject',
-    'WebKit.DOMEventTarget',
-    'GObject.Object',
-],
-    'WebKit.DOMWebKitNamedFlow': [
-    'WebKit.DOMObject',
-    'WebKit.DOMEventTarget',
-    'GObject.Object',
-],
-    'WebKit.DOMWebKitPoint': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMWheelEvent': [
-    'WebKit.DOMMouseEvent',
-    'WebKit.DOMUIEvent',
-    'WebKit.DOMEvent',
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMXPathExpression': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMXPathNSResolver': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.DOMXPathResult': [
-    'WebKit.DOMObject',
-    'GObject.Object',
-],
-    'WebKit.Download': [
-    'GObject.Object',
-],
-    'WebKit.FaviconDatabase': [
-    'GObject.Object',
-],
-    'WebKit.FileChooserRequest': [
-    'GObject.Object',
-],
-    'WebKit.GeolocationPolicyDecision': [
-    'GObject.Object',
-],
-    'WebKit.HitTestResult': [
-    'GObject.Object',
-],
-    'WebKit.IconDatabase': [
-    'GObject.Object',
-],
-    'WebKit.NetworkRequest': [
-    'GObject.Object',
-],
-    'WebKit.NetworkResponse': [
-    'GObject.Object',
-],
-    'WebKit.SecurityOrigin': [
-    'GObject.Object',
-],
-    'WebKit.SoupAuthDialog': [
-    'GObject.Object',
-    'Soup.SessionFeature',
-],
-    'WebKit.ViewportAttributes': [
-    'GObject.Object',
-],
-    'WebKit.WebBackForwardList': [
-    'GObject.Object',
-],
-    'WebKit.WebDataSource': [
-    'GObject.Object',
-],
-    'WebKit.WebDatabase': [
-    'GObject.Object',
-],
-    'WebKit.WebFrame': [
-    'GObject.Object',
-],
-    'WebKit.WebHistoryItem': [
-    'GObject.Object',
-],
-    'WebKit.WebInspector': [
-    'GObject.Object',
-],
-    'WebKit.WebNavigationAction': [
-    'GObject.Object',
-],
-    'WebKit.WebPlugin': [
-    'GObject.Object',
-],
-    'WebKit.WebPluginDatabase': [
-    'GObject.Object',
-],
-    'WebKit.WebPolicyDecision': [
-    'GObject.Object',
-],
-    'WebKit.WebResource': [
-    'GObject.Object',
-],
-    'WebKit.WebSettings': [
-    'GObject.Object',
-],
-    'WebKit.WebView': [
-    'Gtk.Container',
-    'Atk.ImplementorIface',
-    'Gtk.Buildable',
-    'Gtk.Scrollable',
-    'Gtk.Widget',
-    'Gtk.Object',
-    'GObject.InitiallyUnowned',
-    'GObject.Object',
-],
-    'WebKit.WebWindowFeatures': [
-    'GObject.Object',
-],
     'WebKit2.AuthenticationRequest': [
+    'GObject.Object',
+    'GObject.Object',
+],
+    'WebKit2.AutomationSession': [
     'GObject.Object',
     'GObject.Object',
 ],
@@ -28680,6 +28758,10 @@ const inheritanceTable: { [key: string]: string[] } = {
     'WebKit2.BackForwardListItem': [
     'GObject.InitiallyUnowned',
     'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
+    'WebKit2.ColorChooserRequest': [
+    'GObject.Object',
     'GObject.Object',
 ],
     'WebKit2.ContextMenu': [
@@ -28695,7 +28777,17 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
     'GObject.Object',
 ],
+    'WebKit2.DeviceInfoPermissionRequest': [
+    'GObject.Object',
+    'WebKit2.PermissionRequest',
+    'GObject.Object',
+    'WebKit2.PermissionRequest',
+],
     'WebKit2.Download': [
+    'GObject.Object',
+    'GObject.Object',
+],
+    'WebKit2.EditorState': [
     'GObject.Object',
     'GObject.Object',
 ],
@@ -28715,6 +28807,10 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
     'GObject.Object',
 ],
+    'WebKit2.GeolocationManager': [
+    'GObject.Object',
+    'GObject.Object',
+],
     'WebKit2.GeolocationPermissionRequest': [
     'GObject.Object',
     'WebKit2.PermissionRequest',
@@ -28725,16 +28821,56 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
     'GObject.Object',
 ],
+    'WebKit2.InputMethodContext': [
+    'GObject.Object',
+    'GObject.Object',
+],
+    'WebKit2.InstallMissingMediaPluginsPermissionRequest': [
+    'GObject.Object',
+    'WebKit2.PermissionRequest',
+    'GObject.Object',
+    'WebKit2.PermissionRequest',
+],
+    'WebKit2.MediaKeySystemPermissionRequest': [
+    'GObject.Object',
+    'WebKit2.PermissionRequest',
+    'GObject.Object',
+    'WebKit2.PermissionRequest',
+],
     'WebKit2.NavigationPolicyDecision': [
     'WebKit2.PolicyDecision',
     'WebKit2.PolicyDecision',
+    'GObject.Object',
+],
+    'WebKit2.Notification': [
+    'GObject.Object',
+    'GObject.Object',
+],
+    'WebKit2.NotificationPermissionRequest': [
+    'GObject.Object',
+    'WebKit2.PermissionRequest',
+    'GObject.Object',
+    'WebKit2.PermissionRequest',
+],
+    'WebKit2.OptionMenu': [
+    'GObject.Object',
     'GObject.Object',
 ],
     'WebKit2.Plugin': [
     'GObject.Object',
     'GObject.Object',
 ],
+    'WebKit2.PointerLockPermissionRequest': [
+    'GObject.Object',
+    'WebKit2.PermissionRequest',
+    'GObject.Object',
+    'WebKit2.PermissionRequest',
+],
     'WebKit2.PolicyDecision': [
+    'GObject.Object',
+    'GObject.Object',
+],
+    'WebKit2.PrintCustomWidget': [
     'GObject.Object',
     'GObject.Object',
 ],
@@ -28767,6 +28903,29 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
     'GObject.Object',
 ],
+    'WebKit2.URISchemeResponse': [
+    'GObject.Object',
+    'GObject.Object',
+],
+    'WebKit2.UserContentFilterStore': [
+    'GObject.Object',
+    'GObject.Object',
+],
+    'WebKit2.UserContentManager': [
+    'GObject.Object',
+    'GObject.Object',
+],
+    'WebKit2.UserMediaPermissionRequest': [
+    'GObject.Object',
+    'WebKit2.PermissionRequest',
+    'GObject.Object',
+    'WebKit2.PermissionRequest',
+],
+    'WebKit2.UserMessage': [
+    'GObject.InitiallyUnowned',
+    'GObject.InitiallyUnowned',
+    'GObject.Object',
+],
     'WebKit2.WebContext': [
     'GObject.Object',
     'GObject.Object',
@@ -28784,8 +28943,9 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Atk.ImplementorIface',
     'Gtk.Buildable',
     'WebKit2.WebViewBase',
-    'Atk.ImplementorIface',
+    'Gtk.Accessible',
     'Gtk.Buildable',
+    'Gtk.ConstraintTarget',
     'Gtk.Container',
     'Gtk.Widget',
     'Gtk.Object',
@@ -28796,83 +28956,40 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gtk.Container',
     'Atk.ImplementorIface',
     'Gtk.Buildable',
-    'Gtk.Container',
-    'Atk.ImplementorIface',
+    'Gtk.Widget',
+    'Gtk.Accessible',
     'Gtk.Buildable',
+    'Gtk.ConstraintTarget',
     'Gtk.Widget',
     'Gtk.Object',
-    'GObject.InitiallyUnowned',
-    'GObject.Object',
-],
-    'WebKit2.WebViewGroup': [
-    'GObject.Object',
-],
-    'WebKit2.WindowProperties': [
-    'GObject.Object',
-    'GObject.Object',
-],
-    'WebKit2.AutomationSession': [
-    'GObject.Object',
-],
-    'WebKit2.ColorChooserRequest': [
-    'GObject.Object',
-],
-    'WebKit2.DeviceInfoPermissionRequest': [
-    'GObject.Object',
-    'WebKit2.PermissionRequest',
-],
-    'WebKit2.EditorState': [
-    'GObject.Object',
-],
-    'WebKit2.GeolocationManager': [
-    'GObject.Object',
-],
-    'WebKit2.InputMethodContext': [
-    'GObject.Object',
-],
-    'WebKit2.InstallMissingMediaPluginsPermissionRequest': [
-    'GObject.Object',
-    'WebKit2.PermissionRequest',
-],
-    'WebKit2.Notification': [
-    'GObject.Object',
-],
-    'WebKit2.NotificationPermissionRequest': [
-    'GObject.Object',
-    'WebKit2.PermissionRequest',
-],
-    'WebKit2.OptionMenu': [
-    'GObject.Object',
-],
-    'WebKit2.PointerLockPermissionRequest': [
-    'GObject.Object',
-    'WebKit2.PermissionRequest',
-],
-    'WebKit2.PrintCustomWidget': [
-    'GObject.Object',
-],
-    'WebKit2.UserContentFilterStore': [
-    'GObject.Object',
-],
-    'WebKit2.UserContentManager': [
-    'GObject.Object',
-],
-    'WebKit2.UserMediaPermissionRequest': [
-    'GObject.Object',
-    'WebKit2.PermissionRequest',
-],
-    'WebKit2.UserMessage': [
     'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
     'WebKit2.WebsiteDataAccessPermissionRequest': [
     'GObject.Object',
     'WebKit2.PermissionRequest',
+    'GObject.Object',
+    'WebKit2.PermissionRequest',
 ],
     'WebKit2.WebsiteDataManager': [
     'GObject.Object',
+    'GObject.Object',
 ],
     'WebKit2.WebsitePolicies': [
+    'GObject.Object',
+    'GObject.Object',
+],
+    'WebKit2.WindowProperties': [
+    'GObject.Object',
+    'GObject.Object',
+],
+    'WebKit2WebExtension.ContextMenu': [
+    'GObject.Object',
+    'GObject.Object',
+],
+    'WebKit2WebExtension.ContextMenuItem': [
+    'GObject.InitiallyUnowned',
+    'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
     'WebKit2WebExtension.DOMAttr': [
@@ -28881,28 +28998,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'WebKit2WebExtension.DOMNode',
     'WebKit2WebExtension.DOMEventTarget',
     'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMAudioTrack': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMAudioTrackList': [
-    'WebKit2WebExtension.DOMObject',
-    'WebKit2WebExtension.DOMEventTarget',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMBarInfo': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMBarProp': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMBatteryManager': [
-    'WebKit2WebExtension.DOMObject',
-    'WebKit2WebExtension.DOMEventTarget',
     'GObject.Object',
 ],
     'WebKit2WebExtension.DOMBlob': [
@@ -28954,6 +29049,16 @@ const inheritanceTable: { [key: string]: string[] } = {
     'WebKit2WebExtension.DOMObject',
     'GObject.Object',
 ],
+    'WebKit2WebExtension.DOMClientRect': [
+    'WebKit2WebExtension.DOMObject',
+    'WebKit2WebExtension.DOMObject',
+    'GObject.Object',
+],
+    'WebKit2WebExtension.DOMClientRectList': [
+    'WebKit2WebExtension.DOMObject',
+    'WebKit2WebExtension.DOMObject',
+    'GObject.Object',
+],
     'WebKit2WebExtension.DOMComment': [
     'WebKit2WebExtension.DOMCharacterData',
     'WebKit2WebExtension.DOMEventTarget',
@@ -28963,59 +29068,13 @@ const inheritanceTable: { [key: string]: string[] } = {
     'WebKit2WebExtension.DOMObject',
     'GObject.Object',
 ],
-    'WebKit2WebExtension.DOMConsole': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMDOMApplicationCache': [
-    'WebKit2WebExtension.DOMObject',
-    'WebKit2WebExtension.DOMEventTarget',
-    'GObject.Object',
-],
     'WebKit2WebExtension.DOMDOMImplementation': [
     'WebKit2WebExtension.DOMObject',
     'WebKit2WebExtension.DOMObject',
     'GObject.Object',
 ],
-    'WebKit2WebExtension.DOMDOMMimeType': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMDOMMimeTypeArray': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMDOMNamedFlowCollection': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMDOMPlugin': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMDOMPluginArray': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMDOMSecurityPolicy': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
     'WebKit2WebExtension.DOMDOMSelection': [
     'WebKit2WebExtension.DOMObject',
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMDOMSettableTokenList': [
-    'WebKit2WebExtension.DOMDOMTokenList',
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMDOMStringList': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMDOMStringMap': [
     'WebKit2WebExtension.DOMObject',
     'GObject.Object',
 ],
@@ -29029,14 +29088,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'WebKit2WebExtension.DOMEventTarget',
     'WebKit2WebExtension.DOMObject',
     'WebKit2WebExtension.DOMEventTarget',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMDOMWindowCSS': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMDatabase': [
-    'WebKit2WebExtension.DOMObject',
     'GObject.Object',
 ],
     'WebKit2WebExtension.DOMDocument': [
@@ -29095,18 +29146,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'WebKit2WebExtension.DOMObject',
     'GObject.Object',
 ],
-    'WebKit2WebExtension.DOMGamepad': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMGamepadList': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMGeolocation': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
     'WebKit2WebExtension.DOMHTMLAnchorElement': [
     'WebKit2WebExtension.DOMHTMLElement',
     'WebKit2WebExtension.DOMEventTarget',
@@ -29132,15 +29171,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'WebKit2WebExtension.DOMEventTarget',
     'WebKit2WebExtension.DOMHTMLElement',
     'WebKit2WebExtension.DOMEventTarget',
-    'WebKit2WebExtension.DOMElement',
-    'WebKit2WebExtension.DOMNode',
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMHTMLAudioElement': [
-    'WebKit2WebExtension.DOMHTMLMediaElement',
-    'WebKit2WebExtension.DOMEventTarget',
-    'WebKit2WebExtension.DOMHTMLElement',
     'WebKit2WebExtension.DOMElement',
     'WebKit2WebExtension.DOMNode',
     'WebKit2WebExtension.DOMObject',
@@ -29214,14 +29244,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'WebKit2WebExtension.DOMHTMLDListElement': [
     'WebKit2WebExtension.DOMHTMLElement',
     'WebKit2WebExtension.DOMEventTarget',
-    'WebKit2WebExtension.DOMHTMLElement',
-    'WebKit2WebExtension.DOMEventTarget',
-    'WebKit2WebExtension.DOMElement',
-    'WebKit2WebExtension.DOMNode',
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMHTMLDetailsElement': [
     'WebKit2WebExtension.DOMHTMLElement',
     'WebKit2WebExtension.DOMEventTarget',
     'WebKit2WebExtension.DOMElement',
@@ -29397,14 +29419,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'WebKit2WebExtension.DOMObject',
     'GObject.Object',
 ],
-    'WebKit2WebExtension.DOMHTMLKeygenElement': [
-    'WebKit2WebExtension.DOMHTMLElement',
-    'WebKit2WebExtension.DOMEventTarget',
-    'WebKit2WebExtension.DOMElement',
-    'WebKit2WebExtension.DOMNode',
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
     'WebKit2WebExtension.DOMHTMLLIElement': [
     'WebKit2WebExtension.DOMHTMLElement',
     'WebKit2WebExtension.DOMEventTarget',
@@ -29458,14 +29472,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'WebKit2WebExtension.DOMHTMLMarqueeElement': [
     'WebKit2WebExtension.DOMHTMLElement',
     'WebKit2WebExtension.DOMEventTarget',
-    'WebKit2WebExtension.DOMHTMLElement',
-    'WebKit2WebExtension.DOMEventTarget',
-    'WebKit2WebExtension.DOMElement',
-    'WebKit2WebExtension.DOMNode',
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMHTMLMediaElement': [
     'WebKit2WebExtension.DOMHTMLElement',
     'WebKit2WebExtension.DOMEventTarget',
     'WebKit2WebExtension.DOMElement',
@@ -29576,11 +29582,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'WebKit2WebExtension.DOMEventTarget',
     'WebKit2WebExtension.DOMElement',
     'WebKit2WebExtension.DOMNode',
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMHTMLPropertiesCollection': [
-    'WebKit2WebExtension.DOMHTMLCollection',
     'WebKit2WebExtension.DOMObject',
     'GObject.Object',
 ],
@@ -29714,19 +29715,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'WebKit2WebExtension.DOMObject',
     'GObject.Object',
 ],
-    'WebKit2WebExtension.DOMHTMLVideoElement': [
-    'WebKit2WebExtension.DOMHTMLMediaElement',
-    'WebKit2WebExtension.DOMEventTarget',
-    'WebKit2WebExtension.DOMHTMLElement',
-    'WebKit2WebExtension.DOMElement',
-    'WebKit2WebExtension.DOMNode',
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMHistory': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
     'WebKit2WebExtension.DOMKeyboardEvent': [
     'WebKit2WebExtension.DOMUIEvent',
     'WebKit2WebExtension.DOMUIEvent',
@@ -29734,38 +29722,8 @@ const inheritanceTable: { [key: string]: string[] } = {
     'WebKit2WebExtension.DOMObject',
     'GObject.Object',
 ],
-    'WebKit2WebExtension.DOMLocation': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMMediaController': [
-    'WebKit2WebExtension.DOMObject',
-    'WebKit2WebExtension.DOMEventTarget',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMMediaError': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
     'WebKit2WebExtension.DOMMediaList': [
     'WebKit2WebExtension.DOMObject',
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMMediaQueryList': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMMemoryInfo': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMMessagePort': [
-    'WebKit2WebExtension.DOMObject',
-    'WebKit2WebExtension.DOMEventTarget',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMMicroDataItemValue': [
     'WebKit2WebExtension.DOMObject',
     'GObject.Object',
 ],
@@ -29781,19 +29739,11 @@ const inheritanceTable: { [key: string]: string[] } = {
     'WebKit2WebExtension.DOMObject',
     'GObject.Object',
 ],
-    'WebKit2WebExtension.DOMNavigator': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
     'WebKit2WebExtension.DOMNode': [
     'WebKit2WebExtension.DOMObject',
     'WebKit2WebExtension.DOMEventTarget',
     'WebKit2WebExtension.DOMObject',
     'WebKit2WebExtension.DOMEventTarget',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMNodeFilter': [
-    'WebKit2WebExtension.DOMObject',
     'GObject.Object',
 ],
     'WebKit2WebExtension.DOMNodeIterator': [
@@ -29810,27 +29760,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
     'GObject.Object',
 ],
-    'WebKit2WebExtension.DOMPerformance': [
-    'WebKit2WebExtension.DOMObject',
-    'WebKit2WebExtension.DOMEventTarget',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMPerformanceEntry': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMPerformanceEntryList': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMPerformanceNavigation': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMPerformanceTiming': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
     'WebKit2WebExtension.DOMProcessingInstruction': [
     'WebKit2WebExtension.DOMCharacterData',
     'WebKit2WebExtension.DOMEventTarget',
@@ -29840,40 +29769,8 @@ const inheritanceTable: { [key: string]: string[] } = {
     'WebKit2WebExtension.DOMObject',
     'GObject.Object',
 ],
-    'WebKit2WebExtension.DOMPropertyNodeList': [
-    'WebKit2WebExtension.DOMNodeList',
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
     'WebKit2WebExtension.DOMRange': [
     'WebKit2WebExtension.DOMObject',
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMScreen': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMShadowRoot': [
-    'WebKit2WebExtension.DOMDocumentFragment',
-    'WebKit2WebExtension.DOMEventTarget',
-    'WebKit2WebExtension.DOMNode',
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMStorage': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMStorageInfo': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMStorageQuota': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMStyleMedia': [
     'WebKit2WebExtension.DOMObject',
     'GObject.Object',
 ],
@@ -29896,38 +29793,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'WebKit2WebExtension.DOMObject',
     'GObject.Object',
 ],
-    'WebKit2WebExtension.DOMTextTrack': [
-    'WebKit2WebExtension.DOMObject',
-    'WebKit2WebExtension.DOMEventTarget',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMTextTrackCue': [
-    'WebKit2WebExtension.DOMObject',
-    'WebKit2WebExtension.DOMEventTarget',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMTextTrackCueList': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMTextTrackList': [
-    'WebKit2WebExtension.DOMObject',
-    'WebKit2WebExtension.DOMEventTarget',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMTimeRanges': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMTouch': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMTrackEvent': [
-    'WebKit2WebExtension.DOMEvent',
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
     'WebKit2WebExtension.DOMTreeWalker': [
     'WebKit2WebExtension.DOMObject',
     'WebKit2WebExtension.DOMObject',
@@ -29936,32 +29801,6 @@ const inheritanceTable: { [key: string]: string[] } = {
     'WebKit2WebExtension.DOMUIEvent': [
     'WebKit2WebExtension.DOMEvent',
     'WebKit2WebExtension.DOMEvent',
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMValidityState': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMVideoPlaybackQuality': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMVideoTrack': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMVideoTrackList': [
-    'WebKit2WebExtension.DOMObject',
-    'WebKit2WebExtension.DOMEventTarget',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMWebKitNamedFlow': [
-    'WebKit2WebExtension.DOMObject',
-    'WebKit2WebExtension.DOMEventTarget',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMWebKitPoint': [
     'WebKit2WebExtension.DOMObject',
     'GObject.Object',
 ],
@@ -29978,16 +29817,16 @@ const inheritanceTable: { [key: string]: string[] } = {
     'WebKit2WebExtension.DOMObject',
     'GObject.Object',
 ],
-    'WebKit2WebExtension.DOMXPathNSResolver': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
     'WebKit2WebExtension.DOMXPathResult': [
     'WebKit2WebExtension.DOMObject',
     'WebKit2WebExtension.DOMObject',
     'GObject.Object',
 ],
     'WebKit2WebExtension.Frame': [
+    'GObject.Object',
+    'GObject.Object',
+],
+    'WebKit2WebExtension.HitTestResult': [
     'GObject.Object',
     'GObject.Object',
 ],
@@ -30003,41 +29842,26 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
     'GObject.Object',
 ],
-    'WebKit2WebExtension.WebExtension': [
-    'GObject.Object',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.WebPage': [
-    'GObject.Object',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.ContextMenu': [
-    'GObject.Object',
-],
-    'WebKit2WebExtension.ContextMenuItem': [
-    'GObject.InitiallyUnowned',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMClientRect': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.DOMClientRectList': [
-    'WebKit2WebExtension.DOMObject',
-    'GObject.Object',
-],
-    'WebKit2WebExtension.HitTestResult': [
-    'GObject.Object',
-],
     'WebKit2WebExtension.UserMessage': [
+    'GObject.InitiallyUnowned',
     'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
     'WebKit2WebExtension.WebEditor': [
     'GObject.Object',
+    'GObject.Object',
+],
+    'WebKit2WebExtension.WebExtension': [
+    'GObject.Object',
+    'GObject.Object',
 ],
     'WebKit2WebExtension.WebHitTestResult': [
     'WebKit2WebExtension.HitTestResult',
+    'WebKit2WebExtension.HitTestResult',
+    'GObject.Object',
+],
+    'WebKit2WebExtension.WebPage': [
+    'GObject.Object',
     'GObject.Object',
 ],
     'Wnck.ActionMenu': [
@@ -30055,6 +29879,20 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
 ],
     'Wnck.ClassGroup': [
+    'GObject.Object',
+],
+    'Wnck.ImageMenuItem': [
+    'Gtk.MenuItem',
+    'Atk.ImplementorIface',
+    'Gtk.Actionable',
+    'Gtk.Activatable',
+    'Gtk.Buildable',
+    'Gtk.Item',
+    'Gtk.Bin',
+    'Gtk.Container',
+    'Gtk.Widget',
+    'Gtk.Object',
+    'GObject.InitiallyUnowned',
     'GObject.Object',
 ],
     'Wnck.Pager': [
@@ -30092,6 +29930,12 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GObject.Object',
 ],
     'Wnck.Workspace': [
+    'GObject.Object',
+],
+    'Xdp.Portal': [
+    'GObject.Object',
+],
+    'Xdp.Session': [
     'GObject.Object',
 ],
     'Xkl.ConfigItem': [

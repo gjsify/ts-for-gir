@@ -17,17 +17,33 @@ export declare namespace GstTranscoder {
 export enum TranscoderError {
     FAILED,
 }
+export enum TranscoderMessage {
+    POSITION_UPDATED,
+    DURATION_CHANGED,
+    STATE_CHANGED,
+    DONE,
+    ERROR,
+    WARNING,
+}
+export enum TranscoderState {
+    STOPPED,
+    PAUSED,
+    PLAYING,
+}
 export function transcoderErrorGetName(error: TranscoderError): string
 export function transcoderErrorQuark(): GLib.Quark
-export class TranscoderSignalDispatcher {
-    static name: string
-}
+export function transcoderMessageGetName(message: TranscoderMessage): string
+export function transcoderMessageParseDuration(msg: Gst.Message): { duration: Gst.ClockTime }
+export function transcoderMessageParseError(msg: Gst.Message): { error: GLib.Error, details: Gst.Structure }
+export function transcoderMessageParsePosition(msg: Gst.Message): { position: Gst.ClockTime }
+export function transcoderMessageParseState(msg: Gst.Message): { state: TranscoderState }
+export function transcoderMessageParseWarning(msg: Gst.Message): { error: GLib.Error, details: Gst.Structure }
+export function transcoderStateGetName(state: TranscoderState): string
 export interface Transcoder_ConstructProps extends Gst.Object_ConstructProps {
     avoidReencoding?: boolean
     destUri?: string
     positionUpdateInterval?: number
     profile?: GstPbutils.EncodingProfile
-    signalDispatcher?: TranscoderSignalDispatcher
     srcUri?: string
 }
 export class Transcoder {
@@ -50,10 +66,13 @@ export class Transcoder {
     getAvoidReencoding(): boolean
     getDestUri(): string
     getDuration(): Gst.ClockTime
+    getMessageBus(): Gst.Bus
     getPipeline(): Gst.Element
     getPosition(): Gst.ClockTime
     getPositionUpdateInterval(): number
+    getSignalAdapter(context?: GLib.MainContext | null): TranscoderSignalAdapter | null
     getSourceUri(): string
+    getSyncSignalAdapter(): TranscoderSignalAdapter
     run(): boolean
     runAsync(): void
     setAvoidReencoding(avoidReencoding: boolean): void
@@ -105,32 +124,6 @@ export class Transcoder {
     stealQdata(quark: GLib.Quark): object | null
     thawNotify(): void
     watchClosure(closure: Function): void
-    /* Signals of GstTranscoder-1.0.GstTranscoder.Transcoder */
-    connect(sigName: "done", callback: (($obj: Transcoder) => void)): number
-    on(sigName: "done", callback: () => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "done", callback: () => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "done", callback: () => void): NodeJS.EventEmitter
-    emit(sigName: "done"): void
-    connect(sigName: "duration-changed", callback: (($obj: Transcoder, object: number) => void)): number
-    on(sigName: "duration-changed", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "duration-changed", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "duration-changed", callback: (object: number) => void): NodeJS.EventEmitter
-    emit(sigName: "duration-changed", object: number): void
-    connect(sigName: "error", callback: (($obj: Transcoder, object: GLib.Error, p0: Gst.Structure) => void)): number
-    on(sigName: "error", callback: (object: GLib.Error, p0: Gst.Structure) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "error", callback: (object: GLib.Error, p0: Gst.Structure) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "error", callback: (object: GLib.Error, p0: Gst.Structure) => void): NodeJS.EventEmitter
-    emit(sigName: "error", object: GLib.Error, p0: Gst.Structure): void
-    connect(sigName: "position-updated", callback: (($obj: Transcoder, object: number) => void)): number
-    on(sigName: "position-updated", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "position-updated", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "position-updated", callback: (object: number) => void): NodeJS.EventEmitter
-    emit(sigName: "position-updated", object: number): void
-    connect(sigName: "warning", callback: (($obj: Transcoder, object: GLib.Error, p0: Gst.Structure) => void)): number
-    on(sigName: "warning", callback: (object: GLib.Error, p0: Gst.Structure) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "warning", callback: (object: GLib.Error, p0: Gst.Structure) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "warning", callback: (object: GLib.Error, p0: Gst.Structure) => void): NodeJS.EventEmitter
-    emit(sigName: "warning", object: GLib.Error, p0: Gst.Structure): void
     /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: Transcoder, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
     on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -190,15 +183,19 @@ export class Transcoder {
     _init (config?: Transcoder_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(sourceUri: string, destUri: string, encodingProfile: string): Transcoder
-    static newFull(sourceUri: string, destUri: string, profile: GstPbutils.EncodingProfile, signalDispatcher: TranscoderSignalDispatcher): Transcoder
+    static newFull(sourceUri: string, destUri: string, profile: GstPbutils.EncodingProfile): Transcoder
+    static isTranscoderMessage(msg: Gst.Message): boolean
     static $gtype: GObject.Type
 }
-export interface TranscoderGMainContextSignalDispatcher_ConstructProps extends GObject.Object_ConstructProps {
-    applicationContext?: GLib.MainContext
+export interface TranscoderSignalAdapter_ConstructProps extends GObject.Object_ConstructProps {
 }
-export class TranscoderGMainContextSignalDispatcher {
+export class TranscoderSignalAdapter {
+    /* Properties of GstTranscoder-1.0.GstTranscoder.TranscoderSignalAdapter */
+    readonly transcoder: Transcoder
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of GstTranscoder-1.0.GstTranscoder.TranscoderSignalAdapter */
+    getTranscoder(): Transcoder | null
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -221,12 +218,48 @@ export class TranscoderGMainContextSignalDispatcher {
     thawNotify(): void
     unref(): void
     watchClosure(closure: Function): void
+    /* Signals of GstTranscoder-1.0.GstTranscoder.TranscoderSignalAdapter */
+    connect(sigName: "done", callback: (($obj: TranscoderSignalAdapter) => void)): number
+    on(sigName: "done", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "done", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "done", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "done"): void
+    connect(sigName: "duration-changed", callback: (($obj: TranscoderSignalAdapter, object: number) => void)): number
+    on(sigName: "duration-changed", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "duration-changed", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "duration-changed", callback: (object: number) => void): NodeJS.EventEmitter
+    emit(sigName: "duration-changed", object: number): void
+    connect(sigName: "error", callback: (($obj: TranscoderSignalAdapter, object: GLib.Error, p0: Gst.Structure) => void)): number
+    on(sigName: "error", callback: (object: GLib.Error, p0: Gst.Structure) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "error", callback: (object: GLib.Error, p0: Gst.Structure) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "error", callback: (object: GLib.Error, p0: Gst.Structure) => void): NodeJS.EventEmitter
+    emit(sigName: "error", object: GLib.Error, p0: Gst.Structure): void
+    connect(sigName: "position-updated", callback: (($obj: TranscoderSignalAdapter, object: number) => void)): number
+    on(sigName: "position-updated", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "position-updated", callback: (object: number) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "position-updated", callback: (object: number) => void): NodeJS.EventEmitter
+    emit(sigName: "position-updated", object: number): void
+    connect(sigName: "state-changed", callback: (($obj: TranscoderSignalAdapter, object: TranscoderState) => void)): number
+    on(sigName: "state-changed", callback: (object: TranscoderState) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "state-changed", callback: (object: TranscoderState) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "state-changed", callback: (object: TranscoderState) => void): NodeJS.EventEmitter
+    emit(sigName: "state-changed", object: TranscoderState): void
+    connect(sigName: "warning", callback: (($obj: TranscoderSignalAdapter, object: GLib.Error, p0: Gst.Structure) => void)): number
+    on(sigName: "warning", callback: (object: GLib.Error, p0: Gst.Structure) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "warning", callback: (object: GLib.Error, p0: Gst.Structure) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "warning", callback: (object: GLib.Error, p0: Gst.Structure) => void): NodeJS.EventEmitter
+    emit(sigName: "warning", object: GLib.Error, p0: Gst.Structure): void
     /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: TranscoderGMainContextSignalDispatcher, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify", callback: (($obj: TranscoderSignalAdapter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::transcoder", callback: (($obj: TranscoderSignalAdapter, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::transcoder", callback: (($obj: TranscoderSignalAdapter, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::transcoder", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::transcoder", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::transcoder", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -235,23 +268,18 @@ export class TranscoderGMainContextSignalDispatcher {
     once(sigName: string, callback: any): NodeJS.EventEmitter
     off(sigName: string, callback: any): NodeJS.EventEmitter
     static name: string
-    constructor (config?: TranscoderGMainContextSignalDispatcher_ConstructProps)
-    _init (config?: TranscoderGMainContextSignalDispatcher_ConstructProps): void
+    constructor (config?: TranscoderSignalAdapter_ConstructProps)
+    _init (config?: TranscoderSignalAdapter_ConstructProps): void
     static $gtype: GObject.Type
 }
 export abstract class TranscoderClass {
+    /* Fields of GstTranscoder-1.0.GstTranscoder.TranscoderClass */
+    parentClass: Gst.ObjectClass
     static name: string
 }
-export abstract class TranscoderGMainContextSignalDispatcherClass {
-    static name: string
-}
-export class TranscoderPrivate {
-    static name: string
-}
-export abstract class TranscoderSignalDispatcherInterface {
-    /* Fields of GstTranscoder-1.0.GstTranscoder.TranscoderSignalDispatcherInterface */
-    parentIface: GObject.TypeInterface
-    dispatch: (self: TranscoderSignalDispatcher, transcoder: Transcoder, emitter: object | null, data: object | null, destroy: GLib.DestroyNotify) => void
+export abstract class TranscoderSignalAdapterClass {
+    /* Fields of GstTranscoder-1.0.GstTranscoder.TranscoderSignalAdapterClass */
+    parentClass: GObject.ObjectClass
     static name: string
 }
 }

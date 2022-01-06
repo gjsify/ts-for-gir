@@ -53,6 +53,15 @@ export enum DiscovererSerializeFlags {
     MISC,
     ALL,
 }
+export enum PbUtilsCapsDescriptionFlags {
+    CONTAINER,
+    AUDIO,
+    VIDEO,
+    IMAGE,
+    SUBTITLE,
+    TAG,
+    GENERIC,
+}
 export const ENCODING_CATEGORY_CAPTURE: string
 export const ENCODING_CATEGORY_DEVICE: string
 export const ENCODING_CATEGORY_FILE_EXTENSION: string
@@ -69,10 +78,12 @@ export function codecUtilsAacGetLevel(audioConfig: any[]): string
 export function codecUtilsAacGetProfile(audioConfig: any[]): string
 export function codecUtilsAacGetSampleRate(audioConfig: any[]): number
 export function codecUtilsAacGetSampleRateFromIndex(srIdx: number): number
+export function codecUtilsCapsGetMimeCodec(caps: Gst.Caps): string
 export function codecUtilsH264CapsSetLevelAndProfile(caps: Gst.Caps, sps: any[]): boolean
 export function codecUtilsH264GetLevel(sps: any[]): string
 export function codecUtilsH264GetLevelIdc(level: string): number
 export function codecUtilsH264GetProfile(sps: any[]): string
+export function codecUtilsH264GetProfileFlagsLevel(codecData: number, len: number, profile: number, flags: number, level: number): boolean
 export function codecUtilsH265CapsSetLevelTierAndProfile(caps: Gst.Caps, profileTierLevel: any[]): boolean
 export function codecUtilsH265GetLevel(profileTierLevel: any[]): string
 export function codecUtilsH265GetLevelIdc(level: string): number
@@ -107,10 +118,12 @@ export function missingUriSinkMessageNew(element: Gst.Element, protocol: string)
 export function missingUriSourceInstallerDetailNew(protocol: string): string
 export function missingUriSourceMessageNew(element: Gst.Element, protocol: string): Gst.Message
 export function pbUtilsAddCodecDescriptionToTagList(taglist: Gst.TagList, codecTag: string | null, caps: Gst.Caps): boolean
+export function pbUtilsGetCapsDescriptionFlags(caps: Gst.Caps): PbUtilsCapsDescriptionFlags
 export function pbUtilsGetCodecDescription(caps: Gst.Caps): string
 export function pbUtilsGetDecoderDescription(caps: Gst.Caps): string
 export function pbUtilsGetElementDescription(factoryName: string): string
 export function pbUtilsGetEncoderDescription(caps: Gst.Caps): string
+export function pbUtilsGetFileExtensionFromCaps(caps: Gst.Caps): string | null
 export function pbUtilsGetSinkDescription(protocol: string): string
 export function pbUtilsGetSourceDescription(protocol: string): string
 export function pbUtilsInit(): void
@@ -217,6 +230,7 @@ export class AudioVisualizer {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -445,6 +459,7 @@ export class DiscovererAudioInfo {
     getNext(): DiscovererStreamInfo
     getPrevious(): DiscovererStreamInfo
     getStreamId(): string
+    getStreamNumber(): number
     getStreamTypeNick(): string
     getTags(): Gst.TagList
     getToc(): Gst.Toc
@@ -495,14 +510,15 @@ export class DiscovererContainerInfo {
     gTypeInstance: GObject.TypeInstance
     /* Methods of GstPbutils-1.0.GstPbutils.DiscovererContainerInfo */
     getStreams(): DiscovererStreamInfo[]
+    getTags(): Gst.TagList
     /* Methods of GstPbutils-1.0.GstPbutils.DiscovererStreamInfo */
     getCaps(): Gst.Caps
     getMisc(): Gst.Structure
     getNext(): DiscovererStreamInfo
     getPrevious(): DiscovererStreamInfo
     getStreamId(): string
+    getStreamNumber(): number
     getStreamTypeNick(): string
-    getTags(): Gst.TagList
     getToc(): Gst.Toc
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -621,6 +637,7 @@ export class DiscovererStreamInfo {
     getNext(): DiscovererStreamInfo
     getPrevious(): DiscovererStreamInfo
     getStreamId(): string
+    getStreamNumber(): number
     getStreamTypeNick(): string
     getTags(): Gst.TagList
     getToc(): Gst.Toc
@@ -679,6 +696,7 @@ export class DiscovererSubtitleInfo {
     getNext(): DiscovererStreamInfo
     getPrevious(): DiscovererStreamInfo
     getStreamId(): string
+    getStreamNumber(): number
     getStreamTypeNick(): string
     getTags(): Gst.TagList
     getToc(): Gst.Toc
@@ -745,6 +763,7 @@ export class DiscovererVideoInfo {
     getNext(): DiscovererStreamInfo
     getPrevious(): DiscovererStreamInfo
     getStreamId(): string
+    getStreamNumber(): number
     getStreamTypeNick(): string
     getTags(): Gst.TagList
     getToc(): Gst.Toc

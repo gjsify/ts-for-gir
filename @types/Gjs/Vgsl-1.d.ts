@@ -5,18 +5,18 @@
 import type * as Gjs from './Gjs';
 import type * as Vgda from './Vgda-1';
 import type * as Vda from './Vda-1';
-import type * as GCalc from './GCalc-1';
+import type * as GCalc from './GCalc-2';
+import type * as Gio from './Gio-2.0';
 import type * as GObject from './GObject-2.0';
 import type * as GLib from './GLib-2.0';
-import type * as Gio from './Gio-2.0';
 import type * as Gee from './Gee-0.8';
+import type * as Json from './Json-1.0';
+import type * as GXml from './GXml-0.20';
+import type * as libxml2 from './libxml2-2.0';
 
 export interface Connection_ConstructProps extends Vgda.GProvider_ConstructProps {
 }
 export class Connection {
-    /* Fields of Vgsl-1.Vgsl.Connection */
-    parent_instance: Vgda.GProvider
-    priv: ConnectionPrivate
     /* Fields of Vgda-1.Vgda.GProvider */
     _provider: string
     _cnc_string: string
@@ -51,18 +51,11 @@ export class Connection {
     vfunc_open_finish(_res_: Gio.AsyncResult): Vda.ConnectionStatus
     vfunc_open_from_string(cnc_string: string, _callback_?: Gio.AsyncReadyCallback | null): void
     vfunc_open_from_string_finish(_res_: Gio.AsyncResult): Vda.ConnectionStatus
-    vfunc_add_savepoint(name?: string | null): boolean
-    vfunc_delete_savepoint(name?: string | null): boolean
-    vfunc_rollback_savepoint(name?: string | null): boolean
-    vfunc_begin_transaction(name?: string | null): boolean
-    vfunc_commit_transaction(name?: string | null): boolean
-    vfunc_rollback_transaction(name?: string | null): boolean
     vfunc_parse_string(sql: string): Vda.Query
     vfunc_parse_string_prepared(name: string | null, sql: string): Vda.PreparedQuery | null
     vfunc_get_prepared_query(name: string): Vda.PreparedQuery | null
     vfunc_query_from_command(cmd: Vda.SqlCommand, name?: string | null): Vda.PreparedQuery | null
     vfunc_value_to_quoted_string(v: Vda.SqlValue): string
-    vfunc_current_user(): Vda.Role | null
     vfunc_locale(category: string): string
     vfunc_get_status(): Vda.ConnectionStatus
     vfunc_get_parameters(): Vda.ConnectionParameters
@@ -93,8 +86,6 @@ export class Connection {
     static $gtype: GObject.Type
 }
 export abstract class ConnectionClass {
-    /* Fields of Vgsl-1.Vgsl.ConnectionClass */
-    parent_class: Vgda.GProviderClass
     static name: string
 }
 export class ConnectionPrivate {

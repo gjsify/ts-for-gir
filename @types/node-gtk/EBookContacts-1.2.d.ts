@@ -199,6 +199,13 @@ export enum ContactField {
     IM_GOOGLE_TALK_WORK_3,
     IM_GOOGLE_TALK,
     IM_TWITTER,
+    IM_MATRIX_HOME_1,
+    IM_MATRIX_HOME_2,
+    IM_MATRIX_HOME_3,
+    IM_MATRIX_WORK_1,
+    IM_MATRIX_WORK_2,
+    IM_MATRIX_WORK_3,
+    IM_MATRIX,
     FIELD_LAST,
     FIELD_FIRST,
     LAST_SIMPLE_STRING,
@@ -322,6 +329,7 @@ export const EVC_X_LIST: string
 export const EVC_X_LIST_NAME: string
 export const EVC_X_LIST_SHOW_ADDRESSES: string
 export const EVC_X_MANAGER: string
+export const EVC_X_MATRIX: string
 export const EVC_X_MSN: string
 export const EVC_X_RADIO: string
 export const EVC_X_SIP: string
@@ -349,6 +357,7 @@ export function bookQueryOr(nqs: number, qs: BookQuery, unref: boolean): BookQue
 export function bookQueryVcardFieldExists(field: string): BookQuery
 export function bookQueryVcardFieldTest(field: string, test: BookQueryTest, value: string): BookQuery
 export function bookUtilConflictResolutionToOperationFlags(conflictResolution: EDataServer.ConflictResolution): number
+export function bookUtilForeachAddress(emailAddress: string, func: GLib.HRFunc): void
 export function bookUtilOperationFlagsToConflictResolution(flags: number): EDataServer.ConflictResolution
 export function contactAttrListCopy(list: string[]): string[]
 export function contactAttrListFree(list: string[]): void
@@ -445,6 +454,13 @@ export interface Contact_ConstructProps extends VCard_ConstructProps {
     imJabberWork1?: string
     imJabberWork2?: string
     imJabberWork3?: string
+    imMatrix?: any
+    imMatrixHome1?: string
+    imMatrixHome2?: string
+    imMatrixHome3?: string
+    imMatrixWork1?: string
+    imMatrixWork2?: string
+    imMatrixWork3?: string
     imMsn?: any
     imMsnHome1?: string
     imMsnHome2?: string
@@ -582,6 +598,13 @@ export class Contact {
     imJabberWork1: string
     imJabberWork2: string
     imJabberWork3: string
+    imMatrix: any
+    imMatrixHome1: string
+    imMatrixHome2: string
+    imMatrixHome3: string
+    imMatrixWork1: string
+    imMatrixWork2: string
+    imMatrixWork3: string
     imMsn: any
     imMsnHome1: string
     imMsnHome2: string
@@ -643,7 +666,7 @@ export class Contact {
     duplicate(): Contact
     get(fieldId: ContactField): object | null
     getAttributes(fieldId: ContactField): VCardAttribute[]
-    getAttributesSet(fieldIds: ContactField, size: number): VCardAttribute[]
+    getAttributesSet(fieldIds: ContactField[]): VCardAttribute[]
     getConst(fieldId: ContactField): object | null
     inlineLocalPhotos(): boolean
     set(fieldId: ContactField, value?: object | null): void
@@ -1104,6 +1127,41 @@ export class Contact {
     on(sigName: "notify::im-jabber-work-3", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::im-jabber-work-3", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::im-jabber-work-3", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::im-matrix", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::im-matrix", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::im-matrix", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::im-matrix", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::im-matrix", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::im-matrix-home-1", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::im-matrix-home-1", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::im-matrix-home-1", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::im-matrix-home-1", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::im-matrix-home-1", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::im-matrix-home-2", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::im-matrix-home-2", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::im-matrix-home-2", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::im-matrix-home-2", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::im-matrix-home-2", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::im-matrix-home-3", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::im-matrix-home-3", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::im-matrix-home-3", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::im-matrix-home-3", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::im-matrix-home-3", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::im-matrix-work-1", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::im-matrix-work-1", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::im-matrix-work-1", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::im-matrix-work-1", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::im-matrix-work-1", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::im-matrix-work-2", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::im-matrix-work-2", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::im-matrix-work-2", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::im-matrix-work-2", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::im-matrix-work-2", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::im-matrix-work-3", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::im-matrix-work-3", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::im-matrix-work-3", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::im-matrix-work-3", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::im-matrix-work-3", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::im-msn", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::im-msn", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::im-msn", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1695,7 +1753,7 @@ export class PhoneNumber {
     compare(secondNumber: PhoneNumber): PhoneNumberMatch
     copy(): PhoneNumber
     free(): void
-    getCountryCode(source: PhoneNumberCountrySource): number
+    getCountryCode(source?: PhoneNumberCountrySource | null): number
     getNationalNumber(): string
     toString(format: PhoneNumberFormat): string
     static name: string

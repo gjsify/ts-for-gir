@@ -60,7 +60,6 @@ export interface Player_ConstructProps extends Gst.Object_ConstructProps {
     uri?: string
     video_multiview_flags?: GstVideo.VideoMultiviewFlags
     video_multiview_mode?: GstVideo.VideoMultiviewFramePacking
-    video_renderer?: PlayerVideoRenderer
     volume?: number
 }
 export class Player {
@@ -80,6 +79,7 @@ export class Player {
     uri: string
     video_multiview_flags: GstVideo.VideoMultiviewFlags
     video_multiview_mode: GstVideo.VideoMultiviewFramePacking
+    readonly video_renderer: PlayerVideoRenderer
     volume: number
     /* Properties of Gst-1.0.Gst.Object */
     name: string
@@ -94,22 +94,22 @@ export class Player {
     get_audio_video_offset(): number
     get_color_balance(type: PlayerColorBalanceType): number
     get_config(): Gst.Structure
-    get_current_audio_track(): PlayerAudioInfo
-    get_current_subtitle_track(): PlayerSubtitleInfo
-    get_current_video_track(): PlayerVideoInfo
-    get_current_visualization(): string
+    get_current_audio_track(): PlayerAudioInfo | null
+    get_current_subtitle_track(): PlayerSubtitleInfo | null
+    get_current_video_track(): PlayerVideoInfo | null
+    get_current_visualization(): string | null
     get_duration(): Gst.ClockTime
-    get_media_info(): PlayerMediaInfo
+    get_media_info(): PlayerMediaInfo | null
     get_multiview_flags(): GstVideo.VideoMultiviewFlags
     get_multiview_mode(): GstVideo.VideoMultiviewFramePacking
     get_mute(): boolean
     get_pipeline(): Gst.Element
     get_position(): Gst.ClockTime
     get_rate(): number
-    get_subtitle_uri(): string
+    get_subtitle_uri(): string | null
     get_subtitle_video_offset(): number
-    get_uri(): string
-    get_video_snapshot(format: PlayerSnapshotFormat, config?: Gst.Structure | null): Gst.Sample
+    get_uri(): string | null
+    get_video_snapshot(format: PlayerSnapshotFormat, config?: Gst.Structure | null): Gst.Sample | null
     get_volume(): number
     has_color_balance(): boolean
     pause(): void
@@ -126,12 +126,12 @@ export class Player {
     set_rate(rate: number): void
     set_subtitle_track(stream_index: number): boolean
     set_subtitle_track_enabled(enabled: boolean): void
-    set_subtitle_uri(uri: string): void
+    set_subtitle_uri(uri?: string | null): void
     set_subtitle_video_offset(offset: number): void
-    set_uri(uri: string): void
+    set_uri(uri?: string | null): void
     set_video_track(stream_index: number): boolean
     set_video_track_enabled(enabled: boolean): void
-    set_visualization(name: string): boolean
+    set_visualization(name?: string | null): boolean
     set_visualization_enabled(enabled: boolean): void
     set_volume(val: number): void
     stop(): void
@@ -269,6 +269,8 @@ export class Player {
     connect_after(sigName: "notify::video-multiview-flags", callback: (($obj: Player, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::video-multiview-mode", callback: (($obj: Player, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::video-multiview-mode", callback: (($obj: Player, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::video-renderer", callback: (($obj: Player, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::video-renderer", callback: (($obj: Player, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::volume", callback: (($obj: Player, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::volume", callback: (($obj: Player, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: Player, pspec: GObject.ParamSpec) => void)): number
@@ -286,10 +288,10 @@ export class Player {
     static new(video_renderer?: PlayerVideoRenderer | null, signal_dispatcher?: PlayerSignalDispatcher | null): Player
     static config_get_position_update_interval(config: Gst.Structure): number
     static config_get_seek_accurate(config: Gst.Structure): boolean
-    static config_get_user_agent(config: Gst.Structure): string
+    static config_get_user_agent(config: Gst.Structure): string | null
     static config_set_position_update_interval(config: Gst.Structure, interval: number): void
     static config_set_seek_accurate(config: Gst.Structure, accurate: boolean): void
-    static config_set_user_agent(config: Gst.Structure, agent: string): void
+    static config_set_user_agent(config: Gst.Structure, agent?: string | null): void
     static get_audio_streams(info: PlayerMediaInfo): PlayerAudioInfo[]
     static get_subtitle_streams(info: PlayerMediaInfo): PlayerSubtitleInfo[]
     static get_video_streams(info: PlayerMediaInfo): PlayerVideoInfo[]
@@ -305,15 +307,15 @@ export class PlayerAudioInfo {
     /* Methods of GstPlayer-1.0.GstPlayer.PlayerAudioInfo */
     get_bitrate(): number
     get_channels(): number
-    get_language(): string
+    get_language(): string | null
     get_max_bitrate(): number
     get_sample_rate(): number
     /* Methods of GstPlayer-1.0.GstPlayer.PlayerStreamInfo */
-    get_caps(): Gst.Caps
-    get_codec(): string
+    get_caps(): Gst.Caps | null
+    get_codec(): string | null
     get_index(): number
     get_stream_type(): string
-    get_tags(): Gst.TagList
+    get_tags(): Gst.TagList | null
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -415,17 +417,17 @@ export class PlayerMediaInfo {
     g_type_instance: GObject.TypeInstance
     /* Methods of GstPlayer-1.0.GstPlayer.PlayerMediaInfo */
     get_audio_streams(): PlayerAudioInfo[]
-    get_container_format(): string
+    get_container_format(): string | null
     get_duration(): Gst.ClockTime
-    get_image_sample(): Gst.Sample
+    get_image_sample(): Gst.Sample | null
     get_number_of_audio_streams(): number
     get_number_of_streams(): number
     get_number_of_subtitle_streams(): number
     get_number_of_video_streams(): number
     get_stream_list(): PlayerStreamInfo[]
     get_subtitle_streams(): PlayerSubtitleInfo[]
-    get_tags(): Gst.TagList
-    get_title(): string
+    get_tags(): Gst.TagList | null
+    get_title(): string | null
     get_uri(): string
     get_video_streams(): PlayerVideoInfo[]
     is_live(): boolean
@@ -479,11 +481,11 @@ export class PlayerStreamInfo {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GstPlayer-1.0.GstPlayer.PlayerStreamInfo */
-    get_caps(): Gst.Caps
-    get_codec(): string
+    get_caps(): Gst.Caps | null
+    get_codec(): string | null
     get_index(): number
     get_stream_type(): string
-    get_tags(): Gst.TagList
+    get_tags(): Gst.TagList | null
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -533,13 +535,13 @@ export class PlayerSubtitleInfo {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GstPlayer-1.0.GstPlayer.PlayerSubtitleInfo */
-    get_language(): string
+    get_language(): string | null
     /* Methods of GstPlayer-1.0.GstPlayer.PlayerStreamInfo */
-    get_caps(): Gst.Caps
-    get_codec(): string
+    get_caps(): Gst.Caps | null
+    get_codec(): string | null
     get_index(): number
     get_stream_type(): string
-    get_tags(): Gst.TagList
+    get_tags(): Gst.TagList | null
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -596,11 +598,11 @@ export class PlayerVideoInfo {
     get_pixel_aspect_ratio(): [ /* par_n */ number, /* par_d */ number ]
     get_width(): number
     /* Methods of GstPlayer-1.0.GstPlayer.PlayerStreamInfo */
-    get_caps(): Gst.Caps
-    get_codec(): string
+    get_caps(): Gst.Caps | null
+    get_codec(): string | null
     get_index(): number
     get_stream_type(): string
-    get_tags(): Gst.TagList
+    get_tags(): Gst.TagList | null
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding

@@ -118,12 +118,15 @@ export interface Display_ConstructProps extends Gtk.DrawingArea_ConstructProps {
     grabKeyboard?: boolean
     grabKeys?: GrabSequence
     grabPointer?: boolean
+    keepAspectRatio?: boolean
     localPointer?: boolean
     lossyEncoding?: boolean
     readOnly?: boolean
+    rotation?: number
     scaling?: boolean
     sharedFlag?: boolean
     smoothing?: boolean
+    zoomLevel?: number
 }
 export class Display {
     /* Properties of GtkVnc-2.0.GtkVnc.Display */
@@ -135,14 +138,17 @@ export class Display {
     grabKeys: GrabSequence
     grabPointer: boolean
     readonly height: number
+    keepAspectRatio: boolean
     localPointer: boolean
     lossyEncoding: boolean
     readonly name: string
     readOnly: boolean
+    rotation: number
     scaling: boolean
     sharedFlag: boolean
     smoothing: boolean
     readonly width: number
+    zoomLevel: number
     /* Properties of Gtk-3.0.Gtk.Widget */
     appPaintable: boolean
     canDefault: boolean
@@ -200,6 +206,7 @@ export class Display {
     getForceSize(): boolean
     getGrabKeys(): GrabSequence
     getHeight(): number
+    getKeepAspectRatio(): boolean
     getKeyboardGrab(): boolean
     getLossyEncoding(): boolean
     getName(): string
@@ -207,10 +214,12 @@ export class Display {
     getPointerGrab(): boolean
     getPointerLocal(): boolean
     getReadOnly(): boolean
+    getRotation(): number
     getScaling(): boolean
     getSharedFlag(): boolean
     getSmoothing(): boolean
     getWidth(): number
+    getZoomLevel(): number
     isOpen(): boolean
     isPointerAbsolute(): boolean
     openAddr(addr: Gio.SocketAddress, hostname?: string | null): boolean
@@ -226,14 +235,17 @@ export class Display {
     setDepth(depth: DisplayDepthColor): void
     setForceSize(enable: boolean): void
     setGrabKeys(seq: GrabSequence): void
+    setKeepAspectRatio(enable: boolean): void
     setKeyboardGrab(enable: boolean): void
     setLossyEncoding(enable: boolean): void
     setPointerGrab(enable: boolean): void
     setPointerLocal(enable: boolean): void
     setReadOnly(enable: boolean): void
+    setRotation(rotation: number): void
     setScaling(enable: boolean): boolean
     setSharedFlag(shared: boolean): void
     setSmoothing(enable: boolean): void
+    setZoomLevel(zoom: number): void
     /* Methods of Gtk-3.0.Gtk.Widget */
     activate(): boolean
     addAccelerator(accelSignal: string, accelGroup: Gtk.AccelGroup, accelKey: number, accelMods: Gdk.ModifierType, accelFlags: Gtk.AccelFlags): void
@@ -1001,6 +1013,11 @@ export class Display {
     on(sigName: "notify::height", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::height", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::height", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::keep-aspect-ratio", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::keep-aspect-ratio", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::keep-aspect-ratio", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::keep-aspect-ratio", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::keep-aspect-ratio", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::local-pointer", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::local-pointer", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::local-pointer", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1021,6 +1038,11 @@ export class Display {
     on(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::rotation", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::rotation", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::rotation", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::rotation", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::rotation", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::scaling", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::scaling", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::scaling", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1041,6 +1063,11 @@ export class Display {
     on(sigName: "notify::width", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::width", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::width", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::zoom-level", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::zoom-level", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::zoom-level", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::zoom-level", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::zoom-level", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::app-paintable", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::app-paintable", callback: (($obj: Display, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::app-paintable", callback: (...args: any[]) => void): NodeJS.EventEmitter

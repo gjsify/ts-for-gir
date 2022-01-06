@@ -197,6 +197,13 @@ export enum ContactField {
     IM_GOOGLE_TALK_WORK_3,
     IM_GOOGLE_TALK,
     IM_TWITTER,
+    IM_MATRIX_HOME_1,
+    IM_MATRIX_HOME_2,
+    IM_MATRIX_HOME_3,
+    IM_MATRIX_WORK_1,
+    IM_MATRIX_WORK_2,
+    IM_MATRIX_WORK_3,
+    IM_MATRIX,
     FIELD_LAST,
     FIELD_FIRST,
     LAST_SIMPLE_STRING,
@@ -320,6 +327,7 @@ export const EVC_X_LIST: string
 export const EVC_X_LIST_NAME: string
 export const EVC_X_LIST_SHOW_ADDRESSES: string
 export const EVC_X_MANAGER: string
+export const EVC_X_MATRIX: string
 export const EVC_X_MSN: string
 export const EVC_X_RADIO: string
 export const EVC_X_SIP: string
@@ -347,6 +355,7 @@ export function book_query_or(nqs: number, qs: BookQuery, unref: boolean): BookQ
 export function book_query_vcard_field_exists(field: string): BookQuery
 export function book_query_vcard_field_test(field: string, test: BookQueryTest, value: string): BookQuery
 export function book_util_conflict_resolution_to_operation_flags(conflict_resolution: EDataServer.ConflictResolution): number
+export function book_util_foreach_address(email_address: string, func: GLib.HRFunc): void
 export function book_util_operation_flags_to_conflict_resolution(flags: number): EDataServer.ConflictResolution
 export function contact_attr_list_copy(list: string[]): string[]
 export function contact_attr_list_free(list: string[]): void
@@ -443,6 +452,13 @@ export interface Contact_ConstructProps extends VCard_ConstructProps {
     im_jabber_work_1?: string
     im_jabber_work_2?: string
     im_jabber_work_3?: string
+    im_matrix?: any
+    im_matrix_home_1?: string
+    im_matrix_home_2?: string
+    im_matrix_home_3?: string
+    im_matrix_work_1?: string
+    im_matrix_work_2?: string
+    im_matrix_work_3?: string
     im_msn?: any
     im_msn_home_1?: string
     im_msn_home_2?: string
@@ -580,6 +596,13 @@ export class Contact {
     im_jabber_work_1: string
     im_jabber_work_2: string
     im_jabber_work_3: string
+    im_matrix: any
+    im_matrix_home_1: string
+    im_matrix_home_2: string
+    im_matrix_home_3: string
+    im_matrix_work_1: string
+    im_matrix_work_2: string
+    im_matrix_work_3: string
     im_msn: any
     im_msn_home_1: string
     im_msn_home_2: string
@@ -641,7 +664,7 @@ export class Contact {
     duplicate(): Contact
     get(field_id: ContactField): object | null
     get_attributes(field_id: ContactField): VCardAttribute[]
-    get_attributes_set(field_ids: ContactField, size: number): VCardAttribute[]
+    get_attributes_set(field_ids: ContactField[]): VCardAttribute[]
     get_const(field_id: ContactField): object | null
     inline_local_photos(): boolean
     set(field_id: ContactField, value?: object | null): void
@@ -862,6 +885,20 @@ export class Contact {
     connect_after(sigName: "notify::im-jabber-work-2", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::im-jabber-work-3", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::im-jabber-work-3", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::im-matrix", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::im-matrix", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::im-matrix-home-1", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::im-matrix-home-1", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::im-matrix-home-2", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::im-matrix-home-2", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::im-matrix-home-3", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::im-matrix-home-3", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::im-matrix-work-1", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::im-matrix-work-1", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::im-matrix-work-2", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::im-matrix-work-2", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::im-matrix-work-3", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::im-matrix-work-3", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::im-msn", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::im-msn", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::im-msn-home-1", callback: (($obj: Contact, pspec: GObject.ParamSpec) => void)): number
@@ -1291,7 +1328,7 @@ export class PhoneNumber {
     compare(second_number: PhoneNumber): PhoneNumberMatch
     copy(): PhoneNumber
     free(): void
-    get_country_code(source: PhoneNumberCountrySource): number
+    get_country_code(source?: PhoneNumberCountrySource | null): number
     get_national_number(): string
     to_string(format: PhoneNumberFormat): string
     static name: string

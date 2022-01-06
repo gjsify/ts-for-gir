@@ -165,6 +165,10 @@ export enum VideoTestPattern {
     CHROMA_ZONE_PLATE,
     SOLID_COLOR,
 }
+export enum MarkerFlags {
+    NONE,
+    SNAPPABLE,
+}
 export enum MetaFlag {
     READABLE,
     WRITABLE,
@@ -640,10 +644,13 @@ export class AudioSource {
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
     /* Virtual methods of GES-1.0.GES.Source */
+    vfunc_create_source(): Gst.Element
     vfunc_select_pad(pad: Gst.Pad): boolean
     /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
+    vfunc_create_element(): Gst.Element
+    vfunc_create_gnl_object(): Gst.Element
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
     /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
@@ -896,10 +903,13 @@ export class AudioTestSource {
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
     /* Virtual methods of GES-1.0.GES.Source */
+    vfunc_create_source(): Gst.Element
     vfunc_select_pad(pad: Gst.Pad): boolean
     /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
+    vfunc_create_element(): Gst.Element
+    vfunc_create_gnl_object(): Gst.Element
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
     /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
@@ -1136,6 +1146,7 @@ export class AudioTrack {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -1527,6 +1538,8 @@ export class AudioTransition {
     /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
+    vfunc_create_element(): Gst.Element
+    vfunc_create_gnl_object(): Gst.Element
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
     /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
@@ -1777,10 +1790,13 @@ export class AudioUriSource {
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
     /* Virtual methods of GES-1.0.GES.Source */
+    vfunc_create_source(): Gst.Element
     vfunc_select_pad(pad: Gst.Pad): boolean
     /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
+    vfunc_create_element(): Gst.Element
+    vfunc_create_gnl_object(): Gst.Element
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
     /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
@@ -2034,6 +2050,8 @@ export class BaseEffect {
     /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
+    vfunc_create_element(): Gst.Element
+    vfunc_create_gnl_object(): Gst.Element
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
     /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
@@ -3002,7 +3020,7 @@ export class ClipAsset {
     g_type_instance: GObject.TypeInstance
     /* Methods of GES-1.0.GES.ClipAsset */
     get_frame_time(frame_number: FrameNumber): Gst.ClockTime
-    get_natural_framerate(framerate_n: number, framerate_d: number): boolean
+    get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
     get_supported_formats(): TrackType
     set_supported_formats(supportedformats: TrackType): void
     /* Methods of GES-1.0.GES.Asset */
@@ -3085,7 +3103,7 @@ export class ClipAsset {
     /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GES-1.0.GES.ClipAsset */
-    vfunc_get_natural_framerate(framerate_n: number, framerate_d: number): boolean
+    vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
     /* Virtual methods of GES-1.0.GES.Asset */
     vfunc_extract(): Extractable
     vfunc_inform_proxy(proxy_id: string): void
@@ -3192,7 +3210,7 @@ export class CommandLineFormatter {
     constructor (config?: CommandLineFormatter_ConstructProps)
     _init (config?: CommandLineFormatter_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static get_help(nargs: number, commands: string): string
+    static get_help(commands: string[]): string
     static get_timeline_uri(timeline: Timeline): string
     static $gtype: GObject.Type
 }
@@ -3587,6 +3605,8 @@ export class Effect {
     /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
+    vfunc_create_element(): Gst.Element
+    vfunc_create_gnl_object(): Gst.Element
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
     /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
@@ -3700,7 +3720,7 @@ export class EffectAsset {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GES-1.0.GES.TrackElementAsset */
-    get_natural_framerate(framerate_n: number, framerate_d: number): boolean
+    get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
     get_track_type(): TrackType
     set_track_type(type: TrackType): void
     /* Methods of GES-1.0.GES.Asset */
@@ -3783,7 +3803,7 @@ export class EffectAsset {
     /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GES-1.0.GES.TrackElementAsset */
-    vfunc_get_natural_framerate(framerate_n: number, framerate_d: number): boolean
+    vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
     /* Virtual methods of GES-1.0.GES.Asset */
     vfunc_extract(): Extractable
     vfunc_inform_proxy(proxy_id: string): void
@@ -4090,7 +4110,7 @@ export class EffectClip {
     constructor (config?: EffectClip_ConstructProps)
     _init (config?: EffectClip_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(video_bin_description: string, audio_bin_description: string): EffectClip
+    static new(video_bin_description?: string | null, audio_bin_description?: string | null): EffectClip
     static $gtype: GObject.Type
 }
 export interface Formatter_ConstructProps extends GObject.InitiallyUnowned_ConstructProps {
@@ -4555,10 +4575,13 @@ export class ImageSource {
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
     /* Virtual methods of GES-1.0.GES.Source */
+    vfunc_create_source(): Gst.Element
     vfunc_select_pad(pad: Gst.Pad): boolean
     /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
+    vfunc_create_element(): Gst.Element
+    vfunc_create_gnl_object(): Gst.Element
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
     /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
@@ -4899,8 +4922,11 @@ export class Marker {
     static $gtype: GObject.Type
 }
 export interface MarkerList_ConstructProps extends GObject.Object_ConstructProps {
+    flags?: MarkerFlags
 }
 export class MarkerList {
+    /* Properties of GES-1.0.GES.MarkerList */
+    flags: MarkerFlags
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GES-1.0.GES.MarkerList */
@@ -4953,6 +4979,8 @@ export class MarkerList {
     connect(sigName: "notify", callback: (($obj: MarkerList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: MarkerList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::flags", callback: (($obj: MarkerList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::flags", callback: (($obj: MarkerList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5121,10 +5149,13 @@ export class MultiFileSource {
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
     /* Virtual methods of GES-1.0.GES.Source */
+    vfunc_create_source(): Gst.Element
     vfunc_select_pad(pad: Gst.Pad): boolean
     /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
+    vfunc_create_element(): Gst.Element
+    vfunc_create_gnl_object(): Gst.Element
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
     /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
@@ -5376,6 +5407,8 @@ export class Operation {
     /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
+    vfunc_create_element(): Gst.Element
+    vfunc_create_gnl_object(): Gst.Element
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
     /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
@@ -6162,6 +6195,7 @@ export class Pipeline {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -6761,10 +6795,13 @@ export class Source {
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
     /* Virtual methods of GES-1.0.GES.Source */
+    vfunc_create_source(): Gst.Element
     vfunc_select_pad(pad: Gst.Pad): boolean
     /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
+    vfunc_create_element(): Gst.Element
+    vfunc_create_gnl_object(): Gst.Element
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
     /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
@@ -7141,7 +7178,7 @@ export class SourceClipAsset {
     g_type_instance: GObject.TypeInstance
     /* Methods of GES-1.0.GES.ClipAsset */
     get_frame_time(frame_number: FrameNumber): Gst.ClockTime
-    get_natural_framerate(framerate_n: number, framerate_d: number): boolean
+    get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
     get_supported_formats(): TrackType
     set_supported_formats(supportedformats: TrackType): void
     /* Methods of GES-1.0.GES.Asset */
@@ -7224,7 +7261,7 @@ export class SourceClipAsset {
     /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GES-1.0.GES.ClipAsset */
-    vfunc_get_natural_framerate(framerate_n: number, framerate_d: number): boolean
+    vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
     /* Virtual methods of GES-1.0.GES.Asset */
     vfunc_extract(): Extractable
     vfunc_inform_proxy(proxy_id: string): void
@@ -7730,6 +7767,8 @@ export class TextOverlay {
     /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
+    vfunc_create_element(): Gst.Element
+    vfunc_create_gnl_object(): Gst.Element
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
     /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
@@ -8199,6 +8238,7 @@ export class Timeline {
     append_layer(): Layer
     commit(): boolean
     commit_sync(): boolean
+    freeze_commit(): void
     get_auto_transition(): boolean
     get_duration(): Gst.ClockTime
     get_element(name: string): TimelineElement | null
@@ -8220,6 +8260,7 @@ export class Timeline {
     save_to_uri(uri: string, formatter_asset: Asset | null, overwrite: boolean): boolean
     set_auto_transition(auto_transition: boolean): void
     set_snapping_distance(snapping_distance: Gst.ClockTime): void
+    thaw_commit(): void
     /* Methods of Gst-1.0.Gst.Bin */
     add(element: Gst.Element): boolean
     find_unlinked_pad(direction: Gst.PadDirection): Gst.Pad | null
@@ -8291,6 +8332,7 @@ export class Timeline {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -9261,10 +9303,13 @@ export class TitleSource {
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
     /* Virtual methods of GES-1.0.GES.Source */
+    vfunc_create_source(): Gst.Element
     vfunc_select_pad(pad: Gst.Pad): boolean
     /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
+    vfunc_create_element(): Gst.Element
+    vfunc_create_gnl_object(): Gst.Element
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
     /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
@@ -9504,6 +9549,7 @@ export class Track {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -9898,6 +9944,8 @@ export class TrackElement {
     /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
+    vfunc_create_element(): Gst.Element
+    vfunc_create_gnl_object(): Gst.Element
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
     /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
@@ -10005,7 +10053,7 @@ export class TrackElementAsset {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GES-1.0.GES.TrackElementAsset */
-    get_natural_framerate(framerate_n: number, framerate_d: number): boolean
+    get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
     get_track_type(): TrackType
     set_track_type(type: TrackType): void
     /* Methods of GES-1.0.GES.Asset */
@@ -10088,7 +10136,7 @@ export class TrackElementAsset {
     /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GES-1.0.GES.TrackElementAsset */
-    vfunc_get_natural_framerate(framerate_n: number, framerate_d: number): boolean
+    vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
     /* Virtual methods of GES-1.0.GES.Asset */
     vfunc_extract(): Extractable
     vfunc_inform_proxy(proxy_id: string): void
@@ -10285,6 +10333,8 @@ export class Transition {
     /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
+    vfunc_create_element(): Gst.Element
+    vfunc_create_gnl_object(): Gst.Element
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
     /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
@@ -10960,7 +11010,7 @@ export class UriClipAsset {
     is_image(): boolean
     /* Methods of GES-1.0.GES.ClipAsset */
     get_frame_time(frame_number: FrameNumber): Gst.ClockTime
-    get_natural_framerate(framerate_n: number, framerate_d: number): boolean
+    get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
     get_supported_formats(): TrackType
     set_supported_formats(supportedformats: TrackType): void
     /* Methods of GES-1.0.GES.Asset */
@@ -11043,7 +11093,7 @@ export class UriClipAsset {
     /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GES-1.0.GES.ClipAsset */
-    vfunc_get_natural_framerate(framerate_n: number, framerate_d: number): boolean
+    vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
     /* Virtual methods of GES-1.0.GES.Asset */
     vfunc_extract(): Extractable
     vfunc_inform_proxy(proxy_id: string): void
@@ -11110,7 +11160,7 @@ export class UriSourceAsset {
     get_stream_uri(): string
     is_image(): boolean
     /* Methods of GES-1.0.GES.TrackElementAsset */
-    get_natural_framerate(framerate_n: number, framerate_d: number): boolean
+    get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
     get_track_type(): TrackType
     set_track_type(type: TrackType): void
     /* Methods of GES-1.0.GES.Asset */
@@ -11193,7 +11243,7 @@ export class UriSourceAsset {
     /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of GES-1.0.GES.TrackElementAsset */
-    vfunc_get_natural_framerate(framerate_n: number, framerate_d: number): boolean
+    vfunc_get_natural_framerate(): [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
     /* Virtual methods of GES-1.0.GES.Asset */
     vfunc_extract(): Extractable
     vfunc_inform_proxy(proxy_id: string): void
@@ -11390,10 +11440,13 @@ export class VideoSource {
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
     /* Virtual methods of GES-1.0.GES.Source */
+    vfunc_create_source(): Gst.Element
     vfunc_select_pad(pad: Gst.Pad): boolean
     /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
+    vfunc_create_element(): Gst.Element
+    vfunc_create_gnl_object(): Gst.Element
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
     /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
@@ -11646,10 +11699,13 @@ export class VideoTestSource {
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
     /* Virtual methods of GES-1.0.GES.Source */
+    vfunc_create_source(): Gst.Element
     vfunc_select_pad(pad: Gst.Pad): boolean
     /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
+    vfunc_create_element(): Gst.Element
+    vfunc_create_gnl_object(): Gst.Element
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
     /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
@@ -11886,6 +11942,7 @@ export class VideoTrack {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -12291,6 +12348,8 @@ export class VideoTransition {
     /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
+    vfunc_create_element(): Gst.Element
+    vfunc_create_gnl_object(): Gst.Element
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
     /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
@@ -12549,10 +12608,13 @@ export class VideoUriSource {
     set_uint(meta_item: string, value: number): boolean
     set_uint64(meta_item: string, value: number): boolean
     /* Virtual methods of GES-1.0.GES.Source */
+    vfunc_create_source(): Gst.Element
     vfunc_select_pad(pad: Gst.Pad): boolean
     /* Virtual methods of GES-1.0.GES.TrackElement */
     vfunc_active_changed(active: boolean): void
     vfunc_changed(): void
+    vfunc_create_element(): Gst.Element
+    vfunc_create_gnl_object(): Gst.Element
     vfunc_lookup_child(prop_name: string): [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]
     /* Virtual methods of GES-1.0.GES.TimelineElement */
     vfunc_deep_copy(copy: TimelineElement): void
@@ -12794,7 +12856,7 @@ export class BaseXmlFormatterPrivate {
 export abstract class ClipAssetClass {
     /* Fields of GES-1.0.GES.ClipAssetClass */
     parent: AssetClass
-    get_natural_framerate: (self: ClipAsset, framerate_n: number, framerate_d: number) => boolean
+    get_natural_framerate: (self: ClipAsset) => [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
     _ges_reserved: object[]
     static name: string
 }
@@ -12984,6 +13046,7 @@ export class ProjectPrivate {
 export abstract class SourceClass {
     /* Fields of GES-1.0.GES.SourceClass */
     select_pad: (source: Source, pad: Gst.Pad) => boolean
+    create_source: (source: Source) => Gst.Element
     static name: string
 }
 export abstract class SourceClipAssetClass {
@@ -13080,7 +13143,7 @@ export abstract class TrackClass {
 export abstract class TrackElementAssetClass {
     /* Fields of GES-1.0.GES.TrackElementAssetClass */
     parent_class: AssetClass
-    get_natural_framerate: (self: TrackElementAsset, framerate_n: number, framerate_d: number) => boolean
+    get_natural_framerate: (self: TrackElementAsset) => [ /* returnType */ boolean, /* framerate_n */ number, /* framerate_d */ number ]
     _ges_reserved: object[]
     static name: string
 }
@@ -13090,6 +13153,8 @@ export class TrackElementAssetPrivate {
 export abstract class TrackElementClass {
     /* Fields of GES-1.0.GES.TrackElementClass */
     nleobject_factorytype: string
+    create_gnl_object: (object: TrackElement) => Gst.Element
+    create_element: (object: TrackElement) => Gst.Element
     active_changed: (object: TrackElement, active: boolean) => void
     changed: (object: TrackElement) => void
     lookup_child: (object: TrackElement, prop_name: string) => [ /* returnType */ boolean, /* element */ Gst.Element | null, /* pspec */ GObject.ParamSpec | null ]

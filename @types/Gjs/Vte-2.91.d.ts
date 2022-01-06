@@ -16,6 +16,12 @@ import type * as GdkPixbuf from './GdkPixbuf-2.0';
 import type * as GModule from './GModule-2.0';
 import type * as Atk from './Atk-1.0';
 
+export enum Align {
+    START,
+    CENTER,
+    END,
+    START_FILL,
+}
 export enum CursorBlinkMode {
     SYSTEM,
     ON,
@@ -189,8 +195,11 @@ export interface Terminal_ConstructProps extends Gtk.Widget_ConstructProps {
     rewrap_on_resize?: boolean
     scroll_on_keystroke?: boolean
     scroll_on_output?: boolean
+    scroll_unit_is_pixels?: boolean
     scrollback_lines?: number
     text_blink_mode?: TextBlinkMode
+    xalign?: Align
+    yalign?: Align
     hadjustment?: Gtk.Adjustment
     hscroll_policy?: Gtk.ScrollablePolicy
     vadjustment?: Gtk.Adjustment
@@ -226,10 +235,13 @@ export class Terminal {
     rewrap_on_resize: boolean
     scroll_on_keystroke: boolean
     scroll_on_output: boolean
+    scroll_unit_is_pixels: boolean
     scrollback_lines: number
     text_blink_mode: TextBlinkMode
     readonly window_title: string
     readonly word_char_exceptions: string
+    xalign: Align
+    yalign: Align
     /* Properties of Gtk-3.0.Gtk.Widget */
     app_paintable: boolean
     can_default: boolean
@@ -323,13 +335,16 @@ export class Terminal {
     get_row_count(): number
     get_scroll_on_keystroke(): boolean
     get_scroll_on_output(): boolean
+    get_scroll_unit_is_pixels(): boolean
     get_scrollback_lines(): number
-    get_text(is_selected?: SelectionFunc | null): [ /* returnType */ string, /* attributes */ CharAttributes[] ]
+    get_text(is_selected?: SelectionFunc | null): [ /* returnType */ string | null, /* attributes */ CharAttributes[] | null ]
     get_text_blink_mode(): TextBlinkMode
     get_text_include_trailing_spaces(is_selected?: SelectionFunc | null): [ /* returnType */ string, /* attributes */ CharAttributes[] ]
-    get_text_range(start_row: number, start_col: number, end_row: number, end_col: number, is_selected?: SelectionFunc | null): [ /* returnType */ string, /* attributes */ CharAttributes[] ]
+    get_text_range(start_row: number, start_col: number, end_row: number, end_col: number, is_selected?: SelectionFunc | null): [ /* returnType */ string | null, /* attributes */ CharAttributes[] | null ]
     get_window_title(): string | null
     get_word_char_exceptions(): string | null
+    get_xalign(): Align
+    get_yalign(): Align
     hyperlink_check_event(event: Gdk.Event): string | null
     match_add_gregex(gregex: GLib.Regex, gflags: GLib.RegexMatchFlags): number
     match_add_regex(regex: Regex, flags: number): number
@@ -342,6 +357,7 @@ export class Terminal {
     match_set_cursor_type(tag: number, cursor_type: Gdk.CursorType): void
     paste_clipboard(): void
     paste_primary(): void
+    paste_text(text: string): void
     pty_new_sync(flags: PtyFlags, cancellable?: Gio.Cancellable | null): Pty
     reset(clear_tabstops: boolean, clear_history: boolean): void
     search_find_next(): boolean
@@ -388,10 +404,13 @@ export class Terminal {
     set_rewrap_on_resize(rewrap: boolean): void
     set_scroll_on_keystroke(scroll: boolean): void
     set_scroll_on_output(scroll: boolean): void
+    set_scroll_unit_is_pixels(enable: boolean): void
     set_scrollback_lines(lines: number): void
     set_size(columns: number, rows: number): void
     set_text_blink_mode(text_blink_mode: TextBlinkMode): void
     set_word_char_exceptions(exceptions: string): void
+    set_xalign(align: Align): void
+    set_yalign(align: Align): void
     spawn_async(pty_flags: PtyFlags, working_directory: string | null, argv: string[], envv: string[] | null, spawn_flags: GLib.SpawnFlags, timeout: number, cancellable?: Gio.Cancellable | null): void
     spawn_sync(pty_flags: PtyFlags, working_directory: string | null, argv: string[], envv: string[] | null, spawn_flags: GLib.SpawnFlags, child_setup?: GLib.SpawnChildSetupFunc | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* child_pid */ GLib.Pid | null ]
     spawn_with_fds_async(pty_flags: PtyFlags, working_directory: string | null, argv: string[], envv: string[] | null, fds: number[] | null, map_fds: number[] | null, spawn_flags: GLib.SpawnFlags, timeout: number, cancellable?: Gio.Cancellable | null): void
@@ -1191,6 +1210,8 @@ export class Terminal {
     connect_after(sigName: "notify::scroll-on-keystroke", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::scroll-on-output", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::scroll-on-output", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::scroll-unit-is-pixels", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::scroll-unit-is-pixels", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::scrollback-lines", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::scrollback-lines", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::text-blink-mode", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
@@ -1199,6 +1220,10 @@ export class Terminal {
     connect_after(sigName: "notify::window-title", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::word-char-exceptions", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::word-char-exceptions", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::xalign", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::xalign", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::yalign", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::yalign", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::app-paintable", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::app-paintable", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::can-default", callback: (($obj: Terminal, pspec: GObject.ParamSpec) => void)): number
@@ -1344,8 +1369,6 @@ export abstract class TerminalClass {
     copy_clipboard: (terminal: Terminal) => void
     paste_clipboard: (terminal: Terminal) => void
     bell: (terminal: Terminal) => void
-    padding: object[]
-    priv: TerminalClassPrivate
     static name: string
 }
 export class TerminalClassPrivate {

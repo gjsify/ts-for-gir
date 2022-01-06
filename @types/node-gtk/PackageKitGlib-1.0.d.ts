@@ -27,6 +27,7 @@ export enum ClientError {
     INVALID_FILE,
     NOT_SUPPORTED,
     DECLINED_SIMULATION,
+    DECLINED_INTERACTION,
     LAST,
 }
 export enum ControlError {
@@ -222,6 +223,7 @@ export enum InfoEnum {
     UNTRUSTED,
     TRUSTED,
     UNAVAILABLE,
+    CRITICAL,
     LAST,
 }
 export enum MediaTypeEnum {
@@ -392,6 +394,10 @@ export enum UpgradeKindEnum {
     COMPLETE,
     LAST,
 }
+export enum OfflineFlags {
+    NONE,
+    INTERACTIVE,
+}
 export const DBUS_INTERFACE: string
 export const DBUS_INTERFACE_OFFLINE: string
 export const DBUS_INTERFACE_TRANSACTION: string
@@ -456,7 +462,9 @@ export function offlineAuthSetResults(results: Results): boolean
 export function offlineAuthTrigger(action: OfflineAction): boolean
 export function offlineAuthTriggerUpgrade(action: OfflineAction): boolean
 export function offlineCancel(cancellable?: Gio.Cancellable | null): boolean
+export function offlineCancelWithFlags(flags: OfflineFlags, cancellable?: Gio.Cancellable | null): boolean
 export function offlineClearResults(cancellable?: Gio.Cancellable | null): boolean
+export function offlineClearResultsWithFlags(flags: OfflineFlags, cancellable?: Gio.Cancellable | null): boolean
 export function offlineErrorQuark(): GLib.Quark
 export function offlineGetAction(): OfflineAction
 export function offlineGetActionMonitor(cancellable?: Gio.Cancellable | null): Gio.FileMonitor
@@ -471,6 +479,8 @@ export function offlineGetResults(): Results
 export function offlineGetResultsMtime(): number
 export function offlineTrigger(action: OfflineAction, cancellable?: Gio.Cancellable | null): boolean
 export function offlineTriggerUpgrade(action: OfflineAction, cancellable?: Gio.Cancellable | null): boolean
+export function offlineTriggerUpgradeWithFlags(action: OfflineAction, flags: OfflineFlags, cancellable?: Gio.Cancellable | null): boolean
+export function offlineTriggerWithFlags(action: OfflineAction, flags: OfflineFlags, cancellable?: Gio.Cancellable | null): boolean
 export function polkitAgentClose(): void
 export function polkitAgentOpen(): number
 export function ptrArrayToStrv(array: string[]): string[]
@@ -1085,6 +1095,7 @@ export class Desktop {
 }
 export interface Details_ConstructProps extends Source_ConstructProps {
     description?: string
+    downloadSize?: number
     group?: GroupEnum
     license?: string
     packageId?: string
@@ -1095,6 +1106,7 @@ export interface Details_ConstructProps extends Source_ConstructProps {
 export class Details {
     /* Properties of PackageKitGlib-1.0.PackageKitGlib.Details */
     description: string
+    downloadSize: number
     group: GroupEnum
     license: string
     packageId: string
@@ -1111,6 +1123,7 @@ export class Details {
     gTypeInstance: GObject.TypeInstance
     /* Methods of PackageKitGlib-1.0.PackageKitGlib.Details */
     getDescription(): string
+    getDownloadSize(): number
     getGroup(): GroupEnum
     getLicense(): string
     getPackageId(): string
@@ -1150,6 +1163,11 @@ export class Details {
     on(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::description", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::download-size", callback: (($obj: Details, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::download-size", callback: (($obj: Details, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::download-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::download-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::download-size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::group", callback: (($obj: Details, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::group", callback: (($obj: Details, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::group", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -1739,6 +1757,7 @@ export interface Package_ConstructProps extends Source_ConstructProps {
     updateIssued?: string
     updateObsoletes?: string
     updateRestart?: RestartEnum
+    updateSeverity?: InfoEnum
     updateState?: UpdateStateEnum
     updateText?: string
     updateUpdated?: string
@@ -1761,6 +1780,7 @@ export class Package {
     updateIssued: string
     updateObsoletes: string
     updateRestart: RestartEnum
+    updateSeverity: InfoEnum
     updateState: UpdateStateEnum
     updateText: string
     updateUpdated: string
@@ -1784,12 +1804,14 @@ export class Package {
     getInfo(): InfoEnum
     getName(): string
     getSummary(): string
+    getUpdateSeverity(): InfoEnum
     getVersion(): string
     parse(data: string): boolean
     print(): void
     setId(packageId: string): boolean
     setInfo(info: InfoEnum): void
     setSummary(summary: string): void
+    setUpdateSeverity(updateSeverity: InfoEnum): void
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -1889,6 +1911,11 @@ export class Package {
     on(sigName: "notify::update-restart", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::update-restart", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::update-restart", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::update-severity", callback: (($obj: Package, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::update-severity", callback: (($obj: Package, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::update-severity", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::update-severity", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::update-severity", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::update-state", callback: (($obj: Package, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::update-state", callback: (($obj: Package, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::update-state", callback: (...args: any[]) => void): NodeJS.EventEmitter

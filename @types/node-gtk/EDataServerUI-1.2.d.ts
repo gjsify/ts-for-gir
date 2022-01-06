@@ -249,17 +249,18 @@ export class CredentialsPrompter {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EDataServerUI-1.2.EDataServerUI.CredentialsPrompter */
-    completePromptCall(asyncResult: Gio.SimpleAsyncResult, source: EDataServer.Source, credentials?: EDataServer.NamedParameters | null, error?: GLib.Error | null): void
+    completePromptCall(asyncResult: Gio.SimpleAsyncResult, source: EDataServer.Source, credentials: EDataServer.NamedParameters | null, error: GLib.Error): void
     getAutoPrompt(): boolean
     getAutoPromptDisabledFor(source: EDataServer.Source): boolean
     getDialogParent(): Gtk.Window
+    getDialogParentFull(authSource?: EDataServer.Source | null): Gtk.Window
     getProvider(): EDataServer.SourceCredentialsProvider
     getRegistry(): EDataServer.SourceRegistry
     loopPromptSync(source: EDataServer.Source, flags: CredentialsPrompterPromptFlags, func: CredentialsPrompterLoopPromptFunc, cancellable?: Gio.Cancellable | null): boolean
     processAwaitingCredentials(): void
     processSource(source: EDataServer.Source): boolean
     prompt(source: EDataServer.Source, errorText: string | null, flags: CredentialsPrompterPromptFlags, callback?: Gio.AsyncReadyCallback | null): void
-    promptFinish(result: Gio.AsyncResult, outSource: EDataServer.Source | null, outCredentials: EDataServer.NamedParameters): boolean
+    promptFinish(result: Gio.AsyncResult): { returnType: boolean, outSource: EDataServer.Source | null, outCredentials: EDataServer.NamedParameters | null }
     registerImpl(authenticationMethod: string | null, prompterImpl: CredentialsPrompterImpl): boolean
     setAutoPrompt(autoPrompt: boolean): void
     setAutoPromptDisabledFor(source: EDataServer.Source, isDisabled: boolean): void
@@ -295,6 +296,11 @@ export class CredentialsPrompter {
     once(sigName: "get-dialog-parent", callback: () => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "get-dialog-parent", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "get-dialog-parent"): void
+    connect(sigName: "get-dialog-parent-full", callback: (($obj: CredentialsPrompter, authSource?: EDataServer.Source | null) => Gtk.Window)): number
+    on(sigName: "get-dialog-parent-full", callback: (authSource?: EDataServer.Source | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "get-dialog-parent-full", callback: (authSource?: EDataServer.Source | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "get-dialog-parent-full", callback: (authSource?: EDataServer.Source | null) => void): NodeJS.EventEmitter
+    emit(sigName: "get-dialog-parent-full", authSource?: EDataServer.Source | null): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: CredentialsPrompter, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -1646,7 +1652,7 @@ export class WebDAVDiscoverContent {
     refreshFinish(result: Gio.AsyncResult): boolean
     setBaseUrl(baseUrl: string): void
     setMultiselect(multiselect: boolean): void
-    showError(error?: GLib.Error | null): void
+    showError(error: GLib.Error): void
     /* Methods of Gtk-3.0.Gtk.Grid */
     attach(child: Gtk.Widget, left: number, top: number, width: number, height: number): void
     attachNextTo(child: Gtk.Widget, sibling: Gtk.Widget | null, side: Gtk.PositionType, width: number, height: number): void

@@ -27,6 +27,8 @@ export enum SparqlError {
     ERROR_UNKNOWN_GRAPH,
     ERROR_UNKNOWN_PROPERTY,
     ERROR_UNSUPPORTED,
+    ERROR_MISSING_LAST_MODIFIED_HEADER,
+    ERROR_INCOMPLETE_PROPERTY_DEFINITION,
     N_ERRORS,
 }
 export enum SparqlValueType {
@@ -46,6 +48,7 @@ export enum SparqlConnectionFlags {
     FTS_ENABLE_UNACCENT,
     FTS_ENABLE_STOP_WORDS,
     FTS_IGNORE_NUMBERS,
+    ANONYMOUS_BNODES,
 }
 export const PREFIX_DC: string
 export const PREFIX_MFO: string
@@ -264,11 +267,11 @@ export class EndpointHttp {
     /* Methods of Gio-2.0.Gio.Initable */
     init(cancellable?: Gio.Cancellable | null): boolean
     /* Signals of Tracker-3.0.Tracker.EndpointHttp */
-    connect(sigName: "block-remote-address", callback: (($obj: EndpointHttp, address: Gio.SocketAddress) => boolean)): number
-    on(sigName: "block-remote-address", callback: (address: Gio.SocketAddress) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "block-remote-address", callback: (address: Gio.SocketAddress) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "block-remote-address", callback: (address: Gio.SocketAddress) => void): NodeJS.EventEmitter
-    emit(sigName: "block-remote-address", address: Gio.SocketAddress): void
+    connect(sigName: "block-remote-address", callback: (($obj: EndpointHttp, object: Gio.SocketAddress) => boolean)): number
+    on(sigName: "block-remote-address", callback: (object: Gio.SocketAddress) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "block-remote-address", callback: (object: Gio.SocketAddress) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "block-remote-address", callback: (object: Gio.SocketAddress) => void): NodeJS.EventEmitter
+    emit(sigName: "block-remote-address", object: Gio.SocketAddress): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: EndpointHttp, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -286,7 +289,7 @@ export class EndpointHttp {
     constructor (config?: EndpointHttp_ConstructProps)
     _init (config?: EndpointHttp_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(sparqlConnection: SparqlConnection, port: number, certificate?: Gio.TlsCertificate | null, cancellable?: Gio.Cancellable | null): EndpointHttp
+    static new(sparqlConnection: SparqlConnection, port: number, certificate: Gio.TlsCertificate, cancellable?: Gio.Cancellable | null): EndpointHttp
     static newv(objectType: GObject.Type, parameters: GObject.Parameter[], cancellable?: Gio.Cancellable | null): GObject.Object
     static $gtype: GObject.Type
 }
@@ -297,6 +300,7 @@ export class NamespaceManager {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Tracker-3.0.Tracker.NamespaceManager */
     addPrefix(prefix: string, ns: string): void
+    compressUri(uri: string): string
     expandUri(compactUri: string): string
     foreach(func: GLib.HFunc): void
     hasPrefix(prefix: string): boolean
@@ -414,6 +418,7 @@ export class Resource {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Tracker-3.0.Tracker.Resource */
     addBoolean(propertyUri: string, value: boolean): void
+    addDatetime(propertyUri: string, value: GLib.DateTime): void
     addDouble(propertyUri: string, value: number): void
     addGvalue(propertyUri: string, value: any): void
     addInt(propertyUri: string, value: number): void
@@ -422,6 +427,7 @@ export class Resource {
     addString(propertyUri: string, value: string): void
     addUri(propertyUri: string, value: string): void
     getFirstBoolean(propertyUri: string): boolean
+    getFirstDatetime(propertyUri: string): GLib.DateTime
     getFirstDouble(propertyUri: string): number
     getFirstInt(propertyUri: string): number
     getFirstInt64(propertyUri: string): number
@@ -438,6 +444,7 @@ export class Resource {
     printTurtle(namespaces?: NamespaceManager | null): string
     serialize(): GLib.Variant
     setBoolean(propertyUri: string, value: boolean): void
+    setDatetime(propertyUri: string, value: GLib.DateTime): void
     setDouble(propertyUri: string, value: number): void
     setGvalue(propertyUri: string, value: any): void
     setIdentifier(identifier?: string | null): void
@@ -563,9 +570,11 @@ export class SparqlConnection {
     _init (config?: SparqlConnection_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static busNew(serviceName: string, objectPath?: string | null, dbusConnection?: Gio.DBusConnection | null): SparqlConnection
+    static busNewFinish(result: Gio.AsyncResult): SparqlConnection
     static new(flags: SparqlConnectionFlags, store?: Gio.File | null, ontology?: Gio.File | null, cancellable?: Gio.Cancellable | null): SparqlConnection
     static newFinish(result: Gio.AsyncResult): SparqlConnection
     static remoteNew(uriBase: string): SparqlConnection
+    static busNewAsync(serviceName: string, objectPath?: string | null, dbusConnection?: Gio.DBusConnection | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     static newAsync(flags: SparqlConnectionFlags, store?: Gio.File | null, ontology?: Gio.File | null, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     static $gtype: GObject.Type
 }
@@ -583,6 +592,7 @@ export class SparqlCursor {
     close(): void
     getBoolean(column: number): boolean
     getConnection(): SparqlConnection
+    getDatetime(column: number): GLib.DateTime | null
     getDouble(column: number): number
     getInteger(column: number): number
     getNColumns(): number
@@ -650,6 +660,7 @@ export class SparqlStatement {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Tracker-3.0.Tracker.SparqlStatement */
     bindBoolean(name: string, value: boolean): void
+    bindDatetime(name: string, value: GLib.DateTime): void
     bindDouble(name: string, value: number): void
     bindInt(name: string, value: number): void
     bindString(name: string, value: string): void

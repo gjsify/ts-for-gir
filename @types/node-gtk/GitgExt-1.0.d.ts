@@ -1688,7 +1688,7 @@ export class CommandLinesPrivate {
 }
 export abstract class MessageBusClass {
     /* Fields of GitgExt-1.0.GitgExt.MessageBusClass */
-    dispatch: (message: Message) => void
+    dispatch: (self: MessageBus, message: Message) => void
     static name: string
 }
 export class MessageBusPrivate {
@@ -1726,140 +1726,140 @@ export class UserQueryPrivate {
 }
 export abstract class ActionIface {
     /* Fields of GitgExt-1.0.GitgExt.ActionIface */
-    populateMenu: (menu: Gtk.Menu) => void
+    populateMenu: (self: Action, menu: Gtk.Menu) => void
     static name: string
 }
 export abstract class ActivityIface {
     /* Fields of GitgExt-1.0.GitgExt.ActivityIface */
-    isDefaultFor: (action: string) => boolean
-    onKeyPressed: (event: Gdk.EventKey) => boolean
+    isDefaultFor: (self: Activity, action: string) => boolean
+    onKeyPressed: (self: Activity, event: Gdk.EventKey) => boolean
     static name: string
 }
 export abstract class ApplicationIface {
     /* Fields of GitgExt-1.0.GitgExt.ApplicationIface */
-    getVerifiedCommitter: () => Ggit.Signature | null
-    getActivityById: (id: string) => Activity | null
-    setActivityById: (id: string) => Activity | null
-    userQuery: (query: UserQuery) => void
-    userQueryAsync: (query: UserQuery, callback?: Gio.AsyncReadyCallback | null) => void
-    userQueryFinish: (res: Gio.AsyncResult) => Gtk.ResponseType
-    showInfobar: (primaryMsg: string, secondaryMsg: string, type: Gtk.MessageType) => void
-    openNew: (repository: Ggit.Repository, hint?: string | null) => Application
-    openRepository: (path: Gio.File) => void
-    getRepository: () => Gitg.Repository | null
-    setRepository: (value?: Gitg.Repository | null) => void
-    getMessageBus: () => MessageBus
-    getCurrentActivity: () => Activity | null
-    getEnvironment: () => Gee.Map
-    getNotifications: () => Notifications
-    getBusy: () => boolean
-    setBusy: (value: boolean) => void
-    getRemoteLookup: () => RemoteLookup
+    getVerifiedCommitter: (self: Application) => Ggit.Signature | null
+    getActivityById: (self: Application, id: string) => Activity | null
+    setActivityById: (self: Application, id: string) => Activity | null
+    userQuery: (self: Application, query: UserQuery) => void
+    userQueryAsync: (self: Application, query: UserQuery, callback?: Gio.AsyncReadyCallback | null) => void
+    userQueryFinish: (self: Application, res: Gio.AsyncResult) => Gtk.ResponseType
+    showInfobar: (self: Application, primaryMsg: string, secondaryMsg: string, type: Gtk.MessageType) => void
+    openNew: (self: Application, repository: Ggit.Repository, hint?: string | null) => Application
+    openRepository: (self: Application, path: Gio.File) => void
+    getRepository: (self: Application) => Gitg.Repository | null
+    setRepository: (self: Application, value?: Gitg.Repository | null) => void
+    getMessageBus: (self: Application) => MessageBus
+    getCurrentActivity: (self: Application) => Activity | null
+    getEnvironment: (self: Application) => Gee.Map
+    getNotifications: (self: Application) => Notifications
+    getBusy: (self: Application) => boolean
+    setBusy: (self: Application, value: boolean) => void
+    getRemoteLookup: (self: Application) => RemoteLookup
     static name: string
 }
 export abstract class CommandLineIface {
     /* Fields of GitgExt-1.0.GitgExt.CommandLineIface */
-    getOptionGroup: () => GLib.OptionGroup
-    parseFinished: () => void
-    apply: (application: Application) => void
+    getOptionGroup: (self: CommandLine) => GLib.OptionGroup
+    parseFinished: (self: CommandLine) => void
+    apply: (self: CommandLine, application: Application) => void
     static name: string
 }
 export abstract class CommitActionIface {
     /* Fields of GitgExt-1.0.GitgExt.CommitActionIface */
-    getActionInterface: () => RefActionInterface
-    setActionInterface: (value: RefActionInterface) => void
-    getCommit: () => Gitg.Commit
-    setCommit: (value: Gitg.Commit) => void
+    getActionInterface: (self: CommitAction) => RefActionInterface
+    setActionInterface: (self: CommitAction, value: RefActionInterface) => void
+    getCommit: (self: CommitAction) => Gitg.Commit
+    setCommit: (self: CommitAction, value: Gitg.Commit) => void
     static name: string
 }
 export abstract class HistoryPanelIface {
     /* Fields of GitgExt-1.0.GitgExt.HistoryPanelIface */
-    getHistory: () => History | null
-    setHistory: (value?: History | null) => void
+    getHistory: (self: HistoryPanel) => History | null
+    setHistory: (self: HistoryPanel, value?: History | null) => void
     static name: string
 }
 export abstract class HistoryIface {
     /* Fields of GitgExt-1.0.GitgExt.HistoryIface */
-    foreachSelected: (func: ForeachCommitSelectionFunc) => void
-    select: (commit: Gitg.Commit) => void
+    foreachSelected: (self: History, func: ForeachCommitSelectionFunc) => void
+    select: (self: History, commit: Gitg.Commit) => void
     static name: string
 }
 export abstract class NotificationIface {
     /* Fields of GitgExt-1.0.GitgExt.NotificationIface */
-    getWidget: () => Gtk.Widget | null
+    getWidget: (self: Notification) => Gtk.Widget | null
     static name: string
 }
 export abstract class NotificationsIface {
     /* Fields of GitgExt-1.0.GitgExt.NotificationsIface */
-    add: (notification: Notification) => void
-    remove: (notification: Notification, delay: number) => void
+    add: (self: Notifications, notification: Notification) => void
+    remove: (self: Notifications, notification: Notification, delay: number) => void
     static name: string
 }
 export abstract class PreferencesIface {
     /* Fields of GitgExt-1.0.GitgExt.PreferencesIface */
-    getId: () => string
-    getDisplayName: () => string
-    getWidget: () => Gtk.Widget
+    getId: (self: Preferences) => string
+    getDisplayName: (self: Preferences) => string
+    getWidget: (self: Preferences) => Gtk.Widget
     static name: string
 }
 export abstract class RefActionInterfaceIface {
     /* Fields of GitgExt-1.0.GitgExt.RefActionInterfaceIface */
-    addRef: (reference: Gitg.Ref) => void
-    removeRef: (reference: Gitg.Ref) => void
-    replaceRef: (oldRef: Gitg.Ref, newRef: Gitg.Ref) => void
-    setBusy: (reference: Gitg.Ref, busy: boolean) => void
-    editRefName: (reference: Gitg.Ref, callback: RefNameEditingDone) => void
-    refresh: () => void
-    getApplication: () => Application
-    setApplication: (value: Application) => void
-    getReferences: () => Gee.List
+    addRef: (self: RefActionInterface, reference: Gitg.Ref) => void
+    removeRef: (self: RefActionInterface, reference: Gitg.Ref) => void
+    replaceRef: (self: RefActionInterface, oldRef: Gitg.Ref, newRef: Gitg.Ref) => void
+    setBusy: (self: RefActionInterface, reference: Gitg.Ref, busy: boolean) => void
+    editRefName: (self: RefActionInterface, reference: Gitg.Ref, callback: RefNameEditingDone) => void
+    refresh: (self: RefActionInterface) => void
+    getApplication: (self: RefActionInterface) => Application
+    setApplication: (self: RefActionInterface, value: Application) => void
+    getReferences: (self: RefActionInterface) => Gee.List
     static name: string
 }
 export abstract class RefActionIface {
     /* Fields of GitgExt-1.0.GitgExt.RefActionIface */
-    getActionInterface: () => RefActionInterface
-    setActionInterface: (value: RefActionInterface) => void
-    getReference: () => Gitg.Ref
-    setReference: (value: Gitg.Ref) => void
+    getActionInterface: (self: RefAction) => RefActionInterface
+    setActionInterface: (self: RefAction, value: RefActionInterface) => void
+    getReference: (self: RefAction) => Gitg.Ref
+    setReference: (self: RefAction, value: Gitg.Ref) => void
     static name: string
 }
 export abstract class RemoteLookupIface {
     /* Fields of GitgExt-1.0.GitgExt.RemoteLookupIface */
-    lookup: (name: string) => Gitg.Remote | null
+    lookup: (self: RemoteLookup, name: string) => Gitg.Remote | null
     static name: string
 }
 export abstract class SearchableIface {
     /* Fields of GitgExt-1.0.GitgExt.SearchableIface */
-    getSearchText: () => string
-    setSearchText: (value: string) => void
-    getSearchVisible: () => boolean
-    setSearchVisible: (value: boolean) => void
-    getSearchAvailable: () => boolean
-    setSearchEntry: (value?: Gtk.Entry | null) => void
+    getSearchText: (self: Searchable) => string
+    setSearchText: (self: Searchable, value: string) => void
+    getSearchVisible: (self: Searchable) => boolean
+    setSearchVisible: (self: Searchable, value: boolean) => void
+    getSearchAvailable: (self: Searchable) => boolean
+    setSearchEntry: (self: Searchable, value?: Gtk.Entry | null) => void
     static name: string
 }
 export abstract class SelectableIface {
     /* Fields of GitgExt-1.0.GitgExt.SelectableIface */
-    getSelectableMode: () => SelectionMode
-    setSelectableMode: (value: SelectionMode) => void
-    getSelectableAvailable: () => boolean
-    getSelectableModeTooltip: () => string
-    getActionWidget: () => Gtk.Widget | null
+    getSelectableMode: (self: Selectable) => SelectionMode
+    setSelectableMode: (self: Selectable, value: SelectionMode) => void
+    getSelectableAvailable: (self: Selectable) => boolean
+    getSelectableModeTooltip: (self: Selectable) => string
+    getActionWidget: (self: Selectable) => Gtk.Widget | null
     static name: string
 }
 export abstract class UIElementIface {
     /* Fields of GitgExt-1.0.GitgExt.UIElementIface */
-    negotiateOrder: (other: UIElement) => number
-    getApplication: () => Application | null
-    setApplication: (value?: Application | null) => void
-    getId: () => string
-    getDisplayName: () => string
-    getDescription: () => string
-    getIcon: () => string | null
-    getWidget: () => Gtk.Widget | null
-    getShortcut: () => number | null
-    getAvailable: () => boolean
-    getEnabled: () => boolean
+    negotiateOrder: (self: UIElement, other: UIElement) => number
+    getApplication: (self: UIElement) => Application | null
+    setApplication: (self: UIElement, value?: Application | null) => void
+    getId: (self: UIElement) => string
+    getDisplayName: (self: UIElement) => string
+    getDescription: (self: UIElement) => string
+    getIcon: (self: UIElement) => string | null
+    getWidget: (self: UIElement) => Gtk.Widget | null
+    getShortcut: (self: UIElement) => number | null
+    getAvailable: (self: UIElement) => boolean
+    getEnabled: (self: UIElement) => boolean
     static name: string
 }
 }

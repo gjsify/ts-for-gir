@@ -183,6 +183,7 @@ export function object_info_get_abstract(info: ObjectInfo): boolean
 export function object_info_get_class_struct(info: ObjectInfo): StructInfo | null
 export function object_info_get_constant(info: ObjectInfo, n: number): ConstantInfo
 export function object_info_get_field(info: ObjectInfo, n: number): FieldInfo
+export function object_info_get_final(info: ObjectInfo): boolean
 export function object_info_get_fundamental(info: ObjectInfo): boolean
 export function object_info_get_get_value_function(info: ObjectInfo): string | null
 export function object_info_get_interface(info: ObjectInfo, n: number): InterfaceInfo
@@ -204,7 +205,9 @@ export function object_info_get_type_name(info: ObjectInfo): string
 export function object_info_get_unref_function(info: ObjectInfo): string | null
 export function object_info_get_vfunc(info: ObjectInfo, n: number): VFuncInfo
 export function property_info_get_flags(info: PropertyInfo): GObject.ParamFlags
+export function property_info_get_getter(info: PropertyInfo): FunctionInfo | null
 export function property_info_get_ownership_transfer(info: PropertyInfo): Transfer
+export function property_info_get_setter(info: PropertyInfo): FunctionInfo | null
 export function property_info_get_type(info: PropertyInfo): TypeInfo
 export function registered_type_info_get_g_type(info: RegisteredTypeInfo): GObject.Type
 export function registered_type_info_get_type_init(info: RegisteredTypeInfo): string

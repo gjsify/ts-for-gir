@@ -7632,6 +7632,7 @@ export class DockObject {
     static nickFromType(type: GObject.Type): string
     static setTypeForNick(nick: string, type: GObject.Type): GObject.Type
     static typeFromNick(nick: string): GObject.Type
+    static setIsCompound(object_class: DockObject | Function | GObject.Type, isCompound: boolean): void
     static $gtype: GObject.Type
 }
 export interface DockPaned_ConstructProps extends DockItem_ConstructProps {
@@ -13384,6 +13385,8 @@ export abstract class DockObjectClass {
     reorder: (object: DockObject, child: DockObject, newPosition: DockPlacement, otherData?: any | null) => boolean
     present: (object: DockObject, child?: DockObject | null) => void
     childPlacement: (object: DockObject, child: DockObject, placement?: DockPlacement | null) => boolean
+    /* Methods of Gdl-3.Gdl.DockObjectClass */
+    setIsCompound(object_class: DockObject | Function | GObject.Type, isCompound: boolean): void
     static name: string
 }
 export class DockObjectClassPrivate {

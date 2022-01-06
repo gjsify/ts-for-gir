@@ -5,6 +5,7 @@
 import type * as Gjs from './Gjs';
 import type * as Gdk from './Gdk-4.0';
 import type * as cairo from './cairo-1.0';
+import type * as PangoCairo from './PangoCairo-1.0';
 import type * as Pango from './Pango-1.0';
 import type * as HarfBuzz from './HarfBuzz-0.0';
 import type * as GObject from './GObject-2.0';
@@ -33,6 +34,7 @@ export class WaylandDevice {
     g_type_instance: GObject.TypeInstance
     /* Methods of GdkWayland-4.0.GdkWayland.WaylandDevice */
     get_node_path(): string | null
+    get_xkb_keymap(): object | null
     /* Methods of Gdk-4.0.Gdk.Device */
     get_caps_lock_state(): boolean
     get_device_tool(): Gdk.DeviceTool
@@ -48,6 +50,7 @@ export class WaylandDevice {
     get_seat(): Gdk.Seat
     get_source(): Gdk.InputSource
     get_surface_at_position(): [ /* returnType */ Gdk.Surface | null, /* win_x */ number | null, /* win_y */ number | null ]
+    get_timestamp(): number
     get_vendor_id(): string | null
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -127,6 +130,7 @@ export class WaylandDisplay {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GdkWayland-4.0.GdkWayland.WaylandDisplay */
+    get_egl_display(): object | null
     get_startup_notification_id(): string | null
     query_registry(global: string): boolean
     set_cursor_theme(name: string, size: number): void
@@ -134,6 +138,7 @@ export class WaylandDisplay {
     /* Methods of Gdk-4.0.Gdk.Display */
     beep(): void
     close(): void
+    create_gl_context(): Gdk.GLContext
     device_is_grabbed(device: Gdk.Device): boolean
     flush(): void
     get_app_launch_context(): Gdk.AppLaunchContext
@@ -151,6 +156,7 @@ export class WaylandDisplay {
     map_keycode(keycode: number): [ /* returnType */ boolean, /* keys */ Gdk.KeymapKey[] | null, /* keyvals */ number[] | null ]
     map_keyval(keyval: number): [ /* returnType */ boolean, /* keys */ Gdk.KeymapKey[] ]
     notify_startup_complete(startup_id: string): void
+    prepare_gl(): boolean
     put_event(event: Gdk.Event): void
     supports_input_shapes(): boolean
     sync(): void
@@ -223,11 +229,14 @@ export class WaylandDisplay {
 export interface WaylandGLContext_ConstructProps extends Gdk.GLContext_ConstructProps {
 }
 export class WaylandGLContext {
-    /* Properties of Gdk-4.0.Gdk.DrawContext */
-    readonly display: Gdk.Display
+    /* Properties of Gdk-4.0.Gdk.GLContext */
+    allowed_apis: Gdk.GLAPI
+    readonly api: Gdk.GLAPI
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.GLContext */
+    get_allowed_apis(): Gdk.GLAPI
+    get_api(): Gdk.GLAPI
     get_debug_enabled(): boolean
     get_display(): Gdk.Display | null
     get_forward_compatible(): boolean
@@ -237,8 +246,10 @@ export class WaylandGLContext {
     get_use_es(): boolean
     get_version(): [ /* major */ number, /* minor */ number ]
     is_legacy(): boolean
+    is_shared(other: Gdk.GLContext): boolean
     make_current(): void
     realize(): boolean
+    set_allowed_apis(apis: Gdk.GLAPI): void
     set_debug_enabled(enabled: boolean): void
     set_forward_compatible(compatible: boolean): void
     set_required_version(major: number, minor: number): void
@@ -282,8 +293,10 @@ export class WaylandGLContext {
     connect(sigName: "notify", callback: (($obj: WaylandGLContext, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: WaylandGLContext, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::display", callback: (($obj: WaylandGLContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::display", callback: (($obj: WaylandGLContext, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::allowed-apis", callback: (($obj: WaylandGLContext, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::allowed-apis", callback: (($obj: WaylandGLContext, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::api", callback: (($obj: WaylandGLContext, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::api", callback: (($obj: WaylandGLContext, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -779,6 +792,7 @@ export class WaylandToplevel {
     set_transient_for(parent: Gdk.Surface): void
     show_window_menu(event: Gdk.Event): boolean
     supports_edge_constraints(): boolean
+    titlebar_gesture(gesture: Gdk.TitlebarGesture): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void

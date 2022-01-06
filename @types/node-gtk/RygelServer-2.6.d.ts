@@ -5004,7 +5004,7 @@ export class ContentDirectory {
     getUdn(): string
     getUrlBase(): Soup.URI
     introspectAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    introspectFinish(res: Gio.AsyncResult): GUPnP.ServiceIntrospection
+    introspectFinish(res: Gio.AsyncResult): GUPnP.ServiceIntrospection | null
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -6526,7 +6526,7 @@ export class SimpleContainerPrivate {
 }
 export abstract class SubtitleClass {
     /* Fields of RygelServer-2.6.RygelServer.SubtitleClass */
-    getResource: (protocol: string, index: number) => MediaResource
+    getResource: (self: Subtitle, protocol: string, index: number) => MediaResource
     static name: string
 }
 export class SubtitlePrivate {
@@ -6534,7 +6534,7 @@ export class SubtitlePrivate {
 }
 export abstract class ThumbnailClass {
     /* Fields of RygelServer-2.6.RygelServer.ThumbnailClass */
-    getResource: (protocol: string, index: number) => MediaResource
+    getResource: (self: Thumbnail, protocol: string, index: number) => MediaResource
     static name: string
 }
 export class ThumbnailPrivate {
@@ -6542,7 +6542,7 @@ export class ThumbnailPrivate {
 }
 export abstract class VideoItemClass {
     /* Fields of RygelServer-2.6.RygelServer.VideoItemClass */
-    addSubtitleResources: (httpServer: HTTPServer) => void
+    addSubtitleResources: (self: VideoItem, httpServer: HTTPServer) => void
     static name: string
 }
 export class VideoItemPrivate {
@@ -6550,10 +6550,10 @@ export class VideoItemPrivate {
 }
 export abstract class MediaContainerClass {
     /* Fields of RygelServer-2.6.RygelServer.MediaContainerClass */
-    getChildren: (offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    getChildrenFinish: (res: Gio.AsyncResult) => MediaObjects | null
-    findObject: (id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    findObjectFinish: (res: Gio.AsyncResult) => MediaObject | null
+    getChildren: (self: MediaContainer, offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    getChildrenFinish: (self: MediaContainer, res: Gio.AsyncResult) => MediaObjects | null
+    findObject: (self: MediaContainer, id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    findObjectFinish: (self: MediaContainer, res: Gio.AsyncResult) => MediaObject | null
     static name: string
 }
 export class MediaContainerPrivate {
@@ -6567,11 +6567,11 @@ export class MediaItemPrivate {
 }
 export abstract class MediaFileItemClass {
     /* Fields of RygelServer-2.6.RygelServer.MediaFileItemClass */
-    getPrimaryResource: () => MediaResource
-    getExtension: () => string
-    addEngineResources: (callback?: Gio.AsyncReadyCallback | null) => void
-    addEngineResourcesFinish: (res: Gio.AsyncResult) => void
-    addAdditionalResources: (server: HTTPServer) => void
+    getPrimaryResource: (self: MediaFileItem) => MediaResource
+    getExtension: (self: MediaFileItem) => string
+    addEngineResources: (self: MediaFileItem, callback?: Gio.AsyncReadyCallback | null) => void
+    addEngineResourcesFinish: (self: MediaFileItem, res: Gio.AsyncResult) => void
+    addAdditionalResources: (self: MediaFileItem, server: HTTPServer) => void
     static name: string
 }
 export class MediaFileItemPrivate {
@@ -6579,11 +6579,11 @@ export class MediaFileItemPrivate {
 }
 export abstract class MediaObjectClass {
     /* Fields of RygelServer-2.6.RygelServer.MediaObjectClass */
-    addUri: (uri: string) => void
-    serialize: (serializer: Serializer, httpServer: HTTPServer) => GUPnPAV.DIDLLiteObject | null
-    createStreamSourceForResource: (request: HTTPRequest, resource: MediaResource) => DataSource | null
-    applyDidlLite: (didlObject: GUPnPAV.DIDLLiteObject) => void
-    compareByProperty: (mediaObject: MediaObject, property: string) => number
+    addUri: (self: MediaObject, uri: string) => void
+    serialize: (self: MediaObject, serializer: Serializer, httpServer: HTTPServer) => GUPnPAV.DIDLLiteObject | null
+    createStreamSourceForResource: (self: MediaObject, request: HTTPRequest, resource: MediaResource) => DataSource | null
+    applyDidlLite: (self: MediaObject, didlObject: GUPnPAV.DIDLLiteObject) => void
+    compareByProperty: (self: MediaObject, mediaObject: MediaObject, property: string) => number
     static name: string
 }
 export class MediaObjectPrivate {
@@ -6603,8 +6603,8 @@ export class MediaServerPluginPrivate {
 }
 export abstract class SearchExpressionClass {
     /* Fields of RygelServer-2.6.RygelServer.SearchExpressionClass */
-    satisfiedBy: (mediaObject: MediaObject) => boolean
-    toString: () => string
+    satisfiedBy: (self: SearchExpression, mediaObject: MediaObject) => boolean
+    toString: (self: SearchExpression) => string
     static name: string
 }
 export class SearchExpressionPrivate {
@@ -6618,12 +6618,12 @@ export class MediaServerPrivate {
 }
 export abstract class MediaEngineClass {
     /* Fields of RygelServer-2.6.RygelServer.MediaEngineClass */
-    getDlnaProfiles: () => RygelCore.DLNAProfile[]
-    getResourcesForItem: (item: MediaObject, callback?: Gio.AsyncReadyCallback | null) => void
-    getResourcesForItemFinish: (res: Gio.AsyncResult) => Gee.List | null
-    createDataSourceForResource: (item: MediaObject, resource: MediaResource, replacements: GLib.HashTable) => DataSource | null
-    createDataSourceForUri: (uri: string) => DataSource | null
-    getInternalProtocolSchemes: () => string[]
+    getDlnaProfiles: (self: MediaEngine) => RygelCore.DLNAProfile[]
+    getResourcesForItem: (self: MediaEngine, item: MediaObject, callback?: Gio.AsyncReadyCallback | null) => void
+    getResourcesForItemFinish: (self: MediaEngine, res: Gio.AsyncResult) => Gee.List | null
+    createDataSourceForResource: (self: MediaEngine, item: MediaObject, resource: MediaResource, replacements: GLib.HashTable) => DataSource | null
+    createDataSourceForUri: (self: MediaEngine, uri: string) => DataSource | null
+    getInternalProtocolSchemes: (self: MediaEngine) => string[]
     static name: string
 }
 export class MediaEnginePrivate {
@@ -6661,15 +6661,15 @@ export class HTTPByteSeekResponsePrivate {
 }
 export abstract class HTTPGetHandlerClass {
     /* Fields of RygelServer-2.6.RygelServer.HTTPGetHandlerClass */
-    addResponseHeaders: (request: HTTPGet) => void
-    getDefaultTransferMode: () => string
-    supportsTransferMode: (mode: string) => boolean
-    getResourceSize: () => number
-    getResourceDuration: () => number
-    supportsByteSeek: () => boolean
-    supportsTimeSeek: () => boolean
-    supportsPlayspeed: () => boolean
-    renderBody: (request: HTTPGet) => HTTPResponse
+    addResponseHeaders: (self: HTTPGetHandler, request: HTTPGet) => void
+    getDefaultTransferMode: (self: HTTPGetHandler) => string
+    supportsTransferMode: (self: HTTPGetHandler, mode: string) => boolean
+    getResourceSize: (self: HTTPGetHandler) => number
+    getResourceDuration: (self: HTTPGetHandler) => number
+    supportsByteSeek: (self: HTTPGetHandler) => boolean
+    supportsTimeSeek: (self: HTTPGetHandler) => boolean
+    supportsPlayspeed: (self: HTTPGetHandler) => boolean
+    renderBody: (self: HTTPGetHandler, request: HTTPGet) => HTTPResponse
     static name: string
 }
 export class HTTPGetHandlerPrivate {
@@ -6689,10 +6689,10 @@ export class HTTPItemURIPrivate {
 }
 export abstract class HTTPRequestClass {
     /* Fields of RygelServer-2.6.RygelServer.HTTPRequestClass */
-    handle: (callback?: Gio.AsyncReadyCallback | null) => void
-    handleFinish: (res: Gio.AsyncResult) => void
-    findItem: (callback?: Gio.AsyncReadyCallback | null) => void
-    findItemFinish: (res: Gio.AsyncResult) => void
+    handle: (self: HTTPRequest, callback?: Gio.AsyncReadyCallback | null) => void
+    handleFinish: (self: HTTPRequest, res: Gio.AsyncResult) => void
+    findItem: (self: HTTPRequest, callback?: Gio.AsyncReadyCallback | null) => void
+    findItemFinish: (self: HTTPRequest, res: Gio.AsyncResult) => void
     static name: string
 }
 export class HTTPRequestPrivate {
@@ -6700,7 +6700,7 @@ export class HTTPRequestPrivate {
 }
 export abstract class HTTPResponseClass {
     /* Fields of RygelServer-2.6.RygelServer.HTTPResponseClass */
-    end: (aborted: boolean, status: number) => void
+    end: (self: HTTPResponse, aborted: boolean, status: number) => void
     static name: string
 }
 export class HTTPResponsePrivate {
@@ -6708,8 +6708,8 @@ export class HTTPResponsePrivate {
 }
 export abstract class HTTPResponseElementClass {
     /* Fields of RygelServer-2.6.RygelServer.HTTPResponseElementClass */
-    addResponseHeaders: (request: HTTPRequest) => void
-    toString: () => string
+    addResponseHeaders: (self: HTTPResponseElement, request: HTTPRequest) => void
+    toString: (self: HTTPResponseElement) => string
     static name: string
 }
 export class HTTPResponseElementPrivate {
@@ -6717,8 +6717,8 @@ export class HTTPResponseElementPrivate {
 }
 export abstract class HTTPServerClass {
     /* Fields of RygelServer-2.6.RygelServer.HTTPServerClass */
-    getProtocol: () => string
-    getProtocolInfo: () => Gee.ArrayList
+    getProtocol: (self: HTTPServer) => string
+    getProtocolInfo: (self: HTTPServer) => Gee.ArrayList
     static name: string
 }
 export class HTTPServerPrivate {
@@ -6786,21 +6786,21 @@ export class DLNAAvailableSeekRangeResponsePrivate {
 }
 export abstract class SearchableContainerIface {
     /* Fields of RygelServer-2.6.RygelServer.SearchableContainerIface */
-    search: (expression: SearchExpression | null, offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    searchFinish: (res: Gio.AsyncResult) => { returnType: MediaObjects | null, totalMatches: number }
-    getSearchClasses: () => Gee.ArrayList
-    setSearchClasses: (value: Gee.ArrayList) => void
+    search: (self: SearchableContainer, expression: SearchExpression | null, offset: number, maxCount: number, sortCriteria: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    searchFinish: (self: SearchableContainer, res: Gio.AsyncResult) => { returnType: MediaObjects | null, totalMatches: number }
+    getSearchClasses: (self: SearchableContainer) => Gee.ArrayList
+    setSearchClasses: (self: SearchableContainer, value: Gee.ArrayList) => void
     static name: string
 }
 export abstract class TrackableContainerIface {
     /* Fields of RygelServer-2.6.RygelServer.TrackableContainerIface */
-    addChild: (object: MediaObject, callback?: Gio.AsyncReadyCallback | null) => void
-    addChildFinish: (res: Gio.AsyncResult) => void
-    removeChild: (object: MediaObject, callback?: Gio.AsyncReadyCallback | null) => void
-    removeChildFinish: (res: Gio.AsyncResult) => void
-    getServiceResetToken: () => string
-    setServiceResetToken: (token: string) => void
-    getSystemUpdateId: () => number
+    addChild: (self: TrackableContainer, object: MediaObject, callback?: Gio.AsyncReadyCallback | null) => void
+    addChildFinish: (self: TrackableContainer, res: Gio.AsyncResult) => void
+    removeChild: (self: TrackableContainer, object: MediaObject, callback?: Gio.AsyncReadyCallback | null) => void
+    removeChildFinish: (self: TrackableContainer, res: Gio.AsyncResult) => void
+    getServiceResetToken: (self: TrackableContainer) => string
+    setServiceResetToken: (self: TrackableContainer, token: string) => void
+    getSystemUpdateId: (self: TrackableContainer) => number
     static name: string
 }
 export abstract class TrackableItemIface {
@@ -6808,45 +6808,45 @@ export abstract class TrackableItemIface {
 }
 export abstract class VisualItemIface {
     /* Fields of RygelServer-2.6.RygelServer.VisualItemIface */
-    getWidth: () => number
-    setWidth: (value: number) => void
-    getHeight: () => number
-    setHeight: (value: number) => void
-    getColorDepth: () => number
-    setColorDepth: (value: number) => void
-    getThumbnails: () => Gee.ArrayList
-    setThumbnails: (value: Gee.ArrayList) => void
+    getWidth: (self: VisualItem) => number
+    setWidth: (self: VisualItem, value: number) => void
+    getHeight: (self: VisualItem) => number
+    setHeight: (self: VisualItem, value: number) => void
+    getColorDepth: (self: VisualItem) => number
+    setColorDepth: (self: VisualItem, value: number) => void
+    getThumbnails: (self: VisualItem) => Gee.ArrayList
+    setThumbnails: (self: VisualItem, value: Gee.ArrayList) => void
     static name: string
 }
 export abstract class WritableContainerIface {
     /* Fields of RygelServer-2.6.RygelServer.WritableContainerIface */
-    addItem: (item: MediaFileItem, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    addItemFinish: (res: Gio.AsyncResult) => void
-    addContainer: (container: MediaContainer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    addContainerFinish: (res: Gio.AsyncResult) => void
-    addReference: (object: MediaObject, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    addReferenceFinish: (res: Gio.AsyncResult) => string
-    removeItem: (id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    removeItemFinish: (res: Gio.AsyncResult) => void
-    removeContainer: (id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    removeContainerFinish: (res: Gio.AsyncResult) => void
-    getCreateClasses: () => Gee.ArrayList
-    setCreateClasses: (value: Gee.ArrayList) => void
+    addItem: (self: WritableContainer, item: MediaFileItem, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    addItemFinish: (self: WritableContainer, res: Gio.AsyncResult) => void
+    addContainer: (self: WritableContainer, container: MediaContainer, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    addContainerFinish: (self: WritableContainer, res: Gio.AsyncResult) => void
+    addReference: (self: WritableContainer, object: MediaObject, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    addReferenceFinish: (self: WritableContainer, res: Gio.AsyncResult) => string
+    removeItem: (self: WritableContainer, id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    removeItemFinish: (self: WritableContainer, res: Gio.AsyncResult) => void
+    removeContainer: (self: WritableContainer, id: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    removeContainerFinish: (self: WritableContainer, res: Gio.AsyncResult) => void
+    getCreateClasses: (self: WritableContainer) => Gee.ArrayList
+    setCreateClasses: (self: WritableContainer, value: Gee.ArrayList) => void
     static name: string
 }
 export abstract class DataSourceIface {
     /* Fields of RygelServer-2.6.RygelServer.DataSourceIface */
-    preroll: (seek?: HTTPSeekRequest | null, playspeed?: PlaySpeedRequest | null) => Gee.List | null
-    start: () => void
-    freeze: () => void
-    thaw: () => void
-    stop: () => void
+    preroll: (self: DataSource, seek?: HTTPSeekRequest | null, playspeed?: PlaySpeedRequest | null) => Gee.List | null
+    start: (self: DataSource) => void
+    freeze: (self: DataSource) => void
+    thaw: (self: DataSource) => void
+    stop: (self: DataSource) => void
     static name: string
 }
 export abstract class UpdatableObjectIface {
     /* Fields of RygelServer-2.6.RygelServer.UpdatableObjectIface */
-    commit: (callback?: Gio.AsyncReadyCallback | null) => void
-    commitFinish: (res: Gio.AsyncResult) => void
+    commit: (self: UpdatableObject, callback?: Gio.AsyncReadyCallback | null) => void
+    commitFinish: (self: UpdatableObject, res: Gio.AsyncResult) => void
     static name: string
 }
 }

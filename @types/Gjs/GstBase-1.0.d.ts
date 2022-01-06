@@ -207,10 +207,12 @@ export class Aggregator {
     finish_buffer_list(bufferlist: Gst.BufferList): Gst.FlowReturn
     get_allocator(): [ /* allocator */ Gst.Allocator | null, /* params */ Gst.AllocationParams | null ]
     get_buffer_pool(): Gst.BufferPool | null
+    get_ignore_inactive_pads(): boolean
     get_latency(): Gst.ClockTime
     negotiate(): boolean
     peek_next_sample(pad: AggregatorPad): Gst.Sample | null
     selected_samples(pts: Gst.ClockTime, dts: Gst.ClockTime, duration: Gst.ClockTime, info?: Gst.Structure | null): void
+    set_ignore_inactive_pads(ignore: boolean): void
     set_latency(min_latency: Gst.ClockTime, max_latency: Gst.ClockTime): void
     set_src_caps(caps: Gst.Caps): void
     simple_get_next_time(): Gst.ClockTime
@@ -268,6 +270,7 @@ export class Aggregator {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -451,6 +454,7 @@ export class AggregatorPad {
     drop_buffer(): boolean
     has_buffer(): boolean
     is_eos(): boolean
+    is_inactive(): boolean
     peek_buffer(): Gst.Buffer | null
     pop_buffer(): Gst.Buffer | null
     /* Methods of Gst-1.0.Gst.Pad */
@@ -748,6 +752,7 @@ export class BaseParse {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -811,7 +816,7 @@ export class BaseParse {
     vfunc_convert(src_format: Gst.Format, src_value: number, dest_format: Gst.Format, dest_value: number): boolean
     vfunc_detect(buffer: Gst.Buffer): Gst.FlowReturn
     vfunc_get_sink_caps(filter: Gst.Caps): Gst.Caps
-    vfunc_handle_frame(frame: BaseParseFrame, skipsize: number): Gst.FlowReturn
+    vfunc_handle_frame(frame: BaseParseFrame): [ /* returnType */ Gst.FlowReturn, /* skipsize */ number ]
     vfunc_pre_push_frame(frame: BaseParseFrame): Gst.FlowReturn
     vfunc_set_sink_caps(caps: Gst.Caps): boolean
     vfunc_sink_event(event: Gst.Event): boolean
@@ -1039,6 +1044,7 @@ export class BaseSink {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -1334,6 +1340,7 @@ export class BaseSrc {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -1394,15 +1401,15 @@ export class BaseSrc {
     thaw_notify(): void
     watch_closure(closure: Function): void
     /* Virtual methods of GstBase-1.0.GstBase.BaseSrc */
-    vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(offset: number, size: number, buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_decide_allocation(query: Gst.Query): boolean
     vfunc_do_seek(segment: Gst.Segment): boolean
     vfunc_event(event: Gst.Event): boolean
     vfunc_fill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
     vfunc_fixate(caps: Gst.Caps): Gst.Caps
     vfunc_get_caps(filter?: Gst.Caps | null): Gst.Caps
-    vfunc_get_size(size: number): boolean
+    vfunc_get_size(): [ /* returnType */ boolean, /* size */ number ]
     vfunc_get_times(buffer: Gst.Buffer): [ /* start */ Gst.ClockTime, /* end */ Gst.ClockTime ]
     vfunc_is_seekable(): boolean
     vfunc_negotiate(): boolean
@@ -1591,6 +1598,7 @@ export class BaseTransform {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -2050,6 +2058,7 @@ export class PushSrc {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -2110,22 +2119,22 @@ export class PushSrc {
     thaw_notify(): void
     watch_closure(closure: Function): void
     /* Virtual methods of GstBase-1.0.GstBase.PushSrc */
-    vfunc_alloc(buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(offset: number, size: number, buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_fill(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_fill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
     /* Virtual methods of GstBase-1.0.GstBase.BaseSrc */
-    vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(offset: number, size: number, buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_decide_allocation(query: Gst.Query): boolean
     vfunc_do_seek(segment: Gst.Segment): boolean
     vfunc_event(event: Gst.Event): boolean
     vfunc_fill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
     vfunc_fixate(caps: Gst.Caps): Gst.Caps
     vfunc_get_caps(filter?: Gst.Caps | null): Gst.Caps
-    vfunc_get_size(size: number): boolean
+    vfunc_get_size(): [ /* returnType */ boolean, /* size */ number ]
     vfunc_get_times(buffer: Gst.Buffer): [ /* start */ Gst.ClockTime, /* end */ Gst.ClockTime ]
     vfunc_is_seekable(): boolean
     vfunc_negotiate(): boolean
@@ -2251,7 +2260,7 @@ export abstract class BaseParseClass {
     start: (parse: BaseParse) => boolean
     stop: (parse: BaseParse) => boolean
     set_sink_caps: (parse: BaseParse, caps: Gst.Caps) => boolean
-    handle_frame: (parse: BaseParse, frame: BaseParseFrame, skipsize: number) => Gst.FlowReturn
+    handle_frame: (parse: BaseParse, frame: BaseParseFrame) => [ /* returnType */ Gst.FlowReturn, /* skipsize */ number ]
     pre_push_frame: (parse: BaseParse, frame: BaseParseFrame) => Gst.FlowReturn
     convert: (parse: BaseParse, src_format: Gst.Format, src_value: number, dest_format: Gst.Format, dest_value: number) => boolean
     sink_event: (parse: BaseParse, event: Gst.Event) => boolean
@@ -2319,7 +2328,7 @@ export abstract class BaseSrcClass {
     start: (src: BaseSrc) => boolean
     stop: (src: BaseSrc) => boolean
     get_times: (src: BaseSrc, buffer: Gst.Buffer) => [ /* start */ Gst.ClockTime, /* end */ Gst.ClockTime ]
-    get_size: (src: BaseSrc, size: number) => boolean
+    get_size: (src: BaseSrc) => [ /* returnType */ boolean, /* size */ number ]
     is_seekable: (src: BaseSrc) => boolean
     prepare_seek_segment: (src: BaseSrc, seek: Gst.Event, segment: Gst.Segment) => boolean
     do_seek: (src: BaseSrc, segment: Gst.Segment) => boolean
@@ -2327,8 +2336,8 @@ export abstract class BaseSrcClass {
     unlock_stop: (src: BaseSrc) => boolean
     query: (src: BaseSrc, query: Gst.Query) => boolean
     event: (src: BaseSrc, event: Gst.Event) => boolean
-    create: (src: BaseSrc, offset: number, size: number) => [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
-    alloc: (src: BaseSrc, offset: number, size: number, buf: Gst.Buffer) => Gst.FlowReturn
+    create: (src: BaseSrc, offset: number, size: number, buf: Gst.Buffer) => [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    alloc: (src: BaseSrc, offset: number, size: number) => [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     fill: (src: BaseSrc, offset: number, size: number, buf: Gst.Buffer) => Gst.FlowReturn
     static name: string
 }
@@ -2401,14 +2410,14 @@ export class BitWriter {
     free(): void
     free_and_get_buffer(): Gst.Buffer
     free_and_get_data(): Uint8Array[]
-    get_data(): number
+    get_data(): Uint8Array[]
     get_remaining(): number
     get_size(): number
     put_bits_uint16(value: number, nbits: number): boolean
     put_bits_uint32(value: number, nbits: number): boolean
     put_bits_uint64(value: number, nbits: number): boolean
     put_bits_uint8(value: number, nbits: number): boolean
-    put_bytes(data: number, nbytes: number): boolean
+    put_bytes(data: Uint8Array[], nbytes: number): boolean
     reset(): void
     reset_and_get_buffer(): Gst.Buffer
     reset_and_get_data(): Uint8Array[]
@@ -2602,8 +2611,8 @@ export class FlowCombiner {
 export abstract class PushSrcClass {
     /* Fields of GstBase-1.0.GstBase.PushSrcClass */
     parent_class: BaseSrcClass
-    create: (src: PushSrc, buf: Gst.Buffer) => Gst.FlowReturn
-    alloc: (src: PushSrc, buf: Gst.Buffer) => Gst.FlowReturn
+    create: (src: PushSrc, buf: Gst.Buffer) => [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    alloc: (src: PushSrc) => [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     fill: (src: PushSrc, buf: Gst.Buffer) => Gst.FlowReturn
     static name: string
 }

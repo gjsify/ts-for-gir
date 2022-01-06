@@ -10,11 +10,14 @@ import type * as Anthy9000 from "./Anthy-9000";
 import type * as AppStream10 from "./AppStream-1.0";
 import type * as AppStreamBuilder10 from "./AppStreamBuilder-1.0";
 import type * as AppStreamGlib10 from "./AppStreamGlib-1.0";
+import type * as Arrow10 from "./Arrow-1.0";
+import type * as ArrowDataset10 from "./ArrowDataset-1.0";
 import type * as Atk10 from "./Atk-1.0";
 import type * as Atspi20 from "./Atspi-2.0";
 import type * as Babl01 from "./Babl-0.1";
 import type * as Bamf3 from "./Bamf-3";
 import type * as Builder10 from "./Builder-1.0";
+import type * as Bump01 from "./Bump-0.1";
 import type * as Cally10 from "./Cally-1.0";
 import type * as Camel12 from "./Camel-1.2";
 import type * as Caribou10 from "./Caribou-1.0";
@@ -106,13 +109,13 @@ import type * as GUsb10 from "./GUsb-1.0";
 import type * as GVnc10 from "./GVnc-1.0";
 import type * as GVncPulse10 from "./GVncPulse-1.0";
 import type * as GWeather30 from "./GWeather-3.0";
+import type * as GWeather40 from "./GWeather-4.0";
 import type * as GXPS01 from "./GXPS-0.1";
-import type * as GXml010 from "./GXml-0.10";
 import type * as GXml014 from "./GXml-0.14";
 import type * as GXml016 from "./GXml-0.16";
 import type * as GXml018 from "./GXml-0.18";
 import type * as GXml020 from "./GXml-0.20";
-import type * as GXml04 from "./GXml-0.4";
+import type * as Gandiva10 from "./Gandiva-1.0";
 import type * as Gck1 from "./Gck-1";
 import type * as Gcr3 from "./Gcr-3";
 import type * as GcrUi3 from "./GcrUi-3";
@@ -150,10 +153,13 @@ import type * as Gkbd30 from "./Gkbd-3.0";
 import type * as Gladeui20 from "./Gladeui-2.0";
 import type * as GnomeAutoar01 from "./GnomeAutoar-0.1";
 import type * as GnomeAutoarGtk01 from "./GnomeAutoarGtk-0.1";
+import type * as GnomeBG40 from "./GnomeBG-4.0";
 import type * as GnomeBluetooth10 from "./GnomeBluetooth-1.0";
 import type * as GnomeDesktop30 from "./GnomeDesktop-3.0";
+import type * as GnomeDesktop40 from "./GnomeDesktop-4.0";
 import type * as GnomeKeyring10 from "./GnomeKeyring-1.0";
 import type * as GnomeMaps10 from "./GnomeMaps-1.0";
+import type * as GnomeRR40 from "./GnomeRR-4.0";
 import type * as GoVirt10 from "./GoVirt-1.0";
 import type * as Goa10 from "./Goa-1.0";
 import type * as GooCanvas20 from "./GooCanvas-2.0";
@@ -192,6 +198,7 @@ import type * as GstInsertBin10 from "./GstInsertBin-1.0";
 import type * as GstMpegts10 from "./GstMpegts-1.0";
 import type * as GstNet10 from "./GstNet-1.0";
 import type * as GstPbutils10 from "./GstPbutils-1.0";
+import type * as GstPlay10 from "./GstPlay-1.0";
 import type * as GstPlayer10 from "./GstPlayer-1.0";
 import type * as GstRiff10 from "./GstRiff-1.0";
 import type * as GstRtp10 from "./GstRtp-1.0";
@@ -225,10 +232,11 @@ import type * as ICal30 from "./ICal-3.0";
 import type * as ICalGLib30 from "./ICalGLib-3.0";
 import type * as Ide10 from "./Ide-1.0";
 import type * as JSCore30 from "./JSCore-3.0";
-import type * as JavaScriptCore30 from "./JavaScriptCore-3.0";
 import type * as JavaScriptCore40 from "./JavaScriptCore-4.0";
+import type * as JavaScriptCore50 from "./JavaScriptCore-5.0";
 import type * as Json10 from "./Json-1.0";
 import type * as Jsonrpc10 from "./Jsonrpc-1.0";
+import type * as Libmsi10 from "./Libmsi-1.0";
 import type * as Libosinfo10 from "./Libosinfo-1.0";
 import type * as LibvirtGConfig10 from "./LibvirtGConfig-1.0";
 import type * as LibvirtGLib10 from "./LibvirtGLib-1.0";
@@ -261,8 +269,10 @@ import type * as PangoFT210 from "./PangoFT2-1.0";
 import type * as PangoFc10 from "./PangoFc-1.0";
 import type * as PangoOT10 from "./PangoOT-1.0";
 import type * as PangoXft10 from "./PangoXft-1.0";
+import type * as Parquet10 from "./Parquet-1.0";
 import type * as Peas10 from "./Peas-1.0";
 import type * as PeasGtk10 from "./PeasGtk-1.0";
+import type * as Plasma10 from "./Plasma-1.0";
 import type * as Pnl10 from "./Pnl-1.0";
 import type * as Polkit10 from "./Polkit-1.0";
 import type * as PolkitAgent10 from "./PolkitAgent-1.0";
@@ -272,13 +282,11 @@ import type * as Rest07 from "./Rest-0.7";
 import type * as RestExtras07 from "./RestExtras-0.7";
 import type * as Retro014 from "./Retro-0.14";
 import type * as Retro1 from "./Retro-1";
+import type * as Retro2 from "./Retro-2";
 import type * as Rsvg20 from "./Rsvg-2.0";
-import type * as RygelCore24 from "./RygelCore-2.4";
 import type * as RygelCore26 from "./RygelCore-2.6";
-import type * as RygelRenderer24 from "./RygelRenderer-2.4";
 import type * as RygelRenderer26 from "./RygelRenderer-2.6";
 import type * as RygelRendererGst26 from "./RygelRendererGst-2.6";
-import type * as RygelServer24 from "./RygelServer-2.4";
 import type * as RygelServer26 from "./RygelServer-2.6";
 import type * as Secret1 from "./Secret-1";
 import type * as SecretUnstable0 from "./SecretUnstable-0";
@@ -286,6 +294,7 @@ import type * as Shumate00 from "./Shumate-0.0";
 import type * as Signon20 from "./Signon-2.0";
 import type * as Snapd1 from "./Snapd-1";
 import type * as Soup24 from "./Soup-2.4";
+import type * as Soup30 from "./Soup-3.0";
 import type * as SoupGNOME24 from "./SoupGNOME-2.4";
 import type * as SpiceClientGLib20 from "./SpiceClientGLib-2.0";
 import type * as SpiceClientGtk30 from "./SpiceClientGtk-3.0";
@@ -300,14 +309,11 @@ import type * as Tepl6 from "./Tepl-6";
 import type * as TimezoneMap10 from "./TimezoneMap-1.0";
 import type * as Totem10 from "./Totem-1.0";
 import type * as TotemPlParser10 from "./TotemPlParser-1.0";
-import type * as Tracker016 from "./Tracker-0.16";
 import type * as Tracker10 from "./Tracker-1.0";
 import type * as Tracker20 from "./Tracker-2.0";
 import type * as Tracker30 from "./Tracker-3.0";
 import type * as TrackerControl10 from "./TrackerControl-1.0";
 import type * as TrackerControl20 from "./TrackerControl-2.0";
-import type * as TrackerExtract016 from "./TrackerExtract-0.16";
-import type * as TrackerMiner016 from "./TrackerMiner-0.16";
 import type * as TrackerMiner10 from "./TrackerMiner-1.0";
 import type * as TrackerMiner20 from "./TrackerMiner-2.0";
 import type * as UDisks20 from "./UDisks-2.0";
@@ -322,14 +328,17 @@ import type * as Vgda1 from "./Vgda-1";
 import type * as Vgpg1 from "./Vgpg-1";
 import type * as Vgsl1 from "./Vgsl-1";
 import type * as Vpg1 from "./Vpg-1";
+import type * as Vsqlite1 from "./Vsqlite-1";
 import type * as Vte291 from "./Vte-2.91";
 import type * as Vulkan10 from "./Vulkan-1.0";
-import type * as WebKit30 from "./WebKit-3.0";
-import type * as WebKit230 from "./WebKit2-3.0";
 import type * as WebKit240 from "./WebKit2-4.0";
-import type * as WebKit2WebExtension30 from "./WebKit2WebExtension-3.0";
+import type * as WebKit250 from "./WebKit2-5.0";
 import type * as WebKit2WebExtension40 from "./WebKit2WebExtension-4.0";
+import type * as WebKit2WebExtension50 from "./WebKit2WebExtension-5.0";
 import type * as Wnck30 from "./Wnck-3.0";
+import type * as Xdp10 from "./Xdp-1.0";
+import type * as XdpGtk310 from "./XdpGtk3-1.0";
+import type * as XdpGtk410 from "./XdpGtk4-1.0";
 import type * as Xkl10 from "./Xkl-1.0";
 import type * as Zeitgeist20 from "./Zeitgeist-2.0";
 import type * as Zpj00 from "./Zpj-0.0";
@@ -372,11 +381,14 @@ declare global {
             AppStream:              typeof AppStream10
             AppStreamBuilder:              typeof AppStreamBuilder10
             AppStreamGlib:              typeof AppStreamGlib10
+            Arrow:              typeof Arrow10
+            ArrowDataset:              typeof ArrowDataset10
             Atk:              typeof Atk10
             Atspi:              typeof Atspi20
             Babl:              typeof Babl01
             Bamf:              typeof Bamf3
             Builder:              typeof Builder10
+            Bump:              typeof Bump01
             Cally:              typeof Cally10
             Camel:              typeof Camel12
             Caribou:              typeof Caribou10
@@ -482,20 +494,19 @@ declare global {
             GVnc:              typeof GVnc10
             GVncPulse:              typeof GVncPulse10
             GWeather:              typeof GWeather30
+                |
+              typeof GWeather40
             GXPS:              typeof GXPS01
                 |
               typeof Gxps10
-            GXml:              typeof GXml010
-                |
-              typeof GXml014
+            GXml:              typeof GXml014
                 |
               typeof GXml016
                 |
               typeof GXml018
                 |
               typeof GXml020
-                |
-              typeof GXml04
+            Gandiva:              typeof Gandiva10
             Gck:              typeof Gck1
             Gcr:              typeof Gcr3
             GcrUi:              typeof GcrUi3
@@ -541,10 +552,14 @@ declare global {
             Gladeui:              typeof Gladeui20
             GnomeAutoar:              typeof GnomeAutoar01
             GnomeAutoarGtk:              typeof GnomeAutoarGtk01
+            GnomeBG:              typeof GnomeBG40
             GnomeBluetooth:              typeof GnomeBluetooth10
             GnomeDesktop:              typeof GnomeDesktop30
+                |
+              typeof GnomeDesktop40
             GnomeKeyring:              typeof GnomeKeyring10
             GnomeMaps:              typeof GnomeMaps10
+            GnomeRR:              typeof GnomeRR40
             GoVirt:              typeof GoVirt10
             Goa:              typeof Goa10
             GooCanvas:              typeof GooCanvas20
@@ -595,6 +610,7 @@ declare global {
             GstPbutils:              typeof GstPbutils10
                 |
               typeof GstPbutils010
+            GstPlay:              typeof GstPlay10
             GstPlayer:              typeof GstPlayer10
             GstRiff:              typeof GstRiff10
             GstRtp:              typeof GstRtp10
@@ -636,11 +652,12 @@ declare global {
             ICalGLib:              typeof ICalGLib30
             Ide:              typeof Ide10
             JSCore:              typeof JSCore30
-            JavaScriptCore:              typeof JavaScriptCore30
+            JavaScriptCore:              typeof JavaScriptCore40
                 |
-              typeof JavaScriptCore40
+              typeof JavaScriptCore50
             Json:              typeof Json10
             Jsonrpc:              typeof Jsonrpc10
+            Libmsi:              typeof Libmsi10
             Libosinfo:              typeof Libosinfo10
             LibvirtGConfig:              typeof LibvirtGConfig10
             LibvirtGLib:              typeof LibvirtGLib10
@@ -675,8 +692,10 @@ declare global {
             PangoFc:              typeof PangoFc10
             PangoOT:              typeof PangoOT10
             PangoXft:              typeof PangoXft10
+            Parquet:              typeof Parquet10
             Peas:              typeof Peas10
             PeasGtk:              typeof PeasGtk10
+            Plasma:              typeof Plasma10
             Pnl:              typeof Pnl10
             Polkit:              typeof Polkit10
             PolkitAgent:              typeof PolkitAgent10
@@ -687,23 +706,21 @@ declare global {
             Retro:              typeof Retro014
                 |
               typeof Retro1
+                |
+              typeof Retro2
             Rsvg:              typeof Rsvg20
-            RygelCore:              typeof RygelCore24
-                |
-              typeof RygelCore26
-            RygelRenderer:              typeof RygelRenderer24
-                |
-              typeof RygelRenderer26
+            RygelCore:              typeof RygelCore26
+            RygelRenderer:              typeof RygelRenderer26
             RygelRendererGst:              typeof RygelRendererGst26
-            RygelServer:              typeof RygelServer24
-                |
-              typeof RygelServer26
+            RygelServer:              typeof RygelServer26
             Secret:              typeof Secret1
             SecretUnstable:              typeof SecretUnstable0
             Shumate:              typeof Shumate00
             Signon:              typeof Signon20
             Snapd:              typeof Snapd1
             Soup:              typeof Soup24
+                |
+              typeof Soup30
             SoupGNOME:              typeof SoupGNOME24
             SpiceClientGLib:              typeof SpiceClientGLib20
             SpiceClientGtk:              typeof SpiceClientGtk30
@@ -720,9 +737,7 @@ declare global {
             TimezoneMap:              typeof TimezoneMap10
             Totem:              typeof Totem10
             TotemPlParser:              typeof TotemPlParser10
-            Tracker:              typeof Tracker016
-                |
-              typeof Tracker10
+            Tracker:              typeof Tracker10
                 |
               typeof Tracker20
                 |
@@ -730,10 +745,7 @@ declare global {
             TrackerControl:              typeof TrackerControl10
                 |
               typeof TrackerControl20
-            TrackerExtract:              typeof TrackerExtract016
-            TrackerMiner:              typeof TrackerMiner016
-                |
-              typeof TrackerMiner10
+            TrackerMiner:              typeof TrackerMiner10
                 |
               typeof TrackerMiner20
             UDisks:              typeof UDisks20
@@ -749,16 +761,19 @@ declare global {
             Vgpg:              typeof Vgpg1
             Vgsl:              typeof Vgsl1
             Vpg:              typeof Vpg1
+            Vsqlite:              typeof Vsqlite1
             Vte:              typeof Vte291
             Vulkan:              typeof Vulkan10
-            WebKit:              typeof WebKit30
-            WebKit2:              typeof WebKit230
+            WebKit2:              typeof WebKit240
                 |
-              typeof WebKit240
-            WebKit2WebExtension:              typeof WebKit2WebExtension30
+              typeof WebKit250
+            WebKit2WebExtension:              typeof WebKit2WebExtension40
                 |
-              typeof WebKit2WebExtension40
+              typeof WebKit2WebExtension50
             Wnck:              typeof Wnck30
+            Xdp:              typeof Xdp10
+            XdpGtk3:              typeof XdpGtk310
+            XdpGtk4:              typeof XdpGtk410
             Xkl:              typeof Xkl10
             Zeitgeist:              typeof Zeitgeist20
             Zpj:              typeof Zpj00
@@ -787,11 +802,14 @@ declare global {
             AppStream:              '1.0'
             AppStreamBuilder:              '1.0'
             AppStreamGlib:              '1.0'
+            Arrow:              '1.0'
+            ArrowDataset:              '1.0'
             Atk:              '1.0'
             Atspi:              '2.0'
             Babl:              '0.1'
             Bamf:              '3'
             Builder:              '1.0'
+            Bump:              '0.1'
             Cally:              '1.0'
             Camel:              '1.2'
             Caribou:              '1.0'
@@ -897,20 +915,19 @@ declare global {
             GVnc:              '1.0'
             GVncPulse:              '1.0'
             GWeather:              '3.0'
+                |
+              '4.0'
             GXPS:              '0.1'
                 |
               '1.0'
-            GXml:              '0.10'
-                |
-              '0.14'
+            GXml:              '0.14'
                 |
               '0.16'
                 |
               '0.18'
                 |
               '0.20'
-                |
-              '0.4'
+            Gandiva:              '1.0'
             Gck:              '1'
             Gcr:              '3'
             GcrUi:              '3'
@@ -956,10 +973,14 @@ declare global {
             Gladeui:              '2.0'
             GnomeAutoar:              '0.1'
             GnomeAutoarGtk:              '0.1'
+            GnomeBG:              '4.0'
             GnomeBluetooth:              '1.0'
             GnomeDesktop:              '3.0'
+                |
+              '4.0'
             GnomeKeyring:              '1.0'
             GnomeMaps:              '1.0'
+            GnomeRR:              '4.0'
             GoVirt:              '1.0'
             Goa:              '1.0'
             GooCanvas:              '2.0'
@@ -1010,6 +1031,7 @@ declare global {
             GstPbutils:              '1.0'
                 |
               '0.10'
+            GstPlay:              '1.0'
             GstPlayer:              '1.0'
             GstRiff:              '1.0'
             GstRtp:              '1.0'
@@ -1051,11 +1073,12 @@ declare global {
             ICalGLib:              '3.0'
             Ide:              '1.0'
             JSCore:              '3.0'
-            JavaScriptCore:              '3.0'
+            JavaScriptCore:              '4.0'
                 |
-              '4.0'
+              '5.0'
             Json:              '1.0'
             Jsonrpc:              '1.0'
+            Libmsi:              '1.0'
             Libosinfo:              '1.0'
             LibvirtGConfig:              '1.0'
             LibvirtGLib:              '1.0'
@@ -1090,8 +1113,10 @@ declare global {
             PangoFc:              '1.0'
             PangoOT:              '1.0'
             PangoXft:              '1.0'
+            Parquet:              '1.0'
             Peas:              '1.0'
             PeasGtk:              '1.0'
+            Plasma:              '1.0'
             Pnl:              '1.0'
             Polkit:              '1.0'
             PolkitAgent:              '1.0'
@@ -1102,23 +1127,21 @@ declare global {
             Retro:              '0.14'
                 |
               '1'
+                |
+              '2'
             Rsvg:              '2.0'
-            RygelCore:              '2.4'
-                |
-              '2.6'
-            RygelRenderer:              '2.4'
-                |
-              '2.6'
+            RygelCore:              '2.6'
+            RygelRenderer:              '2.6'
             RygelRendererGst:              '2.6'
-            RygelServer:              '2.4'
-                |
-              '2.6'
+            RygelServer:              '2.6'
             Secret:              '1'
             SecretUnstable:              '0'
             Shumate:              '0.0'
             Signon:              '2.0'
             Snapd:              '1'
             Soup:              '2.4'
+                |
+              '3.0'
             SoupGNOME:              '2.4'
             SpiceClientGLib:              '2.0'
             SpiceClientGtk:              '3.0'
@@ -1135,9 +1158,7 @@ declare global {
             TimezoneMap:              '1.0'
             Totem:              '1.0'
             TotemPlParser:              '1.0'
-            Tracker:              '0.16'
-                |
-              '1.0'
+            Tracker:              '1.0'
                 |
               '2.0'
                 |
@@ -1145,10 +1166,7 @@ declare global {
             TrackerControl:              '1.0'
                 |
               '2.0'
-            TrackerExtract:              '0.16'
-            TrackerMiner:              '0.16'
-                |
-              '1.0'
+            TrackerMiner:              '1.0'
                 |
               '2.0'
             UDisks:              '2.0'
@@ -1164,16 +1182,19 @@ declare global {
             Vgpg:              '1'
             Vgsl:              '1'
             Vpg:              '1'
+            Vsqlite:              '1'
             Vte:              '2.91'
             Vulkan:              '1.0'
-            WebKit:              '3.0'
-            WebKit2:              '3.0'
+            WebKit2:              '4.0'
                 |
-              '4.0'
-            WebKit2WebExtension:              '3.0'
+              '5.0'
+            WebKit2WebExtension:              '4.0'
                 |
-              '4.0'
+              '5.0'
             Wnck:              '3.0'
+            Xdp:              '1.0'
+            XdpGtk3:              '1.0'
+            XdpGtk4:              '1.0'
             Xkl:              '1.0'
             Zeitgeist:              '2.0'
             Zpj:              '0.0'

@@ -805,6 +805,12 @@ export class XkbInfo {
     thawNotify(): void
     unref(): void
     watchClosure(closure: Function): void
+    /* Signals of GnomeDesktop-3.0.GnomeDesktop.XkbInfo */
+    connect(sigName: "layouts-changed", callback: (($obj: XkbInfo) => void)): number
+    on(sigName: "layouts-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "layouts-changed", callback: () => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "layouts-changed", callback: () => void): NodeJS.EventEmitter
+    emit(sigName: "layouts-changed"): void
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: XkbInfo, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter

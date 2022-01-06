@@ -1944,6 +1944,7 @@ export class Store {
     get_origin(): string
     get_search_match(): number
     get_size(): number
+    get_version(): string
     get_watch_flags(): number
     load(flags: number, cancellable?: Gio.Cancellable | null): boolean
     load_async(flags: StoreLoadFlags, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -1963,6 +1964,7 @@ export class Store {
     set_destdir(destdir: string): void
     set_origin(origin: string): void
     set_search_match(search_match: number): void
+    set_version(api_version: string): void
     set_watch_flags(watch_flags: number): void
     to_file(file: Gio.File, flags: number, cancellable?: Gio.Cancellable | null): boolean
     to_xml(flags: number): GLib.String

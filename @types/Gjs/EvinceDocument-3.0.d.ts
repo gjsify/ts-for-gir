@@ -217,7 +217,6 @@ export enum FindOptions {
     WHOLE_WORDS_ONLY,
 }
 export const MAJOR_VERSION: number
-export const MICRO_VERSION: number
 export const MINOR_VERSION: number
 export function backends_manager_get_document(mime_type: string): Document
 export function backends_manager_get_document_module_name(document: Document): string
@@ -289,6 +288,7 @@ export class AnnotationMarkup {
     set_contents(contents: string): boolean
     set_modified(modified: string): boolean
     set_modified_from_time(utime: GLib.Time): boolean
+    set_modified_from_time_t(utime: number): boolean
     set_name(name: string): boolean
     set_rgba(rgba: Gdk.RGBA): boolean
     /* Methods of GObject-2.0.GObject.Object */
@@ -608,6 +608,7 @@ export class Annotation {
     set_contents(contents: string): boolean
     set_modified(modified: string): boolean
     set_modified_from_time(utime: GLib.Time): boolean
+    set_modified_from_time_t(utime: number): boolean
     set_name(name: string): boolean
     set_rgba(rgba: Gdk.RGBA): boolean
     /* Methods of GObject-2.0.GObject.Object */
@@ -712,6 +713,7 @@ export class AnnotationAttachment {
     set_contents(contents: string): boolean
     set_modified(modified: string): boolean
     set_modified_from_time(utime: GLib.Time): boolean
+    set_modified_from_time_t(utime: number): boolean
     set_name(name: string): boolean
     set_rgba(rgba: Gdk.RGBA): boolean
     /* Methods of GObject-2.0.GObject.Object */
@@ -846,6 +848,7 @@ export class AnnotationText {
     set_contents(contents: string): boolean
     set_modified(modified: string): boolean
     set_modified_from_time(utime: GLib.Time): boolean
+    set_modified_from_time_t(utime: number): boolean
     set_name(name: string): boolean
     set_rgba(rgba: Gdk.RGBA): boolean
     /* Methods of GObject-2.0.GObject.Object */
@@ -978,6 +981,7 @@ export class AnnotationTextMarkup {
     set_contents(contents: string): boolean
     set_modified(modified: string): boolean
     set_modified_from_time(utime: GLib.Time): boolean
+    set_modified_from_time_t(utime: number): boolean
     set_name(name: string): boolean
     set_rgba(rgba: Gdk.RGBA): boolean
     /* Methods of GObject-2.0.GObject.Object */
@@ -2095,6 +2099,7 @@ export interface TransitionEffect_ConstructProps extends GObject.Object_Construc
     angle?: number
     direction?: TransitionEffectDirection
     duration?: number
+    duration_real?: number
     rectangular?: boolean
     scale?: number
     type?: TransitionEffectType
@@ -2105,6 +2110,7 @@ export class TransitionEffect {
     angle: number
     direction: TransitionEffectDirection
     duration: number
+    duration_real: number
     rectangular: boolean
     scale: number
     type: TransitionEffectType
@@ -2154,6 +2160,8 @@ export class TransitionEffect {
     connect_after(sigName: "notify::direction", callback: (($obj: TransitionEffect, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::duration", callback: (($obj: TransitionEffect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::duration", callback: (($obj: TransitionEffect, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::duration-real", callback: (($obj: TransitionEffect, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::duration-real", callback: (($obj: TransitionEffect, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::rectangular", callback: (($obj: TransitionEffect, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::rectangular", callback: (($obj: TransitionEffect, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::scale", callback: (($obj: TransitionEffect, pspec: GObject.ParamSpec) => void)): number
@@ -2294,8 +2302,8 @@ export class DocumentInfo {
     producer: string
     linearized: string
     security: string
-    creation_date: GLib.Time
-    modified_date: GLib.Time
+    creation_date: GLib.DateTime
+    modified_date: GLib.DateTime
     layout: DocumentLayout
     mode: DocumentMode
     ui_hints: number

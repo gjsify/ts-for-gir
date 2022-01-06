@@ -988,6 +988,7 @@ export interface InfileZip_ConstructProps extends Infile_ConstructProps {
 export class InfileZip {
     /* Properties of Gsf-1.Gsf.InfileZip */
     readonly compressionLevel: number
+    readonly zip64: boolean
     /* Properties of Gsf-1.Gsf.Input */
     readonly container: Infile
     readonly eof: boolean
@@ -1060,6 +1061,11 @@ export class InfileZip {
     on(sigName: "notify::compression-level", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::compression-level", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::compression-level", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::zip64", callback: (($obj: InfileZip, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::zip64", callback: (($obj: InfileZip, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::zip64", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::zip64", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::zip64", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::container", callback: (($obj: InfileZip, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::container", callback: (($obj: InfileZip, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::container", callback: (...args: any[]) => void): NodeJS.EventEmitter

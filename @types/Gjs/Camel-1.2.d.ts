@@ -79,6 +79,7 @@ export enum DBKnownColumnNames {
     MLIST,
     NEXTUID,
     PART,
+    PREVIEW,
     READ,
     REPLIED,
     SAVED_COUNT,
@@ -87,6 +88,7 @@ export enum DBKnownColumnNames {
     TIME,
     UID,
     UNREAD_COUNT,
+    USERHEADERS,
     USERTAGS,
     VERSION,
     VISIBLE_COUNT,
@@ -396,6 +398,15 @@ export enum MessageFlags {
     JUNK_LEARN,
     USER,
 }
+export enum MimeFilterCanonFlags {
+    CRLF,
+    FROM,
+    STRIP,
+}
+export enum MimeFilterEnrichedFlags {
+    NONE,
+    IS_RICHTEXT,
+}
 export enum MimeFilterToHTMLFlags {
     PRE,
     CONVERT_NL,
@@ -577,7 +588,6 @@ export const LOCK_DOT_STALE: number
 export const LOCK_RETRY: number
 export const MESSAGE_DATE_CURRENT: number
 export const MESSAGE_SYSTEM_MASK: number
-export const MIME_FILTER_ENRICHED_IS_RICHTEXT: number
 export const MIME_YDECODE_STATE_BEGIN: number
 export const MIME_YDECODE_STATE_DECODE: number
 export const MIME_YDECODE_STATE_END: number
@@ -599,6 +609,8 @@ export const RECIPIENT_TYPE_RESENT_BCC: string
 export const RECIPIENT_TYPE_RESENT_CC: string
 export const RECIPIENT_TYPE_RESENT_TO: string
 export const RECIPIENT_TYPE_TO: string
+export const SESSION_BOOK_UID_ANY: string
+export const SESSION_BOOK_UID_COMPLETION: string
 export const STORE_INFO_FOLDER_TYPE_BIT: number
 export const STORE_INFO_FOLDER_TYPE_MASK: number
 export const STORE_INFO_FOLDER_UNKNOWN: number
@@ -617,6 +629,7 @@ export const URL_PART_PATH: number
 export const URL_PART_PATH_DIR: number
 export const URL_PART_PORT: number
 export const URL_PART_USER: number
+export const UTILS_MAX_USER_HEADERS: number
 export const UUDECODE_STATE_MASK: number
 export const VJUNK_NAME: string
 export const VTRASH_NAME: string
@@ -641,7 +654,7 @@ export function debug_ref_unref_dump_backtraces(): void
 export function debug_ref_unref_push_backtrace(backtrace: GLib.String, object_ref_count: number): void
 export function debug_ref_unref_push_backtrace_for_object(_object?: object | null): void
 export function debug_start(mode: string): boolean
-export function enriched_to_html(in_: string, flags: number): string
+export function enriched_to_html(in_: string, flags: MimeFilterEnrichedFlags): string
 export function error_quark(): GLib.Quark
 export function file_util_decode_fixed_int32(in_: object | null, dest: number): number
 export function file_util_decode_fixed_string(in_: object | null, str: string, len: number): number
@@ -696,6 +709,7 @@ export function header_token_decode(in_: string): string
 export function header_unfold(in_: string): string
 export function headers_dup_mailing_list(headers: NameValueArray): string | null
 export function host_idna_to_ascii(host: string): string
+export function hostname_utils_requires_ascii(hostname: string): boolean
 export function iconv_charset_language(charset: string): string
 export function iconv_charset_name(charset: string): string
 export function iconv_locale_charset(): string
@@ -748,6 +762,7 @@ export function store_info_set_string(summary: StoreSummary, info: StoreInfo, ty
 export function strcase_equal(a?: object | null, b?: object | null): number
 export function strcase_hash(v?: object | null): number
 export function strdown(str: string): string
+export function string_is_all_ascii(str?: string | null): boolean
 export function strstrcase(haystack: string, needle: string): string
 export function system_flag(name: string): MessageFlags
 export function system_flag_get(flags: MessageFlags, name: string): boolean
@@ -783,6 +798,13 @@ export function util_bdata_get_number(bdata_ptr: string, default_value: number):
 export function util_bdata_get_string(bdata_ptr: string, default_value: string): string
 export function util_bdata_put_number(bdata_str: GLib.String, value: number): void
 export function util_bdata_put_string(bdata_str: GLib.String, value: string): void
+export function util_decode_user_header_setting(setting_value: string): [ /* out_display_name */ string | null, /* out_header_name */ string ]
+export function util_encode_user_header_setting(display_name: string | null, header_name: string): string
+export function util_fill_message_info_user_headers(info: MessageInfo, headers: NameValueArray): boolean
+export function util_get_directory_variants(main_path: string, replace_prefix: string, with_modules_dir: boolean): string[]
+export function utils_sanitize_ascii_domain_in_address(email_address: string, do_format: boolean): string | null
+export function utils_sanitize_ascii_domain_in_url(url: URL): boolean
+export function utils_sanitize_ascii_domain_in_url_str(url_str: string): string | null
 export function uudecode_step(in_: Uint8Array[], out: Uint8Array[], save: number[]): [ /* returnType */ number, /* out */ Uint8Array[], /* save */ number[] ]
 export function uuencode_close(in_: Uint8Array[], out: Uint8Array[], uubuf: Uint8Array[], save: number[]): [ /* returnType */ number, /* out */ Uint8Array[], /* uubuf */ Uint8Array[], /* save */ number[] ]
 export function uuencode_step(in_: Uint8Array[], out: Uint8Array[], uubuf: Uint8Array[], save: number[]): [ /* returnType */ number, /* out */ Uint8Array[], /* uubuf */ Uint8Array[], /* save */ number[] ]
@@ -1792,7 +1814,7 @@ export class DataWrapper {
     get_byte_array(): Uint8Array[]
     get_encoding(): TransferEncoding
     get_mime_type(): string
-    get_mime_type_field(): ContentType
+    get_mime_type_field(): ContentType | null
     is_offline(): boolean
     set_encoding(encoding: TransferEncoding): void
     set_mime_type(mime_type: string): void
@@ -1833,7 +1855,7 @@ export class DataWrapper {
     vfunc_decode_to_output_stream_sync(output_stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): number
     vfunc_decode_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
     vfunc_get_mime_type(): string
-    vfunc_get_mime_type_field(): ContentType
+    vfunc_get_mime_type_field(): ContentType | null
     vfunc_is_offline(): boolean
     vfunc_set_mime_type(mime_type: string): void
     vfunc_set_mime_type_field(mime_type?: ContentType | null): void
@@ -2157,9 +2179,9 @@ export class Folder {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel-1.2.Camel.Folder */
-    append_message(message: MimeMessage, info: MessageInfo, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    append_message_finish(result: Gio.AsyncResult, appended_uid: string): boolean
-    append_message_sync(message: MimeMessage, info: MessageInfo, appended_uid: string, cancellable?: Gio.Cancellable | null): boolean
+    append_message(message: MimeMessage, info: MessageInfo | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    append_message_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* appended_uid */ string | null ]
+    append_message_sync(message: MimeMessage, info?: MessageInfo | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* appended_uid */ string | null ]
     changed(changes: FolderChangeInfo): void
     cmp_uids(uid1: string, uid2: string): number
     count_by_expression(expression: string, cancellable?: Gio.Cancellable | null): number
@@ -2237,8 +2259,8 @@ export class Folder {
     take_folder_summary(summary: FolderSummary): void
     thaw(): void
     transfer_messages_to(message_uids: string[], destination: Folder, delete_originals: boolean, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    transfer_messages_to_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* transferred_uids */ string[] ]
-    transfer_messages_to_sync(message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* transferred_uids */ string[] ]
+    transfer_messages_to_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* transferred_uids */ string[] | null ]
+    transfer_messages_to_sync(message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* transferred_uids */ string[] | null ]
     unlock(): void
     /* Methods of Camel-1.2.Camel.Object */
     get_state_filename(): string
@@ -2268,7 +2290,7 @@ export class Folder {
     unref(): void
     watch_closure(closure: Function): void
     /* Virtual methods of Camel-1.2.Camel.Folder */
-    vfunc_append_message_sync(message: MimeMessage, info: MessageInfo, appended_uid: string, cancellable?: Gio.Cancellable | null): boolean
+    vfunc_append_message_sync(message: MimeMessage, info?: MessageInfo | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* appended_uid */ string | null ]
     vfunc_changed(changes: FolderChangeInfo): void
     vfunc_cmp_uids(uid1: string, uid2: string): number
     vfunc_count_by_expression(expression: string, cancellable?: Gio.Cancellable | null): number
@@ -2308,7 +2330,7 @@ export class Folder {
     vfunc_synchronize_message_sync(message_uid: string, cancellable?: Gio.Cancellable | null): boolean
     vfunc_synchronize_sync(expunge: boolean, cancellable?: Gio.Cancellable | null): boolean
     vfunc_thaw(): void
-    vfunc_transfer_messages_to_sync(message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* transferred_uids */ string[] ]
+    vfunc_transfer_messages_to_sync(message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* transferred_uids */ string[] | null ]
     /* Virtual methods of Camel-1.2.Camel.Object */
     vfunc_state_read(fp?: object | null): number
     vfunc_state_write(fp?: object | null): number
@@ -2926,6 +2948,7 @@ export class InternetAddress {
     find_address(address: string): [ /* returnType */ number, /* namep */ string | null ]
     find_name(name: string): [ /* returnType */ number, /* addressp */ string | null ]
     get(index: number): [ /* returnType */ boolean, /* namep */ string | null, /* addressp */ string | null ]
+    sanitize_ascii_domain(): boolean
     /* Methods of Camel-1.2.Camel.Address */
     cat(source: Address): number
     copy(source: Address): number
@@ -3220,8 +3243,8 @@ export class Medium {
     get_header(name: string): string | null
     get_headers(): NameValueArray
     remove_header(name: string): void
-    set_content(content: DataWrapper): void
-    set_header(name: string, value: string): void
+    set_content(content?: DataWrapper | null): void
+    set_header(name: string, value?: string | null): void
     /* Methods of Camel-1.2.Camel.DataWrapper */
     calculate_decoded_size_sync(cancellable?: Gio.Cancellable | null): number
     calculate_size_sync(cancellable?: Gio.Cancellable | null): number
@@ -3240,7 +3263,7 @@ export class Medium {
     get_byte_array(): Uint8Array[]
     get_encoding(): TransferEncoding
     get_mime_type(): string
-    get_mime_type_field(): ContentType
+    get_mime_type_field(): ContentType | null
     is_offline(): boolean
     set_encoding(encoding: TransferEncoding): void
     set_mime_type(mime_type: string): void
@@ -3282,15 +3305,15 @@ export class Medium {
     vfunc_get_header(name: string): string | null
     vfunc_get_headers(): NameValueArray
     vfunc_remove_header(name: string): void
-    vfunc_set_content(content: DataWrapper): void
-    vfunc_set_header(name: string, value: string): void
+    vfunc_set_content(content?: DataWrapper | null): void
+    vfunc_set_header(name: string, value?: string | null): void
     /* Virtual methods of Camel-1.2.Camel.DataWrapper */
     vfunc_construct_from_input_stream_sync(input_stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): boolean
     vfunc_construct_from_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): boolean
     vfunc_decode_to_output_stream_sync(output_stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): number
     vfunc_decode_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
     vfunc_get_mime_type(): string
-    vfunc_get_mime_type_field(): ContentType
+    vfunc_get_mime_type_field(): ContentType | null
     vfunc_is_offline(): boolean
     vfunc_set_mime_type(mime_type: string): void
     vfunc_set_mime_type_field(mime_type?: ContentType | null): void
@@ -3325,12 +3348,13 @@ export interface MessageInfo_ConstructProps extends GObject.Object_ConstructProp
     date_received?: number
     date_sent?: number
     dirty?: boolean
-    flags?: number
+    flags?: MessageFlags
     folder_flagged?: boolean
     from?: string
     headers?: NameValueArray
     message_id?: number
     mlist?: string
+    preview?: string
     references?: object[]
     size?: number
     subject?: string
@@ -3338,6 +3362,7 @@ export interface MessageInfo_ConstructProps extends GObject.Object_ConstructProp
     to?: string
     uid?: string
     user_flags?: NamedFlags
+    user_headers?: NameValueArray
     user_tags?: NameValueArray
 }
 export class MessageInfo {
@@ -3347,19 +3372,21 @@ export class MessageInfo {
     date_received: number
     date_sent: number
     dirty: boolean
-    flags: number
+    flags: MessageFlags
     folder_flagged: boolean
     readonly folder_flagged_stamp: number
     from: string
     headers: NameValueArray
     message_id: number
     mlist: string
+    preview: string
     references: object[]
     size: number
     subject: string
     to: string
     uid: string
     user_flags: NamedFlags
+    user_headers: NameValueArray
     user_tags: NameValueArray
     /* Fields of Camel-1.2.Camel.MessageInfo */
     parent: GObject.Object
@@ -3370,8 +3397,11 @@ export class MessageInfo {
     clone(assign_summary?: FolderSummary | null): MessageInfo
     dump(): void
     dup_headers(): NameValueArray | null
+    dup_preview(): string | null
     dup_references(): number[] | null
     dup_user_flags(): NamedFlags
+    dup_user_header(name: string): string | null
+    dup_user_headers(): NameValueArray | null
     dup_user_tag(name: string): string | null
     dup_user_tags(): NameValueArray | null
     freeze_notifications(): void
@@ -3388,6 +3418,7 @@ export class MessageInfo {
     get_message_id(): number
     get_mlist(): string
     get_notifications_frozen(): boolean
+    get_preview(): string | null
     get_references(): number[] | null
     get_size(): number
     get_subject(): string
@@ -3395,6 +3426,8 @@ export class MessageInfo {
     get_uid(): string
     get_user_flag(name: string): boolean
     get_user_flags(): NamedFlags | null
+    get_user_header(name: string): string | null
+    get_user_headers(): NameValueArray | null
     get_user_tag(name: string): string | null
     get_user_tags(): NameValueArray | null
     load(record: MIRecord, bdata_ptr: string): boolean
@@ -3413,15 +3446,18 @@ export class MessageInfo {
     set_from(from?: string | null): boolean
     set_message_id(message_id: number): boolean
     set_mlist(mlist?: string | null): boolean
+    set_preview(preview?: string | null): boolean
     set_size(size: number): boolean
     set_subject(subject?: string | null): boolean
     set_to(to?: string | null): boolean
     set_uid(uid: string): boolean
     set_user_flag(name: string, state: boolean): boolean
+    set_user_header(name: string, value?: string | null): boolean
     set_user_tag(name: string, value?: string | null): boolean
     take_headers(headers?: NameValueArray | null): boolean
     take_references(references?: number[] | null): boolean
     take_user_flags(user_flags?: NamedFlags | null): boolean
+    take_user_headers(headers?: NameValueArray | null): boolean
     take_user_tags(user_tags?: NameValueArray | null): boolean
     thaw_notifications(): void
     /* Methods of GObject-2.0.GObject.Object */
@@ -3458,12 +3494,15 @@ export class MessageInfo {
     vfunc_get_headers(): NameValueArray | null
     vfunc_get_message_id(): number
     vfunc_get_mlist(): string
+    vfunc_get_preview(): string | null
     vfunc_get_references(): number[] | null
     vfunc_get_size(): number
     vfunc_get_subject(): string
     vfunc_get_to(): string
     vfunc_get_user_flag(name: string): boolean
     vfunc_get_user_flags(): NamedFlags | null
+    vfunc_get_user_header(name: string): string | null
+    vfunc_get_user_headers(): NameValueArray | null
     vfunc_get_user_tag(name: string): string | null
     vfunc_get_user_tags(): NameValueArray | null
     vfunc_load(record: MIRecord | null, bdata_ptr: string): boolean
@@ -3475,14 +3514,17 @@ export class MessageInfo {
     vfunc_set_from(from?: string | null): boolean
     vfunc_set_message_id(message_id: number): boolean
     vfunc_set_mlist(mlist?: string | null): boolean
+    vfunc_set_preview(preview?: string | null): boolean
     vfunc_set_size(size: number): boolean
     vfunc_set_subject(subject?: string | null): boolean
     vfunc_set_to(to?: string | null): boolean
     vfunc_set_user_flag(name: string, state: boolean): boolean
+    vfunc_set_user_header(name: string, value?: string | null): boolean
     vfunc_set_user_tag(name: string, value?: string | null): boolean
     vfunc_take_headers(headers?: NameValueArray | null): boolean
     vfunc_take_references(references?: number[] | null): boolean
     vfunc_take_user_flags(user_flags?: NamedFlags | null): boolean
+    vfunc_take_user_headers(headers?: NameValueArray | null): boolean
     vfunc_take_user_tags(user_tags?: NameValueArray | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
@@ -3520,6 +3562,8 @@ export class MessageInfo {
     connect_after(sigName: "notify::message-id", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::mlist", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::mlist", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::preview", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::preview", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::references", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::references", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
@@ -3532,6 +3576,8 @@ export class MessageInfo {
     connect_after(sigName: "notify::uid", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::user-flags", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::user-flags", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::user-headers", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::user-headers", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::user-tags", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::user-tags", callback: (($obj: MessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -3555,19 +3601,21 @@ export class MessageInfoBase {
     date_received: number
     date_sent: number
     dirty: boolean
-    flags: number
+    flags: MessageFlags
     folder_flagged: boolean
     readonly folder_flagged_stamp: number
     from: string
     headers: NameValueArray
     message_id: number
     mlist: string
+    preview: string
     references: object[]
     size: number
     subject: string
     to: string
     uid: string
     user_flags: NamedFlags
+    user_headers: NameValueArray
     user_tags: NameValueArray
     /* Fields of Camel-1.2.Camel.MessageInfoBase */
     parent: MessageInfo
@@ -3578,8 +3626,11 @@ export class MessageInfoBase {
     clone(assign_summary?: FolderSummary | null): MessageInfo
     dump(): void
     dup_headers(): NameValueArray | null
+    dup_preview(): string | null
     dup_references(): number[] | null
     dup_user_flags(): NamedFlags
+    dup_user_header(name: string): string | null
+    dup_user_headers(): NameValueArray | null
     dup_user_tag(name: string): string | null
     dup_user_tags(): NameValueArray | null
     freeze_notifications(): void
@@ -3596,6 +3647,7 @@ export class MessageInfoBase {
     get_message_id(): number
     get_mlist(): string
     get_notifications_frozen(): boolean
+    get_preview(): string | null
     get_references(): number[] | null
     get_size(): number
     get_subject(): string
@@ -3603,6 +3655,8 @@ export class MessageInfoBase {
     get_uid(): string
     get_user_flag(name: string): boolean
     get_user_flags(): NamedFlags | null
+    get_user_header(name: string): string | null
+    get_user_headers(): NameValueArray | null
     get_user_tag(name: string): string | null
     get_user_tags(): NameValueArray | null
     load(record: MIRecord, bdata_ptr: string): boolean
@@ -3621,15 +3675,18 @@ export class MessageInfoBase {
     set_from(from?: string | null): boolean
     set_message_id(message_id: number): boolean
     set_mlist(mlist?: string | null): boolean
+    set_preview(preview?: string | null): boolean
     set_size(size: number): boolean
     set_subject(subject?: string | null): boolean
     set_to(to?: string | null): boolean
     set_uid(uid: string): boolean
     set_user_flag(name: string, state: boolean): boolean
+    set_user_header(name: string, value?: string | null): boolean
     set_user_tag(name: string, value?: string | null): boolean
     take_headers(headers?: NameValueArray | null): boolean
     take_references(references?: number[] | null): boolean
     take_user_flags(user_flags?: NamedFlags | null): boolean
+    take_user_headers(headers?: NameValueArray | null): boolean
     take_user_tags(user_tags?: NameValueArray | null): boolean
     thaw_notifications(): void
     /* Methods of GObject-2.0.GObject.Object */
@@ -3666,12 +3723,15 @@ export class MessageInfoBase {
     vfunc_get_headers(): NameValueArray | null
     vfunc_get_message_id(): number
     vfunc_get_mlist(): string
+    vfunc_get_preview(): string | null
     vfunc_get_references(): number[] | null
     vfunc_get_size(): number
     vfunc_get_subject(): string
     vfunc_get_to(): string
     vfunc_get_user_flag(name: string): boolean
     vfunc_get_user_flags(): NamedFlags | null
+    vfunc_get_user_header(name: string): string | null
+    vfunc_get_user_headers(): NameValueArray | null
     vfunc_get_user_tag(name: string): string | null
     vfunc_get_user_tags(): NameValueArray | null
     vfunc_load(record: MIRecord | null, bdata_ptr: string): boolean
@@ -3683,14 +3743,17 @@ export class MessageInfoBase {
     vfunc_set_from(from?: string | null): boolean
     vfunc_set_message_id(message_id: number): boolean
     vfunc_set_mlist(mlist?: string | null): boolean
+    vfunc_set_preview(preview?: string | null): boolean
     vfunc_set_size(size: number): boolean
     vfunc_set_subject(subject?: string | null): boolean
     vfunc_set_to(to?: string | null): boolean
     vfunc_set_user_flag(name: string, state: boolean): boolean
+    vfunc_set_user_header(name: string, value?: string | null): boolean
     vfunc_set_user_tag(name: string, value?: string | null): boolean
     vfunc_take_headers(headers?: NameValueArray | null): boolean
     vfunc_take_references(references?: number[] | null): boolean
     vfunc_take_user_flags(user_flags?: NamedFlags | null): boolean
+    vfunc_take_user_headers(headers?: NameValueArray | null): boolean
     vfunc_take_user_tags(user_tags?: NameValueArray | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
@@ -3728,6 +3791,8 @@ export class MessageInfoBase {
     connect_after(sigName: "notify::message-id", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::mlist", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::mlist", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::preview", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::preview", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::references", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::references", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
@@ -3740,6 +3805,8 @@ export class MessageInfoBase {
     connect_after(sigName: "notify::uid", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::user-flags", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::user-flags", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::user-headers", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::user-headers", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::user-tags", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::user-tags", callback: (($obj: MessageInfoBase, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -3989,6 +4056,9 @@ export class MimeFilterCRLF {
     backlen: number
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
+    /* Methods of Camel-1.2.Camel.MimeFilterCRLF */
+    get_ensure_crlf_end(): boolean
+    set_ensure_crlf_end(ensure_crlf_end: boolean): void
     /* Methods of Camel-1.2.Camel.MimeFilter */
     backup(data: Uint8Array[]): void
     complete(in_: Uint8Array[], prespace: number): [ /* out */ Uint8Array[], /* outprespace */ number ]
@@ -4114,7 +4184,7 @@ export class MimeFilterCanon {
     constructor (config?: MimeFilterCanon_ConstructProps)
     _init (config?: MimeFilterCanon_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(flags: number): MimeFilterCanon
+    static new(flags: MimeFilterCanonFlags): MimeFilterCanon
     static new(): MimeFilterCanon
     static $gtype: GObject.Type
 }
@@ -4260,7 +4330,7 @@ export class MimeFilterEnriched {
     constructor (config?: MimeFilterEnriched_ConstructProps)
     _init (config?: MimeFilterEnriched_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(flags: number): MimeFilterEnriched
+    static new(flags: MimeFilterEnrichedFlags): MimeFilterEnriched
     static new(): MimeFilterEnriched
     static $gtype: GObject.Type
 }
@@ -5045,26 +5115,26 @@ export class MimeMessage {
     construct_from_parser(parser: MimeParser, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     construct_from_parser_finish(result: Gio.AsyncResult): boolean
     construct_from_parser_sync(parser: MimeParser, cancellable?: Gio.Cancellable | null): boolean
-    get_content_disposition(): ContentDisposition
-    get_content_id(): string
-    get_content_languages(): string[]
-    get_content_location(): string
-    get_content_md5(): string
-    get_content_type(): ContentType
-    get_description(): string
-    get_disposition(): string
+    get_content_disposition(): ContentDisposition | null
+    get_content_id(): string | null
+    get_content_languages(): string[] | null
+    get_content_location(): string | null
+    get_content_md5(): string | null
+    get_content_type(): ContentType | null
+    get_description(): string | null
+    get_disposition(): string | null
     get_encoding(): TransferEncoding
-    get_filename(): string
+    get_filename(): string | null
     set_content(data: Uint8Array[] | null, type?: string | null): void
-    set_content_id(contentid: string): void
-    set_content_languages(content_languages: string[]): void
-    set_content_location(location: string): void
-    set_content_md5(md5sum: string): void
-    set_content_type(content_type: string): void
+    set_content_id(contentid?: string | null): void
+    set_content_languages(content_languages?: string[] | null): void
+    set_content_location(location?: string | null): void
+    set_content_md5(md5sum?: string | null): void
+    set_content_type(content_type?: string | null): void
     set_description(description: string): void
-    set_disposition(disposition: string): void
+    set_disposition(disposition?: string | null): void
     set_encoding(encoding: TransferEncoding): void
-    set_filename(filename: string): void
+    set_filename(filename?: string | null): void
     /* Methods of Camel-1.2.Camel.Medium */
     add_header(name: string, value: string): void
     dup_headers(): NameValueArray
@@ -5072,8 +5142,8 @@ export class MimeMessage {
     get_header(name: string): string | null
     get_headers(): NameValueArray
     remove_header(name: string): void
-    set_content(content: DataWrapper): void
-    set_header(name: string, value: string): void
+    set_content(content?: DataWrapper | null): void
+    set_header(name: string, value?: string | null): void
     /* Methods of Camel-1.2.Camel.DataWrapper */
     calculate_decoded_size_sync(cancellable?: Gio.Cancellable | null): number
     calculate_size_sync(cancellable?: Gio.Cancellable | null): number
@@ -5091,7 +5161,7 @@ export class MimeMessage {
     decode_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
     get_byte_array(): Uint8Array[]
     get_mime_type(): string
-    get_mime_type_field(): ContentType
+    get_mime_type_field(): ContentType | null
     is_offline(): boolean
     set_mime_type(mime_type: string): void
     set_mime_type_field(mime_type?: ContentType | null): void
@@ -5134,15 +5204,15 @@ export class MimeMessage {
     vfunc_get_header(name: string): string | null
     vfunc_get_headers(): NameValueArray
     vfunc_remove_header(name: string): void
-    vfunc_set_content(content: DataWrapper): void
-    vfunc_set_header(name: string, value: string): void
+    vfunc_set_content(content?: DataWrapper | null): void
+    vfunc_set_header(name: string, value?: string | null): void
     /* Virtual methods of Camel-1.2.Camel.DataWrapper */
     vfunc_construct_from_input_stream_sync(input_stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): boolean
     vfunc_construct_from_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): boolean
     vfunc_decode_to_output_stream_sync(output_stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): number
     vfunc_decode_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
     vfunc_get_mime_type(): string
-    vfunc_get_mime_type_field(): ContentType
+    vfunc_get_mime_type_field(): ContentType | null
     vfunc_is_offline(): boolean
     vfunc_set_mime_type(mime_type: string): void
     vfunc_set_mime_type_field(mime_type?: ContentType | null): void
@@ -5291,26 +5361,26 @@ export class MimePart {
     construct_from_parser(parser: MimeParser, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     construct_from_parser_finish(result: Gio.AsyncResult): boolean
     construct_from_parser_sync(parser: MimeParser, cancellable?: Gio.Cancellable | null): boolean
-    get_content_disposition(): ContentDisposition
-    get_content_id(): string
-    get_content_languages(): string[]
-    get_content_location(): string
-    get_content_md5(): string
-    get_content_type(): ContentType
-    get_description(): string
-    get_disposition(): string
+    get_content_disposition(): ContentDisposition | null
+    get_content_id(): string | null
+    get_content_languages(): string[] | null
+    get_content_location(): string | null
+    get_content_md5(): string | null
+    get_content_type(): ContentType | null
+    get_description(): string | null
+    get_disposition(): string | null
     get_encoding(): TransferEncoding
-    get_filename(): string
+    get_filename(): string | null
     set_content(data: Uint8Array[] | null, type?: string | null): void
-    set_content_id(contentid: string): void
-    set_content_languages(content_languages: string[]): void
-    set_content_location(location: string): void
-    set_content_md5(md5sum: string): void
-    set_content_type(content_type: string): void
+    set_content_id(contentid?: string | null): void
+    set_content_languages(content_languages?: string[] | null): void
+    set_content_location(location?: string | null): void
+    set_content_md5(md5sum?: string | null): void
+    set_content_type(content_type?: string | null): void
     set_description(description: string): void
-    set_disposition(disposition: string): void
+    set_disposition(disposition?: string | null): void
     set_encoding(encoding: TransferEncoding): void
-    set_filename(filename: string): void
+    set_filename(filename?: string | null): void
     /* Methods of Camel-1.2.Camel.Medium */
     add_header(name: string, value: string): void
     dup_headers(): NameValueArray
@@ -5318,8 +5388,8 @@ export class MimePart {
     get_header(name: string): string | null
     get_headers(): NameValueArray
     remove_header(name: string): void
-    set_content(content: DataWrapper): void
-    set_header(name: string, value: string): void
+    set_content(content?: DataWrapper | null): void
+    set_header(name: string, value?: string | null): void
     /* Methods of Camel-1.2.Camel.DataWrapper */
     calculate_decoded_size_sync(cancellable?: Gio.Cancellable | null): number
     calculate_size_sync(cancellable?: Gio.Cancellable | null): number
@@ -5337,7 +5407,7 @@ export class MimePart {
     decode_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
     get_byte_array(): Uint8Array[]
     get_mime_type(): string
-    get_mime_type_field(): ContentType
+    get_mime_type_field(): ContentType | null
     is_offline(): boolean
     set_mime_type(mime_type: string): void
     set_mime_type_field(mime_type?: ContentType | null): void
@@ -5380,15 +5450,15 @@ export class MimePart {
     vfunc_get_header(name: string): string | null
     vfunc_get_headers(): NameValueArray
     vfunc_remove_header(name: string): void
-    vfunc_set_content(content: DataWrapper): void
-    vfunc_set_header(name: string, value: string): void
+    vfunc_set_content(content?: DataWrapper | null): void
+    vfunc_set_header(name: string, value?: string | null): void
     /* Virtual methods of Camel-1.2.Camel.DataWrapper */
     vfunc_construct_from_input_stream_sync(input_stream: Gio.InputStream, cancellable?: Gio.Cancellable | null): boolean
     vfunc_construct_from_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): boolean
     vfunc_decode_to_output_stream_sync(output_stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): number
     vfunc_decode_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
     vfunc_get_mime_type(): string
-    vfunc_get_mime_type_field(): ContentType
+    vfunc_get_mime_type_field(): ContentType | null
     vfunc_is_offline(): boolean
     vfunc_set_mime_type(mime_type: string): void
     vfunc_set_mime_type_field(mime_type?: ContentType | null): void
@@ -5464,7 +5534,7 @@ export class Multipart {
     get_byte_array(): Uint8Array[]
     get_encoding(): TransferEncoding
     get_mime_type(): string
-    get_mime_type_field(): ContentType
+    get_mime_type_field(): ContentType | null
     is_offline(): boolean
     set_encoding(encoding: TransferEncoding): void
     set_mime_type(mime_type: string): void
@@ -5512,7 +5582,7 @@ export class Multipart {
     vfunc_decode_to_output_stream_sync(output_stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): number
     vfunc_decode_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
     vfunc_get_mime_type(): string
-    vfunc_get_mime_type_field(): ContentType
+    vfunc_get_mime_type_field(): ContentType | null
     vfunc_is_offline(): boolean
     vfunc_set_mime_type(mime_type: string): void
     vfunc_set_mime_type_field(mime_type?: ContentType | null): void
@@ -5578,7 +5648,7 @@ export class MultipartEncrypted {
     get_byte_array(): Uint8Array[]
     get_encoding(): TransferEncoding
     get_mime_type(): string
-    get_mime_type_field(): ContentType
+    get_mime_type_field(): ContentType | null
     is_offline(): boolean
     set_encoding(encoding: TransferEncoding): void
     set_mime_type(mime_type: string): void
@@ -5626,7 +5696,7 @@ export class MultipartEncrypted {
     vfunc_decode_to_output_stream_sync(output_stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): number
     vfunc_decode_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
     vfunc_get_mime_type(): string
-    vfunc_get_mime_type_field(): ContentType
+    vfunc_get_mime_type_field(): ContentType | null
     vfunc_is_offline(): boolean
     vfunc_set_mime_type(mime_type: string): void
     vfunc_set_mime_type_field(mime_type?: ContentType | null): void
@@ -5696,7 +5766,7 @@ export class MultipartSigned {
     get_byte_array(): Uint8Array[]
     get_encoding(): TransferEncoding
     get_mime_type(): string
-    get_mime_type_field(): ContentType
+    get_mime_type_field(): ContentType | null
     is_offline(): boolean
     set_encoding(encoding: TransferEncoding): void
     set_mime_type(mime_type: string): void
@@ -5744,7 +5814,7 @@ export class MultipartSigned {
     vfunc_decode_to_output_stream_sync(output_stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null): number
     vfunc_decode_to_stream_sync(stream: Stream, cancellable?: Gio.Cancellable | null): number
     vfunc_get_mime_type(): string
-    vfunc_get_mime_type_field(): ContentType
+    vfunc_get_mime_type_field(): ContentType | null
     vfunc_is_offline(): boolean
     vfunc_set_mime_type(mime_type: string): void
     vfunc_set_mime_type_field(mime_type?: ContentType | null): void
@@ -6042,9 +6112,9 @@ export class OfflineFolder {
     get_offline_sync(): ThreeState
     set_offline_sync(offline_sync: ThreeState): void
     /* Methods of Camel-1.2.Camel.Folder */
-    append_message(message: MimeMessage, info: MessageInfo, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    append_message_finish(result: Gio.AsyncResult, appended_uid: string): boolean
-    append_message_sync(message: MimeMessage, info: MessageInfo, appended_uid: string, cancellable?: Gio.Cancellable | null): boolean
+    append_message(message: MimeMessage, info: MessageInfo | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    append_message_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* appended_uid */ string | null ]
+    append_message_sync(message: MimeMessage, info?: MessageInfo | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* appended_uid */ string | null ]
     changed(changes: FolderChangeInfo): void
     cmp_uids(uid1: string, uid2: string): number
     count_by_expression(expression: string, cancellable?: Gio.Cancellable | null): number
@@ -6122,8 +6192,8 @@ export class OfflineFolder {
     take_folder_summary(summary: FolderSummary): void
     thaw(): void
     transfer_messages_to(message_uids: string[], destination: Folder, delete_originals: boolean, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    transfer_messages_to_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* transferred_uids */ string[] ]
-    transfer_messages_to_sync(message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* transferred_uids */ string[] ]
+    transfer_messages_to_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* transferred_uids */ string[] | null ]
+    transfer_messages_to_sync(message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* transferred_uids */ string[] | null ]
     unlock(): void
     /* Methods of Camel-1.2.Camel.Object */
     get_state_filename(): string
@@ -6155,7 +6225,7 @@ export class OfflineFolder {
     /* Virtual methods of Camel-1.2.Camel.OfflineFolder */
     vfunc_downsync_sync(expression: string, cancellable?: Gio.Cancellable | null): boolean
     /* Virtual methods of Camel-1.2.Camel.Folder */
-    vfunc_append_message_sync(message: MimeMessage, info: MessageInfo, appended_uid: string, cancellable?: Gio.Cancellable | null): boolean
+    vfunc_append_message_sync(message: MimeMessage, info?: MessageInfo | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* appended_uid */ string | null ]
     vfunc_changed(changes: FolderChangeInfo): void
     vfunc_cmp_uids(uid1: string, uid2: string): number
     vfunc_count_by_expression(expression: string, cancellable?: Gio.Cancellable | null): number
@@ -6195,7 +6265,7 @@ export class OfflineFolder {
     vfunc_synchronize_message_sync(message_uid: string, cancellable?: Gio.Cancellable | null): boolean
     vfunc_synchronize_sync(expunge: boolean, cancellable?: Gio.Cancellable | null): boolean
     vfunc_thaw(): void
-    vfunc_transfer_messages_to_sync(message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* transferred_uids */ string[] ]
+    vfunc_transfer_messages_to_sync(message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* transferred_uids */ string[] | null ]
     /* Virtual methods of Camel-1.2.Camel.Object */
     vfunc_state_read(fp?: object | null): number
     vfunc_state_write(fp?: object | null): number
@@ -6924,7 +6994,7 @@ export class Sasl {
     _init (config?: Sasl_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(service_name: string, mechanism: string, service: Service): Sasl
-    static authtype(mechanism: string): ServiceAuthType
+    static authtype(mechanism: string): ServiceAuthType | null
     static authtype_list(include_plain: boolean): ServiceAuthType[]
     static is_xoauth2_alias(mechanism?: string | null): boolean
     static $gtype: GObject.Type
@@ -7739,6 +7809,79 @@ export class SaslXOAuth2Outlook {
     _init (config?: SaslXOAuth2Outlook_ConstructProps): void
     static $gtype: GObject.Type
 }
+export interface SaslXOAuth2Yahoo_ConstructProps extends SaslXOAuth2_ConstructProps {
+}
+export class SaslXOAuth2Yahoo {
+    /* Properties of Camel-1.2.Camel.Sasl */
+    authenticated: boolean
+    /* Fields of Camel-1.2.Camel.SaslXOAuth2Yahoo */
+    parent: SaslXOAuth2
+    priv: SaslXOAuth2YahooPrivate
+    /* Fields of GObject-2.0.GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of Camel-1.2.Camel.Sasl */
+    challenge(token: Uint8Array[], io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge_base64(token: string, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    challenge_base64_finish(result: Gio.AsyncResult): string
+    challenge_base64_sync(token: string, cancellable?: Gio.Cancellable | null): string
+    challenge_finish(result: Gio.AsyncResult): Uint8Array[]
+    challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
+    get_authenticated(): boolean
+    get_mechanism(): string
+    get_service(): Service
+    get_service_name(): string
+    set_authenticated(authenticated: boolean): void
+    try_empty_password(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    try_empty_password_finish(result: Gio.AsyncResult): boolean
+    try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
+    /* Methods of GObject-2.0.GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: any): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: any): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: Function): void
+    /* Virtual methods of Camel-1.2.Camel.Sasl */
+    vfunc_challenge_sync(token: Uint8Array[], cancellable?: Gio.Cancellable | null): Uint8Array[]
+    vfunc_try_empty_password_sync(cancellable?: Gio.Cancellable | null): boolean
+    /* Virtual methods of GObject-2.0.GObject.Object */
+    vfunc_constructed(): void
+    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose(): void
+    vfunc_finalize(): void
+    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SaslXOAuth2Yahoo, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: SaslXOAuth2Yahoo, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::authenticated", callback: (($obj: SaslXOAuth2Yahoo, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::authenticated", callback: (($obj: SaslXOAuth2Yahoo, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    static name: string
+    constructor (config?: SaslXOAuth2Yahoo_ConstructProps)
+    _init (config?: SaslXOAuth2Yahoo_ConstructProps): void
+    static $gtype: GObject.Type
+}
 export interface Service_ConstructProps extends Object_ConstructProps {
     display_name?: string
     password?: string
@@ -7891,6 +8034,7 @@ export class Session {
     g_type_instance: GObject.TypeInstance
     /* Methods of Camel-1.2.Camel.Session */
     add_service(uid: string, protocol: string, type: ProviderType): Service
+    addressbook_contains_sync(book_uid: string, email_address: string, cancellable?: Gio.Cancellable | null): boolean
     authenticate(service: Service, mechanism: string | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     authenticate_finish(result: Gio.AsyncResult): boolean
     authenticate_sync(service: Service, mechanism?: string | null, cancellable?: Gio.Cancellable | null): boolean
@@ -7947,6 +8091,7 @@ export class Session {
     watch_closure(closure: Function): void
     /* Virtual methods of Camel-1.2.Camel.Session */
     vfunc_add_service(uid: string, protocol: string, type: ProviderType): Service
+    vfunc_addressbook_contains_sync(book_uid: string, email_address: string, cancellable?: Gio.Cancellable | null): boolean
     vfunc_authenticate_sync(service: Service, mechanism?: string | null, cancellable?: Gio.Cancellable | null): boolean
     vfunc_forget_password(service: Service, item: string): boolean
     vfunc_forward_to_sync(folder: Folder, message: MimeMessage, address: string, cancellable?: Gio.Cancellable | null): boolean
@@ -9459,9 +9604,9 @@ export class VTrashFolder {
     set_expression(expression: string): void
     set_folders(folders: Folder[], cancellable?: Gio.Cancellable | null): void
     /* Methods of Camel-1.2.Camel.Folder */
-    append_message(message: MimeMessage, info: MessageInfo, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    append_message_finish(result: Gio.AsyncResult, appended_uid: string): boolean
-    append_message_sync(message: MimeMessage, info: MessageInfo, appended_uid: string, cancellable?: Gio.Cancellable | null): boolean
+    append_message(message: MimeMessage, info: MessageInfo | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    append_message_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* appended_uid */ string | null ]
+    append_message_sync(message: MimeMessage, info?: MessageInfo | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* appended_uid */ string | null ]
     changed(changes: FolderChangeInfo): void
     cmp_uids(uid1: string, uid2: string): number
     count_by_expression(expression: string, cancellable?: Gio.Cancellable | null): number
@@ -9538,8 +9683,8 @@ export class VTrashFolder {
     take_folder_summary(summary: FolderSummary): void
     thaw(): void
     transfer_messages_to(message_uids: string[], destination: Folder, delete_originals: boolean, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    transfer_messages_to_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* transferred_uids */ string[] ]
-    transfer_messages_to_sync(message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* transferred_uids */ string[] ]
+    transfer_messages_to_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* transferred_uids */ string[] | null ]
+    transfer_messages_to_sync(message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* transferred_uids */ string[] | null ]
     unlock(): void
     /* Methods of Camel-1.2.Camel.Object */
     get_state_filename(): string
@@ -9575,7 +9720,7 @@ export class VTrashFolder {
     vfunc_remove_folder(subfolder: Folder, cancellable?: Gio.Cancellable | null): void
     vfunc_set_expression(expression: string): void
     /* Virtual methods of Camel-1.2.Camel.Folder */
-    vfunc_append_message_sync(message: MimeMessage, info: MessageInfo, appended_uid: string, cancellable?: Gio.Cancellable | null): boolean
+    vfunc_append_message_sync(message: MimeMessage, info?: MessageInfo | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* appended_uid */ string | null ]
     vfunc_changed(changes: FolderChangeInfo): void
     vfunc_cmp_uids(uid1: string, uid2: string): number
     vfunc_count_by_expression(expression: string, cancellable?: Gio.Cancellable | null): number
@@ -9615,7 +9760,7 @@ export class VTrashFolder {
     vfunc_synchronize_message_sync(message_uid: string, cancellable?: Gio.Cancellable | null): boolean
     vfunc_synchronize_sync(expunge: boolean, cancellable?: Gio.Cancellable | null): boolean
     vfunc_thaw(): void
-    vfunc_transfer_messages_to_sync(message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* transferred_uids */ string[] ]
+    vfunc_transfer_messages_to_sync(message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* transferred_uids */ string[] | null ]
     /* Virtual methods of Camel-1.2.Camel.Object */
     vfunc_state_read(fp?: object | null): number
     vfunc_state_write(fp?: object | null): number
@@ -9765,9 +9910,9 @@ export class VeeFolder {
     set_expression(expression: string): void
     set_folders(folders: Folder[], cancellable?: Gio.Cancellable | null): void
     /* Methods of Camel-1.2.Camel.Folder */
-    append_message(message: MimeMessage, info: MessageInfo, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    append_message_finish(result: Gio.AsyncResult, appended_uid: string): boolean
-    append_message_sync(message: MimeMessage, info: MessageInfo, appended_uid: string, cancellable?: Gio.Cancellable | null): boolean
+    append_message(message: MimeMessage, info: MessageInfo | null, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    append_message_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* appended_uid */ string | null ]
+    append_message_sync(message: MimeMessage, info?: MessageInfo | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* appended_uid */ string | null ]
     changed(changes: FolderChangeInfo): void
     cmp_uids(uid1: string, uid2: string): number
     count_by_expression(expression: string, cancellable?: Gio.Cancellable | null): number
@@ -9844,8 +9989,8 @@ export class VeeFolder {
     take_folder_summary(summary: FolderSummary): void
     thaw(): void
     transfer_messages_to(message_uids: string[], destination: Folder, delete_originals: boolean, io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    transfer_messages_to_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* transferred_uids */ string[] ]
-    transfer_messages_to_sync(message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* transferred_uids */ string[] ]
+    transfer_messages_to_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* transferred_uids */ string[] | null ]
+    transfer_messages_to_sync(message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* transferred_uids */ string[] | null ]
     unlock(): void
     /* Methods of Camel-1.2.Camel.Object */
     get_state_filename(): string
@@ -9881,7 +10026,7 @@ export class VeeFolder {
     vfunc_remove_folder(subfolder: Folder, cancellable?: Gio.Cancellable | null): void
     vfunc_set_expression(expression: string): void
     /* Virtual methods of Camel-1.2.Camel.Folder */
-    vfunc_append_message_sync(message: MimeMessage, info: MessageInfo, appended_uid: string, cancellable?: Gio.Cancellable | null): boolean
+    vfunc_append_message_sync(message: MimeMessage, info?: MessageInfo | null, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* appended_uid */ string | null ]
     vfunc_changed(changes: FolderChangeInfo): void
     vfunc_cmp_uids(uid1: string, uid2: string): number
     vfunc_count_by_expression(expression: string, cancellable?: Gio.Cancellable | null): number
@@ -9921,7 +10066,7 @@ export class VeeFolder {
     vfunc_synchronize_message_sync(message_uid: string, cancellable?: Gio.Cancellable | null): boolean
     vfunc_synchronize_sync(expunge: boolean, cancellable?: Gio.Cancellable | null): boolean
     vfunc_thaw(): void
-    vfunc_transfer_messages_to_sync(message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* transferred_uids */ string[] ]
+    vfunc_transfer_messages_to_sync(message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* transferred_uids */ string[] | null ]
     /* Virtual methods of Camel-1.2.Camel.Object */
     vfunc_state_read(fp?: object | null): number
     vfunc_state_write(fp?: object | null): number
@@ -9981,19 +10126,21 @@ export class VeeMessageInfo {
     date_received: number
     date_sent: number
     dirty: boolean
-    flags: number
+    flags: MessageFlags
     folder_flagged: boolean
     readonly folder_flagged_stamp: number
     from: string
     headers: NameValueArray
     message_id: number
     mlist: string
+    preview: string
     references: object[]
     size: number
     subject: string
     to: string
     uid: string
     user_flags: NamedFlags
+    user_headers: NameValueArray
     user_tags: NameValueArray
     /* Fields of Camel-1.2.Camel.VeeMessageInfo */
     parent: MessageInfo
@@ -10007,8 +10154,11 @@ export class VeeMessageInfo {
     clone(assign_summary?: FolderSummary | null): MessageInfo
     dump(): void
     dup_headers(): NameValueArray | null
+    dup_preview(): string | null
     dup_references(): number[] | null
     dup_user_flags(): NamedFlags
+    dup_user_header(name: string): string | null
+    dup_user_headers(): NameValueArray | null
     dup_user_tag(name: string): string | null
     dup_user_tags(): NameValueArray | null
     freeze_notifications(): void
@@ -10025,6 +10175,7 @@ export class VeeMessageInfo {
     get_message_id(): number
     get_mlist(): string
     get_notifications_frozen(): boolean
+    get_preview(): string | null
     get_references(): number[] | null
     get_size(): number
     get_subject(): string
@@ -10032,6 +10183,8 @@ export class VeeMessageInfo {
     get_uid(): string
     get_user_flag(name: string): boolean
     get_user_flags(): NamedFlags | null
+    get_user_header(name: string): string | null
+    get_user_headers(): NameValueArray | null
     get_user_tag(name: string): string | null
     get_user_tags(): NameValueArray | null
     load(record: MIRecord, bdata_ptr: string): boolean
@@ -10050,15 +10203,18 @@ export class VeeMessageInfo {
     set_from(from?: string | null): boolean
     set_message_id(message_id: number): boolean
     set_mlist(mlist?: string | null): boolean
+    set_preview(preview?: string | null): boolean
     set_size(size: number): boolean
     set_subject(subject?: string | null): boolean
     set_to(to?: string | null): boolean
     set_uid(uid: string): boolean
     set_user_flag(name: string, state: boolean): boolean
+    set_user_header(name: string, value?: string | null): boolean
     set_user_tag(name: string, value?: string | null): boolean
     take_headers(headers?: NameValueArray | null): boolean
     take_references(references?: number[] | null): boolean
     take_user_flags(user_flags?: NamedFlags | null): boolean
+    take_user_headers(headers?: NameValueArray | null): boolean
     take_user_tags(user_tags?: NameValueArray | null): boolean
     thaw_notifications(): void
     /* Methods of GObject-2.0.GObject.Object */
@@ -10095,12 +10251,15 @@ export class VeeMessageInfo {
     vfunc_get_headers(): NameValueArray | null
     vfunc_get_message_id(): number
     vfunc_get_mlist(): string
+    vfunc_get_preview(): string | null
     vfunc_get_references(): number[] | null
     vfunc_get_size(): number
     vfunc_get_subject(): string
     vfunc_get_to(): string
     vfunc_get_user_flag(name: string): boolean
     vfunc_get_user_flags(): NamedFlags | null
+    vfunc_get_user_header(name: string): string | null
+    vfunc_get_user_headers(): NameValueArray | null
     vfunc_get_user_tag(name: string): string | null
     vfunc_get_user_tags(): NameValueArray | null
     vfunc_load(record: MIRecord | null, bdata_ptr: string): boolean
@@ -10112,14 +10271,17 @@ export class VeeMessageInfo {
     vfunc_set_from(from?: string | null): boolean
     vfunc_set_message_id(message_id: number): boolean
     vfunc_set_mlist(mlist?: string | null): boolean
+    vfunc_set_preview(preview?: string | null): boolean
     vfunc_set_size(size: number): boolean
     vfunc_set_subject(subject?: string | null): boolean
     vfunc_set_to(to?: string | null): boolean
     vfunc_set_user_flag(name: string, state: boolean): boolean
+    vfunc_set_user_header(name: string, value?: string | null): boolean
     vfunc_set_user_tag(name: string, value?: string | null): boolean
     vfunc_take_headers(headers?: NameValueArray | null): boolean
     vfunc_take_references(references?: number[] | null): boolean
     vfunc_take_user_flags(user_flags?: NamedFlags | null): boolean
+    vfunc_take_user_headers(headers?: NameValueArray | null): boolean
     vfunc_take_user_tags(user_tags?: NameValueArray | null): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
@@ -10157,6 +10319,8 @@ export class VeeMessageInfo {
     connect_after(sigName: "notify::message-id", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::mlist", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::mlist", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::preview", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::preview", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::references", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::references", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
@@ -10169,6 +10333,8 @@ export class VeeMessageInfo {
     connect_after(sigName: "notify::uid", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::user-flags", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::user-flags", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::user-headers", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::user-headers", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::user-tags", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::user-tags", callback: (($obj: VeeMessageInfo, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -10859,7 +11025,7 @@ export abstract class DataWrapperClass {
     parent_class: GObject.ObjectClass
     set_mime_type: (data_wrapper: DataWrapper, mime_type: string) => void
     get_mime_type: (data_wrapper: DataWrapper) => string
-    get_mime_type_field: (data_wrapper: DataWrapper) => ContentType
+    get_mime_type_field: (data_wrapper: DataWrapper) => ContentType | null
     set_mime_type_field: (data_wrapper: DataWrapper, mime_type?: ContentType | null) => void
     is_offline: (data_wrapper: DataWrapper) => boolean
     write_to_stream_sync: (data_wrapper: DataWrapper, stream: Stream, cancellable?: Gio.Cancellable | null) => number
@@ -10982,7 +11148,7 @@ export abstract class FolderClass {
     get_uncached_uids: (folder: Folder, uids: string[]) => string[]
     get_filename: (folder: Folder, uid: string) => string
     get_message_cached: (folder: Folder, message_uid: string, cancellable?: Gio.Cancellable | null) => MimeMessage | null
-    append_message_sync: (folder: Folder, message: MimeMessage, info: MessageInfo, appended_uid: string, cancellable?: Gio.Cancellable | null) => boolean
+    append_message_sync: (folder: Folder, message: MimeMessage, info?: MessageInfo | null, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* appended_uid */ string | null ]
     expunge_sync: (folder: Folder, cancellable?: Gio.Cancellable | null) => boolean
     get_message_sync: (folder: Folder, message_uid: string, cancellable?: Gio.Cancellable | null) => MimeMessage
     get_quota_info_sync: (folder: Folder, cancellable?: Gio.Cancellable | null) => FolderQuotaInfo
@@ -10990,7 +11156,7 @@ export abstract class FolderClass {
     refresh_info_sync: (folder: Folder, cancellable?: Gio.Cancellable | null) => boolean
     synchronize_sync: (folder: Folder, expunge: boolean, cancellable?: Gio.Cancellable | null) => boolean
     synchronize_message_sync: (folder: Folder, message_uid: string, cancellable?: Gio.Cancellable | null) => boolean
-    transfer_messages_to_sync: (source: Folder, message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* transferred_uids */ string[] ]
+    transfer_messages_to_sync: (source: Folder, message_uids: string[], destination: Folder, delete_originals: boolean, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* transferred_uids */ string[] | null ]
     prepare_content_refresh: (folder: Folder) => void
     reserved_methods: object[]
     changed: (folder: Folder, changes: FolderChangeInfo) => void
@@ -11276,19 +11442,21 @@ export class MIRecord {
     usertags: string
     cinfo: string
     bdata: string
+    userheaders: string
+    preview: string
     static name: string
 }
 export abstract class MediumClass {
     /* Fields of Camel-1.2.Camel.MediumClass */
     parent_class: DataWrapperClass
     add_header: (medium: Medium, name: string, value: string) => void
-    set_header: (medium: Medium, name: string, value: string) => void
+    set_header: (medium: Medium, name: string, value?: string | null) => void
     remove_header: (medium: Medium, name: string) => void
     get_header: (medium: Medium, name: string) => string | null
     dup_headers: (medium: Medium) => NameValueArray
     get_headers: (medium: Medium) => NameValueArray
     get_content: (medium: Medium) => DataWrapper | null
-    set_content: (medium: Medium, content: DataWrapper) => void
+    set_content: (medium: Medium, content?: DataWrapper | null) => void
     reserved: object[]
     static name: string
 }
@@ -11375,6 +11543,12 @@ export abstract class MessageInfoClass {
     take_references: (mi: MessageInfo, references?: number[] | null) => boolean
     get_headers: (mi: MessageInfo) => NameValueArray | null
     take_headers: (mi: MessageInfo, headers?: NameValueArray | null) => boolean
+    get_user_header: (mi: MessageInfo, name: string) => string | null
+    set_user_header: (mi: MessageInfo, name: string, value?: string | null) => boolean
+    get_user_headers: (mi: MessageInfo) => NameValueArray | null
+    take_user_headers: (mi: MessageInfo, headers?: NameValueArray | null) => boolean
+    get_preview: (mi: MessageInfo) => string | null
+    set_preview: (mi: MessageInfo, preview?: string | null) => boolean
     reserved: object[]
     static name: string
 }
@@ -11979,6 +12153,14 @@ export class SaslXOAuth2OutlookPrivate {
 export class SaslXOAuth2Private {
     static name: string
 }
+export abstract class SaslXOAuth2YahooClass {
+    /* Fields of Camel-1.2.Camel.SaslXOAuth2YahooClass */
+    parent_class: SaslXOAuth2Class
+    static name: string
+}
+export class SaslXOAuth2YahooPrivate {
+    static name: string
+}
 export class ServiceAuthType {
     /* Fields of Camel-1.2.Camel.ServiceAuthType */
     name: string
@@ -12019,6 +12201,7 @@ export abstract class SessionClass {
     forward_to_sync: (session: Session, folder: Folder, message: MimeMessage, address: string, cancellable?: Gio.Cancellable | null) => boolean
     get_oauth2_access_token_sync: (session: Session, service: Service, cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* out_access_token */ string | null, /* out_expires_in */ number | null ]
     get_recipient_certificates_sync: (session: Session, flags: number, recipients: string[], cancellable?: Gio.Cancellable | null) => [ /* returnType */ boolean, /* out_certificates */ string[] ]
+    addressbook_contains_sync: (session: Session, book_uid: string, email_address: string, cancellable?: Gio.Cancellable | null) => boolean
     reserved_methods: object[]
     job_started: (session: Session, cancellable?: Gio.Cancellable | null) => void
     job_finished: (session: Session, cancellable: Gio.Cancellable | null, error: GLib.Error) => void

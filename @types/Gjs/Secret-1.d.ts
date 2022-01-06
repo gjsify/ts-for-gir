@@ -181,7 +181,7 @@ export class Collection {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -344,7 +344,7 @@ export class Item {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -481,7 +481,7 @@ export class Prompt {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void
@@ -632,7 +632,7 @@ export class Service {
     get_flags(): Gio.DBusProxyFlags
     get_interface_info(): Gio.DBusInterfaceInfo | null
     get_interface_name(): string
-    get_name(): string
+    get_name(): string | null
     get_name_owner(): string | null
     get_object_path(): string
     set_cached_property(property_name: string, value?: GLib.Variant | null): void

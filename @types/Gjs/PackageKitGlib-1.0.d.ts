@@ -25,6 +25,7 @@ export enum ClientError {
     INVALID_FILE,
     NOT_SUPPORTED,
     DECLINED_SIMULATION,
+    DECLINED_INTERACTION,
     LAST,
 }
 export enum ControlError {
@@ -220,6 +221,7 @@ export enum InfoEnum {
     UNTRUSTED,
     TRUSTED,
     UNAVAILABLE,
+    CRITICAL,
     LAST,
 }
 export enum MediaTypeEnum {
@@ -390,6 +392,10 @@ export enum UpgradeKindEnum {
     COMPLETE,
     LAST,
 }
+export enum OfflineFlags {
+    NONE,
+    INTERACTIVE,
+}
 export const DBUS_INTERFACE: string
 export const DBUS_INTERFACE_OFFLINE: string
 export const DBUS_INTERFACE_TRANSACTION: string
@@ -454,7 +460,9 @@ export function offline_auth_set_results(results: Results): boolean
 export function offline_auth_trigger(action: OfflineAction): boolean
 export function offline_auth_trigger_upgrade(action: OfflineAction): boolean
 export function offline_cancel(cancellable?: Gio.Cancellable | null): boolean
+export function offline_cancel_with_flags(flags: OfflineFlags, cancellable?: Gio.Cancellable | null): boolean
 export function offline_clear_results(cancellable?: Gio.Cancellable | null): boolean
+export function offline_clear_results_with_flags(flags: OfflineFlags, cancellable?: Gio.Cancellable | null): boolean
 export function offline_error_quark(): GLib.Quark
 export function offline_get_action(): OfflineAction
 export function offline_get_action_monitor(cancellable?: Gio.Cancellable | null): Gio.FileMonitor
@@ -469,6 +477,8 @@ export function offline_get_results(): Results
 export function offline_get_results_mtime(): number
 export function offline_trigger(action: OfflineAction, cancellable?: Gio.Cancellable | null): boolean
 export function offline_trigger_upgrade(action: OfflineAction, cancellable?: Gio.Cancellable | null): boolean
+export function offline_trigger_upgrade_with_flags(action: OfflineAction, flags: OfflineFlags, cancellable?: Gio.Cancellable | null): boolean
+export function offline_trigger_with_flags(action: OfflineAction, flags: OfflineFlags, cancellable?: Gio.Cancellable | null): boolean
 export function polkit_agent_close(): void
 export function polkit_agent_open(): number
 export function ptr_array_to_strv(array: string[]): string[]
@@ -1019,6 +1029,7 @@ export class Desktop {
 }
 export interface Details_ConstructProps extends Source_ConstructProps {
     description?: string
+    download_size?: number
     group?: GroupEnum
     license?: string
     package_id?: string
@@ -1029,6 +1040,7 @@ export interface Details_ConstructProps extends Source_ConstructProps {
 export class Details {
     /* Properties of PackageKitGlib-1.0.PackageKitGlib.Details */
     description: string
+    download_size: number
     group: GroupEnum
     license: string
     package_id: string
@@ -1045,6 +1057,7 @@ export class Details {
     g_type_instance: GObject.TypeInstance
     /* Methods of PackageKitGlib-1.0.PackageKitGlib.Details */
     get_description(): string
+    get_download_size(): number
     get_group(): GroupEnum
     get_license(): string
     get_package_id(): string
@@ -1087,6 +1100,8 @@ export class Details {
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::description", callback: (($obj: Details, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::description", callback: (($obj: Details, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::download-size", callback: (($obj: Details, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::download-size", callback: (($obj: Details, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::group", callback: (($obj: Details, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::group", callback: (($obj: Details, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::license", callback: (($obj: Details, pspec: GObject.ParamSpec) => void)): number
@@ -1580,6 +1595,7 @@ export interface Package_ConstructProps extends Source_ConstructProps {
     update_issued?: string
     update_obsoletes?: string
     update_restart?: RestartEnum
+    update_severity?: InfoEnum
     update_state?: UpdateStateEnum
     update_text?: string
     update_updated?: string
@@ -1602,6 +1618,7 @@ export class Package {
     update_issued: string
     update_obsoletes: string
     update_restart: RestartEnum
+    update_severity: InfoEnum
     update_state: UpdateStateEnum
     update_text: string
     update_updated: string
@@ -1625,12 +1642,14 @@ export class Package {
     get_info(): InfoEnum
     get_name(): string
     get_summary(): string
+    get_update_severity(): InfoEnum
     get_version(): string
     parse(data: string): boolean
     print(): void
     set_id(package_id: string): boolean
     set_info(info: InfoEnum): void
     set_summary(summary: string): void
+    set_update_severity(update_severity: InfoEnum): void
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -1697,6 +1716,8 @@ export class Package {
     connect_after(sigName: "notify::update-obsoletes", callback: (($obj: Package, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::update-restart", callback: (($obj: Package, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::update-restart", callback: (($obj: Package, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::update-severity", callback: (($obj: Package, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::update-severity", callback: (($obj: Package, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::update-state", callback: (($obj: Package, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::update-state", callback: (($obj: Package, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::update-text", callback: (($obj: Package, pspec: GObject.ParamSpec) => void)): number

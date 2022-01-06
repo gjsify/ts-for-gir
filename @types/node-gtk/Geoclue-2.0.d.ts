@@ -164,7 +164,7 @@ export class ClientProxy {
     getFlags(): Gio.DBusProxyFlags
     getInterfaceInfo(): Gio.DBusInterfaceInfo | null
     getInterfaceName(): string
-    getName(): string
+    getName(): string | null
     getNameOwner(): string | null
     getObjectPath(): string
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
@@ -508,7 +508,7 @@ export class LocationProxy {
     getFlags(): Gio.DBusProxyFlags
     getInterfaceInfo(): Gio.DBusInterfaceInfo | null
     getInterfaceName(): string
-    getName(): string
+    getName(): string | null
     getNameOwner(): string | null
     getObjectPath(): string
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
@@ -806,7 +806,7 @@ export class ManagerProxy {
     getFlags(): Gio.DBusProxyFlags
     getInterfaceInfo(): Gio.DBusInterfaceInfo | null
     getInterfaceName(): string
-    getName(): string
+    getName(): string | null
     getNameOwner(): string | null
     getObjectPath(): string
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void

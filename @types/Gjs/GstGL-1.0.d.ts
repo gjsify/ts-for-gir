@@ -15,6 +15,11 @@ export enum GLBaseMemoryError {
     OLD_LIBS,
     RESOURCE_UNAVAILABLE,
 }
+export enum GLConfigCaveat {
+    NONE,
+    SLOW,
+    NON_CONFORMANT,
+}
 export enum GLContextError {
     FAILED,
     WRONG_CONFIG,
@@ -108,6 +113,12 @@ export enum GLBaseMemoryTransfer {
     DOWNLOAD,
     UPLOAD,
 }
+export enum GLConfigSurfaceType {
+    NONE,
+    WINDOW,
+    PBUFFER,
+    PIXMAP,
+}
 export enum GLDisplayType {
     NONE,
     X11,
@@ -119,6 +130,9 @@ export enum GLDisplayType {
     VIV_FB,
     GBM,
     EGL_DEVICE,
+    EAGL,
+    WINRT,
+    ANDROID,
     ANY,
 }
 export enum GLPlatform {
@@ -157,6 +171,7 @@ export const GL_BASE_MEMORY_ALLOCATOR_NAME: string
 export const GL_BUFFER_ALLOCATOR_NAME: string
 export const GL_COLOR_CONVERT_FORMATS: string
 export const GL_COLOR_CONVERT_VIDEO_CAPS: string
+export const GL_CONFIG_STRUCTURE_NAME: string
 export const GL_CONTEXT_TYPE_CGL: string
 export const GL_CONTEXT_TYPE_EAGL: string
 export const GL_CONTEXT_TYPE_EGL: string
@@ -184,6 +199,8 @@ export function gl_base_memory_error_quark(): GLib.Quark
 export function gl_base_memory_init_once(): void
 export function gl_buffer_init_once(): void
 export function gl_check_extension(name: string, ext: string): boolean
+export function gl_config_caveat_to_string(caveat: GLConfigCaveat): string | null
+export function gl_config_surface_type_to_string(surface_type: GLConfigSurfaceType): string | null
 export function gl_context_error_quark(): GLib.Quark
 export function gl_element_propagate_display_context(element: Gst.Element, display: GLDisplay): void
 export function gl_ensure_element_data(element: object | null, display_ptr: GLDisplay, other_context_ptr: GLContext): [ /* returnType */ boolean, /* display_ptr */ GLDisplay, /* other_context_ptr */ GLContext ]
@@ -191,16 +208,19 @@ export function gl_format_from_video_info(context: GLContext, vinfo: GstVideo.Vi
 export function gl_format_is_supported(context: GLContext, format: GLFormat): boolean
 export function gl_format_type_from_sized_gl_format(format: GLFormat): [ /* unsized_format */ GLFormat, /* gl_type */ number ]
 export function gl_format_type_n_bytes(format: number, type: number): number
+export function gl_get_affine_transformation_meta_as_ndc(meta?: GstVideo.VideoAffineTransformationMeta | null): /* matrix */ number[]
 export function gl_get_plane_data_size(info: GstVideo.VideoInfo, align: GstVideo.VideoAlignment, plane: number): number
 export function gl_get_plane_start(info: GstVideo.VideoInfo, valign: GstVideo.VideoAlignment, plane: number): number
 export function gl_handle_context_query(element: Gst.Element, query: Gst.Query, display?: GLDisplay | null, context?: GLContext | null, other_context?: GLContext | null): boolean
 export function gl_handle_set_context(element: Gst.Element, context: Gst.Context, display: GLDisplay, other_context: GLContext): [ /* returnType */ boolean, /* display */ GLDisplay, /* other_context */ GLContext ]
 export function gl_memory_init_once(): void
 export function gl_memory_pbo_init_once(): void
+export function gl_multiply_matrix4(a: number[], b: number[]): /* result */ number[]
 export function gl_platform_from_string(platform_s: string): GLPlatform
 export function gl_platform_to_string(platform: GLPlatform): string
 export function gl_query_local_gl_context(element: Gst.Element, direction: Gst.PadDirection, context_ptr: GLContext): [ /* returnType */ boolean, /* context_ptr */ GLContext ]
 export function gl_renderbuffer_init_once(): void
+export function gl_set_affine_transformation_meta_from_ndc(meta: GstVideo.VideoAffineTransformationMeta, matrix: number[]): void
 export function gl_sized_gl_format_from_gl_format_type(context: GLContext, format: number, type: number): number
 export function gl_stereo_downmix_mode_get_type(): GObject.Type
 export function gl_sync_meta_api_get_type(): GObject.Type
@@ -390,6 +410,7 @@ export class GLBaseFilter {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -787,6 +808,7 @@ export class GLBaseSrc {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -850,29 +872,29 @@ export class GLBaseSrc {
     vfunc_fill_gl_memory(mem: GLMemory): boolean
     vfunc_gl_start(): boolean
     vfunc_gl_stop(): void
-    vfunc_alloc(buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(offset: number, size: number, buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_fill(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_fill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
     /* Virtual methods of GstBase-1.0.GstBase.PushSrc */
-    vfunc_alloc(buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(offset: number, size: number, buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_fill(buf: Gst.Buffer): Gst.FlowReturn
     vfunc_fill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
     /* Virtual methods of GstBase-1.0.GstBase.BaseSrc */
-    vfunc_alloc(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
-    vfunc_create(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_alloc(offset: number, size: number): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
+    vfunc_create(offset: number, size: number, buf: Gst.Buffer): [ /* returnType */ Gst.FlowReturn, /* buf */ Gst.Buffer ]
     vfunc_decide_allocation(query: Gst.Query): boolean
     vfunc_do_seek(segment: Gst.Segment): boolean
     vfunc_event(event: Gst.Event): boolean
     vfunc_fill(offset: number, size: number, buf: Gst.Buffer): Gst.FlowReturn
     vfunc_fixate(caps: Gst.Caps): Gst.Caps
     vfunc_get_caps(filter?: Gst.Caps | null): Gst.Caps
-    vfunc_get_size(size: number): boolean
+    vfunc_get_size(): [ /* returnType */ boolean, /* size */ number ]
     vfunc_get_times(buffer: Gst.Buffer): [ /* start */ Gst.ClockTime, /* end */ Gst.ClockTime ]
     vfunc_is_seekable(): boolean
     vfunc_negotiate(): boolean
@@ -1079,6 +1101,8 @@ export class GLBufferPool {
     flags: number
     /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     g_type_instance: GObject.TypeInstance
+    /* Methods of GstGL-1.0.GstGL.GLBufferPool */
+    get_gl_allocation_params(): GLAllocationParams
     /* Methods of Gst-1.0.Gst.BufferPool */
     acquire_buffer(params?: Gst.BufferPoolAcquireParams | null): [ /* returnType */ Gst.FlowReturn, /* buffer */ Gst.Buffer ]
     get_config(): Gst.Structure
@@ -1303,6 +1327,7 @@ export class GLContext {
     create(other_context?: GLContext | null): boolean
     destroy(): void
     fill_info(): boolean
+    get_config(): Gst.Structure | null
     get_display(): GLDisplay
     get_gl_api(): GLAPI
     get_gl_context(): number
@@ -1313,6 +1338,7 @@ export class GLContext {
     get_thread(): GLib.Thread
     get_window(): GLWindow | null
     is_shared(): boolean
+    request_config(gl_config?: Gst.Structure | null): boolean
     set_shared_with(share: GLContext): void
     set_window(window: GLWindow): boolean
     supports_glsl_profile_version(version: GLSLVersion, profile: GLSLProfile): boolean
@@ -1372,10 +1398,12 @@ export class GLContext {
     vfunc_choose_format(): boolean
     vfunc_create_context(gl_api: GLAPI, other_context: GLContext): boolean
     vfunc_destroy_context(): void
+    vfunc_get_config(): Gst.Structure | null
     vfunc_get_gl_api(): GLAPI
     vfunc_get_gl_context(): number
     vfunc_get_gl_platform(): GLPlatform
     vfunc_get_gl_platform_version(): [ /* major */ number, /* minor */ number ]
+    vfunc_request_config(gl_config?: Gst.Structure | null): boolean
     vfunc_swap_buffers(): void
     /* Virtual methods of Gst-1.0.Gst.Object */
     vfunc_deep_notify(orig: Gst.Object, pspec: GObject.ParamSpec): void
@@ -1526,6 +1554,7 @@ export class GLDisplay {
     _init (config?: GLDisplay_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): GLDisplay
+    static new_with_type(type: GLDisplayType): GLDisplay
     static $gtype: GObject.Type
 }
 export interface GLFilter_ConstructProps extends GLBaseFilter_ConstructProps {
@@ -1659,6 +1688,7 @@ export class GLFilter {
     remove_pad(pad: Gst.Pad): boolean
     remove_property_notify_watch(watch_id: number): void
     request_pad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    request_pad_simple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, start_type: Gst.SeekType, start: number, stop_type: Gst.SeekType, stop: number): boolean
     seek_simple(format: Gst.Format, seek_flags: Gst.SeekFlags, seek_pos: number): boolean
     send_event(event: Gst.Event): boolean
@@ -2954,6 +2984,9 @@ export class GLWindow {
     connect(sigName: "scroll-event", callback: (($obj: GLWindow, x: number, y: number, delta_x: number, delta_y: number) => void)): number
     connect_after(sigName: "scroll-event", callback: (($obj: GLWindow, x: number, y: number, delta_x: number, delta_y: number) => void)): number
     emit(sigName: "scroll-event", x: number, y: number, delta_x: number, delta_y: number): void
+    connect(sigName: "window-handle-changed", callback: (($obj: GLWindow) => void)): number
+    connect_after(sigName: "window-handle-changed", callback: (($obj: GLWindow) => void)): number
+    emit(sigName: "window-handle-changed"): void
     /* Signals of Gst-1.0.Gst.Object */
     connect(sigName: "deep-notify", callback: (($obj: GLWindow, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deep-notify", callback: (($obj: GLWindow, prop_object: Gst.Object, prop: GObject.ParamSpec) => void)): number
@@ -3114,6 +3147,8 @@ export abstract class GLContextClass {
     swap_buffers: (context: GLContext) => void
     check_feature: (context: GLContext, feature: string) => boolean
     get_gl_platform_version: (context: GLContext) => [ /* major */ number, /* minor */ number ]
+    get_config: (context: GLContext) => Gst.Structure | null
+    request_config: (context: GLContext, gl_config?: Gst.Structure | null) => boolean
     static name: string
 }
 export class GLContextPrivate {

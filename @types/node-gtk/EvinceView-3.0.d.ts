@@ -2180,6 +2180,11 @@ export class View {
     once(sigName: "annot-added", callback: (object: EvinceDocument.Annotation) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "annot-added", callback: (object: EvinceDocument.Annotation) => void): NodeJS.EventEmitter
     emit(sigName: "annot-added", object: EvinceDocument.Annotation): void
+    connect(sigName: "annot-changed", callback: (($obj: View, object: EvinceDocument.Annotation) => void)): number
+    on(sigName: "annot-changed", callback: (object: EvinceDocument.Annotation) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "annot-changed", callback: (object: EvinceDocument.Annotation) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "annot-changed", callback: (object: EvinceDocument.Annotation) => void): NodeJS.EventEmitter
+    emit(sigName: "annot-changed", object: EvinceDocument.Annotation): void
     connect(sigName: "annot-removed", callback: (($obj: View, object: EvinceDocument.Annotation) => void)): number
     on(sigName: "annot-removed", callback: (object: EvinceDocument.Annotation) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "annot-removed", callback: (object: EvinceDocument.Annotation) => void, after?: boolean): NodeJS.EventEmitter

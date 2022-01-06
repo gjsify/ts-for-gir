@@ -539,8 +539,8 @@ export class MediaRenderer {
 }
 export abstract class MediaRendererPluginClass {
     /* Fields of RygelRenderer-2.6.RygelRenderer.MediaRendererPluginClass */
-    getPlayer: () => MediaPlayer | null
-    getController: () => PlayerController
+    getPlayer: (self: MediaRendererPlugin) => MediaPlayer | null
+    getController: (self: MediaRendererPlugin) => PlayerController
     static name: string
 }
 export class MediaRendererPluginPrivate {
@@ -554,66 +554,66 @@ export class MediaRendererPrivate {
 }
 export abstract class MediaPlayerIface {
     /* Fields of RygelRenderer-2.6.RygelRenderer.MediaPlayerIface */
-    seek: (time: number) => boolean
-    seekBytes: (bytes: number) => boolean
-    getProtocols: () => string[]
-    getMimeTypes: () => string[]
-    getPlaybackState: () => string
-    setPlaybackState: (value: string) => void
-    getAllowedPlaybackSpeeds: () => string[]
-    getPlaybackSpeed: () => string
-    setPlaybackSpeed: (value: string) => void
-    getUri: () => string | null
-    setUri: (value?: string | null) => void
-    getVolume: () => number
-    setVolume: (value: number) => void
-    getDuration: () => number
-    getSize: () => number
-    getMetadata: () => string | null
-    setMetadata: (value?: string | null) => void
-    getMimeType: () => string | null
-    setMimeType: (value?: string | null) => void
-    getCanSeek: () => boolean
-    getCanSeekBytes: () => boolean
-    getContentFeatures: () => string | null
-    setContentFeatures: (value?: string | null) => void
-    getPosition: () => number
-    getBytePosition: () => number
-    getUserAgent: () => string | null
-    setUserAgent: (value?: string | null) => void
+    seek: (self: MediaPlayer, time: number) => boolean
+    seekBytes: (self: MediaPlayer, bytes: number) => boolean
+    getProtocols: () => { returnType: string[], resultLength1: number }
+    getMimeTypes: () => { returnType: string[], resultLength1: number }
+    getPlaybackState: (self: MediaPlayer) => string
+    setPlaybackState: (self: MediaPlayer, value: string) => void
+    getAllowedPlaybackSpeeds: () => { returnType: string[], resultLength1: number }
+    getPlaybackSpeed: (self: MediaPlayer) => string
+    setPlaybackSpeed: (self: MediaPlayer, value: string) => void
+    getUri: (self: MediaPlayer) => string | null
+    setUri: (self: MediaPlayer, value?: string | null) => void
+    getVolume: (self: MediaPlayer) => number
+    setVolume: (self: MediaPlayer, value: number) => void
+    getDuration: (self: MediaPlayer) => number
+    getSize: (self: MediaPlayer) => number
+    getMetadata: (self: MediaPlayer) => string | null
+    setMetadata: (self: MediaPlayer, value?: string | null) => void
+    getMimeType: (self: MediaPlayer) => string | null
+    setMimeType: (self: MediaPlayer, value?: string | null) => void
+    getCanSeek: (self: MediaPlayer) => boolean
+    getCanSeekBytes: (self: MediaPlayer) => boolean
+    getContentFeatures: (self: MediaPlayer) => string | null
+    setContentFeatures: (self: MediaPlayer, value?: string | null) => void
+    getPosition: (self: MediaPlayer) => number
+    getBytePosition: (self: MediaPlayer) => number
+    getUserAgent: (self: MediaPlayer) => string | null
+    setUserAgent: (self: MediaPlayer, value?: string | null) => void
     static name: string
 }
 export abstract class PlayerControllerIface {
     /* Fields of RygelRenderer-2.6.RygelRenderer.PlayerControllerIface */
-    next: () => boolean
-    previous: () => boolean
-    setSinglePlayUri: (uri: string, metadata: string, mime?: string | null, features?: string | null) => void
-    setPlaylistUri: (uri: string, metadata: string, collection: GUPnPAV.MediaCollection) => void
-    setNextSinglePlayUri: (uri: string, metadata: string, mime?: string | null, features?: string | null) => void
-    setNextPlaylistUri: (uri: string, metadata: string, collection: GUPnPAV.MediaCollection) => void
-    isPlayModeValid: (playMode: string) => boolean
-    getPlaybackState: () => string
-    setPlaybackState: (value: string) => void
-    getNTracks: () => number
-    setNTracks: (value: number) => void
-    getTrack: () => number
-    setTrack: (value: number) => void
-    getUri: () => string
-    setUri: (value: string) => void
-    getMetadata: () => string
-    setMetadata: (value: string) => void
-    getTrackUri: () => string
-    setTrackUri: (value: string) => void
-    getTrackMetadata: () => string
-    setTrackMetadata: (value: string) => void
-    getNextUri: () => string
-    setNextUri: (value: string) => void
-    getNextMetadata: () => string
-    setNextMetadata: (value: string) => void
-    getCurrentTransportActions: () => string
-    getPlayMode: () => string
-    setPlayMode: (value: string) => void
-    getCanPause: () => boolean
+    next: (self: PlayerController) => boolean
+    previous: (self: PlayerController) => boolean
+    setSinglePlayUri: (self: PlayerController, uri: string, metadata: string, mime?: string | null, features?: string | null) => void
+    setPlaylistUri: (self: PlayerController, uri: string, metadata: string, collection: GUPnPAV.MediaCollection) => void
+    setNextSinglePlayUri: (self: PlayerController, uri: string, metadata: string, mime?: string | null, features?: string | null) => void
+    setNextPlaylistUri: (self: PlayerController, uri: string, metadata: string, collection: GUPnPAV.MediaCollection) => void
+    isPlayModeValid: (self: PlayerController, playMode: string) => boolean
+    getPlaybackState: (self: PlayerController) => string
+    setPlaybackState: (self: PlayerController, value: string) => void
+    getNTracks: (self: PlayerController) => number
+    setNTracks: (self: PlayerController, value: number) => void
+    getTrack: (self: PlayerController) => number
+    setTrack: (self: PlayerController, value: number) => void
+    getUri: (self: PlayerController) => string
+    setUri: (self: PlayerController, value: string) => void
+    getMetadata: (self: PlayerController) => string
+    setMetadata: (self: PlayerController, value: string) => void
+    getTrackUri: (self: PlayerController) => string
+    setTrackUri: (self: PlayerController, value: string) => void
+    getTrackMetadata: (self: PlayerController) => string
+    setTrackMetadata: (self: PlayerController, value: string) => void
+    getNextUri: (self: PlayerController) => string
+    setNextUri: (self: PlayerController, value: string) => void
+    getNextMetadata: (self: PlayerController) => string
+    setNextMetadata: (self: PlayerController, value: string) => void
+    getCurrentTransportActions: (self: PlayerController) => string
+    getPlayMode: (self: PlayerController) => string
+    setPlayMode: (self: PlayerController, value: string) => void
+    getCanPause: (self: PlayerController) => boolean
     static name: string
 }
 }

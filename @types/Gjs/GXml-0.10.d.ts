@@ -2,12 +2,21 @@
  * GXml-0.10
  */
 
+<<<<<<< HEAD
 import type * as Gjs from './Gjs';
 import type * as libxml2 from './libxml2-2.0';
 import type * as GLib from './GLib-2.0';
 import type * as GObject from './GObject-2.0';
 import type * as Gio from './Gio-2.0';
 import type * as Gee from './Gee-0.8';
+=======
+import * as Gjs from './Gjs';
+import * as libxml2 from './libxml2-2.0';
+import * as GLib from './GLib-2.0';
+import * as GObject from './GObject-2.0';
+import * as Gio from './Gio-2.0';
+import * as Gee from './Gee-0.8';
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
 
 export enum DomException {
     NONE,
@@ -74,6 +83,7 @@ export interface Attribute_ConstructProps extends GObject.Object_ConstructProps 
     namespace?: Namespace
 }
 export class Attribute {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Attribute */
     namespace: Namespace
     readonly prefix: string
@@ -92,6 +102,26 @@ export class Attribute {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Properties of GXml.Attribute */
+    namespace: Namespace
+    readonly prefix: string
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.Attribute */
+    get_namespace(): Namespace
+    set_namespace(value: Namespace): void
+    get_prefix(): string
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -99,25 +129,45 @@ export class Attribute {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.Attribute */
     vfunc_get_namespace(): Namespace
     vfunc_set_namespace(value: Namespace): void
     vfunc_get_prefix(): string
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Attribute */
+    vfunc_get_namespace(): Namespace
+    vfunc_set_namespace(value: Namespace): void
+    vfunc_get_prefix(): string
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: Attribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Attribute, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -137,6 +187,7 @@ export class Attribute {
 export interface Comment_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Comment {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Comment */
     readonly str: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -152,6 +203,23 @@ export class Comment {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Properties of GXml.Comment */
+    readonly str: string
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.Comment */
+    get_str(): string
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -159,23 +227,41 @@ export class Comment {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.Comment */
     vfunc_get_str(): string
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Comment */
+    vfunc_get_str(): string
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Comment, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -193,6 +279,7 @@ export class Comment {
 export interface CDATA_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class CDATA {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.CDATA */
     readonly str: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -208,6 +295,23 @@ export class CDATA {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Properties of GXml.CDATA */
+    readonly str: string
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.CDATA */
+    get_str(): string
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -215,23 +319,41 @@ export class CDATA {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.CDATA */
     vfunc_get_str(): string
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.CDATA */
+    vfunc_get_str(): string
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: CDATA, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: CDATA, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -254,16 +376,26 @@ export interface Document_ConstructProps extends GObject.Object_ConstructProps {
     file?: Gio.File
 }
 export class Document {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Document */
+=======
+    /* Properties of GXml.Document */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     indent: boolean
     ns_top: boolean
     prefix_default_ns: boolean
     backup: boolean
     readonly root: Node
     file: Gio.File
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.Document */
+=======
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.Document */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     create_element(name: string): Node
     create_text(text: string): Node
     create_comment(text: string): Node
@@ -282,6 +414,7 @@ export class Document {
     get_root(): Node
     get_file(): Gio.File
     set_file(value: Gio.File): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -291,6 +424,17 @@ export class Document {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -298,13 +442,22 @@ export class Document {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.Document */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Document */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_create_element(name: string): Node
     vfunc_create_text(text: string): Node
     vfunc_create_comment(text: string): Node
@@ -323,15 +476,26 @@ export class Document {
     vfunc_get_root(): Node
     vfunc_get_file(): Gio.File
     vfunc_set_file(value: Gio.File): void
+<<<<<<< HEAD
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Document, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -363,6 +527,7 @@ export class Document {
 export interface DocumentType_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class DocumentType {
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -374,6 +539,19 @@ export class DocumentType {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -381,21 +559,37 @@ export class DocumentType {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DocumentType, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -412,12 +606,21 @@ export interface Element_ConstructProps extends GObject.Object_ConstructProps {
     content?: string
 }
 export class Element {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Element */
     readonly tag_name: string
     content: string
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.Element */
+=======
+    /* Properties of GXml.Element */
+    readonly tag_name: string
+    content: string
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.Element */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     normalize(): void
     set_attr(name: string, value: string): void
     get_attr(name: string): Node
@@ -427,6 +630,7 @@ export class Element {
     get_tag_name(): string
     get_content(): string
     set_content(value: string): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -436,6 +640,17 @@ export class Element {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -443,13 +658,22 @@ export class Element {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.Element */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Element */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_normalize(): void
     vfunc_set_attr(name: string, value: string): void
     vfunc_get_attr(name: string): Node
@@ -459,15 +683,26 @@ export class Element {
     vfunc_get_tag_name(): string
     vfunc_get_content(): string
     vfunc_set_content(value: string): void
+<<<<<<< HEAD
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Element, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -487,6 +722,7 @@ export class Element {
 export interface Namespace_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Namespace {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Namespace */
     readonly uri: string
     readonly prefix: string
@@ -504,6 +740,25 @@ export class Namespace {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Properties of GXml.Namespace */
+    readonly uri: string
+    readonly prefix: string
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.Namespace */
+    get_uri(): string
+    get_prefix(): string
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -511,24 +766,43 @@ export class Namespace {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.Namespace */
     vfunc_get_uri(): string
     vfunc_get_prefix(): string
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Namespace */
+    vfunc_get_uri(): string
+    vfunc_get_prefix(): string
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: Namespace, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Namespace, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -549,7 +823,11 @@ export interface Node_ConstructProps extends GObject.Object_ConstructProps {
     value?: string
 }
 export class Node {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Node */
+=======
+    /* Properties of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly namespaces: Gee.List
     readonly childs: Gee.BidirList
     readonly children: Gee.BidirList
@@ -559,9 +837,15 @@ export class Node {
     readonly type_node: NodeType
     readonly document: Document
     readonly parent: Node
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.Node */
+=======
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get(key: string): Node | null
     get_elements_by_property_value(property: string, value: string): ElementList
     to_string(): string
@@ -578,6 +862,7 @@ export class Node {
     get_type_node(): NodeType
     get_document(): Document
     get_parent(): Node
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -587,6 +872,17 @@ export class Node {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -594,13 +890,22 @@ export class Node {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.Node */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Node */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_to_string(): string
@@ -617,15 +922,26 @@ export class Node {
     vfunc_get_type_node(): NodeType
     vfunc_get_document(): Document
     vfunc_get_parent(): Node
+<<<<<<< HEAD
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: Node, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Node, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -661,6 +977,7 @@ export class Node {
 export interface Notation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Notation {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Notation */
     readonly public_id: string
     readonly external_id: string
@@ -678,6 +995,25 @@ export class Notation {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Properties of GXml.Notation */
+    readonly public_id: string
+    readonly external_id: string
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.Notation */
+    get_public_id(): string | null
+    get_external_id(): string | null
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -685,24 +1021,43 @@ export class Notation {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.Notation */
     vfunc_get_public_id(): string | null
     vfunc_get_external_id(): string | null
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Notation */
+    vfunc_get_public_id(): string | null
+    vfunc_get_external_id(): string | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: Notation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Notation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -722,6 +1077,7 @@ export class Notation {
 export interface ProcessingInstruction_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class ProcessingInstruction {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.ProcessingInstruction */
     readonly target: string
     readonly data: string
@@ -739,6 +1095,25 @@ export class ProcessingInstruction {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Properties of GXml.ProcessingInstruction */
+    readonly target: string
+    readonly data: string
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.ProcessingInstruction */
+    get_target(): string
+    get_data(): string
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -746,24 +1121,43 @@ export class ProcessingInstruction {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.ProcessingInstruction */
     vfunc_get_target(): string
     vfunc_get_data(): string
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.ProcessingInstruction */
+    vfunc_get_target(): string
+    vfunc_get_data(): string
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -783,6 +1177,7 @@ export class ProcessingInstruction {
 export interface Text_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Text {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Text */
     readonly str: string
     /* Fields of GObject-2.0.GObject.Object */
@@ -798,6 +1193,23 @@ export class Text {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Properties of GXml.Text */
+    readonly str: string
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.Text */
+    get_str(): string
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -805,23 +1217,41 @@ export class Text {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.Text */
     vfunc_get_str(): string
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Text */
+    vfunc_get_str(): string
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Text, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -839,16 +1269,25 @@ export class Text {
 export interface NamedNodeMap_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class NamedNodeMap {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.NamedNodeMap */
     readonly length: number
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.NamedNodeMap */
+=======
+    /* Properties of GXml.NamedNodeMap */
+    readonly length: number
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.NamedNodeMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_named_item(name: string): object | null
     set_named_item(item?: object | null): object | null
     remove_named_item(name: string): object | null
     item(index: number): object | null
     get_length(): number
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -858,6 +1297,17 @@ export class NamedNodeMap {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -865,27 +1315,47 @@ export class NamedNodeMap {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.NamedNodeMap */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.NamedNodeMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_named_item(name: string): object | null
     vfunc_set_named_item(item?: object | null): object | null
     vfunc_remove_named_item(name: string): object | null
     vfunc_item(index: number): object | null
     vfunc_get_length(): number
+<<<<<<< HEAD
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: NamedNodeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NamedNodeMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -904,11 +1374,19 @@ export interface xNodeList_ConstructProps extends GObject.Object_ConstructProps 
     length?: number
 }
 export class xNodeList {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.xNodeList */
     length: number
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.xNodeList */
+=======
+    /* Properties of GXml.xNodeList */
+    length: number
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.xNodeList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     item(idx: number): xNode
     insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
     replace_child(new_child: xNode, old_child: xNode): xNode | null
@@ -920,6 +1398,7 @@ export class xNodeList {
     get(n: number): xNode
     get_length(): number
     set_length(value: number): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -929,6 +1408,17 @@ export class xNodeList {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -936,13 +1426,22 @@ export class xNodeList {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.xNodeList */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.xNodeList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_item(idx: number): xNode
     vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
     vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
@@ -954,15 +1453,26 @@ export class xNodeList {
     vfunc_get(n: number): xNode
     vfunc_get_length(): number
     vfunc_set_length(value: number): void
+<<<<<<< HEAD
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: xNodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: xNodeList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -981,6 +1491,7 @@ export interface Serializable_ConstructProps extends GObject.Object_ConstructPro
     serialized_xml_node_value?: string
 }
 export class Serializable {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Serializable */
     readonly unknown_serializable_properties: Gee.Map
     readonly unknown_serializable_nodes: Gee.Collection
@@ -988,6 +1499,15 @@ export class Serializable {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.Serializable */
+=======
+    /* Properties of GXml.Serializable */
+    readonly unknown_serializable_properties: Gee.Map
+    readonly unknown_serializable_nodes: Gee.Collection
+    serialized_xml_node_value: string
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.Serializable */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_enable_unknown_serializable_property(): boolean
     set_default_namespace(node: Node): boolean
     serialize_use_xml_node_value(): boolean
@@ -1005,6 +1525,7 @@ export class Serializable {
     get_unknown_serializable_nodes(): Gee.Collection
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -1014,6 +1535,17 @@ export class Serializable {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1021,13 +1553,22 @@ export class Serializable {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.Serializable */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Serializable */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_enable_unknown_serializable_property(): boolean
     vfunc_set_default_namespace(node: Node): boolean
     vfunc_serialize_use_xml_node_value(): boolean
@@ -1045,15 +1586,26 @@ export class Serializable {
     vfunc_get_unknown_serializable_nodes(): Gee.Collection
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
+<<<<<<< HEAD
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GXml-0.10.GXml.Serializable */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GXml.Serializable */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "serialize_unknown_property", callback: (($obj: Serializable, element: Node, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "serialize_unknown_property", callback: (($obj: Serializable, element: Node, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
@@ -1066,7 +1618,11 @@ export class Serializable {
     connect(sigName: "deserialize_unknown_property_type", callback: (($obj: Serializable, node: Node, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "deserialize_unknown_property_type", callback: (($obj: Serializable, node: Node, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "deserialize_unknown_property_type", node: Node, prop: GObject.ParamSpec): void
+<<<<<<< HEAD
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: Serializable, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Serializable, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1091,15 +1647,22 @@ export class Serializable {
 export interface SerializableProperty_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableProperty {
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.SerializableProperty */
+=======
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.SerializableProperty */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_serializable_property_value(): string
     set_serializable_property_value(val?: string | null): void
     deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     serialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     default_serializable_property_serialize_property(element: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     default_serializable_property_deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -1109,6 +1672,17 @@ export class SerializableProperty {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1116,26 +1690,46 @@ export class SerializableProperty {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.SerializableProperty */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.SerializableProperty */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_serializable_property_value(): string
     vfunc_set_serializable_property_value(val?: string | null): void
     vfunc_deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     vfunc_serialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
+<<<<<<< HEAD
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: SerializableProperty, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableProperty, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1151,6 +1745,7 @@ export class SerializableProperty {
 export interface SerializableMapKey_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableMapKey {
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.SerializableMapKey */
@@ -1164,6 +1759,21 @@ export class SerializableMapKey {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.SerializableMapKey */
+    get_map_key(): object | null
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1171,23 +1781,41 @@ export class SerializableMapKey {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.SerializableMapKey */
     vfunc_get_map_key(): object | null
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.SerializableMapKey */
+    vfunc_get_map_key(): object | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: SerializableMapKey, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableMapKey, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1203,6 +1831,7 @@ export class SerializableMapKey {
 export interface SerializableMapDualKey_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableMapDualKey {
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.SerializableMapDualKey */
@@ -1217,6 +1846,22 @@ export class SerializableMapDualKey {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.SerializableMapDualKey */
+    get_map_primary_key(): object | null
+    get_map_secondary_key(): object | null
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1224,24 +1869,43 @@ export class SerializableMapDualKey {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.SerializableMapDualKey */
     vfunc_get_map_primary_key(): object | null
     vfunc_get_map_secondary_key(): object | null
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.SerializableMapDualKey */
+    vfunc_get_map_primary_key(): object | null
+    vfunc_get_map_secondary_key(): object | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: SerializableMapDualKey, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableMapDualKey, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1257,14 +1921,21 @@ export class SerializableMapDualKey {
 export interface SerializableCollection_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableCollection {
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.SerializableCollection */
+=======
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.SerializableCollection */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     deserialize_proceed(): boolean
     deserialized(): boolean
     deserialize_node(node: Node): boolean
     deserialize_children(): boolean
     is_collection(): boolean
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -1274,6 +1945,17 @@ export class SerializableCollection {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1281,27 +1963,47 @@ export class SerializableCollection {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.SerializableCollection */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.SerializableCollection */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_deserialize_proceed(): boolean
     vfunc_deserialized(): boolean
     vfunc_deserialize_node(node: Node): boolean
     vfunc_deserialize_children(): boolean
     vfunc_is_collection(): boolean
+<<<<<<< HEAD
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: SerializableCollection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableCollection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1317,6 +2019,7 @@ export class SerializableCollection {
 export interface ElementList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class ElementList {
+<<<<<<< HEAD
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -1351,6 +2054,26 @@ export class ElementList {
     reserved9(): void
     get_read_only_view(): Gee.BidirList
     /* Methods of Gee-0.8.Gee.AbstractList */
+=======
+    /* Properties of Gee.ArrayList */
+    equal_func: GLib.EqualFunc
+    /* Properties of Gee.AbstractList */
+    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractCollection */
+    readonly size: number
+    readonly is_empty: boolean
+    /* Fields of GXml.ElementList */
+    parent_instance: Gee.ArrayList
+    priv: ElementListPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.ElementList */
+    get(index: number): Element
+    to_array(): Element[]
+    /* Methods of Gee.ArrayList */
+    sort_with_data(compare: GLib.CompareDataFunc): void
+    /* Methods of Gee.AbstractList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -1358,12 +2081,20 @@ export class ElementList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
+<<<<<<< HEAD
     get_read_only_view(): Gee.List
     /* Methods of Gee-0.8.Gee.AbstractCollection */
+=======
+    first(): object | null
+    last(): object | null
+    insert_all(index: number, collection: Gee.Collection): void
+    /* Methods of Gee.AbstractCollection */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
+<<<<<<< HEAD
     iterator(): Gee.Iterator
     foreach(f: Gee.ForallFunc): boolean
     get_size(): number
@@ -1378,6 +2109,23 @@ export class ElementList {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    to_array(): object[]
+    add_all(collection: Gee.Collection): boolean
+    contains_all(collection: Gee.Collection): boolean
+    remove_all(collection: Gee.Collection): boolean
+    retain_all(collection: Gee.Collection): boolean
+    iterator(): Gee.Iterator
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1385,11 +2133,16 @@ export class ElementList {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.ElementList */
     vfunc_get_read_only_view(): Gee.BidirList
@@ -1415,6 +2168,10 @@ export class ElementList {
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee-0.8.Gee.AbstractList */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Gee.AbstractList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -1422,6 +2179,7 @@ export class ElementList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+<<<<<<< HEAD
     vfunc_reserved0(): void
     vfunc_reserved1(): void
     vfunc_reserved2(): void
@@ -1439,10 +2197,18 @@ export class ElementList {
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
+=======
+    vfunc_first(): object | null
+    vfunc_last(): object | null
+    vfunc_insert_all(index: number, collection: Gee.Collection): void
+    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    /* Virtual methods of Gee.AbstractCollection */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
+<<<<<<< HEAD
     vfunc_iterator(): Gee.Iterator
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_reserved0(): void
@@ -1473,10 +2239,14 @@ export class ElementList {
     vfunc_min(compare: GLib.CompareDataFunc): object | null
     vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
     vfunc_get_element_type(): GObject.Type
+=======
+    vfunc_to_array(): object[]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
+<<<<<<< HEAD
     vfunc_to_array(): object[]
     vfunc_add_all_array(array: object[]): boolean
     vfunc_contains_all_array(array: object[]): boolean
@@ -1486,10 +2256,15 @@ export class ElementList {
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_iterator(): Gee.Iterator
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
@@ -1497,12 +2272,28 @@ export class ElementList {
     connect(sigName: "notify", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::equal-func", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::equal-func", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::read-only-view", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::read-only", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::is-empty", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::is-empty", callback: (($obj: ElementList, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1512,12 +2303,17 @@ export class ElementList {
     _init (config?: ElementList_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): ElementList
+<<<<<<< HEAD
     static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): ElementList
+=======
+    static new(equal_func?: GLib.EqualFunc | null): ElementList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     static $gtype: GObject.Type
 }
 export interface NodeList_ConstructProps extends Gee.ArrayList_ConstructProps {
 }
 export class NodeList {
+<<<<<<< HEAD
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -1552,6 +2348,26 @@ export class NodeList {
     reserved9(): void
     get_read_only_view(): Gee.BidirList
     /* Methods of Gee-0.8.Gee.AbstractList */
+=======
+    /* Properties of Gee.ArrayList */
+    equal_func: GLib.EqualFunc
+    /* Properties of Gee.AbstractList */
+    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractCollection */
+    readonly size: number
+    readonly is_empty: boolean
+    /* Fields of GXml.NodeList */
+    parent_instance: Gee.ArrayList
+    priv: NodeListPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.NodeList */
+    get(index: number): Node
+    to_array(): Node[]
+    /* Methods of Gee.ArrayList */
+    sort_with_data(compare: GLib.CompareDataFunc): void
+    /* Methods of Gee.AbstractList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -1559,12 +2375,20 @@ export class NodeList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
+<<<<<<< HEAD
     get_read_only_view(): Gee.List
     /* Methods of Gee-0.8.Gee.AbstractCollection */
+=======
+    first(): object | null
+    last(): object | null
+    insert_all(index: number, collection: Gee.Collection): void
+    /* Methods of Gee.AbstractCollection */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
+<<<<<<< HEAD
     iterator(): Gee.Iterator
     foreach(f: Gee.ForallFunc): boolean
     get_size(): number
@@ -1579,6 +2403,23 @@ export class NodeList {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    to_array(): object[]
+    add_all(collection: Gee.Collection): boolean
+    contains_all(collection: Gee.Collection): boolean
+    remove_all(collection: Gee.Collection): boolean
+    retain_all(collection: Gee.Collection): boolean
+    iterator(): Gee.Iterator
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1586,11 +2427,16 @@ export class NodeList {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.NodeList */
     vfunc_get_read_only_view(): Gee.BidirList
@@ -1616,6 +2462,10 @@ export class NodeList {
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee-0.8.Gee.AbstractList */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Gee.AbstractList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -1623,6 +2473,7 @@ export class NodeList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+<<<<<<< HEAD
     vfunc_reserved0(): void
     vfunc_reserved1(): void
     vfunc_reserved2(): void
@@ -1640,10 +2491,18 @@ export class NodeList {
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
+=======
+    vfunc_first(): object | null
+    vfunc_last(): object | null
+    vfunc_insert_all(index: number, collection: Gee.Collection): void
+    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    /* Virtual methods of Gee.AbstractCollection */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
+<<<<<<< HEAD
     vfunc_iterator(): Gee.Iterator
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_reserved0(): void
@@ -1674,10 +2533,14 @@ export class NodeList {
     vfunc_min(compare: GLib.CompareDataFunc): object | null
     vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
     vfunc_get_element_type(): GObject.Type
+=======
+    vfunc_to_array(): object[]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
+<<<<<<< HEAD
     vfunc_to_array(): object[]
     vfunc_add_all_array(array: object[]): boolean
     vfunc_contains_all_array(array: object[]): boolean
@@ -1687,10 +2550,15 @@ export class NodeList {
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_iterator(): Gee.Iterator
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
@@ -1698,12 +2566,28 @@ export class NodeList {
     connect(sigName: "notify", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::equal-func", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::equal-func", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::read-only-view", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::read-only", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::is-empty", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::is-empty", callback: (($obj: NodeList, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1713,7 +2597,11 @@ export class NodeList {
     _init (config?: NodeList_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): NodeList
+<<<<<<< HEAD
     static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): NodeList
+=======
+    static new(equal_func?: GLib.EqualFunc | null): NodeList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     static $gtype: GObject.Type
 }
 export interface xAttr_ConstructProps extends BackedNode_ConstructProps {
@@ -1721,16 +2609,26 @@ export interface xAttr_ConstructProps extends BackedNode_ConstructProps {
     namespace?: Namespace
 }
 export class xAttr {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.xAttr */
     specified: boolean
     /* Properties of GXml-0.10.GXml.xNode */
     namespace_definitions: Gee.List
     namespace_uri: string
     namespace_prefix: string
+=======
+    /* Properties of GXml.xAttr */
+    specified: boolean
+    /* Properties of GXml.Node */
+    namespace_definitions: NodeList
+    namespace_uri: string
+    prefix: string
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     local_name: string
     node_name: string
     node_value: string
     node_type: NodeType
+<<<<<<< HEAD
     parent_node: xNode
     child_nodes: xNodeList
     first_child: xNode
@@ -1772,10 +2670,43 @@ export class xAttr {
     get_namespace_definitions(): Gee.List | null
     get_namespace_uri(): string | null
     get_namespace_prefix(): string | null
+=======
+    parent_node: Node
+    child_nodes: NodeList
+    first_child: Node
+    last_child: Node
+    previous_sibling: Node
+    next_sibling: Node
+    attributes: NamedAttrMap
+    owner_document: Document
+    /* Properties of GXml.Attribute */
+    namespace: Namespace
+    /* Fields of GXml.xAttr */
+    parent_instance: BackedNode
+    priv: xAttrPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.xAttr */
+    get_specified(): boolean
+    /* Methods of GXml.Node */
+    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    replace_child(new_child: Node, old_child: Node): Node | null
+    remove_child(old_child: Node): Node | null
+    append_child(new_child: Node): Node | null
+    has_child_nodes(): boolean
+    clone_node(deep: boolean): Node | null
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    to_string(format: boolean, level: number): string
+    get_namespace_definitions(): NodeList | null
+    get_namespace_uri(): string | null
+    get_prefix(): string | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_local_name(): string | null
     get_node_name(): string
     get_node_value(): string | null
     get_node_type(): NodeType
+<<<<<<< HEAD
     get_parent_node(): xNode | null
     get_child_nodes(): xNodeList | null
     get_first_child(): xNode | null
@@ -1800,6 +2731,25 @@ export class xAttr {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    get_parent_node(): Node | null
+    get_child_nodes(): NodeList | null
+    get_first_child(): Node | null
+    get_last_child(): Node | null
+    get_previous_sibling(): Node | null
+    get_next_sibling(): Node | null
+    get_attributes(): NamedAttrMap | null
+    get_owner_document(): Document
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -1807,11 +2757,16 @@ export class xAttr {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Attribute */
     get_namespace(): Namespace
@@ -1836,10 +2791,34 @@ export class xAttr {
     vfunc_get_namespace_definitions(): Gee.List | null
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Attribute */
+    get_namespace(): Namespace | null
+    set_namespace(value?: Namespace | null): void
+    /* Virtual methods of GXml.xAttr */
+    vfunc_get_namespace(): Namespace | null
+    vfunc_set_namespace(value?: Namespace | null): void
+    vfunc_get_prefix(): string | null
+    /* Virtual methods of GXml.Node */
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_local_name(): string | null
     vfunc_get_node_name(): string
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
+<<<<<<< HEAD
     vfunc_get_parent_node(): xNode | null
     vfunc_get_child_nodes(): xNodeList | null
     vfunc_get_first_child(): xNode | null
@@ -1862,14 +2841,31 @@ export class xAttr {
     vfunc_get_type_node(): NodeType
     vfunc_get_document(): Document
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -1879,8 +2875,13 @@ export class xAttr {
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::namespace-uri", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-uri", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::namespace-prefix", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-prefix", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::prefix", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::prefix", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::local-name", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::local-name", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::node-name", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
@@ -1905,6 +2906,7 @@ export class xAttr {
     connect_after(sigName: "notify::attributes", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner-document", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::owner-document", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::namespaces", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespaces", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::children", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
@@ -1921,6 +2923,10 @@ export class xAttr {
     connect_after(sigName: "notify::namespace", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::prefix", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::prefix", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::namespace", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::namespace", callback: (($obj: xAttr, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -1933,7 +2939,11 @@ export class xAttr {
 export interface BackedNode_ConstructProps extends xNode_ConstructProps {
 }
 export class BackedNode {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.xNode */
+=======
+    /* Properties of GXml.xNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespace_definitions: Gee.List
     namespace_uri: string
     namespace_prefix: string
@@ -1955,6 +2965,7 @@ export class BackedNode {
     readonly name: string
     value: string
     readonly parent: Node
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.BackedNode */
     parent_instance: xNode
     priv: BackedNodePrivate
@@ -1964,6 +2975,17 @@ export class BackedNode {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.xNode */
+=======
+    /* Fields of GXml.BackedNode */
+    parent_instance: xNode
+    priv: BackedNodePrivate
+    /* Fields of GXml.xNode */
+    _child_nodes: xNodeList
+    _attributes: NamedAttrMap
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.xNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
     set_namespace(uri: string, namespace_prefix?: string | null): boolean
     insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
@@ -1996,6 +3018,7 @@ export class BackedNode {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -2005,6 +3028,17 @@ export class BackedNode {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -2012,11 +3046,16 @@ export class BackedNode {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.xNode */
     vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
@@ -2030,6 +3069,58 @@ export class BackedNode {
     vfunc_stringify(format: boolean, level: number): string
     vfunc_to_string(): string
     vfunc_get_namespace_definitions(): Gee.List | null
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.BackedNode */
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: xNode): xNode | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): Gee.List | null
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_parent_node(): xNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): xNode | null
+    vfunc_get_next_sibling(): Node | null
+    /* Virtual methods of GXml.xNode */
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: xNode): xNode | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_stringify(format: boolean, level: number): string
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): Gee.List | null
+    vfunc_get_namespace_definitions(): NodeList | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
@@ -2037,11 +3128,25 @@ export class BackedNode {
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
     vfunc_get_parent_node(): xNode | null
+<<<<<<< HEAD
     vfunc_get_child_nodes(): xNodeList | null
     vfunc_get_first_child(): xNode | null
     vfunc_get_last_child(): xNode | null
     vfunc_get_previous_sibling(): xNode | null
     vfunc_get_next_sibling(): xNode | null
+=======
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): xNode | null
+    vfunc_get_next_sibling(): Node | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_attributes(): NamedAttrMap | null
     vfunc_get_namespaces(): Gee.List
     vfunc_get_children(): Gee.BidirList
@@ -2050,6 +3155,7 @@ export class BackedNode {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
@@ -2058,14 +3164,26 @@ export class BackedNode {
     vfunc_get_type_node(): NodeType
     vfunc_get_document(): Document
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_prefix(): string | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: BackedNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: BackedNode, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2123,6 +3241,7 @@ export class BackedNode {
 export interface xCDATASection_ConstructProps extends xText_ConstructProps {
 }
 export class xCDATASection {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.xCharacterData */
     data: string
     length: number
@@ -2130,10 +3249,20 @@ export class xCDATASection {
     namespace_definitions: Gee.List
     namespace_uri: string
     namespace_prefix: string
+=======
+    /* Properties of GXml.xCharacterData */
+    data: string
+    length: number
+    /* Properties of GXml.Node */
+    namespace_definitions: NodeList
+    namespace_uri: string
+    prefix: string
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     local_name: string
     node_name: string
     node_value: string
     node_type: NodeType
+<<<<<<< HEAD
     parent_node: xNode
     child_nodes: xNodeList
     first_child: xNode
@@ -2161,6 +3290,26 @@ export class xCDATASection {
     /* Methods of GXml-0.10.GXml.xText */
     split_text(offset: number): xText
     /* Methods of GXml-0.10.GXml.xCharacterData */
+=======
+    parent_node: Node
+    child_nodes: NodeList
+    first_child: Node
+    last_child: Node
+    previous_sibling: Node
+    next_sibling: Node
+    attributes: NamedAttrMap
+    owner_document: Document
+    /* Properties of GXml.CDATA */
+    readonly str: string
+    /* Fields of GXml.xCDATASection */
+    parent_instance: xText
+    priv: xCDATASectionPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.xText */
+    split_text(offset: number): xText
+    /* Methods of GXml.xCharacterData */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     substring_data(offset: number, count: number): string
     append_data(new_segment: string): void
     insert_data(offset: number, new_segment: string): void
@@ -2169,6 +3318,7 @@ export class xCDATASection {
     get_data(): string
     set_data(value: string): void
     get_length(): number
+<<<<<<< HEAD
     /* Methods of GXml-0.10.GXml.xNode */
     add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
     set_namespace(uri: string, namespace_prefix?: string | null): boolean
@@ -2183,10 +3333,26 @@ export class xCDATASection {
     get_namespace_definitions(): Gee.List | null
     get_namespace_uri(): string | null
     get_namespace_prefix(): string | null
+=======
+    /* Methods of GXml.Node */
+    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    replace_child(new_child: Node, old_child: Node): Node | null
+    remove_child(old_child: Node): Node | null
+    append_child(new_child: Node): Node | null
+    has_child_nodes(): boolean
+    clone_node(deep: boolean): Node | null
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    to_string(format: boolean, level: number): string
+    get_namespace_definitions(): NodeList | null
+    get_namespace_uri(): string | null
+    get_prefix(): string | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_local_name(): string | null
     get_node_name(): string
     get_node_value(): string | null
     get_node_type(): NodeType
+<<<<<<< HEAD
     get_parent_node(): xNode | null
     get_child_nodes(): xNodeList | null
     get_first_child(): xNode | null
@@ -2211,6 +3377,25 @@ export class xCDATASection {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    get_parent_node(): Node | null
+    get_child_nodes(): NodeList | null
+    get_first_child(): Node | null
+    get_last_child(): Node | null
+    get_previous_sibling(): Node | null
+    get_next_sibling(): Node | null
+    get_attributes(): NamedAttrMap | null
+    get_owner_document(): Document
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -2218,11 +3403,16 @@ export class xCDATASection {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.CDATA */
     get_str(): string
@@ -2244,10 +3434,31 @@ export class xCDATASection {
     vfunc_get_namespace_definitions(): Gee.List | null
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.CDATA */
+    get_str(): string
+    /* Virtual methods of GXml.xCDATASection */
+    vfunc_get_str(): string
+    /* Virtual methods of GXml.Node */
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_local_name(): string | null
     vfunc_get_node_name(): string
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
+<<<<<<< HEAD
     vfunc_get_parent_node(): xNode | null
     vfunc_get_child_nodes(): xNodeList | null
     vfunc_get_first_child(): xNode | null
@@ -2270,14 +3481,31 @@ export class xCDATASection {
     vfunc_get_type_node(): NodeType
     vfunc_get_document(): Document
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2289,8 +3517,13 @@ export class xCDATASection {
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::namespace-uri", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-uri", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::namespace-prefix", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-prefix", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::prefix", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::prefix", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::local-name", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::local-name", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::node-name", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
@@ -2315,6 +3548,7 @@ export class xCDATASection {
     connect_after(sigName: "notify::attributes", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner-document", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::owner-document", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::namespaces", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespaces", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::children", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
@@ -2327,6 +3561,8 @@ export class xCDATASection {
     connect_after(sigName: "notify::value", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parent", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::str", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::str", callback: (($obj: xCDATASection, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -2343,6 +3579,7 @@ export interface xCharacterData_ConstructProps extends BackedNode_ConstructProps
     length?: number
 }
 export class xCharacterData {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.xCharacterData */
     data: string
     length: number
@@ -2350,10 +3587,20 @@ export class xCharacterData {
     namespace_definitions: Gee.List
     namespace_uri: string
     namespace_prefix: string
+=======
+    /* Properties of GXml.xCharacterData */
+    data: string
+    length: number
+    /* Properties of GXml.Node */
+    namespace_definitions: NodeList
+    namespace_uri: string
+    prefix: string
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     local_name: string
     node_name: string
     node_value: string
     node_type: NodeType
+<<<<<<< HEAD
     parent_node: xNode
     child_nodes: xNodeList
     first_child: xNode
@@ -2377,6 +3624,22 @@ export class xCharacterData {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.xCharacterData */
+=======
+    parent_node: Node
+    child_nodes: NodeList
+    first_child: Node
+    last_child: Node
+    previous_sibling: Node
+    next_sibling: Node
+    attributes: NamedAttrMap
+    owner_document: Document
+    /* Fields of GXml.xCharacterData */
+    parent_instance: BackedNode
+    priv: xCharacterDataPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.xCharacterData */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     substring_data(offset: number, count: number): string
     append_data(new_segment: string): void
     insert_data(offset: number, new_segment: string): void
@@ -2385,6 +3648,7 @@ export class xCharacterData {
     get_data(): string
     set_data(value: string): void
     get_length(): number
+<<<<<<< HEAD
     /* Methods of GXml-0.10.GXml.xNode */
     add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
     set_namespace(uri: string, namespace_prefix?: string | null): boolean
@@ -2399,10 +3663,26 @@ export class xCharacterData {
     get_namespace_definitions(): Gee.List | null
     get_namespace_uri(): string | null
     get_namespace_prefix(): string | null
+=======
+    /* Methods of GXml.Node */
+    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    replace_child(new_child: Node, old_child: Node): Node | null
+    remove_child(old_child: Node): Node | null
+    append_child(new_child: Node): Node | null
+    has_child_nodes(): boolean
+    clone_node(deep: boolean): Node | null
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    to_string(format: boolean, level: number): string
+    get_namespace_definitions(): NodeList | null
+    get_namespace_uri(): string | null
+    get_prefix(): string | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_local_name(): string | null
     get_node_name(): string
     get_node_value(): string | null
     get_node_type(): NodeType
+<<<<<<< HEAD
     get_parent_node(): xNode | null
     get_child_nodes(): xNodeList | null
     get_first_child(): xNode | null
@@ -2427,6 +3707,25 @@ export class xCharacterData {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    get_parent_node(): Node | null
+    get_child_nodes(): NodeList | null
+    get_first_child(): Node | null
+    get_last_child(): Node | null
+    get_previous_sibling(): Node | null
+    get_next_sibling(): Node | null
+    get_attributes(): NamedAttrMap | null
+    get_owner_document(): Document
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -2434,11 +3733,16 @@ export class xCharacterData {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.xNode */
     vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
@@ -2454,10 +3758,27 @@ export class xCharacterData {
     vfunc_get_namespace_definitions(): Gee.List | null
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_local_name(): string | null
     vfunc_get_node_name(): string
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
+<<<<<<< HEAD
     vfunc_get_parent_node(): xNode | null
     vfunc_get_child_nodes(): xNodeList | null
     vfunc_get_first_child(): xNode | null
@@ -2480,14 +3801,31 @@ export class xCharacterData {
     vfunc_get_type_node(): NodeType
     vfunc_get_document(): Document
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2499,8 +3837,13 @@ export class xCharacterData {
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::namespace-uri", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-uri", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::namespace-prefix", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-prefix", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::prefix", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::prefix", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::local-name", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::local-name", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::node-name", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
@@ -2525,6 +3868,7 @@ export class xCharacterData {
     connect_after(sigName: "notify::attributes", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner-document", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::owner-document", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::namespaces", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespaces", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::children", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
@@ -2537,6 +3881,8 @@ export class xCharacterData {
     connect_after(sigName: "notify::value", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parent", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: xCharacterData, pspec: GObject.ParamSpec) => void)): number
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2549,6 +3895,7 @@ export class xCharacterData {
 export interface xComment_ConstructProps extends xCharacterData_ConstructProps {
 }
 export class xComment {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.xCharacterData */
     data: string
     length: number
@@ -2556,10 +3903,20 @@ export class xComment {
     namespace_definitions: Gee.List
     namespace_uri: string
     namespace_prefix: string
+=======
+    /* Properties of GXml.xCharacterData */
+    data: string
+    length: number
+    /* Properties of GXml.Node */
+    namespace_definitions: NodeList
+    namespace_uri: string
+    prefix: string
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     local_name: string
     node_name: string
     node_value: string
     node_type: NodeType
+<<<<<<< HEAD
     parent_node: xNode
     child_nodes: xNodeList
     first_child: xNode
@@ -2585,6 +3942,22 @@ export class xComment {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.xCharacterData */
+=======
+    parent_node: Node
+    child_nodes: NodeList
+    first_child: Node
+    last_child: Node
+    previous_sibling: Node
+    next_sibling: Node
+    attributes: NamedAttrMap
+    owner_document: Document
+    /* Fields of GXml.xComment */
+    parent_instance: xCharacterData
+    priv: xCommentPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.xCharacterData */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     substring_data(offset: number, count: number): string
     append_data(new_segment: string): void
     insert_data(offset: number, new_segment: string): void
@@ -2593,6 +3966,7 @@ export class xComment {
     get_data(): string
     set_data(value: string): void
     get_length(): number
+<<<<<<< HEAD
     /* Methods of GXml-0.10.GXml.xNode */
     add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
     set_namespace(uri: string, namespace_prefix?: string | null): boolean
@@ -2607,10 +3981,26 @@ export class xComment {
     get_namespace_definitions(): Gee.List | null
     get_namespace_uri(): string | null
     get_namespace_prefix(): string | null
+=======
+    /* Methods of GXml.Node */
+    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    replace_child(new_child: Node, old_child: Node): Node | null
+    remove_child(old_child: Node): Node | null
+    append_child(new_child: Node): Node | null
+    has_child_nodes(): boolean
+    clone_node(deep: boolean): Node | null
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    to_string(format: boolean, level: number): string
+    get_namespace_definitions(): NodeList | null
+    get_namespace_uri(): string | null
+    get_prefix(): string | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_local_name(): string | null
     get_node_name(): string
     get_node_value(): string | null
     get_node_type(): NodeType
+<<<<<<< HEAD
     get_parent_node(): xNode | null
     get_child_nodes(): xNodeList | null
     get_first_child(): xNode | null
@@ -2635,6 +4025,25 @@ export class xComment {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    get_parent_node(): Node | null
+    get_child_nodes(): NodeList | null
+    get_first_child(): Node | null
+    get_last_child(): Node | null
+    get_previous_sibling(): Node | null
+    get_next_sibling(): Node | null
+    get_attributes(): NamedAttrMap | null
+    get_owner_document(): Document
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -2642,11 +4051,16 @@ export class xComment {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Comment */
     get_str(): string
@@ -2666,10 +4080,27 @@ export class xComment {
     vfunc_get_namespace_definitions(): Gee.List | null
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_local_name(): string | null
     vfunc_get_node_name(): string
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
+<<<<<<< HEAD
     vfunc_get_parent_node(): xNode | null
     vfunc_get_child_nodes(): xNodeList | null
     vfunc_get_first_child(): xNode | null
@@ -2692,14 +4123,31 @@ export class xComment {
     vfunc_get_type_node(): NodeType
     vfunc_get_document(): Document
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2711,8 +4159,13 @@ export class xComment {
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::namespace-uri", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-uri", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::namespace-prefix", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-prefix", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::prefix", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::prefix", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::local-name", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::local-name", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::node-name", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
@@ -2737,6 +4190,7 @@ export class xComment {
     connect_after(sigName: "notify::attributes", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner-document", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::owner-document", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::namespaces", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespaces", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::children", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
@@ -2751,6 +4205,8 @@ export class xComment {
     connect_after(sigName: "notify::parent", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::str", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::str", callback: (($obj: xComment, pspec: GObject.ParamSpec) => void)): number
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2763,14 +4219,22 @@ export class xComment {
 export interface DocumentFragment_ConstructProps extends BackedNode_ConstructProps {
 }
 export class DocumentFragment {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.xNode */
     namespace_definitions: Gee.List
     namespace_uri: string
     namespace_prefix: string
+=======
+    /* Properties of GXml.Node */
+    namespace_definitions: NodeList
+    namespace_uri: string
+    prefix: string
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     local_name: string
     node_name: string
     node_value: string
     node_type: NodeType
+<<<<<<< HEAD
     parent_node: xNode
     child_nodes: xNodeList
     first_child: xNode
@@ -2807,10 +4271,39 @@ export class DocumentFragment {
     get_namespace_definitions(): Gee.List | null
     get_namespace_uri(): string | null
     get_namespace_prefix(): string | null
+=======
+    parent_node: Node
+    child_nodes: NodeList
+    first_child: Node
+    last_child: Node
+    previous_sibling: Node
+    next_sibling: Node
+    attributes: NamedAttrMap
+    owner_document: Document
+    /* Fields of GXml.DocumentFragment */
+    parent_instance: BackedNode
+    priv: DocumentFragmentPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.Node */
+    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    replace_child(new_child: Node, old_child: Node): Node | null
+    remove_child(old_child: Node): Node | null
+    append_child(new_child: Node): Node | null
+    has_child_nodes(): boolean
+    clone_node(deep: boolean): Node | null
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    to_string(format: boolean, level: number): string
+    get_namespace_definitions(): NodeList | null
+    get_namespace_uri(): string | null
+    get_prefix(): string | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_local_name(): string | null
     get_node_name(): string
     get_node_value(): string | null
     get_node_type(): NodeType
+<<<<<<< HEAD
     get_parent_node(): xNode | null
     get_child_nodes(): xNodeList | null
     get_first_child(): xNode | null
@@ -2835,6 +4328,25 @@ export class DocumentFragment {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    get_parent_node(): Node | null
+    get_child_nodes(): NodeList | null
+    get_first_child(): Node | null
+    get_last_child(): Node | null
+    get_previous_sibling(): Node | null
+    get_next_sibling(): Node | null
+    get_attributes(): NamedAttrMap | null
+    get_owner_document(): Document
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -2842,11 +4354,16 @@ export class DocumentFragment {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.xNode */
     vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
@@ -2862,10 +4379,27 @@ export class DocumentFragment {
     vfunc_get_namespace_definitions(): Gee.List | null
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_local_name(): string | null
     vfunc_get_node_name(): string
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
+<<<<<<< HEAD
     vfunc_get_parent_node(): xNode | null
     vfunc_get_child_nodes(): xNodeList | null
     vfunc_get_first_child(): xNode | null
@@ -2888,14 +4422,31 @@ export class DocumentFragment {
     vfunc_get_type_node(): NodeType
     vfunc_get_document(): Document
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -2903,8 +4454,13 @@ export class DocumentFragment {
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::namespace-uri", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-uri", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::namespace-prefix", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-prefix", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::prefix", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::prefix", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::local-name", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::local-name", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::node-name", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
@@ -2929,6 +4485,7 @@ export class DocumentFragment {
     connect_after(sigName: "notify::attributes", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner-document", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::owner-document", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::namespaces", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespaces", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::children", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
@@ -2941,6 +4498,8 @@ export class DocumentFragment {
     connect_after(sigName: "notify::value", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parent", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: DocumentFragment, pspec: GObject.ParamSpec) => void)): number
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -2953,12 +4512,22 @@ export class DocumentFragment {
 export interface xDocumentType_ConstructProps extends xNode_ConstructProps {
     entities?: Gee.Map
     notations?: Gee.Map
+<<<<<<< HEAD
 }
 export class xDocumentType {
     /* Properties of GXml-0.10.GXml.xDocumentType */
     entities: Gee.Map
     notations: Gee.Map
     /* Properties of GXml-0.10.GXml.xNode */
+=======
+    name?: string
+}
+export class xDocumentType {
+    /* Properties of GXml.xDocumentType */
+    entities: Gee.Map
+    notations: Gee.Map
+    /* Properties of GXml.xNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespace_definitions: Gee.List
     namespace_uri: string
     namespace_prefix: string
@@ -2980,6 +4549,7 @@ export class xDocumentType {
     readonly name: string
     value: string
     readonly parent: Node
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.xDocumentType */
     parent_instance: xNode
     priv: xDocumentTypePrivate
@@ -2992,6 +4562,20 @@ export class xDocumentType {
     get_entities(): Gee.Map | null
     get_notations(): Gee.Map | null
     /* Methods of GXml-0.10.GXml.xNode */
+=======
+    /* Fields of GXml.xDocumentType */
+    parent_instance: xNode
+    priv: xDocumentTypePrivate
+    /* Fields of GXml.xNode */
+    _child_nodes: xNodeList
+    _attributes: NamedAttrMap
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.xDocumentType */
+    get_entities(): Gee.Map | null
+    get_notations(): Gee.Map | null
+    /* Methods of GXml.xNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
     set_namespace(uri: string, namespace_prefix?: string | null): boolean
     insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
@@ -3024,6 +4608,7 @@ export class xDocumentType {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -3033,6 +4618,17 @@ export class xDocumentType {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3040,11 +4636,16 @@ export class xDocumentType {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.xNode */
     vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
@@ -3058,6 +4659,61 @@ export class xDocumentType {
     vfunc_stringify(format: boolean, level: number): string
     vfunc_to_string(): string
     vfunc_get_namespace_definitions(): Gee.List | null
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.DocumentType */
+    get_entities(): GLib.HashTable | null
+    get_notations(): GLib.HashTable | null
+    /* Virtual methods of GXml.xDocumentType */
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: xNode): xNode | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): Gee.List | null
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_parent_node(): xNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): xNode | null
+    vfunc_get_next_sibling(): Node | null
+    /* Virtual methods of GXml.xNode */
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: xNode): xNode | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_stringify(format: boolean, level: number): string
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): Gee.List | null
+    vfunc_get_namespace_definitions(): NodeList | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
@@ -3065,11 +4721,25 @@ export class xDocumentType {
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
     vfunc_get_parent_node(): xNode | null
+<<<<<<< HEAD
     vfunc_get_child_nodes(): xNodeList | null
     vfunc_get_first_child(): xNode | null
     vfunc_get_last_child(): xNode | null
     vfunc_get_previous_sibling(): xNode | null
     vfunc_get_next_sibling(): xNode | null
+=======
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): xNode | null
+    vfunc_get_next_sibling(): Node | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_attributes(): NamedAttrMap | null
     vfunc_get_namespaces(): Gee.List
     vfunc_get_children(): Gee.BidirList
@@ -3078,6 +4748,7 @@ export class xDocumentType {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
@@ -3086,14 +4757,26 @@ export class xDocumentType {
     vfunc_get_type_node(): NodeType
     vfunc_get_document(): Document
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_prefix(): string | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: xDocumentType, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: xDocumentType, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3156,6 +4839,7 @@ export interface xDocument_ConstructProps extends xNode_ConstructProps {
     doctype?: xDocumentType
     implementation?: Implementation
     document_element?: xElement
+<<<<<<< HEAD
     indent?: boolean
     ns_top?: boolean
     prefix_default_ns?: boolean
@@ -3164,11 +4848,20 @@ export interface xDocument_ConstructProps extends xNode_ConstructProps {
 }
 export class xDocument {
     /* Properties of GXml-0.10.GXml.xDocument */
+=======
+}
+export class xDocument {
+    /* Properties of GXml.xDocument */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     doctype: xDocumentType
     implementation: Implementation
     document_element: xElement
     readonly root: Node
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.xNode */
+=======
+    /* Properties of GXml.xNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespace_definitions: Gee.List
     namespace_uri: string
     namespace_prefix: string
@@ -3190,6 +4883,7 @@ export class xDocument {
     readonly name: string
     value: string
     readonly parent: Node
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Document */
     indent: boolean
     ns_top: boolean
@@ -3205,6 +4899,17 @@ export class xDocument {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.xDocument */
+=======
+    /* Fields of GXml.xDocument */
+    parent_instance: xNode
+    priv: xDocumentPrivate
+    /* Fields of GXml.xNode */
+    _child_nodes: xNodeList
+    _attributes: NamedAttrMap
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.xDocument */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     save_to_path(file_path: string): void
     save_to_stream(outstream: Gio.OutputStream, can?: Gio.Cancellable | null): void
     create_document_fragment(): DocumentFragment
@@ -3220,7 +4925,11 @@ export class xDocument {
     get_implementation(): Implementation
     get_document_element(): xElement
     get_root(): Node
+<<<<<<< HEAD
     /* Methods of GXml-0.10.GXml.xNode */
+=======
+    /* Methods of GXml.xNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
     set_namespace(uri: string, namespace_prefix?: string | null): boolean
     insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
@@ -3253,6 +4962,7 @@ export class xDocument {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -3262,6 +4972,17 @@ export class xDocument {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3269,11 +4990,16 @@ export class xDocument {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Document */
     create_element(name: string): Node
@@ -3324,6 +5050,70 @@ export class xDocument {
     vfunc_stringify(format: boolean, level: number): string
     vfunc_to_string(): string
     vfunc_get_namespace_definitions(): Gee.List | null
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Document */
+    create_element(tag_name: string): Element
+    create_text_node(text_data: string): Text
+    create_comment(comment_data: string): Comment
+    create_cdata_section(cdata_data: string): CDATASection
+    create_processing_instruction(target: string, data: string): ProcessingInstruction
+    create_attribute(name: string): Attr
+    get_elements_by_tag_name(tag_name: string): NodeList
+    copy_node(foreign_node: Node, deep: boolean): Node
+    get_doctype(): DocumentType | null
+    get_document_element(): Element
+    /* Virtual methods of GXml.xDocument */
+    vfunc_get_root(): Node
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: xNode): xNode | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): Gee.List | null
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_parent_node(): xNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): xNode | null
+    vfunc_get_next_sibling(): Node | null
+    /* Virtual methods of GXml.xNode */
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: xNode): xNode | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_stringify(format: boolean, level: number): string
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): Gee.List | null
+    vfunc_get_namespace_definitions(): NodeList | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
@@ -3331,11 +5121,25 @@ export class xDocument {
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
     vfunc_get_parent_node(): xNode | null
+<<<<<<< HEAD
     vfunc_get_child_nodes(): xNodeList | null
     vfunc_get_first_child(): xNode | null
     vfunc_get_last_child(): xNode | null
     vfunc_get_previous_sibling(): xNode | null
     vfunc_get_next_sibling(): xNode | null
+=======
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): xNode | null
+    vfunc_get_next_sibling(): Node | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_attributes(): NamedAttrMap | null
     vfunc_get_namespaces(): Gee.List
     vfunc_get_children(): Gee.BidirList
@@ -3344,6 +5148,7 @@ export class xDocument {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
@@ -3352,14 +5157,26 @@ export class xDocument {
     vfunc_get_type_node(): NodeType
     vfunc_get_document(): Document
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_prefix(): string | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3413,6 +5230,7 @@ export class xDocument {
     connect_after(sigName: "notify::value", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parent", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::indent", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::indent", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ns-top", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
@@ -3423,6 +5241,8 @@ export class xDocument {
     connect_after(sigName: "notify::backup", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::file", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::file", callback: (($obj: xDocument, pspec: GObject.ParamSpec) => void)): number
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3438,6 +5258,7 @@ export class xDocument {
     static from_string(xml: string): xDocument
     static from_string_with_options(xml: string, url: string | null, encoding: string | null, options: number): xDocument
     static new(): xDocument
+<<<<<<< HEAD
     static new_default(): Document
     static new_default_for_path(path: string): Document
     static new_default_for_file(f: Gio.File): Document
@@ -3451,10 +5272,24 @@ export class xElement {
     namespace_definitions: Gee.List
     namespace_uri: string
     namespace_prefix: string
+=======
+    static $gtype: GObject.Type
+}
+export interface xElement_ConstructProps extends BackedNode_ConstructProps {
+    tag_name?: string
+    content?: string
+}
+export class xElement {
+    /* Properties of GXml.Node */
+    namespace_definitions: NodeList
+    namespace_uri: string
+    prefix: string
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     local_name: string
     node_name: string
     node_value: string
     node_type: NodeType
+<<<<<<< HEAD
     parent_node: xNode
     child_nodes: xNodeList
     first_child: xNode
@@ -3481,6 +5316,25 @@ export class xElement {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.xElement */
+=======
+    parent_node: Node
+    child_nodes: NodeList
+    first_child: Node
+    last_child: Node
+    previous_sibling: Node
+    next_sibling: Node
+    attributes: NamedAttrMap
+    owner_document: Document
+    /* Properties of GXml.Element */
+    tag_name: string
+    content: string
+    /* Fields of GXml.xElement */
+    parent_instance: BackedNode
+    priv: xElementPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.xElement */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_attribute(name: string): string
     set_attribute(name: string, value: string): void
     remove_attribute(name: string): void
@@ -3488,6 +5342,7 @@ export class xElement {
     set_attribute_node(new_attr: xAttr): xAttr
     remove_attribute_node(old_attr: xAttr): xAttr
     get_elements_by_tag_name(tag_name: string): xNodeList
+<<<<<<< HEAD
     /* Methods of GXml-0.10.GXml.xNode */
     add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
     set_namespace(uri: string, namespace_prefix?: string | null): boolean
@@ -3502,10 +5357,26 @@ export class xElement {
     get_namespace_definitions(): Gee.List | null
     get_namespace_uri(): string | null
     get_namespace_prefix(): string | null
+=======
+    /* Methods of GXml.Node */
+    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    replace_child(new_child: Node, old_child: Node): Node | null
+    remove_child(old_child: Node): Node | null
+    append_child(new_child: Node): Node | null
+    has_child_nodes(): boolean
+    clone_node(deep: boolean): Node | null
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    to_string(format: boolean, level: number): string
+    get_namespace_definitions(): NodeList | null
+    get_namespace_uri(): string | null
+    get_prefix(): string | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_local_name(): string | null
     get_node_name(): string
     get_node_value(): string | null
     get_node_type(): NodeType
+<<<<<<< HEAD
     get_parent_node(): xNode | null
     get_child_nodes(): xNodeList | null
     get_first_child(): xNode | null
@@ -3530,6 +5401,25 @@ export class xElement {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    get_parent_node(): Node | null
+    get_child_nodes(): NodeList | null
+    get_first_child(): Node | null
+    get_last_child(): Node | null
+    get_previous_sibling(): Node | null
+    get_next_sibling(): Node | null
+    get_attributes(): NamedAttrMap | null
+    get_owner_document(): Document
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3537,11 +5427,16 @@ export class xElement {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Element */
     normalize(): void
@@ -3577,10 +5472,36 @@ export class xElement {
     vfunc_get_namespace_definitions(): Gee.List | null
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Element */
+    get_attribute_node(name: string): Attr | null
+    set_attribute_node(new_attr: Attr): Attr
+    remove_attribute_node(old_attr: Attr): Attr
+    get_elements_by_tag_name(tag_name: string): NodeList
+    normalize(): void
+    get_tag_name(): string
+    get_content(): string
+    set_content(value: string): void
+    /* Virtual methods of GXml.Node */
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_local_name(): string | null
     vfunc_get_node_name(): string
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
+<<<<<<< HEAD
     vfunc_get_parent_node(): xNode | null
     vfunc_get_child_nodes(): xNodeList | null
     vfunc_get_first_child(): xNode | null
@@ -3603,14 +5524,31 @@ export class xElement {
     vfunc_get_type_node(): NodeType
     vfunc_get_document(): Document
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3618,8 +5556,13 @@ export class xElement {
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::namespace-uri", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-uri", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::namespace-prefix", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-prefix", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::prefix", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::prefix", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::local-name", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::local-name", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::node-name", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
@@ -3644,6 +5587,7 @@ export class xElement {
     connect_after(sigName: "notify::attributes", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner-document", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::owner-document", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::namespaces", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespaces", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::children", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
@@ -3656,6 +5600,8 @@ export class xElement {
     connect_after(sigName: "notify::value", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parent", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::tag-name", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::tag-name", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::content", callback: (($obj: xElement, pspec: GObject.ParamSpec) => void)): number
@@ -3675,11 +5621,19 @@ export interface Entity_ConstructProps extends xNode_ConstructProps {
     notation_name?: string
 }
 export class Entity {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Entity */
     public_id: string
     system_id: string
     notation_name: string
     /* Properties of GXml-0.10.GXml.xNode */
+=======
+    /* Properties of GXml.Entity */
+    public_id: string
+    system_id: string
+    notation_name: string
+    /* Properties of GXml.xNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespace_definitions: Gee.List
     namespace_uri: string
     namespace_prefix: string
@@ -3701,6 +5655,7 @@ export class Entity {
     readonly name: string
     value: string
     readonly parent: Node
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.Entity */
     parent_instance: xNode
     priv: EntityPrivate
@@ -3714,6 +5669,21 @@ export class Entity {
     get_system_id(): string
     get_notation_name(): string
     /* Methods of GXml-0.10.GXml.xNode */
+=======
+    /* Fields of GXml.Entity */
+    parent_instance: xNode
+    priv: EntityPrivate
+    /* Fields of GXml.xNode */
+    _child_nodes: xNodeList
+    _attributes: NamedAttrMap
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.Entity */
+    get_public_id(): string
+    get_system_id(): string
+    get_notation_name(): string
+    /* Methods of GXml.xNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
     set_namespace(uri: string, namespace_prefix?: string | null): boolean
     insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
@@ -3746,6 +5716,7 @@ export class Entity {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -3755,6 +5726,17 @@ export class Entity {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3762,11 +5744,16 @@ export class Entity {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.xNode */
     vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
@@ -3780,6 +5767,58 @@ export class Entity {
     vfunc_stringify(format: boolean, level: number): string
     vfunc_to_string(): string
     vfunc_get_namespace_definitions(): Gee.List | null
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.Entity */
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: xNode): xNode | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): Gee.List | null
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_parent_node(): xNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): xNode | null
+    vfunc_get_next_sibling(): Node | null
+    /* Virtual methods of GXml.xNode */
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: xNode): xNode | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_stringify(format: boolean, level: number): string
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): Gee.List | null
+    vfunc_get_namespace_definitions(): NodeList | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
@@ -3787,11 +5826,25 @@ export class Entity {
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
     vfunc_get_parent_node(): xNode | null
+<<<<<<< HEAD
     vfunc_get_child_nodes(): xNodeList | null
     vfunc_get_first_child(): xNode | null
     vfunc_get_last_child(): xNode | null
     vfunc_get_previous_sibling(): xNode | null
     vfunc_get_next_sibling(): xNode | null
+=======
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): xNode | null
+    vfunc_get_next_sibling(): Node | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_attributes(): NamedAttrMap | null
     vfunc_get_namespaces(): Gee.List
     vfunc_get_children(): Gee.BidirList
@@ -3800,6 +5853,7 @@ export class Entity {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
@@ -3808,14 +5862,26 @@ export class Entity {
     vfunc_get_type_node(): NodeType
     vfunc_get_document(): Document
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_prefix(): string | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: Entity, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Entity, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -3879,7 +5945,11 @@ export class Entity {
 export interface EntityReference_ConstructProps extends xNode_ConstructProps {
 }
 export class EntityReference {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.xNode */
+=======
+    /* Properties of GXml.xNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespace_definitions: Gee.List
     namespace_uri: string
     namespace_prefix: string
@@ -3901,6 +5971,7 @@ export class EntityReference {
     readonly name: string
     value: string
     readonly parent: Node
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.EntityReference */
     parent_instance: xNode
     priv: EntityReferencePrivate
@@ -3910,6 +5981,17 @@ export class EntityReference {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.xNode */
+=======
+    /* Fields of GXml.EntityReference */
+    parent_instance: xNode
+    priv: EntityReferencePrivate
+    /* Fields of GXml.xNode */
+    _child_nodes: xNodeList
+    _attributes: NamedAttrMap
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.xNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
     set_namespace(uri: string, namespace_prefix?: string | null): boolean
     insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
@@ -3942,6 +6024,7 @@ export class EntityReference {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -3951,6 +6034,17 @@ export class EntityReference {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -3958,11 +6052,16 @@ export class EntityReference {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.xNode */
     vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
@@ -3976,6 +6075,58 @@ export class EntityReference {
     vfunc_stringify(format: boolean, level: number): string
     vfunc_to_string(): string
     vfunc_get_namespace_definitions(): Gee.List | null
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.EntityReference */
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: xNode): xNode | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): Gee.List | null
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_parent_node(): xNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): xNode | null
+    vfunc_get_next_sibling(): Node | null
+    /* Virtual methods of GXml.xNode */
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: xNode): xNode | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_stringify(format: boolean, level: number): string
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): Gee.List | null
+    vfunc_get_namespace_definitions(): NodeList | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
@@ -3983,11 +6134,25 @@ export class EntityReference {
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
     vfunc_get_parent_node(): xNode | null
+<<<<<<< HEAD
     vfunc_get_child_nodes(): xNodeList | null
     vfunc_get_first_child(): xNode | null
     vfunc_get_last_child(): xNode | null
     vfunc_get_previous_sibling(): xNode | null
     vfunc_get_next_sibling(): xNode | null
+=======
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): xNode | null
+    vfunc_get_next_sibling(): Node | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_attributes(): NamedAttrMap | null
     vfunc_get_namespaces(): Gee.List
     vfunc_get_children(): Gee.BidirList
@@ -3996,6 +6161,7 @@ export class EntityReference {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
@@ -4004,14 +6170,26 @@ export class EntityReference {
     vfunc_get_type_node(): NodeType
     vfunc_get_document(): Document
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_prefix(): string | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: EntityReference, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: EntityReference, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4069,6 +6247,7 @@ export class EntityReference {
 export interface Implementation_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Implementation {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.Implementation */
     parent_instance: GObject.Object
     priv: ImplementationPrivate
@@ -4086,6 +6265,25 @@ export class Implementation {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of GXml.Implementation */
+    parent_instance: GObject.Object
+    priv: ImplementationPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.Implementation */
+    create_document(namespace_uri?: string | null, qualified_name?: string | null, doctype?: xDocumentType | null): xDocument
+    has_feature(feature: string, version?: string | null): boolean
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -4093,21 +6291,37 @@ export class Implementation {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: Implementation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: Implementation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4123,6 +6337,7 @@ export class Implementation {
 export interface AbstractNamedAttrMap_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AbstractNamedAttrMap {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.AbstractNamedAttrMap */
     parent_instance: GObject.Object
     priv: AbstractNamedAttrMapPrivate
@@ -4138,6 +6353,25 @@ export class AbstractNamedAttrMap {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Properties of Gee.Iterable */
+    readonly element_type: GObject.Type
+    /* Fields of GXml.AbstractNamedAttrMap */
+    parent_instance: GObject.Object
+    priv: AbstractNamedAttrMapPrivate
+    elem: xElement
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -4145,13 +6379,22 @@ export class AbstractNamedAttrMap {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of Gee-0.8.Gee.Traversable */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of Gee.Traversable */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     foreach(f: Gee.ForallFunc): boolean
     stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
@@ -4168,9 +6411,15 @@ export class AbstractNamedAttrMap {
     min(compare: GLib.CompareDataFunc): object | null
     order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
     get_element_type(): GObject.Type
+<<<<<<< HEAD
     /* Methods of Gee-0.8.Gee.Iterable */
     iterator(): Gee.Iterator
     /* Virtual methods of GXml-0.10.GXml.AbstractNamedAttrMap */
+=======
+    /* Methods of Gee.Iterable */
+    iterator(): Gee.Iterator
+    /* Virtual methods of GXml.AbstractNamedAttrMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
@@ -4188,11 +6437,16 @@ export class AbstractNamedAttrMap {
     vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
     vfunc_get_element_type(): GObject.Type
     vfunc_iterator(): Gee.Iterator
+<<<<<<< HEAD
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
@@ -4200,6 +6454,17 @@ export class AbstractNamedAttrMap {
     connect(sigName: "notify", callback: (($obj: AbstractNamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AbstractNamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: AbstractNamedAttrMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: AbstractNamedAttrMap, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::element-type", callback: (($obj: AbstractNamedAttrMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::element-type", callback: (($obj: AbstractNamedAttrMap, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4212,6 +6477,7 @@ export class AbstractNamedAttrMap {
 export interface AbstractNamedAttrMapEntry_ConstructProps extends Gee.MapEntry_ConstructProps {
 }
 export class AbstractNamedAttrMapEntry {
+<<<<<<< HEAD
     /* Properties of Gee-0.8.Gee.MapEntry */
     readonly key: object
     value: object
@@ -4235,6 +6501,25 @@ export class AbstractNamedAttrMapEntry {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Properties of Gee.MapEntry */
+    readonly key: object
+    value: object
+    /* Fields of GXml.AbstractNamedAttrMapEntry */
+    parent_instance: Gee.MapEntry
+    priv: AbstractNamedAttrMapEntryPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -4242,11 +6527,16 @@ export class AbstractNamedAttrMapEntry {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of Gee-0.8.Gee.MapEntry */
     vfunc_get_key(): object | null
@@ -4254,14 +6544,25 @@ export class AbstractNamedAttrMapEntry {
     vfunc_set_value(value?: object | null): void
     vfunc_get_read_only(): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: AbstractNamedAttrMapEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: AbstractNamedAttrMapEntry, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4269,8 +6570,11 @@ export class AbstractNamedAttrMapEntry {
     connect_after(sigName: "notify::key", callback: (($obj: AbstractNamedAttrMapEntry, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::value", callback: (($obj: AbstractNamedAttrMapEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: AbstractNamedAttrMapEntry, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::read-only", callback: (($obj: AbstractNamedAttrMapEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: AbstractNamedAttrMapEntry, pspec: GObject.ParamSpec) => void)): number
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4285,14 +6589,19 @@ export class AbstractNamedAttrMapEntry {
 export interface AbstractNamedAttrMapIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class AbstractNamedAttrMapIterator {
+<<<<<<< HEAD
     /* Properties of Gee-0.8.Gee.Iterator */
     readonly valid: boolean
     readonly read_only: boolean
     /* Fields of GXml-0.10.GXml.AbstractNamedAttrMapIterator */
+=======
+    /* Fields of GXml.AbstractNamedAttrMapIterator */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_instance: GObject.Object
     priv: AbstractNamedAttrMapIteratorPrivate
     nm: AbstractNamedAttrMap
     cur: object | null
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -4304,6 +6613,19 @@ export class AbstractNamedAttrMapIterator {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -4311,13 +6633,22 @@ export class AbstractNamedAttrMapIterator {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of Gee-0.8.Gee.Traversable */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of Gee.Traversable */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     foreach(f: Gee.ForallFunc): boolean
     stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
@@ -4334,6 +6665,7 @@ export class AbstractNamedAttrMapIterator {
     min(compare: GLib.CompareDataFunc): object | null
     order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
     get_element_type(): GObject.Type
+<<<<<<< HEAD
     /* Methods of Gee-0.8.Gee.Iterator */
     next(): boolean
     has_next(): boolean
@@ -4342,6 +6674,15 @@ export class AbstractNamedAttrMapIterator {
     get_valid(): boolean
     get_read_only(): boolean
     /* Virtual methods of GXml-0.10.GXml.AbstractNamedAttrMapIterator */
+=======
+    /* Methods of Gee.Iterator */
+    next(): boolean
+    has_next(): boolean
+    first(): boolean
+    get(): object | null
+    remove(): void
+    /* Virtual methods of GXml.AbstractNamedAttrMapIterator */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
@@ -4360,15 +6701,23 @@ export class AbstractNamedAttrMapIterator {
     vfunc_get_element_type(): GObject.Type
     vfunc_next(): boolean
     vfunc_has_next(): boolean
+<<<<<<< HEAD
     vfunc_get(): object | null
     vfunc_remove(): void
     vfunc_get_valid(): boolean
     vfunc_get_read_only(): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_first(): boolean
+    vfunc_get(): object | null
+    vfunc_remove(): void
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
@@ -4380,6 +6729,15 @@ export class AbstractNamedAttrMapIterator {
     connect_after(sigName: "notify::valid", callback: (($obj: AbstractNamedAttrMapIterator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: AbstractNamedAttrMapIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: AbstractNamedAttrMapIterator, pspec: GObject.ParamSpec) => void)): number
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: AbstractNamedAttrMapIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: AbstractNamedAttrMapIterator, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4389,6 +6747,7 @@ export class AbstractNamedAttrMapIterator {
     _init (config?: AbstractNamedAttrMapIterator_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(nm: AbstractNamedAttrMap): AbstractNamedAttrMapIterator
+<<<<<<< HEAD
     static unfold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.UnfoldFunc, current?: Gee.Lazy | null): Gee.Iterator
     static concat(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, iters: Gee.Iterator): Gee.Iterator
     static $gtype: GObject.Type
@@ -4399,10 +6758,22 @@ export class NamedAttrMap {
     /* Properties of Gee-0.8.Gee.Map */
     readonly size: number
     readonly read_only: boolean
+=======
+    static $gtype: GObject.Type
+}
+export interface NamedAttrMap_ConstructProps extends AbstractNamedAttrMap_ConstructProps {
+    length?: number
+}
+export class NamedAttrMap {
+    /* Properties of Gee.Map */
+    readonly size: number
+    readonly is_empty: boolean
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
     readonly read_only_view: Gee.Map
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.NamedNodeMap */
     readonly length: number
     /* Fields of GXml-0.10.GXml.NamedAttrMap */
@@ -4413,10 +6784,25 @@ export class NamedAttrMap {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.NamedAttrMap */
+=======
+    readonly key_type: GObject.Type
+    readonly value_type: GObject.Type
+    /* Properties of GXml.NamedNodeMap */
+    length: number
+    /* Fields of GXml.NamedAttrMap */
+    parent_instance: AbstractNamedAttrMap
+    priv: NamedAttrMapPrivate
+    /* Fields of GXml.AbstractNamedAttrMap */
+    elem: xElement
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.NamedAttrMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     contains(key: string): boolean
     contains_all(map: Gee.Map): boolean
     remove(key: string): [ /* returnType */ boolean, /* val */ Attribute ]
     remove_all(map: Gee.Map): boolean
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -4426,6 +6812,17 @@ export class NamedAttrMap {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -4433,13 +6830,22 @@ export class NamedAttrMap {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of Gee-0.8.Gee.Map */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of Gee.Map */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     has_key(key?: object | null): boolean
     contains(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
@@ -4452,6 +6858,7 @@ export class NamedAttrMap {
     set_all(map: Gee.Map): void
     unset_all(map: Gee.Map): boolean
     has_all(map: Gee.Map): boolean
+<<<<<<< HEAD
     get_size(): number
     get_is_empty(): boolean
     get_read_only(): boolean
@@ -4462,21 +6869,35 @@ export class NamedAttrMap {
     get_key_type(): GObject.Type
     get_value_type(): GObject.Type
     /* Methods of GXml-0.10.GXml.NamedNodeMap */
+=======
+    /* Methods of GXml.NamedNodeMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_named_item(name: string): object | null
     set_named_item(item?: object | null): object | null
     remove_named_item(name: string): object | null
     item(index: number): object | null
     get_length(): number
+<<<<<<< HEAD
     /* Virtual methods of GXml-0.10.GXml.NamedAttrMap */
     vfunc_has_key(key?: object | null): boolean
+=======
+    /* Virtual methods of GXml.NamedAttrMap */
+    vfunc_has_key(key?: object | null): boolean
+    vfunc_contains(key?: object | null): boolean
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_has(key?: object | null, value?: object | null): boolean
     vfunc_get(key?: object | null): object | null
     vfunc_set(key?: object | null, value?: object | null): void
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
+<<<<<<< HEAD
+=======
+    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_clear(): void
     vfunc_map_iterator(): Gee.MapIterator
     vfunc_set_all(map: Gee.Map): void
     vfunc_unset_all(map: Gee.Map): boolean
+<<<<<<< HEAD
     vfunc_has_all(map: Gee.Map): boolean
     vfunc_get_size(): number
     vfunc_get_is_empty(): boolean
@@ -4485,12 +6906,21 @@ export class NamedAttrMap {
     vfunc_get_values(): Gee.Collection
     vfunc_get_entries(): Gee.Set
     vfunc_get_read_only_view(): Gee.Map
+=======
+    vfunc_remove_all(map: Gee.Map): boolean
+    vfunc_has_all(map: Gee.Map): boolean
+    vfunc_contains_all(map: Gee.Map): boolean
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_named_item(name: string): object | null
     vfunc_set_named_item(item?: object | null): object | null
     vfunc_remove_named_item(name: string): object | null
     vfunc_item(index: number): object | null
     vfunc_get_length(): number
+<<<<<<< HEAD
     /* Virtual methods of GXml-0.10.GXml.AbstractNamedAttrMap */
+=======
+    /* Virtual methods of GXml.AbstractNamedAttrMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
@@ -4508,22 +6938,38 @@ export class NamedAttrMap {
     vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
     vfunc_get_element_type(): GObject.Type
     vfunc_iterator(): Gee.Iterator
+<<<<<<< HEAD
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::size", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::read-only", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::is-empty", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::is-empty", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::keys", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::values", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
@@ -4532,6 +6978,13 @@ export class NamedAttrMap {
     connect_after(sigName: "notify::entries", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
+=======
+    connect(sigName: "notify::key-type", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::key-type", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::value-type", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::value-type", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::length", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::length", callback: (($obj: NamedAttrMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -4542,7 +6995,11 @@ export class NamedAttrMap {
     constructor (config?: NamedAttrMap_ConstructProps)
     _init (config?: NamedAttrMap_ConstructProps): void
     /* Static methods and pseudo-constructors */
+<<<<<<< HEAD
     static empty(k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify): Gee.Map
+=======
+    static empty(): Gee.Map
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     static $gtype: GObject.Type
 }
 export interface NamespaceAttr_ConstructProps extends xNode_ConstructProps {
@@ -4550,10 +7007,17 @@ export interface NamespaceAttr_ConstructProps extends xNode_ConstructProps {
     defined_namespace_uri?: string
 }
 export class NamespaceAttr {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.NamespaceAttr */
     defined_prefix: string
     defined_namespace_uri: string
     /* Properties of GXml-0.10.GXml.xNode */
+=======
+    /* Properties of GXml.NamespaceAttr */
+    defined_prefix: string
+    defined_namespace_uri: string
+    /* Properties of GXml.xNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespace_definitions: Gee.List
     namespace_uri: string
     namespace_prefix: string
@@ -4575,6 +7039,7 @@ export class NamespaceAttr {
     readonly name: string
     value: string
     readonly parent: Node
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Namespace */
     readonly uri: string
     readonly prefix: string
@@ -4590,6 +7055,23 @@ export class NamespaceAttr {
     get_defined_prefix(): string
     get_defined_namespace_uri(): string
     /* Methods of GXml-0.10.GXml.xNode */
+=======
+    /* Properties of GXml.Namespace */
+    readonly uri: string
+    readonly prefix: string
+    /* Fields of GXml.NamespaceAttr */
+    parent_instance: xNode
+    priv: NamespaceAttrPrivate
+    /* Fields of GXml.xNode */
+    _child_nodes: xNodeList
+    _attributes: NamedAttrMap
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.NamespaceAttr */
+    get_defined_prefix(): string
+    get_defined_namespace_uri(): string
+    /* Methods of GXml.xNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
     set_namespace(uri: string, namespace_prefix?: string | null): boolean
     insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
@@ -4622,6 +7104,7 @@ export class NamespaceAttr {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -4631,6 +7114,17 @@ export class NamespaceAttr {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -4638,11 +7132,16 @@ export class NamespaceAttr {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Namespace */
     get_uri(): string
@@ -4662,6 +7161,63 @@ export class NamespaceAttr {
     vfunc_stringify(format: boolean, level: number): string
     vfunc_to_string(): string
     vfunc_get_namespace_definitions(): Gee.List | null
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Namespace */
+    get_uri(): string | null
+    get_prefix(): string | null
+    /* Virtual methods of GXml.NamespaceAttr */
+    vfunc_get_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: xNode): xNode | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): Gee.List | null
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_parent_node(): xNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): xNode | null
+    vfunc_get_next_sibling(): Node | null
+    /* Virtual methods of GXml.xNode */
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: xNode): xNode | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_stringify(format: boolean, level: number): string
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): Gee.List | null
+    vfunc_get_namespace_definitions(): NodeList | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
@@ -4669,11 +7225,25 @@ export class NamespaceAttr {
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
     vfunc_get_parent_node(): xNode | null
+<<<<<<< HEAD
     vfunc_get_child_nodes(): xNodeList | null
     vfunc_get_first_child(): xNode | null
     vfunc_get_last_child(): xNode | null
     vfunc_get_previous_sibling(): xNode | null
     vfunc_get_next_sibling(): xNode | null
+=======
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): xNode | null
+    vfunc_get_next_sibling(): Node | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_attributes(): NamedAttrMap | null
     vfunc_get_namespaces(): Gee.List
     vfunc_get_children(): Gee.BidirList
@@ -4682,6 +7252,7 @@ export class NamespaceAttr {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
@@ -4690,14 +7261,26 @@ export class NamespaceAttr {
     vfunc_get_type_node(): NodeType
     vfunc_get_document(): Document
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_prefix(): string | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: NamespaceAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: NamespaceAttr, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4777,9 +7360,16 @@ export interface xNode_ConstructProps extends GObject.Object_ConstructProps {
     attributes?: NamedAttrMap
     owner_document?: xDocument
     value?: string
+<<<<<<< HEAD
 }
 export class xNode {
     /* Properties of GXml-0.10.GXml.xNode */
+=======
+    prefix?: string
+}
+export class xNode {
+    /* Properties of GXml.xNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespace_definitions: Gee.List
     namespace_uri: string
     namespace_prefix: string
@@ -4801,18 +7391,30 @@ export class xNode {
     readonly name: string
     value: string
     readonly parent: Node
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Node */
     readonly childs: Gee.BidirList
     readonly type_node: NodeType
     readonly document: Document
     /* Fields of GXml-0.10.GXml.xNode */
+=======
+    /* Properties of GXml.Node */
+    prefix: string
+    /* Fields of GXml.xNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_instance: GObject.Object
     priv: xNodePrivate
     _child_nodes: xNodeList
     _attributes: NamedAttrMap
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.xNode */
+=======
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.xNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
     set_namespace(uri: string, namespace_prefix?: string | null): boolean
     insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
@@ -4845,6 +7447,7 @@ export class xNode {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -4854,6 +7457,17 @@ export class xNode {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -4861,11 +7475,16 @@ export class xNode {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Node */
     get(key: string): Node | null
@@ -4888,6 +7507,47 @@ export class xNode {
     vfunc_stringify(format: boolean, level: number): string
     vfunc_to_string(): string
     vfunc_get_namespace_definitions(): Gee.List | null
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Node */
+    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    replace_child(new_child: Node, old_child: Node): Node | null
+    remove_child(old_child: Node): Node | null
+    append_child(new_child: Node): Node | null
+    clone_node(deep: boolean): Node | null
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    to_string(format: boolean, level: number): string
+    get_namespace_definitions(): NodeList | null
+    get_prefix(): string | null
+    get_parent_node(): Node | null
+    get_child_nodes(): NodeList | null
+    get_first_child(): Node | null
+    get_last_child(): Node | null
+    get_previous_sibling(): Node | null
+    get_next_sibling(): Node | null
+    get_owner_document(): Document
+    /* Virtual methods of GXml.xNode */
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: xNode): xNode | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_stringify(format: boolean, level: number): string
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): Gee.List | null
+    vfunc_get_namespace_definitions(): NodeList | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
@@ -4895,11 +7555,25 @@ export class xNode {
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
     vfunc_get_parent_node(): xNode | null
+<<<<<<< HEAD
     vfunc_get_child_nodes(): xNodeList | null
     vfunc_get_first_child(): xNode | null
     vfunc_get_last_child(): xNode | null
     vfunc_get_previous_sibling(): xNode | null
     vfunc_get_next_sibling(): xNode | null
+=======
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): xNode | null
+    vfunc_get_next_sibling(): Node | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_attributes(): NamedAttrMap | null
     vfunc_get_namespaces(): Gee.List
     vfunc_get_children(): Gee.BidirList
@@ -4908,6 +7582,7 @@ export class xNode {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
@@ -4916,14 +7591,26 @@ export class xNode {
     vfunc_get_type_node(): NodeType
     vfunc_get_document(): Document
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_prefix(): string | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -4969,12 +7656,17 @@ export class xNode {
     connect_after(sigName: "notify::value", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parent", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::childs", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::childs", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::type-node", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::type-node", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::document", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::prefix", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::prefix", callback: (($obj: xNode, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4982,6 +7674,7 @@ export class xNode {
     static name: string
     constructor (config?: xNode_ConstructProps)
     _init (config?: xNode_ConstructProps): void
+<<<<<<< HEAD
     /* Static methods and pseudo-constructors */
     static copy(doc: Document, node: Node, source: Node, deep: boolean): boolean
     static $gtype: GObject.Type
@@ -4990,6 +7683,16 @@ export interface xNotation_ConstructProps extends xNode_ConstructProps {
 }
 export class xNotation {
     /* Properties of GXml-0.10.GXml.xNode */
+=======
+    static $gtype: GObject.Type
+}
+export interface xNotation_ConstructProps extends xNode_ConstructProps {
+    public_id?: string
+    system_id?: string
+}
+export class xNotation {
+    /* Properties of GXml.xNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespace_definitions: Gee.List
     namespace_uri: string
     namespace_prefix: string
@@ -5011,6 +7714,7 @@ export class xNotation {
     readonly name: string
     value: string
     readonly parent: Node
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Notation */
     readonly public_id: string
     readonly external_id: string
@@ -5023,6 +7727,20 @@ export class xNotation {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.xNode */
+=======
+    /* Properties of GXml.Notation */
+    public_id: string
+    system_id: string
+    /* Fields of GXml.xNotation */
+    parent_instance: xNode
+    priv: xNotationPrivate
+    /* Fields of GXml.xNode */
+    _child_nodes: xNodeList
+    _attributes: NamedAttrMap
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.xNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
     set_namespace(uri: string, namespace_prefix?: string | null): boolean
     insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
@@ -5055,6 +7773,7 @@ export class xNotation {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -5064,6 +7783,17 @@ export class xNotation {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -5071,11 +7801,16 @@ export class xNotation {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Notation */
     get_public_id(): string | null
@@ -5095,6 +7830,61 @@ export class xNotation {
     vfunc_stringify(format: boolean, level: number): string
     vfunc_to_string(): string
     vfunc_get_namespace_definitions(): Gee.List | null
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Notation */
+    get_public_id(): string | null
+    get_system_id(): string | null
+    /* Virtual methods of GXml.xNotation */
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: xNode): xNode | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): Gee.List | null
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_parent_node(): xNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): xNode | null
+    vfunc_get_next_sibling(): Node | null
+    /* Virtual methods of GXml.xNode */
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: xNode): xNode | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_stringify(format: boolean, level: number): string
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): Gee.List | null
+    vfunc_get_namespace_definitions(): NodeList | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
@@ -5102,11 +7892,25 @@ export class xNotation {
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
     vfunc_get_parent_node(): xNode | null
+<<<<<<< HEAD
     vfunc_get_child_nodes(): xNodeList | null
     vfunc_get_first_child(): xNode | null
     vfunc_get_last_child(): xNode | null
     vfunc_get_previous_sibling(): xNode | null
     vfunc_get_next_sibling(): xNode | null
+=======
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): xNode | null
+    vfunc_get_next_sibling(): Node | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_attributes(): NamedAttrMap | null
     vfunc_get_namespaces(): Gee.List
     vfunc_get_children(): Gee.BidirList
@@ -5115,6 +7919,7 @@ export class xNotation {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
@@ -5123,14 +7928,26 @@ export class xNotation {
     vfunc_get_type_node(): NodeType
     vfunc_get_document(): Document
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_prefix(): string | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: xNotation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: xNotation, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5178,8 +7995,13 @@ export class xNotation {
     connect_after(sigName: "notify::parent", callback: (($obj: xNotation, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::public-id", callback: (($obj: xNotation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::public-id", callback: (($obj: xNotation, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::external-id", callback: (($obj: xNotation, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::external-id", callback: (($obj: xNotation, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::system-id", callback: (($obj: xNotation, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::system-id", callback: (($obj: xNotation, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5190,9 +8012,17 @@ export class xNotation {
     static $gtype: GObject.Type
 }
 export interface xProcessingInstruction_ConstructProps extends xNode_ConstructProps {
+<<<<<<< HEAD
 }
 export class xProcessingInstruction {
     /* Properties of GXml-0.10.GXml.xNode */
+=======
+    target?: string
+    data?: string
+}
+export class xProcessingInstruction {
+    /* Properties of GXml.xNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespace_definitions: Gee.List
     namespace_uri: string
     namespace_prefix: string
@@ -5214,6 +8044,7 @@ export class xProcessingInstruction {
     readonly name: string
     value: string
     readonly parent: Node
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.ProcessingInstruction */
     readonly target: string
     readonly data: string
@@ -5226,6 +8057,20 @@ export class xProcessingInstruction {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.xNode */
+=======
+    /* Properties of GXml.ProcessingInstruction */
+    target: string
+    data: string
+    /* Fields of GXml.xProcessingInstruction */
+    parent_instance: xNode
+    priv: xProcessingInstructionPrivate
+    /* Fields of GXml.xNode */
+    _child_nodes: xNodeList
+    _attributes: NamedAttrMap
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.xNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
     set_namespace(uri: string, namespace_prefix?: string | null): boolean
     insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
@@ -5258,6 +8103,7 @@ export class xProcessingInstruction {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -5267,6 +8113,17 @@ export class xProcessingInstruction {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -5274,11 +8131,16 @@ export class xProcessingInstruction {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.ProcessingInstruction */
     get_target(): string
@@ -5298,6 +8160,62 @@ export class xProcessingInstruction {
     vfunc_stringify(format: boolean, level: number): string
     vfunc_to_string(): string
     vfunc_get_namespace_definitions(): Gee.List | null
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.ProcessingInstruction */
+    get_target(): string
+    get_data(): string
+    set_data(value: string): void
+    /* Virtual methods of GXml.xProcessingInstruction */
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: xNode): xNode | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): Gee.List | null
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_parent_node(): xNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): xNode | null
+    vfunc_get_next_sibling(): Node | null
+    /* Virtual methods of GXml.xNode */
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: xNode): xNode | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_stringify(format: boolean, level: number): string
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): Gee.List | null
+    vfunc_get_namespace_definitions(): NodeList | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
@@ -5305,11 +8223,25 @@ export class xProcessingInstruction {
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
     vfunc_get_parent_node(): xNode | null
+<<<<<<< HEAD
     vfunc_get_child_nodes(): xNodeList | null
     vfunc_get_first_child(): xNode | null
     vfunc_get_last_child(): xNode | null
     vfunc_get_previous_sibling(): xNode | null
     vfunc_get_next_sibling(): xNode | null
+=======
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): xNode | null
+    vfunc_get_next_sibling(): Node | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_attributes(): NamedAttrMap | null
     vfunc_get_namespaces(): Gee.List
     vfunc_get_children(): Gee.BidirList
@@ -5318,6 +8250,7 @@ export class xProcessingInstruction {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
@@ -5326,14 +8259,26 @@ export class xProcessingInstruction {
     vfunc_get_type_node(): NodeType
     vfunc_get_document(): Document
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_prefix(): string | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: xProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: xProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5395,6 +8340,7 @@ export class xProcessingInstruction {
 export interface xText_ConstructProps extends xCharacterData_ConstructProps {
 }
 export class xText {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.xCharacterData */
     data: string
     length: number
@@ -5402,10 +8348,20 @@ export class xText {
     namespace_definitions: Gee.List
     namespace_uri: string
     namespace_prefix: string
+=======
+    /* Properties of GXml.xCharacterData */
+    data: string
+    length: number
+    /* Properties of GXml.Node */
+    namespace_definitions: NodeList
+    namespace_uri: string
+    prefix: string
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     local_name: string
     node_name: string
     node_value: string
     node_type: NodeType
+<<<<<<< HEAD
     parent_node: xNode
     child_nodes: xNodeList
     first_child: xNode
@@ -5433,6 +8389,24 @@ export class xText {
     /* Methods of GXml-0.10.GXml.xText */
     split_text(offset: number): xText
     /* Methods of GXml-0.10.GXml.xCharacterData */
+=======
+    parent_node: Node
+    child_nodes: NodeList
+    first_child: Node
+    last_child: Node
+    previous_sibling: Node
+    next_sibling: Node
+    attributes: NamedAttrMap
+    owner_document: Document
+    /* Fields of GXml.xText */
+    parent_instance: xCharacterData
+    priv: xTextPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.xText */
+    split_text(offset: number): xText
+    /* Methods of GXml.xCharacterData */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     substring_data(offset: number, count: number): string
     append_data(new_segment: string): void
     insert_data(offset: number, new_segment: string): void
@@ -5441,6 +8415,7 @@ export class xText {
     get_data(): string
     set_data(value: string): void
     get_length(): number
+<<<<<<< HEAD
     /* Methods of GXml-0.10.GXml.xNode */
     add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
     set_namespace(uri: string, namespace_prefix?: string | null): boolean
@@ -5455,10 +8430,26 @@ export class xText {
     get_namespace_definitions(): Gee.List | null
     get_namespace_uri(): string | null
     get_namespace_prefix(): string | null
+=======
+    /* Methods of GXml.Node */
+    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    replace_child(new_child: Node, old_child: Node): Node | null
+    remove_child(old_child: Node): Node | null
+    append_child(new_child: Node): Node | null
+    has_child_nodes(): boolean
+    clone_node(deep: boolean): Node | null
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    to_string(format: boolean, level: number): string
+    get_namespace_definitions(): NodeList | null
+    get_namespace_uri(): string | null
+    get_prefix(): string | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_local_name(): string | null
     get_node_name(): string
     get_node_value(): string | null
     get_node_type(): NodeType
+<<<<<<< HEAD
     get_parent_node(): xNode | null
     get_child_nodes(): xNodeList | null
     get_first_child(): xNode | null
@@ -5483,6 +8474,25 @@ export class xText {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    get_parent_node(): Node | null
+    get_child_nodes(): NodeList | null
+    get_first_child(): Node | null
+    get_last_child(): Node | null
+    get_previous_sibling(): Node | null
+    get_next_sibling(): Node | null
+    get_attributes(): NamedAttrMap | null
+    get_owner_document(): Document
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -5490,11 +8500,16 @@ export class xText {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Text */
     get_str(): string
@@ -5514,10 +8529,29 @@ export class xText {
     vfunc_get_namespace_definitions(): Gee.List | null
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Text */
+    split_text(offset: number): Text
+    /* Virtual methods of GXml.Node */
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_local_name(): string | null
     vfunc_get_node_name(): string
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
+<<<<<<< HEAD
     vfunc_get_parent_node(): xNode | null
     vfunc_get_child_nodes(): xNodeList | null
     vfunc_get_first_child(): xNode | null
@@ -5540,14 +8574,31 @@ export class xText {
     vfunc_get_type_node(): NodeType
     vfunc_get_document(): Document
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5559,8 +8610,13 @@ export class xText {
     connect_after(sigName: "notify::namespace-definitions", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::namespace-uri", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-uri", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::namespace-prefix", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespace-prefix", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::prefix", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::prefix", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::local-name", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::local-name", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::node-name", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
@@ -5585,6 +8641,7 @@ export class xText {
     connect_after(sigName: "notify::attributes", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::owner-document", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::owner-document", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::namespaces", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespaces", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::children", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
@@ -5599,6 +8656,8 @@ export class xText {
     connect_after(sigName: "notify::parent", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::str", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::str", callback: (($obj: xText, pspec: GObject.ParamSpec) => void)): number
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5611,6 +8670,7 @@ export class xText {
 export interface SerializableBool_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableBool {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.SerializableBool */
     parent_instance: GObject.Object
     priv: SerializableBoolPrivate
@@ -5629,6 +8689,26 @@ export class SerializableBool {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of GXml.SerializableBool */
+    parent_instance: GObject.Object
+    priv: SerializableBoolPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.SerializableBool */
+    get_value(): boolean
+    set_value(val: boolean): void
+    to_string(): string
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -5636,33 +8716,57 @@ export class SerializableBool {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.SerializableProperty */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.SerializableProperty */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_serializable_property_value(): string
     set_serializable_property_value(val?: string | null): void
     deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     serialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     default_serializable_property_serialize_property(element: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     default_serializable_property_deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
+<<<<<<< HEAD
     /* Virtual methods of GXml-0.10.GXml.SerializableBool */
+=======
+    /* Virtual methods of GXml.SerializableBool */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_serializable_property_value(): string
     vfunc_set_serializable_property_value(val?: string | null): void
     vfunc_deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     vfunc_serialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
+<<<<<<< HEAD
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: SerializableBool, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableBool, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5680,20 +8784,31 @@ export class SerializableBool {
 export interface SerializableDouble_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableDouble {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.SerializableDouble */
+=======
+    /* Fields of GXml.SerializableDouble */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_instance: GObject.Object
     priv: SerializableDoublePrivate
     _val: string
     _fraction: number
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.SerializableDouble */
+=======
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.SerializableDouble */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_fraction(): number
     set_fraction(fraction: number): void
     get_value(): number
     set_value(val: number): void
     to_string(): string
     format(f: string): string
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -5703,6 +8818,17 @@ export class SerializableDouble {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -5710,33 +8836,57 @@ export class SerializableDouble {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.SerializableProperty */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.SerializableProperty */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_serializable_property_value(): string
     set_serializable_property_value(val?: string | null): void
     deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     serialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     default_serializable_property_serialize_property(element: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     default_serializable_property_deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
+<<<<<<< HEAD
     /* Virtual methods of GXml-0.10.GXml.SerializableDouble */
+=======
+    /* Virtual methods of GXml.SerializableDouble */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_serializable_property_value(): string
     vfunc_set_serializable_property_value(val?: string | null): void
     vfunc_deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     vfunc_serialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
+<<<<<<< HEAD
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: SerializableDouble, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableDouble, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5754,6 +8904,7 @@ export class SerializableDouble {
 export interface SerializableFloat_ConstructProps extends SerializableDouble_ConstructProps {
 }
 export class SerializableFloat {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.SerializableFloat */
     parent_instance: SerializableDouble
     priv: SerializableFloatPrivate
@@ -5766,10 +8917,25 @@ export class SerializableFloat {
     get_value(): number
     set_value(val: number): void
     /* Methods of GXml-0.10.GXml.SerializableDouble */
+=======
+    /* Fields of GXml.SerializableFloat */
+    parent_instance: SerializableDouble
+    priv: SerializableFloatPrivate
+    /* Fields of GXml.SerializableDouble */
+    _val: string
+    _fraction: number
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.SerializableFloat */
+    get_value(): number
+    set_value(val: number): void
+    /* Methods of GXml.SerializableDouble */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_fraction(): number
     set_fraction(fraction: number): void
     to_string(): string
     format(f: string): string
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -5779,6 +8945,17 @@ export class SerializableFloat {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -5786,26 +8963,46 @@ export class SerializableFloat {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.SerializableDouble */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.SerializableDouble */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_serializable_property_value(): string
     vfunc_set_serializable_property_value(val?: string | null): void
     vfunc_deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     vfunc_serialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
+<<<<<<< HEAD
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: SerializableFloat, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableFloat, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5823,20 +9020,31 @@ export class SerializableFloat {
 export interface SerializableEnum_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableEnum {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.SerializableEnum */
+=======
+    /* Fields of GXml.SerializableEnum */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_instance: GObject.Object
     priv: SerializableEnumPrivate
     _val: string
     _enumtype: GObject.Type
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.SerializableEnum */
+=======
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.SerializableEnum */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     set_enum_type(type: GObject.Type): void
     get_enum_type(): GObject.Type
     parse(str: string): void
     parse_integer(v: number): void
     to_integer(): number
     to_string(): string
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -5846,6 +9054,17 @@ export class SerializableEnum {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -5853,33 +9072,57 @@ export class SerializableEnum {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.SerializableProperty */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.SerializableProperty */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_serializable_property_value(): string
     set_serializable_property_value(val?: string | null): void
     deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     serialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     default_serializable_property_serialize_property(element: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     default_serializable_property_deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
+<<<<<<< HEAD
     /* Virtual methods of GXml-0.10.GXml.SerializableEnum */
+=======
+    /* Virtual methods of GXml.SerializableEnum */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_serializable_property_value(): string
     vfunc_set_serializable_property_value(val?: string | null): void
     vfunc_deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     vfunc_serialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
+<<<<<<< HEAD
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: SerializableEnum, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableEnum, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5898,6 +9141,7 @@ export class SerializableEnum {
 export interface SerializableInt_ConstructProps extends SerializableDouble_ConstructProps {
 }
 export class SerializableInt {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.SerializableInt */
     parent_instance: SerializableDouble
     priv: SerializableIntPrivate
@@ -5910,10 +9154,25 @@ export class SerializableInt {
     get_value(): number
     set_value(val: number): void
     /* Methods of GXml-0.10.GXml.SerializableDouble */
+=======
+    /* Fields of GXml.SerializableInt */
+    parent_instance: SerializableDouble
+    priv: SerializableIntPrivate
+    /* Fields of GXml.SerializableDouble */
+    _val: string
+    _fraction: number
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.SerializableInt */
+    get_value(): number
+    set_value(val: number): void
+    /* Methods of GXml.SerializableDouble */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_fraction(): number
     set_fraction(fraction: number): void
     to_string(): string
     format(f: string): string
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -5923,6 +9182,17 @@ export class SerializableInt {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -5930,26 +9200,46 @@ export class SerializableInt {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.SerializableDouble */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.SerializableDouble */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_serializable_property_value(): string
     vfunc_set_serializable_property_value(val?: string | null): void
     vfunc_deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     vfunc_serialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
+<<<<<<< HEAD
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: SerializableInt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableInt, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -5967,14 +9257,24 @@ export class SerializableInt {
 export interface SerializableValueList_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SerializableValueList {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.SerializableValueList */
+=======
+    /* Fields of GXml.SerializableValueList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_instance: GObject.Object
     priv: SerializableValueListPrivate
     _vals: string[]
     extra: Gee.ArrayList
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.SerializableValueList */
+=======
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.SerializableValueList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_values(): Gee.List
     add_values(vals: string[]): void
     get_value_at(index: number): string | null
@@ -5982,6 +9282,7 @@ export class SerializableValueList {
     get_values_array(): string[]
     is_value(): boolean
     to_string(): string
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -5991,6 +9292,17 @@ export class SerializableValueList {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -5998,20 +9310,33 @@ export class SerializableValueList {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.SerializableProperty */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.SerializableProperty */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_serializable_property_value(): string
     set_serializable_property_value(val?: string | null): void
     deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     serialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     default_serializable_property_serialize_property(element: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
     default_serializable_property_deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
+<<<<<<< HEAD
     /* Virtual methods of GXml-0.10.GXml.SerializableValueList */
+=======
+    /* Virtual methods of GXml.SerializableValueList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_values(): Gee.List
     vfunc_add_values(vals: string[]): void
     vfunc_get_value_at(index: number): string | null
@@ -6022,15 +9347,26 @@ export class SerializableValueList {
     vfunc_set_serializable_property_value(val?: string | null): void
     vfunc_deserialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): boolean
     vfunc_serialize_property(property_node: Node, prop: GObject.ParamSpec, nick: boolean): Node | null
+<<<<<<< HEAD
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: SerializableValueList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: SerializableValueList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -6048,6 +9384,7 @@ export class SerializableValueList {
 export interface SerializableObjectModel_ConstructProps extends GObject.Object_ConstructProps {
     properties?: GObject.ParamSpec[]
     ignored_serializable_properties?: GLib.HashTable
+<<<<<<< HEAD
     serialized_xml_node_value?: string
 }
 export class SerializableObjectModel {
@@ -6065,6 +9402,25 @@ export class SerializableObjectModel {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.SerializableObjectModel */
+=======
+    unknown_serializable_property?: GLib.HashTable
+    serialized_xml_node_value?: string
+}
+export class SerializableObjectModel {
+    /* Properties of GXml.SerializableObjectModel */
+    properties: GObject.ParamSpec[]
+    ignored_serializable_properties: GLib.HashTable
+    /* Properties of GXml.Serializable */
+    unknown_serializable_property: GLib.HashTable
+    serialized_xml_node_value: string
+    /* Fields of GXml.SerializableObjectModel */
+    parent_instance: GObject.Object
+    priv: SerializableObjectModelPrivate
+    _node: Node
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.SerializableObjectModel */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_enable_unknown_serializable_property(): boolean
     serialize_use_xml_node_value(): boolean
     property_use_nick(): boolean
@@ -6086,6 +9442,7 @@ export class SerializableObjectModel {
     set_properties(value: GObject.ParamSpec[]): void
     get_ignored_serializable_properties(): GLib.HashTable
     set_ignored_serializable_properties(value: GLib.HashTable): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -6095,6 +9452,17 @@ export class SerializableObjectModel {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -6102,11 +9470,16 @@ export class SerializableObjectModel {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Serializable */
     default_find_property_spec(property_name: string): GObject.ParamSpec | null
@@ -6116,6 +9489,27 @@ export class SerializableObjectModel {
     get_serialized_xml_node_value(): string | null
     set_serialized_xml_node_value(value?: string | null): void
     /* Virtual methods of GXml-0.10.GXml.SerializableObjectModel */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Serializable */
+    serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
+    deserialize(node: Node): Node | null
+    default_find_property_spec(property_name: string): GObject.ParamSpec | null
+    init_properties(): void
+    default_init_properties(): void
+    default_list_serializable_properties(): GObject.ParamSpec[]
+    get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
+    default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
+    set_property_value(spec: GObject.ParamSpec, val: any): void
+    default_set_property_value(spec: GObject.ParamSpec, val: any): void
+    transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+    get_unknown_serializable_property(): GLib.HashTable
+    set_unknown_serializable_property(value: GLib.HashTable): void
+    get_serialized_xml_node_value(): string | null
+    set_serialized_xml_node_value(value?: string | null): void
+    /* Virtual methods of GXml.SerializableObjectModel */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_enable_unknown_serializable_property(): boolean
     vfunc_serialize_use_xml_node_value(): boolean
     vfunc_property_use_nick(): boolean
@@ -6125,6 +9519,7 @@ export class SerializableObjectModel {
     vfunc_list_serializable_properties(): GObject.ParamSpec[]
     vfunc_serialize(node: Node): Node | null
     vfunc_serialize_property(element: Node, prop: GObject.ParamSpec): Node | null
+<<<<<<< HEAD
     vfunc_deserialize(node: Node): boolean
     vfunc_deserialize_property(property_node: Node): boolean
     vfunc_to_string(): string
@@ -6135,10 +9530,37 @@ export class SerializableObjectModel {
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
+    vfunc_deserialize(node: Node): boolean
+    vfunc_deserialize(node: Node): Node | null
+    vfunc_deserialize_property(property_node: Node): boolean
+    vfunc_to_string(): string
+    vfunc_default_find_property_spec(property_name: string): GObject.ParamSpec | null
+    vfunc_init_properties(): void
+    vfunc_default_init_properties(): void
+    vfunc_default_list_serializable_properties(): GObject.ParamSpec[]
+    vfunc_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfunc_default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfunc_set_property_value(spec: GObject.ParamSpec, val: any): void
+    vfunc_default_set_property_value(spec: GObject.ParamSpec, val: any): void
+    vfunc_transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    vfunc_transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+    vfunc_get_properties(): GObject.ParamSpec[]
+    vfunc_set_properties(value: GObject.ParamSpec[]): void
+    vfunc_get_ignored_serializable_properties(): GLib.HashTable
+    vfunc_set_ignored_serializable_properties(value: GLib.HashTable): void
+    vfunc_get_unknown_serializable_property(): GLib.HashTable
+    vfunc_set_unknown_serializable_property(value: GLib.HashTable): void
+    vfunc_get_serialized_xml_node_value(): string | null
+    vfunc_set_serialized_xml_node_value(value?: string | null): void
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
@@ -6147,6 +9569,16 @@ export class SerializableObjectModel {
     connect_after(sigName: "notify", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GXml-0.10.GXml.Serializable */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    /* Signals of GXml.Serializable */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableObjectModel, element: Node, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableObjectModel, element: Node, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
@@ -6163,10 +9595,15 @@ export class SerializableObjectModel {
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableObjectModel, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -6184,6 +9621,7 @@ export class SerializableObjectModel {
 export interface SerializableTreeMap_ConstructProps extends Gee.TreeMap_ConstructProps {
     properties?: GObject.ParamSpec[]
     ignored_serializable_properties?: GLib.HashTable
+<<<<<<< HEAD
     serialized_xml_node_value?: string
 }
 export class SerializableTreeMap {
@@ -6206,13 +9644,42 @@ export class SerializableTreeMap {
     readonly unknown_serializable_nodes: Gee.Collection
     serialized_xml_node_value: string
     /* Fields of GXml-0.10.GXml.SerializableTreeMap */
+=======
+    unknown_serializable_property?: GLib.HashTable
+    serialized_xml_node_value?: string
+}
+export class SerializableTreeMap {
+    /* Properties of GXml.SerializableTreeMap */
+    properties: GObject.ParamSpec[]
+    ignored_serializable_properties: GLib.HashTable
+    /* Properties of Gee.TreeMap */
+    key_compare_func: GLib.CompareFunc
+    value_equal_func: GLib.EqualFunc
+    /* Properties of Gee.AbstractMap */
+    readonly size: number
+    readonly is_empty: boolean
+    readonly keys: Gee.Set
+    readonly values: Gee.Collection
+    readonly entries: Gee.Set
+    readonly read_only_view: Gee.Map
+    /* Properties of GXml.Serializable */
+    unknown_serializable_property: GLib.HashTable
+    serialized_xml_node_value: string
+    /* Fields of GXml.SerializableTreeMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_instance: Gee.TreeMap
     priv: SerializableTreeMapPrivate
     _node: Node
     _deserialized: boolean
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.SerializableTreeMap */
+=======
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.SerializableTreeMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     deserialize_proceed(): boolean
     deserialized(): boolean
     deserialize_node(node: Node): boolean
@@ -6227,6 +9694,7 @@ export class SerializableTreeMap {
     default_serialize(node: Node): Node | null
     serialize_property(element: Node, prop: GObject.ParamSpec): Node | null
     default_serialize_property(element: Node, prop: GObject.ParamSpec): Node | null
+<<<<<<< HEAD
     deserialize(node: Node): boolean
     default_deserialize(node: Node): boolean
     deserialize_property(property_node: Node): boolean
@@ -6258,6 +9726,17 @@ export class SerializableTreeMap {
     get_ascending_keys(): Gee.SortedSet
     get_ascending_entries(): Gee.SortedSet
     /* Methods of Gee-0.8.Gee.AbstractMap */
+=======
+    deserialize(node: Node): boolean
+    default_deserialize(node: Node): boolean
+    deserialize_property(property_node: Node): boolean
+    default_deserialize_property(property_node: Node): boolean
+    get_properties(): GObject.ParamSpec[]
+    set_properties(value: GObject.ParamSpec[]): void
+    get_ignored_serializable_properties(): GLib.HashTable
+    set_ignored_serializable_properties(value: GLib.HashTable): void
+    /* Methods of Gee.AbstractMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     has_key(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
     get(key?: object | null): object | null
@@ -6265,6 +9744,7 @@ export class SerializableTreeMap {
     unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     map_iterator(): Gee.MapIterator
     clear(): void
+<<<<<<< HEAD
     foreach(f: Gee.ForallFunc): boolean
     stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     get_size(): number
@@ -6282,6 +9762,20 @@ export class SerializableTreeMap {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    set_all(map: Gee.Map): void
+    unset_all(map: Gee.Map): boolean
+    has_all(map: Gee.Map): boolean
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -6289,11 +9783,16 @@ export class SerializableTreeMap {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Serializable */
     get_enable_unknown_serializable_property(): boolean
@@ -6306,6 +9805,30 @@ export class SerializableTreeMap {
     /* Methods of GXml-0.10.GXml.SerializableCollection */
     is_collection(): boolean
     /* Virtual methods of GXml-0.10.GXml.SerializableTreeMap */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Serializable */
+    get_enable_unknown_serializable_property(): boolean
+    serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
+    deserialize(node: Node): Node | null
+    default_find_property_spec(property_name: string): GObject.ParamSpec | null
+    init_properties(): void
+    default_init_properties(): void
+    default_list_serializable_properties(): GObject.ParamSpec[]
+    get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
+    default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
+    set_property_value(spec: GObject.ParamSpec, val: any): void
+    default_set_property_value(spec: GObject.ParamSpec, val: any): void
+    transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+    get_unknown_serializable_property(): GLib.HashTable
+    set_unknown_serializable_property(value: GLib.HashTable): void
+    get_serialized_xml_node_value(): string | null
+    set_serialized_xml_node_value(value?: string | null): void
+    /* Methods of GXml.SerializableCollection */
+    is_collection(): boolean
+    /* Virtual methods of GXml.SerializableTreeMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_deserialize_proceed(): boolean
     vfunc_deserialized(): boolean
     vfunc_deserialize_node(node: Node): boolean
@@ -6318,6 +9841,7 @@ export class SerializableTreeMap {
     vfunc_list_serializable_properties(): GObject.ParamSpec[]
     vfunc_serialize(node: Node): Node | null
     vfunc_serialize_property(element: Node, prop: GObject.ParamSpec): Node | null
+<<<<<<< HEAD
     vfunc_deserialize(node: Node): boolean
     vfunc_deserialize_property(property_node: Node): boolean
     vfunc_get_enable_unknown_serializable_property(): boolean
@@ -6369,6 +9893,33 @@ export class SerializableTreeMap {
     vfunc_get_read_only_view(): Gee.SortedMap
     vfunc_get_read_only_view(): Gee.Map
     /* Virtual methods of Gee-0.8.Gee.AbstractMap */
+=======
+    vfunc_serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
+    vfunc_deserialize(node: Node): boolean
+    vfunc_deserialize(node: Node): Node | null
+    vfunc_deserialize_property(property_node: Node): boolean
+    vfunc_get_enable_unknown_serializable_property(): boolean
+    vfunc_default_find_property_spec(property_name: string): GObject.ParamSpec | null
+    vfunc_init_properties(): void
+    vfunc_default_init_properties(): void
+    vfunc_default_list_serializable_properties(): GObject.ParamSpec[]
+    vfunc_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfunc_default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfunc_set_property_value(spec: GObject.ParamSpec, val: any): void
+    vfunc_default_set_property_value(spec: GObject.ParamSpec, val: any): void
+    vfunc_transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    vfunc_transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+    vfunc_get_properties(): GObject.ParamSpec[]
+    vfunc_set_properties(value: GObject.ParamSpec[]): void
+    vfunc_get_ignored_serializable_properties(): GLib.HashTable
+    vfunc_set_ignored_serializable_properties(value: GLib.HashTable): void
+    vfunc_get_unknown_serializable_property(): GLib.HashTable
+    vfunc_set_unknown_serializable_property(value: GLib.HashTable): void
+    vfunc_get_serialized_xml_node_value(): string | null
+    vfunc_set_serialized_xml_node_value(value?: string | null): void
+    vfunc_is_collection(): boolean
+    /* Virtual methods of Gee.AbstractMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_has_key(key?: object | null): boolean
     vfunc_has(key?: object | null, value?: object | null): boolean
     vfunc_get(key?: object | null): object | null
@@ -6376,6 +9927,7 @@ export class SerializableTreeMap {
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_map_iterator(): Gee.MapIterator
     vfunc_clear(): void
+<<<<<<< HEAD
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     vfunc_reserved0(): void
@@ -6414,10 +9966,22 @@ export class SerializableTreeMap {
     vfunc_has_all(map: Gee.Map): boolean
     vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_set_all(map: Gee.Map): void
+    vfunc_unset_all(map: Gee.Map): boolean
+    vfunc_has_all(map: Gee.Map): boolean
+    vfunc_iterator(): Gee.Iterator
+    vfunc_contains(key?: object | null): boolean
+    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
+    vfunc_remove_all(map: Gee.Map): boolean
+    vfunc_contains_all(map: Gee.Map): boolean
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
@@ -6426,6 +9990,16 @@ export class SerializableTreeMap {
     connect_after(sigName: "notify", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GXml-0.10.GXml.Serializable */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    /* Signals of GXml.Serializable */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableTreeMap, element: Node, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableTreeMap, element: Node, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
@@ -6442,6 +10016,7 @@ export class SerializableTreeMap {
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::read-only-view", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ascending-keys", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
@@ -6452,16 +10027,33 @@ export class SerializableTreeMap {
     connect_after(sigName: "notify::size", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::key-compare-func", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::key-compare-func", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::value-equal-func", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::value-equal-func", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::size", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::size", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::is-empty", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::is-empty", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::keys", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::values", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::values", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::entries", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::entries", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::read-only-view", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::read-only-view", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -6473,7 +10065,11 @@ export class SerializableTreeMap {
     _init (config?: SerializableTreeMap_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): SerializableTreeMap
+<<<<<<< HEAD
     static new(k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify, key_compare_func: GLib.CompareDataFunc | null, value_equal_func: Gee.EqualDataFunc | null): SerializableTreeMap
+=======
+    static new(key_compare_func?: GLib.CompareFunc | null, value_equal_func?: GLib.EqualFunc | null): SerializableTreeMap
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     static string_to_gvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
     static gvalue_to_string(val: any): string
     static $gtype: GObject.Type
@@ -6481,6 +10077,7 @@ export class SerializableTreeMap {
 export interface SerializableHashMap_ConstructProps extends Gee.HashMap_ConstructProps {
     properties?: GObject.ParamSpec[]
     ignored_serializable_properties?: GLib.HashTable
+<<<<<<< HEAD
     serialized_xml_node_value?: string
 }
 export class SerializableHashMap {
@@ -6490,22 +10087,51 @@ export class SerializableHashMap {
     /* Properties of Gee-0.8.Gee.AbstractMap */
     readonly size: number
     readonly read_only: boolean
+=======
+    unknown_serializable_property?: GLib.HashTable
+    serialized_xml_node_value?: string
+}
+export class SerializableHashMap {
+    /* Properties of GXml.SerializableHashMap */
+    properties: GObject.ParamSpec[]
+    ignored_serializable_properties: GLib.HashTable
+    /* Properties of Gee.HashMap */
+    key_hash_func: GLib.HashFunc
+    key_equal_func: GLib.EqualFunc
+    value_equal_func: GLib.EqualFunc
+    /* Properties of Gee.AbstractMap */
+    readonly size: number
+    readonly is_empty: boolean
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
     readonly read_only_view: Gee.Map
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Serializable */
     readonly unknown_serializable_properties: Gee.Map
     readonly unknown_serializable_nodes: Gee.Collection
     serialized_xml_node_value: string
     /* Fields of GXml-0.10.GXml.SerializableHashMap */
+=======
+    /* Properties of GXml.Serializable */
+    unknown_serializable_property: GLib.HashTable
+    serialized_xml_node_value: string
+    /* Fields of GXml.SerializableHashMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_instance: Gee.HashMap
     priv: SerializableHashMapPrivate
     _node: Node
     _deserialized: boolean
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.SerializableHashMap */
+=======
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.SerializableHashMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     deserialize_proceed(): boolean
     deserialized(): boolean
     deserialize_node(node: Node): boolean
@@ -6529,11 +10155,15 @@ export class SerializableHashMap {
     set_properties(value: GObject.ParamSpec[]): void
     get_ignored_serializable_properties(): GLib.HashTable
     set_ignored_serializable_properties(value: GLib.HashTable): void
+<<<<<<< HEAD
     /* Methods of Gee-0.8.Gee.HashMap */
     get_key_hash_func(): [ /* returnType */ Gee.HashDataFunc, /* result_target */ object | null ]
     get_key_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
     get_value_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
     /* Methods of Gee-0.8.Gee.AbstractMap */
+=======
+    /* Methods of Gee.AbstractMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     has_key(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
     get(key?: object | null): object | null
@@ -6541,6 +10171,7 @@ export class SerializableHashMap {
     unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     map_iterator(): Gee.MapIterator
     clear(): void
+<<<<<<< HEAD
     foreach(f: Gee.ForallFunc): boolean
     stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     reserved0(): void
@@ -6568,6 +10199,20 @@ export class SerializableHashMap {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    set_all(map: Gee.Map): void
+    unset_all(map: Gee.Map): boolean
+    has_all(map: Gee.Map): boolean
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -6575,11 +10220,16 @@ export class SerializableHashMap {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Serializable */
     default_find_property_spec(property_name: string): GObject.ParamSpec | null
@@ -6591,6 +10241,29 @@ export class SerializableHashMap {
     /* Methods of GXml-0.10.GXml.SerializableCollection */
     is_collection(): boolean
     /* Virtual methods of GXml-0.10.GXml.SerializableHashMap */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Serializable */
+    serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
+    deserialize(node: Node): Node | null
+    default_find_property_spec(property_name: string): GObject.ParamSpec | null
+    init_properties(): void
+    default_init_properties(): void
+    default_list_serializable_properties(): GObject.ParamSpec[]
+    get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
+    default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
+    set_property_value(spec: GObject.ParamSpec, val: any): void
+    default_set_property_value(spec: GObject.ParamSpec, val: any): void
+    transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+    get_unknown_serializable_property(): GLib.HashTable
+    set_unknown_serializable_property(value: GLib.HashTable): void
+    get_serialized_xml_node_value(): string | null
+    set_serialized_xml_node_value(value?: string | null): void
+    /* Methods of GXml.SerializableCollection */
+    is_collection(): boolean
+    /* Virtual methods of GXml.SerializableHashMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_deserialize_proceed(): boolean
     vfunc_deserialized(): boolean
     vfunc_deserialize_node(node: Node): boolean
@@ -6604,6 +10277,7 @@ export class SerializableHashMap {
     vfunc_list_serializable_properties(): GObject.ParamSpec[]
     vfunc_serialize(node: Node): Node | null
     vfunc_serialize_property(element: Node, prop: GObject.ParamSpec): Node | null
+<<<<<<< HEAD
     vfunc_deserialize(node: Node): boolean
     vfunc_deserialize_property(property_node: Node): boolean
     vfunc_default_find_property_spec(property_name: string): GObject.ParamSpec | null
@@ -6614,6 +10288,32 @@ export class SerializableHashMap {
     vfunc_set_serialized_xml_node_value(value?: string | null): void
     vfunc_is_collection(): boolean
     /* Virtual methods of Gee-0.8.Gee.AbstractMap */
+=======
+    vfunc_serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
+    vfunc_deserialize(node: Node): boolean
+    vfunc_deserialize(node: Node): Node | null
+    vfunc_deserialize_property(property_node: Node): boolean
+    vfunc_default_find_property_spec(property_name: string): GObject.ParamSpec | null
+    vfunc_init_properties(): void
+    vfunc_default_init_properties(): void
+    vfunc_default_list_serializable_properties(): GObject.ParamSpec[]
+    vfunc_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfunc_default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfunc_set_property_value(spec: GObject.ParamSpec, val: any): void
+    vfunc_default_set_property_value(spec: GObject.ParamSpec, val: any): void
+    vfunc_transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    vfunc_transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+    vfunc_get_properties(): GObject.ParamSpec[]
+    vfunc_set_properties(value: GObject.ParamSpec[]): void
+    vfunc_get_ignored_serializable_properties(): GLib.HashTable
+    vfunc_set_ignored_serializable_properties(value: GLib.HashTable): void
+    vfunc_get_unknown_serializable_property(): GLib.HashTable
+    vfunc_set_unknown_serializable_property(value: GLib.HashTable): void
+    vfunc_get_serialized_xml_node_value(): string | null
+    vfunc_set_serialized_xml_node_value(value?: string | null): void
+    vfunc_is_collection(): boolean
+    /* Virtual methods of Gee.AbstractMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_has_key(key?: object | null): boolean
     vfunc_has(key?: object | null, value?: object | null): boolean
     vfunc_get(key?: object | null): object | null
@@ -6621,6 +10321,7 @@ export class SerializableHashMap {
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_map_iterator(): Gee.MapIterator
     vfunc_clear(): void
+<<<<<<< HEAD
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     vfunc_reserved0(): void
@@ -6659,10 +10360,22 @@ export class SerializableHashMap {
     vfunc_has_all(map: Gee.Map): boolean
     vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_set_all(map: Gee.Map): void
+    vfunc_unset_all(map: Gee.Map): boolean
+    vfunc_has_all(map: Gee.Map): boolean
+    vfunc_iterator(): Gee.Iterator
+    vfunc_contains(key?: object | null): boolean
+    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
+    vfunc_remove_all(map: Gee.Map): boolean
+    vfunc_contains_all(map: Gee.Map): boolean
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
@@ -6671,6 +10384,16 @@ export class SerializableHashMap {
     connect_after(sigName: "notify", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GXml-0.10.GXml.Serializable */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    /* Signals of GXml.Serializable */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableHashMap, element: Node, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableHashMap, element: Node, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
@@ -6687,10 +10410,23 @@ export class SerializableHashMap {
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::size", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::key-hash-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::key-hash-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::key-equal-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::key-equal-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::value-equal-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::value-equal-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::size", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::size", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::is-empty", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::is-empty", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::keys", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::values", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
@@ -6699,10 +10435,15 @@ export class SerializableHashMap {
     connect_after(sigName: "notify::entries", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only-view", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -6714,7 +10455,11 @@ export class SerializableHashMap {
     _init (config?: SerializableHashMap_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): SerializableHashMap
+<<<<<<< HEAD
     static new(k_type: GObject.Type, k_dup_func: GObject.BoxedCopyFunc, k_destroy_func: GLib.DestroyNotify, v_type: GObject.Type, v_dup_func: GObject.BoxedCopyFunc, v_destroy_func: GLib.DestroyNotify, key_hash_func: Gee.HashDataFunc | null, key_equal_func: Gee.EqualDataFunc | null, value_equal_func: Gee.EqualDataFunc | null): SerializableHashMap
+=======
+    static new(key_hash_func?: GLib.HashFunc | null, key_equal_func?: GLib.EqualFunc | null, value_equal_func?: GLib.EqualFunc | null): SerializableHashMap
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     static string_to_gvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
     static gvalue_to_string(val: any): string
     static $gtype: GObject.Type
@@ -6722,10 +10467,18 @@ export class SerializableHashMap {
 export interface SerializableDualKeyMap_ConstructProps extends GObject.Object_ConstructProps {
     properties?: GObject.ParamSpec[]
     ignored_serializable_properties?: GLib.HashTable
+<<<<<<< HEAD
     serialized_xml_node_value?: string
 }
 export class SerializableDualKeyMap {
     /* Properties of GXml-0.10.GXml.SerializableDualKeyMap */
+=======
+    unknown_serializable_property?: GLib.HashTable
+    serialized_xml_node_value?: string
+}
+export class SerializableDualKeyMap {
+    /* Properties of GXml.SerializableDualKeyMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly value_type: GObject.Type
     readonly primary_key_type: GObject.Type
     readonly secondary_key_type: GObject.Type
@@ -6733,19 +10486,32 @@ export class SerializableDualKeyMap {
     readonly size: number
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Serializable */
     readonly unknown_serializable_properties: Gee.Map
     readonly unknown_serializable_nodes: Gee.Collection
     serialized_xml_node_value: string
     /* Fields of GXml-0.10.GXml.SerializableDualKeyMap */
+=======
+    /* Properties of GXml.Serializable */
+    unknown_serializable_property: GLib.HashTable
+    serialized_xml_node_value: string
+    /* Fields of GXml.SerializableDualKeyMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_instance: GObject.Object
     priv: SerializableDualKeyMapPrivate
     storage: Gee.HashMultiMap
     _node: Node
     _deserialized: boolean
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.SerializableDualKeyMap */
+=======
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.SerializableDualKeyMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     deserialize_proceed(): boolean
     deserialized(): boolean
     deserialize_node(node: Node): boolean
@@ -6779,6 +10545,7 @@ export class SerializableDualKeyMap {
     set_properties(value: GObject.ParamSpec[]): void
     get_ignored_serializable_properties(): GLib.HashTable
     set_ignored_serializable_properties(value: GLib.HashTable): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -6788,6 +10555,17 @@ export class SerializableDualKeyMap {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -6795,13 +10573,22 @@ export class SerializableDualKeyMap {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of Gee-0.8.Gee.Traversable */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of Gee.Traversable */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     foreach(f: Gee.ForallFunc): boolean
     stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
@@ -6818,6 +10605,7 @@ export class SerializableDualKeyMap {
     min(compare: GLib.CompareDataFunc): object | null
     order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
     get_element_type(): GObject.Type
+<<<<<<< HEAD
     /* Methods of GXml-0.10.GXml.Serializable */
     default_find_property_spec(property_name: string): GObject.ParamSpec | null
     default_list_serializable_properties(): GObject.ParamSpec[]
@@ -6828,6 +10616,28 @@ export class SerializableDualKeyMap {
     /* Methods of GXml-0.10.GXml.SerializableCollection */
     is_collection(): boolean
     /* Virtual methods of GXml-0.10.GXml.SerializableDualKeyMap */
+=======
+    /* Methods of GXml.Serializable */
+    serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
+    deserialize(node: Node): Node | null
+    default_find_property_spec(property_name: string): GObject.ParamSpec | null
+    init_properties(): void
+    default_init_properties(): void
+    default_list_serializable_properties(): GObject.ParamSpec[]
+    get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
+    default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
+    set_property_value(spec: GObject.ParamSpec, val: any): void
+    default_set_property_value(spec: GObject.ParamSpec, val: any): void
+    transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+    get_unknown_serializable_property(): GLib.HashTable
+    set_unknown_serializable_property(value: GLib.HashTable): void
+    get_serialized_xml_node_value(): string | null
+    set_serialized_xml_node_value(value?: string | null): void
+    /* Methods of GXml.SerializableCollection */
+    is_collection(): boolean
+    /* Virtual methods of GXml.SerializableDualKeyMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_deserialize_proceed(): boolean
     vfunc_deserialized(): boolean
     vfunc_deserialize_node(node: Node): boolean
@@ -6841,7 +10651,13 @@ export class SerializableDualKeyMap {
     vfunc_list_serializable_properties(): GObject.ParamSpec[]
     vfunc_serialize(node: Node): Node | null
     vfunc_serialize_property(element: Node, prop: GObject.ParamSpec): Node | null
+<<<<<<< HEAD
     vfunc_deserialize(node: Node): boolean
+=======
+    vfunc_serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
+    vfunc_deserialize(node: Node): boolean
+    vfunc_deserialize(node: Node): Node | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_deserialize_property(property_node: Node): boolean
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
@@ -6860,6 +10676,7 @@ export class SerializableDualKeyMap {
     vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
     vfunc_get_element_type(): GObject.Type
     vfunc_default_find_property_spec(property_name: string): GObject.ParamSpec | null
+<<<<<<< HEAD
     vfunc_default_list_serializable_properties(): GObject.ParamSpec[]
     vfunc_get_unknown_serializable_properties(): Gee.Map
     vfunc_get_unknown_serializable_nodes(): Gee.Collection
@@ -6867,10 +10684,32 @@ export class SerializableDualKeyMap {
     vfunc_set_serialized_xml_node_value(value?: string | null): void
     vfunc_is_collection(): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_init_properties(): void
+    vfunc_default_init_properties(): void
+    vfunc_default_list_serializable_properties(): GObject.ParamSpec[]
+    vfunc_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfunc_default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfunc_set_property_value(spec: GObject.ParamSpec, val: any): void
+    vfunc_default_set_property_value(spec: GObject.ParamSpec, val: any): void
+    vfunc_transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    vfunc_transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+    vfunc_get_properties(): GObject.ParamSpec[]
+    vfunc_set_properties(value: GObject.ParamSpec[]): void
+    vfunc_get_ignored_serializable_properties(): GLib.HashTable
+    vfunc_set_ignored_serializable_properties(value: GLib.HashTable): void
+    vfunc_get_unknown_serializable_property(): GLib.HashTable
+    vfunc_set_unknown_serializable_property(value: GLib.HashTable): void
+    vfunc_get_serialized_xml_node_value(): string | null
+    vfunc_set_serialized_xml_node_value(value?: string | null): void
+    vfunc_is_collection(): boolean
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
@@ -6879,6 +10718,16 @@ export class SerializableDualKeyMap {
     connect_after(sigName: "notify", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GXml-0.10.GXml.Serializable */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    /* Signals of GXml.Serializable */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableDualKeyMap, element: Node, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableDualKeyMap, element: Node, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
@@ -6905,10 +10754,15 @@ export class SerializableDualKeyMap {
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableDualKeyMap, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -6927,6 +10781,7 @@ export class SerializableDualKeyMap {
 export interface SerializableArrayList_ConstructProps extends Gee.ArrayList_ConstructProps {
     properties?: GObject.ParamSpec[]
     ignored_serializable_properties?: GLib.HashTable
+<<<<<<< HEAD
     serialized_xml_node_value?: string
 }
 export class SerializableArrayList {
@@ -6943,10 +10798,31 @@ export class SerializableArrayList {
     readonly unknown_serializable_nodes: Gee.Collection
     serialized_xml_node_value: string
     /* Fields of GXml-0.10.GXml.SerializableArrayList */
+=======
+    unknown_serializable_property?: GLib.HashTable
+    serialized_xml_node_value?: string
+}
+export class SerializableArrayList {
+    /* Properties of GXml.SerializableArrayList */
+    properties: GObject.ParamSpec[]
+    ignored_serializable_properties: GLib.HashTable
+    /* Properties of Gee.ArrayList */
+    equal_func: GLib.EqualFunc
+    /* Properties of Gee.AbstractList */
+    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractCollection */
+    readonly size: number
+    readonly is_empty: boolean
+    /* Properties of GXml.Serializable */
+    unknown_serializable_property: GLib.HashTable
+    serialized_xml_node_value: string
+    /* Fields of GXml.SerializableArrayList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_instance: Gee.ArrayList
     priv: SerializableArrayListPrivate
     _node: Node
     _deserialized: boolean
+<<<<<<< HEAD
     /* Fields of Gee-0.8.Gee.ArrayList */
     _items: object[]
     _items_length1: number
@@ -6954,6 +10830,11 @@ export class SerializableArrayList {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.SerializableArrayList */
+=======
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.SerializableArrayList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     deserialize_proceed(): boolean
     deserialized(): boolean
     deserialize_node(node: Node): boolean
@@ -6976,6 +10857,7 @@ export class SerializableArrayList {
     set_properties(value: GObject.ParamSpec[]): void
     get_ignored_serializable_properties(): GLib.HashTable
     set_ignored_serializable_properties(value: GLib.HashTable): void
+<<<<<<< HEAD
     /* Methods of Gee-0.8.Gee.ArrayList */
     add_all(collection: Gee.Collection): boolean
     get_equal_func(): [ /* returnType */ Gee.EqualDataFunc, /* result_target */ object | null ]
@@ -6993,6 +10875,11 @@ export class SerializableArrayList {
     reserved9(): void
     get_read_only_view(): Gee.BidirList
     /* Methods of Gee-0.8.Gee.AbstractList */
+=======
+    /* Methods of Gee.ArrayList */
+    sort_with_data(compare: GLib.CompareDataFunc): void
+    /* Methods of Gee.AbstractList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -7000,12 +10887,20 @@ export class SerializableArrayList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
+<<<<<<< HEAD
     get_read_only_view(): Gee.List
     /* Methods of Gee-0.8.Gee.AbstractCollection */
+=======
+    first(): object | null
+    last(): object | null
+    insert_all(index: number, collection: Gee.Collection): void
+    /* Methods of Gee.AbstractCollection */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
+<<<<<<< HEAD
     iterator(): Gee.Iterator
     foreach(f: Gee.ForallFunc): boolean
     get_size(): number
@@ -7020,6 +10915,23 @@ export class SerializableArrayList {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    to_array(): object[]
+    add_all(collection: Gee.Collection): boolean
+    contains_all(collection: Gee.Collection): boolean
+    remove_all(collection: Gee.Collection): boolean
+    retain_all(collection: Gee.Collection): boolean
+    iterator(): Gee.Iterator
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -7027,11 +10939,16 @@ export class SerializableArrayList {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Serializable */
     get_enable_unknown_serializable_property(): boolean
@@ -7044,6 +10961,30 @@ export class SerializableArrayList {
     /* Methods of GXml-0.10.GXml.SerializableCollection */
     is_collection(): boolean
     /* Virtual methods of GXml-0.10.GXml.SerializableArrayList */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Serializable */
+    get_enable_unknown_serializable_property(): boolean
+    serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
+    deserialize(node: Node): Node | null
+    default_find_property_spec(property_name: string): GObject.ParamSpec | null
+    init_properties(): void
+    default_init_properties(): void
+    default_list_serializable_properties(): GObject.ParamSpec[]
+    get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
+    default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
+    set_property_value(spec: GObject.ParamSpec, val: any): void
+    default_set_property_value(spec: GObject.ParamSpec, val: any): void
+    transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+    get_unknown_serializable_property(): GLib.HashTable
+    set_unknown_serializable_property(value: GLib.HashTable): void
+    get_serialized_xml_node_value(): string | null
+    set_serialized_xml_node_value(value?: string | null): void
+    /* Methods of GXml.SerializableCollection */
+    is_collection(): boolean
+    /* Virtual methods of GXml.SerializableArrayList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_deserialize_proceed(): boolean
     vfunc_deserialized(): boolean
     vfunc_deserialize_node(node: Node): boolean
@@ -7056,6 +10997,7 @@ export class SerializableArrayList {
     vfunc_list_serializable_properties(): GObject.ParamSpec[]
     vfunc_serialize(node: Node): Node | null
     vfunc_serialize_property(element: Node, prop: GObject.ParamSpec): Node | null
+<<<<<<< HEAD
     vfunc_deserialize(node: Node): boolean
     vfunc_deserialize_property(property_node: Node): boolean
     vfunc_get_enable_unknown_serializable_property(): boolean
@@ -7089,6 +11031,33 @@ export class SerializableArrayList {
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee-0.8.Gee.AbstractList */
+=======
+    vfunc_serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
+    vfunc_deserialize(node: Node): boolean
+    vfunc_deserialize(node: Node): Node | null
+    vfunc_deserialize_property(property_node: Node): boolean
+    vfunc_get_enable_unknown_serializable_property(): boolean
+    vfunc_default_find_property_spec(property_name: string): GObject.ParamSpec | null
+    vfunc_init_properties(): void
+    vfunc_default_init_properties(): void
+    vfunc_default_list_serializable_properties(): GObject.ParamSpec[]
+    vfunc_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfunc_default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfunc_set_property_value(spec: GObject.ParamSpec, val: any): void
+    vfunc_default_set_property_value(spec: GObject.ParamSpec, val: any): void
+    vfunc_transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    vfunc_transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+    vfunc_get_properties(): GObject.ParamSpec[]
+    vfunc_set_properties(value: GObject.ParamSpec[]): void
+    vfunc_get_ignored_serializable_properties(): GLib.HashTable
+    vfunc_set_ignored_serializable_properties(value: GLib.HashTable): void
+    vfunc_get_unknown_serializable_property(): GLib.HashTable
+    vfunc_set_unknown_serializable_property(value: GLib.HashTable): void
+    vfunc_get_serialized_xml_node_value(): string | null
+    vfunc_set_serialized_xml_node_value(value?: string | null): void
+    vfunc_is_collection(): boolean
+    /* Virtual methods of Gee.AbstractList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -7096,6 +11065,7 @@ export class SerializableArrayList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+<<<<<<< HEAD
     vfunc_reserved0(): void
     vfunc_reserved1(): void
     vfunc_reserved2(): void
@@ -7113,10 +11083,18 @@ export class SerializableArrayList {
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
+=======
+    vfunc_first(): object | null
+    vfunc_last(): object | null
+    vfunc_insert_all(index: number, collection: Gee.Collection): void
+    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    /* Virtual methods of Gee.AbstractCollection */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
+<<<<<<< HEAD
     vfunc_iterator(): Gee.Iterator
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_reserved0(): void
@@ -7147,10 +11125,14 @@ export class SerializableArrayList {
     vfunc_min(compare: GLib.CompareDataFunc): object | null
     vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
     vfunc_get_element_type(): GObject.Type
+=======
+    vfunc_to_array(): object[]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
+<<<<<<< HEAD
     vfunc_to_array(): object[]
     vfunc_add_all_array(array: object[]): boolean
     vfunc_contains_all_array(array: object[]): boolean
@@ -7160,10 +11142,15 @@ export class SerializableArrayList {
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_iterator(): Gee.Iterator
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
@@ -7172,6 +11159,16 @@ export class SerializableArrayList {
     connect_after(sigName: "notify", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     /* Signals of GXml-0.10.GXml.Serializable */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    /* Signals of GXml.Serializable */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "serialize_unknown_property", callback: (($obj: SerializableArrayList, element: Node, prop: GObject.ParamSpec) => void)): number
     connect_after(sigName: "serialize_unknown_property", callback: (($obj: SerializableArrayList, element: Node, prop: GObject.ParamSpec) => void)): number
     emit(sigName: "serialize_unknown_property", element: Node, prop: GObject.ParamSpec): void
@@ -7188,16 +11185,28 @@ export class SerializableArrayList {
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
+=======
+    connect(sigName: "notify::equal-func", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::equal-func", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::read-only-view", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::read-only", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::unknown-serializable-properties", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::unknown-serializable-nodes", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::is-empty", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::is-empty", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::unknown-serializable-property", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::serialized-xml-node-value", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
@@ -7209,7 +11218,11 @@ export class SerializableArrayList {
     _init (config?: SerializableArrayList_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(): SerializableArrayList
+<<<<<<< HEAD
     static new(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, equal_func: Gee.EqualDataFunc | null): SerializableArrayList
+=======
+    static new(equal_func?: GLib.EqualFunc | null): SerializableArrayList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     static string_to_gvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
     static gvalue_to_string(val: any): string
     static $gtype: GObject.Type
@@ -7217,6 +11230,7 @@ export class SerializableArrayList {
 export interface SerializableContainer_ConstructProps extends SerializableObjectModel_ConstructProps {
 }
 export class SerializableContainer {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.SerializableObjectModel */
     properties: GObject.ParamSpec[]
     ignored_serializable_properties: GLib.HashTable
@@ -7260,6 +11274,46 @@ export class SerializableContainer {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of GXml.SerializableContainer */
+    parent_instance: SerializableObjectModel
+    priv: SerializableContainerPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.SerializableContainer */
+    init_containers(): void
+    /* Methods of GXml.SerializableObjectModel */
+    get_enable_unknown_serializable_property(): boolean
+    serialize_use_xml_node_value(): boolean
+    property_use_nick(): boolean
+    node_name(): string
+    default_node_name(): string
+    find_property_spec(property_name: string): GObject.ParamSpec | null
+    init_properties(): void
+    list_serializable_properties(): GObject.ParamSpec[]
+    get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
+    set_property_value(spec: GObject.ParamSpec, val: any): void
+    transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+    serialize(node: Node): Node | null
+    default_serialize(node: Node): Node | null
+    serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
+    default_serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
+    deserialize(node: Node): Node | null
+    default_deserialize(node: Node): Node | null
+    deserialize_property(property_node: Node): boolean
+    default_deserialize_property(property_node: Node): boolean
+    to_string(): string
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -7267,11 +11321,16 @@ export class SerializableContainer {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.SerializableContainer */
     vfunc_init_containers(): void
@@ -7295,10 +11354,47 @@ export class SerializableContainer {
     vfunc_get_serialized_xml_node_value(): string | null
     vfunc_set_serialized_xml_node_value(value?: string | null): void
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.SerializableContainer */
+    vfunc_init_containers(): void
+    /* Virtual methods of GXml.SerializableObjectModel */
+    vfunc_get_enable_unknown_serializable_property(): boolean
+    vfunc_serialize_use_xml_node_value(): boolean
+    vfunc_property_use_nick(): boolean
+    vfunc_node_name(): string
+    vfunc_find_property_spec(property_name: string): GObject.ParamSpec | null
+    vfunc_init_properties(): void
+    vfunc_list_serializable_properties(): GObject.ParamSpec[]
+    vfunc_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfunc_set_property_value(spec: GObject.ParamSpec, val: any): void
+    vfunc_transform_from_string(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
+    vfunc_transform_to_string(val: any, str: string): [ /* returnType */ boolean, /* str */ string ]
+    vfunc_serialize(node: Node): Node | null
+    vfunc_serialize_property(element: Element, prop: GObject.ParamSpec): Node | null
+    vfunc_deserialize(node: Node): Node | null
+    vfunc_deserialize_property(property_node: Node): boolean
+    vfunc_to_string(): string
+    vfunc_default_find_property_spec(property_name: string): GObject.ParamSpec | null
+    vfunc_default_init_properties(): void
+    vfunc_default_list_serializable_properties(): GObject.ParamSpec[]
+    vfunc_default_get_property_value(spec: GObject.ParamSpec, val: any): /* val */ any
+    vfunc_default_set_property_value(spec: GObject.ParamSpec, val: any): void
+    vfunc_get_properties(): GObject.ParamSpec[]
+    vfunc_set_properties(value: GObject.ParamSpec[]): void
+    vfunc_get_ignored_serializable_properties(): GLib.HashTable
+    vfunc_set_ignored_serializable_properties(value: GLib.HashTable): void
+    vfunc_get_unknown_serializable_property(): GLib.HashTable
+    vfunc_set_unknown_serializable_property(value: GLib.HashTable): void
+    vfunc_get_serialized_xml_node_value(): string | null
+    vfunc_set_serialized_xml_node_value(value?: string | null): void
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
@@ -7310,6 +11406,15 @@ export class SerializableContainer {
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::ignored-serializable-properties", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: SerializableContainer, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7323,15 +11428,22 @@ export interface TAttribute_ConstructProps extends TNode_ConstructProps {
     namespace?: Namespace
 }
 export class TAttribute {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
+=======
+    /* Properties of GXml.TNode */
+    readonly attrs: Gee.Map
+    readonly children_nodes: Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly document: Document
     readonly name: string
     readonly namespaces: Gee.List
     readonly type_node: NodeType
     value: string
     readonly parent: Node
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Attribute */
     namespace: Namespace
     readonly prefix: string
@@ -7340,18 +11452,39 @@ export class TAttribute {
     priv: TAttributePrivate
     _namespaces: Gee.ArrayList
     /* Fields of GXml-0.10.GXml.TNode */
+=======
+    /* Properties of GXml.Attribute */
+    namespace: Namespace
+    readonly prefix: string
+    /* Fields of GXml.TAttribute */
+    parent_instance: TNode
+    priv: TAttributePrivate
+    _namespaces: Gee.ArrayList
+    /* Fields of GXml.TNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     _name: string
     _value: string
     _doc: Document
     _parent: Node
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.TNode */
+=======
+    _node_type: NodeType
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.TNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     set_parent(node: Node): void
     get_attrs(): Gee.Map
+<<<<<<< HEAD
     get_children(): Gee.BidirList
+=======
+    get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_document(): Document
     get_name(): string
     get_namespaces(): Gee.List
@@ -7359,6 +11492,7 @@ export class TAttribute {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -7368,6 +11502,17 @@ export class TAttribute {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -7375,11 +11520,16 @@ export class TAttribute {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Attribute */
     get_namespace(): Namespace
@@ -7396,6 +11546,27 @@ export class TAttribute {
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children(): Gee.BidirList
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Attribute */
+    get_namespace(): Namespace | null
+    set_namespace(value?: Namespace | null): void
+    get_prefix(): string | null
+    /* Virtual methods of GXml.TAttribute */
+    vfunc_get_namespace(): Namespace | null
+    vfunc_set_namespace(value?: Namespace | null): void
+    vfunc_set_namespace(uri: string, prefix?: string | null): boolean
+    vfunc_get_prefix(): string | null
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    /* Virtual methods of GXml.TNode */
+    vfunc_set_namespace(uri: string, prefix?: string | null): boolean
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_set_parent(node: Node): void
+    vfunc_get_attrs(): Gee.Map
+    vfunc_get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_document(): Document
     vfunc_get_name(): string
     vfunc_get_namespaces(): Gee.List
@@ -7403,27 +11574,65 @@ export class TAttribute {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
     vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string | null
+    vfunc_get_node_name(): string
+    vfunc_get_node_value(): string | null
+    vfunc_get_node_type(): NodeType
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::children", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::children", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::children-nodes", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children-nodes", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::document", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::document", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: TAttribute, pspec: GObject.ParamSpec) => void)): number
@@ -7454,33 +11663,57 @@ export class TAttribute {
 export interface TComment_ConstructProps extends TNode_ConstructProps {
 }
 export class TComment {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
+=======
+    /* Properties of GXml.TNode */
+    readonly attrs: Gee.Map
+    readonly children_nodes: Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly document: Document
     readonly name: string
     readonly namespaces: Gee.List
     readonly type_node: NodeType
     value: string
     readonly parent: Node
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Comment */
     readonly str: string
     /* Fields of GXml-0.10.GXml.TComment */
     parent_instance: TNode
     priv: TCommentPrivate
     /* Fields of GXml-0.10.GXml.TNode */
+=======
+    /* Fields of GXml.TComment */
+    parent_instance: TNode
+    priv: TCommentPrivate
+    /* Fields of GXml.TNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     _name: string
     _value: string
     _doc: Document
     _parent: Node
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.TNode */
+=======
+    _node_type: NodeType
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.TNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     set_parent(node: Node): void
     get_attrs(): Gee.Map
+<<<<<<< HEAD
     get_children(): Gee.BidirList
+=======
+    get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_document(): Document
     get_name(): string
     get_namespaces(): Gee.List
@@ -7488,6 +11721,7 @@ export class TComment {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -7497,6 +11731,17 @@ export class TComment {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -7504,11 +11749,16 @@ export class TComment {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Comment */
     get_str(): string
@@ -7520,6 +11770,19 @@ export class TComment {
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children(): Gee.BidirList
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.TComment */
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    /* Virtual methods of GXml.TNode */
+    vfunc_set_namespace(uri: string, prefix?: string | null): boolean
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_set_parent(node: Node): void
+    vfunc_get_attrs(): Gee.Map
+    vfunc_get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_document(): Document
     vfunc_get_name(): string
     vfunc_get_namespaces(): Gee.List
@@ -7527,27 +11790,65 @@ export class TComment {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
     vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string | null
+    vfunc_get_node_name(): string
+    vfunc_get_node_value(): string | null
+    vfunc_get_node_type(): NodeType
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::children", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::children", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::children-nodes", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children-nodes", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::document", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::document", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
@@ -7560,8 +11861,11 @@ export class TComment {
     connect_after(sigName: "notify::value", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parent", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::str", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::str", callback: (($obj: TComment, pspec: GObject.ParamSpec) => void)): number
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7576,33 +11880,59 @@ export class TComment {
 export interface TCDATA_ConstructProps extends TNode_ConstructProps {
 }
 export class TCDATA {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
+=======
+    /* Properties of GXml.TNode */
+    readonly attrs: Gee.Map
+    readonly children_nodes: Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly document: Document
     readonly name: string
     readonly namespaces: Gee.List
     readonly type_node: NodeType
     value: string
     readonly parent: Node
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.CDATA */
     readonly str: string
     /* Fields of GXml-0.10.GXml.TCDATA */
     parent_instance: TNode
     priv: TCDATAPrivate
     /* Fields of GXml-0.10.GXml.TNode */
+=======
+    /* Properties of GXml.CDATA */
+    readonly str: string
+    /* Fields of GXml.TCDATA */
+    parent_instance: TNode
+    priv: TCDATAPrivate
+    /* Fields of GXml.TNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     _name: string
     _value: string
     _doc: Document
     _parent: Node
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.TNode */
+=======
+    _node_type: NodeType
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.TNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     set_parent(node: Node): void
     get_attrs(): Gee.Map
+<<<<<<< HEAD
     get_children(): Gee.BidirList
+=======
+    get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_document(): Document
     get_name(): string
     get_namespaces(): Gee.List
@@ -7610,6 +11940,7 @@ export class TCDATA {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -7619,6 +11950,17 @@ export class TCDATA {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -7626,11 +11968,16 @@ export class TCDATA {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.CDATA */
     get_str(): string
@@ -7642,6 +11989,22 @@ export class TCDATA {
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children(): Gee.BidirList
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.CDATA */
+    get_str(): string
+    /* Virtual methods of GXml.TCDATA */
+    vfunc_get_str(): string
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    /* Virtual methods of GXml.TNode */
+    vfunc_set_namespace(uri: string, prefix?: string | null): boolean
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_set_parent(node: Node): void
+    vfunc_get_attrs(): Gee.Map
+    vfunc_get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_document(): Document
     vfunc_get_name(): string
     vfunc_get_namespaces(): Gee.List
@@ -7649,27 +12012,65 @@ export class TCDATA {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
     vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string | null
+    vfunc_get_node_name(): string
+    vfunc_get_node_value(): string | null
+    vfunc_get_node_type(): NodeType
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::children", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::children", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::children-nodes", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children-nodes", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::document", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::document", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: TCDATA, pspec: GObject.ParamSpec) => void)): number
@@ -7696,6 +12097,7 @@ export class TCDATA {
     static $gtype: GObject.Type
 }
 export interface TDocument_ConstructProps extends TNode_ConstructProps {
+<<<<<<< HEAD
     indent?: boolean
     ns_top?: boolean
     prefix_default_ns?: boolean
@@ -7706,12 +12108,23 @@ export class TDocument {
     /* Properties of GXml-0.10.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
+=======
+    doctype?: DocumentType
+    implementation?: Implementation
+    document_element?: Element
+}
+export class TDocument {
+    /* Properties of GXml.TNode */
+    readonly attrs: Gee.Map
+    readonly children_nodes: Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly document: Document
     readonly name: string
     readonly namespaces: Gee.List
     readonly type_node: NodeType
     value: string
     readonly parent: Node
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Document */
     indent: boolean
     ns_top: boolean
@@ -7720,25 +12133,49 @@ export class TDocument {
     readonly root: Node
     file: Gio.File
     /* Fields of GXml-0.10.GXml.TDocument */
+=======
+    /* Properties of GXml.Document */
+    doctype: DocumentType
+    implementation: Implementation
+    document_element: Element
+    /* Fields of GXml.TDocument */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_instance: TNode
     priv: TDocumentPrivate
     _namespaces: Gee.ArrayList
     _children: Gee.ArrayList
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.TNode */
+=======
+    /* Fields of GXml.TNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     _name: string
     _value: string
     _doc: Document
     _parent: Node
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.TDocument */
     save_to(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
     /* Methods of GXml-0.10.GXml.TNode */
+=======
+    _node_type: NodeType
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.TDocument */
+    save_to(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
+    /* Methods of GXml.TNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     set_parent(node: Node): void
     get_attrs(): Gee.Map
+<<<<<<< HEAD
     get_children(): Gee.BidirList
+=======
+    get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_document(): Document
     get_name(): string
     get_namespaces(): Gee.List
@@ -7746,6 +12183,7 @@ export class TDocument {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -7755,6 +12193,17 @@ export class TDocument {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -7762,11 +12211,16 @@ export class TDocument {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Document */
     create_element(name: string): Node
@@ -7812,6 +12266,35 @@ export class TDocument {
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children(): Gee.BidirList
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Document */
+    save_to_path(file_path: string): void
+    save_to_stream(outstream: Gio.OutputStream, can?: Gio.Cancellable | null): void
+    create_element(tag_name: string): Element
+    create_document_fragment(): DocumentFragment
+    create_text_node(text_data: string): Text
+    create_comment(comment_data: string): Comment
+    create_cdata_section(cdata_data: string): CDATASection
+    create_processing_instruction(target: string, data: string): ProcessingInstruction
+    create_attribute(name: string): Attr
+    create_entity_reference(name: string): EntityReference
+    get_elements_by_tag_name(tag_name: string): NodeList
+    copy_node(foreign_node: Node, deep: boolean): Node
+    get_doctype(): DocumentType | null
+    get_implementation(): Implementation
+    get_document_element(): Element
+    /* Virtual methods of GXml.TDocument */
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    /* Virtual methods of GXml.TNode */
+    vfunc_set_namespace(uri: string, prefix?: string | null): boolean
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_set_parent(node: Node): void
+    vfunc_get_attrs(): Gee.Map
+    vfunc_get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_document(): Document
     vfunc_get_name(): string
     vfunc_get_namespaces(): Gee.List
@@ -7819,27 +12302,65 @@ export class TDocument {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
     vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string | null
+    vfunc_get_node_name(): string
+    vfunc_get_node_value(): string | null
+    vfunc_get_node_type(): NodeType
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::children", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::children", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::children-nodes", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children-nodes", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::document", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::document", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
@@ -7852,6 +12373,7 @@ export class TDocument {
     connect_after(sigName: "notify::value", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parent", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::indent", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::indent", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ns-top", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
@@ -7864,6 +12386,14 @@ export class TDocument {
     connect_after(sigName: "notify::root", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::file", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::file", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::doctype", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::doctype", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::implementation", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::implementation", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::document-element", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::document-element", callback: (($obj: TDocument, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7877,12 +12407,17 @@ export class TDocument {
     static from_uri(uri: string): TDocument
     static from_file(file: Gio.File): TDocument
     static from_stream(stream: Gio.InputStream): TDocument
+<<<<<<< HEAD
+=======
+    static from_stream(instream: Gio.InputStream, can?: Gio.Cancellable | null): TDocument
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     static from_string(str: string): TDocument
     static from_path_with_readtype_func(path: string, func: any): TDocument
     static from_uri_with_readtype_func(uri: string, func: any): TDocument
     static from_file_with_readtype_func(file: Gio.File, func: any): TDocument
     static from_stream_with_readtype_func(stream: Gio.InputStream, func: any): TDocument
     static from_string_with_readtype_func(str: string, func: any): TDocument
+<<<<<<< HEAD
     static tw_save_as(doc: Document, f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
     static write_document(doc: Document, tw: libxml2.TextWriter): void
     static start_node(doc: Document, tw: libxml2.TextWriter, node: Node, root: boolean, declared_ns: Gee.ArrayList): /* declared_ns */ Gee.ArrayList
@@ -7901,34 +12436,77 @@ export class TElement {
     /* Properties of GXml-0.10.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
+=======
+    static from_libxml2(doc: object | null, require_root: boolean): TDocument
+    static from_gfile(fin: Gio.File, can?: Gio.Cancellable | null): TDocument
+    static from_string_with_options(xml: string, url: string | null, encoding: string | null, options: number): TDocument
+    static tw_save_as(doc: Document, f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
+    static write_document(doc: Document, tw: libxml2.TextWriter): void
+    static start_node(doc: Document, tw: libxml2.TextWriter, node: Node, root: boolean, declared_ns: Gee.ArrayList): /* declared_ns */ Gee.ArrayList
+    static read_doc(doc: Document, file: Gio.File, rtfunc?: any): void
+    static read_doc_stream(doc: Document, istream: Gio.InputStream, rtfunc?: any): void
+    static read_node(node: Node, tr: libxml2.TextReader, rntfunc?: any): TDocumentReadType
+    static $gtype: GObject.Type
+}
+export interface TElement_ConstructProps extends TNode_ConstructProps {
+    tag_name?: string
+    content?: string
+}
+export class TElement {
+    /* Properties of GXml.TNode */
+    readonly attrs: Gee.Map
+    readonly children_nodes: Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly document: Document
     readonly name: string
     readonly namespaces: Gee.List
     readonly type_node: NodeType
     value: string
     readonly parent: Node
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Element */
     readonly tag_name: string
     content: string
     /* Fields of GXml-0.10.GXml.TElement */
+=======
+    /* Properties of GXml.Element */
+    tag_name: string
+    content: string
+    /* Fields of GXml.TElement */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_instance: TNode
     priv: TElementPrivate
     _attrs: Gee.HashMap
     _children: TNodeTChildrenList
     _namespaces: Gee.ArrayList
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.TNode */
+=======
+    /* Fields of GXml.TNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     _name: string
     _value: string
     _doc: Document
     _parent: Node
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.TNode */
+=======
+    _node_type: NodeType
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.TNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     set_parent(node: Node): void
     get_attrs(): Gee.Map
+<<<<<<< HEAD
     get_children(): Gee.BidirList
+=======
+    get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_document(): Document
     get_name(): string
     get_namespaces(): Gee.List
@@ -7936,6 +12514,7 @@ export class TElement {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -7945,6 +12524,17 @@ export class TElement {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -7952,11 +12542,16 @@ export class TElement {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Element */
     normalize(): void
@@ -7984,6 +12579,31 @@ export class TElement {
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children(): Gee.BidirList
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Element */
+    get_attribute(name: string): string
+    set_attribute(name: string, value: string): void
+    remove_attribute(name: string): void
+    get_attribute_node(name: string): Attr | null
+    set_attribute_node(new_attr: Attr): Attr
+    remove_attribute_node(old_attr: Attr): Attr
+    get_elements_by_tag_name(tag_name: string): NodeList
+    normalize(): void
+    get_tag_name(): string
+    get_content(): string
+    set_content(value: string): void
+    /* Virtual methods of GXml.TElement */
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    /* Virtual methods of GXml.TNode */
+    vfunc_set_namespace(uri: string, prefix?: string | null): boolean
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_set_parent(node: Node): void
+    vfunc_get_attrs(): Gee.Map
+    vfunc_get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_document(): Document
     vfunc_get_name(): string
     vfunc_get_namespaces(): Gee.List
@@ -7991,27 +12611,65 @@ export class TElement {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
     vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string | null
+    vfunc_get_node_name(): string
+    vfunc_get_node_value(): string | null
+    vfunc_get_node_type(): NodeType
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::children", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::children", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::children-nodes", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children-nodes", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::document", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::document", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: TElement, pspec: GObject.ParamSpec) => void)): number
@@ -8042,15 +12700,22 @@ export class TElement {
 export interface TNamespace_ConstructProps extends TNode_ConstructProps {
 }
 export class TNamespace {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
+=======
+    /* Properties of GXml.TNode */
+    readonly attrs: Gee.Map
+    readonly children_nodes: Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly document: Document
     readonly name: string
     readonly namespaces: Gee.List
     readonly type_node: NodeType
     value: string
     readonly parent: Node
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Namespace */
     readonly uri: string
     readonly prefix: string
@@ -8058,18 +12723,38 @@ export class TNamespace {
     parent_instance: TNode
     priv: TNamespacePrivate
     /* Fields of GXml-0.10.GXml.TNode */
+=======
+    /* Properties of GXml.Namespace */
+    readonly uri: string
+    readonly prefix: string
+    /* Fields of GXml.TNamespace */
+    parent_instance: TNode
+    priv: TNamespacePrivate
+    /* Fields of GXml.TNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     _name: string
     _value: string
     _doc: Document
     _parent: Node
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.TNode */
+=======
+    _node_type: NodeType
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.TNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     set_parent(node: Node): void
     get_attrs(): Gee.Map
+<<<<<<< HEAD
     get_children(): Gee.BidirList
+=======
+    get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_document(): Document
     get_name(): string
     get_namespaces(): Gee.List
@@ -8077,6 +12762,7 @@ export class TNamespace {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -8086,6 +12772,17 @@ export class TNamespace {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -8093,11 +12790,16 @@ export class TNamespace {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Namespace */
     get_uri(): string
@@ -8111,6 +12813,24 @@ export class TNamespace {
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children(): Gee.BidirList
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Namespace */
+    get_uri(): string | null
+    get_prefix(): string | null
+    /* Virtual methods of GXml.TNamespace */
+    vfunc_get_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    /* Virtual methods of GXml.TNode */
+    vfunc_set_namespace(uri: string, prefix?: string | null): boolean
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_set_parent(node: Node): void
+    vfunc_get_attrs(): Gee.Map
+    vfunc_get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_document(): Document
     vfunc_get_name(): string
     vfunc_get_namespaces(): Gee.List
@@ -8118,27 +12838,65 @@ export class TNamespace {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
     vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string | null
+    vfunc_get_node_name(): string
+    vfunc_get_node_value(): string | null
+    vfunc_get_node_type(): NodeType
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::children", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::children", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::children-nodes", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children-nodes", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::document", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::document", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: TNamespace, pspec: GObject.ParamSpec) => void)): number
@@ -8168,9 +12926,30 @@ export class TNamespace {
 }
 export interface TNode_ConstructProps extends GObject.Object_ConstructProps {
     value?: string
+<<<<<<< HEAD
 }
 export class TNode {
     /* Properties of GXml-0.10.GXml.TNode */
+=======
+    namespace_definitions?: NodeList
+    namespace_uri?: string
+    prefix?: string
+    local_name?: string
+    node_name?: string
+    node_value?: string
+    node_type?: NodeType
+    parent_node?: Node
+    child_nodes?: NodeList
+    first_child?: Node
+    last_child?: Node
+    previous_sibling?: Node
+    next_sibling?: Node
+    attributes?: NamedAttrMap
+    owner_document?: Document
+}
+export class TNode {
+    /* Properties of GXml.TNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
     readonly document: Document
@@ -8179,18 +12958,44 @@ export class TNode {
     readonly type_node: NodeType
     value: string
     readonly parent: Node
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Node */
     readonly childs: Gee.BidirList
     /* Fields of GXml-0.10.GXml.TNode */
+=======
+    /* Properties of GXml.Node */
+    namespace_definitions: NodeList
+    namespace_uri: string
+    prefix: string
+    local_name: string
+    node_name: string
+    node_value: string
+    node_type: NodeType
+    parent_node: Node
+    child_nodes: NodeList
+    first_child: Node
+    last_child: Node
+    previous_sibling: Node
+    next_sibling: Node
+    attributes: NamedAttrMap
+    owner_document: Document
+    /* Fields of GXml.TNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_instance: GObject.Object
     priv: TNodePrivate
     _name: string
     _value: string
     _doc: Document
     _parent: Node
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.TNode */
+=======
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.TNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     set_parent(node: Node): void
@@ -8203,6 +13008,7 @@ export class TNode {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -8212,6 +13018,17 @@ export class TNode {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -8219,11 +13036,16 @@ export class TNode {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Node */
     get(key: string): Node | null
@@ -8234,6 +13056,38 @@ export class TNode {
     /* Virtual methods of GXml-0.10.GXml.TNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Node */
+    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    replace_child(new_child: Node, old_child: Node): Node | null
+    remove_child(old_child: Node): Node | null
+    append_child(new_child: Node): Node | null
+    has_child_nodes(): boolean
+    clone_node(deep: boolean): Node | null
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    to_string(format: boolean, level: number): string
+    get_namespace_definitions(): NodeList | null
+    get_namespace_uri(): string | null
+    get_prefix(): string | null
+    get_local_name(): string | null
+    get_node_name(): string
+    get_node_value(): string | null
+    get_node_type(): NodeType
+    get_parent_node(): Node | null
+    get_child_nodes(): NodeList | null
+    get_first_child(): Node | null
+    get_last_child(): Node | null
+    get_previous_sibling(): Node | null
+    get_next_sibling(): Node | null
+    get_attributes(): NamedAttrMap | null
+    get_owner_document(): Document
+    /* Virtual methods of GXml.TNode */
+    vfunc_set_namespace(uri: string, prefix?: string | null): boolean
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children(): Gee.BidirList
@@ -8244,20 +13098,53 @@ export class TNode {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
     vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string | null
+    vfunc_get_node_name(): string
+    vfunc_get_node_value(): string | null
+    vfunc_get_node_type(): NodeType
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8277,8 +13164,41 @@ export class TNode {
     connect_after(sigName: "notify::value", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parent", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::childs", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::childs", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::namespace-definitions", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::namespace-uri", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::namespace-uri", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::prefix", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::prefix", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::local-name", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::local-name", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::node-name", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::node-name", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::node-value", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::node-value", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::node-type", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::node-type", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parent-node", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parent-node", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::child-nodes", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::child-nodes", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::first-child", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::first-child", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::last-child", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::last-child", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::previous-sibling", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::previous-sibling", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::next-sibling", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::next-sibling", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::attributes", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::attributes", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::owner-document", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::owner-document", callback: (($obj: TNode, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8286,13 +13206,17 @@ export class TNode {
     static name: string
     constructor (config?: TNode_ConstructProps)
     _init (config?: TNode_ConstructProps): void
+<<<<<<< HEAD
     /* Static methods and pseudo-constructors */
     static copy(doc: Document, node: Node, source: Node, deep: boolean): boolean
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     static $gtype: GObject.Type
 }
 export interface TNodeTChildrenList_ConstructProps extends Gee.AbstractBidirList_ConstructProps {
 }
 export class TNodeTChildrenList {
+<<<<<<< HEAD
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -8304,6 +13228,19 @@ export class TNodeTChildrenList {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee-0.8.Gee.AbstractBidirList */
+=======
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
+    /* Properties of Gee.AbstractCollection */
+    readonly size: number
+    readonly is_empty: boolean
+    /* Fields of GXml.TNodeTChildrenList */
+    parent_instance: Gee.AbstractBidirList
+    priv: TNodeTChildrenListPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of Gee.AbstractBidirList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -8316,7 +13253,11 @@ export class TNodeTChildrenList {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
+<<<<<<< HEAD
     /* Methods of Gee-0.8.Gee.AbstractList */
+=======
+    /* Methods of Gee.AbstractList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -8324,12 +13265,20 @@ export class TNodeTChildrenList {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
+<<<<<<< HEAD
     get_read_only_view(): Gee.List
     /* Methods of Gee-0.8.Gee.AbstractCollection */
+=======
+    first(): object | null
+    last(): object | null
+    insert_all(index: number, collection: Gee.Collection): void
+    /* Methods of Gee.AbstractCollection */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
+<<<<<<< HEAD
     iterator(): Gee.Iterator
     foreach(f: Gee.ForallFunc): boolean
     get_size(): number
@@ -8344,6 +13293,23 @@ export class TNodeTChildrenList {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    to_array(): object[]
+    add_all(collection: Gee.Collection): boolean
+    contains_all(collection: Gee.Collection): boolean
+    remove_all(collection: Gee.Collection): boolean
+    retain_all(collection: Gee.Collection): boolean
+    iterator(): Gee.Iterator
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -8351,17 +13317,26 @@ export class TNodeTChildrenList {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.TNodeTChildrenList */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Gee.AbstractBidirList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -8374,9 +13349,13 @@ export class TNodeTChildrenList {
     vfunc_reserved8(): void
     vfunc_reserved9(): void
     vfunc_get_read_only_view(): Gee.BidirList
+<<<<<<< HEAD
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee-0.8.Gee.AbstractList */
+=======
+    /* Virtual methods of Gee.AbstractList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -8384,6 +13363,7 @@ export class TNodeTChildrenList {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+<<<<<<< HEAD
     vfunc_reserved0(): void
     vfunc_reserved1(): void
     vfunc_reserved2(): void
@@ -8401,10 +13381,18 @@ export class TNodeTChildrenList {
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
+=======
+    vfunc_first(): object | null
+    vfunc_last(): object | null
+    vfunc_insert_all(index: number, collection: Gee.Collection): void
+    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    /* Virtual methods of Gee.AbstractCollection */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
+<<<<<<< HEAD
     vfunc_iterator(): Gee.Iterator
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_reserved0(): void
@@ -8435,10 +13423,14 @@ export class TNodeTChildrenList {
     vfunc_min(compare: GLib.CompareDataFunc): object | null
     vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
     vfunc_get_element_type(): GObject.Type
+=======
+    vfunc_to_array(): object[]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
+<<<<<<< HEAD
     vfunc_to_array(): object[]
     vfunc_add_all_array(array: object[]): boolean
     vfunc_contains_all_array(array: object[]): boolean
@@ -8448,14 +13440,25 @@ export class TNodeTChildrenList {
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_iterator(): Gee.Iterator
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8463,8 +13466,13 @@ export class TNodeTChildrenList {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::read-only", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::is-empty", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::is-empty", callback: (($obj: TNodeTChildrenList, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8477,17 +13485,28 @@ export class TNodeTChildrenList {
     static $gtype: GObject.Type
 }
 export interface TProcessingInstruction_ConstructProps extends TNode_ConstructProps {
+<<<<<<< HEAD
 }
 export class TProcessingInstruction {
     /* Properties of GXml-0.10.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
+=======
+    target?: string
+    data?: string
+}
+export class TProcessingInstruction {
+    /* Properties of GXml.TNode */
+    readonly attrs: Gee.Map
+    readonly children_nodes: Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly document: Document
     readonly name: string
     readonly namespaces: Gee.List
     readonly type_node: NodeType
     value: string
     readonly parent: Node
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.ProcessingInstruction */
     readonly target: string
     readonly data: string
@@ -8495,18 +13514,38 @@ export class TProcessingInstruction {
     parent_instance: TNode
     priv: TProcessingInstructionPrivate
     /* Fields of GXml-0.10.GXml.TNode */
+=======
+    /* Properties of GXml.ProcessingInstruction */
+    target: string
+    data: string
+    /* Fields of GXml.TProcessingInstruction */
+    parent_instance: TNode
+    priv: TProcessingInstructionPrivate
+    /* Fields of GXml.TNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     _name: string
     _value: string
     _doc: Document
     _parent: Node
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.TNode */
+=======
+    _node_type: NodeType
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.TNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     set_parent(node: Node): void
     get_attrs(): Gee.Map
+<<<<<<< HEAD
     get_children(): Gee.BidirList
+=======
+    get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_document(): Document
     get_name(): string
     get_namespaces(): Gee.List
@@ -8514,6 +13553,7 @@ export class TProcessingInstruction {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -8523,6 +13563,17 @@ export class TProcessingInstruction {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -8530,11 +13581,16 @@ export class TProcessingInstruction {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.ProcessingInstruction */
     get_target(): string
@@ -8548,6 +13604,23 @@ export class TProcessingInstruction {
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children(): Gee.BidirList
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.ProcessingInstruction */
+    get_target(): string
+    get_data(): string
+    set_data(value: string): void
+    /* Virtual methods of GXml.TProcessingInstruction */
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    /* Virtual methods of GXml.TNode */
+    vfunc_set_namespace(uri: string, prefix?: string | null): boolean
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_set_parent(node: Node): void
+    vfunc_get_attrs(): Gee.Map
+    vfunc_get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_document(): Document
     vfunc_get_name(): string
     vfunc_get_namespaces(): Gee.List
@@ -8555,27 +13628,65 @@ export class TProcessingInstruction {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
     vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string | null
+    vfunc_get_node_name(): string
+    vfunc_get_node_value(): string | null
+    vfunc_get_node_type(): NodeType
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::children", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::children", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::children-nodes", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children-nodes", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::document", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::document", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: TProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
@@ -8606,33 +13717,57 @@ export class TProcessingInstruction {
 export interface TText_ConstructProps extends TNode_ConstructProps {
 }
 export class TText {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.TNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
+=======
+    /* Properties of GXml.TNode */
+    readonly attrs: Gee.Map
+    readonly children_nodes: Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly document: Document
     readonly name: string
     readonly namespaces: Gee.List
     readonly type_node: NodeType
     value: string
     readonly parent: Node
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Text */
     readonly str: string
     /* Fields of GXml-0.10.GXml.TText */
     parent_instance: TNode
     priv: TTextPrivate
     /* Fields of GXml-0.10.GXml.TNode */
+=======
+    /* Fields of GXml.TText */
+    parent_instance: TNode
+    priv: TTextPrivate
+    /* Fields of GXml.TNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     _name: string
     _value: string
     _doc: Document
     _parent: Node
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.TNode */
+=======
+    _node_type: NodeType
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.TNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     set_parent(node: Node): void
     get_attrs(): Gee.Map
+<<<<<<< HEAD
     get_children(): Gee.BidirList
+=======
+    get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_document(): Document
     get_name(): string
     get_namespaces(): Gee.List
@@ -8640,6 +13775,7 @@ export class TText {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -8649,6 +13785,17 @@ export class TText {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -8656,11 +13803,16 @@ export class TText {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Text */
     get_str(): string
@@ -8672,6 +13824,21 @@ export class TText {
     vfunc_set_parent(node: Node): void
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children(): Gee.BidirList
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Text */
+    split_text(offset: number): Text
+    /* Virtual methods of GXml.TText */
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    /* Virtual methods of GXml.TNode */
+    vfunc_set_namespace(uri: string, prefix?: string | null): boolean
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_set_parent(node: Node): void
+    vfunc_get_attrs(): Gee.Map
+    vfunc_get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_document(): Document
     vfunc_get_name(): string
     vfunc_get_namespaces(): Gee.List
@@ -8679,27 +13846,65 @@ export class TText {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
     vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string | null
+    vfunc_get_node_name(): string
+    vfunc_get_node_value(): string | null
+    vfunc_get_node_type(): NodeType
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::children", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::children", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::children-nodes", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children-nodes", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::document", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::document", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::name", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
@@ -8712,8 +13917,11 @@ export class TText {
     connect_after(sigName: "notify::value", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::parent", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::parent", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::str", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::str", callback: (($obj: TText, pspec: GObject.ParamSpec) => void)): number
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8728,14 +13936,24 @@ export class TText {
 export interface HtmlDocument_ConstructProps extends xDocument_ConstructProps {
 }
 export class HtmlDocument {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.HtmlDocument */
     readonly default_options: number
     /* Properties of GXml-0.10.GXml.xDocument */
+=======
+    /* Properties of GXml.HtmlDocument */
+    readonly default_options: number
+    /* Properties of GXml.xDocument */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     doctype: xDocumentType
     implementation: Implementation
     document_element: xElement
     readonly root: Node
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.xNode */
+=======
+    /* Properties of GXml.xNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     namespace_definitions: Gee.List
     namespace_uri: string
     namespace_prefix: string
@@ -8757,6 +13975,7 @@ export class HtmlDocument {
     readonly name: string
     value: string
     readonly parent: Node
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.HtmlDocument */
     parent_instance: xDocument
     priv: HtmlDocumentPrivate
@@ -8769,6 +13988,20 @@ export class HtmlDocument {
     get_elements_by_class_name(klass: string): ElementList
     get_element_by_id(id: string): Element | null
     /* Methods of GXml-0.10.GXml.xDocument */
+=======
+    /* Fields of GXml.HtmlDocument */
+    parent_instance: xDocument
+    priv: HtmlDocumentPrivate
+    /* Fields of GXml.xNode */
+    _child_nodes: xNodeList
+    _attributes: NamedAttrMap
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.HtmlDocument */
+    get_elements_by_class_name(klass: string): ElementList
+    get_element_by_id(id: string): Element | null
+    /* Methods of GXml.xDocument */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     save_to_path(file_path: string): void
     save_to_stream(outstream: Gio.OutputStream, can?: Gio.Cancellable | null): void
     create_document_fragment(): DocumentFragment
@@ -8784,7 +14017,11 @@ export class HtmlDocument {
     get_implementation(): Implementation
     get_document_element(): xElement
     get_root(): Node
+<<<<<<< HEAD
     /* Methods of GXml-0.10.GXml.xNode */
+=======
+    /* Methods of GXml.xNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
     set_namespace(uri: string, namespace_prefix?: string | null): boolean
     insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
@@ -8817,6 +14054,7 @@ export class HtmlDocument {
     get_value(): string
     set_value(value: string): void
     get_parent(): Node
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -8826,6 +14064,17 @@ export class HtmlDocument {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -8833,11 +14082,16 @@ export class HtmlDocument {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.xDocument */
     vfunc_get_root(): Node
@@ -8870,6 +14124,88 @@ export class HtmlDocument {
     vfunc_stringify(format: boolean, level: number): string
     vfunc_to_string(): string
     vfunc_get_namespace_definitions(): Gee.List | null
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.HtmlDocument */
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: xNode): xNode | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): Gee.List | null
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_parent_node(): xNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): xNode | null
+    vfunc_get_next_sibling(): Node | null
+    /* Virtual methods of GXml.xDocument */
+    vfunc_get_root(): Node
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: xNode): xNode | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): Gee.List | null
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_parent_node(): xNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): xNode | null
+    vfunc_get_next_sibling(): Node | null
+    /* Virtual methods of GXml.xNode */
+    vfunc_add_namespace_attr(uri: string, namespace_prefix?: string | null): NamespaceAttr | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_set_namespace(uri: string, namespace_prefix?: string | null): boolean
+    vfunc_insert_before(new_child: xNode, ref_child?: xNode | null): xNode | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: xNode, old_child: xNode): xNode | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: xNode): xNode | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: xNode): xNode | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): xNode | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_stringify(format: boolean, level: number): string
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_namespace_definitions(): Gee.List | null
+    vfunc_get_namespace_definitions(): NodeList | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_namespace_uri(): string | null
     vfunc_get_namespace_prefix(): string | null
     vfunc_get_local_name(): string | null
@@ -8877,11 +14213,25 @@ export class HtmlDocument {
     vfunc_get_node_value(): string | null
     vfunc_get_node_type(): NodeType
     vfunc_get_parent_node(): xNode | null
+<<<<<<< HEAD
     vfunc_get_child_nodes(): xNodeList | null
     vfunc_get_first_child(): xNode | null
     vfunc_get_last_child(): xNode | null
     vfunc_get_previous_sibling(): xNode | null
     vfunc_get_next_sibling(): xNode | null
+=======
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): xNodeList | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): xNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): xNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): xNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): xNode | null
+    vfunc_get_next_sibling(): Node | null
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_attributes(): NamedAttrMap | null
     vfunc_get_namespaces(): Gee.List
     vfunc_get_children(): Gee.BidirList
@@ -8890,6 +14240,7 @@ export class HtmlDocument {
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
     vfunc_get_parent(): Node
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
@@ -8898,14 +14249,26 @@ export class HtmlDocument {
     vfunc_get_type_node(): NodeType
     vfunc_get_document(): Document
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_prefix(): string | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: HtmlDocument, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -8983,15 +14346,22 @@ export interface GAttribute_ConstructProps extends GNode_ConstructProps {
     namespace?: Namespace
 }
 export class GAttribute {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
+=======
+    /* Properties of GXml.GNode */
+    readonly attrs: Gee.Map
+    readonly children_nodes: Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly namespaces: Gee.List
     readonly document: Document
     readonly parent: Node
     readonly type_node: NodeType
     readonly name: string
     value: string
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Attribute */
     namespace: Namespace
     readonly prefix: string
@@ -9004,11 +14374,30 @@ export class GAttribute {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.GNode */
+=======
+    /* Properties of GXml.Attribute */
+    namespace: Namespace
+    readonly prefix: string
+    /* Fields of GXml.GAttribute */
+    parent_instance: GNode
+    priv: GAttributePrivate
+    /* Fields of GXml.GNode */
+    _doc: GDocument
+    _node: object | null
+    _base_uri: string
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.GNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     get_internal_node(): object | null
     get_attrs(): Gee.Map
+<<<<<<< HEAD
     get_children(): Gee.BidirList
+=======
+    get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_namespaces(): Gee.List
     get_document(): Document
     get_parent(): Node
@@ -9016,6 +14405,7 @@ export class GAttribute {
     get_name(): string
     get_value(): string
     set_value(value: string): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -9025,6 +14415,17 @@ export class GAttribute {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -9032,11 +14433,16 @@ export class GAttribute {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Attribute */
     get_namespace(): Namespace
@@ -9052,6 +14458,48 @@ export class GAttribute {
     vfunc_to_string(): string
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children(): Gee.BidirList
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Attribute */
+    get_namespace(): Namespace | null
+    set_namespace(value?: Namespace | null): void
+    get_prefix(): string | null
+    /* Virtual methods of GXml.GAttribute */
+    vfunc_get_namespace(): Namespace | null
+    vfunc_set_namespace(value?: Namespace | null): void
+    vfunc_set_namespace(uri: string, prefix?: string | null): boolean
+    vfunc_get_prefix(): string | null
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_type(): NodeType
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_next_sibling(): Node | null
+    /* Virtual methods of GXml.GNode */
+    vfunc_set_namespace(uri: string, prefix?: string | null): boolean
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_attrs(): Gee.Map
+    vfunc_get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_namespaces(): Gee.List
     vfunc_get_document(): Document
     vfunc_get_parent(): Node
@@ -9059,27 +14507,93 @@ export class GAttribute {
     vfunc_get_name(): string
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
     vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_type(): NodeType
+    vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_node_value(): string | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::children", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::children", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::children-nodes", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children-nodes", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::namespaces", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespaces", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: GAttribute, pspec: GObject.ParamSpec) => void)): number
@@ -9110,15 +14624,22 @@ export class GAttribute {
 export interface GComment_ConstructProps extends GNode_ConstructProps {
 }
 export class GComment {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
+=======
+    /* Properties of GXml.GNode */
+    readonly attrs: Gee.Map
+    readonly children_nodes: Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly namespaces: Gee.List
     readonly document: Document
     readonly parent: Node
     readonly type_node: NodeType
     readonly name: string
     value: string
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Comment */
     readonly str: string
     /* Fields of GXml-0.10.GXml.GComment */
@@ -9130,11 +14651,27 @@ export class GComment {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.GNode */
+=======
+    /* Fields of GXml.GComment */
+    parent_instance: GNode
+    priv: GCommentPrivate
+    /* Fields of GXml.GNode */
+    _doc: GDocument
+    _node: object | null
+    _base_uri: string
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.GNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     get_internal_node(): object | null
     get_attrs(): Gee.Map
+<<<<<<< HEAD
     get_children(): Gee.BidirList
+=======
+    get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_namespaces(): Gee.List
     get_document(): Document
     get_parent(): Node
@@ -9142,6 +14679,7 @@ export class GComment {
     get_name(): string
     get_value(): string
     set_value(value: string): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -9151,6 +14689,17 @@ export class GComment {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -9158,11 +14707,16 @@ export class GComment {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Comment */
     get_str(): string
@@ -9173,6 +14727,40 @@ export class GComment {
     vfunc_to_string(): string
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children(): Gee.BidirList
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GXml.GComment */
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_type(): NodeType
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_next_sibling(): Node | null
+    /* Virtual methods of GXml.GNode */
+    vfunc_set_namespace(uri: string, prefix?: string | null): boolean
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_attrs(): Gee.Map
+    vfunc_get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_namespaces(): Gee.List
     vfunc_get_document(): Document
     vfunc_get_parent(): Node
@@ -9180,27 +14768,93 @@ export class GComment {
     vfunc_get_name(): string
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
     vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_type(): NodeType
+    vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_node_value(): string | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::children", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::children", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::children-nodes", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children-nodes", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::namespaces", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespaces", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
@@ -9213,8 +14867,11 @@ export class GComment {
     connect_after(sigName: "notify::name", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::value", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::str", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::str", callback: (($obj: GComment, pspec: GObject.ParamSpec) => void)): number
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9229,15 +14886,22 @@ export class GComment {
 export interface GCDATA_ConstructProps extends GNode_ConstructProps {
 }
 export class GCDATA {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
+=======
+    /* Properties of GXml.GNode */
+    readonly attrs: Gee.Map
+    readonly children_nodes: Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly namespaces: Gee.List
     readonly document: Document
     readonly parent: Node
     readonly type_node: NodeType
     readonly name: string
     value: string
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.CDATA */
     readonly str: string
     /* Fields of GXml-0.10.GXml.GCDATA */
@@ -9249,11 +14913,29 @@ export class GCDATA {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.GNode */
+=======
+    /* Properties of GXml.CDATA */
+    readonly str: string
+    /* Fields of GXml.GCDATA */
+    parent_instance: GNode
+    priv: GCDATAPrivate
+    /* Fields of GXml.GNode */
+    _doc: GDocument
+    _node: object | null
+    _base_uri: string
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.GNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     get_internal_node(): object | null
     get_attrs(): Gee.Map
+<<<<<<< HEAD
     get_children(): Gee.BidirList
+=======
+    get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_namespaces(): Gee.List
     get_document(): Document
     get_parent(): Node
@@ -9261,6 +14943,7 @@ export class GCDATA {
     get_name(): string
     get_value(): string
     set_value(value: string): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -9270,6 +14953,17 @@ export class GCDATA {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -9277,11 +14971,16 @@ export class GCDATA {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.CDATA */
     get_str(): string
@@ -9292,6 +14991,43 @@ export class GCDATA {
     vfunc_to_string(): string
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children(): Gee.BidirList
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.CDATA */
+    get_str(): string
+    /* Virtual methods of GXml.GCDATA */
+    vfunc_get_str(): string
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_type(): NodeType
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_next_sibling(): Node | null
+    /* Virtual methods of GXml.GNode */
+    vfunc_set_namespace(uri: string, prefix?: string | null): boolean
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_attrs(): Gee.Map
+    vfunc_get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_namespaces(): Gee.List
     vfunc_get_document(): Document
     vfunc_get_parent(): Node
@@ -9299,27 +15035,93 @@ export class GCDATA {
     vfunc_get_name(): string
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
     vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_type(): NodeType
+    vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_node_value(): string | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::children", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::children", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::children-nodes", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children-nodes", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::namespaces", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespaces", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: GCDATA, pspec: GObject.ParamSpec) => void)): number
@@ -9346,6 +15148,7 @@ export class GCDATA {
     static $gtype: GObject.Type
 }
 export interface GDocument_ConstructProps extends GNode_ConstructProps {
+<<<<<<< HEAD
     indent?: boolean
     ns_top?: boolean
     prefix_default_ns?: boolean
@@ -9356,12 +15159,23 @@ export class GDocument {
     /* Properties of GXml-0.10.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
+=======
+    doctype?: DocumentType
+    implementation?: Implementation
+    document_element?: Element
+}
+export class GDocument {
+    /* Properties of GXml.GNode */
+    readonly attrs: Gee.Map
+    readonly children_nodes: Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly namespaces: Gee.List
     readonly document: Document
     readonly parent: Node
     readonly type_node: NodeType
     readonly name: string
     value: string
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Document */
     indent: boolean
     ns_top: boolean
@@ -9370,10 +15184,18 @@ export class GDocument {
     readonly root: Node
     file: Gio.File
     /* Fields of GXml-0.10.GXml.GDocument */
+=======
+    /* Properties of GXml.Document */
+    doctype: DocumentType
+    implementation: Implementation
+    document_element: Element
+    /* Fields of GXml.GDocument */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_instance: GNode
     priv: GDocumentPrivate
     doc: object | null
     _buffer: any
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.GNode */
     _doc: GDocument
     _node: object | null
@@ -9384,11 +15206,28 @@ export class GDocument {
     save(cancellable?: Gio.Cancellable | null): boolean
     save_as(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
     /* Methods of GXml-0.10.GXml.GNode */
+=======
+    /* Fields of GXml.GNode */
+    _doc: GDocument
+    _node: object | null
+    _base_uri: string
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.GDocument */
+    libxml_to_string(): string
+    save(cancellable?: Gio.Cancellable | null): boolean
+    save_as(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
+    /* Methods of GXml.GNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     get_internal_node(): object | null
     get_attrs(): Gee.Map
+<<<<<<< HEAD
     get_children(): Gee.BidirList
+=======
+    get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_namespaces(): Gee.List
     get_document(): Document
     get_parent(): Node
@@ -9396,6 +15235,7 @@ export class GDocument {
     get_name(): string
     get_value(): string
     set_value(value: string): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -9405,6 +15245,17 @@ export class GDocument {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -9412,11 +15263,16 @@ export class GDocument {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Document */
     create_element(name: string): Node
@@ -9459,6 +15315,58 @@ export class GDocument {
     vfunc_to_string(): string
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children(): Gee.BidirList
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Document */
+    save_to_path(file_path: string): void
+    save_to_stream(outstream: Gio.OutputStream, can?: Gio.Cancellable | null): void
+    create_element(tag_name: string): Element
+    create_document_fragment(): DocumentFragment
+    create_text_node(text_data: string): Text
+    create_comment(comment_data: string): Comment
+    create_cdata_section(cdata_data: string): CDATASection
+    create_processing_instruction(target: string, data: string): ProcessingInstruction
+    create_attribute(name: string): Attr
+    create_entity_reference(name: string): EntityReference
+    get_elements_by_tag_name(tag_name: string): NodeList
+    copy_node(foreign_node: Node, deep: boolean): Node
+    get_doctype(): DocumentType | null
+    get_implementation(): Implementation
+    get_document_element(): Element
+    /* Virtual methods of GXml.GDocument */
+    vfunc_save(cancellable?: Gio.Cancellable | null): boolean
+    vfunc_save_as(f: Gio.File, cancellable?: Gio.Cancellable | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_type(): NodeType
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_next_sibling(): Node | null
+    /* Virtual methods of GXml.GNode */
+    vfunc_set_namespace(uri: string, prefix?: string | null): boolean
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_attrs(): Gee.Map
+    vfunc_get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_namespaces(): Gee.List
     vfunc_get_document(): Document
     vfunc_get_parent(): Node
@@ -9466,27 +15374,93 @@ export class GDocument {
     vfunc_get_name(): string
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
     vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_type(): NodeType
+    vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_node_value(): string | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::children", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::children", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::children-nodes", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children-nodes", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::namespaces", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespaces", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
@@ -9499,6 +15473,7 @@ export class GDocument {
     connect_after(sigName: "notify::name", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::value", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::indent", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::indent", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::ns-top", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
@@ -9511,6 +15486,14 @@ export class GDocument {
     connect_after(sigName: "notify::root", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::file", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::file", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::doctype", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::doctype", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::implementation", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::implementation", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::document-element", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::document-element", callback: (($obj: GDocument, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9521,6 +15504,7 @@ export class GDocument {
     /* Static methods and pseudo-constructors */
     static new(): GDocument
     static from_path(path: string, options: number): GDocument
+<<<<<<< HEAD
     static from_uri(uri: string, options: number): GDocument
     static from_file(file: Gio.File, options: number, cancel?: Gio.Cancellable | null): GDocument
     static from_string(str: string, options: number): GDocument
@@ -9538,12 +15522,36 @@ export class GElement {
     /* Properties of GXml-0.10.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
+=======
+    static from_path(file_path: string): GDocument
+    static from_uri(uri: string, options: number): GDocument
+    static from_file(file: Gio.File, options: number, cancel?: Gio.Cancellable | null): GDocument
+    static from_string(str: string, options: number): GDocument
+    static from_string(xml: string): GDocument
+    static from_stream(istream: Gio.InputStream): GDocument
+    static from_stream(instream: Gio.InputStream, can?: Gio.Cancellable | null): GDocument
+    static from_doc(doc: libxml2.Doc): GDocument
+    static from_libxml2(doc: object | null, require_root: boolean): GDocument
+    static from_gfile(fin: Gio.File, can?: Gio.Cancellable | null): GDocument
+    static from_string_with_options(xml: string, url: string | null, encoding: string | null, options: number): GDocument
+    static $gtype: GObject.Type
+}
+export interface GElement_ConstructProps extends GNode_ConstructProps {
+    tag_name?: string
+    content?: string
+}
+export class GElement {
+    /* Properties of GXml.GNode */
+    readonly attrs: Gee.Map
+    readonly children_nodes: Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly namespaces: Gee.List
     readonly document: Document
     readonly parent: Node
     readonly type_node: NodeType
     readonly name: string
     value: string
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Element */
     readonly tag_name: string
     content: string
@@ -9556,11 +15564,30 @@ export class GElement {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.GNode */
+=======
+    /* Properties of GXml.Element */
+    tag_name: string
+    content: string
+    /* Fields of GXml.GElement */
+    parent_instance: GNode
+    priv: GElementPrivate
+    /* Fields of GXml.GNode */
+    _doc: GDocument
+    _node: object | null
+    _base_uri: string
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.GNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     get_internal_node(): object | null
     get_attrs(): Gee.Map
+<<<<<<< HEAD
     get_children(): Gee.BidirList
+=======
+    get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_namespaces(): Gee.List
     get_document(): Document
     get_parent(): Node
@@ -9568,6 +15595,7 @@ export class GElement {
     get_name(): string
     get_value(): string
     set_value(value: string): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -9577,6 +15605,17 @@ export class GElement {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -9584,11 +15623,16 @@ export class GElement {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Element */
     normalize(): void
@@ -9615,6 +15659,52 @@ export class GElement {
     vfunc_to_string(): string
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children(): Gee.BidirList
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Element */
+    get_attribute(name: string): string
+    set_attribute(name: string, value: string): void
+    remove_attribute(name: string): void
+    get_attribute_node(name: string): Attr | null
+    set_attribute_node(new_attr: Attr): Attr
+    remove_attribute_node(old_attr: Attr): Attr
+    get_elements_by_tag_name(tag_name: string): NodeList
+    normalize(): void
+    get_tag_name(): string
+    get_content(): string
+    set_content(value: string): void
+    /* Virtual methods of GXml.GElement */
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_type(): NodeType
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_next_sibling(): Node | null
+    /* Virtual methods of GXml.GNode */
+    vfunc_set_namespace(uri: string, prefix?: string | null): boolean
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_attrs(): Gee.Map
+    vfunc_get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_namespaces(): Gee.List
     vfunc_get_document(): Document
     vfunc_get_parent(): Node
@@ -9622,27 +15712,93 @@ export class GElement {
     vfunc_get_name(): string
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
     vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_type(): NodeType
+    vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_node_value(): string | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::children", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::children", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::children-nodes", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children-nodes", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::namespaces", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespaces", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: GElement, pspec: GObject.ParamSpec) => void)): number
@@ -9673,15 +15829,22 @@ export class GElement {
 export interface GNamespace_ConstructProps extends GNode_ConstructProps {
 }
 export class GNamespace {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
+=======
+    /* Properties of GXml.GNode */
+    readonly attrs: Gee.Map
+    readonly children_nodes: Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly namespaces: Gee.List
     readonly document: Document
     readonly parent: Node
     readonly type_node: NodeType
     readonly name: string
     value: string
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Namespace */
     readonly uri: string
     readonly prefix: string
@@ -9696,11 +15859,32 @@ export class GNamespace {
     /* Methods of GXml-0.10.GXml.GNamespace */
     get_internal_ns(): object | null
     /* Methods of GXml-0.10.GXml.GNode */
+=======
+    /* Properties of GXml.Namespace */
+    readonly uri: string
+    readonly prefix: string
+    /* Fields of GXml.GNamespace */
+    parent_instance: GNode
+    priv: GNamespacePrivate
+    /* Fields of GXml.GNode */
+    _doc: GDocument
+    _node: object | null
+    _base_uri: string
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.GNamespace */
+    get_internal_ns(): object | null
+    /* Methods of GXml.GNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     get_internal_node(): object | null
     get_attrs(): Gee.Map
+<<<<<<< HEAD
     get_children(): Gee.BidirList
+=======
+    get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_namespaces(): Gee.List
     get_document(): Document
     get_parent(): Node
@@ -9708,6 +15892,7 @@ export class GNamespace {
     get_name(): string
     get_value(): string
     set_value(value: string): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -9717,6 +15902,17 @@ export class GNamespace {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -9724,11 +15920,16 @@ export class GNamespace {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Namespace */
     get_uri(): string
@@ -9741,6 +15942,45 @@ export class GNamespace {
     vfunc_to_string(): string
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children(): Gee.BidirList
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Namespace */
+    get_uri(): string | null
+    get_prefix(): string | null
+    /* Virtual methods of GXml.GNamespace */
+    vfunc_get_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_type(): NodeType
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_next_sibling(): Node | null
+    /* Virtual methods of GXml.GNode */
+    vfunc_set_namespace(uri: string, prefix?: string | null): boolean
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_attrs(): Gee.Map
+    vfunc_get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_namespaces(): Gee.List
     vfunc_get_document(): Document
     vfunc_get_parent(): Node
@@ -9748,27 +15988,93 @@ export class GNamespace {
     vfunc_get_name(): string
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
     vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_type(): NodeType
+    vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_node_value(): string | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::children", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::children", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::children-nodes", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children-nodes", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::namespaces", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespaces", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: GNamespace, pspec: GObject.ParamSpec) => void)): number
@@ -9798,9 +16104,30 @@ export class GNamespace {
 }
 export interface GNode_ConstructProps extends GObject.Object_ConstructProps {
     value?: string
+<<<<<<< HEAD
 }
 export class GNode {
     /* Properties of GXml-0.10.GXml.GNode */
+=======
+    namespace_definitions?: NodeList
+    namespace_uri?: string
+    prefix?: string
+    local_name?: string
+    node_name?: string
+    node_value?: string
+    node_type?: NodeType
+    parent_node?: Node
+    child_nodes?: NodeList
+    first_child?: Node
+    last_child?: Node
+    previous_sibling?: Node
+    next_sibling?: Node
+    attributes?: NamedAttrMap
+    owner_document?: Document
+}
+export class GNode {
+    /* Properties of GXml.GNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
     readonly namespaces: Gee.List
@@ -9809,16 +16136,42 @@ export class GNode {
     readonly type_node: NodeType
     readonly name: string
     value: string
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Node */
     readonly childs: Gee.BidirList
     /* Fields of GXml-0.10.GXml.GNode */
+=======
+    /* Properties of GXml.Node */
+    namespace_definitions: NodeList
+    namespace_uri: string
+    prefix: string
+    local_name: string
+    node_name: string
+    node_value: string
+    node_type: NodeType
+    parent_node: Node
+    child_nodes: NodeList
+    first_child: Node
+    last_child: Node
+    previous_sibling: Node
+    next_sibling: Node
+    attributes: NamedAttrMap
+    owner_document: Document
+    /* Fields of GXml.GNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_instance: GObject.Object
     priv: GNodePrivate
     _doc: GDocument
     _node: object | null
+<<<<<<< HEAD
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.GNode */
+=======
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.GNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     get_internal_node(): object | null
@@ -9831,6 +16184,7 @@ export class GNode {
     get_name(): string
     get_value(): string
     set_value(value: string): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -9840,6 +16194,17 @@ export class GNode {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -9847,11 +16212,16 @@ export class GNode {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Node */
     get(key: string): Node | null
@@ -9862,6 +16232,38 @@ export class GNode {
     /* Virtual methods of GXml-0.10.GXml.GNode */
     vfunc_set_namespace(uri: string, prefix?: string | null): boolean
     vfunc_to_string(): string
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Node */
+    add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    replace_child(new_child: Node, old_child: Node): Node | null
+    remove_child(old_child: Node): Node | null
+    append_child(new_child: Node): Node | null
+    has_child_nodes(): boolean
+    clone_node(deep: boolean): Node | null
+    copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    to_string(format: boolean, level: number): string
+    get_namespace_definitions(): NodeList | null
+    get_namespace_uri(): string | null
+    get_prefix(): string | null
+    get_local_name(): string | null
+    get_node_name(): string
+    get_node_value(): string | null
+    get_node_type(): NodeType
+    get_parent_node(): Node | null
+    get_child_nodes(): NodeList | null
+    get_first_child(): Node | null
+    get_last_child(): Node | null
+    get_previous_sibling(): Node | null
+    get_next_sibling(): Node | null
+    get_attributes(): NamedAttrMap | null
+    get_owner_document(): Document
+    /* Virtual methods of GXml.GNode */
+    vfunc_set_namespace(uri: string, prefix?: string | null): boolean
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children(): Gee.BidirList
     vfunc_get_namespaces(): Gee.List
@@ -9871,20 +16273,53 @@ export class GNode {
     vfunc_get_name(): string
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
     vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_has_child_nodes(): boolean
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string | null
+    vfunc_get_node_name(): string
+    vfunc_get_node_value(): string | null
+    vfunc_get_node_type(): NodeType
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -9904,8 +16339,41 @@ export class GNode {
     connect_after(sigName: "notify::name", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::value", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::childs", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::childs", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::namespace-definitions", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::namespace-definitions", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::namespace-uri", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::namespace-uri", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::prefix", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::prefix", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::local-name", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::local-name", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::node-name", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::node-name", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::node-value", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::node-value", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::node-type", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::node-type", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::parent-node", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parent-node", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::child-nodes", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::child-nodes", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::first-child", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::first-child", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::last-child", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::last-child", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::previous-sibling", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::previous-sibling", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::next-sibling", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::next-sibling", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::attributes", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::attributes", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::owner-document", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::owner-document", callback: (($obj: GNode, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9915,6 +16383,7 @@ export class GNode {
     _init (config?: GNode_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static to_gnode(doc: GDocument, node?: object | null): Node
+<<<<<<< HEAD
     static copy(doc: Document, node: Node, source: Node, deep: boolean): boolean
     static $gtype: GObject.Type
 }
@@ -9924,12 +16393,25 @@ export class GProcessingInstruction {
     /* Properties of GXml-0.10.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
+=======
+    static $gtype: GObject.Type
+}
+export interface GProcessingInstruction_ConstructProps extends GNode_ConstructProps {
+    target?: string
+    data?: string
+}
+export class GProcessingInstruction {
+    /* Properties of GXml.GNode */
+    readonly attrs: Gee.Map
+    readonly children_nodes: Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly namespaces: Gee.List
     readonly document: Document
     readonly parent: Node
     readonly type_node: NodeType
     readonly name: string
     value: string
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.ProcessingInstruction */
     readonly target: string
     readonly data: string
@@ -9942,11 +16424,30 @@ export class GProcessingInstruction {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.GNode */
+=======
+    /* Properties of GXml.ProcessingInstruction */
+    target: string
+    data: string
+    /* Fields of GXml.GProcessingInstruction */
+    parent_instance: GNode
+    priv: GProcessingInstructionPrivate
+    /* Fields of GXml.GNode */
+    _doc: GDocument
+    _node: object | null
+    _base_uri: string
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.GNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     get_internal_node(): object | null
     get_attrs(): Gee.Map
+<<<<<<< HEAD
     get_children(): Gee.BidirList
+=======
+    get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_namespaces(): Gee.List
     get_document(): Document
     get_parent(): Node
@@ -9954,6 +16455,7 @@ export class GProcessingInstruction {
     get_name(): string
     get_value(): string
     set_value(value: string): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -9963,6 +16465,17 @@ export class GProcessingInstruction {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -9970,11 +16483,16 @@ export class GProcessingInstruction {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.ProcessingInstruction */
     get_target(): string
@@ -9987,6 +16505,44 @@ export class GProcessingInstruction {
     vfunc_to_string(): string
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children(): Gee.BidirList
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.ProcessingInstruction */
+    get_target(): string
+    get_data(): string
+    set_data(value: string): void
+    /* Virtual methods of GXml.GProcessingInstruction */
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_type(): NodeType
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_next_sibling(): Node | null
+    /* Virtual methods of GXml.GNode */
+    vfunc_set_namespace(uri: string, prefix?: string | null): boolean
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_attrs(): Gee.Map
+    vfunc_get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_namespaces(): Gee.List
     vfunc_get_document(): Document
     vfunc_get_parent(): Node
@@ -9994,27 +16550,93 @@ export class GProcessingInstruction {
     vfunc_get_name(): string
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
     vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_type(): NodeType
+    vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_node_value(): string | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::children", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::children", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::children-nodes", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children-nodes", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::namespaces", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespaces", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: GProcessingInstruction, pspec: GObject.ParamSpec) => void)): number
@@ -10045,15 +16667,22 @@ export class GProcessingInstruction {
 export interface GText_ConstructProps extends GNode_ConstructProps {
 }
 export class GText {
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.GNode */
     readonly attrs: Gee.Map
     readonly children: Gee.BidirList
+=======
+    /* Properties of GXml.GNode */
+    readonly attrs: Gee.Map
+    readonly children_nodes: Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly namespaces: Gee.List
     readonly document: Document
     readonly parent: Node
     readonly type_node: NodeType
     readonly name: string
     value: string
+<<<<<<< HEAD
     /* Properties of GXml-0.10.GXml.Text */
     readonly str: string
     /* Fields of GXml-0.10.GXml.GText */
@@ -10065,11 +16694,27 @@ export class GText {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GXml-0.10.GXml.GNode */
+=======
+    /* Fields of GXml.GText */
+    parent_instance: GNode
+    priv: GTextPrivate
+    /* Fields of GXml.GNode */
+    _doc: GDocument
+    _node: object | null
+    _base_uri: string
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GXml.GNode */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     set_namespace(uri: string, prefix?: string | null): boolean
     to_string(): string
     get_internal_node(): object | null
     get_attrs(): Gee.Map
+<<<<<<< HEAD
     get_children(): Gee.BidirList
+=======
+    get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_namespaces(): Gee.List
     get_document(): Document
     get_parent(): Node
@@ -10077,6 +16722,7 @@ export class GText {
     get_name(): string
     get_value(): string
     set_value(value: string): void
+<<<<<<< HEAD
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -10086,6 +16732,17 @@ export class GText {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -10093,11 +16750,16 @@ export class GText {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of GXml-0.10.GXml.Text */
     get_str(): string
@@ -10108,6 +16770,42 @@ export class GText {
     vfunc_to_string(): string
     vfunc_get_attrs(): Gee.Map
     vfunc_get_children(): Gee.BidirList
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of GXml.Text */
+    split_text(offset: number): Text
+    /* Virtual methods of GXml.GText */
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_type(): NodeType
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_next_sibling(): Node | null
+    /* Virtual methods of GXml.GNode */
+    vfunc_set_namespace(uri: string, prefix?: string | null): boolean
+    vfunc_to_string(): string
+    vfunc_to_string(format: boolean, level: number): string
+    vfunc_get_attrs(): Gee.Map
+    vfunc_get_children_nodes(): Gee.BidirList
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_namespaces(): Gee.List
     vfunc_get_document(): Document
     vfunc_get_parent(): Node
@@ -10115,27 +16813,93 @@ export class GText {
     vfunc_get_name(): string
     vfunc_get_value(): string
     vfunc_set_value(value: string): void
+<<<<<<< HEAD
     vfunc_get(key: string): Node | null
     vfunc_get_elements_by_property_value(property: string, value: string): ElementList
     vfunc_ns_prefix(): string
     vfunc_ns_uri(): string
     vfunc_get_childs(): Gee.BidirList
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_add_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_remove_event_listener(type: string, callback: DomEventListener | null, capture: boolean): void
+    vfunc_dispatch_event(event: DomEvent): boolean
+    vfunc_get_node_type(): DomNodeNodeType
+    vfunc_get_node_type(): NodeType
+    vfunc_get_node_name(): string
+    vfunc_get_base_uri(): string | null
+    vfunc_get_owner_document(): DomDocument | null
+    vfunc_set_owner_document(value?: DomDocument | null): void
+    vfunc_get_parent_node(): DomNode | null
+    vfunc_get_parent_node(): Node | null
+    vfunc_get_parent_element(): DomElement | null
+    vfunc_get_child_nodes(): DomNodeList
+    vfunc_get_child_nodes(): NodeList | null
+    vfunc_get_first_child(): DomNode | null
+    vfunc_get_first_child(): Node | null
+    vfunc_get_last_child(): DomNode | null
+    vfunc_get_last_child(): Node | null
+    vfunc_get_previous_sibling(): DomNode | null
+    vfunc_get_previous_sibling(): Node | null
+    vfunc_get_next_sibling(): DomNode | null
+    vfunc_get_next_sibling(): Node | null
+    vfunc_get_node_value(): string | null
+    vfunc_set_node_value(value?: string | null): void
+    vfunc_get_text_content(): string | null
+    vfunc_set_text_content(value?: string | null): void
+    vfunc_has_child_nodes(): boolean
+    vfunc_normalize(): void
+    vfunc_is_equal_node(node?: DomNode | null): boolean
+    vfunc_compare_document_position(other: DomNode): DomNodeDocumentPosition
+    vfunc_contains(other?: DomNode | null): boolean
+    vfunc_lookup_prefix(nspace?: string | null): string | null
+    vfunc_lookup_namespace_uri(prefix?: string | null): string | null
+    vfunc_is_default_namespace(nspace?: string | null): boolean
+    vfunc_insert_before(node: DomNode, child?: DomNode | null): DomNode
+    vfunc_insert_before(new_child: Node, ref_child?: Node | null): Node | null
+    vfunc_append_child(node: DomNode): DomNode
+    vfunc_append_child(new_child: Node): Node | null
+    vfunc_replace_child(node: DomNode, child: DomNode): DomNode
+    vfunc_replace_child(new_child: Node, old_child: Node): Node | null
+    vfunc_remove_child(child: DomNode): DomNode
+    vfunc_remove_child(old_child: Node): Node | null
+    vfunc_add_namespace_attr(uri: string, prefix: string): NamespaceAttr | null
+    vfunc_clone_node(deep: boolean): Node | null
+    vfunc_copy(node: Node, deep: boolean): [ /* returnType */ boolean, /* node */ Node ]
+    vfunc_get_namespace_definitions(): NodeList | null
+    vfunc_get_namespace_uri(): string | null
+    vfunc_get_prefix(): string | null
+    vfunc_get_local_name(): string | null
+    vfunc_get_attributes(): NamedAttrMap | null
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::attrs", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::attrs", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::children", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::children", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::children-nodes", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::children-nodes", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::namespaces", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::namespaces", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::document", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
@@ -10148,8 +16912,11 @@ export class GText {
     connect_after(sigName: "notify::name", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::value", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::str", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::str", callback: (($obj: GText, pspec: GObject.ParamSpec) => void)): number
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10164,19 +16931,34 @@ export class GText {
 export interface GHashMapAttr_ConstructProps extends Gee.AbstractMap_ConstructProps {
 }
 export class GHashMapAttr {
+<<<<<<< HEAD
     /* Properties of Gee-0.8.Gee.AbstractMap */
     readonly size: number
     readonly read_only: boolean
+=======
+    /* Properties of Gee.AbstractMap */
+    readonly size: number
+    readonly is_empty: boolean
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
     readonly read_only_view: Gee.Map
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.GHashMapAttr */
     parent_instance: Gee.AbstractMap
     priv: GHashMapAttrPrivate
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee-0.8.Gee.AbstractMap */
+=======
+    /* Fields of GXml.GHashMapAttr */
+    parent_instance: Gee.AbstractMap
+    priv: GHashMapAttrPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of Gee.AbstractMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     has_key(key?: object | null): boolean
     has(key?: object | null, value?: object | null): boolean
     get(key?: object | null): object | null
@@ -10184,6 +16966,7 @@ export class GHashMapAttr {
     unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     map_iterator(): Gee.MapIterator
     clear(): void
+<<<<<<< HEAD
     foreach(f: Gee.ForallFunc): boolean
     stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     reserved0(): void
@@ -10211,6 +16994,20 @@ export class GHashMapAttr {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    set_all(map: Gee.Map): void
+    unset_all(map: Gee.Map): boolean
+    has_all(map: Gee.Map): boolean
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -10218,13 +17015,22 @@ export class GHashMapAttr {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of Gee-0.8.Gee.AbstractMap */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Gee.AbstractMap */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_has_key(key?: object | null): boolean
     vfunc_has(key?: object | null, value?: object | null): boolean
     vfunc_get(key?: object | null): object | null
@@ -10232,6 +17038,7 @@ export class GHashMapAttr {
     vfunc_unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfunc_map_iterator(): Gee.MapIterator
     vfunc_clear(): void
+<<<<<<< HEAD
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     vfunc_reserved0(): void
@@ -10270,21 +17077,44 @@ export class GHashMapAttr {
     vfunc_has_all(map: Gee.Map): boolean
     vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_set_all(map: Gee.Map): void
+    vfunc_unset_all(map: Gee.Map): boolean
+    vfunc_has_all(map: Gee.Map): boolean
+    vfunc_iterator(): Gee.Iterator
+    vfunc_contains(key?: object | null): boolean
+    vfunc_remove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
+    vfunc_remove_all(map: Gee.Map): boolean
+    vfunc_contains_all(map: Gee.Map): boolean
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
     connect(sigName: "notify::size", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::read-only", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::is-empty", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::is-empty", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify::keys", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::values", callback: (($obj: GHashMapAttr, pspec: GObject.ParamSpec) => void)): number
@@ -10307,6 +17137,7 @@ export class GHashMapAttr {
 export interface GHashMapAttrEntry_ConstructProps extends Gee.MapEntry_ConstructProps {
 }
 export class GHashMapAttrEntry {
+<<<<<<< HEAD
     /* Properties of Gee-0.8.Gee.MapEntry */
     readonly key: object
     value: object
@@ -10330,6 +17161,25 @@ export class GHashMapAttrEntry {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Properties of Gee.MapEntry */
+    readonly key: object
+    value: object
+    /* Fields of GXml.GHashMapAttrEntry */
+    parent_instance: Gee.MapEntry
+    priv: GHashMapAttrEntryPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -10337,11 +17187,16 @@ export class GHashMapAttrEntry {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of Gee-0.8.Gee.MapEntry */
     vfunc_get_key(): object | null
@@ -10349,14 +17204,25 @@ export class GHashMapAttrEntry {
     vfunc_set_value(value?: object | null): void
     vfunc_get_read_only(): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: GHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10364,8 +17230,11 @@ export class GHashMapAttrEntry {
     connect_after(sigName: "notify::key", callback: (($obj: GHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::value", callback: (($obj: GHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::value", callback: (($obj: GHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::read-only", callback: (($obj: GHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: GHashMapAttrEntry, pspec: GObject.ParamSpec) => void)): number
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10380,6 +17249,7 @@ export class GHashMapAttrEntry {
 export interface GHashMapAttrIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GHashMapAttrIterator {
+<<<<<<< HEAD
     /* Properties of Gee-0.8.Gee.MapIterator */
     readonly valid: boolean
     readonly mutable: boolean
@@ -10398,6 +17268,22 @@ export class GHashMapAttrIterator {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of GXml.GHashMapAttrIterator */
+    parent_instance: GObject.Object
+    priv: GHashMapAttrIteratorPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -10405,19 +17291,32 @@ export class GHashMapAttrIterator {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of Gee-0.8.Gee.MapIterator */
     next(): boolean
     has_next(): boolean
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of Gee.MapIterator */
+    next(): boolean
+    has_next(): boolean
+    first(): boolean
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_key(): object | null
     get_value(): object | null
     set_value(value?: object | null): void
     unset(): void
+<<<<<<< HEAD
     fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldMapFunc, seed?: object | null): object | null
     foreach(f: Gee.ForallMapFunc): boolean
     get_valid(): boolean
@@ -10426,20 +17325,31 @@ export class GHashMapAttrIterator {
     /* Virtual methods of GXml-0.10.GXml.GHashMapAttrIterator */
     vfunc_next(): boolean
     vfunc_has_next(): boolean
+=======
+    /* Virtual methods of GXml.GHashMapAttrIterator */
+    vfunc_next(): boolean
+    vfunc_has_next(): boolean
+    vfunc_first(): boolean
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_get_key(): object | null
     vfunc_get_value(): object | null
     vfunc_set_value(value?: object | null): void
     vfunc_unset(): void
+<<<<<<< HEAD
     vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldMapFunc, seed?: object | null): object | null
     vfunc_foreach(f: Gee.ForallMapFunc): boolean
     vfunc_get_valid(): boolean
     vfunc_get_mutable(): boolean
     vfunc_get_read_only(): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
@@ -10453,6 +17363,15 @@ export class GHashMapAttrIterator {
     connect_after(sigName: "notify::mutable", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: GHashMapAttrIterator, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10467,6 +17386,7 @@ export class GHashMapAttrIterator {
 export interface GListChildren_ConstructProps extends Gee.AbstractBidirList_ConstructProps {
 }
 export class GListChildren {
+<<<<<<< HEAD
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly read_only_view: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -10478,6 +17398,19 @@ export class GListChildren {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee-0.8.Gee.AbstractBidirList */
+=======
+    /* Properties of Gee.AbstractBidirList */
+    readonly read_only_view: Gee.BidirList
+    /* Properties of Gee.AbstractCollection */
+    readonly size: number
+    readonly is_empty: boolean
+    /* Fields of GXml.GListChildren */
+    parent_instance: Gee.AbstractBidirList
+    priv: GListChildrenPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of Gee.AbstractBidirList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     bidir_list_iterator(): Gee.BidirListIterator
     reserved0(): void
     reserved1(): void
@@ -10490,7 +17423,11 @@ export class GListChildren {
     reserved8(): void
     reserved9(): void
     get_read_only_view(): Gee.BidirList
+<<<<<<< HEAD
     /* Methods of Gee-0.8.Gee.AbstractList */
+=======
+    /* Methods of Gee.AbstractList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -10498,12 +17435,20 @@ export class GListChildren {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
+<<<<<<< HEAD
     get_read_only_view(): Gee.List
     /* Methods of Gee-0.8.Gee.AbstractCollection */
+=======
+    first(): object | null
+    last(): object | null
+    insert_all(index: number, collection: Gee.Collection): void
+    /* Methods of Gee.AbstractCollection */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
+<<<<<<< HEAD
     iterator(): Gee.Iterator
     foreach(f: Gee.ForallFunc): boolean
     get_size(): number
@@ -10518,6 +17463,23 @@ export class GListChildren {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    to_array(): object[]
+    add_all(collection: Gee.Collection): boolean
+    contains_all(collection: Gee.Collection): boolean
+    remove_all(collection: Gee.Collection): boolean
+    retain_all(collection: Gee.Collection): boolean
+    iterator(): Gee.Iterator
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -10525,17 +17487,26 @@ export class GListChildren {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.GListChildren */
     vfunc_get_read_only_view(): Gee.BidirList
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee-0.8.Gee.AbstractBidirList */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Gee.AbstractBidirList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_bidir_list_iterator(): Gee.BidirListIterator
     vfunc_reserved0(): void
     vfunc_reserved1(): void
@@ -10548,9 +17519,13 @@ export class GListChildren {
     vfunc_reserved8(): void
     vfunc_reserved9(): void
     vfunc_get_read_only_view(): Gee.BidirList
+<<<<<<< HEAD
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee-0.8.Gee.AbstractList */
+=======
+    /* Virtual methods of Gee.AbstractList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -10558,6 +17533,7 @@ export class GListChildren {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+<<<<<<< HEAD
     vfunc_reserved0(): void
     vfunc_reserved1(): void
     vfunc_reserved2(): void
@@ -10575,10 +17551,18 @@ export class GListChildren {
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
+=======
+    vfunc_first(): object | null
+    vfunc_last(): object | null
+    vfunc_insert_all(index: number, collection: Gee.Collection): void
+    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    /* Virtual methods of Gee.AbstractCollection */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
+<<<<<<< HEAD
     vfunc_iterator(): Gee.Iterator
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_reserved0(): void
@@ -10609,10 +17593,14 @@ export class GListChildren {
     vfunc_min(compare: GLib.CompareDataFunc): object | null
     vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
     vfunc_get_element_type(): GObject.Type
+=======
+    vfunc_to_array(): object[]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
+<<<<<<< HEAD
     vfunc_to_array(): object[]
     vfunc_add_all_array(array: object[]): boolean
     vfunc_contains_all_array(array: object[]): boolean
@@ -10622,14 +17610,25 @@ export class GListChildren {
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_iterator(): Gee.Iterator
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10637,8 +17636,13 @@ export class GListChildren {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::read-only", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::is-empty", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::is-empty", callback: (($obj: GListChildren, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10653,6 +17657,7 @@ export class GListChildren {
 export interface GListChildrenIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GListChildrenIterator {
+<<<<<<< HEAD
     /* Properties of Gee-0.8.Gee.Iterator */
     readonly valid: boolean
     readonly read_only: boolean
@@ -10670,6 +17675,22 @@ export class GListChildrenIterator {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of GXml.GListChildrenIterator */
+    parent_instance: GObject.Object
+    priv: GListChildrenIteratorPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -10677,13 +17698,22 @@ export class GListChildrenIterator {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of Gee-0.8.Gee.Traversable */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of Gee.Traversable */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     foreach(f: Gee.ForallFunc): boolean
     stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
@@ -10700,6 +17730,7 @@ export class GListChildrenIterator {
     min(compare: GLib.CompareDataFunc): object | null
     order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
     get_element_type(): GObject.Type
+<<<<<<< HEAD
     /* Methods of Gee-0.8.Gee.Iterator */
     next(): boolean
     has_next(): boolean
@@ -10719,6 +17750,24 @@ export class GListChildrenIterator {
     /* Methods of Gee-0.8.Gee.BidirListIterator */
     insert(item?: object | null): void
     /* Virtual methods of GXml-0.10.GXml.GListChildrenIterator */
+=======
+    /* Methods of Gee.Iterator */
+    next(): boolean
+    has_next(): boolean
+    first(): boolean
+    get(): object | null
+    remove(): void
+    /* Methods of Gee.BidirIterator */
+    previous(): boolean
+    has_previous(): boolean
+    last(): boolean
+    /* Methods of Gee.ListIterator */
+    set(item?: object | null): void
+    insert(item?: object | null): void
+    add(item?: object | null): void
+    index(): number
+    /* Virtual methods of GXml.GListChildrenIterator */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
@@ -10737,6 +17786,7 @@ export class GListChildrenIterator {
     vfunc_get_element_type(): GObject.Type
     vfunc_next(): boolean
     vfunc_has_next(): boolean
+<<<<<<< HEAD
     vfunc_get(): object | null
     vfunc_remove(): void
     vfunc_get_valid(): boolean
@@ -10750,10 +17800,24 @@ export class GListChildrenIterator {
     vfunc_index(): number
     vfunc_insert(item?: object | null): void
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_first(): boolean
+    vfunc_get(): object | null
+    vfunc_remove(): void
+    vfunc_previous(): boolean
+    vfunc_has_previous(): boolean
+    vfunc_last(): boolean
+    vfunc_set(item?: object | null): void
+    vfunc_insert(item?: object | null): void
+    vfunc_add(item?: object | null): void
+    vfunc_index(): number
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
@@ -10765,6 +17829,15 @@ export class GListChildrenIterator {
     connect_after(sigName: "notify::valid", callback: (($obj: GListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: GListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: GListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: GListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: GListChildrenIterator, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10774,13 +17847,17 @@ export class GListChildrenIterator {
     _init (config?: GListChildrenIterator_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(doc: GDocument, node?: object | null): GListChildrenIterator
+<<<<<<< HEAD
     static unfold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.UnfoldFunc, current?: Gee.Lazy | null): Gee.Iterator
     static concat(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, iters: Gee.Iterator): Gee.Iterator
+=======
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     static $gtype: GObject.Type
 }
 export interface GListNamespaces_ConstructProps extends Gee.AbstractList_ConstructProps {
 }
 export class GListNamespaces {
+<<<<<<< HEAD
     /* Properties of Gee-0.8.Gee.AbstractList */
     readonly read_only_view: Gee.List
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -10792,6 +17869,19 @@ export class GListNamespaces {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Gee-0.8.Gee.AbstractList */
+=======
+    /* Properties of Gee.AbstractList */
+    readonly read_only_view: Gee.List
+    /* Properties of Gee.AbstractCollection */
+    readonly size: number
+    readonly is_empty: boolean
+    /* Fields of GXml.GListNamespaces */
+    parent_instance: Gee.AbstractList
+    priv: GListNamespacesPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of Gee.AbstractList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     list_iterator(): Gee.ListIterator
     get(index: number): object | null
     set(index: number, item?: object | null): void
@@ -10799,6 +17889,7 @@ export class GListNamespaces {
     insert(index: number, item?: object | null): void
     remove_at(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
+<<<<<<< HEAD
     reserved0(): void
     reserved1(): void
     reserved2(): void
@@ -10811,10 +17902,17 @@ export class GListNamespaces {
     reserved9(): void
     get_read_only_view(): Gee.List
     /* Methods of Gee-0.8.Gee.AbstractCollection */
+=======
+    first(): object | null
+    last(): object | null
+    insert_all(index: number, collection: Gee.Collection): void
+    /* Methods of Gee.AbstractCollection */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
+<<<<<<< HEAD
     iterator(): Gee.Iterator
     foreach(f: Gee.ForallFunc): boolean
     get_size(): number
@@ -10829,6 +17927,23 @@ export class GListNamespaces {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    to_array(): object[]
+    add_all(collection: Gee.Collection): boolean
+    contains_all(collection: Gee.Collection): boolean
+    remove_all(collection: Gee.Collection): boolean
+    retain_all(collection: Gee.Collection): boolean
+    iterator(): Gee.Iterator
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -10836,16 +17951,25 @@ export class GListNamespaces {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Virtual methods of GXml-0.10.GXml.GListNamespaces */
     vfunc_get_read_only_view(): Gee.List
     vfunc_get_read_only_view(): Gee.Collection
     /* Virtual methods of Gee-0.8.Gee.AbstractList */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Virtual methods of Gee.AbstractList */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_list_iterator(): Gee.ListIterator
     vfunc_get(index: number): object | null
     vfunc_set(index: number, item?: object | null): void
@@ -10853,6 +17977,7 @@ export class GListNamespaces {
     vfunc_insert(index: number, item?: object | null): void
     vfunc_remove_at(index: number): object | null
     vfunc_slice(start: number, stop: number): Gee.List | null
+<<<<<<< HEAD
     vfunc_reserved0(): void
     vfunc_reserved1(): void
     vfunc_reserved2(): void
@@ -10870,10 +17995,18 @@ export class GListNamespaces {
     vfunc_insert_all(index: number, collection: Gee.Collection): void
     vfunc_sort(compare_func: GLib.CompareDataFunc | null): void
     /* Virtual methods of Gee-0.8.Gee.AbstractCollection */
+=======
+    vfunc_first(): object | null
+    vfunc_last(): object | null
+    vfunc_insert_all(index: number, collection: Gee.Collection): void
+    vfunc_sort(compare_func?: GLib.CompareFunc | null): void
+    /* Virtual methods of Gee.AbstractCollection */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_contains(item?: object | null): boolean
     vfunc_add(item?: object | null): boolean
     vfunc_remove(item?: object | null): boolean
     vfunc_clear(): void
+<<<<<<< HEAD
     vfunc_iterator(): Gee.Iterator
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_reserved0(): void
@@ -10904,10 +18037,14 @@ export class GListNamespaces {
     vfunc_min(compare: GLib.CompareDataFunc): object | null
     vfunc_order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
     vfunc_get_element_type(): GObject.Type
+=======
+    vfunc_to_array(): object[]
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_add_all(collection: Gee.Collection): boolean
     vfunc_contains_all(collection: Gee.Collection): boolean
     vfunc_remove_all(collection: Gee.Collection): boolean
     vfunc_retain_all(collection: Gee.Collection): boolean
+<<<<<<< HEAD
     vfunc_to_array(): object[]
     vfunc_add_all_array(array: object[]): boolean
     vfunc_contains_all_array(array: object[]): boolean
@@ -10917,14 +18054,25 @@ export class GListNamespaces {
     vfunc_remove_all_iterator(iter: Gee.Iterator): boolean
     vfunc_get_is_empty(): boolean
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_iterator(): Gee.Iterator
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     /* Signals of GObject-2.0.GObject.Object */
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: "notify", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
@@ -10932,8 +18080,13 @@ export class GListNamespaces {
     connect_after(sigName: "notify::read-only-view", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::size", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
+<<<<<<< HEAD
     connect(sigName: "notify::read-only", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
+=======
+    connect(sigName: "notify::is-empty", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::is-empty", callback: (($obj: GListNamespaces, pspec: GObject.ParamSpec) => void)): number
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10948,6 +18101,7 @@ export class GListNamespaces {
 export interface GListNamespacesIterator_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class GListNamespacesIterator {
+<<<<<<< HEAD
     /* Properties of Gee-0.8.Gee.Iterator */
     readonly valid: boolean
     readonly read_only: boolean
@@ -10965,6 +18119,22 @@ export class GListNamespacesIterator {
     get_property(property_name: string, value: any): void
     get_qdata(quark: GLib.Quark): object | null
     getv(names: string[], values: any[]): void
+=======
+    /* Fields of GXml.GListNamespacesIterator */
+    parent_instance: GObject.Object
+    priv: GListNamespacesIteratorPrivate
+    /* Fields of GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: GObject.Closure, transform_from: GObject.Closure): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: GObject.Value): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: GObject.Value[]): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     is_floating(): boolean
     notify(property_name: string): void
     notify_by_pspec(pspec: GObject.ParamSpec): void
@@ -10972,13 +18142,22 @@ export class GListNamespacesIterator {
     ref_sink(): GObject.Object
     run_dispose(): void
     set_data(key: string, data?: object | null): void
+<<<<<<< HEAD
     set_property(property_name: string, value: any): void
+=======
+    set_property(property_name: string, value: GObject.Value): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     steal_data(key: string): object | null
     steal_qdata(quark: GLib.Quark): object | null
     thaw_notify(): void
     unref(): void
+<<<<<<< HEAD
     watch_closure(closure: Function): void
     /* Methods of Gee-0.8.Gee.Traversable */
+=======
+    watch_closure(closure: GObject.Closure): void
+    /* Methods of Gee.Traversable */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     foreach(f: Gee.ForallFunc): boolean
     stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
@@ -10995,6 +18174,7 @@ export class GListNamespacesIterator {
     min(compare: GLib.CompareDataFunc): object | null
     order_by(compare: GLib.CompareDataFunc | null): Gee.Iterator
     get_element_type(): GObject.Type
+<<<<<<< HEAD
     /* Methods of Gee-0.8.Gee.Iterator */
     next(): boolean
     has_next(): boolean
@@ -11007,6 +18187,24 @@ export class GListNamespacesIterator {
     add(item?: object | null): void
     index(): number
     /* Virtual methods of GXml-0.10.GXml.GListNamespacesIterator */
+=======
+    /* Methods of Gee.Iterator */
+    next(): boolean
+    has_next(): boolean
+    first(): boolean
+    get(): object | null
+    remove(): void
+    /* Methods of Gee.ListIterator */
+    set(item?: object | null): void
+    insert(item?: object | null): void
+    add(item?: object | null): void
+    index(): number
+    /* Methods of Gee.BidirIterator */
+    previous(): boolean
+    has_previous(): boolean
+    last(): boolean
+    /* Virtual methods of GXml.GListNamespacesIterator */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_foreach(f: Gee.ForallFunc): boolean
     vfunc_stream(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
     vfunc_fold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
@@ -11025,6 +18223,7 @@ export class GListNamespacesIterator {
     vfunc_get_element_type(): GObject.Type
     vfunc_next(): boolean
     vfunc_has_next(): boolean
+<<<<<<< HEAD
     vfunc_get(): object | null
     vfunc_remove(): void
     vfunc_get_valid(): boolean
@@ -11033,10 +18232,24 @@ export class GListNamespacesIterator {
     vfunc_add(item?: object | null): void
     vfunc_index(): number
     /* Virtual methods of GObject-2.0.GObject.Object */
+=======
+    vfunc_first(): boolean
+    vfunc_get(): object | null
+    vfunc_remove(): void
+    vfunc_set(item?: object | null): void
+    vfunc_insert(item?: object | null): void
+    vfunc_add(item?: object | null): void
+    vfunc_index(): number
+    vfunc_previous(): boolean
+    vfunc_has_previous(): boolean
+    vfunc_last(): boolean
+    /* Virtual methods of GObject.Object */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
     vfunc_dispose(): void
     vfunc_finalize(): void
+<<<<<<< HEAD
     vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
     vfunc_notify(pspec: GObject.ParamSpec): void
     vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
@@ -11048,6 +18261,15 @@ export class GListNamespacesIterator {
     connect_after(sigName: "notify::valid", callback: (($obj: GListNamespacesIterator, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::read-only", callback: (($obj: GListNamespacesIterator, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: GListNamespacesIterator, pspec: GObject.ParamSpec) => void)): number
+=======
+    vfunc_get_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: GObject.Value, pspec: GObject.ParamSpec): void
+    /* Signals of GObject.Object */
+    connect(sigName: "notify", callback: (($obj: GListNamespacesIterator, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: GListNamespacesIterator, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11057,12 +18279,19 @@ export class GListNamespacesIterator {
     _init (config?: GListNamespacesIterator_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static new(node?: object | null): GListNamespacesIterator
+<<<<<<< HEAD
     static unfold(a_type: GObject.Type, a_dup_func: GObject.BoxedCopyFunc, a_destroy_func: GLib.DestroyNotify, f: Gee.UnfoldFunc, current?: Gee.Lazy | null): Gee.Iterator
     static concat(g_type: GObject.Type, g_dup_func: GObject.BoxedCopyFunc, g_destroy_func: GLib.DestroyNotify, iters: Gee.Iterator): Gee.Iterator
     static $gtype: GObject.Type
 }
 export abstract class ElementListClass {
     /* Fields of GXml-0.10.GXml.ElementListClass */
+=======
+    static $gtype: GObject.Type
+}
+export abstract class ElementListClass {
+    /* Fields of GXml.ElementListClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: Gee.ArrayListClass
     static name: string
 }
@@ -11070,7 +18299,11 @@ export class ElementListPrivate {
     static name: string
 }
 export abstract class NodeListClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.NodeListClass */
+=======
+    /* Fields of GXml.NodeListClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: Gee.ArrayListClass
     static name: string
 }
@@ -11078,7 +18311,11 @@ export class NodeListPrivate {
     static name: string
 }
 export abstract class xAttrClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.xAttrClass */
+=======
+    /* Fields of GXml.xAttrClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: BackedNodeClass
     static name: string
 }
@@ -11086,7 +18323,11 @@ export class xAttrPrivate {
     static name: string
 }
 export abstract class BackedNodeClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.BackedNodeClass */
+=======
+    /* Fields of GXml.BackedNodeClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: xNodeClass
     static name: string
 }
@@ -11094,7 +18335,11 @@ export class BackedNodePrivate {
     static name: string
 }
 export abstract class xCDATASectionClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.xCDATASectionClass */
+=======
+    /* Fields of GXml.xCDATASectionClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: xTextClass
     static name: string
 }
@@ -11102,7 +18347,11 @@ export class xCDATASectionPrivate {
     static name: string
 }
 export abstract class xCharacterDataClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.xCharacterDataClass */
+=======
+    /* Fields of GXml.xCharacterDataClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: BackedNodeClass
     static name: string
 }
@@ -11110,7 +18359,11 @@ export class xCharacterDataPrivate {
     static name: string
 }
 export abstract class xCommentClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.xCommentClass */
+=======
+    /* Fields of GXml.xCommentClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: xCharacterDataClass
     static name: string
 }
@@ -11118,7 +18371,11 @@ export class xCommentPrivate {
     static name: string
 }
 export abstract class DocumentFragmentClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.DocumentFragmentClass */
+=======
+    /* Fields of GXml.DocumentFragmentClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: BackedNodeClass
     static name: string
 }
@@ -11126,7 +18383,11 @@ export class DocumentFragmentPrivate {
     static name: string
 }
 export abstract class xDocumentTypeClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.xDocumentTypeClass */
+=======
+    /* Fields of GXml.xDocumentTypeClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: xNodeClass
     static name: string
 }
@@ -11134,7 +18395,11 @@ export class xDocumentTypePrivate {
     static name: string
 }
 export abstract class xDocumentClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.xDocumentClass */
+=======
+    /* Fields of GXml.xDocumentClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: xNodeClass
     static name: string
 }
@@ -11142,7 +18407,11 @@ export class xDocumentPrivate {
     static name: string
 }
 export abstract class xElementClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.xElementClass */
+=======
+    /* Fields of GXml.xElementClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: BackedNodeClass
     static name: string
 }
@@ -11150,7 +18419,11 @@ export class xElementPrivate {
     static name: string
 }
 export abstract class EntityClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.EntityClass */
+=======
+    /* Fields of GXml.EntityClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: xNodeClass
     static name: string
 }
@@ -11158,7 +18431,11 @@ export class EntityPrivate {
     static name: string
 }
 export abstract class EntityReferenceClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.EntityReferenceClass */
+=======
+    /* Fields of GXml.EntityReferenceClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: xNodeClass
     static name: string
 }
@@ -11166,7 +18443,11 @@ export class EntityReferencePrivate {
     static name: string
 }
 export abstract class ImplementationClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.ImplementationClass */
+=======
+    /* Fields of GXml.ImplementationClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -11174,7 +18455,11 @@ export class ImplementationPrivate {
     static name: string
 }
 export abstract class AbstractNamedAttrMapClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.AbstractNamedAttrMapClass */
+=======
+    /* Fields of GXml.AbstractNamedAttrMapClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -11182,7 +18467,11 @@ export class AbstractNamedAttrMapPrivate {
     static name: string
 }
 export abstract class AbstractNamedAttrMapEntryClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.AbstractNamedAttrMapEntryClass */
+=======
+    /* Fields of GXml.AbstractNamedAttrMapEntryClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: Gee.MapEntryClass
     static name: string
 }
@@ -11190,7 +18479,11 @@ export class AbstractNamedAttrMapEntryPrivate {
     static name: string
 }
 export abstract class AbstractNamedAttrMapIteratorClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.AbstractNamedAttrMapIteratorClass */
+=======
+    /* Fields of GXml.AbstractNamedAttrMapIteratorClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -11198,7 +18491,11 @@ export class AbstractNamedAttrMapIteratorPrivate {
     static name: string
 }
 export abstract class NamedAttrMapClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.NamedAttrMapClass */
+=======
+    /* Fields of GXml.NamedAttrMapClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: AbstractNamedAttrMapClass
     static name: string
 }
@@ -11206,7 +18503,11 @@ export class NamedAttrMapPrivate {
     static name: string
 }
 export abstract class NamespaceAttrClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.NamespaceAttrClass */
+=======
+    /* Fields of GXml.NamespaceAttrClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: xNodeClass
     static name: string
 }
@@ -11214,7 +18515,11 @@ export class NamespaceAttrPrivate {
     static name: string
 }
 export abstract class xNodeClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.xNodeClass */
+=======
+    /* Fields of GXml.xNodeClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     add_namespace_attr: (self: xNode, uri: string, namespace_prefix?: string | null) => NamespaceAttr | null
     set_namespace: (self: xNode, uri: string, namespace_prefix?: string | null) => boolean
@@ -11232,7 +18537,11 @@ export class xNodePrivate {
     static name: string
 }
 export abstract class xNotationClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.xNotationClass */
+=======
+    /* Fields of GXml.xNotationClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: xNodeClass
     static name: string
 }
@@ -11240,7 +18549,11 @@ export class xNotationPrivate {
     static name: string
 }
 export abstract class xProcessingInstructionClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.xProcessingInstructionClass */
+=======
+    /* Fields of GXml.xProcessingInstructionClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: xNodeClass
     static name: string
 }
@@ -11248,7 +18561,11 @@ export class xProcessingInstructionPrivate {
     static name: string
 }
 export abstract class xTextClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.xTextClass */
+=======
+    /* Fields of GXml.xTextClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: xCharacterDataClass
     static name: string
 }
@@ -11256,7 +18573,11 @@ export class xTextPrivate {
     static name: string
 }
 export abstract class SerializableBoolClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.SerializableBoolClass */
+=======
+    /* Fields of GXml.SerializableBoolClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -11264,7 +18585,11 @@ export class SerializableBoolPrivate {
     static name: string
 }
 export abstract class SerializableDoubleClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.SerializableDoubleClass */
+=======
+    /* Fields of GXml.SerializableDoubleClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -11272,7 +18597,11 @@ export class SerializableDoublePrivate {
     static name: string
 }
 export abstract class SerializableFloatClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.SerializableFloatClass */
+=======
+    /* Fields of GXml.SerializableFloatClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: SerializableDoubleClass
     static name: string
 }
@@ -11280,7 +18609,11 @@ export class SerializableFloatPrivate {
     static name: string
 }
 export abstract class SerializableEnumClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.SerializableEnumClass */
+=======
+    /* Fields of GXml.SerializableEnumClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -11288,7 +18621,11 @@ export class SerializableEnumPrivate {
     static name: string
 }
 export abstract class SerializableIntClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.SerializableIntClass */
+=======
+    /* Fields of GXml.SerializableIntClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: SerializableDoubleClass
     static name: string
 }
@@ -11296,7 +18633,11 @@ export class SerializableIntPrivate {
     static name: string
 }
 export abstract class SerializableValueListClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.SerializableValueListClass */
+=======
+    /* Fields of GXml.SerializableValueListClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     get_values: (self: SerializableValueList) => Gee.List
     add_values: (self: SerializableValueList, vals: string[]) => void
@@ -11324,7 +18665,11 @@ export class Enumeration {
     static to_string_array(enumeration: GObject.Type): string[]
 }
 export abstract class SerializableObjectModelClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.SerializableObjectModelClass */
+=======
+    /* Fields of GXml.SerializableObjectModelClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     get_enable_unknown_serializable_property: (self: SerializableObjectModel) => boolean
     serialize_use_xml_node_value: (self: SerializableObjectModel) => boolean
@@ -11344,7 +18689,11 @@ export class SerializableObjectModelPrivate {
     static name: string
 }
 export abstract class SerializableTreeMapClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.SerializableTreeMapClass */
+=======
+    /* Fields of GXml.SerializableTreeMapClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: Gee.TreeMapClass
     deserialize_proceed: (self: SerializableTreeMap) => boolean
     deserialized: (self: SerializableTreeMap) => boolean
@@ -11366,7 +18715,11 @@ export class SerializableTreeMapPrivate {
     static name: string
 }
 export abstract class SerializableHashMapClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.SerializableHashMapClass */
+=======
+    /* Fields of GXml.SerializableHashMapClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: Gee.HashMapClass
     deserialize_proceed: (self: SerializableHashMap) => boolean
     deserialized: (self: SerializableHashMap) => boolean
@@ -11389,7 +18742,11 @@ export class SerializableHashMapPrivate {
     static name: string
 }
 export abstract class SerializableDualKeyMapClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.SerializableDualKeyMapClass */
+=======
+    /* Fields of GXml.SerializableDualKeyMapClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     deserialize_proceed: (self: SerializableDualKeyMap) => boolean
     deserialized: (self: SerializableDualKeyMap) => boolean
@@ -11412,7 +18769,11 @@ export class SerializableDualKeyMapPrivate {
     static name: string
 }
 export abstract class SerializableArrayListClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.SerializableArrayListClass */
+=======
+    /* Fields of GXml.SerializableArrayListClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: Gee.ArrayListClass
     deserialize_proceed: (self: SerializableArrayList) => boolean
     deserialized: (self: SerializableArrayList) => boolean
@@ -11434,7 +18795,11 @@ export class SerializableArrayListPrivate {
     static name: string
 }
 export abstract class SerializableContainerClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.SerializableContainerClass */
+=======
+    /* Fields of GXml.SerializableContainerClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: SerializableObjectModelClass
     init_containers: (self: SerializableContainer) => void
     static name: string
@@ -11443,7 +18808,11 @@ export class SerializableContainerPrivate {
     static name: string
 }
 export abstract class TAttributeClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.TAttributeClass */
+=======
+    /* Fields of GXml.TAttributeClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: TNodeClass
     static name: string
 }
@@ -11451,7 +18820,11 @@ export class TAttributePrivate {
     static name: string
 }
 export abstract class TCommentClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.TCommentClass */
+=======
+    /* Fields of GXml.TCommentClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: TNodeClass
     static name: string
 }
@@ -11459,7 +18832,11 @@ export class TCommentPrivate {
     static name: string
 }
 export abstract class TCDATAClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.TCDATAClass */
+=======
+    /* Fields of GXml.TCDATAClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: TNodeClass
     static name: string
 }
@@ -11467,7 +18844,11 @@ export class TCDATAPrivate {
     static name: string
 }
 export abstract class TDocumentClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.TDocumentClass */
+=======
+    /* Fields of GXml.TDocumentClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: TNodeClass
     static name: string
 }
@@ -11475,7 +18856,11 @@ export class TDocumentPrivate {
     static name: string
 }
 export abstract class TElementClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.TElementClass */
+=======
+    /* Fields of GXml.TElementClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: TNodeClass
     static name: string
 }
@@ -11483,7 +18868,11 @@ export class TElementPrivate {
     static name: string
 }
 export abstract class TNamespaceClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.TNamespaceClass */
+=======
+    /* Fields of GXml.TNamespaceClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: TNodeClass
     static name: string
 }
@@ -11491,7 +18880,11 @@ export class TNamespacePrivate {
     static name: string
 }
 export abstract class TNodeClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.TNodeClass */
+=======
+    /* Fields of GXml.TNodeClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     set_namespace: (self: TNode, uri: string, prefix?: string | null) => boolean
     to_string: (self: TNode) => string
@@ -11502,7 +18895,11 @@ export class TNodePrivate {
     static name: string
 }
 export abstract class TNodeTChildrenListClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.TNodeTChildrenListClass */
+=======
+    /* Fields of GXml.TNodeTChildrenListClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: Gee.AbstractBidirListClass
     static name: string
 }
@@ -11510,7 +18907,11 @@ export class TNodeTChildrenListPrivate {
     static name: string
 }
 export abstract class TProcessingInstructionClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.TProcessingInstructionClass */
+=======
+    /* Fields of GXml.TProcessingInstructionClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: TNodeClass
     static name: string
 }
@@ -11518,7 +18919,11 @@ export class TProcessingInstructionPrivate {
     static name: string
 }
 export abstract class TTextClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.TTextClass */
+=======
+    /* Fields of GXml.TTextClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: TNodeClass
     static name: string
 }
@@ -11526,7 +18931,11 @@ export class TTextPrivate {
     static name: string
 }
 export abstract class HtmlDocumentClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.HtmlDocumentClass */
+=======
+    /* Fields of GXml.HtmlDocumentClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: xDocumentClass
     static name: string
 }
@@ -11534,7 +18943,11 @@ export class HtmlDocumentPrivate {
     static name: string
 }
 export abstract class GAttributeClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.GAttributeClass */
+=======
+    /* Fields of GXml.GAttributeClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GNodeClass
     static name: string
 }
@@ -11542,7 +18955,11 @@ export class GAttributePrivate {
     static name: string
 }
 export abstract class GCommentClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.GCommentClass */
+=======
+    /* Fields of GXml.GCommentClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GNodeClass
     static name: string
 }
@@ -11550,7 +18967,11 @@ export class GCommentPrivate {
     static name: string
 }
 export abstract class GCDATAClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.GCDATAClass */
+=======
+    /* Fields of GXml.GCDATAClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GNodeClass
     static name: string
 }
@@ -11558,7 +18979,11 @@ export class GCDATAPrivate {
     static name: string
 }
 export abstract class GDocumentClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.GDocumentClass */
+=======
+    /* Fields of GXml.GDocumentClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GNodeClass
     save: (self: GDocument, cancellable?: Gio.Cancellable | null) => boolean
     save_as: (self: GDocument, f: Gio.File, cancellable?: Gio.Cancellable | null) => boolean
@@ -11568,7 +18993,11 @@ export class GDocumentPrivate {
     static name: string
 }
 export abstract class GElementClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.GElementClass */
+=======
+    /* Fields of GXml.GElementClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GNodeClass
     static name: string
 }
@@ -11576,7 +19005,11 @@ export class GElementPrivate {
     static name: string
 }
 export abstract class GNamespaceClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.GNamespaceClass */
+=======
+    /* Fields of GXml.GNamespaceClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GNodeClass
     static name: string
 }
@@ -11584,7 +19017,11 @@ export class GNamespacePrivate {
     static name: string
 }
 export abstract class GNodeClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.GNodeClass */
+=======
+    /* Fields of GXml.GNodeClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     set_namespace: (self: GNode, uri: string, prefix?: string | null) => boolean
     to_string: (self: GNode) => string
@@ -11594,7 +19031,11 @@ export class GNodePrivate {
     static name: string
 }
 export abstract class GProcessingInstructionClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.GProcessingInstructionClass */
+=======
+    /* Fields of GXml.GProcessingInstructionClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GNodeClass
     static name: string
 }
@@ -11602,7 +19043,11 @@ export class GProcessingInstructionPrivate {
     static name: string
 }
 export abstract class GTextClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.GTextClass */
+=======
+    /* Fields of GXml.GTextClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GNodeClass
     static name: string
 }
@@ -11610,7 +19055,11 @@ export class GTextPrivate {
     static name: string
 }
 export abstract class GHashMapAttrClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.GHashMapAttrClass */
+=======
+    /* Fields of GXml.GHashMapAttrClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: Gee.AbstractMapClass
     static name: string
 }
@@ -11618,7 +19067,11 @@ export class GHashMapAttrPrivate {
     static name: string
 }
 export abstract class GHashMapAttrEntryClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.GHashMapAttrEntryClass */
+=======
+    /* Fields of GXml.GHashMapAttrEntryClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: Gee.MapEntryClass
     static name: string
 }
@@ -11626,7 +19079,11 @@ export class GHashMapAttrEntryPrivate {
     static name: string
 }
 export abstract class GHashMapAttrIteratorClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.GHashMapAttrIteratorClass */
+=======
+    /* Fields of GXml.GHashMapAttrIteratorClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -11634,7 +19091,11 @@ export class GHashMapAttrIteratorPrivate {
     static name: string
 }
 export abstract class GListChildrenClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.GListChildrenClass */
+=======
+    /* Fields of GXml.GListChildrenClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: Gee.AbstractBidirListClass
     static name: string
 }
@@ -11642,7 +19103,11 @@ export class GListChildrenPrivate {
     static name: string
 }
 export abstract class GListChildrenIteratorClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.GListChildrenIteratorClass */
+=======
+    /* Fields of GXml.GListChildrenIteratorClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -11650,7 +19115,11 @@ export class GListChildrenIteratorPrivate {
     static name: string
 }
 export abstract class GListNamespacesClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.GListNamespacesClass */
+=======
+    /* Fields of GXml.GListNamespacesClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: Gee.AbstractListClass
     static name: string
 }
@@ -11658,7 +19127,11 @@ export class GListNamespacesPrivate {
     static name: string
 }
 export abstract class GListNamespacesIteratorClass {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.GListNamespacesIteratorClass */
+=======
+    /* Fields of GXml.GListNamespacesIteratorClass */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_class: GObject.ObjectClass
     static name: string
 }
@@ -11666,7 +19139,11 @@ export class GListNamespacesIteratorPrivate {
     static name: string
 }
 export abstract class AttributeIface {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.AttributeIface */
+=======
+    /* Fields of GXml.AttributeIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_iface: GObject.TypeInterface
     get_namespace: (self: Attribute) => Namespace
     set_namespace: (self: Attribute, value: Namespace) => void
@@ -11674,19 +19151,31 @@ export abstract class AttributeIface {
     static name: string
 }
 export abstract class CommentIface {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.CommentIface */
+=======
+    /* Fields of GXml.CommentIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_iface: GObject.TypeInterface
     get_str: (self: Comment) => string
     static name: string
 }
 export abstract class CDATAIface {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.CDATAIface */
+=======
+    /* Fields of GXml.CDATAIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_iface: GObject.TypeInterface
     get_str: (self: CDATA) => string
     static name: string
 }
 export abstract class DocumentIface {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.DocumentIface */
+=======
+    /* Fields of GXml.DocumentIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_iface: GObject.TypeInterface
     create_element: (self: Document, name: string) => Node
     create_text: (self: Document, text: string) => Node
@@ -11709,12 +19198,20 @@ export abstract class DocumentIface {
     static name: string
 }
 export abstract class DocumentTypeIface {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.DocumentTypeIface */
+=======
+    /* Fields of GXml.DocumentTypeIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_iface: GObject.TypeInterface
     static name: string
 }
 export abstract class ElementIface {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.ElementIface */
+=======
+    /* Fields of GXml.ElementIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_iface: GObject.TypeInterface
     normalize: (self: Element) => void
     set_attr: (self: Element, name: string, value: string) => void
@@ -11728,14 +19225,22 @@ export abstract class ElementIface {
     static name: string
 }
 export abstract class NamespaceIface {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.NamespaceIface */
+=======
+    /* Fields of GXml.NamespaceIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_iface: GObject.TypeInterface
     get_uri: (self: Namespace) => string
     get_prefix: (self: Namespace) => string
     static name: string
 }
 export abstract class NodeIface {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.NodeIface */
+=======
+    /* Fields of GXml.NodeIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_iface: GObject.TypeInterface
     get: (self: Node, key: string) => Node | null
     get_elements_by_property_value: (self: Node, property: string, value: string) => ElementList
@@ -11756,27 +19261,43 @@ export abstract class NodeIface {
     static name: string
 }
 export abstract class NotationIface {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.NotationIface */
+=======
+    /* Fields of GXml.NotationIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_iface: GObject.TypeInterface
     get_public_id: (self: Notation) => string | null
     get_external_id: (self: Notation) => string | null
     static name: string
 }
 export abstract class ProcessingInstructionIface {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.ProcessingInstructionIface */
+=======
+    /* Fields of GXml.ProcessingInstructionIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_iface: GObject.TypeInterface
     get_target: (self: ProcessingInstruction) => string
     get_data: (self: ProcessingInstruction) => string
     static name: string
 }
 export abstract class TextIface {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.TextIface */
+=======
+    /* Fields of GXml.TextIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_iface: GObject.TypeInterface
     get_str: (self: Text) => string
     static name: string
 }
 export abstract class NamedNodeMapIface {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.NamedNodeMapIface */
+=======
+    /* Fields of GXml.NamedNodeMapIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_iface: GObject.TypeInterface
     get_named_item: (self: NamedNodeMap, name: string) => object | null
     set_named_item: (self: NamedNodeMap, item?: object | null) => object | null
@@ -11786,7 +19307,11 @@ export abstract class NamedNodeMapIface {
     static name: string
 }
 export abstract class xNodeListIface {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.xNodeListIface */
+=======
+    /* Fields of GXml.xNodeListIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_iface: GObject.TypeInterface
     item: (self: xNodeList, idx: number) => xNode
     insert_before: (self: xNodeList, new_child: xNode, ref_child?: xNode | null) => xNode | null
@@ -11802,7 +19327,11 @@ export abstract class xNodeListIface {
     static name: string
 }
 export abstract class SerializableIface {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.SerializableIface */
+=======
+    /* Fields of GXml.SerializableIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_iface: GObject.TypeInterface
     get_enable_unknown_serializable_property: (self: Serializable) => boolean
     set_default_namespace: (self: Serializable, node: Node) => boolean
@@ -11824,7 +19353,11 @@ export abstract class SerializableIface {
     static name: string
 }
 export abstract class SerializablePropertyIface {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.SerializablePropertyIface */
+=======
+    /* Fields of GXml.SerializablePropertyIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_iface: GObject.TypeInterface
     get_serializable_property_value: (self: SerializableProperty) => string
     set_serializable_property_value: (self: SerializableProperty, val?: string | null) => void
@@ -11833,20 +19366,32 @@ export abstract class SerializablePropertyIface {
     static name: string
 }
 export abstract class SerializableMapKeyIface {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.SerializableMapKeyIface */
+=======
+    /* Fields of GXml.SerializableMapKeyIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_iface: GObject.TypeInterface
     get_map_key: (self: SerializableMapKey) => object | null
     static name: string
 }
 export abstract class SerializableMapDualKeyIface {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.SerializableMapDualKeyIface */
+=======
+    /* Fields of GXml.SerializableMapDualKeyIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_iface: GObject.TypeInterface
     get_map_primary_key: (self: SerializableMapDualKey) => object | null
     get_map_secondary_key: (self: SerializableMapDualKey) => object | null
     static name: string
 }
 export abstract class SerializableCollectionIface {
+<<<<<<< HEAD
     /* Fields of GXml-0.10.GXml.SerializableCollectionIface */
+=======
+    /* Fields of GXml.SerializableCollectionIface */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     parent_iface: GObject.TypeInterface
     deserialize_proceed: (self: SerializableCollection) => boolean
     deserialized: (self: SerializableCollection) => boolean

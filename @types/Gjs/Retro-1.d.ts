@@ -181,6 +181,7 @@ export interface Core_ConstructProps extends GObject.Object_ConstructProps {
     save_directory?: string
     speed_rate?: number
     system_directory?: string
+    user_name?: string
 }
 export class Core {
     /* Properties of Retro-1.Retro.Core */
@@ -194,6 +195,7 @@ export class Core {
     speed_rate: number
     readonly support_no_game: boolean
     system_directory: string
+    user_name: string
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of Retro-1.Retro.Core */
@@ -212,6 +214,7 @@ export class Core {
     get_speed_rate(): number
     get_support_no_game(): boolean
     get_system_directory(): string
+    get_user_name(): string
     has_option(key: string): boolean
     iterate_controllers(): ControllerIterator
     iterate_options(): OptionIterator
@@ -233,6 +236,7 @@ export class Core {
     set_save_directory(save_directory: string): void
     set_speed_rate(speed_rate: number): void
     set_system_directory(system_directory: string): void
+    set_user_name(user_name: string): void
     stop(): void
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
@@ -304,6 +308,8 @@ export class Core {
     connect_after(sigName: "notify::support-no-game", callback: (($obj: Core, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: "notify::system-directory", callback: (($obj: Core, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::system-directory", callback: (($obj: Core, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::user-name", callback: (($obj: Core, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::user-name", callback: (($obj: Core, pspec: GObject.ParamSpec) => void)): number
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void

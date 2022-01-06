@@ -457,7 +457,7 @@ export class AccountProxy {
     getFlags(): Gio.DBusProxyFlags
     getInterfaceInfo(): Gio.DBusInterfaceInfo | null
     getInterfaceName(): string
-    getName(): string
+    getName(): string | null
     getNameOwner(): string | null
     getObjectPath(): string
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
@@ -963,7 +963,7 @@ export class CalendarProxy {
     getFlags(): Gio.DBusProxyFlags
     getInterfaceInfo(): Gio.DBusInterfaceInfo | null
     getInterfaceName(): string
-    getName(): string
+    getName(): string | null
     getNameOwner(): string | null
     getObjectPath(): string
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
@@ -1184,7 +1184,7 @@ export class ChatProxy {
     getFlags(): Gio.DBusProxyFlags
     getInterfaceInfo(): Gio.DBusInterfaceInfo | null
     getInterfaceName(): string
-    getName(): string
+    getName(): string | null
     getNameOwner(): string | null
     getObjectPath(): string
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
@@ -1469,7 +1469,7 @@ export class ContactsProxy {
     getFlags(): Gio.DBusProxyFlags
     getInterfaceInfo(): Gio.DBusInterfaceInfo | null
     getInterfaceName(): string
-    getName(): string
+    getName(): string | null
     getNameOwner(): string | null
     getObjectPath(): string
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
@@ -1690,7 +1690,7 @@ export class DocumentsProxy {
     getFlags(): Gio.DBusProxyFlags
     getInterfaceInfo(): Gio.DBusInterfaceInfo | null
     getInterfaceName(): string
-    getName(): string
+    getName(): string | null
     getNameOwner(): string | null
     getObjectPath(): string
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
@@ -1891,7 +1891,7 @@ export class ExchangeProxy {
     getFlags(): Gio.DBusProxyFlags
     getInterfaceInfo(): Gio.DBusInterfaceInfo | null
     getInterfaceName(): string
-    getName(): string
+    getName(): string | null
     getNameOwner(): string | null
     getObjectPath(): string
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
@@ -2117,7 +2117,7 @@ export class FilesProxy {
     getFlags(): Gio.DBusProxyFlags
     getInterfaceInfo(): Gio.DBusInterfaceInfo | null
     getInterfaceName(): string
-    getName(): string
+    getName(): string | null
     getNameOwner(): string | null
     getObjectPath(): string
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
@@ -2375,7 +2375,7 @@ export class MailProxy {
     getFlags(): Gio.DBusProxyFlags
     getInterfaceInfo(): Gio.DBusInterfaceInfo | null
     getInterfaceName(): string
-    getName(): string
+    getName(): string | null
     getNameOwner(): string | null
     getObjectPath(): string
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
@@ -2788,7 +2788,7 @@ export class ManagerProxy {
     getFlags(): Gio.DBusProxyFlags
     getInterfaceInfo(): Gio.DBusInterfaceInfo | null
     getInterfaceName(): string
-    getName(): string
+    getName(): string | null
     getNameOwner(): string | null
     getObjectPath(): string
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
@@ -3024,7 +3024,7 @@ export class MapsProxy {
     getFlags(): Gio.DBusProxyFlags
     getInterfaceInfo(): Gio.DBusInterfaceInfo | null
     getInterfaceName(): string
-    getName(): string
+    getName(): string | null
     getNameOwner(): string | null
     getObjectPath(): string
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
@@ -3225,7 +3225,7 @@ export class MediaServerProxy {
     getFlags(): Gio.DBusProxyFlags
     getInterfaceInfo(): Gio.DBusInterfaceInfo | null
     getInterfaceName(): string
-    getName(): string
+    getName(): string | null
     getNameOwner(): string | null
     getObjectPath(): string
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
@@ -3446,7 +3446,7 @@ export class MusicProxy {
     getFlags(): Gio.DBusProxyFlags
     getInterfaceInfo(): Gio.DBusInterfaceInfo | null
     getInterfaceName(): string
-    getName(): string
+    getName(): string | null
     getNameOwner(): string | null
     getObjectPath(): string
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
@@ -3647,7 +3647,7 @@ export class OAuth2BasedProxy {
     getFlags(): Gio.DBusProxyFlags
     getInterfaceInfo(): Gio.DBusInterfaceInfo | null
     getInterfaceName(): string
-    getName(): string
+    getName(): string | null
     getNameOwner(): string | null
     getObjectPath(): string
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
@@ -3895,7 +3895,7 @@ export class OAuthBasedProxy {
     getFlags(): Gio.DBusProxyFlags
     getInterfaceInfo(): Gio.DBusInterfaceInfo | null
     getInterfaceName(): string
-    getName(): string
+    getName(): string | null
     getNameOwner(): string | null
     getObjectPath(): string
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
@@ -4154,8 +4154,8 @@ export class ObjectManagerClient {
     initFinish(res: Gio.AsyncResult): boolean
     newFinish(res: Gio.AsyncResult): GObject.Object
     /* Methods of Gio-2.0.Gio.DBusObjectManager */
-    getInterface(objectPath: string, interfaceName: string): Gio.DBusInterface
-    getObject(objectPath: string): Gio.DBusObject
+    getInterface(objectPath: string, interfaceName: string): Gio.DBusInterface | null
+    getObject(objectPath: string): Gio.DBusObject | null
     getObjectPath(): string
     getObjects(): Gio.DBusObject[]
     /* Methods of Gio-2.0.Gio.Initable */
@@ -4740,7 +4740,7 @@ export class PasswordBasedProxy {
     getFlags(): Gio.DBusProxyFlags
     getInterfaceInfo(): Gio.DBusInterfaceInfo | null
     getInterfaceName(): string
-    getName(): string
+    getName(): string | null
     getNameOwner(): string | null
     getObjectPath(): string
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
@@ -4958,7 +4958,7 @@ export class PhotosProxy {
     getFlags(): Gio.DBusProxyFlags
     getInterfaceInfo(): Gio.DBusInterfaceInfo | null
     getInterfaceName(): string
-    getName(): string
+    getName(): string | null
     getNameOwner(): string | null
     getObjectPath(): string
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
@@ -5154,7 +5154,7 @@ export class PrintersProxy {
     getFlags(): Gio.DBusProxyFlags
     getInterfaceInfo(): Gio.DBusInterfaceInfo | null
     getInterfaceName(): string
-    getName(): string
+    getName(): string | null
     getNameOwner(): string | null
     getObjectPath(): string
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
@@ -5350,7 +5350,7 @@ export class ReadLaterProxy {
     getFlags(): Gio.DBusProxyFlags
     getInterfaceInfo(): Gio.DBusInterfaceInfo | null
     getInterfaceName(): string
-    getName(): string
+    getName(): string | null
     getNameOwner(): string | null
     getObjectPath(): string
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
@@ -5549,7 +5549,7 @@ export class TicketingProxy {
     getFlags(): Gio.DBusProxyFlags
     getInterfaceInfo(): Gio.DBusInterfaceInfo | null
     getInterfaceName(): string
-    getName(): string
+    getName(): string | null
     getNameOwner(): string | null
     getObjectPath(): string
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void
@@ -5780,7 +5780,7 @@ export class TodoProxy {
     getFlags(): Gio.DBusProxyFlags
     getInterfaceInfo(): Gio.DBusInterfaceInfo | null
     getInterfaceName(): string
-    getName(): string
+    getName(): string | null
     getNameOwner(): string | null
     getObjectPath(): string
     setCachedProperty(propertyName: string, value?: GLib.Variant | null): void

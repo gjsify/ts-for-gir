@@ -254,6 +254,17 @@ export enum VideoFormat {
     Y412_LE,
     NV12_4L4,
     NV12_32L32,
+    RGBP,
+    BGRP,
+    AV12,
+    ARGB64_LE,
+    ARGB64_BE,
+    RGBA64_LE,
+    RGBA64_BE,
+    BGRA64_LE,
+    BGRA64_BE,
+    ABGR64_LE,
+    ABGR64_BE,
 }
 export enum VideoGLTextureOrientation {
     NORMAL_Y_NORMAL,
@@ -273,12 +284,6 @@ export enum VideoGLTextureType {
 export enum VideoGammaMode {
     NONE,
     REMAP,
-}
-export enum VideoHDRFormat {
-    NONE,
-    HDR10,
-    HDR10_PLUS,
-    DOLBY_VISION,
 }
 export enum VideoInterlaceMode {
     PROGRESSIVE,
@@ -515,6 +520,7 @@ export const VIDEO_COMP_V: number
 export const VIDEO_COMP_Y: number
 export const VIDEO_CONVERTER_OPT_ALPHA_MODE: string
 export const VIDEO_CONVERTER_OPT_ALPHA_VALUE: string
+export const VIDEO_CONVERTER_OPT_ASYNC_TASKS: string
 export const VIDEO_CONVERTER_OPT_BORDER_ARGB: string
 export const VIDEO_CONVERTER_OPT_CHROMA_MODE: string
 export const VIDEO_CONVERTER_OPT_CHROMA_RESAMPLER_METHOD: string
@@ -542,10 +548,6 @@ export const VIDEO_ENCODER_SINK_NAME: string
 export const VIDEO_ENCODER_SRC_NAME: string
 export const VIDEO_FORMATS_ALL: string
 export const VIDEO_FPS_RANGE: string
-export const VIDEO_HDR10_PLUS_MAX_BYTES: number
-export const VIDEO_HDR10_PLUS_MAX_COLS_MD_APL: number
-export const VIDEO_HDR10_PLUS_MAX_ROWS_TSD_APL: number
-export const VIDEO_HDR10_PLUS_NUM_WINDOWS: number
 export const VIDEO_MAX_COMPONENTS: number
 export const VIDEO_MAX_PLANES: number
 export const VIDEO_RESAMPLER_OPT_CUBIC_B: string
@@ -564,8 +566,8 @@ export function bufferAddVideoAfdMeta(buffer: Gst.Buffer, field: number, spec: V
 export function bufferAddVideoAffineTransformationMeta(buffer: Gst.Buffer): VideoAffineTransformationMeta
 export function bufferAddVideoBarMeta(buffer: Gst.Buffer, field: number, isLetterbox: boolean, barData1: number, barData2: number): VideoBarMeta
 export function bufferAddVideoCaptionMeta(buffer: Gst.Buffer, captionType: VideoCaptionType, data: any[]): VideoCaptionMeta
+export function bufferAddVideoCodecAlphaMeta(buffer: Gst.Buffer, alphaBuffer: Gst.Buffer): VideoCodecAlphaMeta
 export function bufferAddVideoGlTextureUploadMeta(buffer: Gst.Buffer, textureOrientation: VideoGLTextureOrientation, nTextures: number, textureType: VideoGLTextureType, upload: VideoGLTextureUpload, userDataCopy: GObject.BoxedCopyFunc, userDataFree: GObject.BoxedFreeFunc): VideoGLTextureUploadMeta
-export function bufferAddVideoHdrMeta(buffer: Gst.Buffer, format: VideoHDRFormat, data: number, size: number): VideoHDRMeta
 export function bufferAddVideoMeta(buffer: Gst.Buffer, flags: VideoFrameFlags, format: VideoFormat, width: number, height: number): VideoMeta
 export function bufferAddVideoMetaFull(buffer: Gst.Buffer, flags: VideoFrameFlags, format: VideoFormat, width: number, height: number, nPlanes: number, offset: number[], stride: number[]): VideoMeta
 export function bufferAddVideoOverlayCompositionMeta(buf: Gst.Buffer, comp?: VideoOverlayComposition | null): VideoOverlayCompositionMeta
@@ -614,11 +616,14 @@ export function videoCaptionMetaApiGetType(): GObject.Type
 export function videoCaptionMetaGetInfo(): Gst.MetaInfo
 export function videoCaptionTypeFromCaps(caps: Gst.Caps): VideoCaptionType
 export function videoCaptionTypeToCaps(type: VideoCaptionType): Gst.Caps
+export function videoCenterRect(src: VideoRectangle, dst: VideoRectangle, scaling: boolean): { result: VideoRectangle }
 export function videoChromaFromString(s: string): VideoChromaSite
 export function videoChromaResample(resample: VideoChromaResample, lines: object | null, width: number): void
 export function videoChromaSiteFromString(s: string): VideoChromaSite
 export function videoChromaSiteToString(site: VideoChromaSite): string | null
 export function videoChromaToString(site: VideoChromaSite): string
+export function videoCodecAlphaMetaApiGetType(): GObject.Type
+export function videoCodecAlphaMetaGetInfo(): Gst.MetaInfo
 export function videoColorMatrixFromIso(value: number): VideoColorMatrix
 export function videoColorMatrixGetKrKb(matrix: VideoColorMatrix): { returnType: boolean, kr: number, kb: number }
 export function videoColorMatrixToIso(matrix: VideoColorMatrix): number
@@ -654,11 +659,6 @@ export function videoFrameMapId(info: VideoInfo, buffer: Gst.Buffer, id: number,
 export function videoGlTextureUploadMetaApiGetType(): GObject.Type
 export function videoGlTextureUploadMetaGetInfo(): Gst.MetaInfo
 export function videoGuessFramerate(duration: Gst.ClockTime): { returnType: boolean, destN: number | null, destD: number | null }
-export function videoHdrFormatFromString(format?: string | null): VideoHDRFormat
-export function videoHdrFormatToString(format: VideoHDRFormat): string | null
-export function videoHdrMetaApiGetType(): GObject.Type
-export function videoHdrMetaGetInfo(): Gst.MetaInfo
-export function videoHdrParseHdr10Plus(data: number, size: number): { returnType: boolean, hdr10Plus: VideoHDR10Plus }
 export function videoInfoFromCaps(caps: Gst.Caps): { returnType: boolean, info: VideoInfo }
 export function videoInfoInit(): { info: VideoInfo }
 export function videoInterlaceModeFromString(mode: string): VideoInterlaceMode
@@ -678,6 +678,7 @@ export function videoMultiviewGuessHalfAspect(mvMode: VideoMultiviewMode, width:
 export function videoMultiviewModeFromCapsString(capsMviewMode: string): VideoMultiviewMode
 export function videoMultiviewModeToCapsString(mviewMode: VideoMultiviewMode): string
 export function videoMultiviewVideoInfoChangeMode(info: VideoInfo, outMviewMode: VideoMultiviewMode, outMviewFlags: VideoMultiviewFlags): void
+export function videoOrientationFromTag(taglist: Gst.TagList): { returnType: boolean, method: VideoOrientationMethod }
 export function videoOverlayCompositionMetaApiGetType(): GObject.Type
 export function videoOverlayCompositionMetaGetInfo(): Gst.MetaInfo
 export function videoOverlayInstallProperties(oclass: GObject.ObjectClass, lastPropId: number): void
@@ -770,6 +771,8 @@ export class VideoOrientation {
     setVcenter(center: number): boolean
     setVflip(flip: boolean): boolean
     static name: string
+    /* Static methods and pseudo-constructors */
+    static fromTag(taglist: Gst.TagList): { returnType: boolean, method: VideoOrientationMethod }
 }
 export class VideoOverlay {
     /* Methods of GstVideo-1.0.GstVideo.VideoOverlay */
@@ -883,15 +886,19 @@ export class VideoAggregator {
     flags: number
     /* Fields of GObject-2.0.GObject.InitiallyUnowned */
     gTypeInstance: GObject.TypeInstance
+    /* Methods of GstVideo-1.0.GstVideo.VideoAggregator */
+    getExecutionTaskPool(): Gst.TaskPool
     /* Methods of GstBase-1.0.GstBase.Aggregator */
     finishBuffer(buffer: Gst.Buffer): Gst.FlowReturn
     finishBufferList(bufferlist: Gst.BufferList): Gst.FlowReturn
     getAllocator(): { allocator: Gst.Allocator | null, params: Gst.AllocationParams | null }
     getBufferPool(): Gst.BufferPool | null
+    getIgnoreInactivePads(): boolean
     getLatency(): Gst.ClockTime
     negotiate(): boolean
     peekNextSample(pad: GstBase.AggregatorPad): Gst.Sample | null
     selectedSamples(pts: Gst.ClockTime, dts: Gst.ClockTime, duration: Gst.ClockTime, info?: Gst.Structure | null): void
+    setIgnoreInactivePads(ignore: boolean): void
     setLatency(minLatency: Gst.ClockTime, maxLatency: Gst.ClockTime): void
     setSrcCaps(caps: Gst.Caps): void
     simpleGetNextTime(): Gst.ClockTime
@@ -949,6 +956,7 @@ export class VideoAggregator {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -1133,6 +1141,7 @@ export class VideoAggregatorConvertPad {
     dropBuffer(): boolean
     hasBuffer(): boolean
     isEos(): boolean
+    isInactive(): boolean
     peekBuffer(): Gst.Buffer | null
     popBuffer(): Gst.Buffer | null
     /* Methods of Gst-1.0.Gst.Pad */
@@ -1395,6 +1404,7 @@ export class VideoAggregatorPad {
     dropBuffer(): boolean
     hasBuffer(): boolean
     isEos(): boolean
+    isInactive(): boolean
     peekBuffer(): Gst.Buffer | null
     popBuffer(): Gst.Buffer | null
     /* Methods of Gst-1.0.Gst.Pad */
@@ -1610,6 +1620,272 @@ export class VideoAggregatorPad {
     _init (config?: VideoAggregatorPad_ConstructProps): void
     static $gtype: GObject.Type
 }
+export interface VideoAggregatorParallelConvertPad_ConstructProps extends VideoAggregatorConvertPad_ConstructProps {
+}
+export class VideoAggregatorParallelConvertPad {
+    /* Properties of GstVideo-1.0.GstVideo.VideoAggregatorConvertPad */
+    converterConfig: Gst.Structure
+    /* Properties of GstVideo-1.0.GstVideo.VideoAggregatorPad */
+    maxLastBufferRepeat: number
+    repeatAfterEos: boolean
+    zorder: number
+    /* Properties of GstBase-1.0.GstBase.AggregatorPad */
+    emitSignals: boolean
+    /* Properties of Gst-1.0.Gst.Pad */
+    readonly caps: Gst.Caps
+    offset: number
+    template: Gst.PadTemplate
+    /* Properties of Gst-1.0.Gst.Object */
+    name: string
+    parent: Gst.Object
+    /* Fields of GstVideo-1.0.GstVideo.VideoAggregatorParallelConvertPad */
+    parentInstance: VideoAggregatorConvertPad
+    /* Fields of GstVideo-1.0.GstVideo.VideoAggregatorPad */
+    info: VideoInfo
+    /* Fields of GstBase-1.0.GstBase.AggregatorPad */
+    segment: Gst.Segment
+    /* Fields of Gst-1.0.Gst.Pad */
+    object: Gst.Object
+    elementPrivate: object
+    padtemplate: Gst.PadTemplate
+    direction: Gst.PadDirection
+    /* Fields of Gst-1.0.Gst.Object */
+    lock: GLib.Mutex
+    flags: number
+    /* Fields of GObject-2.0.GObject.InitiallyUnowned */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of GstVideo-1.0.GstVideo.VideoAggregatorConvertPad */
+    updateConversionInfo(): void
+    /* Methods of GstVideo-1.0.GstVideo.VideoAggregatorPad */
+    getCurrentBuffer(): Gst.Buffer
+    getPreparedFrame(): VideoFrame
+    hasCurrentBuffer(): boolean
+    setNeedsAlpha(needsAlpha: boolean): void
+    /* Methods of GstBase-1.0.GstBase.AggregatorPad */
+    dropBuffer(): boolean
+    hasBuffer(): boolean
+    isEos(): boolean
+    isInactive(): boolean
+    peekBuffer(): Gst.Buffer | null
+    popBuffer(): Gst.Buffer | null
+    /* Methods of Gst-1.0.Gst.Pad */
+    activateMode(mode: Gst.PadMode, active: boolean): boolean
+    addProbe(mask: Gst.PadProbeType, callback: Gst.PadProbeCallback): number
+    canLink(sinkpad: Gst.Pad): boolean
+    chain(buffer: Gst.Buffer): Gst.FlowReturn
+    chainList(list: Gst.BufferList): Gst.FlowReturn
+    checkReconfigure(): boolean
+    createStreamId(parent: Gst.Element, streamId?: string | null): string
+    eventDefault(parent: Gst.Object | null, event: Gst.Event): boolean
+    forward(forward: Gst.PadForwardFunction): boolean
+    getAllowedCaps(): Gst.Caps | null
+    getCurrentCaps(): Gst.Caps | null
+    getDirection(): Gst.PadDirection
+    getElementPrivate(): object | null
+    getLastFlowReturn(): Gst.FlowReturn
+    getOffset(): number
+    getPadTemplate(): Gst.PadTemplate | null
+    getPadTemplateCaps(): Gst.Caps
+    getParentElement(): Gst.Element | null
+    getPeer(): Gst.Pad | null
+    getRange(offset: number, size: number): { returnType: Gst.FlowReturn, buffer: Gst.Buffer }
+    getSingleInternalLink(): Gst.Pad | null
+    getStickyEvent(eventType: Gst.EventType, idx: number): Gst.Event | null
+    getStream(): Gst.Stream | null
+    getStreamId(): string | null
+    getTaskState(): Gst.TaskState
+    hasCurrentCaps(): boolean
+    isActive(): boolean
+    isBlocked(): boolean
+    isBlocking(): boolean
+    isLinked(): boolean
+    iterateInternalLinks(): Gst.Iterator | null
+    iterateInternalLinksDefault(parent?: Gst.Object | null): Gst.Iterator | null
+    link(sinkpad: Gst.Pad): Gst.PadLinkReturn
+    linkFull(sinkpad: Gst.Pad, flags: Gst.PadLinkCheck): Gst.PadLinkReturn
+    linkMaybeGhosting(sink: Gst.Pad): boolean
+    linkMaybeGhostingFull(sink: Gst.Pad, flags: Gst.PadLinkCheck): boolean
+    markReconfigure(): void
+    needsReconfigure(): boolean
+    pauseTask(): boolean
+    peerQuery(query: Gst.Query): boolean
+    peerQueryAcceptCaps(caps: Gst.Caps): boolean
+    peerQueryCaps(filter?: Gst.Caps | null): Gst.Caps
+    peerQueryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
+    peerQueryDuration(format: Gst.Format): { returnType: boolean, duration: number | null }
+    peerQueryPosition(format: Gst.Format): { returnType: boolean, cur: number | null }
+    proxyQueryAcceptCaps(query: Gst.Query): boolean
+    proxyQueryCaps(query: Gst.Query): boolean
+    pullRange(offset: number, size: number): { returnType: Gst.FlowReturn, buffer: Gst.Buffer }
+    push(buffer: Gst.Buffer): Gst.FlowReturn
+    pushEvent(event: Gst.Event): boolean
+    pushList(list: Gst.BufferList): Gst.FlowReturn
+    query(query: Gst.Query): boolean
+    queryAcceptCaps(caps: Gst.Caps): boolean
+    queryCaps(filter?: Gst.Caps | null): Gst.Caps
+    queryConvert(srcFormat: Gst.Format, srcVal: number, destFormat: Gst.Format): { returnType: boolean, destVal: number }
+    queryDefault(parent: Gst.Object | null, query: Gst.Query): boolean
+    queryDuration(format: Gst.Format): { returnType: boolean, duration: number | null }
+    queryPosition(format: Gst.Format): { returnType: boolean, cur: number | null }
+    removeProbe(id: number): void
+    sendEvent(event: Gst.Event): boolean
+    setActivateFunctionFull(activate: Gst.PadActivateFunction): void
+    setActivatemodeFunctionFull(activatemode: Gst.PadActivateModeFunction): void
+    setActive(active: boolean): boolean
+    setChainFunctionFull(chain: Gst.PadChainFunction): void
+    setChainListFunctionFull(chainlist: Gst.PadChainListFunction): void
+    setElementPrivate(priv?: object | null): void
+    setEventFullFunctionFull(event: Gst.PadEventFullFunction): void
+    setEventFunctionFull(event: Gst.PadEventFunction): void
+    setGetrangeFunctionFull(get: Gst.PadGetRangeFunction): void
+    setIterateInternalLinksFunctionFull(iterintlink: Gst.PadIterIntLinkFunction): void
+    setLinkFunctionFull(link: Gst.PadLinkFunction): void
+    setOffset(offset: number): void
+    setQueryFunctionFull(query: Gst.PadQueryFunction): void
+    setUnlinkFunctionFull(unlink: Gst.PadUnlinkFunction): void
+    startTask(func: Gst.TaskFunction): boolean
+    stickyEventsForeach(foreachFunc: Gst.PadStickyEventsForeachFunction): void
+    stopTask(): boolean
+    storeStickyEvent(event: Gst.Event): Gst.FlowReturn
+    unlink(sinkpad: Gst.Pad): boolean
+    useFixedCaps(): void
+    /* Methods of Gst-1.0.Gst.Object */
+    addControlBinding(binding: Gst.ControlBinding): boolean
+    defaultError(error: GLib.Error, debug?: string | null): void
+    getControlBinding(propertyName: string): Gst.ControlBinding | null
+    getControlRate(): Gst.ClockTime
+    getGValueArray(propertyName: string, timestamp: Gst.ClockTime, interval: Gst.ClockTime, values: any[]): boolean
+    getName(): string | null
+    getParent(): Gst.Object | null
+    getPathString(): string
+    getValue(propertyName: string, timestamp: Gst.ClockTime): any | null
+    hasActiveControlBindings(): boolean
+    hasAncestor(ancestor: Gst.Object): boolean
+    hasAsAncestor(ancestor: Gst.Object): boolean
+    hasAsParent(parent: Gst.Object): boolean
+    ref(): Gst.Object
+    removeControlBinding(binding: Gst.ControlBinding): boolean
+    setControlBindingDisabled(propertyName: string, disabled: boolean): void
+    setControlBindingsDisabled(disabled: boolean): void
+    setControlRate(controlRate: Gst.ClockTime): void
+    setName(name?: string | null): boolean
+    setParent(parent: Gst.Object): boolean
+    suggestNextSync(): Gst.ClockTime
+    syncValues(timestamp: Gst.ClockTime): boolean
+    unparent(): void
+    unref(): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    watchClosure(closure: Function): void
+    /* Signals of GstBase-1.0.GstBase.AggregatorPad */
+    connect(sigName: "buffer-consumed", callback: (($obj: VideoAggregatorParallelConvertPad, object: Gst.Buffer) => void)): number
+    on(sigName: "buffer-consumed", callback: (object: Gst.Buffer) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "buffer-consumed", callback: (object: Gst.Buffer) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "buffer-consumed", callback: (object: Gst.Buffer) => void): NodeJS.EventEmitter
+    emit(sigName: "buffer-consumed", object: Gst.Buffer): void
+    /* Signals of Gst-1.0.Gst.Pad */
+    connect(sigName: "linked", callback: (($obj: VideoAggregatorParallelConvertPad, peer: Gst.Pad) => void)): number
+    on(sigName: "linked", callback: (peer: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "linked", callback: (peer: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "linked", callback: (peer: Gst.Pad) => void): NodeJS.EventEmitter
+    emit(sigName: "linked", peer: Gst.Pad): void
+    connect(sigName: "unlinked", callback: (($obj: VideoAggregatorParallelConvertPad, peer: Gst.Pad) => void)): number
+    on(sigName: "unlinked", callback: (peer: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "unlinked", callback: (peer: Gst.Pad) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "unlinked", callback: (peer: Gst.Pad) => void): NodeJS.EventEmitter
+    emit(sigName: "unlinked", peer: Gst.Pad): void
+    /* Signals of Gst-1.0.Gst.Object */
+    connect(sigName: "deep-notify", callback: (($obj: VideoAggregatorParallelConvertPad, propObject: Gst.Object, prop: GObject.ParamSpec) => void)): number
+    on(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "deep-notify", callback: (propObject: Gst.Object, prop: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "deep-notify", propObject: Gst.Object, prop: GObject.ParamSpec): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: VideoAggregatorParallelConvertPad, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::converter-config", callback: (($obj: VideoAggregatorParallelConvertPad, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::converter-config", callback: (($obj: VideoAggregatorParallelConvertPad, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::converter-config", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::converter-config", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::converter-config", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::max-last-buffer-repeat", callback: (($obj: VideoAggregatorParallelConvertPad, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::max-last-buffer-repeat", callback: (($obj: VideoAggregatorParallelConvertPad, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::max-last-buffer-repeat", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::max-last-buffer-repeat", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::max-last-buffer-repeat", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::repeat-after-eos", callback: (($obj: VideoAggregatorParallelConvertPad, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::repeat-after-eos", callback: (($obj: VideoAggregatorParallelConvertPad, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::repeat-after-eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::repeat-after-eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::repeat-after-eos", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::zorder", callback: (($obj: VideoAggregatorParallelConvertPad, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::zorder", callback: (($obj: VideoAggregatorParallelConvertPad, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::zorder", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::zorder", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::zorder", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::emit-signals", callback: (($obj: VideoAggregatorParallelConvertPad, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::emit-signals", callback: (($obj: VideoAggregatorParallelConvertPad, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::emit-signals", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::emit-signals", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::emit-signals", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::caps", callback: (($obj: VideoAggregatorParallelConvertPad, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::caps", callback: (($obj: VideoAggregatorParallelConvertPad, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::caps", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::caps", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::caps", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::offset", callback: (($obj: VideoAggregatorParallelConvertPad, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::offset", callback: (($obj: VideoAggregatorParallelConvertPad, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::offset", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::offset", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::offset", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::template", callback: (($obj: VideoAggregatorParallelConvertPad, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::template", callback: (($obj: VideoAggregatorParallelConvertPad, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::template", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::template", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::template", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::name", callback: (($obj: VideoAggregatorParallelConvertPad, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::name", callback: (($obj: VideoAggregatorParallelConvertPad, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::parent", callback: (($obj: VideoAggregatorParallelConvertPad, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::parent", callback: (($obj: VideoAggregatorParallelConvertPad, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::parent", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: VideoAggregatorParallelConvertPad_ConstructProps)
+    _init (config?: VideoAggregatorParallelConvertPad_ConstructProps): void
+    static $gtype: GObject.Type
+}
 export interface VideoBufferPool_ConstructProps extends Gst.BufferPool_ConstructProps {
 }
 export class VideoBufferPool {
@@ -1720,6 +1996,8 @@ export class VideoBufferPool {
     static $gtype: GObject.Type
 }
 export interface VideoDecoder_ConstructProps extends Gst.Element_ConstructProps {
+    automaticRequestSyncPointFlags?: VideoDecoderRequestSyncPointFlags
+    automaticRequestSyncPoints?: boolean
     discardCorruptedFrames?: boolean
     maxErrors?: number
     minForceKeyUnitInterval?: number
@@ -1727,6 +2005,8 @@ export interface VideoDecoder_ConstructProps extends Gst.Element_ConstructProps 
 }
 export class VideoDecoder {
     /* Properties of GstVideo-1.0.GstVideo.VideoDecoder */
+    automaticRequestSyncPointFlags: VideoDecoderRequestSyncPointFlags
+    automaticRequestSyncPoints: boolean
     discardCorruptedFrames: boolean
     maxErrors: number
     minForceKeyUnitInterval: number
@@ -1767,12 +2047,15 @@ export class VideoDecoder {
     allocateOutputFrame(frame: VideoCodecFrame): Gst.FlowReturn
     allocateOutputFrameWithParams(frame: VideoCodecFrame, params: Gst.BufferPoolAcquireParams): Gst.FlowReturn
     dropFrame(frame: VideoCodecFrame): Gst.FlowReturn
+    dropSubframe(frame: VideoCodecFrame): Gst.FlowReturn
     finishFrame(frame: VideoCodecFrame): Gst.FlowReturn
+    finishSubframe(frame: VideoCodecFrame): Gst.FlowReturn
     getAllocator(): { allocator: Gst.Allocator | null, params: Gst.AllocationParams | null }
     getBufferPool(): Gst.BufferPool
     getEstimateRate(): number
     getFrame(frameNumber: number): VideoCodecFrame
     getFrames(): VideoCodecFrame[]
+    getInputSubframeIndex(frame: VideoCodecFrame): number
     getLatency(): { minLatency: Gst.ClockTime | null, maxLatency: Gst.ClockTime | null }
     getMaxDecodeTime(frame: VideoCodecFrame): Gst.ClockTimeDiff
     getMaxErrors(): number
@@ -1782,8 +2065,11 @@ export class VideoDecoder {
     getOutputState(): VideoCodecState
     getPacketized(): boolean
     getPendingFrameSize(): number
+    getProcessedSubframeIndex(frame: VideoCodecFrame): number
     getQosProportion(): number
+    getSubframeMode(): boolean
     haveFrame(): Gst.FlowReturn
+    haveLastSubframe(frame: VideoCodecFrame): Gst.FlowReturn
     mergeTags(tags: Gst.TagList | null, mode: Gst.TagMergeMode): void
     negotiate(): boolean
     proxyGetcaps(caps?: Gst.Caps | null, filter?: Gst.Caps | null): Gst.Caps
@@ -1797,6 +2083,7 @@ export class VideoDecoder {
     setNeedsSyncPoint(enabled: boolean): void
     setOutputState(fmt: VideoFormat, width: number, height: number, reference?: VideoCodecState | null): VideoCodecState
     setPacketized(packetized: boolean): void
+    setSubframeMode(subframeMode: boolean): void
     setUseDefaultPadAcceptcaps(use: boolean): void
     /* Methods of Gst-1.0.Gst.Element */
     abortState(): void
@@ -1851,6 +2138,7 @@ export class VideoDecoder {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -1938,6 +2226,16 @@ export class VideoDecoder {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::automatic-request-sync-point-flags", callback: (($obj: VideoDecoder, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::automatic-request-sync-point-flags", callback: (($obj: VideoDecoder, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::automatic-request-sync-point-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::automatic-request-sync-point-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::automatic-request-sync-point-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::automatic-request-sync-points", callback: (($obj: VideoDecoder, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::automatic-request-sync-points", callback: (($obj: VideoDecoder, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::automatic-request-sync-points", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::automatic-request-sync-points", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::automatic-request-sync-points", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::discard-corrupted-frames", callback: (($obj: VideoDecoder, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::discard-corrupted-frames", callback: (($obj: VideoDecoder, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::discard-corrupted-frames", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2094,6 +2392,7 @@ export class VideoEncoder {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -2341,6 +2640,7 @@ export class VideoFilter {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -2612,6 +2912,7 @@ export class VideoSink {
     removePad(pad: Gst.Pad): boolean
     removePropertyNotifyWatch(watchId: number): void
     requestPad(templ: Gst.PadTemplate, name?: string | null, caps?: Gst.Caps | null): Gst.Pad | null
+    requestPadSimple(name: string): Gst.Pad | null
     seek(rate: number, format: Gst.Format, flags: Gst.SeekFlags, startType: Gst.SeekType, start: number, stopType: Gst.SeekType, stop: number): boolean
     seekSimple(format: Gst.Format, seekFlags: Gst.SeekFlags, seekPos: number): boolean
     sendEvent(event: Gst.Event): boolean
@@ -2790,7 +3091,7 @@ export class VideoSink {
     constructor (config?: VideoSink_ConstructProps)
     _init (config?: VideoSink_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static centerRect(src: VideoRectangle, dst: VideoRectangle, result: VideoRectangle, scaling: boolean): void
+    static centerRect(src: VideoRectangle, dst: VideoRectangle, scaling: boolean): { result: VideoRectangle }
     static $gtype: GObject.Type
 }
 export abstract class ColorBalanceChannelClass {
@@ -2858,10 +3159,17 @@ export abstract class VideoAggregatorPadClass {
     updateConversionInfo: (pad: VideoAggregatorPad) => void
     prepareFrame: (pad: VideoAggregatorPad, videoaggregator: VideoAggregator, buffer: Gst.Buffer, preparedFrame: VideoFrame) => boolean
     cleanFrame: (pad: VideoAggregatorPad, videoaggregator: VideoAggregator, preparedFrame: VideoFrame) => void
+    prepareFrameStart: (pad: VideoAggregatorPad, videoaggregator: VideoAggregator, buffer: Gst.Buffer, preparedFrame: VideoFrame) => void
+    prepareFrameFinish: (pad: VideoAggregatorPad, videoaggregator: VideoAggregator, preparedFrame: VideoFrame) => void
     gstReserved: object[]
     static name: string
 }
 export class VideoAggregatorPadPrivate {
+    static name: string
+}
+export abstract class VideoAggregatorParallelConvertPadClass {
+    /* Fields of GstVideo-1.0.GstVideo.VideoAggregatorParallelConvertPadClass */
+    parentClass: VideoAggregatorConvertPadClass
     static name: string
 }
 export class VideoAggregatorPrivate {
@@ -2921,6 +3229,14 @@ export class VideoChromaResample {
     getInfo(nLines: number, offset: number): void
     static name: string
 }
+export class VideoCodecAlphaMeta {
+    /* Fields of GstVideo-1.0.GstVideo.VideoCodecAlphaMeta */
+    meta: Gst.Meta
+    buffer: Gst.Buffer
+    static name: string
+    /* Static methods and pseudo-constructors */
+    static getInfo(): Gst.MetaInfo
+}
 export class VideoCodecFrame {
     /* Fields of GstVideo-1.0.GstVideo.VideoCodecFrame */
     systemFrameNumber: number
@@ -2944,6 +3260,8 @@ export class VideoCodecState {
     caps: Gst.Caps
     codecData: Gst.Buffer
     allocationCaps: Gst.Caps
+    masteringDisplayInfo: VideoMasteringDisplayInfo
+    contentLightLevel: VideoContentLightLevel
     /* Methods of GstVideo-1.0.GstVideo.VideoCodecState */
     ref(): VideoCodecState
     unref(): void
@@ -2960,34 +3278,6 @@ export class VideoColorPrimariesInfo {
     gy: number
     bx: number
     by: number
-    static name: string
-}
-export class VideoColorVolumeTransformation {
-    /* Fields of GstVideo-1.0.GstVideo.VideoColorVolumeTransformation */
-    windowUpperLeftCornerX: number
-    windowUpperLeftCornerY: number
-    windowLowerRightCornerX: number
-    windowLowerRightCornerY: number
-    centerOfEllipseX: number
-    centerOfEllipseY: number
-    rotationAngle: number
-    semimajorAxisInternalEllipse: number
-    semimajorAxisExternalEllipse: number
-    semiminorAxisExternalEllipse: number
-    overlapProcessOption: number
-    maxscl: number[]
-    averageMaxrgb: number
-    numDistributionMaxrgbPercentiles: number
-    distributionMaxrgbPercentages: any[]
-    distributionMaxrgbPercentiles: number[]
-    fractionBrightPixels: number
-    toneMappingFlag: number
-    kneePointX: number
-    kneePointY: number
-    numBezierCurveAnchors: number
-    bezierCurveAnchors: number[]
-    colorSaturationMappingFlag: number
-    colorSaturationWeight: number
     static name: string
 }
 export class VideoColorimetry {
@@ -3019,6 +3309,7 @@ export class VideoContentLightLevel {
 export class VideoConverter {
     /* Methods of GstVideo-1.0.GstVideo.VideoConverter */
     frame(src: VideoFrame, dest: VideoFrame): void
+    frameFinish(): void
     free(): void
     getConfig(): Gst.Structure
     setConfig(config: Gst.Structure): boolean
@@ -3057,6 +3348,7 @@ export abstract class VideoDecoderClass {
     getcaps: (decoder: VideoDecoder, filter: Gst.Caps) => Gst.Caps
     drain: (decoder: VideoDecoder) => Gst.FlowReturn
     transformMeta: (decoder: VideoDecoder, frame: VideoCodecFrame, meta: Gst.Meta) => boolean
+    handleMissingData: (decoder: VideoDecoder, timestamp: Gst.ClockTime, duration: Gst.ClockTime) => boolean
     static name: string
 }
 export class VideoDecoderPrivate {
@@ -3160,33 +3452,6 @@ export class VideoGLTextureUploadMeta {
     textureType: VideoGLTextureType[]
     /* Methods of GstVideo-1.0.GstVideo.VideoGLTextureUploadMeta */
     upload(textureId: number): boolean
-    static name: string
-    /* Static methods and pseudo-constructors */
-    static getInfo(): Gst.MetaInfo
-}
-export class VideoHDR10Plus {
-    /* Fields of GstVideo-1.0.GstVideo.VideoHDR10Plus */
-    applicationIdentifier: number
-    applicationVersion: number
-    numWindows: number
-    processingWindow: VideoColorVolumeTransformation[]
-    targetedSystemDisplayMaximumLuminance: number
-    targetedSystemDisplayActualPeakLuminanceFlag: number
-    numRowsTargetedSystemDisplayActualPeakLuminance: number
-    numColsTargetedSystemDisplayActualPeakLuminance: number
-    targetedSystemDisplayActualPeakLuminance: any[]
-    masteringDisplayActualPeakLuminanceFlag: number
-    numRowsMasteringDisplayActualPeakLuminance: number
-    numColsMasteringDisplayActualPeakLuminance: number
-    masteringDisplayActualPeakLuminance: any[]
-    static name: string
-}
-export class VideoHDRMeta {
-    /* Fields of GstVideo-1.0.GstVideo.VideoHDRMeta */
-    meta: Gst.Meta
-    format: VideoHDRFormat
-    data: number
-    size: number
     static name: string
     /* Static methods and pseudo-constructors */
     static getInfo(): Gst.MetaInfo
@@ -3302,10 +3567,10 @@ export class VideoOverlayComposition {
     makeWritable(): VideoOverlayComposition
     nRectangles(): number
     static name: string
-    static new(rectangle: VideoOverlayRectangle): VideoOverlayComposition
-    constructor(rectangle: VideoOverlayRectangle)
+    static new(rectangle?: VideoOverlayRectangle | null): VideoOverlayComposition
+    constructor(rectangle?: VideoOverlayRectangle | null)
     /* Static methods and pseudo-constructors */
-    static new(rectangle: VideoOverlayRectangle): VideoOverlayComposition
+    static new(rectangle?: VideoOverlayRectangle | null): VideoOverlayComposition
 }
 export class VideoOverlayCompositionMeta {
     /* Fields of GstVideo-1.0.GstVideo.VideoOverlayCompositionMeta */

@@ -5499,17 +5499,17 @@ export class MapEntry {
 }
 export abstract class AbstractBidirListClass {
     /* Fields of Gee-0.8.Gee.AbstractBidirListClass */
-    bidirListIterator: () => BidirListIterator
-    reserved0: () => void
-    reserved1: () => void
-    reserved2: () => void
-    reserved3: () => void
-    reserved4: () => void
-    reserved5: () => void
-    reserved6: () => void
-    reserved7: () => void
-    reserved8: () => void
-    reserved9: () => void
+    bidirListIterator: (self: AbstractBidirList) => BidirListIterator
+    reserved0: (self: AbstractBidirList) => void
+    reserved1: (self: AbstractBidirList) => void
+    reserved2: (self: AbstractBidirList) => void
+    reserved3: (self: AbstractBidirList) => void
+    reserved4: (self: AbstractBidirList) => void
+    reserved5: (self: AbstractBidirList) => void
+    reserved6: (self: AbstractBidirList) => void
+    reserved7: (self: AbstractBidirList) => void
+    reserved8: (self: AbstractBidirList) => void
+    reserved9: (self: AbstractBidirList) => void
     static name: string
 }
 export class AbstractBidirListPrivate {
@@ -5517,17 +5517,17 @@ export class AbstractBidirListPrivate {
 }
 export abstract class AbstractBidirSortedSetClass {
     /* Fields of Gee-0.8.Gee.AbstractBidirSortedSetClass */
-    bidirIterator: () => BidirIterator
-    reserved0: () => void
-    reserved1: () => void
-    reserved2: () => void
-    reserved3: () => void
-    reserved4: () => void
-    reserved5: () => void
-    reserved6: () => void
-    reserved7: () => void
-    reserved8: () => void
-    reserved9: () => void
+    bidirIterator: (self: AbstractBidirSortedSet) => BidirIterator
+    reserved0: (self: AbstractBidirSortedSet) => void
+    reserved1: (self: AbstractBidirSortedSet) => void
+    reserved2: (self: AbstractBidirSortedSet) => void
+    reserved3: (self: AbstractBidirSortedSet) => void
+    reserved4: (self: AbstractBidirSortedSet) => void
+    reserved5: (self: AbstractBidirSortedSet) => void
+    reserved6: (self: AbstractBidirSortedSet) => void
+    reserved7: (self: AbstractBidirSortedSet) => void
+    reserved8: (self: AbstractBidirSortedSet) => void
+    reserved9: (self: AbstractBidirSortedSet) => void
     static name: string
 }
 export class AbstractBidirSortedSetPrivate {
@@ -5535,17 +5535,17 @@ export class AbstractBidirSortedSetPrivate {
 }
 export abstract class AbstractBidirSortedMapClass {
     /* Fields of Gee-0.8.Gee.AbstractBidirSortedMapClass */
-    bidirMapIterator: () => BidirMapIterator
-    reserved0: () => void
-    reserved1: () => void
-    reserved2: () => void
-    reserved3: () => void
-    reserved4: () => void
-    reserved5: () => void
-    reserved6: () => void
-    reserved7: () => void
-    reserved8: () => void
-    reserved9: () => void
+    bidirMapIterator: (self: AbstractBidirSortedMap) => BidirMapIterator
+    reserved0: (self: AbstractBidirSortedMap) => void
+    reserved1: (self: AbstractBidirSortedMap) => void
+    reserved2: (self: AbstractBidirSortedMap) => void
+    reserved3: (self: AbstractBidirSortedMap) => void
+    reserved4: (self: AbstractBidirSortedMap) => void
+    reserved5: (self: AbstractBidirSortedMap) => void
+    reserved6: (self: AbstractBidirSortedMap) => void
+    reserved7: (self: AbstractBidirSortedMap) => void
+    reserved8: (self: AbstractBidirSortedMap) => void
+    reserved9: (self: AbstractBidirSortedMap) => void
     static name: string
 }
 export class AbstractBidirSortedMapPrivate {
@@ -5553,22 +5553,22 @@ export class AbstractBidirSortedMapPrivate {
 }
 export abstract class AbstractCollectionClass {
     /* Fields of Gee-0.8.Gee.AbstractCollectionClass */
-    contains: (item?: object | null) => boolean
-    add: (item?: object | null) => boolean
-    remove: (item?: object | null) => boolean
-    clear: () => void
-    iterator: () => Iterator
-    foreach: (f: ForallFunc) => boolean
-    reserved0: () => void
-    reserved1: () => void
-    reserved2: () => void
-    reserved3: () => void
-    reserved4: () => void
-    reserved5: () => void
-    reserved6: () => void
-    reserved7: () => void
-    reserved8: () => void
-    reserved9: () => void
+    contains: (self: AbstractCollection, item?: object | null) => boolean
+    add: (self: AbstractCollection, item?: object | null) => boolean
+    remove: (self: AbstractCollection, item?: object | null) => boolean
+    clear: (self: AbstractCollection) => void
+    iterator: (self: AbstractCollection) => Iterator
+    foreach: (self: AbstractCollection, f: ForallFunc) => boolean
+    reserved0: (self: AbstractCollection) => void
+    reserved1: (self: AbstractCollection) => void
+    reserved2: (self: AbstractCollection) => void
+    reserved3: (self: AbstractCollection) => void
+    reserved4: (self: AbstractCollection) => void
+    reserved5: (self: AbstractCollection) => void
+    reserved6: (self: AbstractCollection) => void
+    reserved7: (self: AbstractCollection) => void
+    reserved8: (self: AbstractCollection) => void
+    reserved9: (self: AbstractCollection) => void
     static name: string
 }
 export class AbstractCollectionPrivate {
@@ -5576,23 +5576,23 @@ export class AbstractCollectionPrivate {
 }
 export abstract class AbstractListClass {
     /* Fields of Gee-0.8.Gee.AbstractListClass */
-    listIterator: () => ListIterator
-    get: (index: number) => object | null
-    set: (index: number, item?: object | null) => void
-    indexOf: (item?: object | null) => number
-    insert: (index: number, item?: object | null) => void
-    removeAt: (index: number) => object | null
-    slice: (start: number, stop: number) => List | null
-    reserved0: () => void
-    reserved1: () => void
-    reserved2: () => void
-    reserved3: () => void
-    reserved4: () => void
-    reserved5: () => void
-    reserved6: () => void
-    reserved7: () => void
-    reserved8: () => void
-    reserved9: () => void
+    listIterator: (self: AbstractList) => ListIterator
+    get: (self: AbstractList, index: number) => object | null
+    set: (self: AbstractList, index: number, item?: object | null) => void
+    indexOf: (self: AbstractList, item?: object | null) => number
+    insert: (self: AbstractList, index: number, item?: object | null) => void
+    removeAt: (self: AbstractList, index: number) => object | null
+    slice: (self: AbstractList, start: number, stop: number) => List | null
+    reserved0: (self: AbstractList) => void
+    reserved1: (self: AbstractList) => void
+    reserved2: (self: AbstractList) => void
+    reserved3: (self: AbstractList) => void
+    reserved4: (self: AbstractList) => void
+    reserved5: (self: AbstractList) => void
+    reserved6: (self: AbstractList) => void
+    reserved7: (self: AbstractList) => void
+    reserved8: (self: AbstractList) => void
+    reserved9: (self: AbstractList) => void
     static name: string
 }
 export class AbstractListPrivate {
@@ -5600,25 +5600,25 @@ export class AbstractListPrivate {
 }
 export abstract class AbstractMapClass {
     /* Fields of Gee-0.8.Gee.AbstractMapClass */
-    hasKey: (key?: object | null) => boolean
-    has: (key?: object | null, value?: object | null) => boolean
-    get: (key?: object | null) => object | null
-    set: (key?: object | null, value?: object | null) => void
-    unset: (key?: object | null) => { returnType: boolean, value: object | null }
-    mapIterator: () => MapIterator
-    clear: () => void
-    foreach: (f: ForallFunc) => boolean
-    stream: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: StreamFunc) => Iterator
-    reserved0: () => void
-    reserved1: () => void
-    reserved2: () => void
-    reserved3: () => void
-    reserved4: () => void
-    reserved5: () => void
-    reserved6: () => void
-    reserved7: () => void
-    reserved8: () => void
-    reserved9: () => void
+    hasKey: (self: AbstractMap, key?: object | null) => boolean
+    has: (self: AbstractMap, key?: object | null, value?: object | null) => boolean
+    get: (self: AbstractMap, key?: object | null) => object | null
+    set: (self: AbstractMap, key?: object | null, value?: object | null) => void
+    unset: (self: AbstractMap, key?: object | null) => { returnType: boolean, value: object | null }
+    mapIterator: (self: AbstractMap) => MapIterator
+    clear: (self: AbstractMap) => void
+    foreach: (self: AbstractMap, f: ForallFunc) => boolean
+    stream: (self: AbstractMap, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: StreamFunc) => Iterator
+    reserved0: (self: AbstractMap) => void
+    reserved1: (self: AbstractMap) => void
+    reserved2: (self: AbstractMap) => void
+    reserved3: (self: AbstractMap) => void
+    reserved4: (self: AbstractMap) => void
+    reserved5: (self: AbstractMap) => void
+    reserved6: (self: AbstractMap) => void
+    reserved7: (self: AbstractMap) => void
+    reserved8: (self: AbstractMap) => void
+    reserved9: (self: AbstractMap) => void
     static name: string
 }
 export class AbstractMapPrivate {
@@ -5626,18 +5626,18 @@ export class AbstractMapPrivate {
 }
 export abstract class AbstractMultiMapClass {
     /* Fields of Gee-0.8.Gee.AbstractMultiMapClass */
-    createValueStorage: () => Collection
-    createMultiKeySet: () => MultiSet
-    getValueEqualFunc: () => { returnType: EqualDataFunc, resultTarget: object | null, resultTargetDestroyNotify: GLib.DestroyNotify }
-    reserved0: () => void
-    reserved1: () => void
-    reserved2: () => void
-    reserved3: () => void
-    reserved4: () => void
-    reserved5: () => void
-    reserved6: () => void
-    reserved7: () => void
-    reserved8: () => void
+    createValueStorage: (self: AbstractMultiMap) => Collection
+    createMultiKeySet: (self: AbstractMultiMap) => MultiSet
+    getValueEqualFunc: (self: AbstractMultiMap) => { returnType: EqualDataFunc, resultTarget: object | null, resultTargetDestroyNotify: GLib.DestroyNotify }
+    reserved0: (self: AbstractMultiMap) => void
+    reserved1: (self: AbstractMultiMap) => void
+    reserved2: (self: AbstractMultiMap) => void
+    reserved3: (self: AbstractMultiMap) => void
+    reserved4: (self: AbstractMultiMap) => void
+    reserved5: (self: AbstractMultiMap) => void
+    reserved6: (self: AbstractMultiMap) => void
+    reserved7: (self: AbstractMultiMap) => void
+    reserved8: (self: AbstractMultiMap) => void
     static name: string
 }
 export class AbstractMultiMapPrivate {
@@ -5645,15 +5645,15 @@ export class AbstractMultiMapPrivate {
 }
 export abstract class AbstractMultiSetClass {
     /* Fields of Gee-0.8.Gee.AbstractMultiSetClass */
-    reserved0: () => void
-    reserved1: () => void
-    reserved2: () => void
-    reserved3: () => void
-    reserved4: () => void
-    reserved5: () => void
-    reserved6: () => void
-    reserved7: () => void
-    reserved8: () => void
+    reserved0: (self: AbstractMultiSet) => void
+    reserved1: (self: AbstractMultiSet) => void
+    reserved2: (self: AbstractMultiSet) => void
+    reserved3: (self: AbstractMultiSet) => void
+    reserved4: (self: AbstractMultiSet) => void
+    reserved5: (self: AbstractMultiSet) => void
+    reserved6: (self: AbstractMultiSet) => void
+    reserved7: (self: AbstractMultiSet) => void
+    reserved8: (self: AbstractMultiSet) => void
     static name: string
 }
 export class AbstractMultiSetPrivate {
@@ -5661,18 +5661,18 @@ export class AbstractMultiSetPrivate {
 }
 export abstract class AbstractQueueClass {
     /* Fields of Gee-0.8.Gee.AbstractQueueClass */
-    peek: () => object | null
-    poll: () => object | null
-    reserved0: () => void
-    reserved1: () => void
-    reserved2: () => void
-    reserved3: () => void
-    reserved4: () => void
-    reserved5: () => void
-    reserved6: () => void
-    reserved7: () => void
-    reserved8: () => void
-    reserved9: () => void
+    peek: (self: AbstractQueue) => object | null
+    poll: (self: AbstractQueue) => object | null
+    reserved0: (self: AbstractQueue) => void
+    reserved1: (self: AbstractQueue) => void
+    reserved2: (self: AbstractQueue) => void
+    reserved3: (self: AbstractQueue) => void
+    reserved4: (self: AbstractQueue) => void
+    reserved5: (self: AbstractQueue) => void
+    reserved6: (self: AbstractQueue) => void
+    reserved7: (self: AbstractQueue) => void
+    reserved8: (self: AbstractQueue) => void
+    reserved9: (self: AbstractQueue) => void
     static name: string
 }
 export class AbstractQueuePrivate {
@@ -5680,16 +5680,16 @@ export class AbstractQueuePrivate {
 }
 export abstract class AbstractSetClass {
     /* Fields of Gee-0.8.Gee.AbstractSetClass */
-    reserved0: () => void
-    reserved1: () => void
-    reserved2: () => void
-    reserved3: () => void
-    reserved4: () => void
-    reserved5: () => void
-    reserved6: () => void
-    reserved7: () => void
-    reserved8: () => void
-    reserved9: () => void
+    reserved0: (self: AbstractSet) => void
+    reserved1: (self: AbstractSet) => void
+    reserved2: (self: AbstractSet) => void
+    reserved3: (self: AbstractSet) => void
+    reserved4: (self: AbstractSet) => void
+    reserved5: (self: AbstractSet) => void
+    reserved6: (self: AbstractSet) => void
+    reserved7: (self: AbstractSet) => void
+    reserved8: (self: AbstractSet) => void
+    reserved9: (self: AbstractSet) => void
     static name: string
 }
 export class AbstractSetPrivate {
@@ -5697,19 +5697,19 @@ export class AbstractSetPrivate {
 }
 export abstract class AbstractSortedMapClass {
     /* Fields of Gee-0.8.Gee.AbstractSortedMapClass */
-    headMap: (before?: object | null) => SortedMap
-    tailMap: (after?: object | null) => SortedMap
-    subMap: (before?: object | null, after?: object | null) => SortedMap
-    reserved0: () => void
-    reserved1: () => void
-    reserved2: () => void
-    reserved3: () => void
-    reserved4: () => void
-    reserved5: () => void
-    reserved6: () => void
-    reserved7: () => void
-    reserved8: () => void
-    reserved9: () => void
+    headMap: (self: AbstractSortedMap, before?: object | null) => SortedMap
+    tailMap: (self: AbstractSortedMap, after?: object | null) => SortedMap
+    subMap: (self: AbstractSortedMap, before?: object | null, after?: object | null) => SortedMap
+    reserved0: (self: AbstractSortedMap) => void
+    reserved1: (self: AbstractSortedMap) => void
+    reserved2: (self: AbstractSortedMap) => void
+    reserved3: (self: AbstractSortedMap) => void
+    reserved4: (self: AbstractSortedMap) => void
+    reserved5: (self: AbstractSortedMap) => void
+    reserved6: (self: AbstractSortedMap) => void
+    reserved7: (self: AbstractSortedMap) => void
+    reserved8: (self: AbstractSortedMap) => void
+    reserved9: (self: AbstractSortedMap) => void
     static name: string
 }
 export class AbstractSortedMapPrivate {
@@ -5717,26 +5717,26 @@ export class AbstractSortedMapPrivate {
 }
 export abstract class AbstractSortedSetClass {
     /* Fields of Gee-0.8.Gee.AbstractSortedSetClass */
-    first: () => object | null
-    last: () => object | null
-    iteratorAt: (element?: object | null) => Iterator | null
-    lower: (element?: object | null) => object | null
-    higher: (element?: object | null) => object | null
-    floor: (element?: object | null) => object | null
-    ceil: (element?: object | null) => object | null
-    headSet: (before?: object | null) => SortedSet
-    tailSet: (after?: object | null) => SortedSet
-    subSet: (from?: object | null, to?: object | null) => SortedSet
-    reserved0: () => void
-    reserved1: () => void
-    reserved2: () => void
-    reserved3: () => void
-    reserved4: () => void
-    reserved5: () => void
-    reserved6: () => void
-    reserved7: () => void
-    reserved8: () => void
-    reserved9: () => void
+    first: (self: AbstractSortedSet) => object | null
+    last: (self: AbstractSortedSet) => object | null
+    iteratorAt: (self: AbstractSortedSet, element?: object | null) => Iterator | null
+    lower: (self: AbstractSortedSet, element?: object | null) => object | null
+    higher: (self: AbstractSortedSet, element?: object | null) => object | null
+    floor: (self: AbstractSortedSet, element?: object | null) => object | null
+    ceil: (self: AbstractSortedSet, element?: object | null) => object | null
+    headSet: (self: AbstractSortedSet, before?: object | null) => SortedSet
+    tailSet: (self: AbstractSortedSet, after?: object | null) => SortedSet
+    subSet: (self: AbstractSortedSet, from?: object | null, to?: object | null) => SortedSet
+    reserved0: (self: AbstractSortedSet) => void
+    reserved1: (self: AbstractSortedSet) => void
+    reserved2: (self: AbstractSortedSet) => void
+    reserved3: (self: AbstractSortedSet) => void
+    reserved4: (self: AbstractSortedSet) => void
+    reserved5: (self: AbstractSortedSet) => void
+    reserved6: (self: AbstractSortedSet) => void
+    reserved7: (self: AbstractSortedSet) => void
+    reserved8: (self: AbstractSortedSet) => void
+    reserved9: (self: AbstractSortedSet) => void
     static name: string
 }
 export class AbstractSortedSetPrivate {
@@ -5883,162 +5883,162 @@ export class UnrolledLinkedListPrivate {
 }
 export abstract class BidirIteratorIface {
     /* Fields of Gee-0.8.Gee.BidirIteratorIface */
-    previous: () => boolean
-    hasPrevious: () => boolean
-    first: () => boolean
-    last: () => boolean
+    previous: (self: BidirIterator) => boolean
+    hasPrevious: (self: BidirIterator) => boolean
+    first: (self: BidirIterator) => boolean
+    last: (self: BidirIterator) => boolean
     static name: string
 }
 export abstract class BidirListIface {
     /* Fields of Gee-0.8.Gee.BidirListIface */
-    bidirListIterator: () => BidirListIterator
-    getReadOnlyView: () => BidirList
+    bidirListIterator: (self: BidirList) => BidirListIterator
+    getReadOnlyView: (self: BidirList) => BidirList
     static name: string
 }
 export abstract class BidirListIteratorIface {
     /* Fields of Gee-0.8.Gee.BidirListIteratorIface */
-    insert: (item?: object | null) => void
+    insert: (self: BidirListIterator, item?: object | null) => void
     static name: string
 }
 export abstract class BidirMapIteratorIface {
     /* Fields of Gee-0.8.Gee.BidirMapIteratorIface */
-    previous: () => boolean
-    hasPrevious: () => boolean
-    first: () => boolean
-    last: () => boolean
+    previous: (self: BidirMapIterator) => boolean
+    hasPrevious: (self: BidirMapIterator) => boolean
+    first: (self: BidirMapIterator) => boolean
+    last: (self: BidirMapIterator) => boolean
     static name: string
 }
 export abstract class BidirSortedSetIface {
     /* Fields of Gee-0.8.Gee.BidirSortedSetIface */
-    bidirIterator: () => BidirIterator
-    getReadOnlyView: () => BidirSortedSet
+    bidirIterator: (self: BidirSortedSet) => BidirIterator
+    getReadOnlyView: (self: BidirSortedSet) => BidirSortedSet
     static name: string
 }
 export abstract class BidirSortedMapIface {
     /* Fields of Gee-0.8.Gee.BidirSortedMapIface */
-    bidirMapIterator: () => BidirMapIterator
-    getReadOnlyView: () => BidirSortedMap
+    bidirMapIterator: (self: BidirSortedMap) => BidirMapIterator
+    getReadOnlyView: (self: BidirSortedMap) => BidirSortedMap
     static name: string
 }
 export abstract class CollectionIface {
     /* Fields of Gee-0.8.Gee.CollectionIface */
-    contains: (item?: object | null) => boolean
-    add: (item?: object | null) => boolean
-    remove: (item?: object | null) => boolean
-    clear: () => void
-    addAll: (collection: Collection) => boolean
-    containsAll: (collection: Collection) => boolean
-    removeAll: (collection: Collection) => boolean
-    retainAll: (collection: Collection) => boolean
-    toArray: () => object[]
-    addAllArray: (array: object[]) => boolean
-    containsAllArray: (array: object[]) => boolean
-    removeAllArray: (array: object[]) => boolean
-    addAllIterator: (iter: Iterator) => boolean
-    containsAllIterator: (iter: Iterator) => boolean
-    removeAllIterator: (iter: Iterator) => boolean
-    getSize: () => number
-    getIsEmpty: () => boolean
-    getReadOnly: () => boolean
-    getReadOnlyView: () => Collection
+    contains: (self: Collection, item?: object | null) => boolean
+    add: (self: Collection, item?: object | null) => boolean
+    remove: (self: Collection, item?: object | null) => boolean
+    clear: (self: Collection) => void
+    addAll: (self: Collection, collection: Collection) => boolean
+    containsAll: (self: Collection, collection: Collection) => boolean
+    removeAll: (self: Collection, collection: Collection) => boolean
+    retainAll: (self: Collection, collection: Collection) => boolean
+    toArray: () => { returnType: object[], resultLength1: number }
+    addAllArray: (self: Collection, array: object[]) => boolean
+    containsAllArray: (self: Collection, array: object[]) => boolean
+    removeAllArray: (self: Collection, array: object[]) => boolean
+    addAllIterator: (self: Collection, iter: Iterator) => boolean
+    containsAllIterator: (self: Collection, iter: Iterator) => boolean
+    removeAllIterator: (self: Collection, iter: Iterator) => boolean
+    getSize: (self: Collection) => number
+    getIsEmpty: (self: Collection) => boolean
+    getReadOnly: (self: Collection) => boolean
+    getReadOnlyView: (self: Collection) => Collection
     static name: string
 }
 export abstract class ComparableIface {
     /* Fields of Gee-0.8.Gee.ComparableIface */
-    compareTo: (object?: object | null) => number
+    compareTo: (self: Comparable, object?: object | null) => number
     static name: string
 }
 export abstract class DequeIface {
     /* Fields of Gee-0.8.Gee.DequeIface */
-    offerHead: (element?: object | null) => boolean
-    peekHead: () => object | null
-    pollHead: () => object | null
-    drainHead: (recipient: Collection, amount: number) => number
-    offerTail: (element?: object | null) => boolean
-    peekTail: () => object | null
-    pollTail: () => object | null
-    drainTail: (recipient: Collection, amount: number) => number
+    offerHead: (self: Deque, element?: object | null) => boolean
+    peekHead: (self: Deque) => object | null
+    pollHead: (self: Deque) => object | null
+    drainHead: (self: Deque, recipient: Collection, amount: number) => number
+    offerTail: (self: Deque, element?: object | null) => boolean
+    peekTail: (self: Deque) => object | null
+    pollTail: (self: Deque) => object | null
+    drainTail: (self: Deque, recipient: Collection, amount: number) => number
     static name: string
 }
 export abstract class FutureIface {
     /* Fields of Gee-0.8.Gee.FutureIface */
-    wait: () => object | null
-    waitUntil: (endTime: number) => { returnType: boolean, value: object | null }
-    waitAsync: (callback?: Gio.AsyncReadyCallback | null) => void
-    waitFinish: (res: Gio.AsyncResult) => object | null
-    map: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Future
-    lightMap: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Future
-    lightMapBroken: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Future
-    zip: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, bType: GObject.Type, bDupFunc: GObject.BoxedCopyFunc, bDestroyFunc: GLib.DestroyNotify, zipFunc: any, second: Future) => Future
-    flatMap: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Future
-    getValue: () => object | null
-    getReady: () => boolean
-    getException: () => GLib.Error | null
+    wait: (self: Future) => object | null
+    waitUntil: (self: Future, endTime: number) => { returnType: boolean, value: object | null }
+    waitAsync: (self: Future, callback?: Gio.AsyncReadyCallback | null) => void
+    waitFinish: (self: Future, res: Gio.AsyncResult) => object | null
+    map: (self: Future, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Future
+    lightMap: (self: Future, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Future
+    lightMapBroken: (self: Future, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Future
+    zip: (self: Future, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, bType: GObject.Type, bDupFunc: GObject.BoxedCopyFunc, bDestroyFunc: GLib.DestroyNotify, zipFunc: any, second: Future) => Future
+    flatMap: (self: Future, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, func: any) => Future
+    getValue: (self: Future) => object | null
+    getReady: (self: Future) => boolean
+    getException: (self: Future) => GLib.Error | null
     static name: string
 }
 export abstract class HashableIface {
     /* Fields of Gee-0.8.Gee.HashableIface */
-    hash: () => number
-    equalTo: (object?: object | null) => boolean
+    hash: (self: Hashable) => number
+    equalTo: (self: Hashable, object?: object | null) => boolean
     static name: string
 }
 export abstract class IterableIface {
     /* Fields of Gee-0.8.Gee.IterableIface */
-    iterator: () => Iterator
+    iterator: (self: Iterable) => Iterator
     static name: string
 }
 export abstract class IteratorIface {
     /* Fields of Gee-0.8.Gee.IteratorIface */
-    next: () => boolean
-    hasNext: () => boolean
-    get: () => object | null
-    remove: () => void
-    getValid: () => boolean
-    getReadOnly: () => boolean
+    next: (self: Iterator) => boolean
+    hasNext: (self: Iterator) => boolean
+    get: (self: Iterator) => object | null
+    remove: (self: Iterator) => void
+    getValid: (self: Iterator) => boolean
+    getReadOnly: (self: Iterator) => boolean
     static name: string
 }
 export abstract class ListIface {
     /* Fields of Gee-0.8.Gee.ListIface */
-    listIterator: () => ListIterator
-    get: (index: number) => object | null
-    set: (index: number, item?: object | null) => void
-    indexOf: (item?: object | null) => number
-    insert: (index: number, item?: object | null) => void
-    removeAt: (index: number) => object | null
-    slice: (start: number, stop: number) => List | null
-    first: () => object | null
-    last: () => object | null
-    insertAll: (index: number, collection: Collection) => void
-    sort: (compareFunc: GLib.CompareDataFunc | null) => void
-    getReadOnlyView: () => List
+    listIterator: (self: List) => ListIterator
+    get: (self: List, index: number) => object | null
+    set: (self: List, index: number, item?: object | null) => void
+    indexOf: (self: List, item?: object | null) => number
+    insert: (self: List, index: number, item?: object | null) => void
+    removeAt: (self: List, index: number) => object | null
+    slice: (self: List, start: number, stop: number) => List | null
+    first: (self: List) => object | null
+    last: (self: List) => object | null
+    insertAll: (self: List, index: number, collection: Collection) => void
+    sort: (self: List, compareFunc: GLib.CompareDataFunc | null) => void
+    getReadOnlyView: (self: List) => List
     static name: string
 }
 export abstract class ListIteratorIface {
     /* Fields of Gee-0.8.Gee.ListIteratorIface */
-    set: (item?: object | null) => void
-    add: (item?: object | null) => void
-    index: () => number
+    set: (self: ListIterator, item?: object | null) => void
+    add: (self: ListIterator, item?: object | null) => void
+    index: (self: ListIterator) => number
     static name: string
 }
 export abstract class MapIface {
     /* Fields of Gee-0.8.Gee.MapIface */
-    hasKey: (key?: object | null) => boolean
-    has: (key?: object | null, value?: object | null) => boolean
-    get: (key?: object | null) => object | null
-    set: (key?: object | null, value?: object | null) => void
-    unset: (key?: object | null) => { returnType: boolean, value: object | null }
-    clear: () => void
-    mapIterator: () => MapIterator
-    setAll: (map: Map) => void
-    unsetAll: (map: Map) => boolean
-    hasAll: (map: Map) => boolean
-    getSize: () => number
-    getIsEmpty: () => boolean
-    getReadOnly: () => boolean
-    getKeys: () => Set
-    getValues: () => Collection
-    getEntries: () => Set
-    getReadOnlyView: () => Map
+    hasKey: (self: Map, key?: object | null) => boolean
+    has: (self: Map, key?: object | null, value?: object | null) => boolean
+    get: (self: Map, key?: object | null) => object | null
+    set: (self: Map, key?: object | null, value?: object | null) => void
+    unset: (self: Map, key?: object | null) => { returnType: boolean, value: object | null }
+    clear: (self: Map) => void
+    mapIterator: (self: Map) => MapIterator
+    setAll: (self: Map, map: Map) => void
+    unsetAll: (self: Map, map: Map) => boolean
+    hasAll: (self: Map, map: Map) => boolean
+    getSize: (self: Map) => number
+    getIsEmpty: (self: Map) => boolean
+    getReadOnly: (self: Map) => boolean
+    getKeys: (self: Map) => Set
+    getValues: (self: Map) => Collection
+    getEntries: (self: Map) => Set
+    getReadOnlyView: (self: Map) => Map
     static name: string
 }
 export abstract class MapEntryClass {
@@ -6049,101 +6049,101 @@ export class MapEntryPrivate {
 }
 export abstract class MapIteratorIface {
     /* Fields of Gee-0.8.Gee.MapIteratorIface */
-    next: () => boolean
-    hasNext: () => boolean
-    getKey: () => object | null
-    getValue: () => object | null
-    setValue: (value?: object | null) => void
-    unset: () => void
-    fold: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: FoldMapFunc, seed?: object | null) => object | null
-    foreach: (f: ForallMapFunc) => boolean
-    getValid: () => boolean
-    getMutable: () => boolean
-    getReadOnly: () => boolean
+    next: (self: MapIterator) => boolean
+    hasNext: (self: MapIterator) => boolean
+    getKey: (self: MapIterator) => object | null
+    getValue: (self: MapIterator) => object | null
+    setValue: (self: MapIterator, value?: object | null) => void
+    unset: (self: MapIterator) => void
+    fold: (self: MapIterator, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: FoldMapFunc, seed?: object | null) => object | null
+    foreach: (self: MapIterator, f: ForallMapFunc) => boolean
+    getValid: (self: MapIterator) => boolean
+    getMutable: (self: MapIterator) => boolean
+    getReadOnly: (self: MapIterator) => boolean
     static name: string
 }
 export abstract class MultiMapIface {
     /* Fields of Gee-0.8.Gee.MultiMapIface */
-    getKeys: () => Set
-    getAllKeys: () => MultiSet
-    getValues: () => Collection
-    contains: (key?: object | null) => boolean
-    get: (key?: object | null) => Collection
-    set: (key?: object | null, value?: object | null) => void
-    remove: (key?: object | null, value?: object | null) => boolean
-    removeAll: (key?: object | null) => boolean
-    clear: () => void
-    mapIterator: () => MapIterator
-    getSize: () => number
-    getReadOnly: () => boolean
-    getReadOnlyView: () => MultiMap
+    getKeys: (self: MultiMap) => Set
+    getAllKeys: (self: MultiMap) => MultiSet
+    getValues: (self: MultiMap) => Collection
+    contains: (self: MultiMap, key?: object | null) => boolean
+    get: (self: MultiMap, key?: object | null) => Collection
+    set: (self: MultiMap, key?: object | null, value?: object | null) => void
+    remove: (self: MultiMap, key?: object | null, value?: object | null) => boolean
+    removeAll: (self: MultiMap, key?: object | null) => boolean
+    clear: (self: MultiMap) => void
+    mapIterator: (self: MultiMap) => MapIterator
+    getSize: (self: MultiMap) => number
+    getReadOnly: (self: MultiMap) => boolean
+    getReadOnlyView: (self: MultiMap) => MultiMap
     static name: string
 }
 export abstract class MultiSetIface {
     /* Fields of Gee-0.8.Gee.MultiSetIface */
-    count: (item?: object | null) => number
-    getReadOnlyView: () => MultiSet
+    count: (self: MultiSet, item?: object | null) => number
+    getReadOnlyView: (self: MultiSet) => MultiSet
     static name: string
 }
 export abstract class QueueIface {
     /* Fields of Gee-0.8.Gee.QueueIface */
-    offer: (element?: object | null) => boolean
-    peek: () => object | null
-    poll: () => object | null
-    drain: (recipient: Collection, amount: number) => number
-    getCapacity: () => number
-    getRemainingCapacity: () => number
-    getIsFull: () => boolean
+    offer: (self: Queue, element?: object | null) => boolean
+    peek: (self: Queue) => object | null
+    poll: (self: Queue) => object | null
+    drain: (self: Queue, recipient: Collection, amount: number) => number
+    getCapacity: (self: Queue) => number
+    getRemainingCapacity: (self: Queue) => number
+    getIsFull: (self: Queue) => boolean
     static name: string
 }
 export abstract class SetIface {
     /* Fields of Gee-0.8.Gee.SetIface */
-    getReadOnlyView: () => Set
+    getReadOnlyView: (self: Set) => Set
     static name: string
 }
 export abstract class SortedMapIface {
     /* Fields of Gee-0.8.Gee.SortedMapIface */
-    headMap: (before?: object | null) => SortedMap
-    tailMap: (after?: object | null) => SortedMap
-    subMap: (before?: object | null, after?: object | null) => SortedMap
-    getAscendingKeys: () => SortedSet
-    getAscendingEntries: () => SortedSet
-    getReadOnlyView: () => SortedMap
+    headMap: (self: SortedMap, before?: object | null) => SortedMap
+    tailMap: (self: SortedMap, after?: object | null) => SortedMap
+    subMap: (self: SortedMap, before?: object | null, after?: object | null) => SortedMap
+    getAscendingKeys: (self: SortedMap) => SortedSet
+    getAscendingEntries: (self: SortedMap) => SortedSet
+    getReadOnlyView: (self: SortedMap) => SortedMap
     static name: string
 }
 export abstract class SortedSetIface {
     /* Fields of Gee-0.8.Gee.SortedSetIface */
-    first: () => object | null
-    last: () => object | null
-    iteratorAt: (element?: object | null) => Iterator | null
-    lower: (element?: object | null) => object | null
-    higher: (element?: object | null) => object | null
-    floor: (element?: object | null) => object | null
-    ceil: (element?: object | null) => object | null
-    headSet: (before?: object | null) => SortedSet
-    tailSet: (after?: object | null) => SortedSet
-    subSet: (from?: object | null, to?: object | null) => SortedSet
-    getReadOnlyView: () => SortedSet
+    first: (self: SortedSet) => object | null
+    last: (self: SortedSet) => object | null
+    iteratorAt: (self: SortedSet, element?: object | null) => Iterator | null
+    lower: (self: SortedSet, element?: object | null) => object | null
+    higher: (self: SortedSet, element?: object | null) => object | null
+    floor: (self: SortedSet, element?: object | null) => object | null
+    ceil: (self: SortedSet, element?: object | null) => object | null
+    headSet: (self: SortedSet, before?: object | null) => SortedSet
+    tailSet: (self: SortedSet, after?: object | null) => SortedSet
+    subSet: (self: SortedSet, from?: object | null, to?: object | null) => SortedSet
+    getReadOnlyView: (self: SortedSet) => SortedSet
     static name: string
 }
 export abstract class TraversableIface {
     /* Fields of Gee-0.8.Gee.TraversableIface */
-    foreach: (f: ForallFunc) => boolean
-    stream: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: StreamFunc) => Iterator
-    fold: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: FoldFunc, seed?: object | null) => object | null
-    map: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: MapFunc) => Iterator
-    scan: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: FoldFunc, seed?: object | null) => Iterator
-    filter: (pred: Predicate) => Iterator
-    chop: (offset: number, length: number) => Iterator
-    flatMap: (aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: FlatMapFunc) => Iterator
-    tee: (forks: number) => Iterator[]
-    firstMatch: (pred: Predicate) => object | null
-    anyMatch: (pred: Predicate) => boolean
-    allMatch: (pred: Predicate) => boolean
-    max: (compare: GLib.CompareDataFunc) => object | null
-    min: (compare: GLib.CompareDataFunc) => object | null
-    orderBy: (compare: GLib.CompareDataFunc | null) => Iterator
-    getElementType: () => GObject.Type
+    foreach: (self: Traversable, f: ForallFunc) => boolean
+    stream: (self: Traversable, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: StreamFunc) => Iterator
+    fold: (self: Traversable, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: FoldFunc, seed?: object | null) => object | null
+    map: (self: Traversable, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: MapFunc) => Iterator
+    scan: (self: Traversable, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: FoldFunc, seed?: object | null) => Iterator
+    filter: (self: Traversable, pred: Predicate) => Iterator
+    chop: (self: Traversable, offset: number, length: number) => Iterator
+    flatMap: (self: Traversable, aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: FlatMapFunc) => Iterator
+    tee: (self: Traversable) => { returnType: Iterator[], resultLength1: number }
+    firstMatch: (self: Traversable, pred: Predicate) => object | null
+    anyMatch: (self: Traversable, pred: Predicate) => boolean
+    allMatch: (self: Traversable, pred: Predicate) => boolean
+    max: (self: Traversable, compare: GLib.CompareDataFunc) => object | null
+    min: (self: Traversable, compare: GLib.CompareDataFunc) => object | null
+    orderBy: (self: Traversable, compare: GLib.CompareDataFunc | null) => Iterator
+    getElementType: (self: Traversable) => GObject.Type
     static name: string
 }
 }

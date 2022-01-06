@@ -23,6 +23,11 @@ export enum ClockFormat {
     /* 24H (invalid, starts with a number) */
     /* 12H (invalid, starts with a number) */
 }
+export enum ColorScheme {
+    DEFAULT,
+    PREFER_DARK,
+    PREFER_LIGHT,
+}
 export enum DeviceSendEvents {
     ENABLED,
     DISABLED,

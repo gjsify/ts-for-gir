@@ -381,6 +381,7 @@ export enum UnicodeBreakType {
     HANGUL_LV_SYLLABLE,
     HANGUL_LVT_SYLLABLE,
     CLOSE_PARANTHESIS,
+    CLOSE_PARENTHESIS,
     CONDITIONAL_JAPANESE_STARTER,
     HEBREW_LETTER,
     REGIONAL_INDICATOR,
@@ -547,6 +548,11 @@ export enum UnicodeScript {
     DIVES_AKURU,
     KHITAN_SMALL_SCRIPT,
     YEZIDI,
+    CYPRO_MINOAN,
+    OLD_UYGHUR,
+    TANGSA,
+    TOTO,
+    VITHKUQI,
 }
 export enum UnicodeType {
     CONTROL,
@@ -715,6 +721,10 @@ export enum LogLevelFlags {
     LEVEL_INFO,
     LEVEL_DEBUG,
     LEVEL_MASK,
+}
+export enum MainContextFlags {
+    NONE,
+    OWNERLESS_POLLING,
 }
 export enum MarkupCollectType {
     INVALID,
@@ -961,6 +971,7 @@ export const USEC_PER_SEC: number
 export const VA_COPY_AS_ARRAY: number
 export const VERSION_MIN_REQUIRED: number
 export const WIN32_MSG_HANDLE: number
+export const macro__has_attribute___noreturn__: number
 export function access(filename: string, mode: number): number
 export function asciiDigitValue(c: number): number
 export function asciiDtostr(buffer: string, bufLen: number, d: number): string
@@ -1034,7 +1045,7 @@ export function byteArraySteal(array: any[]): { returnType: number, len: number 
 export function byteArrayUnref(array: any[]): void
 export function canonicalizeFilename(filename: string, relativeTo?: string | null): string
 export function chdir(path: string): number
-export function checkVersion(requiredMajor: number, requiredMinor: number, requiredMicro: number): string
+export function checkVersion(requiredMajor: number, requiredMinor: number, requiredMicro: number): string | null
 export function checksumTypeGetLength(checksumType: ChecksumType): number
 export function childWatchAdd(priority: number, pid: Pid, function_: ChildWatchFunc): number
 export function childWatchSourceNew(pid: Pid): Source
@@ -1079,7 +1090,7 @@ export function doubleEqual(v1: object, v2: object): boolean
 export function doubleHash(v: object): number
 export function dpgettext(domain: string | null, msgctxtid: string, msgidoffset: number): string
 export function dpgettext2(domain: string | null, context: string, msgid: string): string
-export function environGetenv(envp: string[] | null, variable: string): string
+export function environGetenv(envp: string[] | null, variable: string): string | null
 export function environSetenv(envp: string[] | null, variable: string, value: string, overwrite: boolean): string[]
 export function environUnsetenv(envp: string[] | null, variable: string): string[]
 export function fileErrorFromErrno(errNo: number): FileError
@@ -1128,8 +1139,8 @@ export function getUserConfigDir(): string
 export function getUserDataDir(): string
 export function getUserName(): string
 export function getUserRuntimeDir(): string
-export function getUserSpecialDir(directory: UserDirectory): string
-export function getenv(variable: string): string
+export function getUserSpecialDir(directory: UserDirectory): string | null
+export function getenv(variable: string): string | null
 export function hashTableAdd(hashTable: HashTable, key?: object | null): boolean
 export function hashTableContains(hashTable: HashTable, key?: object | null): boolean
 export function hashTableDestroy(hashTable: HashTable): void
@@ -1217,13 +1228,12 @@ export function pathGetBasename(fileName: string): string
 export function pathGetDirname(fileName: string): string
 export function pathIsAbsolute(fileName: string): boolean
 export function pathSkipRoot(fileName: string): string | null
-export function patternMatch(pspec: PatternSpec, stringLength: number, string: string, stringReversed?: string | null): boolean
 export function patternMatchSimple(pattern: string, string: string): boolean
-export function patternMatchString(pspec: PatternSpec, string: string): boolean
 export function pointerBitLock(address: object, lockBit: number): void
 export function pointerBitTrylock(address: object, lockBit: number): boolean
 export function pointerBitUnlock(address: object, lockBit: number): void
 export function poll(fds: PollFD, nfds: number, timeout: number): number
+export function prefixErrorLiteral(err: Error | null, prefix: string): void
 export function propagateError(src: Error): { dest: Error | null }
 export function quarkFromStaticString(string?: string | null): Quark
 export function quarkFromString(string?: string | null): Quark
@@ -1294,13 +1304,15 @@ export function spacedPrimesClosest(num: number): number
 export function spawnAsync(workingDirectory: string | null, argv: string[], envp: string[] | null, flags: SpawnFlags, childSetup?: SpawnChildSetupFunc | null): { returnType: boolean, childPid: Pid | null }
 export function spawnAsyncWithFds(workingDirectory: string | null, argv: string[], envp: string[] | null, flags: SpawnFlags, childSetup: SpawnChildSetupFunc | null, stdinFd: number, stdoutFd: number, stderrFd: number): { returnType: boolean, childPid: Pid | null }
 export function spawnAsyncWithPipes(workingDirectory: string | null, argv: string[], envp: string[] | null, flags: SpawnFlags, childSetup?: SpawnChildSetupFunc | null): { returnType: boolean, childPid: Pid | null, standardInput: number | null, standardOutput: number | null, standardError: number | null }
-export function spawnCheckExitStatus(exitStatus: number): boolean
+export function spawnAsyncWithPipesAndFds(workingDirectory: string | null, argv: string[], envp: string[] | null, flags: SpawnFlags, childSetup: SpawnChildSetupFunc | null, stdinFd: number, stdoutFd: number, stderrFd: number, sourceFds: number[] | null, targetFds: number[] | null): { returnType: boolean, childPidOut: Pid | null, stdinPipeOut: number | null, stdoutPipeOut: number | null, stderrPipeOut: number | null }
+export function spawnCheckExitStatus(waitStatus: number): boolean
+export function spawnCheckWaitStatus(waitStatus: number): boolean
 export function spawnClosePid(pid: Pid): void
 export function spawnCommandLineAsync(commandLine: string): boolean
-export function spawnCommandLineSync(commandLine: string): { returnType: boolean, standardOutput: any[] | null, standardError: any[] | null, exitStatus: number | null }
+export function spawnCommandLineSync(commandLine: string): { returnType: boolean, standardOutput: any[] | null, standardError: any[] | null, waitStatus: number | null }
 export function spawnErrorQuark(): Quark
 export function spawnExitErrorQuark(): Quark
-export function spawnSync(workingDirectory: string | null, argv: string[], envp: string[] | null, flags: SpawnFlags, childSetup?: SpawnChildSetupFunc | null): { returnType: boolean, standardOutput: any[] | null, standardError: any[] | null, exitStatus: number | null }
+export function spawnSync(workingDirectory: string | null, argv: string[], envp: string[] | null, flags: SpawnFlags, childSetup?: SpawnChildSetupFunc | null): { returnType: boolean, standardOutput: any[] | null, standardError: any[] | null, waitStatus: number | null }
 export function stpcpy(dest: string, src: string): string
 export function strEqual(v1: object, v2: object): boolean
 export function strHasPrefix(str: string, prefix: string): boolean
@@ -1322,9 +1334,6 @@ export function strdup(str?: string | null): string
 export function strerror(errnum: number): string
 export function strescape(source: string, exceptions?: string | null): string
 export function strfreev(strArray?: string | null): void
-export function stringNew(init?: string | null): String
-export function stringNewLen(init: string, len: number): String
-export function stringSizedNew(dflSize: number): String
 export function stripContext(msgid: string, msgval: string): string
 export function strjoinv(separator: string | null, strArray: string): string
 export function strlcat(dest: string, src: string, destSize: number): number
@@ -1512,7 +1521,7 @@ export function variantTypeStringGetDepth(typeString: string): number
 export function variantTypeStringIsValid(typeString: string): boolean
 export function variantTypeStringScan(string: string, limit?: string | null): { returnType: boolean, endptr: string | null }
 export interface ChildWatchFunc {
-    (pid: Pid, status: number): void
+    (pid: Pid, waitStatus: number): void
 }
 export interface ClearHandleFunc {
     (handleId: number): void
@@ -1764,6 +1773,7 @@ export class Bytes {
     compare(bytes2: any): number
     equal(bytes2: any): boolean
     getData(): any[] | null
+    getRegion(elementSize: number, offset: number, nElements: number): object | null
     getSize(): number
     hash(): number
     newFromBytes(offset: number, length: number): any
@@ -2176,6 +2186,7 @@ export class MainContext {
     constructor()
     /* Static methods and pseudo-constructors */
     static new(): MainContext
+    static newWithFlags(flags: MainContextFlags): MainContext
     static default(): MainContext
     static getThreadDefault(): MainContext | null
     static refThreadDefault(): MainContext
@@ -2345,9 +2356,16 @@ export class OptionGroup {
 }
 export class PatternSpec {
     /* Methods of GLib-2.0.GLib.PatternSpec */
+    copy(): PatternSpec
     equal(pspec2: PatternSpec): boolean
     free(): void
+    match(stringLength: number, string: string, stringReversed?: string | null): boolean
+    matchString(string: string): boolean
     static name: string
+    static new(pattern: string): PatternSpec
+    constructor(pattern: string)
+    /* Static methods and pseudo-constructors */
+    static new(pattern: string): PatternSpec
 }
 export class PollFD {
     /* Fields of GLib-2.0.GLib.PollFD */
@@ -2596,6 +2614,7 @@ export class Source {
     setName(name: string): void
     setPriority(priority: number): void
     setReadyTime(readyTime: number): void
+    setStaticName(name: string): void
     unref(): void
     static name: string
     static new(sourceFuncs: SourceFuncs, structSize: number): Source
@@ -2661,6 +2680,12 @@ export class String {
     truncate(len: number): String
     up(): String
     static name: string
+    static new(init?: string | null): String
+    constructor(init?: string | null)
+    /* Static methods and pseudo-constructors */
+    static new(init?: string | null): String
+    static newLen(init: string, len: number): String
+    static sizedNew(dflSize: number): String
 }
 export class StringChunk {
     /* Methods of GLib-2.0.GLib.StringChunk */
@@ -2674,11 +2699,14 @@ export class StringChunk {
 export class StrvBuilder {
     /* Methods of GLib-2.0.GLib.StrvBuilder */
     add(value: string): void
+    addv(value: string[]): void
     end(): string[]
     unref(): void
     static name: string
 }
 export class TestCase {
+    /* Methods of GLib-2.0.GLib.TestCase */
+    free(): void
     static name: string
 }
 export class TestConfig {
@@ -2711,6 +2739,7 @@ export class TestSuite {
     /* Methods of GLib-2.0.GLib.TestSuite */
     add(testCase: TestCase): void
     addSuite(nestedsuite: TestSuite): void
+    free(): void
     static name: string
 }
 export class Thread {
@@ -2818,6 +2847,7 @@ export class Tree {
     nodeLast(): TreeNode | null
     ref(): Tree
     remove(key?: object | null): boolean
+    removeAll(): void
     replace(key?: object | null, value?: object | null): void
     replaceNode(key?: object | null, value?: object | null): TreeNode
     steal(key?: object | null): boolean

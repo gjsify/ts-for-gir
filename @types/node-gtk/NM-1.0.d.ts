@@ -336,6 +336,12 @@ export enum SettingConnectionAutoconnectSlaves {
     NO,
     YES,
 }
+export enum SettingConnectionDnsOverTls {
+    DEFAULT,
+    NO,
+    OPPORTUNISTIC,
+    YES,
+}
 export enum SettingConnectionLldp {
     DEFAULT,
     DISABLE,
@@ -585,9 +591,13 @@ export enum ClientInstanceFlags {
 }
 export enum ConnectionSerializationFlags {
     ALL,
+    WITH_NON_SECRET,
     NO_SECRETS,
+    WITH_SECRETS,
     ONLY_SECRETS,
     WITH_SECRETS_AGENT_OWNED,
+    WITH_SECRETS_SYSTEM_OWNED,
+    WITH_SECRETS_NOT_SAVED,
 }
 export enum DeviceCapabilities {
     NONE,
@@ -599,7 +609,9 @@ export enum DeviceCapabilities {
 export enum DeviceInterfaceFlags {
     UP,
     LOWER_UP,
+    PROMISC,
     CARRIER,
+    LLDP_CLIENT_ENABLED,
 }
 export enum DeviceModemCapabilities {
     NONE,
@@ -836,6 +848,7 @@ export const CLIENT_WIRELESS_HARDWARE_ENABLED: string
 export const CLIENT_WWAN_ENABLED: string
 export const CLIENT_WWAN_HARDWARE_ENABLED: string
 export const CONNECTION_CHANGED: string
+export const CONNECTION_NORMALIZE_PARAM_IP4_CONFIG_METHOD: string
 export const CONNECTION_NORMALIZE_PARAM_IP6_CONFIG_METHOD: string
 export const CONNECTION_SECRETS_CLEARED: string
 export const CONNECTION_SECRETS_UPDATED: string
@@ -963,6 +976,7 @@ export const DEVICE_OVS_BRIDGE_SLAVES: string
 export const DEVICE_OVS_PORT_SLAVES: string
 export const DEVICE_PATH: string
 export const DEVICE_PHYSICAL_PORT_ID: string
+export const DEVICE_PORTS: string
 export const DEVICE_PRODUCT: string
 export const DEVICE_REAL: string
 export const DEVICE_STATE: string
@@ -1109,6 +1123,9 @@ export const ETHTOOL_OPTNAME_FEATURE_TX_UDP_SEGMENTATION: string
 export const ETHTOOL_OPTNAME_FEATURE_TX_UDP_TNL_CSUM_SEGMENTATION: string
 export const ETHTOOL_OPTNAME_FEATURE_TX_UDP_TNL_SEGMENTATION: string
 export const ETHTOOL_OPTNAME_FEATURE_TX_VLAN_STAG_HW_INSERT: string
+export const ETHTOOL_OPTNAME_PAUSE_AUTONEG: string
+export const ETHTOOL_OPTNAME_PAUSE_RX: string
+export const ETHTOOL_OPTNAME_PAUSE_TX: string
 export const ETHTOOL_OPTNAME_RING_RX: string
 export const ETHTOOL_OPTNAME_RING_RX_JUMBO: string
 export const ETHTOOL_OPTNAME_RING_RX_MINI: string
@@ -1167,6 +1184,7 @@ export const LLDP_DEST_NEAREST_NON_TPMR_BRIDGE: string
 export const MAJOR_VERSION: number
 export const MICRO_VERSION: number
 export const MINOR_VERSION: number
+export const OBJECT_CLIENT: string
 export const OBJECT_PATH: string
 export const REMOTE_CONNECTION_DBUS_CONNECTION: string
 export const REMOTE_CONNECTION_FILENAME: string
@@ -1271,6 +1289,7 @@ export const SETTING_BOND_OPTION_MODE: string
 export const SETTING_BOND_OPTION_NUM_GRAT_ARP: string
 export const SETTING_BOND_OPTION_NUM_UNSOL_NA: string
 export const SETTING_BOND_OPTION_PACKETS_PER_SLAVE: string
+export const SETTING_BOND_OPTION_PEER_NOTIF_DELAY: string
 export const SETTING_BOND_OPTION_PRIMARY: string
 export const SETTING_BOND_OPTION_PRIMARY_RESELECT: string
 export const SETTING_BOND_OPTION_RESEND_IGMP: string
@@ -1278,6 +1297,8 @@ export const SETTING_BOND_OPTION_TLB_DYNAMIC_LB: string
 export const SETTING_BOND_OPTION_UPDELAY: string
 export const SETTING_BOND_OPTION_USE_CARRIER: string
 export const SETTING_BOND_OPTION_XMIT_HASH_POLICY: string
+export const SETTING_BOND_PORT_QUEUE_ID: string
+export const SETTING_BOND_PORT_SETTING_NAME: string
 export const SETTING_BOND_SETTING_NAME: string
 export const SETTING_BRIDGE_AGEING_TIME: string
 export const SETTING_BRIDGE_FORWARD_DELAY: string
@@ -1326,6 +1347,7 @@ export const SETTING_CONNECTION_AUTOCONNECT_PRIORITY_MAX: number
 export const SETTING_CONNECTION_AUTOCONNECT_PRIORITY_MIN: number
 export const SETTING_CONNECTION_AUTOCONNECT_RETRIES: string
 export const SETTING_CONNECTION_AUTOCONNECT_SLAVES: string
+export const SETTING_CONNECTION_DNS_OVER_TLS: string
 export const SETTING_CONNECTION_GATEWAY_PING_TIMEOUT: string
 export const SETTING_CONNECTION_ID: string
 export const SETTING_CONNECTION_INTERFACE_NAME: string
@@ -1452,6 +1474,7 @@ export const SETTING_IP_CONFIG_IGNORE_AUTO_ROUTES: string
 export const SETTING_IP_CONFIG_MAY_FAIL: string
 export const SETTING_IP_CONFIG_METHOD: string
 export const SETTING_IP_CONFIG_NEVER_DEFAULT: string
+export const SETTING_IP_CONFIG_REQUIRED_TIMEOUT: string
 export const SETTING_IP_CONFIG_ROUTES: string
 export const SETTING_IP_CONFIG_ROUTE_METRIC: string
 export const SETTING_IP_CONFIG_ROUTE_TABLE: string
@@ -1659,6 +1682,7 @@ export const SETTING_WIFI_P2P_WPS_METHOD: string
 export const SETTING_WIMAX_MAC_ADDRESS: string
 export const SETTING_WIMAX_NETWORK_NAME: string
 export const SETTING_WIMAX_SETTING_NAME: string
+export const SETTING_WIRED_ACCEPT_ALL_MAC_ADDRESSES: string
 export const SETTING_WIRED_AUTO_NEGOTIATE: string
 export const SETTING_WIRED_CLONED_MAC_ADDRESS: string
 export const SETTING_WIRED_DUPLEX: string
@@ -1824,6 +1848,7 @@ export function cryptoErrorQuark(): GLib.Quark
 export function deviceErrorQuark(): GLib.Quark
 export function ethtoolOptnameIsCoalesce(optname?: string | null): boolean
 export function ethtoolOptnameIsFeature(optname?: string | null): boolean
+export function ethtoolOptnameIsPause(optname?: string | null): boolean
 export function ethtoolOptnameIsRing(optname?: string | null): boolean
 export function ipRouteAttributeValidate(name: string, value: GLib.Variant, family: number): { returnType: boolean, known: boolean }
 export function ipRouteGetVariantAttributeSpec(): VariantAttributeSpec
@@ -2080,6 +2105,7 @@ export class AccessPoint {
     readonly strength: number
     readonly wpaFlags: TODO_80211ApSecurityFlags
     /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     readonly path: string
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -2182,6 +2208,11 @@ export class AccessPoint {
     on(sigName: "notify::wpa-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::wpa-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::wpa-flags", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: AccessPoint, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: AccessPoint, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::path", callback: (($obj: AccessPoint, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::path", callback: (($obj: AccessPoint, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::path", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2220,6 +2251,7 @@ export class ActiveConnection {
     readonly uuid: string
     readonly vpn: boolean
     /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     readonly path: string
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -2358,6 +2390,11 @@ export class ActiveConnection {
     on(sigName: "notify::vpn", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vpn", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vpn", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: ActiveConnection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: ActiveConnection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::path", callback: (($obj: ActiveConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::path", callback: (($obj: ActiveConnection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::path", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2383,6 +2420,7 @@ export class Checkpoint {
     readonly devices: Device[]
     readonly rollbackTimeout: number
     /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     readonly path: string
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -2436,6 +2474,11 @@ export class Checkpoint {
     on(sigName: "notify::rollback-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::rollback-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::rollback-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: Checkpoint, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: Checkpoint, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::path", callback: (($obj: Checkpoint, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::path", callback: (($obj: Checkpoint, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::path", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -2874,12 +2917,15 @@ export class Device {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.Device */
@@ -2921,6 +2967,7 @@ export class Device {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -3101,6 +3148,11 @@ export class Device {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3131,6 +3183,11 @@ export class Device {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: Device, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3177,12 +3234,15 @@ export class Device6Lowpan {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.Device6Lowpan */
@@ -3226,6 +3286,7 @@ export class Device6Lowpan {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -3411,6 +3472,11 @@ export class Device6Lowpan {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: Device6Lowpan, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: Device6Lowpan, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: Device6Lowpan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: Device6Lowpan, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3441,6 +3507,11 @@ export class Device6Lowpan {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: Device6Lowpan, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: Device6Lowpan, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3485,12 +3556,15 @@ export class DeviceAdsl {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceAdsl */
@@ -3534,6 +3608,7 @@ export class DeviceAdsl {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -3719,6 +3794,11 @@ export class DeviceAdsl {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceAdsl, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceAdsl, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceAdsl, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceAdsl, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -3749,6 +3829,11 @@ export class DeviceAdsl {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceAdsl, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceAdsl, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3794,12 +3879,15 @@ export class DeviceBond {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceBond */
@@ -3844,6 +3932,7 @@ export class DeviceBond {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -4034,6 +4123,11 @@ export class DeviceBond {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceBond, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceBond, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceBond, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceBond, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4064,6 +4158,11 @@ export class DeviceBond {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceBond, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceBond, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4109,12 +4208,15 @@ export class DeviceBridge {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceBridge */
@@ -4159,6 +4261,7 @@ export class DeviceBridge {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -4349,6 +4452,11 @@ export class DeviceBridge {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceBridge, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceBridge, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceBridge, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceBridge, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4379,6 +4487,11 @@ export class DeviceBridge {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceBridge, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceBridge, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4424,12 +4537,15 @@ export class DeviceBt {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceBt */
@@ -4474,6 +4590,7 @@ export class DeviceBt {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -4664,6 +4781,11 @@ export class DeviceBt {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceBt, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceBt, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceBt, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceBt, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4694,6 +4816,11 @@ export class DeviceBt {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceBt, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceBt, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4736,12 +4863,15 @@ export class DeviceDummy {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.Device */
@@ -4783,6 +4913,7 @@ export class DeviceDummy {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -4963,6 +5094,11 @@ export class DeviceDummy {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceDummy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceDummy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceDummy, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceDummy, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -4993,6 +5129,11 @@ export class DeviceDummy {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceDummy, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceDummy, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5040,12 +5181,15 @@ export class DeviceEthernet {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceEthernet */
@@ -5092,6 +5236,7 @@ export class DeviceEthernet {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -5292,6 +5437,11 @@ export class DeviceEthernet {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceEthernet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceEthernet, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceEthernet, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceEthernet, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5322,6 +5472,11 @@ export class DeviceEthernet {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceEthernet, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceEthernet, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5366,12 +5521,15 @@ export class DeviceGeneric {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.Device */
@@ -5413,6 +5571,7 @@ export class DeviceGeneric {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -5598,6 +5757,11 @@ export class DeviceGeneric {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceGeneric, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceGeneric, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceGeneric, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceGeneric, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -5628,6 +5792,11 @@ export class DeviceGeneric {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceGeneric, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceGeneric, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5683,12 +5852,15 @@ export class DeviceIPTunnel {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceIPTunnel */
@@ -5743,6 +5915,7 @@ export class DeviceIPTunnel {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -5983,6 +6156,11 @@ export class DeviceIPTunnel {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceIPTunnel, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceIPTunnel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceIPTunnel, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceIPTunnel, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6013,6 +6191,11 @@ export class DeviceIPTunnel {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceIPTunnel, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceIPTunnel, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6057,12 +6240,15 @@ export class DeviceInfiniband {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceInfiniband */
@@ -6106,6 +6292,7 @@ export class DeviceInfiniband {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -6291,6 +6478,11 @@ export class DeviceInfiniband {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceInfiniband, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceInfiniband, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceInfiniband, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceInfiniband, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6321,6 +6513,11 @@ export class DeviceInfiniband {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceInfiniband, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceInfiniband, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6377,12 +6574,15 @@ export class DeviceMacsec {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceMacsec */
@@ -6438,6 +6638,7 @@ export class DeviceMacsec {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -6683,6 +6884,11 @@ export class DeviceMacsec {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceMacsec, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceMacsec, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceMacsec, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceMacsec, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6713,6 +6919,11 @@ export class DeviceMacsec {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceMacsec, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceMacsec, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -6760,12 +6971,15 @@ export class DeviceMacvlan {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceMacvlan */
@@ -6812,6 +7026,7 @@ export class DeviceMacvlan {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -7012,6 +7227,11 @@ export class DeviceMacvlan {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceMacvlan, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceMacvlan, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceMacvlan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceMacvlan, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7042,6 +7262,11 @@ export class DeviceMacvlan {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceMacvlan, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceMacvlan, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7090,12 +7315,15 @@ export class DeviceModem {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceModem */
@@ -7143,6 +7371,7 @@ export class DeviceModem {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -7348,6 +7577,11 @@ export class DeviceModem {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceModem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceModem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceModem, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceModem, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7378,6 +7612,11 @@ export class DeviceModem {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceModem, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceModem, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7423,12 +7662,15 @@ export class DeviceOlpcMesh {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceOlpcMesh */
@@ -7473,6 +7715,7 @@ export class DeviceOlpcMesh {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -7663,6 +7906,11 @@ export class DeviceOlpcMesh {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceOlpcMesh, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceOlpcMesh, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceOlpcMesh, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceOlpcMesh, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7693,6 +7941,11 @@ export class DeviceOlpcMesh {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceOlpcMesh, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceOlpcMesh, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -7737,12 +7990,15 @@ export class DeviceOvsBridge {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceOvsBridge */
@@ -7786,6 +8042,7 @@ export class DeviceOvsBridge {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -7971,6 +8228,11 @@ export class DeviceOvsBridge {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceOvsBridge, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceOvsBridge, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceOvsBridge, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceOvsBridge, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8001,6 +8263,11 @@ export class DeviceOvsBridge {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceOvsBridge, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceOvsBridge, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8043,12 +8310,15 @@ export class DeviceOvsInterface {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.Device */
@@ -8090,6 +8360,7 @@ export class DeviceOvsInterface {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -8270,6 +8541,11 @@ export class DeviceOvsInterface {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceOvsInterface, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceOvsInterface, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceOvsInterface, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceOvsInterface, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8300,6 +8576,11 @@ export class DeviceOvsInterface {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceOvsInterface, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceOvsInterface, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8344,12 +8625,15 @@ export class DeviceOvsPort {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceOvsPort */
@@ -8393,6 +8677,7 @@ export class DeviceOvsPort {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -8578,6 +8863,11 @@ export class DeviceOvsPort {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceOvsPort, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceOvsPort, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceOvsPort, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceOvsPort, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8608,6 +8898,11 @@ export class DeviceOvsPort {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceOvsPort, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceOvsPort, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8650,12 +8945,15 @@ export class DevicePpp {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.Device */
@@ -8697,6 +8995,7 @@ export class DevicePpp {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -8877,6 +9176,11 @@ export class DevicePpp {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DevicePpp, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DevicePpp, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DevicePpp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DevicePpp, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -8907,6 +9211,11 @@ export class DevicePpp {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DevicePpp, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DevicePpp, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -8953,12 +9262,15 @@ export class DeviceTeam {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceTeam */
@@ -9004,6 +9316,7 @@ export class DeviceTeam {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -9199,6 +9512,11 @@ export class DeviceTeam {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceTeam, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceTeam, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceTeam, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceTeam, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9229,6 +9547,11 @@ export class DeviceTeam {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceTeam, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceTeam, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9278,12 +9601,15 @@ export class DeviceTun {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceTun */
@@ -9332,6 +9658,7 @@ export class DeviceTun {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -9542,6 +9869,11 @@ export class DeviceTun {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceTun, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceTun, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceTun, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceTun, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9572,6 +9904,11 @@ export class DeviceTun {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceTun, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceTun, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9621,12 +9958,15 @@ export class DeviceVeth {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceVeth */
@@ -9675,6 +10015,7 @@ export class DeviceVeth {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -9880,6 +10221,11 @@ export class DeviceVeth {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceVeth, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceVeth, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceVeth, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceVeth, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -9910,6 +10256,11 @@ export class DeviceVeth {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceVeth, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceVeth, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -9956,12 +10307,15 @@ export class DeviceVlan {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceVlan */
@@ -10007,6 +10361,7 @@ export class DeviceVlan {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -10202,6 +10557,11 @@ export class DeviceVlan {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceVlan, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceVlan, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceVlan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceVlan, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10232,6 +10592,11 @@ export class DeviceVlan {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceVlan, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceVlan, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10276,12 +10641,15 @@ export class DeviceVrf {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceVrf */
@@ -10325,6 +10693,7 @@ export class DeviceVrf {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -10510,6 +10879,11 @@ export class DeviceVrf {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceVrf, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceVrf, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceVrf, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceVrf, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10540,6 +10914,11 @@ export class DeviceVrf {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceVrf, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceVrf, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -10600,12 +10979,15 @@ export class DeviceVxlan {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceVxlan */
@@ -10665,6 +11047,7 @@ export class DeviceVxlan {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -10930,6 +11313,11 @@ export class DeviceVxlan {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceVxlan, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceVxlan, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceVxlan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceVxlan, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -10960,6 +11348,11 @@ export class DeviceVxlan {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceVxlan, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceVxlan, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11010,12 +11403,15 @@ export class DeviceWifi {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceWifi */
@@ -11071,6 +11467,7 @@ export class DeviceWifi {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -11297,6 +11694,11 @@ export class DeviceWifi {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceWifi, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceWifi, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceWifi, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceWifi, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11327,6 +11729,11 @@ export class DeviceWifi {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceWifi, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceWifi, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11371,12 +11778,15 @@ export class DeviceWifiP2P {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceWifiP2P */
@@ -11425,6 +11835,7 @@ export class DeviceWifiP2P {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -11621,6 +12032,11 @@ export class DeviceWifiP2P {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceWifiP2P, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceWifiP2P, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceWifiP2P, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceWifiP2P, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -11651,6 +12067,11 @@ export class DeviceWifiP2P {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceWifiP2P, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceWifiP2P, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -11701,12 +12122,15 @@ export class DeviceWimax {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceWimax */
@@ -11757,6 +12181,7 @@ export class DeviceWimax {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -11983,6 +12408,11 @@ export class DeviceWimax {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceWimax, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceWimax, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceWimax, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceWimax, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12013,6 +12443,11 @@ export class DeviceWimax {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceWimax, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceWimax, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -12059,12 +12494,15 @@ export class DeviceWireGuard {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.DeviceWireGuard */
@@ -12110,6 +12548,7 @@ export class DeviceWireGuard {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -12305,6 +12744,11 @@ export class DeviceWireGuard {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceWireGuard, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceWireGuard, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceWireGuard, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceWireGuard, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12335,6 +12779,11 @@ export class DeviceWireGuard {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceWireGuard, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceWireGuard, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -12377,12 +12826,15 @@ export class DeviceWpan {
     readonly nmPluginMissing: boolean
     readonly path: string
     readonly physicalPortId: string
+    readonly ports: object[]
     readonly product: string
     readonly real: boolean
     readonly state: DeviceState
     readonly stateReason: number
     readonly udi: string
     readonly vendor: string
+    /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.Device */
@@ -12424,6 +12876,7 @@ export class DeviceWpan {
     getNmPluginMissing(): boolean
     getPath(): string
     getPhysicalPortId(): string
+    getPorts(): Device[]
     getProduct(): string
     getSettingType(): GObject.Type
     getState(): DeviceState
@@ -12604,6 +13057,11 @@ export class DeviceWpan {
     on(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::physical-port-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::ports", callback: (($obj: DeviceWpan, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::ports", callback: (($obj: DeviceWpan, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::ports", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::product", callback: (($obj: DeviceWpan, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::product", callback: (($obj: DeviceWpan, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::product", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12634,6 +13092,11 @@ export class DeviceWpan {
     on(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vendor", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DeviceWpan, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DeviceWpan, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -12653,6 +13116,7 @@ export class DhcpConfig {
     readonly family: number
     readonly options: GLib.HashTable
     /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     readonly path: string
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -12701,6 +13165,11 @@ export class DhcpConfig {
     on(sigName: "notify::options", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::options", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::options", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: DhcpConfig, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: DhcpConfig, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::path", callback: (($obj: DhcpConfig, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::path", callback: (($obj: DhcpConfig, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::path", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12731,6 +13200,7 @@ export class IPConfig {
     readonly searches: string[]
     readonly winsServers: string[]
     /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     readonly path: string
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -12814,6 +13284,11 @@ export class IPConfig {
     on(sigName: "notify::wins-servers", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::wins-servers", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::wins-servers", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: IPConfig, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: IPConfig, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::path", callback: (($obj: IPConfig, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::path", callback: (($obj: IPConfig, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::path", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12835,6 +13310,7 @@ export interface Object_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Object {
     /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     readonly path: string
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -12869,6 +13345,11 @@ export class Object {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::client", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::path", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::path", callback: (($obj: Object, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::path", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -12895,6 +13376,7 @@ export class RemoteConnection {
     readonly unsaved: boolean
     readonly visible: boolean
     /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     readonly path: string
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -13051,6 +13533,11 @@ export class RemoteConnection {
     on(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::visible", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: RemoteConnection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: RemoteConnection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::path", callback: (($obj: RemoteConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::path", callback: (($obj: RemoteConnection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::path", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -13169,8 +13656,6 @@ export interface Setting_ConstructProps extends GObject.Object_ConstructProps {
 export class Setting {
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.Setting */
@@ -13424,8 +13909,6 @@ export class Setting8021x {
     systemCaCerts: boolean
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting8021x */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.Setting8021x */
@@ -13840,8 +14323,6 @@ export class SettingAdsl {
     vpi: number
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingAdsl */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingAdsl */
@@ -13964,8 +14445,6 @@ export class SettingBluetooth {
     type: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingBluetooth */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingBluetooth */
@@ -14056,8 +14535,6 @@ export class SettingBond {
     options: GLib.HashTable
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingBond */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingBond */
@@ -14142,6 +14619,90 @@ export class SettingBond {
     static validateOption(name: string, value: string): boolean
     static $gtype: GObject.Type
 }
+export interface SettingBondPort_ConstructProps extends Setting_ConstructProps {
+    queueId?: number
+}
+export class SettingBondPort {
+    /* Properties of NM-1.0.NM.SettingBondPort */
+    queueId: number
+    /* Properties of NM-1.0.NM.Setting */
+    readonly name: string
+    /* Fields of GObject-2.0.GObject.Object */
+    gTypeInstance: GObject.TypeInstance
+    /* Methods of NM-1.0.NM.SettingBondPort */
+    getQueueId(): number
+    /* Methods of NM-1.0.NM.Setting */
+    compare(b: Setting, flags: SettingCompareFlags): boolean
+    diff(b: Setting, flags: SettingCompareFlags, invertResults: boolean, results: GLib.HashTable): { returnType: boolean, results: GLib.HashTable }
+    duplicate(): Setting
+    enumerateValues(func: SettingValueIterFn): void
+    getDbusPropertyType(propertyName: string): GLib.VariantType
+    getName(): string
+    getSecretFlags(secretName: string, outFlags: SettingSecretFlags): boolean
+    optionClearByName(predicate?: UtilsPredicateStr | null): void
+    optionGet(optName: string): GLib.Variant
+    optionGetAllNames(): string[]
+    optionGetBoolean(optName: string): { returnType: boolean, outValue: boolean | null }
+    optionGetUint32(optName: string): { returnType: boolean, outValue: number | null }
+    optionSet(optName: string, variant?: GLib.Variant | null): void
+    optionSetBoolean(optName: string, value: boolean): void
+    optionSetUint32(optName: string, value: number): void
+    setSecretFlags(secretName: string, flags: SettingSecretFlags): boolean
+    toString(): string
+    verify(connection?: Connection | null): boolean
+    verifySecrets(connection?: Connection | null): boolean
+    /* Methods of GObject-2.0.GObject.Object */
+    bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
+    bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
+    forceFloating(): void
+    freezeNotify(): void
+    getData(key: string): object | null
+    getProperty(propertyName: string, value: any): void
+    getQdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    isFloating(): boolean
+    notify(propertyName: string): void
+    notifyByPspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    refSink(): GObject.Object
+    runDispose(): void
+    setData(key: string, data?: object | null): void
+    setProperty(propertyName: string, value: any): void
+    stealData(key: string): object | null
+    stealQdata(quark: GLib.Quark): object | null
+    thawNotify(): void
+    unref(): void
+    watchClosure(closure: Function): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: SettingBondPort, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::queue-id", callback: (($obj: SettingBondPort, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::queue-id", callback: (($obj: SettingBondPort, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::queue-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::queue-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::queue-id", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::name", callback: (($obj: SettingBondPort, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::name", callback: (($obj: SettingBondPort, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::name", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    on(sigName: string, callback: any): NodeJS.EventEmitter
+    once(sigName: string, callback: any): NodeJS.EventEmitter
+    off(sigName: string, callback: any): NodeJS.EventEmitter
+    static name: string
+    constructor (config?: SettingBondPort_ConstructProps)
+    _init (config?: SettingBondPort_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): SettingBondPort
+    static $gtype: GObject.Type
+}
 export interface SettingBridge_ConstructProps extends Setting_ConstructProps {
     ageingTime?: number
     forwardDelay?: number
@@ -14202,8 +14763,6 @@ export class SettingBridge {
     vlans: BridgeVlan[]
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingBridge */
@@ -14455,8 +15014,6 @@ export class SettingBridgePort {
     vlans: BridgeVlan[]
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingBridgePort */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingBridgePort */
@@ -14572,8 +15129,6 @@ export class SettingCdma {
     username: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingCdma */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingCdma */
@@ -14680,6 +15235,7 @@ export interface SettingConnection_ConstructProps extends Setting_ConstructProps
     autoconnectPriority?: number
     autoconnectRetries?: number
     autoconnectSlaves?: SettingConnectionAutoconnectSlaves
+    dnsOverTls?: number
     gatewayPingTimeout?: number
     id?: string
     interfaceName?: string
@@ -14708,6 +15264,7 @@ export class SettingConnection {
     autoconnectPriority: number
     autoconnectRetries: number
     autoconnectSlaves: SettingConnectionAutoconnectSlaves
+    dnsOverTls: number
     gatewayPingTimeout: number
     id: string
     interfaceName: string
@@ -14730,8 +15287,6 @@ export class SettingConnection {
     zone: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingConnection */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingConnection */
@@ -14743,6 +15298,7 @@ export class SettingConnection {
     getAutoconnectRetries(): number
     getAutoconnectSlaves(): SettingConnectionAutoconnectSlaves
     getConnectionType(): string
+    getDnsOverTls(): SettingConnectionDnsOverTls
     getGatewayPingTimeout(): number
     getId(): string
     getInterfaceName(): string
@@ -14843,6 +15399,11 @@ export class SettingConnection {
     on(sigName: "notify::autoconnect-slaves", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::autoconnect-slaves", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::autoconnect-slaves", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::dns-over-tls", callback: (($obj: SettingConnection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::dns-over-tls", callback: (($obj: SettingConnection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::dns-over-tls", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::dns-over-tls", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::dns-over-tls", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::gateway-ping-timeout", callback: (($obj: SettingConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::gateway-ping-timeout", callback: (($obj: SettingConnection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::gateway-ping-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -14998,8 +15559,6 @@ export class SettingDcb {
     priorityTrafficClass: number[]
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingDcb */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingDcb */
@@ -15171,8 +15730,6 @@ export interface SettingDummy_ConstructProps extends Setting_ConstructProps {
 export class SettingDummy {
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingDummy */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.Setting */
@@ -15247,8 +15804,6 @@ export interface SettingEthtool_ConstructProps extends Setting_ConstructProps {
 export class SettingEthtool {
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingEthtool */
@@ -15328,8 +15883,6 @@ export interface SettingGeneric_ConstructProps extends Setting_ConstructProps {
 export class SettingGeneric {
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingGeneric */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.Setting */
@@ -15433,8 +15986,6 @@ export class SettingGsm {
     username: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingGsm */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingGsm */
@@ -15603,8 +16154,6 @@ export class SettingHostname {
     priority: number
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingHostname */
@@ -15728,13 +16277,12 @@ export class SettingIP4Config {
     mayFail: boolean
     method: string
     neverDefault: boolean
+    requiredTimeout: number
     routeMetric: number
     routeTable: number
     routes: IPRoute[]
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingIP4Config */
-    parent: SettingIPConfig
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingIP4Config */
@@ -15780,6 +16328,7 @@ export class SettingIP4Config {
     getNumDnsSearches(): number
     getNumRoutes(): number
     getNumRoutingRules(): number
+    getRequiredTimeout(): number
     getRoute(idx: number): IPRoute
     getRouteMetric(): number
     getRouteTable(): number
@@ -15950,6 +16499,11 @@ export class SettingIP4Config {
     on(sigName: "notify::never-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::never-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::never-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::required-timeout", callback: (($obj: SettingIP4Config, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::required-timeout", callback: (($obj: SettingIP4Config, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::required-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::required-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::required-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::route-metric", callback: (($obj: SettingIP4Config, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::route-metric", callback: (($obj: SettingIP4Config, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::route-metric", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -16017,13 +16571,12 @@ export class SettingIP6Config {
     mayFail: boolean
     method: string
     neverDefault: boolean
+    requiredTimeout: number
     routeMetric: number
     routeTable: number
     routes: IPRoute[]
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingIP6Config */
-    parent: SettingIPConfig
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingIP6Config */
@@ -16071,6 +16624,7 @@ export class SettingIP6Config {
     getNumDnsSearches(): number
     getNumRoutes(): number
     getNumRoutingRules(): number
+    getRequiredTimeout(): number
     getRoute(idx: number): IPRoute
     getRouteMetric(): number
     getRouteTable(): number
@@ -16251,6 +16805,11 @@ export class SettingIP6Config {
     on(sigName: "notify::never-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::never-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::never-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::required-timeout", callback: (($obj: SettingIP6Config, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::required-timeout", callback: (($obj: SettingIP6Config, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::required-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::required-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::required-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::route-metric", callback: (($obj: SettingIP6Config, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::route-metric", callback: (($obj: SettingIP6Config, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::route-metric", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -16304,6 +16863,7 @@ export interface SettingIPConfig_ConstructProps extends Setting_ConstructProps {
     mayFail?: boolean
     method?: string
     neverDefault?: boolean
+    requiredTimeout?: number
     routeMetric?: number
     routeTable?: number
     routes?: IPRoute[]
@@ -16328,13 +16888,12 @@ export class SettingIPConfig {
     mayFail: boolean
     method: string
     neverDefault: boolean
+    requiredTimeout: number
     routeMetric: number
     routeTable: number
     routes: IPRoute[]
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingIPConfig */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingIPConfig */
@@ -16376,6 +16935,7 @@ export class SettingIPConfig {
     getNumDnsSearches(): number
     getNumRoutes(): number
     getNumRoutingRules(): number
+    getRequiredTimeout(): number
     getRoute(idx: number): IPRoute
     getRouteMetric(): number
     getRouteTable(): number
@@ -16531,6 +17091,11 @@ export class SettingIPConfig {
     on(sigName: "notify::never-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::never-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::never-default", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::required-timeout", callback: (($obj: SettingIPConfig, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::required-timeout", callback: (($obj: SettingIPConfig, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::required-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::required-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::required-timeout", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::route-metric", callback: (($obj: SettingIPConfig, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::route-metric", callback: (($obj: SettingIPConfig, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::route-metric", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -17130,8 +17695,6 @@ export class SettingMatch {
     path: string[]
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingMatch */
@@ -17262,8 +17825,6 @@ export class SettingOlpcMesh {
     ssid: any
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingOlpcMesh */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingOlpcMesh */
@@ -17368,8 +17929,6 @@ export class SettingOvsBridge {
     stpEnable: boolean
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingOvsBridge */
@@ -17478,8 +18037,6 @@ export class SettingOvsDpdk {
     devargs: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingOvsDpdk */
@@ -17564,8 +18121,6 @@ export class SettingOvsExternalIDs {
     data: GLib.HashTable
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingOvsExternalIDs */
@@ -17654,8 +18209,6 @@ export class SettingOvsInterface {
     type: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingOvsInterface */
@@ -17740,8 +18293,6 @@ export class SettingOvsPatch {
     peer: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingOvsPatch */
@@ -17836,8 +18387,6 @@ export class SettingOvsPort {
     vlanMode: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingOvsPort */
@@ -17986,8 +18535,6 @@ export class SettingPpp {
     requireMppe128: boolean
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingPpp */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingPpp */
@@ -18296,8 +18843,6 @@ export class SettingProxy {
     pacUrl: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingProxy */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingProxy */
@@ -18408,8 +18953,6 @@ export class SettingSerial {
     stopbits: number
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingSerial */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingSerial */
@@ -18522,8 +19065,6 @@ export class SettingSriov {
     vfs: SriovVF[]
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingSriov */
@@ -18627,8 +19168,6 @@ export class SettingTCConfig {
     tfilters: TCTfilter[]
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingTCConfig */
@@ -18759,8 +19298,6 @@ export class SettingTeam {
     runnerTxHash: string[]
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingTeam */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingTeam */
@@ -18956,8 +19493,6 @@ export class SettingTeamPort {
     sticky: boolean
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingTeamPort */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingTeamPort */
@@ -19093,8 +19628,6 @@ export class SettingTun {
     vnetHdr: boolean
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingTun */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingTun */
@@ -19209,8 +19742,6 @@ export class SettingUser {
     data: GLib.HashTable
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingUser */
@@ -19299,8 +19830,6 @@ export class SettingVeth {
     peer: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingVeth */
@@ -19517,8 +20046,6 @@ export class SettingVpn {
     userName: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingVpn */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingVpn */
@@ -19643,8 +20170,6 @@ export class SettingVrf {
     table: number
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingVrf */
@@ -19937,8 +20462,6 @@ export class SettingWifiP2P {
     wpsMethod: number
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingWifiP2P */
@@ -20037,8 +20560,6 @@ export class SettingWimax {
     networkName: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingWimax */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingWimax */
@@ -20143,8 +20664,6 @@ export class SettingWireGuard {
     privateKeyFlags: SettingSecretFlags
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingWireGuard */
@@ -20271,6 +20790,7 @@ export class SettingWireGuard {
     static $gtype: GObject.Type
 }
 export interface SettingWired_ConstructProps extends Setting_ConstructProps {
+    acceptAllMacAddresses?: Ternary
     autoNegotiate?: boolean
     clonedMacAddress?: string
     duplex?: string
@@ -20288,6 +20808,7 @@ export interface SettingWired_ConstructProps extends Setting_ConstructProps {
 }
 export class SettingWired {
     /* Properties of NM-1.0.NM.SettingWired */
+    acceptAllMacAddresses: Ternary
     autoNegotiate: boolean
     clonedMacAddress: string
     duplex: string
@@ -20304,14 +20825,13 @@ export class SettingWired {
     wakeOnLanPassword: string
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingWired */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingWired */
     addMacBlacklistItem(mac: string): boolean
     addS390Option(key: string, value: string): boolean
     clearMacBlacklistItems(): void
+    getAcceptAllMacAddresses(): Ternary
     getAutoNegotiate(): boolean
     getClonedMacAddress(): string
     getDuplex(): string
@@ -20324,7 +20844,7 @@ export class SettingWired {
     getNumS390Options(): number
     getPort(): string
     getS390Nettype(): string
-    getS390Option(idx: number): { returnType: boolean, outKey: string, outValue: string }
+    getS390Option(idx: number): { returnType: boolean, outKey: string | null, outValue: string | null }
     getS390OptionByKey(key: string): string
     getS390Subchannels(): string[]
     getSpeed(): number
@@ -20382,6 +20902,11 @@ export class SettingWired {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::accept-all-mac-addresses", callback: (($obj: SettingWired, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::accept-all-mac-addresses", callback: (($obj: SettingWired, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::accept-all-mac-addresses", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::accept-all-mac-addresses", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::accept-all-mac-addresses", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::auto-negotiate", callback: (($obj: SettingWired, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::auto-negotiate", callback: (($obj: SettingWired, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::auto-negotiate", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -20513,8 +21038,6 @@ export class SettingWireless {
     wakeOnWlan: number
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingWireless */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingWireless */
@@ -20748,8 +21271,6 @@ export class SettingWirelessSecurity {
     wpsMethod: number
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.SettingWirelessSecurity */
-    parent: Setting
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingWirelessSecurity */
@@ -20969,8 +21490,6 @@ export class SettingWpan {
     shortAddress: number
     /* Properties of NM-1.0.NM.Setting */
     readonly name: string
-    /* Fields of NM-1.0.NM.Setting */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of NM-1.0.NM.SettingWpan */
@@ -21074,8 +21593,6 @@ export class SettingWpan {
 export interface SimpleConnection_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class SimpleConnection {
-    /* Fields of NM-1.0.NM.SimpleConnection */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GObject-2.0.GObject.Object */
@@ -21229,6 +21746,7 @@ export class VpnConnection {
     readonly uuid: string
     readonly vpn: boolean
     /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     readonly path: string
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -21386,6 +21904,11 @@ export class VpnConnection {
     on(sigName: "notify::vpn", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::vpn", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::vpn", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: VpnConnection, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: VpnConnection, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::path", callback: (($obj: VpnConnection, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::path", callback: (($obj: VpnConnection, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::path", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -21730,6 +22253,7 @@ export class WifiP2PPeer {
     readonly strength: number
     readonly wfdIes: any
     /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     readonly path: string
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -21827,6 +22351,11 @@ export class WifiP2PPeer {
     on(sigName: "notify::wfd-ies", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::wfd-ies", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::wfd-ies", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: WifiP2PPeer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: WifiP2PPeer, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::path", callback: (($obj: WifiP2PPeer, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::path", callback: (($obj: WifiP2PPeer, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::path", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -21852,6 +22381,7 @@ export class WimaxNsp {
     readonly networkType: WimaxNspNetworkType
     readonly signalQuality: number
     /* Properties of NM-1.0.NM.Object */
+    readonly client: Client
     readonly path: string
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -21907,6 +22437,11 @@ export class WimaxNsp {
     on(sigName: "notify::signal-quality", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::signal-quality", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::signal-quality", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::client", callback: (($obj: WimaxNsp, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::client", callback: (($obj: WimaxNsp, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::client", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: "notify::path", callback: (($obj: WimaxNsp, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::path", callback: (($obj: WimaxNsp, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::path", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -22144,6 +22679,7 @@ export class IPRoutingRule {
     getTo(): string
     getToLen(): number
     getTos(): number
+    getUidRange(): { returnType: boolean, outRangeStart: number | null, outRangeEnd: number | null }
     isSealed(): boolean
     newClone(): IPRoutingRule
     ref(): IPRoutingRule
@@ -22162,6 +22698,7 @@ export class IPRoutingRule {
     setTable(table: number): void
     setTo(to: string | null, len: number): void
     setTos(tos: number): void
+    setUidRange(uidRangeStart: number, uidRangeEnd: number): void
     toString(toStringFlags: IPRoutingRuleAsStringFlags, extraArgs?: GLib.HashTable | null): string
     unref(): void
     validate(): boolean
@@ -22213,126 +22750,78 @@ export abstract class Setting6LowpanClass {
     static name: string
 }
 export abstract class Setting8021xClass {
-    /* Fields of NM-1.0.NM.Setting8021xClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingAdslClass {
-    /* Fields of NM-1.0.NM.SettingAdslClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingBluetoothClass {
-    /* Fields of NM-1.0.NM.SettingBluetoothClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingBondClass {
-    /* Fields of NM-1.0.NM.SettingBondClass */
-    parent: SettingClass
+    static name: string
+}
+export abstract class SettingBondPortClass {
     static name: string
 }
 export abstract class SettingBridgeClass {
     static name: string
 }
 export abstract class SettingBridgePortClass {
-    /* Fields of NM-1.0.NM.SettingBridgePortClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingCdmaClass {
-    /* Fields of NM-1.0.NM.SettingCdmaClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingClass {
-    /* Fields of NM-1.0.NM.SettingClass */
-    parent: GObject.ObjectClass
-    verify: (setting: Setting, connection: Connection) => number
-    verifySecrets: (setting: Setting, connection?: Connection | null) => boolean
-    updateOneSecret: (setting: Setting, key: string, value: GLib.Variant) => number
-    getSecretFlags: (setting: Setting, secretName: string, outFlags: SettingSecretFlags) => boolean
-    setSecretFlags: (setting: Setting, secretName: string, flags: SettingSecretFlags) => boolean
-    compareProperty: (settInfo: object, propertyIdx: number, conA: Connection, setA: Setting, conB: Connection, setB: Setting, flags: SettingCompareFlags) => Ternary
-    duplicateCopyProperties: (settInfo: object, src: Setting, dst: Setting) => void
-    aggregate: (setting: Setting, typeI: number, arg?: object | null) => boolean
-    initFromDbus: (setting: Setting, keys: GLib.HashTable, settingDict: GLib.Variant, connectionDict: GLib.Variant, parseFlags: number) => boolean
-    settingInfo: object
     static name: string
 }
 export abstract class SettingConnectionClass {
-    /* Fields of NM-1.0.NM.SettingConnectionClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingDcbClass {
-    /* Fields of NM-1.0.NM.SettingDcbClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingDummyClass {
-    /* Fields of NM-1.0.NM.SettingDummyClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingEthtoolClass {
     static name: string
 }
 export abstract class SettingGenericClass {
-    /* Fields of NM-1.0.NM.SettingGenericClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingGsmClass {
-    /* Fields of NM-1.0.NM.SettingGsmClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingHostnameClass {
     static name: string
 }
 export abstract class SettingIP4ConfigClass {
-    /* Fields of NM-1.0.NM.SettingIP4ConfigClass */
-    parent: SettingIPConfigClass
     static name: string
 }
 export abstract class SettingIP6ConfigClass {
-    /* Fields of NM-1.0.NM.SettingIP6ConfigClass */
-    parent: SettingIPConfigClass
     static name: string
 }
 export abstract class SettingIPConfigClass {
-    /* Fields of NM-1.0.NM.SettingIPConfigClass */
-    parent: SettingClass
-    padding: object[]
     static name: string
 }
 export abstract class SettingIPTunnelClass {
-    /* Fields of NM-1.0.NM.SettingIPTunnelClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingInfinibandClass {
-    /* Fields of NM-1.0.NM.SettingInfinibandClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingMacsecClass {
-    /* Fields of NM-1.0.NM.SettingMacsecClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingMacvlanClass {
-    /* Fields of NM-1.0.NM.SettingMacvlanClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingMatchClass {
     static name: string
 }
 export abstract class SettingOlpcMeshClass {
-    /* Fields of NM-1.0.NM.SettingOlpcMeshClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingOvsBridgeClass {
@@ -22354,24 +22843,15 @@ export abstract class SettingOvsPortClass {
     static name: string
 }
 export abstract class SettingPppClass {
-    /* Fields of NM-1.0.NM.SettingPppClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingPppoeClass {
-    /* Fields of NM-1.0.NM.SettingPppoeClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingProxyClass {
-    /* Fields of NM-1.0.NM.SettingProxyClass */
-    parent: SettingClass
-    padding: object[]
     static name: string
 }
 export abstract class SettingSerialClass {
-    /* Fields of NM-1.0.NM.SettingSerialClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingSriovClass {
@@ -22381,18 +22861,12 @@ export abstract class SettingTCConfigClass {
     static name: string
 }
 export abstract class SettingTeamClass {
-    /* Fields of NM-1.0.NM.SettingTeamClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingTeamPortClass {
-    /* Fields of NM-1.0.NM.SettingTeamPortClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingTunClass {
-    /* Fields of NM-1.0.NM.SettingTunClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingUserClass {
@@ -22402,55 +22876,39 @@ export abstract class SettingVethClass {
     static name: string
 }
 export abstract class SettingVlanClass {
-    /* Fields of NM-1.0.NM.SettingVlanClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingVpnClass {
-    /* Fields of NM-1.0.NM.SettingVpnClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingVrfClass {
     static name: string
 }
 export abstract class SettingVxlanClass {
-    /* Fields of NM-1.0.NM.SettingVxlanClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingWifiP2PClass {
     static name: string
 }
 export abstract class SettingWimaxClass {
-    /* Fields of NM-1.0.NM.SettingWimaxClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingWireGuardClass {
     static name: string
 }
 export abstract class SettingWiredClass {
-    /* Fields of NM-1.0.NM.SettingWiredClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingWirelessClass {
-    /* Fields of NM-1.0.NM.SettingWirelessClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingWirelessSecurityClass {
-    /* Fields of NM-1.0.NM.SettingWirelessSecurityClass */
-    parent: SettingClass
     static name: string
 }
 export abstract class SettingWpanClass {
     static name: string
 }
 export abstract class SimpleConnectionClass {
-    /* Fields of NM-1.0.NM.SimpleConnectionClass */
-    parentClass: GObject.ObjectClass
     static name: string
 }
 export class SriovVF {

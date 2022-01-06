@@ -906,7 +906,7 @@ export class ServerSideSource {
     delete_password_finish(result: Gio.AsyncResult): boolean
     delete_password_sync(cancellable?: Gio.Cancellable | null): boolean
     dup_display_name(): string
-    dup_parent(): string
+    dup_parent(): string | null
     dup_secret_label(): string
     dup_uid(): string
     emit_credentials_required(reason: EDataServer.SourceCredentialsReason, certificate_pem: string, certificate_errors: Gio.TlsCertificateFlags, op_error?: GLib.Error | null): void
@@ -921,7 +921,7 @@ export class ServerSideSource {
     get_oauth2_access_token(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     get_oauth2_access_token_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_access_token */ string | null, /* out_expires_in */ number | null ]
     get_oauth2_access_token_sync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_access_token */ string | null, /* out_expires_in */ number | null ]
-    get_parent(): string
+    get_parent(): string | null
     get_remote_creatable(): boolean
     get_remote_deletable(): boolean
     get_removable(): boolean
@@ -936,8 +936,8 @@ export class ServerSideSource {
     invoke_credentials_required_finish(result: Gio.AsyncResult): boolean
     invoke_credentials_required_sync(reason: EDataServer.SourceCredentialsReason, certificate_pem: string, certificate_errors: Gio.TlsCertificateFlags, op_error?: GLib.Error | null, cancellable?: Gio.Cancellable | null): boolean
     lookup_password(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
-    lookup_password_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_password */ string ]
-    lookup_password_sync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_password */ string ]
+    lookup_password_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* out_password */ string | null ]
+    lookup_password_sync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* out_password */ string | null ]
     mail_signature_load(io_priority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     mail_signature_load_finish(result: Gio.AsyncResult): [ /* returnType */ boolean, /* contents */ string, /* length */ number | null ]
     mail_signature_load_sync(cancellable?: Gio.Cancellable | null): [ /* returnType */ boolean, /* contents */ string, /* length */ number | null ]
@@ -950,7 +950,7 @@ export class ServerSideSource {
     proxy_lookup(uri: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     proxy_lookup_finish(result: Gio.AsyncResult): string[]
     proxy_lookup_sync(uri: string, cancellable?: Gio.Cancellable | null): string[]
-    ref_dbus_object(): Gio.DBusObject
+    ref_dbus_object(): Gio.DBusObject | null
     ref_main_context(): GLib.MainContext
     refresh_add_timeout(context: GLib.MainContext | null, callback: EDataServer.SourceRefreshFunc): number
     refresh_force_timeout(): void
@@ -972,7 +972,7 @@ export class ServerSideSource {
     store_password(password: string, permanently: boolean, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     store_password_finish(result: Gio.AsyncResult): boolean
     store_password_sync(password: string, permanently: boolean, cancellable?: Gio.Cancellable | null): boolean
-    to_string(length?: number | null): string
+    to_string(): [ /* returnType */ string, /* length */ number | null ]
     unset_last_credentials_required_arguments(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     unset_last_credentials_required_arguments_finish(result: Gio.AsyncResult): boolean
     unset_last_credentials_required_arguments_sync(cancellable?: Gio.Cancellable | null): boolean

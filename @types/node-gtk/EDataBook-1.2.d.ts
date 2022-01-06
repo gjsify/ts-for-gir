@@ -123,6 +123,9 @@ export class BookBackend {
     /* Methods of EDataBook-1.2.EDataBook.BookBackend */
     addView(view: DataBookView): void
     configureDirect(config: string): void
+    containsEmail(emailAddress: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    containsEmailFinish(result: Gio.AsyncResult): boolean
+    containsEmailSync(emailAddress: string, cancellable?: Gio.Cancellable | null): boolean
     createContacts(vcards: string, opflags: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     createContactsFinish(result: Gio.AsyncResult, outContacts: GLib.Queue): boolean
     createContactsSync(vcards: string, opflags: number, outContacts: GLib.Queue, cancellable?: Gio.Cancellable | null): boolean
@@ -405,6 +408,7 @@ export class BookBackendSync {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EDataBook-1.2.EDataBook.BookBackendSync */
+    containsEmail(emailAddress: string, cancellable?: Gio.Cancellable | null): boolean
     createContacts(vcards: string, opflags: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outContacts: EBookContacts.Contact[] }
     getContact(uid: string, cancellable?: Gio.Cancellable | null): EBookContacts.Contact
     getContactList(query: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outContacts: EBookContacts.Contact[] }
@@ -416,6 +420,9 @@ export class BookBackendSync {
     /* Methods of EDataBook-1.2.EDataBook.BookBackend */
     addView(view: DataBookView): void
     configureDirect(config: string): void
+    containsEmail(emailAddress: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    containsEmailFinish(result: Gio.AsyncResult): boolean
+    containsEmailSync(emailAddress: string, cancellable?: Gio.Cancellable | null): boolean
     createContacts(vcards: string, opflags: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     createContactsFinish(result: Gio.AsyncResult, outContacts: GLib.Queue): boolean
     createContactsSync(vcards: string, opflags: number, outContacts: GLib.Queue, cancellable?: Gio.Cancellable | null): boolean
@@ -586,6 +593,7 @@ export class BookCache {
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of EDataBook-1.2.EDataBook.BookCache */
+    containsEmail(emailAddress: string, cancellable?: Gio.Cancellable | null): boolean
     cursorCalculate(cursor: BookCacheCursor, cancellable?: Gio.Cancellable | null): { returnType: boolean, outTotal: number | null, outPosition: number | null }
     cursorCompareContact(cursor: BookCacheCursor, contact: EBookContacts.Contact): { returnType: number, outMatchesSexp: boolean | null }
     cursorFree(cursor: BookCacheCursor): void
@@ -773,6 +781,7 @@ export class BookMetaBackend {
     splitChangesSync(objects: BookMetaBackendInfo[], cancellable?: Gio.Cancellable | null): { returnType: boolean, objects: BookMetaBackendInfo[], outCreatedObjects: BookMetaBackendInfo[], outModifiedObjects: BookMetaBackendInfo[], outRemovedObjects: BookMetaBackendInfo[] | null }
     storeInlinePhotosSync(contact: EBookContacts.Contact, cancellable?: Gio.Cancellable | null): boolean
     /* Methods of EDataBook-1.2.EDataBook.BookBackendSync */
+    containsEmail(emailAddress: string, cancellable?: Gio.Cancellable | null): boolean
     createContacts(vcards: string, opflags: number, cancellable?: Gio.Cancellable | null): { returnType: boolean, outContacts: EBookContacts.Contact[] }
     getContact(uid: string, cancellable?: Gio.Cancellable | null): EBookContacts.Contact
     getContactList(query: string, cancellable?: Gio.Cancellable | null): { returnType: boolean, outContacts: EBookContacts.Contact[] }
@@ -784,6 +793,9 @@ export class BookMetaBackend {
     /* Methods of EDataBook-1.2.EDataBook.BookBackend */
     addView(view: DataBookView): void
     configureDirect(config: string): void
+    containsEmail(emailAddress: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    containsEmailFinish(result: Gio.AsyncResult): boolean
+    containsEmailSync(emailAddress: string, cancellable?: Gio.Cancellable | null): boolean
     createContacts(vcards: string, opflags: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     createContactsFinish(result: Gio.AsyncResult, outContacts: GLib.Queue): boolean
     createContactsSync(vcards: string, opflags: number, outContacts: GLib.Queue, cancellable?: Gio.Cancellable | null): boolean
@@ -1041,7 +1053,7 @@ export class BookSqlite {
     constructor (config?: BookSqlite_ConstructProps)
     _init (config?: BookSqlite_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static new(path: string, source: EDataServer.Source, cancellable?: Gio.Cancellable | null): BookSqlite
+    static new(path: string, source?: EDataServer.Source | null, cancellable?: Gio.Cancellable | null): BookSqlite
     static newFull(path: string, source: EDataServer.Source, setup?: EBookContacts.SourceBackendSummarySetup | null, vcardCallback?: bSqlVCardCallback | null, changeCallback?: bSqlChangeCallback | null, cancellable?: Gio.Cancellable | null): BookSqlite
     static errorQuark(): GLib.Quark
     static searchDataFree(data: bSqlSearchData): void
@@ -1059,16 +1071,17 @@ export class DataBook {
     getConnection(): Gio.DBusConnection
     getObjectPath(): string
     refBackend(): BookBackend
-    reportBackendPropertyChanged(propName: string, propValue: string): void
+    reportBackendPropertyChanged(propName: string, propValue?: string | null): void
     reportError(message: string): void
-    respondCreateContacts(opid: number, error: GLib.Error, contacts?: EBookContacts.Contact[] | null): void
+    respondContainsEmail(opid: number, error: GLib.Error, found: boolean): void
+    respondCreateContacts(opid: number, error: GLib.Error, contacts: EBookContacts.Contact[]): void
     respondGetContact(opid: number, error?: GLib.Error | null, contact?: EBookContacts.Contact | null): void
-    respondGetContactList(opid: number, error: GLib.Error, contacts?: EBookContacts.Contact[] | null): void
-    respondGetContactListUids(opid: number, error: GLib.Error, uids?: string[] | null): void
-    respondModifyContacts(opid: number, error: GLib.Error, contacts?: EBookContacts.Contact[] | null): void
+    respondGetContactList(opid: number, error: GLib.Error, contacts: EBookContacts.Contact[]): void
+    respondGetContactListUids(opid: number, error: GLib.Error, uids: string[]): void
+    respondModifyContacts(opid: number, error: GLib.Error, contacts: EBookContacts.Contact[]): void
     respondOpen(opid: number, error: GLib.Error): void
     respondRefresh(opid: number, error: GLib.Error): void
-    respondRemoveContacts(opid: number, error: GLib.Error, ids?: string[] | null): void
+    respondRemoveContacts(opid: number, error: GLib.Error, ids: string[]): void
     setLocale(locale: string, cancellable?: Gio.Cancellable | null): boolean
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -1709,6 +1722,7 @@ export abstract class BookBackendClass {
     implDeleteCursor: (backend: BookBackend, cursor: DataBookCursor) => boolean
     closed: (backend: BookBackend, sender: string) => void
     shutdown: (backend: BookBackend) => void
+    implContainsEmail: (backend: BookBackend, book: DataBook, opid: number, cancellable: Gio.Cancellable | null, emailAddress: string) => void
     reservedPadding: object[]
     static name: string
 }
@@ -1734,6 +1748,7 @@ export abstract class BookBackendSyncClass {
     /* Fields of EDataBook-1.2.EDataBook.BookBackendSyncClass */
     openSync: (backend: BookBackendSync, cancellable?: Gio.Cancellable | null) => boolean
     refreshSync: (backend: BookBackendSync, cancellable?: Gio.Cancellable | null) => boolean
+    containsEmailSync: (backend: BookBackendSync, emailAddress: string, cancellable?: Gio.Cancellable | null) => boolean
     reservedPadding: object[]
     static name: string
 }

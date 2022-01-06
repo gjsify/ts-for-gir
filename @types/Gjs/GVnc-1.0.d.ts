@@ -95,6 +95,9 @@ export enum ConnectionResizeStatus {
 export const LEDSTATE_CAPS_LOCK: number
 export const LEDSTATE_NUM_LOCK: number
 export const LEDSTATE_SCROLL_LOCK: number
+export const MAJOR_VERSION: number
+export const MICRO_VERSION: number
+export const MINOR_VERSION: number
 export const PADDING: number
 export const PADDING_LARGE: number
 export function util_check_version(major: number, minor: number, micro: number): boolean
@@ -352,7 +355,7 @@ export class Connection {
     set_encodings(encoding: number[]): boolean
     set_framebuffer(fb: Framebuffer): boolean
     set_pixel_format(fmt: PixelFormat): boolean
-    set_shared(sharedFlag: boolean): boolean
+    set_shared(shared: boolean): boolean
     set_size(width: number, height: number): ConnectionResizeStatus
     shutdown(): void
     /* Methods of GObject-2.0.GObject.Object */
@@ -428,9 +431,9 @@ export class Connection {
     connect(sigName: "vnc-connected", callback: (($obj: Connection) => void)): number
     connect_after(sigName: "vnc-connected", callback: (($obj: Connection) => void)): number
     emit(sigName: "vnc-connected"): void
-    connect(sigName: "vnc-cursor-changed", callback: (($obj: Connection, object: Cursor) => void)): number
-    connect_after(sigName: "vnc-cursor-changed", callback: (($obj: Connection, object: Cursor) => void)): number
-    emit(sigName: "vnc-cursor-changed", object: Cursor): void
+    connect(sigName: "vnc-cursor-changed", callback: (($obj: Connection, cursor?: Cursor | null) => void)): number
+    connect_after(sigName: "vnc-cursor-changed", callback: (($obj: Connection, cursor?: Cursor | null) => void)): number
+    emit(sigName: "vnc-cursor-changed", cursor?: Cursor | null): void
     connect(sigName: "vnc-desktop-rename", callback: (($obj: Connection, object: string) => void)): number
     connect_after(sigName: "vnc-desktop-rename", callback: (($obj: Connection, object: string) => void)): number
     emit(sigName: "vnc-desktop-rename", object: string): void
@@ -452,9 +455,9 @@ export class Connection {
     connect(sigName: "vnc-led-state", callback: (($obj: Connection) => void)): number
     connect_after(sigName: "vnc-led-state", callback: (($obj: Connection) => void)): number
     emit(sigName: "vnc-led-state"): void
-    connect(sigName: "vnc-pixel-format-changed", callback: (($obj: Connection, object?: object | null) => void)): number
-    connect_after(sigName: "vnc-pixel-format-changed", callback: (($obj: Connection, object?: object | null) => void)): number
-    emit(sigName: "vnc-pixel-format-changed", object?: object | null): void
+    connect(sigName: "vnc-pixel-format-changed", callback: (($obj: Connection, object: PixelFormat) => void)): number
+    connect_after(sigName: "vnc-pixel-format-changed", callback: (($obj: Connection, object: PixelFormat) => void)): number
+    emit(sigName: "vnc-pixel-format-changed", object: PixelFormat): void
     connect(sigName: "vnc-pointer-mode-changed", callback: (($obj: Connection, object: boolean) => void)): number
     connect_after(sigName: "vnc-pointer-mode-changed", callback: (($obj: Connection, object: boolean) => void)): number
     emit(sigName: "vnc-pointer-mode-changed", object: boolean): void
@@ -628,7 +631,7 @@ export class ColorMap {
     /* Methods of GVnc-1.0.GVnc.ColorMap */
     copy(): ColorMap
     free(): void
-    lookup(idx: number, red: number, green: number, blue: number): boolean
+    lookup(idx: number): [ /* returnType */ boolean, /* red */ number, /* green */ number, /* blue */ number ]
     set(idx: number, red: number, green: number, blue: number): boolean
     static name: string
     static new(offset: number, size: number): ColorMap

@@ -61,8 +61,8 @@ export function slots_enumerate_objects(slots: Slot[], match: Attributes, option
 export function uri_build(uri_data: UriData, flags: UriFlags): string
 export function uri_error_get_quark(): GLib.Quark
 export function uri_parse(string: string, flags: UriFlags): UriData
-export function value_to_boolean(value: Uint8Array[], result: boolean): boolean
-export function value_to_ulong(value: Uint8Array[], result: number): boolean
+export function value_to_boolean(value: Uint8Array[]): [ /* returnType */ boolean, /* result */ boolean ]
+export function value_to_ulong(value: Uint8Array[]): [ /* returnType */ boolean, /* result */ number ]
 export interface Allocator {
     (data: object | null, length: number): object | null
 }
@@ -406,7 +406,7 @@ export class Password {
     /* Methods of Gio-2.0.Gio.TlsPassword */
     get_description(): string
     get_flags(): Gio.TlsPasswordFlags
-    get_value(length?: number | null): number
+    get_value(): Uint8Array[]
     get_warning(): string
     set_description(description: string): void
     set_flags(flags: Gio.TlsPasswordFlags): void
@@ -437,7 +437,7 @@ export class Password {
     watch_closure(closure: Function): void
     /* Virtual methods of Gio-2.0.Gio.TlsPassword */
     vfunc_get_default_warning(): string
-    vfunc_get_value(length?: number | null): number
+    vfunc_get_value(): Uint8Array[]
     vfunc_set_value(value: Uint8Array[], destroy?: GLib.DestroyNotify | null): void
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void

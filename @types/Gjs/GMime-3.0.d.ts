@@ -4140,7 +4140,7 @@ export class Stream {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GMime-3.0.GMime.Stream */
-    buffer_gets(buf: string, max: number): number
+    buffer_gets(buf: Uint8Array[]): number
     buffer_readln(buffer: Uint8Array[]): void
     close(): number
     construct(start: number, end: number): void
@@ -4153,10 +4153,10 @@ export class Stream {
     set_bounds(start: number, end: number): void
     substream(start: number, end: number): Stream
     tell(): number
-    write(buf: string, len: number): number
+    write(buf: Uint8Array[]): number
     write_string(str: string): number
     write_to_stream(dest: Stream): number
-    writev(vector: StreamIOVector, count: number): number
+    writev(vector: StreamIOVector[]): number
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -4189,7 +4189,7 @@ export class Stream {
     vfunc_seek(offset: number, whence: SeekWhence): number
     vfunc_substream(start: number, end: number): Stream
     vfunc_tell(): number
-    vfunc_write(buf: string, len: number): number
+    vfunc_write(buf: Uint8Array[]): number
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4225,7 +4225,7 @@ export class StreamBuffer {
     /* Fields of GObject-2.0.GObject.Object */
     g_type_instance: GObject.TypeInstance
     /* Methods of GMime-3.0.GMime.Stream */
-    buffer_gets(buf: string, max: number): number
+    buffer_gets(buf: Uint8Array[]): number
     buffer_readln(buffer: Uint8Array[]): void
     close(): number
     construct(start: number, end: number): void
@@ -4238,10 +4238,10 @@ export class StreamBuffer {
     set_bounds(start: number, end: number): void
     substream(start: number, end: number): Stream
     tell(): number
-    write(buf: string, len: number): number
+    write(buf: Uint8Array[]): number
     write_string(str: string): number
     write_to_stream(dest: Stream): number
-    writev(vector: StreamIOVector, count: number): number
+    writev(vector: StreamIOVector[]): number
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -4274,7 +4274,7 @@ export class StreamBuffer {
     vfunc_seek(offset: number, whence: SeekWhence): number
     vfunc_substream(start: number, end: number): Stream
     vfunc_tell(): number
-    vfunc_write(buf: string, len: number): number
+    vfunc_write(buf: Uint8Array[]): number
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4310,7 +4310,7 @@ export class StreamCat {
     /* Methods of GMime-3.0.GMime.StreamCat */
     add_source(source: Stream): number
     /* Methods of GMime-3.0.GMime.Stream */
-    buffer_gets(buf: string, max: number): number
+    buffer_gets(buf: Uint8Array[]): number
     buffer_readln(buffer: Uint8Array[]): void
     close(): number
     construct(start: number, end: number): void
@@ -4323,10 +4323,10 @@ export class StreamCat {
     set_bounds(start: number, end: number): void
     substream(start: number, end: number): Stream
     tell(): number
-    write(buf: string, len: number): number
+    write(buf: Uint8Array[]): number
     write_string(str: string): number
     write_to_stream(dest: Stream): number
-    writev(vector: StreamIOVector, count: number): number
+    writev(vector: StreamIOVector[]): number
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -4359,7 +4359,7 @@ export class StreamCat {
     vfunc_seek(offset: number, whence: SeekWhence): number
     vfunc_substream(start: number, end: number): Stream
     vfunc_tell(): number
-    vfunc_write(buf: string, len: number): number
+    vfunc_write(buf: Uint8Array[]): number
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4396,7 +4396,7 @@ export class StreamFile {
     get_owner(): boolean
     set_owner(owner: boolean): void
     /* Methods of GMime-3.0.GMime.Stream */
-    buffer_gets(buf: string, max: number): number
+    buffer_gets(buf: Uint8Array[]): number
     buffer_readln(buffer: Uint8Array[]): void
     close(): number
     construct(start: number, end: number): void
@@ -4409,10 +4409,10 @@ export class StreamFile {
     set_bounds(start: number, end: number): void
     substream(start: number, end: number): Stream
     tell(): number
-    write(buf: string, len: number): number
+    write(buf: Uint8Array[]): number
     write_string(str: string): number
     write_to_stream(dest: Stream): number
-    writev(vector: StreamIOVector, count: number): number
+    writev(vector: StreamIOVector[]): number
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -4445,7 +4445,7 @@ export class StreamFile {
     vfunc_seek(offset: number, whence: SeekWhence): number
     vfunc_substream(start: number, end: number): Stream
     vfunc_tell(): number
-    vfunc_write(buf: string, len: number): number
+    vfunc_write(buf: Uint8Array[]): number
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4487,7 +4487,7 @@ export class StreamFilter {
     remove(id: number): void
     set_owner(owner: boolean): void
     /* Methods of GMime-3.0.GMime.Stream */
-    buffer_gets(buf: string, max: number): number
+    buffer_gets(buf: Uint8Array[]): number
     buffer_readln(buffer: Uint8Array[]): void
     close(): number
     construct(start: number, end: number): void
@@ -4500,10 +4500,10 @@ export class StreamFilter {
     set_bounds(start: number, end: number): void
     substream(start: number, end: number): Stream
     tell(): number
-    write(buf: string, len: number): number
+    write(buf: Uint8Array[]): number
     write_string(str: string): number
     write_to_stream(dest: Stream): number
-    writev(vector: StreamIOVector, count: number): number
+    writev(vector: StreamIOVector[]): number
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -4536,7 +4536,7 @@ export class StreamFilter {
     vfunc_seek(offset: number, whence: SeekWhence): number
     vfunc_substream(start: number, end: number): Stream
     vfunc_tell(): number
-    vfunc_write(buf: string, len: number): number
+    vfunc_write(buf: Uint8Array[]): number
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4574,7 +4574,7 @@ export class StreamFs {
     get_owner(): boolean
     set_owner(owner: boolean): void
     /* Methods of GMime-3.0.GMime.Stream */
-    buffer_gets(buf: string, max: number): number
+    buffer_gets(buf: Uint8Array[]): number
     buffer_readln(buffer: Uint8Array[]): void
     close(): number
     construct(start: number, end: number): void
@@ -4586,10 +4586,10 @@ export class StreamFs {
     set_bounds(start: number, end: number): void
     substream(start: number, end: number): Stream
     tell(): number
-    write(buf: string, len: number): number
+    write(buf: Uint8Array[]): number
     write_string(str: string): number
     write_to_stream(dest: Stream): number
-    writev(vector: StreamIOVector, count: number): number
+    writev(vector: StreamIOVector[]): number
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -4622,7 +4622,7 @@ export class StreamFs {
     vfunc_seek(offset: number, whence: SeekWhence): number
     vfunc_substream(start: number, end: number): Stream
     vfunc_tell(): number
-    vfunc_write(buf: string, len: number): number
+    vfunc_write(buf: Uint8Array[]): number
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4664,7 +4664,7 @@ export class StreamGIO {
     get_owner(): boolean
     set_owner(owner: boolean): void
     /* Methods of GMime-3.0.GMime.Stream */
-    buffer_gets(buf: string, max: number): number
+    buffer_gets(buf: Uint8Array[]): number
     buffer_readln(buffer: Uint8Array[]): void
     close(): number
     construct(start: number, end: number): void
@@ -4676,10 +4676,10 @@ export class StreamGIO {
     set_bounds(start: number, end: number): void
     substream(start: number, end: number): Stream
     tell(): number
-    write(buf: string, len: number): number
+    write(buf: Uint8Array[]): number
     write_string(str: string): number
     write_to_stream(dest: Stream): number
-    writev(vector: StreamIOVector, count: number): number
+    writev(vector: StreamIOVector[]): number
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -4712,7 +4712,7 @@ export class StreamGIO {
     vfunc_seek(offset: number, whence: SeekWhence): number
     vfunc_substream(start: number, end: number): Stream
     vfunc_tell(): number
-    vfunc_write(buf: string, len: number): number
+    vfunc_write(buf: Uint8Array[]): number
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4752,7 +4752,7 @@ export class StreamMem {
     set_byte_array(array: Uint8Array[]): void
     set_owner(owner: boolean): void
     /* Methods of GMime-3.0.GMime.Stream */
-    buffer_gets(buf: string, max: number): number
+    buffer_gets(buf: Uint8Array[]): number
     buffer_readln(buffer: Uint8Array[]): void
     close(): number
     construct(start: number, end: number): void
@@ -4765,10 +4765,10 @@ export class StreamMem {
     set_bounds(start: number, end: number): void
     substream(start: number, end: number): Stream
     tell(): number
-    write(buf: string, len: number): number
+    write(buf: Uint8Array[]): number
     write_string(str: string): number
     write_to_stream(dest: Stream): number
-    writev(vector: StreamIOVector, count: number): number
+    writev(vector: StreamIOVector[]): number
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -4801,7 +4801,7 @@ export class StreamMem {
     vfunc_seek(offset: number, whence: SeekWhence): number
     vfunc_substream(start: number, end: number): Stream
     vfunc_tell(): number
-    vfunc_write(buf: string, len: number): number
+    vfunc_write(buf: Uint8Array[]): number
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4843,7 +4843,7 @@ export class StreamMmap {
     get_owner(): boolean
     set_owner(owner: boolean): void
     /* Methods of GMime-3.0.GMime.Stream */
-    buffer_gets(buf: string, max: number): number
+    buffer_gets(buf: Uint8Array[]): number
     buffer_readln(buffer: Uint8Array[]): void
     close(): number
     construct(start: number, end: number): void
@@ -4855,10 +4855,10 @@ export class StreamMmap {
     set_bounds(start: number, end: number): void
     substream(start: number, end: number): Stream
     tell(): number
-    write(buf: string, len: number): number
+    write(buf: Uint8Array[]): number
     write_string(str: string): number
     write_to_stream(dest: Stream): number
-    writev(vector: StreamIOVector, count: number): number
+    writev(vector: StreamIOVector[]): number
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -4891,7 +4891,7 @@ export class StreamMmap {
     vfunc_seek(offset: number, whence: SeekWhence): number
     vfunc_substream(start: number, end: number): Stream
     vfunc_tell(): number
-    vfunc_write(buf: string, len: number): number
+    vfunc_write(buf: Uint8Array[]): number
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -4930,7 +4930,7 @@ export class StreamNull {
     get_count_newlines(): boolean
     set_count_newlines(count: boolean): void
     /* Methods of GMime-3.0.GMime.Stream */
-    buffer_gets(buf: string, max: number): number
+    buffer_gets(buf: Uint8Array[]): number
     buffer_readln(buffer: Uint8Array[]): void
     close(): number
     construct(start: number, end: number): void
@@ -4943,10 +4943,10 @@ export class StreamNull {
     set_bounds(start: number, end: number): void
     substream(start: number, end: number): Stream
     tell(): number
-    write(buf: string, len: number): number
+    write(buf: Uint8Array[]): number
     write_string(str: string): number
     write_to_stream(dest: Stream): number
-    writev(vector: StreamIOVector, count: number): number
+    writev(vector: StreamIOVector[]): number
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -4979,7 +4979,7 @@ export class StreamNull {
     vfunc_seek(offset: number, whence: SeekWhence): number
     vfunc_substream(start: number, end: number): Stream
     vfunc_tell(): number
-    vfunc_write(buf: string, len: number): number
+    vfunc_write(buf: Uint8Array[]): number
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -5017,7 +5017,7 @@ export class StreamPipe {
     get_owner(): boolean
     set_owner(owner: boolean): void
     /* Methods of GMime-3.0.GMime.Stream */
-    buffer_gets(buf: string, max: number): number
+    buffer_gets(buf: Uint8Array[]): number
     buffer_readln(buffer: Uint8Array[]): void
     close(): number
     construct(start: number, end: number): void
@@ -5029,10 +5029,10 @@ export class StreamPipe {
     set_bounds(start: number, end: number): void
     substream(start: number, end: number): Stream
     tell(): number
-    write(buf: string, len: number): number
+    write(buf: Uint8Array[]): number
     write_string(str: string): number
     write_to_stream(dest: Stream): number
-    writev(vector: StreamIOVector, count: number): number
+    writev(vector: StreamIOVector[]): number
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
@@ -5065,7 +5065,7 @@ export class StreamPipe {
     vfunc_seek(offset: number, whence: SeekWhence): number
     vfunc_substream(start: number, end: number): Stream
     vfunc_tell(): number
-    vfunc_write(buf: string, len: number): number
+    vfunc_write(buf: Uint8Array[]): number
     /* Virtual methods of GObject-2.0.GObject.Object */
     vfunc_constructed(): void
     vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
@@ -5635,7 +5635,7 @@ export abstract class StreamClass {
     /* Fields of GMime-3.0.GMime.StreamClass */
     parent_class: GObject.ObjectClass
     read: (stream: Stream, buf: Uint8Array[]) => number
-    write: (stream: Stream, buf: string, len: number) => number
+    write: (stream: Stream, buf: Uint8Array[]) => number
     flush: (stream: Stream) => number
     close: (stream: Stream) => number
     eos: (stream: Stream) => boolean

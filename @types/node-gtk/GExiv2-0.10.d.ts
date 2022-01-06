@@ -130,25 +130,43 @@ export class Metadata {
     setTagMultiple(tag: string, values: string[]): boolean
     setTagString(tag: string, value: string): boolean
     setXmpTagStruct(tag: string, type: StructureType): boolean
+    tryClearTag(tag: string): boolean
     tryDeleteGpsInfo(): void
+    tryEraseExifThumbnail(): void
     tryGenerateXmpPacket(xmpFormatFlags: XmpFormatFlags, padding: number): string | null
+    tryGetComment(): string | null
     tryGetExifTagRational(tag: string): { returnType: boolean, nom: number, den: number }
+    tryGetExposureTime(): { returnType: boolean, nom: number, den: number }
+    tryGetFnumber(): number
+    tryGetFocalLength(): number
     tryGetGpsAltitude(): { returnType: boolean, altitude: number }
     tryGetGpsInfo(): { returnType: boolean, longitude: number, latitude: number, altitude: number }
     tryGetGpsLatitude(): { returnType: boolean, latitude: number }
     tryGetGpsLongitude(): { returnType: boolean, longitude: number }
+    tryGetIsoSpeed(): number
+    tryGetMetadataPixelHeight(): number
+    tryGetMetadataPixelWidth(): number
+    tryGetOrientation(): Orientation
+    tryGetPreviewImage(props: PreviewProperties): PreviewImage
     tryGetTagInterpretedString(tag: string): string | null
     tryGetTagLong(tag: string): number
     tryGetTagMultiple(tag: string): string[] | null
     tryGetTagRaw(tag: string): any | null
     tryGetTagString(tag: string): string | null
     tryGetXmpPacket(): string | null
+    tryHasTag(tag: string): boolean
+    trySetComment(comment: string): void
     trySetExifTagRational(tag: string, nom: number, den: number): boolean
+    trySetExifThumbnailFromBuffer(buffer: any[]): void
     trySetGpsInfo(longitude: number, latitude: number, altitude: number): boolean
+    trySetMetadataPixelHeight(height: number): void
+    trySetMetadataPixelWidth(width: number): void
+    trySetOrientation(orientation: Orientation): void
     trySetTagLong(tag: string, value: number): boolean
     trySetTagMultiple(tag: string, values: string[]): boolean
     trySetTagString(tag: string, value: string): boolean
     trySetXmpTagStruct(tag: string, type: StructureType): boolean
+    tryTagSupportsMultipleValues(tag: string): boolean
     tryUpdateGpsInfo(longitude: number, latitude: number, altitude: number): boolean
     updateGpsInfo(longitude: number, latitude: number, altitude: number): boolean
     /* Methods of GObject-2.0.GObject.Object */
@@ -202,6 +220,10 @@ export class Metadata {
     static tryGetTagDescription(tag: string): string | null
     static tryGetTagLabel(tag: string): string | null
     static tryGetTagType(tag: string): string | null
+    static tryGetXmpNamespaceForTag(tag: string): string
+    static tryRegisterXmpNamespace(name: string, prefix: string): boolean
+    static tryUnregisterAllXmpNamespaces(): void
+    static tryUnregisterXmpNamespace(name: string): boolean
     static unregisterAllXmpNamespaces(): void
     static unregisterXmpNamespace(name: string): boolean
     static $gtype: GObject.Type
@@ -220,6 +242,7 @@ export class PreviewImage {
     getHeight(): number
     getMimeType(): string
     getWidth(): number
+    tryWriteFile(path: string): number
     writeFile(path: string): number
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding

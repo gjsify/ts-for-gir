@@ -8,6 +8,7 @@ import type * as GObject from './GObject-2.0';
 import type * as GLib from './GLib-2.0';
 import type * as Gdk from './Gdk-4.0';
 import type * as cairo from './cairo-1.0';
+import type * as PangoCairo from './PangoCairo-1.0';
 import type * as Pango from './Pango-1.0';
 import type * as HarfBuzz from './HarfBuzz-0.0';
 import type * as Gio from './Gio-2.0';
@@ -97,6 +98,10 @@ export enum TransformCategory {
 }
 export function serialization_error_quark(): GLib.Quark
 export function transform_parse(string: string): [ /* returnType */ boolean, /* out_transform */ Transform ]
+export function value_dup_render_node(value: any): RenderNode | null
+export function value_get_render_node(value: any): RenderNode | null
+export function value_set_render_node(value: any, node: RenderNode): void
+export function value_take_render_node(value: any, node?: RenderNode | null): void
 export interface ParseErrorFunc {
     (start: ParseLocation, end: ParseLocation, error: GLib.Error): void
 }
@@ -167,7 +172,7 @@ export class BroadwayRenderer {
     /* Methods of Gsk-4.0.Gsk.Renderer */
     get_surface(): Gdk.Surface | null
     is_realized(): boolean
-    realize(surface: Gdk.Surface): boolean
+    realize(surface?: Gdk.Surface | null): boolean
     render(root: RenderNode, region?: cairo.Region | null): void
     render_texture(root: RenderNode, viewport?: Graphene.Rect | null): Gdk.Texture
     unrealize(): void
@@ -249,7 +254,7 @@ export class CairoRenderer {
     /* Methods of Gsk-4.0.Gsk.Renderer */
     get_surface(): Gdk.Surface | null
     is_realized(): boolean
-    realize(surface: Gdk.Surface): boolean
+    realize(surface?: Gdk.Surface | null): boolean
     render(root: RenderNode, region?: cairo.Region | null): void
     render_texture(root: RenderNode, viewport?: Graphene.Rect | null): Gdk.Texture
     unrealize(): void
@@ -443,7 +448,7 @@ export class GLRenderer {
     /* Methods of Gsk-4.0.Gsk.Renderer */
     get_surface(): Gdk.Surface | null
     is_realized(): boolean
-    realize(surface: Gdk.Surface): boolean
+    realize(surface?: Gdk.Surface | null): boolean
     render(root: RenderNode, region?: cairo.Region | null): void
     render_texture(root: RenderNode, viewport?: Graphene.Rect | null): Gdk.Texture
     unrealize(): void
@@ -516,7 +521,7 @@ export class GLShader {
     get_args_size(): number
     get_n_textures(): number
     get_n_uniforms(): number
-    get_resource(): string
+    get_resource(): string | null
     get_source(): GLib.Bytes
     get_uniform_name(idx: number): string
     get_uniform_offset(idx: number): number
@@ -629,6 +634,70 @@ export class LinearGradientNode {
     /* Static methods and pseudo-constructors */
     static new(bounds: Graphene.Rect, start: Graphene.Point, end: Graphene.Point, color_stops: ColorStop[]): LinearGradientNode
 }
+export interface NglRenderer_ConstructProps extends Renderer_ConstructProps {
+}
+export class NglRenderer {
+    /* Properties of Gsk-4.0.Gsk.Renderer */
+    readonly realized: boolean
+    readonly surface: Gdk.Surface
+    /* Fields of GObject-2.0.GObject.Object */
+    g_type_instance: GObject.TypeInstance
+    /* Methods of Gsk-4.0.Gsk.Renderer */
+    get_surface(): Gdk.Surface | null
+    is_realized(): boolean
+    realize(surface?: Gdk.Surface | null): boolean
+    render(root: RenderNode, region?: cairo.Region | null): void
+    render_texture(root: RenderNode, viewport?: Graphene.Rect | null): Gdk.Texture
+    unrealize(): void
+    /* Methods of GObject-2.0.GObject.Object */
+    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
+    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
+    force_floating(): void
+    freeze_notify(): void
+    get_data(key: string): object | null
+    get_property(property_name: string, value: any): void
+    get_qdata(quark: GLib.Quark): object | null
+    getv(names: string[], values: any[]): void
+    is_floating(): boolean
+    notify(property_name: string): void
+    notify_by_pspec(pspec: GObject.ParamSpec): void
+    ref(): GObject.Object
+    ref_sink(): GObject.Object
+    run_dispose(): void
+    set_data(key: string, data?: object | null): void
+    set_property(property_name: string, value: any): void
+    steal_data(key: string): object | null
+    steal_qdata(quark: GLib.Quark): object | null
+    thaw_notify(): void
+    unref(): void
+    watch_closure(closure: Function): void
+    /* Virtual methods of GObject-2.0.GObject.Object */
+    vfunc_constructed(): void
+    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
+    vfunc_dispose(): void
+    vfunc_finalize(): void
+    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    vfunc_notify(pspec: GObject.ParamSpec): void
+    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
+    /* Signals of GObject-2.0.GObject.Object */
+    connect(sigName: "notify", callback: (($obj: NglRenderer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify", callback: (($obj: NglRenderer, pspec: GObject.ParamSpec) => void)): number
+    emit(sigName: "notify", pspec: GObject.ParamSpec): void
+    connect(sigName: "notify::realized", callback: (($obj: NglRenderer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::realized", callback: (($obj: NglRenderer, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: "notify::surface", callback: (($obj: NglRenderer, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::surface", callback: (($obj: NglRenderer, pspec: GObject.ParamSpec) => void)): number
+    connect(sigName: string, callback: any): number
+    connect_after(sigName: string, callback: any): number
+    emit(sigName: string, ...args: any[]): void
+    disconnect(id: number): void
+    static name: string
+    constructor (config?: NglRenderer_ConstructProps)
+    _init (config?: NglRenderer_ConstructProps): void
+    /* Static methods and pseudo-constructors */
+    static new(): NglRenderer
+    static $gtype: GObject.Type
+}
 export class OpacityNode {
     /* Methods of Gsk-4.0.Gsk.OpacityNode */
     get_child(): RenderNode
@@ -716,7 +785,7 @@ export class Renderer {
     /* Methods of Gsk-4.0.Gsk.Renderer */
     get_surface(): Gdk.Surface | null
     is_realized(): boolean
-    realize(surface: Gdk.Surface): boolean
+    realize(surface?: Gdk.Surface | null): boolean
     render(root: RenderNode, region?: cairo.Region | null): void
     render_texture(root: RenderNode, viewport?: Graphene.Rect | null): Gdk.Texture
     unrealize(): void
@@ -911,70 +980,6 @@ export class TransformNode {
     /* Static methods and pseudo-constructors */
     static new(child: RenderNode, transform: Transform): TransformNode
 }
-export interface VulkanRenderer_ConstructProps extends Renderer_ConstructProps {
-}
-export class VulkanRenderer {
-    /* Properties of Gsk-4.0.Gsk.Renderer */
-    readonly realized: boolean
-    readonly surface: Gdk.Surface
-    /* Fields of GObject-2.0.GObject.Object */
-    g_type_instance: GObject.TypeInstance
-    /* Methods of Gsk-4.0.Gsk.Renderer */
-    get_surface(): Gdk.Surface | null
-    is_realized(): boolean
-    realize(surface: Gdk.Surface): boolean
-    render(root: RenderNode, region?: cairo.Region | null): void
-    render_texture(root: RenderNode, viewport?: Graphene.Rect | null): Gdk.Texture
-    unrealize(): void
-    /* Methods of GObject-2.0.GObject.Object */
-    bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
-    bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding
-    force_floating(): void
-    freeze_notify(): void
-    get_data(key: string): object | null
-    get_property(property_name: string, value: any): void
-    get_qdata(quark: GLib.Quark): object | null
-    getv(names: string[], values: any[]): void
-    is_floating(): boolean
-    notify(property_name: string): void
-    notify_by_pspec(pspec: GObject.ParamSpec): void
-    ref(): GObject.Object
-    ref_sink(): GObject.Object
-    run_dispose(): void
-    set_data(key: string, data?: object | null): void
-    set_property(property_name: string, value: any): void
-    steal_data(key: string): object | null
-    steal_qdata(quark: GLib.Quark): object | null
-    thaw_notify(): void
-    unref(): void
-    watch_closure(closure: Function): void
-    /* Virtual methods of GObject-2.0.GObject.Object */
-    vfunc_constructed(): void
-    vfunc_dispatch_properties_changed(n_pspecs: number, pspecs: GObject.ParamSpec): void
-    vfunc_dispose(): void
-    vfunc_finalize(): void
-    vfunc_get_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    vfunc_notify(pspec: GObject.ParamSpec): void
-    vfunc_set_property(property_id: number, value: any, pspec: GObject.ParamSpec): void
-    /* Signals of GObject-2.0.GObject.Object */
-    connect(sigName: "notify", callback: (($obj: VulkanRenderer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify", callback: (($obj: VulkanRenderer, pspec: GObject.ParamSpec) => void)): number
-    emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::realized", callback: (($obj: VulkanRenderer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::realized", callback: (($obj: VulkanRenderer, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: "notify::surface", callback: (($obj: VulkanRenderer, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::surface", callback: (($obj: VulkanRenderer, pspec: GObject.ParamSpec) => void)): number
-    connect(sigName: string, callback: any): number
-    connect_after(sigName: string, callback: any): number
-    emit(sigName: string, ...args: any[]): void
-    disconnect(id: number): void
-    static name: string
-    constructor (config?: VulkanRenderer_ConstructProps)
-    _init (config?: VulkanRenderer_ConstructProps): void
-    /* Static methods and pseudo-constructors */
-    static new(): VulkanRenderer
-    static $gtype: GObject.Type
-}
 export abstract class BroadwayRendererClass {
     static name: string
 }
@@ -1063,7 +1068,9 @@ export class Transform {
     rotate_3d(angle: number, axis: Graphene.Vec3): Transform
     scale(factor_x: number, factor_y: number): Transform
     scale_3d(factor_x: number, factor_y: number, factor_z: number): Transform
+    skew(skew_x: number, skew_y: number): Transform
     to_2d(): [ /* out_xx */ number, /* out_yx */ number, /* out_xy */ number, /* out_yy */ number, /* out_dx */ number, /* out_dy */ number ]
+    to_2d_components(): [ /* out_skew_x */ number, /* out_skew_y */ number, /* out_scale_x */ number, /* out_scale_y */ number, /* out_angle */ number, /* out_dx */ number, /* out_dy */ number ]
     to_affine(): [ /* out_scale_x */ number, /* out_scale_y */ number, /* out_dx */ number, /* out_dy */ number ]
     to_matrix(): /* out_matrix */ Graphene.Matrix
     to_string(): string
@@ -1080,7 +1087,4 @@ export class Transform {
     /* Static methods and pseudo-constructors */
     static new(): Transform
     static parse(string: string): [ /* returnType */ boolean, /* out_transform */ Transform ]
-}
-export abstract class VulkanRendererClass {
-    static name: string
 }

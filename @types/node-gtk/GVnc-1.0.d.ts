@@ -97,6 +97,9 @@ export enum ConnectionResizeStatus {
 export const LEDSTATE_CAPS_LOCK: number
 export const LEDSTATE_NUM_LOCK: number
 export const LEDSTATE_SCROLL_LOCK: number
+export const MAJOR_VERSION: number
+export const MICRO_VERSION: number
+export const MINOR_VERSION: number
 export const PADDING: number
 export const PADDING_LARGE: number
 export function utilCheckVersion(major: number, minor: number, micro: number): boolean
@@ -321,7 +324,7 @@ export class Connection {
     setEncodings(encoding: number[]): boolean
     setFramebuffer(fb: Framebuffer): boolean
     setPixelFormat(fmt: PixelFormat): boolean
-    setShared(sharedFlag: boolean): boolean
+    setShared(shared: boolean): boolean
     setSize(width: number, height: number): ConnectionResizeStatus
     shutdown(): void
     /* Methods of GObject-2.0.GObject.Object */
@@ -382,11 +385,11 @@ export class Connection {
     once(sigName: "vnc-connected", callback: () => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "vnc-connected", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "vnc-connected"): void
-    connect(sigName: "vnc-cursor-changed", callback: (($obj: Connection, object: Cursor) => void)): number
-    on(sigName: "vnc-cursor-changed", callback: (object: Cursor) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "vnc-cursor-changed", callback: (object: Cursor) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "vnc-cursor-changed", callback: (object: Cursor) => void): NodeJS.EventEmitter
-    emit(sigName: "vnc-cursor-changed", object: Cursor): void
+    connect(sigName: "vnc-cursor-changed", callback: (($obj: Connection, cursor?: Cursor | null) => void)): number
+    on(sigName: "vnc-cursor-changed", callback: (cursor?: Cursor | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-cursor-changed", callback: (cursor?: Cursor | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-cursor-changed", callback: (cursor?: Cursor | null) => void): NodeJS.EventEmitter
+    emit(sigName: "vnc-cursor-changed", cursor?: Cursor | null): void
     connect(sigName: "vnc-desktop-rename", callback: (($obj: Connection, object: string) => void)): number
     on(sigName: "vnc-desktop-rename", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "vnc-desktop-rename", callback: (object: string) => void, after?: boolean): NodeJS.EventEmitter
@@ -422,11 +425,11 @@ export class Connection {
     once(sigName: "vnc-led-state", callback: () => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "vnc-led-state", callback: () => void): NodeJS.EventEmitter
     emit(sigName: "vnc-led-state"): void
-    connect(sigName: "vnc-pixel-format-changed", callback: (($obj: Connection, object?: object | null) => void)): number
-    on(sigName: "vnc-pixel-format-changed", callback: (object?: object | null) => void, after?: boolean): NodeJS.EventEmitter
-    once(sigName: "vnc-pixel-format-changed", callback: (object?: object | null) => void, after?: boolean): NodeJS.EventEmitter
-    off(sigName: "vnc-pixel-format-changed", callback: (object?: object | null) => void): NodeJS.EventEmitter
-    emit(sigName: "vnc-pixel-format-changed", object?: object | null): void
+    connect(sigName: "vnc-pixel-format-changed", callback: (($obj: Connection, object: PixelFormat) => void)): number
+    on(sigName: "vnc-pixel-format-changed", callback: (object: PixelFormat) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "vnc-pixel-format-changed", callback: (object: PixelFormat) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "vnc-pixel-format-changed", callback: (object: PixelFormat) => void): NodeJS.EventEmitter
+    emit(sigName: "vnc-pixel-format-changed", object: PixelFormat): void
     connect(sigName: "vnc-pointer-mode-changed", callback: (($obj: Connection, object: boolean) => void)): number
     on(sigName: "vnc-pointer-mode-changed", callback: (object: boolean) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "vnc-pointer-mode-changed", callback: (object: boolean) => void, after?: boolean): NodeJS.EventEmitter
@@ -628,7 +631,7 @@ export class ColorMap {
     /* Methods of GVnc-1.0.GVnc.ColorMap */
     copy(): ColorMap
     free(): void
-    lookup(idx: number, red: number, green: number, blue: number): boolean
+    lookup(idx: number): { returnType: boolean, red: number, green: number, blue: number }
     set(idx: number, red: number, green: number, blue: number): boolean
     static name: string
     static new(offset: number, size: number): ColorMap

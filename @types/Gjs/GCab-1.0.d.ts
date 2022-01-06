@@ -123,6 +123,7 @@ export class File {
     get_name(): string
     get_size(): number
     set_attributes(attr: number): void
+    set_bytes(bytes: GLib.Bytes): void
     set_date(tv: GLib.TimeVal): void
     set_date_time(dt: GLib.DateTime): void
     set_extract_name(name?: string | null): void

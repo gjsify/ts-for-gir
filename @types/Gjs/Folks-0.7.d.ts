@@ -4273,10 +4273,10 @@ export class WebServiceFieldDetails {
 }
 export abstract class AbstractFieldDetailsClass {
     /* Fields of Folks-0.7.Folks.AbstractFieldDetailsClass */
-    equal: (that: AbstractFieldDetails) => boolean
-    parameters_equal: (that: AbstractFieldDetails) => boolean
-    values_equal: (that: AbstractFieldDetails) => boolean
-    hash: () => number
+    equal: (self: AbstractFieldDetails, that: AbstractFieldDetails) => boolean
+    parameters_equal: (self: AbstractFieldDetails, that: AbstractFieldDetails) => boolean
+    values_equal: (self: AbstractFieldDetails, that: AbstractFieldDetails) => boolean
+    hash: (self: AbstractFieldDetails) => number
     static name: string
 }
 export class AbstractFieldDetailsPrivate {
@@ -4296,13 +4296,13 @@ export class BackendStorePrivate {
 }
 export abstract class BackendClass {
     /* Fields of Folks-0.7.Folks.BackendClass */
-    disable_persona_store: (store: PersonaStore) => void
-    enable_persona_store: (store: PersonaStore) => void
-    set_persona_stores: (storeids?: Gee.Set | null) => void
-    prepare: (_callback_?: Gio.AsyncReadyCallback | null) => void
-    prepare_finish: (_res_: Gio.AsyncResult) => void
-    unprepare: (_callback_?: Gio.AsyncReadyCallback | null) => void
-    unprepare_finish: (_res_: Gio.AsyncResult) => void
+    disable_persona_store: (self: Backend, store: PersonaStore) => void
+    enable_persona_store: (self: Backend, store: PersonaStore) => void
+    set_persona_stores: (self: Backend, storeids?: Gee.Set | null) => void
+    prepare: (self: Backend, _callback_?: Gio.AsyncReadyCallback | null) => void
+    prepare_finish: (self: Backend, _res_: Gio.AsyncResult) => void
+    unprepare: (self: Backend, _callback_?: Gio.AsyncReadyCallback | null) => void
+    unprepare_finish: (self: Backend, _res_: Gio.AsyncResult) => void
     static name: string
 }
 export class BackendPrivate {
@@ -4364,10 +4364,10 @@ export class NoteFieldDetailsPrivate {
 }
 export abstract class ObjectCacheClass {
     /* Fields of Folks-0.7.Folks.ObjectCacheClass */
-    get_serialised_object_type: (object_version: number) => GLib.VariantType | null
-    get_serialised_object_version: () => number
-    serialise_object: (object?: object | null) => GLib.Variant
-    deserialise_object: (variant: GLib.Variant, object_version: number) => object | null
+    get_serialised_object_type: (self: ObjectCache, object_version: number) => GLib.VariantType | null
+    get_serialised_object_version: (self: ObjectCache) => number
+    serialise_object: (self: ObjectCache, object?: object | null) => GLib.Variant
+    deserialise_object: (self: ObjectCache, variant: GLib.Variant, object_version: number) => object | null
     static name: string
 }
 export class ObjectCachePrivate {
@@ -4375,14 +4375,14 @@ export class ObjectCachePrivate {
 }
 export abstract class PersonaStoreClass {
     /* Fields of Folks-0.7.Folks.PersonaStoreClass */
-    prepare: (_callback_?: Gio.AsyncReadyCallback | null) => void
-    prepare_finish: (_res_: Gio.AsyncResult) => void
-    flush: (_callback_?: Gio.AsyncReadyCallback | null) => void
-    flush_finish: (_res_: Gio.AsyncResult) => void
-    add_persona_from_details: (details: GLib.HashTable, _callback_?: Gio.AsyncReadyCallback | null) => void
-    add_persona_from_details_finish: (_res_: Gio.AsyncResult) => Persona | null
-    remove_persona: (persona: Persona, _callback_?: Gio.AsyncReadyCallback | null) => void
-    remove_persona_finish: (_res_: Gio.AsyncResult) => void
+    prepare: (self: PersonaStore, _callback_?: Gio.AsyncReadyCallback | null) => void
+    prepare_finish: (self: PersonaStore, _res_: Gio.AsyncResult) => void
+    flush: (self: PersonaStore, _callback_?: Gio.AsyncReadyCallback | null) => void
+    flush_finish: (self: PersonaStore, _res_: Gio.AsyncResult) => void
+    add_persona_from_details: (self: PersonaStore, details: GLib.HashTable, _callback_?: Gio.AsyncReadyCallback | null) => void
+    add_persona_from_details_finish: (self: PersonaStore, _res_: Gio.AsyncResult) => Persona | null
+    remove_persona: (self: PersonaStore, persona: Persona, _callback_?: Gio.AsyncReadyCallback | null) => void
+    remove_persona_finish: (self: PersonaStore, _res_: Gio.AsyncResult) => void
     static name: string
 }
 export class PersonaStorePrivate {
@@ -4390,7 +4390,7 @@ export class PersonaStorePrivate {
 }
 export abstract class PersonaClass {
     /* Fields of Folks-0.7.Folks.PersonaClass */
-    linkable_property_to_links: (prop_name: string, callback: any) => void
+    linkable_property_to_links: (self: Persona, prop_name: string, callback: any) => void
     static name: string
 }
 export class PersonaPrivate {
@@ -4422,7 +4422,7 @@ export class PotentialMatchPrivate {
 }
 export abstract class QueryClass {
     /* Fields of Folks-0.7.Folks.QueryClass */
-    is_match: (individual: Individual) => number
+    is_match: (self: Query, individual: Individual) => number
     static name: string
 }
 export class QueryPrivate {
@@ -4472,188 +4472,188 @@ export class WebServiceFieldDetailsPrivate {
 }
 export abstract class AliasDetailsIface {
     /* Fields of Folks-0.7.Folks.AliasDetailsIface */
-    change_alias: (alias: string, _callback_?: Gio.AsyncReadyCallback | null) => void
-    change_alias_finish: (_res_: Gio.AsyncResult) => void
-    get_alias: () => string
-    set_alias: (value: string) => void
+    change_alias: (self: AliasDetails, alias: string, _callback_?: Gio.AsyncReadyCallback | null) => void
+    change_alias_finish: (self: AliasDetails, _res_: Gio.AsyncResult) => void
+    get_alias: (self: AliasDetails) => string
+    set_alias: (self: AliasDetails, value: string) => void
     static name: string
 }
 export abstract class AntiLinkableIface {
     /* Fields of Folks-0.7.Folks.AntiLinkableIface */
-    change_anti_links: (anti_links: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
-    change_anti_links_finish: (_res_: Gio.AsyncResult) => void
-    get_anti_links: () => Gee.Set
-    set_anti_links: (value: Gee.Set) => void
+    change_anti_links: (self: AntiLinkable, anti_links: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
+    change_anti_links_finish: (self: AntiLinkable, _res_: Gio.AsyncResult) => void
+    get_anti_links: (self: AntiLinkable) => Gee.Set
+    set_anti_links: (self: AntiLinkable, value: Gee.Set) => void
     static name: string
 }
 export abstract class AvatarDetailsIface {
     /* Fields of Folks-0.7.Folks.AvatarDetailsIface */
-    change_avatar: (avatar?: Gio.LoadableIcon | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    change_avatar_finish: (_res_: Gio.AsyncResult) => void
-    get_avatar: () => Gio.LoadableIcon | null
-    set_avatar: (value?: Gio.LoadableIcon | null) => void
+    change_avatar: (self: AvatarDetails, avatar?: Gio.LoadableIcon | null, _callback_?: Gio.AsyncReadyCallback | null) => void
+    change_avatar_finish: (self: AvatarDetails, _res_: Gio.AsyncResult) => void
+    get_avatar: (self: AvatarDetails) => Gio.LoadableIcon | null
+    set_avatar: (self: AvatarDetails, value?: Gio.LoadableIcon | null) => void
     static name: string
 }
 export abstract class BirthdayDetailsIface {
     /* Fields of Folks-0.7.Folks.BirthdayDetailsIface */
-    change_birthday: (birthday?: GLib.DateTime | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    change_birthday_finish: (_res_: Gio.AsyncResult) => void
-    change_calendar_event_id: (event_id?: string | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    change_calendar_event_id_finish: (_res_: Gio.AsyncResult) => void
-    get_birthday: () => GLib.DateTime | null
-    set_birthday: (value?: GLib.DateTime | null) => void
-    get_calendar_event_id: () => string | null
-    set_calendar_event_id: (value?: string | null) => void
+    change_birthday: (self: BirthdayDetails, birthday?: GLib.DateTime | null, _callback_?: Gio.AsyncReadyCallback | null) => void
+    change_birthday_finish: (self: BirthdayDetails, _res_: Gio.AsyncResult) => void
+    change_calendar_event_id: (self: BirthdayDetails, event_id?: string | null, _callback_?: Gio.AsyncReadyCallback | null) => void
+    change_calendar_event_id_finish: (self: BirthdayDetails, _res_: Gio.AsyncResult) => void
+    get_birthday: (self: BirthdayDetails) => GLib.DateTime | null
+    set_birthday: (self: BirthdayDetails, value?: GLib.DateTime | null) => void
+    get_calendar_event_id: (self: BirthdayDetails) => string | null
+    set_calendar_event_id: (self: BirthdayDetails, value?: string | null) => void
     static name: string
 }
 export abstract class EmailDetailsIface {
     /* Fields of Folks-0.7.Folks.EmailDetailsIface */
-    change_email_addresses: (email_addresses: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
-    change_email_addresses_finish: (_res_: Gio.AsyncResult) => void
-    get_email_addresses: () => Gee.Set
-    set_email_addresses: (value: Gee.Set) => void
+    change_email_addresses: (self: EmailDetails, email_addresses: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
+    change_email_addresses_finish: (self: EmailDetails, _res_: Gio.AsyncResult) => void
+    get_email_addresses: (self: EmailDetails) => Gee.Set
+    set_email_addresses: (self: EmailDetails, value: Gee.Set) => void
     static name: string
 }
 export abstract class ExtendedInfoIface {
     /* Fields of Folks-0.7.Folks.ExtendedInfoIface */
-    get_extended_field: (name: string) => ExtendedFieldDetails | null
-    change_extended_field: (name: string, value: ExtendedFieldDetails, _callback_?: Gio.AsyncReadyCallback | null) => void
-    change_extended_field_finish: (_res_: Gio.AsyncResult) => void
-    remove_extended_field: (name: string, _callback_?: Gio.AsyncReadyCallback | null) => void
-    remove_extended_field_finish: (_res_: Gio.AsyncResult) => void
+    get_extended_field: (self: ExtendedInfo, name: string) => ExtendedFieldDetails | null
+    change_extended_field: (self: ExtendedInfo, name: string, value: ExtendedFieldDetails, _callback_?: Gio.AsyncReadyCallback | null) => void
+    change_extended_field_finish: (self: ExtendedInfo, _res_: Gio.AsyncResult) => void
+    remove_extended_field: (self: ExtendedInfo, name: string, _callback_?: Gio.AsyncReadyCallback | null) => void
+    remove_extended_field_finish: (self: ExtendedInfo, _res_: Gio.AsyncResult) => void
     static name: string
 }
 export abstract class FavouriteDetailsIface {
     /* Fields of Folks-0.7.Folks.FavouriteDetailsIface */
-    change_is_favourite: (is_favourite: boolean, _callback_?: Gio.AsyncReadyCallback | null) => void
-    change_is_favourite_finish: (_res_: Gio.AsyncResult) => void
-    get_is_favourite: () => boolean
-    set_is_favourite: (value: boolean) => void
+    change_is_favourite: (self: FavouriteDetails, is_favourite: boolean, _callback_?: Gio.AsyncReadyCallback | null) => void
+    change_is_favourite_finish: (self: FavouriteDetails, _res_: Gio.AsyncResult) => void
+    get_is_favourite: (self: FavouriteDetails) => boolean
+    set_is_favourite: (self: FavouriteDetails, value: boolean) => void
     static name: string
 }
 export abstract class GenderDetailsIface {
     /* Fields of Folks-0.7.Folks.GenderDetailsIface */
-    change_gender: (gender: Gender, _callback_?: Gio.AsyncReadyCallback | null) => void
-    change_gender_finish: (_res_: Gio.AsyncResult) => void
-    get_gender: () => Gender
-    set_gender: (value: Gender) => void
+    change_gender: (self: GenderDetails, gender: Gender, _callback_?: Gio.AsyncReadyCallback | null) => void
+    change_gender_finish: (self: GenderDetails, _res_: Gio.AsyncResult) => void
+    get_gender: (self: GenderDetails) => Gender
+    set_gender: (self: GenderDetails, value: Gender) => void
     static name: string
 }
 export abstract class GroupDetailsIface {
     /* Fields of Folks-0.7.Folks.GroupDetailsIface */
-    change_group: (group: string, is_member: boolean, _callback_?: Gio.AsyncReadyCallback | null) => void
-    change_group_finish: (_res_: Gio.AsyncResult) => void
-    change_groups: (groups: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
-    change_groups_finish: (_res_: Gio.AsyncResult) => void
-    get_groups: () => Gee.Set
-    set_groups: (value: Gee.Set) => void
+    change_group: (self: GroupDetails, group: string, is_member: boolean, _callback_?: Gio.AsyncReadyCallback | null) => void
+    change_group_finish: (self: GroupDetails, _res_: Gio.AsyncResult) => void
+    change_groups: (self: GroupDetails, groups: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
+    change_groups_finish: (self: GroupDetails, _res_: Gio.AsyncResult) => void
+    get_groups: (self: GroupDetails) => Gee.Set
+    set_groups: (self: GroupDetails, value: Gee.Set) => void
     static name: string
 }
 export abstract class ImDetailsIface {
     /* Fields of Folks-0.7.Folks.ImDetailsIface */
-    change_im_addresses: (im_addresses: Gee.MultiMap, _callback_?: Gio.AsyncReadyCallback | null) => void
-    change_im_addresses_finish: (_res_: Gio.AsyncResult) => void
-    get_im_addresses: () => Gee.MultiMap
-    set_im_addresses: (value: Gee.MultiMap) => void
+    change_im_addresses: (self: ImDetails, im_addresses: Gee.MultiMap, _callback_?: Gio.AsyncReadyCallback | null) => void
+    change_im_addresses_finish: (self: ImDetails, _res_: Gio.AsyncResult) => void
+    get_im_addresses: (self: ImDetails) => Gee.MultiMap
+    set_im_addresses: (self: ImDetails, value: Gee.MultiMap) => void
     static name: string
 }
 export abstract class InteractionDetailsIface {
     /* Fields of Folks-0.7.Folks.InteractionDetailsIface */
-    get_im_interaction_count: () => number
-    get_last_im_interaction_datetime: () => GLib.DateTime | null
-    get_call_interaction_count: () => number
-    get_last_call_interaction_datetime: () => GLib.DateTime | null
+    get_im_interaction_count: (self: InteractionDetails) => number
+    get_last_im_interaction_datetime: (self: InteractionDetails) => GLib.DateTime | null
+    get_call_interaction_count: (self: InteractionDetails) => number
+    get_last_call_interaction_datetime: (self: InteractionDetails) => GLib.DateTime | null
     static name: string
 }
 export abstract class LocalIdDetailsIface {
     /* Fields of Folks-0.7.Folks.LocalIdDetailsIface */
-    change_local_ids: (local_ids: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
-    change_local_ids_finish: (_res_: Gio.AsyncResult) => void
-    get_local_ids: () => Gee.Set
-    set_local_ids: (value: Gee.Set) => void
+    change_local_ids: (self: LocalIdDetails, local_ids: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
+    change_local_ids_finish: (self: LocalIdDetails, _res_: Gio.AsyncResult) => void
+    get_local_ids: (self: LocalIdDetails) => Gee.Set
+    set_local_ids: (self: LocalIdDetails, value: Gee.Set) => void
     static name: string
 }
 export abstract class LocationDetailsIface {
     /* Fields of Folks-0.7.Folks.LocationDetailsIface */
-    change_location: (location?: Location | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    change_location_finish: (_res_: Gio.AsyncResult) => void
-    get_location: () => Location | null
-    set_location: (value?: Location | null) => void
+    change_location: (self: LocationDetails, location?: Location | null, _callback_?: Gio.AsyncReadyCallback | null) => void
+    change_location_finish: (self: LocationDetails, _res_: Gio.AsyncResult) => void
+    get_location: (self: LocationDetails) => Location | null
+    set_location: (self: LocationDetails, value?: Location | null) => void
     static name: string
 }
 export abstract class NameDetailsIface {
     /* Fields of Folks-0.7.Folks.NameDetailsIface */
-    change_structured_name: (name?: StructuredName | null, _callback_?: Gio.AsyncReadyCallback | null) => void
-    change_structured_name_finish: (_res_: Gio.AsyncResult) => void
-    change_full_name: (full_name: string, _callback_?: Gio.AsyncReadyCallback | null) => void
-    change_full_name_finish: (_res_: Gio.AsyncResult) => void
-    change_nickname: (nickname: string, _callback_?: Gio.AsyncReadyCallback | null) => void
-    change_nickname_finish: (_res_: Gio.AsyncResult) => void
-    get_structured_name: () => StructuredName | null
-    set_structured_name: (value?: StructuredName | null) => void
-    get_full_name: () => string
-    set_full_name: (value: string) => void
-    get_nickname: () => string
-    set_nickname: (value: string) => void
+    change_structured_name: (self: NameDetails, name?: StructuredName | null, _callback_?: Gio.AsyncReadyCallback | null) => void
+    change_structured_name_finish: (self: NameDetails, _res_: Gio.AsyncResult) => void
+    change_full_name: (self: NameDetails, full_name: string, _callback_?: Gio.AsyncReadyCallback | null) => void
+    change_full_name_finish: (self: NameDetails, _res_: Gio.AsyncResult) => void
+    change_nickname: (self: NameDetails, nickname: string, _callback_?: Gio.AsyncReadyCallback | null) => void
+    change_nickname_finish: (self: NameDetails, _res_: Gio.AsyncResult) => void
+    get_structured_name: (self: NameDetails) => StructuredName | null
+    set_structured_name: (self: NameDetails, value?: StructuredName | null) => void
+    get_full_name: (self: NameDetails) => string
+    set_full_name: (self: NameDetails, value: string) => void
+    get_nickname: (self: NameDetails) => string
+    set_nickname: (self: NameDetails, value: string) => void
     static name: string
 }
 export abstract class NoteDetailsIface {
     /* Fields of Folks-0.7.Folks.NoteDetailsIface */
-    change_notes: (notes: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
-    change_notes_finish: (_res_: Gio.AsyncResult) => void
-    get_notes: () => Gee.Set
-    set_notes: (value: Gee.Set) => void
+    change_notes: (self: NoteDetails, notes: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
+    change_notes_finish: (self: NoteDetails, _res_: Gio.AsyncResult) => void
+    get_notes: (self: NoteDetails) => Gee.Set
+    set_notes: (self: NoteDetails, value: Gee.Set) => void
     static name: string
 }
 export abstract class PhoneDetailsIface {
     /* Fields of Folks-0.7.Folks.PhoneDetailsIface */
-    change_phone_numbers: (phone_numbers: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
-    change_phone_numbers_finish: (_res_: Gio.AsyncResult) => void
-    get_phone_numbers: () => Gee.Set
-    set_phone_numbers: (value: Gee.Set) => void
+    change_phone_numbers: (self: PhoneDetails, phone_numbers: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
+    change_phone_numbers_finish: (self: PhoneDetails, _res_: Gio.AsyncResult) => void
+    get_phone_numbers: (self: PhoneDetails) => Gee.Set
+    set_phone_numbers: (self: PhoneDetails, value: Gee.Set) => void
     static name: string
 }
 export abstract class PostalAddressDetailsIface {
     /* Fields of Folks-0.7.Folks.PostalAddressDetailsIface */
-    change_postal_addresses: (postal_addresses: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
-    change_postal_addresses_finish: (_res_: Gio.AsyncResult) => void
-    get_postal_addresses: () => Gee.Set
-    set_postal_addresses: (value: Gee.Set) => void
+    change_postal_addresses: (self: PostalAddressDetails, postal_addresses: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
+    change_postal_addresses_finish: (self: PostalAddressDetails, _res_: Gio.AsyncResult) => void
+    get_postal_addresses: (self: PostalAddressDetails) => Gee.Set
+    set_postal_addresses: (self: PostalAddressDetails, value: Gee.Set) => void
     static name: string
 }
 export abstract class PresenceDetailsIface {
     /* Fields of Folks-0.7.Folks.PresenceDetailsIface */
-    get_presence_type: () => PresenceType
-    set_presence_type: (value: PresenceType) => void
-    get_presence_message: () => string
-    set_presence_message: (value: string) => void
-    get_client_types: () => string[]
-    set_client_types: (value: string[]) => void
-    get_presence_status: () => string
-    set_presence_status: (value: string) => void
+    get_presence_type: (self: PresenceDetails) => PresenceType
+    set_presence_type: (self: PresenceDetails, value: PresenceType) => void
+    get_presence_message: (self: PresenceDetails) => string
+    set_presence_message: (self: PresenceDetails, value: string) => void
+    get_client_types: () => [ /* returnType */ string[], /* result_length1 */ number ]
+    set_client_types: (self: PresenceDetails, value: string[]) => void
+    get_presence_status: (self: PresenceDetails) => string
+    set_presence_status: (self: PresenceDetails, value: string) => void
     static name: string
 }
 export abstract class RoleDetailsIface {
     /* Fields of Folks-0.7.Folks.RoleDetailsIface */
-    change_roles: (roles: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
-    change_roles_finish: (_res_: Gio.AsyncResult) => void
-    get_roles: () => Gee.Set
-    set_roles: (value: Gee.Set) => void
+    change_roles: (self: RoleDetails, roles: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
+    change_roles_finish: (self: RoleDetails, _res_: Gio.AsyncResult) => void
+    get_roles: (self: RoleDetails) => Gee.Set
+    set_roles: (self: RoleDetails, value: Gee.Set) => void
     static name: string
 }
 export abstract class UrlDetailsIface {
     /* Fields of Folks-0.7.Folks.UrlDetailsIface */
-    change_urls: (urls: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
-    change_urls_finish: (_res_: Gio.AsyncResult) => void
-    get_urls: () => Gee.Set
-    set_urls: (value: Gee.Set) => void
+    change_urls: (self: UrlDetails, urls: Gee.Set, _callback_?: Gio.AsyncReadyCallback | null) => void
+    change_urls_finish: (self: UrlDetails, _res_: Gio.AsyncResult) => void
+    get_urls: (self: UrlDetails) => Gee.Set
+    set_urls: (self: UrlDetails, value: Gee.Set) => void
     static name: string
 }
 export abstract class WebServiceDetailsIface {
     /* Fields of Folks-0.7.Folks.WebServiceDetailsIface */
-    change_web_service_addresses: (web_service_addresses: Gee.MultiMap, _callback_?: Gio.AsyncReadyCallback | null) => void
-    change_web_service_addresses_finish: (_res_: Gio.AsyncResult) => void
-    get_web_service_addresses: () => Gee.MultiMap
-    set_web_service_addresses: (value: Gee.MultiMap) => void
+    change_web_service_addresses: (self: WebServiceDetails, web_service_addresses: Gee.MultiMap, _callback_?: Gio.AsyncReadyCallback | null) => void
+    change_web_service_addresses_finish: (self: WebServiceDetails, _res_: Gio.AsyncResult) => void
+    get_web_service_addresses: (self: WebServiceDetails) => Gee.MultiMap
+    set_web_service_addresses: (self: WebServiceDetails, value: Gee.MultiMap) => void
     static name: string
 }

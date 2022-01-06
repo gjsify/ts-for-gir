@@ -2,12 +2,21 @@
  * TrackerExtract-0.16
  */
 
+<<<<<<< HEAD
 import type * as Gjs from './Gjs';
 import type * as Tracker from './Tracker-0.16';
 import type * as GLib from './GLib-2.0';
 import type * as Gio from './Gio-2.0';
 import type * as GObject from './GObject-2.0';
 import type * as GModule from './GModule-2.0';
+=======
+import * as Gjs from './Gjs';
+import * as Tracker from './Tracker-0.16';
+import * as GLib from './GLib-2.0';
+import * as Gio from './Gio-2.0';
+import * as GObject from './GObject-2.0';
+import * as GModule from './GModule-2.0';
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
 
 export function client_cancel_for_prefix(prefix: Gio.File): void
 export function client_get_metadata(file: Gio.File, mime_type: string, graph: string, cancellable: Gio.Cancellable | null, callback: Gio.AsyncReadyCallback | null): void
@@ -23,7 +32,11 @@ export interface ShutdownFunc {
     (): void
 }
 export class Info {
+<<<<<<< HEAD
     /* Methods of TrackerExtract-0.16.TrackerExtract.Info */
+=======
+    /* Methods of TrackerExtract.Info */
+>>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     get_file(): Gio.File
     get_graph(): string
     get_metadata_builder(): Tracker.SparqlBuilder

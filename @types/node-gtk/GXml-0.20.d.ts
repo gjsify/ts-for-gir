@@ -10681,6 +10681,7 @@ export class XAttribute {
     /* Fields of GXml-0.20.GXml.XNode */
     doc: XDocument
     node: object | null
+    ownedNode: boolean
     baseUri: string
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -10814,6 +10815,7 @@ export class XCharacterData {
     /* Fields of GXml-0.20.GXml.XNode */
     doc: XDocument
     node: object | null
+    ownedNode: boolean
     baseUri: string
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -10943,6 +10945,7 @@ export class XChildNode {
     /* Fields of GXml-0.20.GXml.XNode */
     doc: XDocument
     node: object | null
+    ownedNode: boolean
     baseUri: string
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -11055,6 +11058,7 @@ export class XNonDocumentChildNode {
     /* Fields of GXml-0.20.GXml.XNode */
     doc: XDocument
     node: object | null
+    ownedNode: boolean
     baseUri: string
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -11180,6 +11184,7 @@ export class XComment {
     /* Fields of GXml-0.20.GXml.XNode */
     doc: XDocument
     node: object | null
+    ownedNode: boolean
     baseUri: string
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -11341,6 +11346,7 @@ export class XDocument {
     constructor: DomEvent
     /* Fields of GXml-0.20.GXml.XNode */
     node: object | null
+    ownedNode: boolean
     baseUri: string
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -11645,6 +11651,7 @@ export class XElement {
     /* Fields of GXml-0.20.GXml.XNode */
     doc: XDocument
     node: object | null
+    ownedNode: boolean
     baseUri: string
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -12177,6 +12184,7 @@ export class XHtmlDocument {
     constructor: DomEvent
     /* Fields of GXml-0.20.GXml.XNode */
     node: object | null
+    ownedNode: boolean
     baseUri: string
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -12571,6 +12579,7 @@ export class XNode {
     /* Fields of GXml-0.20.GXml.XNode */
     doc: XDocument
     node: object | null
+    ownedNode: boolean
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml-0.20.GXml.XNode */
@@ -12758,7 +12767,7 @@ export class XNode {
     constructor (config?: XNode_ConstructProps)
     _init (config?: XNode_ConstructProps): void
     /* Static methods and pseudo-constructors */
-    static toGnode(doc: XDocument, node?: object | null): DomNode
+    static toGnode(doc: XDocument, node: object | null, takeNode: boolean): DomNode
     static copy(doc: DomDocument, node: DomNode, source: DomNode, deep: boolean): boolean
     static $gtype: GObject.Type
 }
@@ -12915,6 +12924,7 @@ export class XProcessingInstruction {
     /* Fields of GXml-0.20.GXml.XNode */
     doc: XDocument
     node: object | null
+    ownedNode: boolean
     baseUri: string
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -17374,6 +17384,7 @@ export class XText {
     /* Fields of GXml-0.20.GXml.XNode */
     doc: XDocument
     node: object | null
+    ownedNode: boolean
     baseUri: string
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
@@ -17507,8 +17518,8 @@ export class AttrPrivate {
 }
 export abstract class BaseCollectionClass {
     /* Fields of GXml-0.20.GXml.BaseCollectionClass */
-    validateAppend: (index: number, element: DomElement) => boolean
-    clear: () => void
+    validateAppend: (self: BaseCollection, index: number, element: DomElement) => boolean
+    clear: (self: BaseCollection) => void
     static name: string
 }
 export class BaseCollectionPrivate {
@@ -17702,7 +17713,7 @@ export class NodeIteratorPrivate {
 }
 export abstract class BasePropertyClass {
     /* Fields of GXml-0.20.GXml.BasePropertyClass */
-    validateValue: (val?: string | null) => boolean
+    validateValue: (self: BaseProperty, val?: string | null) => boolean
     static name: string
 }
 export class BasePropertyPrivate {
@@ -17854,8 +17865,8 @@ export class XCommentPrivate {
 }
 export abstract class XDocumentClass {
     /* Fields of GXml-0.20.GXml.XDocumentClass */
-    save: (cancellable?: Gio.Cancellable | null) => boolean
-    saveAs: (f: Gio.File, cancellable?: Gio.Cancellable | null) => boolean
+    save: (self: XDocument, cancellable?: Gio.Cancellable | null) => boolean
+    saveAs: (self: XDocument, f: Gio.File, cancellable?: Gio.Cancellable | null) => boolean
     static name: string
 }
 export class XDocumentPrivate {
@@ -17905,8 +17916,8 @@ export class XListChildrenIteratorPrivate {
 }
 export abstract class XNodeClass {
     /* Fields of GXml-0.20.GXml.XNodeClass */
-    setNamespace: (uri: string, prefix?: string | null) => boolean
-    toString: () => string
+    setNamespace: (self: XNode, uri: string, prefix?: string | null) => boolean
+    toString: (self: XNode) => string
     static name: string
 }
 export class XNodePrivate {
@@ -18172,20 +18183,20 @@ export class XTextPrivate {
 }
 export abstract class CollectionIface {
     /* Fields of GXml-0.20.GXml.CollectionIface */
-    search: () => void
-    getItem: (index: number) => DomElement | null
-    append: (node: DomElement) => void
-    initialize: (t: GObject.Type) => void
-    createItem: () => DomElement | null
-    validateAppend: (index: number, element: DomElement) => boolean
-    clear: () => void
-    getNodesIndex: () => GLib.Queue
-    getElement: () => DomElement
-    setElement: (value: DomElement) => void
-    getItemsName: () => string
-    getItemsType: () => GObject.Type
-    setItemsType: (value: GObject.Type) => void
-    getLength: () => number
+    search: (self: Collection) => void
+    getItem: (self: Collection, index: number) => DomElement | null
+    append: (self: Collection, node: DomElement) => void
+    initialize: (self: Collection, t: GObject.Type) => void
+    createItem: (self: Collection) => DomElement | null
+    validateAppend: (self: Collection, index: number, element: DomElement) => boolean
+    clear: (self: Collection) => void
+    getNodesIndex: (self: Collection) => GLib.Queue
+    getElement: (self: Collection) => DomElement
+    setElement: (self: Collection, value: DomElement) => void
+    getItemsName: (self: Collection) => string
+    getItemsType: (self: Collection) => GObject.Type
+    setItemsType: (self: Collection, value: GObject.Type) => void
+    getLength: (self: Collection) => number
     static name: string
 }
 export abstract class ListIface {
@@ -18193,98 +18204,98 @@ export abstract class ListIface {
 }
 export abstract class MappeableElementIface {
     /* Fields of GXml-0.20.GXml.MappeableElementIface */
-    getMapKey: () => string
+    getMapKey: (self: MappeableElement) => string
     static name: string
 }
 export abstract class MapIface {
     /* Fields of GXml-0.20.GXml.MapIface */
-    item: (key: string) => DomElement | null
-    hasKey: (key: string) => boolean
-    getAttributeKey: () => string
-    setAttributeKey: (value: string) => void
-    getKeysSet: () => Gee.Set
+    item: (self: Map, key: string) => DomElement | null
+    hasKey: (self: Map, key: string) => boolean
+    getAttributeKey: (self: Map) => string
+    setAttributeKey: (self: Map, value: string) => void
+    getKeysSet: (self: Map) => Gee.Set
     static name: string
 }
 export abstract class MappeableElementPairKeyIface {
     /* Fields of GXml-0.20.GXml.MappeableElementPairKeyIface */
-    getMapPrimaryKey: () => string
-    getMapSecondaryKey: () => string
+    getMapPrimaryKey: (self: MappeableElementPairKey) => string
+    getMapSecondaryKey: (self: MappeableElementPairKey) => string
     static name: string
 }
 export abstract class PairedMapIface {
     /* Fields of GXml-0.20.GXml.PairedMapIface */
-    item: (primaryKey: string, secondaryKey: string) => DomElement | null
-    hasPrimaryKey: (key: string) => boolean
-    hasSecondaryKey: (pkey: string, key: string) => boolean
-    secondaryKeysSet: (pkey: string) => Gee.Set
-    getAttributePrimaryKey: () => string
-    setAttributePrimaryKey: (value: string) => void
-    getAttributeSecondaryKey: () => string
-    setAttributeSecondaryKey: (value: string) => void
-    getPrimaryKeysSet: () => Gee.Set
+    item: (self: PairedMap, primaryKey: string, secondaryKey: string) => DomElement | null
+    hasPrimaryKey: (self: PairedMap, key: string) => boolean
+    hasSecondaryKey: (self: PairedMap, pkey: string, key: string) => boolean
+    secondaryKeysSet: (self: PairedMap, pkey: string) => Gee.Set
+    getAttributePrimaryKey: (self: PairedMap) => string
+    setAttributePrimaryKey: (self: PairedMap, value: string) => void
+    getAttributeSecondaryKey: (self: PairedMap) => string
+    setAttributeSecondaryKey: (self: PairedMap, value: string) => void
+    getPrimaryKeysSet: (self: PairedMap) => Gee.Set
     static name: string
 }
 export abstract class MappeableElementThreeKeyIface {
     /* Fields of GXml-0.20.GXml.MappeableElementThreeKeyIface */
-    getMapPkey: () => string
-    getMapSkey: () => string
-    getMapTkey: () => string
+    getMapPkey: (self: MappeableElementThreeKey) => string
+    getMapSkey: (self: MappeableElementThreeKey) => string
+    getMapTkey: (self: MappeableElementThreeKey) => string
     static name: string
 }
 export abstract class ThreeMapIface {
     /* Fields of GXml-0.20.GXml.ThreeMapIface */
-    item: (primaryKey: string, secondaryKey: string, thirdKey: string) => DomElement | null
-    hasPrimaryKey: (key: string) => boolean
-    hasSecondaryKey: (pkey: string, key: string) => boolean
-    hasThirdKey: (pkey: string, skey: string, key: string) => boolean
-    secondaryKeysSet: (pkey: string) => Gee.Set
-    thirdKeysSet: (pkey: string, skey: string) => Gee.Set
-    getAttributePrimaryKey: () => string
-    setAttributePrimaryKey: (value: string) => void
-    getAttributeSecondaryKey: () => string
-    setAttributeSecondaryKey: (value: string) => void
-    getAttributeThirdKey: () => string
-    setAttributeThirdKey: (value: string) => void
-    getPrimaryKeysSet: () => Gee.Set
+    item: (self: ThreeMap, primaryKey: string, secondaryKey: string, thirdKey: string) => DomElement | null
+    hasPrimaryKey: (self: ThreeMap, key: string) => boolean
+    hasSecondaryKey: (self: ThreeMap, pkey: string, key: string) => boolean
+    hasThirdKey: (self: ThreeMap, pkey: string, skey: string, key: string) => boolean
+    secondaryKeysSet: (self: ThreeMap, pkey: string) => Gee.Set
+    thirdKeysSet: (self: ThreeMap, pkey: string, skey: string) => Gee.Set
+    getAttributePrimaryKey: (self: ThreeMap) => string
+    setAttributePrimaryKey: (self: ThreeMap, value: string) => void
+    getAttributeSecondaryKey: (self: ThreeMap) => string
+    setAttributeSecondaryKey: (self: ThreeMap, value: string) => void
+    getAttributeThirdKey: (self: ThreeMap) => string
+    setAttributeThirdKey: (self: ThreeMap, value: string) => void
+    getPrimaryKeysSet: (self: ThreeMap) => Gee.Set
     static name: string
 }
 export abstract class CollectionParentIface {
     /* Fields of GXml-0.20.GXml.CollectionParentIface */
-    getTypes: () => GLib.HashTable
+    getTypes: (self: CollectionParent) => GLib.HashTable
     static name: string
 }
 export abstract class DomAttrIface {
     /* Fields of GXml-0.20.GXml.DomAttrIface */
-    getNamespaceUri: () => string | null
-    getPrefix: () => string | null
-    getLocalName: () => string
-    getName: () => string
-    getValue: () => string
-    setValue: (value: string) => void
-    getSpecified: () => boolean
+    getNamespaceUri: (self: DomAttr) => string | null
+    getPrefix: (self: DomAttr) => string | null
+    getLocalName: (self: DomAttr) => string
+    getName: (self: DomAttr) => string
+    getValue: (self: DomAttr) => string
+    setValue: (self: DomAttr, value: string) => void
+    getSpecified: (self: DomAttr) => boolean
     static name: string
 }
 export abstract class DomCharacterDataIface {
     /* Fields of GXml-0.20.GXml.DomCharacterDataIface */
-    substringData: (offset: number, count: number) => string
-    appendData: (data: string) => void
-    insertData: (offset: number, data: string) => void
-    deleteData: (offset: number, count: number) => void
-    replaceData: (offset: number, count: number, data: string) => void
-    getData: () => string
-    setData: (value: string) => void
-    getLength: () => number
+    substringData: (self: DomCharacterData, offset: number, count: number) => string
+    appendData: (self: DomCharacterData, data: string) => void
+    insertData: (self: DomCharacterData, offset: number, data: string) => void
+    deleteData: (self: DomCharacterData, offset: number, count: number) => void
+    replaceData: (self: DomCharacterData, offset: number, count: number, data: string) => void
+    getData: (self: DomCharacterData) => string
+    setData: (self: DomCharacterData, value: string) => void
+    getLength: (self: DomCharacterData) => number
     static name: string
 }
 export abstract class DomTextIface {
     /* Fields of GXml-0.20.GXml.DomTextIface */
-    splitText: (offset: number) => DomText
-    getWholeText: () => string
+    splitText: (self: DomText, offset: number) => DomText
+    getWholeText: (self: DomText) => string
     static name: string
 }
 export abstract class DomProcessingInstructionIface {
     /* Fields of GXml-0.20.GXml.DomProcessingInstructionIface */
-    getTarget: () => string
+    getTarget: (self: DomProcessingInstruction) => string
     static name: string
 }
 export abstract class DomCommentIface {
@@ -18292,149 +18303,149 @@ export abstract class DomCommentIface {
 }
 export abstract class DomNonElementParentNodeIface {
     /* Fields of GXml-0.20.GXml.DomNonElementParentNodeIface */
-    getElementById: (elementId: string) => DomElement | null
+    getElementById: (self: DomNonElementParentNode, elementId: string) => DomElement | null
     static name: string
 }
 export abstract class DomParentNodeIface {
     /* Fields of GXml-0.20.GXml.DomParentNodeIface */
-    querySelector: (selectors: string) => DomElement | null
-    querySelectorAll: (selectors: string) => DomNodeList
-    getElementsByPropertyValue: (property: string, value: string) => DomElementList
-    getChildren: () => DomHTMLCollection
-    getFirstElementChild: () => DomElement | null
-    getLastElementChild: () => DomElement | null
-    getChildElementCount: () => number
+    querySelector: (self: DomParentNode, selectors: string) => DomElement | null
+    querySelectorAll: (self: DomParentNode, selectors: string) => DomNodeList
+    getElementsByPropertyValue: (self: DomParentNode, property: string, value: string) => DomElementList
+    getChildren: (self: DomParentNode) => DomHTMLCollection
+    getFirstElementChild: (self: DomParentNode) => DomElement | null
+    getLastElementChild: (self: DomParentNode) => DomElement | null
+    getChildElementCount: (self: DomParentNode) => number
     static name: string
 }
 export abstract class DomNonDocumentTypeChildNodeIface {
     /* Fields of GXml-0.20.GXml.DomNonDocumentTypeChildNodeIface */
-    getPreviousElementSibling: () => DomElement | null
-    getNextElementSibling: () => DomElement | null
+    getPreviousElementSibling: (self: DomNonDocumentTypeChildNode) => DomElement | null
+    getNextElementSibling: (self: DomNonDocumentTypeChildNode) => DomElement | null
     static name: string
 }
 export abstract class DomChildNodeIface {
     /* Fields of GXml-0.20.GXml.DomChildNodeIface */
-    remove: () => void
+    remove: (self: DomChildNode) => void
     static name: string
 }
 export abstract class DomNodeListIface {
     /* Fields of GXml-0.20.GXml.DomNodeListIface */
-    item: (index: number) => DomNode | null
-    getLength: () => number
+    item: (self: DomNodeList, index: number) => DomNode | null
+    getLength: (self: DomNodeList) => number
     static name: string
 }
 export abstract class DomHTMLCollectionIface {
     /* Fields of GXml-0.20.GXml.DomHTMLCollectionIface */
-    getElement: (index: number) => DomElement | null
-    toArray: () => DomElement[]
-    item: (index: number) => DomElement | null
-    namedItem: (name: string) => DomElement | null
-    getLength: () => number
+    getElement: (self: DomHTMLCollection, index: number) => DomElement | null
+    toArray: () => { returnType: DomElement[], resultLength1: number }
+    item: (self: DomHTMLCollection, index: number) => DomElement | null
+    namedItem: (self: DomHTMLCollection, name: string) => DomElement | null
+    getLength: (self: DomHTMLCollection) => number
     static name: string
 }
 export abstract class DomNodeIteratorIface {
     /* Fields of GXml-0.20.GXml.DomNodeIteratorIface */
-    nextNode: () => DomNode | null
-    previousNode: () => DomNode | null
-    detach: () => void
-    getRoot: () => DomNode
-    getReferenceNode: () => DomNode
-    getPointerBeforeReferenceNode: () => boolean
-    getWhatToShow: () => number
+    nextNode: (self: DomNodeIterator) => DomNode | null
+    previousNode: (self: DomNodeIterator) => DomNode | null
+    detach: (self: DomNodeIterator) => void
+    getRoot: (self: DomNodeIterator) => DomNode
+    getReferenceNode: (self: DomNodeIterator) => DomNode
+    getPointerBeforeReferenceNode: (self: DomNodeIterator) => boolean
+    getWhatToShow: (self: DomNodeIterator) => number
     static name: string
 }
 export abstract class DomTreeWalkerIface {
     /* Fields of GXml-0.20.GXml.DomTreeWalkerIface */
-    parentNode: () => DomNode | null
-    firstChild: () => DomNode | null
-    lastChild: () => DomNode | null
-    previousSibling: () => DomNode | null
-    nextSibling: () => DomNode | null
-    previousNode: () => DomNode | null
-    nextNode: () => DomNode | null
-    getRoot: () => DomNode
-    getWhatToShow: () => number
-    getCurrentNode: () => DomNode
+    parentNode: (self: DomTreeWalker) => DomNode | null
+    firstChild: (self: DomTreeWalker) => DomNode | null
+    lastChild: (self: DomTreeWalker) => DomNode | null
+    previousSibling: (self: DomTreeWalker) => DomNode | null
+    nextSibling: (self: DomTreeWalker) => DomNode | null
+    previousNode: (self: DomTreeWalker) => DomNode | null
+    nextNode: (self: DomTreeWalker) => DomNode | null
+    getRoot: (self: DomTreeWalker) => DomNode
+    getWhatToShow: (self: DomTreeWalker) => number
+    getCurrentNode: (self: DomTreeWalker) => DomNode
     static name: string
 }
 export abstract class DomNamedNodeMapIface {
     /* Fields of GXml-0.20.GXml.DomNamedNodeMapIface */
-    item: (index: number) => DomNode | null
-    getNamedItem: (name: string) => DomNode | null
-    setNamedItem: (node: DomNode) => DomNode | null
-    removeNamedItem: (name: string) => DomNode | null
-    removeNamedItemNs: (namespaceUri: string, localName: string) => DomNode | null
-    getNamedItemNs: (namespaceUri: string, localName: string) => DomNode | null
-    setNamedItemNs: (node: DomNode) => DomNode | null
-    getLength: () => number
+    item: (self: DomNamedNodeMap, index: number) => DomNode | null
+    getNamedItem: (self: DomNamedNodeMap, name: string) => DomNode | null
+    setNamedItem: (self: DomNamedNodeMap, node: DomNode) => DomNode | null
+    removeNamedItem: (self: DomNamedNodeMap, name: string) => DomNode | null
+    removeNamedItemNs: (self: DomNamedNodeMap, namespaceUri: string, localName: string) => DomNode | null
+    getNamedItemNs: (self: DomNamedNodeMap, namespaceUri: string, localName: string) => DomNode | null
+    setNamedItemNs: (self: DomNamedNodeMap, node: DomNode) => DomNode | null
+    getLength: (self: DomNamedNodeMap) => number
     static name: string
 }
 export abstract class DomTokenListIface {
     /* Fields of GXml-0.20.GXml.DomTokenListIface */
-    item: (index: number) => string | null
-    contains: (token: string) => boolean
-    add: (tokens: string[]) => void
-    remove: (tokens: string[]) => void
-    toggle: (token: string, force: boolean, auto: boolean) => boolean
-    toString: () => string
-    getLength: () => number
+    item: (self: DomTokenList, index: number) => string | null
+    contains: (self: DomTokenList, token: string) => boolean
+    add: (self: DomTokenList, tokens: string[]) => void
+    remove: (self: DomTokenList, tokens: string[]) => void
+    toggle: (self: DomTokenList, token: string, force: boolean, auto: boolean) => boolean
+    toString: (self: DomTokenList) => string
+    getLength: (self: DomTokenList) => number
     static name: string
 }
 export abstract class DomSettableTokenListIface {
     /* Fields of GXml-0.20.GXml.DomSettableTokenListIface */
-    getValue: () => string
-    setValue: (value: string) => void
+    getValue: (self: DomSettableTokenList) => string
+    setValue: (self: DomSettableTokenList, value: string) => void
     static name: string
 }
 export abstract class DomDocumentIface {
     /* Fields of GXml-0.20.GXml.DomDocumentIface */
-    getElementsByTagName: (localName: string) => DomHTMLCollection
-    getElementsByTagNameNs: (namespace: string | null, localName: string) => DomHTMLCollection
-    getElementsByClassName: (classNames: string) => DomHTMLCollection
-    createElement: (localName: string) => DomElement
-    createElementNs: (namespace: string | null, qualifiedName: string) => DomElement
-    createDocumentFragment: () => DomDocumentFragment
-    createTextNode: (data: string) => DomText
-    createComment: (data: string) => DomComment
-    createProcessingInstruction: (target: string, data: string) => DomProcessingInstruction
-    importNode: (node: DomNode, deep: boolean) => DomNode
-    adoptNode: (node: DomNode) => DomNode
-    createEvent: (interface: string) => DomEvent
-    createRange: () => DomRange
-    createNodeIterator: (root: DomNode, whatToShow: number) => DomNodeIterator
-    createTreeWalker: (root: DomNode, whatToShow: number) => DomTreeWalker
-    writeFile: (file: Gio.File, cancellable?: Gio.Cancellable | null) => void
-    writeFileAsync: (file: Gio.File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    writeFileFinish: (res: Gio.AsyncResult) => void
-    writeStream: (stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null) => void
-    writeStreamAsync: (stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    writeStreamFinish: (res: Gio.AsyncResult) => void
-    createStream: () => Gio.InputStream
-    createStreamAsync: (cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    createStreamFinish: (res: Gio.AsyncResult) => Gio.InputStream
-    writeString: (cancellable?: Gio.Cancellable | null) => string
-    writeStringAsync: (cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    writeStringFinish: (res: Gio.AsyncResult) => string
-    readFromFile: (file: Gio.File, cancellable?: Gio.Cancellable | null) => void
-    readFromFileAsync: (file: Gio.File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    readFromFileFinish: (res: Gio.AsyncResult) => void
-    readFromString: (str: string, cancellable?: Gio.Cancellable | null) => void
-    readFromStringAsync: (str: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    readFromStringFinish: (res: Gio.AsyncResult) => void
-    readFromStream: (stream: Gio.InputStream, cancellable?: Gio.Cancellable | null) => void
-    readFromStreamAsync: (stream: Gio.InputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    readFromStreamFinish: (res: Gio.AsyncResult) => void
-    getXmlParser: () => Parser
-    setXmlParser: (parser: Parser) => void
-    getImplementation: () => DomImplementation
-    getUrl: () => string
-    getDocumentUri: () => string
-    getOrigin: () => string
-    getCompatMode: () => string
-    getCharacterSet: () => string
-    getContentType: () => string
-    getDoctype: () => DomDocumentType | null
-    getDocumentElement: () => DomElement | null
+    getElementsByTagName: (self: DomDocument, localName: string) => DomHTMLCollection
+    getElementsByTagNameNs: (self: DomDocument, namespace: string | null, localName: string) => DomHTMLCollection
+    getElementsByClassName: (self: DomDocument, classNames: string) => DomHTMLCollection
+    createElement: (self: DomDocument, localName: string) => DomElement
+    createElementNs: (self: DomDocument, namespace: string | null, qualifiedName: string) => DomElement
+    createDocumentFragment: (self: DomDocument) => DomDocumentFragment
+    createTextNode: (self: DomDocument, data: string) => DomText
+    createComment: (self: DomDocument, data: string) => DomComment
+    createProcessingInstruction: (self: DomDocument, target: string, data: string) => DomProcessingInstruction
+    importNode: (self: DomDocument, node: DomNode, deep: boolean) => DomNode
+    adoptNode: (self: DomDocument, node: DomNode) => DomNode
+    createEvent: (self: DomDocument, interface: string) => DomEvent
+    createRange: (self: DomDocument) => DomRange
+    createNodeIterator: (self: DomDocument, root: DomNode, whatToShow: number) => DomNodeIterator
+    createTreeWalker: (self: DomDocument, root: DomNode, whatToShow: number) => DomTreeWalker
+    writeFile: (self: DomDocument, file: Gio.File, cancellable?: Gio.Cancellable | null) => void
+    writeFileAsync: (self: DomDocument, file: Gio.File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    writeFileFinish: (self: DomDocument, res: Gio.AsyncResult) => void
+    writeStream: (self: DomDocument, stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null) => void
+    writeStreamAsync: (self: DomDocument, stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    writeStreamFinish: (self: DomDocument, res: Gio.AsyncResult) => void
+    createStream: (self: DomDocument) => Gio.InputStream
+    createStreamAsync: (self: DomDocument, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    createStreamFinish: (self: DomDocument, res: Gio.AsyncResult) => Gio.InputStream
+    writeString: (self: DomDocument, cancellable?: Gio.Cancellable | null) => string
+    writeStringAsync: (self: DomDocument, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    writeStringFinish: (self: DomDocument, res: Gio.AsyncResult) => string
+    readFromFile: (self: DomDocument, file: Gio.File, cancellable?: Gio.Cancellable | null) => void
+    readFromFileAsync: (self: DomDocument, file: Gio.File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    readFromFileFinish: (self: DomDocument, res: Gio.AsyncResult) => void
+    readFromString: (self: DomDocument, str: string, cancellable?: Gio.Cancellable | null) => void
+    readFromStringAsync: (self: DomDocument, str: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    readFromStringFinish: (self: DomDocument, res: Gio.AsyncResult) => void
+    readFromStream: (self: DomDocument, stream: Gio.InputStream, cancellable?: Gio.Cancellable | null) => void
+    readFromStreamAsync: (self: DomDocument, stream: Gio.InputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    readFromStreamFinish: (self: DomDocument, res: Gio.AsyncResult) => void
+    getXmlParser: (self: DomDocument) => Parser
+    setXmlParser: (self: DomDocument, parser: Parser) => void
+    getImplementation: (self: DomDocument) => DomImplementation
+    getUrl: (self: DomDocument) => string
+    getDocumentUri: (self: DomDocument) => string
+    getOrigin: (self: DomDocument) => string
+    getCompatMode: (self: DomDocument) => string
+    getCharacterSet: (self: DomDocument) => string
+    getContentType: (self: DomDocument) => string
+    getDoctype: (self: DomDocument) => DomDocumentType | null
+    getDocumentElement: (self: DomDocument) => DomElement | null
     static name: string
 }
 export abstract class DomXMLDocumentIface {
@@ -18442,10 +18453,10 @@ export abstract class DomXMLDocumentIface {
 }
 export abstract class DomImplementationIface {
     /* Fields of GXml-0.20.GXml.DomImplementationIface */
-    createDocumentType: (qualifiedName: string, publicId: string, systemId: string) => DomDocumentType
-    createDocument: (nspace?: string | null, qualifiedName?: string | null, doctype?: DomDocumentType | null) => DomXMLDocument
-    createHtmlDocument: (title: string) => DomDocument
-    hasFeature: () => boolean
+    createDocumentType: (self: DomImplementation, qualifiedName: string, publicId: string, systemId: string) => DomDocumentType
+    createDocument: (self: DomImplementation, nspace?: string | null, qualifiedName?: string | null, doctype?: DomDocumentType | null) => DomXMLDocument
+    createHtmlDocument: (self: DomImplementation, title: string) => DomDocument
+    hasFeature: (self: DomImplementation) => boolean
     static name: string
 }
 export abstract class DomDocumentFragmentIface {
@@ -18453,220 +18464,220 @@ export abstract class DomDocumentFragmentIface {
 }
 export abstract class DomDocumentTypeIface {
     /* Fields of GXml-0.20.GXml.DomDocumentTypeIface */
-    getName: () => string
-    getPublicId: () => string
-    getSystemId: () => string
+    getName: (self: DomDocumentType) => string
+    getPublicId: (self: DomDocumentType) => string
+    getSystemId: (self: DomDocumentType) => string
     static name: string
 }
 export abstract class DomHtmlDocumentIface {
     /* Fields of GXml-0.20.GXml.DomHtmlDocumentIface */
-    readFromString: (str: string) => void
-    readFromStringTolerant: (str: string) => void
-    toHtml: () => string
+    readFromString: (self: DomHtmlDocument, str: string) => void
+    readFromStringTolerant: (self: DomHtmlDocument, str: string) => void
+    toHtml: (self: DomHtmlDocument) => string
     static name: string
 }
 export abstract class DomElementIface {
     /* Fields of GXml-0.20.GXml.DomElementIface */
-    getAttribute: (name: string) => string | null
-    getAttributeNs: (namespace: string | null, localName: string) => string | null
-    setAttribute: (name: string, value: string) => void
-    setAttributeNs: (namespace: string | null, name: string, value: string) => void
-    removeAttribute: (name: string) => void
-    removeAttributeNs: (namespace: string | null, localName: string) => void
-    hasAttribute: (name: string) => boolean
-    hasAttributeNs: (namespace: string | null, localName: string) => boolean
-    getElementsByTagName: (localName: string) => DomHTMLCollection
-    getElementsByTagNameNs: (namespace: string | null, localName: string) => DomHTMLCollection
-    getElementsByClassName: (classNames: string) => DomHTMLCollection
-    matches: (selectors: string) => boolean
-    readFromUri: (uri: string) => void
-    readFromUriAsync: (uri: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    readFromUriFinish: (res: Gio.AsyncResult) => void
-    readFromFile: (f: Gio.File, cancellable?: Gio.Cancellable | null) => void
-    readFromFileAsync: (f: Gio.File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    readFromFileFinish: (res: Gio.AsyncResult) => void
-    readFromStream: (istream: Gio.InputStream, cancellable?: Gio.Cancellable | null) => void
-    readFromStreamAsync: (istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    readFromStreamFinish: (res: Gio.AsyncResult) => void
-    readFromString: (str: string, cancellable?: Gio.Cancellable | null) => void
-    readFromStringAsync: (str: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    readFromStringFinish: (res: Gio.AsyncResult) => void
-    writeString: (cancellable?: Gio.Cancellable | null) => string
-    writeStringAsync: (cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    writeStringFinish: (res: Gio.AsyncResult) => string
-    writeFile: (f: Gio.File, cancellable?: Gio.Cancellable | null) => void
-    writeFileAsync: (f: Gio.File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    writeFileFinish: (res: Gio.AsyncResult) => void
-    writeStream: (stream: Gio.OutputStream) => void
-    writeStreamAsync: (stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    writeStreamFinish: (res: Gio.AsyncResult) => void
-    createStream: () => Gio.InputStream
-    createStreamAsync: (cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
-    createStreamFinish: (res: Gio.AsyncResult) => Gio.InputStream
-    getNamespaceUri: () => string | null
-    getPrefix: () => string | null
-    getLocalName: () => string
-    getTagName: () => string
-    getId: () => string | null
-    setId: (value?: string | null) => void
-    getClassName: () => string | null
-    setClassName: (value?: string | null) => void
-    getClassList: () => DomTokenList
-    getAttributes: () => DomNamedNodeMap
+    getAttribute: (self: DomElement, name: string) => string | null
+    getAttributeNs: (self: DomElement, namespace: string | null, localName: string) => string | null
+    setAttribute: (self: DomElement, name: string, value: string) => void
+    setAttributeNs: (self: DomElement, namespace: string | null, name: string, value: string) => void
+    removeAttribute: (self: DomElement, name: string) => void
+    removeAttributeNs: (self: DomElement, namespace: string | null, localName: string) => void
+    hasAttribute: (self: DomElement, name: string) => boolean
+    hasAttributeNs: (self: DomElement, namespace: string | null, localName: string) => boolean
+    getElementsByTagName: (self: DomElement, localName: string) => DomHTMLCollection
+    getElementsByTagNameNs: (self: DomElement, namespace: string | null, localName: string) => DomHTMLCollection
+    getElementsByClassName: (self: DomElement, classNames: string) => DomHTMLCollection
+    matches: (self: DomElement, selectors: string) => boolean
+    readFromUri: (self: DomElement, uri: string) => void
+    readFromUriAsync: (self: DomElement, uri: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    readFromUriFinish: (self: DomElement, res: Gio.AsyncResult) => void
+    readFromFile: (self: DomElement, f: Gio.File, cancellable?: Gio.Cancellable | null) => void
+    readFromFileAsync: (self: DomElement, f: Gio.File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    readFromFileFinish: (self: DomElement, res: Gio.AsyncResult) => void
+    readFromStream: (self: DomElement, istream: Gio.InputStream, cancellable?: Gio.Cancellable | null) => void
+    readFromStreamAsync: (self: DomElement, istream: Gio.InputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    readFromStreamFinish: (self: DomElement, res: Gio.AsyncResult) => void
+    readFromString: (self: DomElement, str: string, cancellable?: Gio.Cancellable | null) => void
+    readFromStringAsync: (self: DomElement, str: string, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    readFromStringFinish: (self: DomElement, res: Gio.AsyncResult) => void
+    writeString: (self: DomElement, cancellable?: Gio.Cancellable | null) => string
+    writeStringAsync: (self: DomElement, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    writeStringFinish: (self: DomElement, res: Gio.AsyncResult) => string
+    writeFile: (self: DomElement, f: Gio.File, cancellable?: Gio.Cancellable | null) => void
+    writeFileAsync: (self: DomElement, f: Gio.File, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    writeFileFinish: (self: DomElement, res: Gio.AsyncResult) => void
+    writeStream: (self: DomElement, stream: Gio.OutputStream) => void
+    writeStreamAsync: (self: DomElement, stream: Gio.OutputStream, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    writeStreamFinish: (self: DomElement, res: Gio.AsyncResult) => void
+    createStream: (self: DomElement) => Gio.InputStream
+    createStreamAsync: (self: DomElement, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null) => void
+    createStreamFinish: (self: DomElement, res: Gio.AsyncResult) => Gio.InputStream
+    getNamespaceUri: (self: DomElement) => string | null
+    getPrefix: (self: DomElement) => string | null
+    getLocalName: (self: DomElement) => string
+    getTagName: (self: DomElement) => string
+    getId: (self: DomElement) => string | null
+    setId: (self: DomElement, value?: string | null) => void
+    getClassName: (self: DomElement) => string | null
+    setClassName: (self: DomElement, value?: string | null) => void
+    getClassList: (self: DomElement) => DomTokenList
+    getAttributes: (self: DomElement) => DomNamedNodeMap
     static name: string
 }
 export abstract class DomEventTargetIface {
     /* Fields of GXml-0.20.GXml.DomEventTargetIface */
-    addEventListener: (type: string, callback: DomEventListener | null, capture: boolean) => void
-    removeEventListener: (type: string, callback: DomEventListener | null, capture: boolean) => void
-    dispatchEvent: (event: DomEvent) => boolean
+    addEventListener: (self: DomEventTarget, type: string, callback: DomEventListener | null, capture: boolean) => void
+    removeEventListener: (self: DomEventTarget, type: string, callback: DomEventListener | null, capture: boolean) => void
+    dispatchEvent: (self: DomEventTarget, event: DomEvent) => boolean
     static name: string
 }
 export abstract class DomEventListenerIface {
     /* Fields of GXml-0.20.GXml.DomEventListenerIface */
-    handleEvent: (event: DomEvent) => void
+    handleEvent: (self: DomEventListener, event: DomEvent) => void
     static name: string
 }
 export abstract class DomEventIface {
     /* Fields of GXml-0.20.GXml.DomEventIface */
-    stopPropagation: () => void
-    stopImmediatePropagation: () => void
-    preventDefault: () => void
-    initEvent: (type: string, bubbles: boolean, cancelable: boolean) => void
-    getEtype: () => string
-    getEventTarget: () => DomEventTarget | null
-    getCurrentTarget: () => DomEventTarget | null
-    getBubbles: () => boolean
-    getCancelable: () => boolean
-    getIsTrusted: () => boolean
-    getTimeStamp: () => DomTimeStamp
-    getDefaultPrevented: () => boolean
-    getEventPhase: () => DomEventPhase
+    stopPropagation: (self: DomEvent) => void
+    stopImmediatePropagation: (self: DomEvent) => void
+    preventDefault: (self: DomEvent) => void
+    initEvent: (self: DomEvent, type: string, bubbles: boolean, cancelable: boolean) => void
+    getEtype: (self: DomEvent) => string
+    getEventTarget: (self: DomEvent) => DomEventTarget | null
+    getCurrentTarget: (self: DomEvent) => DomEventTarget | null
+    getBubbles: (self: DomEvent) => boolean
+    getCancelable: (self: DomEvent) => boolean
+    getIsTrusted: (self: DomEvent) => boolean
+    getTimeStamp: (self: DomEvent) => DomTimeStamp
+    getDefaultPrevented: (self: DomEvent) => boolean
+    getEventPhase: (self: DomEvent) => DomEventPhase
     static name: string
 }
 export abstract class DomCustomEventIface {
     /* Fields of GXml-0.20.GXml.DomCustomEventIface */
-    initCustomEvent: (type: string, bubbles: boolean, cancelable: boolean, detail: any) => void
-    getDetail: () => { result: any }
+    initCustomEvent: (self: DomCustomEvent, type: string, bubbles: boolean, cancelable: boolean, detail: any) => void
+    getDetail: (self: DomCustomEvent) => { result: any }
     static name: string
 }
 export abstract class DomMutationObserverIface {
     /* Fields of GXml-0.20.GXml.DomMutationObserverIface */
-    observe: (target: Node, options: DomMutationObserverInit) => void
-    disconnect: () => void
-    takeRecords: () => Gee.List
+    observe: (self: DomMutationObserver, target: Node, options: DomMutationObserverInit) => void
+    disconnect: (self: DomMutationObserver) => void
+    takeRecords: (self: DomMutationObserver) => Gee.List
     static name: string
 }
 export abstract class DomMutationRecordIface {
     /* Fields of GXml-0.20.GXml.DomMutationRecordIface */
-    getMtype: () => string
-    getTarget: () => DomNode
-    getAddedNodes: () => DomNodeList
-    setAddedNodes: (value: DomNodeList) => void
-    getRemovedNodes: () => DomNodeList
-    setRemovedNodes: (value: DomNodeList) => void
-    getPreviousSibling: () => DomNode | null
-    getNextSibling: () => DomNode | null
-    getAttributeName: () => string | null
-    getAttributeNamespace: () => string | null
-    getOldValue: () => string | null
+    getMtype: (self: DomMutationRecord) => string
+    getTarget: (self: DomMutationRecord) => DomNode
+    getAddedNodes: (self: DomMutationRecord) => DomNodeList
+    setAddedNodes: (self: DomMutationRecord, value: DomNodeList) => void
+    getRemovedNodes: (self: DomMutationRecord) => DomNodeList
+    setRemovedNodes: (self: DomMutationRecord, value: DomNodeList) => void
+    getPreviousSibling: (self: DomMutationRecord) => DomNode | null
+    getNextSibling: (self: DomMutationRecord) => DomNode | null
+    getAttributeName: (self: DomMutationRecord) => string | null
+    getAttributeNamespace: (self: DomMutationRecord) => string | null
+    getOldValue: (self: DomMutationRecord) => string | null
     static name: string
 }
 export abstract class DomNodeIface {
     /* Fields of GXml-0.20.GXml.DomNodeIface */
-    hasChildNodes: () => boolean
-    normalize: () => void
-    isEqualNode: (node?: DomNode | null) => boolean
-    compareDocumentPosition: (other: DomNode) => DomNodeDocumentPosition
-    contains: (other?: DomNode | null) => boolean
-    lookupPrefix: (nspace?: string | null) => string | null
-    lookupNamespaceUri: (prefix?: string | null) => string | null
-    isDefaultNamespace: (nspace?: string | null) => boolean
-    insertBefore: (node: DomNode, child?: DomNode | null) => DomNode
-    appendChild: (node: DomNode) => DomNode
-    replaceChild: (node: DomNode, child: DomNode) => DomNode
-    removeChild: (child: DomNode) => DomNode
-    getNodeType: () => DomNodeNodeType
-    getNodeName: () => string
-    getBaseUri: () => string | null
-    getOwnerDocument: () => DomDocument | null
-    setOwnerDocument: (value?: DomDocument | null) => void
-    getParentNode: () => DomNode | null
-    getParentElement: () => DomElement | null
-    getChildNodes: () => DomNodeList
-    getFirstChild: () => DomNode | null
-    getLastChild: () => DomNode | null
-    getPreviousSibling: () => DomNode | null
-    getNextSibling: () => DomNode | null
-    getNodeValue: () => string | null
-    setNodeValue: (value?: string | null) => void
-    getTextContent: () => string | null
-    setTextContent: (value?: string | null) => void
+    hasChildNodes: (self: DomNode) => boolean
+    normalize: (self: DomNode) => void
+    isEqualNode: (self: DomNode, node?: DomNode | null) => boolean
+    compareDocumentPosition: (self: DomNode, other: DomNode) => DomNodeDocumentPosition
+    contains: (self: DomNode, other?: DomNode | null) => boolean
+    lookupPrefix: (self: DomNode, nspace?: string | null) => string | null
+    lookupNamespaceUri: (self: DomNode, prefix?: string | null) => string | null
+    isDefaultNamespace: (self: DomNode, nspace?: string | null) => boolean
+    insertBefore: (self: DomNode, node: DomNode, child?: DomNode | null) => DomNode
+    appendChild: (self: DomNode, node: DomNode) => DomNode
+    replaceChild: (self: DomNode, node: DomNode, child: DomNode) => DomNode
+    removeChild: (self: DomNode, child: DomNode) => DomNode
+    getNodeType: (self: DomNode) => DomNodeNodeType
+    getNodeName: (self: DomNode) => string
+    getBaseUri: (self: DomNode) => string | null
+    getOwnerDocument: (self: DomNode) => DomDocument | null
+    setOwnerDocument: (self: DomNode, value?: DomDocument | null) => void
+    getParentNode: (self: DomNode) => DomNode | null
+    getParentElement: (self: DomNode) => DomElement | null
+    getChildNodes: (self: DomNode) => DomNodeList
+    getFirstChild: (self: DomNode) => DomNode | null
+    getLastChild: (self: DomNode) => DomNode | null
+    getPreviousSibling: (self: DomNode) => DomNode | null
+    getNextSibling: (self: DomNode) => DomNode | null
+    getNodeValue: (self: DomNode) => string | null
+    setNodeValue: (self: DomNode, value?: string | null) => void
+    getTextContent: (self: DomNode) => string | null
+    setTextContent: (self: DomNode, value?: string | null) => void
     static name: string
 }
 export abstract class DomRangeIface {
     /* Fields of GXml-0.20.GXml.DomRangeIface */
-    setStart: (node: DomNode, offset: number) => void
-    setEnd: (node: DomNode, offset: number) => void
-    setStartBefore: (node: DomNode) => void
-    setStartAfter: (node: DomNode) => void
-    setEndBefore: (node: DomNode) => void
-    setEndAfter: (node: DomNode) => void
-    collapse: (toStart: boolean) => void
-    selectNode: (node: DomNode) => void
-    selectNodeContents: (node: DomNode) => void
-    compareBoundaryPoints: (how: DomRangeBoundaryPoints, sourceRange: DomRange) => number
-    deleteContents: () => void
-    extractContents: () => DomDocumentFragment | null
-    cloneContents: () => DomDocumentFragment | null
-    insertNode: (node: DomNode) => void
-    surroundContents: (newParent: DomNode) => void
-    cloneRange: () => DomRange
-    detach: () => void
-    isPointInRange: (node: DomNode, offset: number) => boolean
-    comparePoint: (node: DomNode, offset: number) => number
-    intersectsNode: (node: DomNode) => boolean
-    toString: () => string
-    getStartContainer: () => DomNode
-    getStartOffset: () => number
-    getEndContainer: () => DomNode
-    getEndOffset: () => number
-    getCollapsed: () => boolean
-    getCommonAncestorContainer: () => DomNode
+    setStart: (self: DomRange, node: DomNode, offset: number) => void
+    setEnd: (self: DomRange, node: DomNode, offset: number) => void
+    setStartBefore: (self: DomRange, node: DomNode) => void
+    setStartAfter: (self: DomRange, node: DomNode) => void
+    setEndBefore: (self: DomRange, node: DomNode) => void
+    setEndAfter: (self: DomRange, node: DomNode) => void
+    collapse: (self: DomRange, toStart: boolean) => void
+    selectNode: (self: DomRange, node: DomNode) => void
+    selectNodeContents: (self: DomRange, node: DomNode) => void
+    compareBoundaryPoints: (self: DomRange, how: DomRangeBoundaryPoints, sourceRange: DomRange) => number
+    deleteContents: (self: DomRange) => void
+    extractContents: (self: DomRange) => DomDocumentFragment | null
+    cloneContents: (self: DomRange) => DomDocumentFragment | null
+    insertNode: (self: DomRange, node: DomNode) => void
+    surroundContents: (self: DomRange, newParent: DomNode) => void
+    cloneRange: (self: DomRange) => DomRange
+    detach: (self: DomRange) => void
+    isPointInRange: (self: DomRange, node: DomNode, offset: number) => boolean
+    comparePoint: (self: DomRange, node: DomNode, offset: number) => number
+    intersectsNode: (self: DomRange, node: DomNode) => boolean
+    toString: (self: DomRange) => string
+    getStartContainer: (self: DomRange) => DomNode
+    getStartOffset: (self: DomRange) => number
+    getEndContainer: (self: DomRange) => DomNode
+    getEndOffset: (self: DomRange) => number
+    getCollapsed: (self: DomRange) => boolean
+    getCommonAncestorContainer: (self: DomRange) => DomNode
     static name: string
 }
 export abstract class IXsdSchemaIface {
     /* Fields of GXml-0.20.GXml.IXsdSchemaIface */
-    getElementDefinitions: () => IXsdListElements
-    setElementDefinitions: (value: IXsdListElements) => void
-    getSimpleTypeDefinitions: () => IXsdListSimpleTypes
-    setSimpleTypeDefinitions: (value: IXsdListSimpleTypes) => void
-    getComplexTypeDefinitions: () => IXsdListComplexTypes
-    setComplexTypeDefinitions: (value: IXsdListComplexTypes) => void
+    getElementDefinitions: (self: IXsdSchema) => IXsdListElements
+    setElementDefinitions: (self: IXsdSchema, value: IXsdListElements) => void
+    getSimpleTypeDefinitions: (self: IXsdSchema) => IXsdListSimpleTypes
+    setSimpleTypeDefinitions: (self: IXsdSchema, value: IXsdListSimpleTypes) => void
+    getComplexTypeDefinitions: (self: IXsdSchema) => IXsdListComplexTypes
+    setComplexTypeDefinitions: (self: IXsdSchema, value: IXsdListComplexTypes) => void
     static name: string
 }
 export abstract class IXsdBaseTypeIface {
     /* Fields of GXml-0.20.GXml.IXsdBaseTypeIface */
-    getAnotation: () => IXsdAnnotation
-    setAnotation: (value: IXsdAnnotation) => void
+    getAnotation: (self: IXsdBaseType) => IXsdAnnotation
+    setAnotation: (self: IXsdBaseType, value: IXsdAnnotation) => void
     static name: string
 }
 export abstract class IXsdSimpleTypeIface {
     /* Fields of GXml-0.20.GXml.IXsdSimpleTypeIface */
-    getFinal: () => string
-    setFinal: (value: string) => void
-    getId: () => string
-    setId: (value: string) => void
-    getName: () => string
-    setName: (value: string) => void
-    getAnnotation: () => IXsdAnnotation
-    setAnnotation: (value: IXsdAnnotation) => void
-    getList: () => IXsdTypeList
-    setList: (value: IXsdTypeList) => void
-    getUnion: () => IXsdTypeUnion
-    setUnion: (value: IXsdTypeUnion) => void
-    getRestriction: () => IXsdTypeRestriction
-    setRestriction: (value: IXsdTypeRestriction) => void
+    getFinal: (self: IXsdSimpleType) => string
+    setFinal: (self: IXsdSimpleType, value: string) => void
+    getId: (self: IXsdSimpleType) => string
+    setId: (self: IXsdSimpleType, value: string) => void
+    getName: (self: IXsdSimpleType) => string
+    setName: (self: IXsdSimpleType, value: string) => void
+    getAnnotation: (self: IXsdSimpleType) => IXsdAnnotation
+    setAnnotation: (self: IXsdSimpleType, value: IXsdAnnotation) => void
+    getList: (self: IXsdSimpleType) => IXsdTypeList
+    setList: (self: IXsdSimpleType, value: IXsdTypeList) => void
+    getUnion: (self: IXsdSimpleType) => IXsdTypeUnion
+    setUnion: (self: IXsdSimpleType, value: IXsdTypeUnion) => void
+    getRestriction: (self: IXsdSimpleType) => IXsdTypeRestriction
+    setRestriction: (self: IXsdSimpleType, value: IXsdTypeRestriction) => void
     static name: string
 }
 export abstract class IXsdTypeDefIface {
@@ -18674,16 +18685,16 @@ export abstract class IXsdTypeDefIface {
 }
 export abstract class IXsdTypeRestrictionIface {
     /* Fields of GXml-0.20.GXml.IXsdTypeRestrictionIface */
-    getBase: () => string
-    setBase: (value: string) => void
-    getId: () => string
-    setId: (value: string) => void
-    getSimpleType: () => IXsdSimpleType
-    setSimpleType: (value: IXsdSimpleType) => void
-    getEnumerations: () => IXsdListTypeRestrictionEnumerations
-    setEnumerations: (value: IXsdListTypeRestrictionEnumerations) => void
-    getWhiteSpaces: () => IXsdListTypeRestrictionWhiteSpaces
-    setWhiteSpaces: (value: IXsdListTypeRestrictionWhiteSpaces) => void
+    getBase: (self: IXsdTypeRestriction) => string
+    setBase: (self: IXsdTypeRestriction, value: string) => void
+    getId: (self: IXsdTypeRestriction) => string
+    setId: (self: IXsdTypeRestriction, value: string) => void
+    getSimpleType: (self: IXsdTypeRestriction) => IXsdSimpleType
+    setSimpleType: (self: IXsdTypeRestriction, value: IXsdSimpleType) => void
+    getEnumerations: (self: IXsdTypeRestriction) => IXsdListTypeRestrictionEnumerations
+    setEnumerations: (self: IXsdTypeRestriction, value: IXsdListTypeRestrictionEnumerations) => void
+    getWhiteSpaces: (self: IXsdTypeRestriction) => IXsdListTypeRestrictionWhiteSpaces
+    setWhiteSpaces: (self: IXsdTypeRestriction, value: IXsdListTypeRestrictionWhiteSpaces) => void
     static name: string
 }
 export abstract class IXsdTypeListIface {
@@ -18694,8 +18705,8 @@ export abstract class IXsdTypeUnionIface {
 }
 export abstract class IXsdTypeRestrictionDefIface {
     /* Fields of GXml-0.20.GXml.IXsdTypeRestrictionDefIface */
-    getAnnotation: () => IXsdAnnotation
-    setAnnotation: (value: IXsdAnnotation) => void
+    getAnnotation: (self: IXsdTypeRestrictionDef) => IXsdAnnotation
+    setAnnotation: (self: IXsdTypeRestrictionDef, value: IXsdAnnotation) => void
     static name: string
 }
 export abstract class IXsdTypeRestrictionMinExclusiveIface {
@@ -18727,20 +18738,20 @@ export abstract class IXsdTypeRestrictionMaxLengthIface {
 }
 export abstract class IXsdTypeRestrictionEnumerationIface {
     /* Fields of GXml-0.20.GXml.IXsdTypeRestrictionEnumerationIface */
-    getId: () => string
-    setId: (value: string) => void
-    getValue: () => string
-    setValue: (value: string) => void
+    getId: (self: IXsdTypeRestrictionEnumeration) => string
+    setId: (self: IXsdTypeRestrictionEnumeration, value: string) => void
+    getValue: (self: IXsdTypeRestrictionEnumeration) => string
+    setValue: (self: IXsdTypeRestrictionEnumeration, value: string) => void
     static name: string
 }
 export abstract class IXsdTypeRestrictionWhiteSpaceIface {
     /* Fields of GXml-0.20.GXml.IXsdTypeRestrictionWhiteSpaceIface */
-    getFixed: () => boolean
-    setFixed: (value: boolean) => void
-    getId: () => string
-    setId: (value: string) => void
-    getValue: () => string
-    setValue: (value: string) => void
+    getFixed: (self: IXsdTypeRestrictionWhiteSpace) => boolean
+    setFixed: (self: IXsdTypeRestrictionWhiteSpace, value: boolean) => void
+    getId: (self: IXsdTypeRestrictionWhiteSpace) => string
+    setId: (self: IXsdTypeRestrictionWhiteSpace, value: string) => void
+    getValue: (self: IXsdTypeRestrictionWhiteSpace) => string
+    setValue: (self: IXsdTypeRestrictionWhiteSpace, value: string) => void
     static name: string
 }
 export abstract class IXsdTypeRestrictionPatternIface {
@@ -18754,68 +18765,68 @@ export abstract class IXsdTypeRestrictionExplicitTimezoneIface {
 }
 export abstract class IXsdComplexTypeIface {
     /* Fields of GXml-0.20.GXml.IXsdComplexTypeIface */
-    getAbstract: () => boolean
-    setAbstract: (value: boolean) => void
-    getBlock: () => string
-    setBlock: (value: string) => void
-    getFinal: () => string
-    setFinal: (value: string) => void
-    getMixed: () => boolean
-    setMixed: (value: boolean) => void
-    getName: () => string
-    setName: (value: string) => void
-    getDefaultAttributesApply: () => boolean
-    setDefaultAttributesApply: (value: boolean) => void
-    getContentType: () => IXsdBaseContent
-    setContentType: (value: IXsdBaseContent) => void
-    getTypeAttributes: () => IXsdListAttributes
-    getGroupAttributes: () => IXsdListAttributesGroup
+    getAbstract: (self: IXsdComplexType) => boolean
+    setAbstract: (self: IXsdComplexType, value: boolean) => void
+    getBlock: (self: IXsdComplexType) => string
+    setBlock: (self: IXsdComplexType, value: string) => void
+    getFinal: (self: IXsdComplexType) => string
+    setFinal: (self: IXsdComplexType, value: string) => void
+    getMixed: (self: IXsdComplexType) => boolean
+    setMixed: (self: IXsdComplexType, value: boolean) => void
+    getName: (self: IXsdComplexType) => string
+    setName: (self: IXsdComplexType, value: string) => void
+    getDefaultAttributesApply: (self: IXsdComplexType) => boolean
+    setDefaultAttributesApply: (self: IXsdComplexType, value: boolean) => void
+    getContentType: (self: IXsdComplexType) => IXsdBaseContent
+    setContentType: (self: IXsdComplexType, value: IXsdBaseContent) => void
+    getTypeAttributes: (self: IXsdComplexType) => IXsdListAttributes
+    getGroupAttributes: (self: IXsdComplexType) => IXsdListAttributesGroup
     static name: string
 }
 export abstract class IXsdExtensionIface {
     /* Fields of GXml-0.20.GXml.IXsdExtensionIface */
-    getBase: () => string
-    setBase: (value: string) => void
+    getBase: (self: IXsdExtension) => string
+    setBase: (self: IXsdExtension, value: string) => void
     static name: string
 }
 export abstract class IXsdElementIface {
     /* Fields of GXml-0.20.GXml.IXsdElementIface */
-    getAbstract: () => boolean
-    setAbstract: (value: boolean) => void
-    getBlock: () => string
-    setBlock: (value: string) => void
-    getDefault: () => string
-    setDefault: (value: string) => void
-    getFinal: () => string
-    setFinal: (value: string) => void
-    getFixed: () => string
-    setFixed: (value: string) => void
-    getForm: () => string
-    setForm: (value: string) => void
-    getId: () => string | null
-    setId: (value?: string | null) => void
-    getMaxOccurs: () => string
-    setMaxOccurs: (value: string) => void
-    getMinOccurs: () => string
-    setMinOccurs: (value: string) => void
-    getName: () => string
-    setName: (value: string) => void
-    getNillable: () => boolean
-    setNillable: (value: boolean) => void
-    getRef: () => string
-    setRef: (value: string) => void
-    getSubstitutionGroup: () => DomTokenList
-    setSubstitutionGroup: (value: DomTokenList) => void
-    getTargetNamespace: () => string
-    setTargetNamespace: (value: string) => void
-    getObjectType: () => string
-    setObjectType: (value: string) => void
-    getAnotation: () => IXsdAnnotation
-    setAnotation: (value: IXsdAnnotation) => void
-    getSimpleType: () => IXsdSimpleType
-    setSimpleType: (value: IXsdSimpleType) => void
-    getComplexType: () => IXsdComplexType
-    setComplexType: (value: IXsdComplexType) => void
+    getAbstract: (self: IXsdElement) => boolean
+    setAbstract: (self: IXsdElement, value: boolean) => void
+    getBlock: (self: IXsdElement) => string
+    setBlock: (self: IXsdElement, value: string) => void
+    getDefault: (self: IXsdElement) => string
+    setDefault: (self: IXsdElement, value: string) => void
+    getFinal: (self: IXsdElement) => string
+    setFinal: (self: IXsdElement, value: string) => void
+    getFixed: (self: IXsdElement) => string
+    setFixed: (self: IXsdElement, value: string) => void
+    getForm: (self: IXsdElement) => string
+    setForm: (self: IXsdElement, value: string) => void
+    getId: (self: IXsdElement) => string | null
+    setId: (self: IXsdElement, value?: string | null) => void
+    getMaxOccurs: (self: IXsdElement) => string
+    setMaxOccurs: (self: IXsdElement, value: string) => void
+    getMinOccurs: (self: IXsdElement) => string
+    setMinOccurs: (self: IXsdElement, value: string) => void
+    getName: (self: IXsdElement) => string
+    setName: (self: IXsdElement, value: string) => void
+    getNillable: (self: IXsdElement) => boolean
+    setNillable: (self: IXsdElement, value: boolean) => void
+    getRef: (self: IXsdElement) => string
+    setRef: (self: IXsdElement, value: string) => void
+    getSubstitutionGroup: (self: IXsdElement) => DomTokenList
+    setSubstitutionGroup: (self: IXsdElement, value: DomTokenList) => void
+    getTargetNamespace: (self: IXsdElement) => string
+    setTargetNamespace: (self: IXsdElement, value: string) => void
+    getObjectType: (self: IXsdElement) => string
+    setObjectType: (self: IXsdElement, value: string) => void
+    getAnotation: (self: IXsdElement) => IXsdAnnotation
+    setAnotation: (self: IXsdElement, value: IXsdAnnotation) => void
+    getSimpleType: (self: IXsdElement) => IXsdSimpleType
+    setSimpleType: (self: IXsdElement, value: IXsdSimpleType) => void
+    getComplexType: (self: IXsdElement) => IXsdComplexType
+    setComplexType: (self: IXsdElement, value: IXsdComplexType) => void
     static name: string
 }
 export abstract class IXsdAnnotationIface {
@@ -18823,8 +18834,8 @@ export abstract class IXsdAnnotationIface {
 }
 export abstract class IXsdBaseContentIface {
     /* Fields of GXml-0.20.GXml.IXsdBaseContentIface */
-    getAnotation: () => IXsdAnnotation
-    setAnotation: (value: IXsdAnnotation) => void
+    getAnotation: (self: IXsdBaseContent) => IXsdAnnotation
+    setAnotation: (self: IXsdBaseContent, value: IXsdAnnotation) => void
     static name: string
 }
 export abstract class IXsdSimpleContentIface {
@@ -18838,8 +18849,8 @@ export abstract class IXsdOpenContentIface {
 }
 export abstract class IXsdBaseAttributeIface {
     /* Fields of GXml-0.20.GXml.IXsdBaseAttributeIface */
-    getAnotation: () => IXsdAnnotation
-    setAnotation: (value: IXsdAnnotation) => void
+    getAnotation: (self: IXsdBaseAttribute) => IXsdAnnotation
+    setAnotation: (self: IXsdBaseAttribute, value: IXsdAnnotation) => void
     static name: string
 }
 export abstract class IXsdAttributeIface {
@@ -18850,17 +18861,17 @@ export abstract class IXsdAttributeGroupIface {
 }
 export abstract class IXsdListIface {
     /* Fields of GXml-0.20.GXml.IXsdListIface */
-    getItem: (index: number) => DomElement | null
-    append: (element: DomElement) => void
-    remove: (index: number) => void
-    indexOf: (element: DomElement) => number
-    getElement: () => DomElement
-    setElement: (value: DomElement) => void
-    getItemsType: () => GObject.Type
-    setItemsType: (value: GObject.Type) => void
-    getItemsName: () => GObject.Type
-    setItemsName: (value: GObject.Type) => void
-    getLength: () => number
+    getItem: (self: IXsdList, index: number) => DomElement | null
+    append: (self: IXsdList, element: DomElement) => void
+    remove: (self: IXsdList, index: number) => void
+    indexOf: (self: IXsdList, element: DomElement) => number
+    getElement: (self: IXsdList) => DomElement
+    setElement: (self: IXsdList, value: DomElement) => void
+    getItemsType: (self: IXsdList) => GObject.Type
+    setItemsType: (self: IXsdList, value: GObject.Type) => void
+    getItemsName: (self: IXsdList) => GObject.Type
+    setItemsName: (self: IXsdList, value: GObject.Type) => void
+    getLength: (self: IXsdList) => number
     static name: string
 }
 export abstract class IXsdListElementsIface {
@@ -18886,90 +18897,90 @@ export abstract class IXsdListTypeRestrictionWhiteSpacesIface {
 }
 export abstract class ObjectIface {
     /* Fields of GXml-0.20.GXml.ObjectIface */
-    getPropertiesList: () => GObject.ParamSpec[]
-    findPropertyName: (nick: string) => GObject.ParamSpec | null
-    findObjectPropertyName: (pname: string) => GObject.ParamSpec | null
-    getPropertyElementList: () => GObject.ParamSpec[]
-    getPropertyString: (prop: GObject.ParamSpec) => string | null
-    getAttribute: (name: string) => string | null
-    findProperty: (name: string) => Property | null
-    setAttribute: (name: string, val: string) => boolean
-    getChild: (name: string) => DomElement | null
-    findElements: (name: string) => DomElementList
-    removeAttribute: (name: string) => boolean
-    setInstanceProperty: (name: string) => boolean
-    cleanPropertyElements: (name: string) => void
+    getPropertiesList: (self: Object) => GObject.ParamSpec[]
+    findPropertyName: (self: Object, nick: string) => GObject.ParamSpec | null
+    findObjectPropertyName: (self: Object, pname: string) => GObject.ParamSpec | null
+    getPropertyElementList: (self: Object) => GObject.ParamSpec[]
+    getPropertyString: (self: Object, prop: GObject.ParamSpec) => string | null
+    getAttribute: (self: Object, name: string) => string | null
+    findProperty: (self: Object, name: string) => Property | null
+    setAttribute: (self: Object, name: string, val: string) => boolean
+    getChild: (self: Object, name: string) => DomElement | null
+    findElements: (self: Object, name: string) => DomElementList
+    removeAttribute: (self: Object, name: string) => boolean
+    setInstanceProperty: (self: Object, name: string) => boolean
+    cleanPropertyElements: (self: Object, name: string) => void
     static name: string
 }
 export abstract class ParserIface {
     /* Fields of GXml-0.20.GXml.ParserIface */
-    writeFile: (file: Gio.File) => void
-    writeFileAsync: (file: Gio.File, callback?: Gio.AsyncReadyCallback | null) => void
-    writeFileFinish: (res: Gio.AsyncResult) => void
-    writeString: () => string
-    writeStringAsync: (callback?: Gio.AsyncReadyCallback | null) => void
-    writeStringFinish: (res: Gio.AsyncResult) => string
-    writeStream: (stream: Gio.OutputStream) => void
-    writeStreamAsync: (stream: Gio.OutputStream, callback?: Gio.AsyncReadyCallback | null) => void
-    writeStreamFinish: (res: Gio.AsyncResult) => void
-    readFile: (file: Gio.File) => void
-    readFileAsync: (file: Gio.File, callback?: Gio.AsyncReadyCallback | null) => void
-    readFileFinish: (res: Gio.AsyncResult) => void
-    readStream: (stream: Gio.InputStream) => void
-    readStreamAsync: (stream: Gio.InputStream, callback?: Gio.AsyncReadyCallback | null) => void
-    readStreamFinish: (res: Gio.AsyncResult) => void
-    readString: (str: string) => void
-    readStringAsync: (str: string, callback?: Gio.AsyncReadyCallback | null) => void
-    readStringFinish: (res: Gio.AsyncResult) => void
-    createStream: () => Gio.InputStream
-    createStreamAsync: (callback?: Gio.AsyncReadyCallback | null) => void
-    createStreamFinish: (res: Gio.AsyncResult) => Gio.InputStream
-    readChildNodes: (parent: DomNode) => void
-    readChildNodesAsync: (parent: DomNode, callback?: Gio.AsyncReadyCallback | null) => void
-    readChildNodesFinish: (res: Gio.AsyncResult) => void
-    readChildNode: (parent: DomNode) => boolean
-    readChildElement: (parent: DomNode) => boolean
-    readElementProperty: (parent: DomNode) => { returnType: boolean, element: DomNode }
-    addElementCollection: (parent: DomNode) => { returnType: boolean, element: DomNode }
-    readChildNodesStream: (istream: Gio.InputStream) => void
-    readChildNodesString: (str: string) => void
-    readUnparsed: () => string
-    moveNextNode: () => boolean
-    currentIsEmptyElement: () => boolean
-    currentIsElement: () => boolean
-    currentIsDocument: () => boolean
-    currentNodeName: () => string
-    createElement: (parent: DomNode) => DomElement | null
-    readElement: (element: DomElement) => void
-    getBackup: () => boolean
-    setBackup: (value: boolean) => void
-    getIndent: () => boolean
-    setIndent: (value: boolean) => void
-    getCancellable: () => Gio.Cancellable | null
-    setCancellable: (value?: Gio.Cancellable | null) => void
-    getNode: () => DomNode
-    getTypes: () => GLib.HashTable
+    writeFile: (self: Parser, file: Gio.File) => void
+    writeFileAsync: (self: Parser, file: Gio.File, callback?: Gio.AsyncReadyCallback | null) => void
+    writeFileFinish: (self: Parser, res: Gio.AsyncResult) => void
+    writeString: (self: Parser) => string
+    writeStringAsync: (self: Parser, callback?: Gio.AsyncReadyCallback | null) => void
+    writeStringFinish: (self: Parser, res: Gio.AsyncResult) => string
+    writeStream: (self: Parser, stream: Gio.OutputStream) => void
+    writeStreamAsync: (self: Parser, stream: Gio.OutputStream, callback?: Gio.AsyncReadyCallback | null) => void
+    writeStreamFinish: (self: Parser, res: Gio.AsyncResult) => void
+    readFile: (self: Parser, file: Gio.File) => void
+    readFileAsync: (self: Parser, file: Gio.File, callback?: Gio.AsyncReadyCallback | null) => void
+    readFileFinish: (self: Parser, res: Gio.AsyncResult) => void
+    readStream: (self: Parser, stream: Gio.InputStream) => void
+    readStreamAsync: (self: Parser, stream: Gio.InputStream, callback?: Gio.AsyncReadyCallback | null) => void
+    readStreamFinish: (self: Parser, res: Gio.AsyncResult) => void
+    readString: (self: Parser, str: string) => void
+    readStringAsync: (self: Parser, str: string, callback?: Gio.AsyncReadyCallback | null) => void
+    readStringFinish: (self: Parser, res: Gio.AsyncResult) => void
+    createStream: (self: Parser) => Gio.InputStream
+    createStreamAsync: (self: Parser, callback?: Gio.AsyncReadyCallback | null) => void
+    createStreamFinish: (self: Parser, res: Gio.AsyncResult) => Gio.InputStream
+    readChildNodes: (self: Parser, parent: DomNode) => void
+    readChildNodesAsync: (self: Parser, parent: DomNode, callback?: Gio.AsyncReadyCallback | null) => void
+    readChildNodesFinish: (self: Parser, res: Gio.AsyncResult) => void
+    readChildNode: (self: Parser, parent: DomNode) => boolean
+    readChildElement: (self: Parser, parent: DomNode) => boolean
+    readElementProperty: (self: Parser, parent: DomNode) => { returnType: boolean, element: DomNode }
+    addElementCollection: (self: Parser, parent: DomNode) => { returnType: boolean, element: DomNode }
+    readChildNodesStream: (self: Parser, istream: Gio.InputStream) => void
+    readChildNodesString: (self: Parser, str: string) => void
+    readUnparsed: (self: Parser) => string
+    moveNextNode: (self: Parser) => boolean
+    currentIsEmptyElement: (self: Parser) => boolean
+    currentIsElement: (self: Parser) => boolean
+    currentIsDocument: (self: Parser) => boolean
+    currentNodeName: (self: Parser) => string
+    createElement: (self: Parser, parent: DomNode) => DomElement | null
+    readElement: (self: Parser, element: DomElement) => void
+    getBackup: (self: Parser) => boolean
+    setBackup: (self: Parser, value: boolean) => void
+    getIndent: (self: Parser) => boolean
+    setIndent: (self: Parser, value: boolean) => void
+    getCancellable: (self: Parser) => Gio.Cancellable | null
+    setCancellable: (self: Parser, value?: Gio.Cancellable | null) => void
+    getNode: (self: Parser) => DomNode
+    getTypes: (self: Parser) => GLib.HashTable
     static name: string
 }
 export abstract class PropertyIface {
     /* Fields of GXml-0.20.GXml.PropertyIface */
-    validateValue: (val?: string | null) => boolean
-    getValue: () => string | null
-    setValue: (value?: string | null) => void
+    validateValue: (self: Property, val?: string | null) => boolean
+    getValue: (self: Property) => string | null
+    setValue: (self: Property, value?: string | null) => void
     static name: string
 }
 export abstract class XPathContextIface {
     /* Fields of GXml-0.20.GXml.XPathContextIface */
-    evaluate: (expression: string, resolver?: Gee.Map | null) => XPathObject
+    evaluate: (self: XPathContext, expression: string, resolver?: Gee.Map | null) => XPathObject
     static name: string
 }
 export abstract class XPathObjectIface {
     /* Fields of GXml-0.20.GXml.XPathObjectIface */
-    getObjectType: () => XPathObjectType
-    getBooleanValue: () => boolean
-    getStringValue: () => string
-    getNumberValue: () => number
-    getNodeset: () => DomHTMLCollection
+    getObjectType: (self: XPathObject) => XPathObjectType
+    getBooleanValue: (self: XPathObject) => boolean
+    getStringValue: (self: XPathObject) => string
+    getNumberValue: (self: XPathObject) => number
+    getNodeset: (self: XPathObject) => DomHTMLCollection
     static name: string
 }
 }

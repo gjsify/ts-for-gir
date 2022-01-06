@@ -4,6 +4,7 @@
 
 import "node"
 import type { cairo } from './cairo-1.0';
+import type { PangoCairo } from './PangoCairo-1.0';
 import type { Pango } from './Pango-1.0';
 import type { HarfBuzz } from './HarfBuzz-0.0';
 import type { GObject } from './GObject-2.0';
@@ -138,6 +139,15 @@ export enum MemoryFormat {
     A8B8G8R8,
     R8G8B8,
     B8G8R8,
+    R16G16B16,
+    R16G16B16A16_PREMULTIPLIED,
+    R16G16B16A16,
+    R16G16B16_FLOAT,
+    R16G16B16A16_FLOAT_PREMULTIPLIED,
+    R16G16B16A16_FLOAT,
+    R32G32B32_FLOAT,
+    R32G32B32A32_FLOAT_PREMULTIPLIED,
+    R32G32B32A32_FLOAT,
     N_FORMATS,
 }
 export enum NotifyType {
@@ -172,6 +182,17 @@ export enum SurfaceEdge {
     SOUTH_WEST,
     SOUTH,
     SOUTH_EAST,
+}
+export enum TextureError {
+    TOO_LARGE,
+    CORRUPT_IMAGE,
+    UNSUPPORTED_CONTENT,
+    UNSUPPORTED_FORMAT,
+}
+export enum TitlebarGesture {
+    DOUBLE_CLICK,
+    RIGHT_CLICK,
+    MIDDLE_CLICK,
 }
 export enum TouchpadGesturePhase {
     BEGIN,
@@ -222,6 +243,10 @@ export enum FrameClockPhase {
     PAINT,
     RESUME_EVENTS,
     AFTER_PAINT,
+}
+export enum GLAPI {
+    GL,
+    GLES,
 }
 export enum ModifierType {
     SHIFT_MASK,
@@ -2564,6 +2589,7 @@ export function cairoSetSourcePixbuf(cr: cairo.Context, pixbuf: GdkPixbuf.Pixbuf
 export function cairoSetSourceRgba(cr: cairo.Context, rgba: RGBA): void
 export function contentDeserializeAsync(stream: Gio.InputStream, mimeType: string, type: GObject.Type, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
 export function contentDeserializeFinish(result: Gio.AsyncResult, value: any): boolean
+export function contentFormatsParse(string: string): ContentFormats | null
 export function contentRegisterDeserializer(mimeType: string, type: GObject.Type, deserialize: ContentDeserializeFunc): void
 export function contentRegisterSerializer(type: GObject.Type, mimeType: string, serialize: ContentSerializeFunc): void
 export function contentSerializeAsync(stream: Gio.OutputStream, mimeType: string, value: any, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
@@ -2573,7 +2599,7 @@ export function eventsGetAngle(event1: Event, event2: Event): { returnType: bool
 export function eventsGetCenter(event1: Event, event2: Event): { returnType: boolean, x: number, y: number }
 export function eventsGetDistance(event1: Event, event2: Event): { returnType: boolean, distance: number }
 export function glErrorQuark(): GLib.Quark
-export function internMimeType(string: string): string
+export function internMimeType(string: string): string | null
 export function keyvalConvertCase(symbol: number): { lower: number, upper: number }
 export function keyvalFromName(keyvalName: string): number
 export function keyvalIsLower(keyval: number): boolean
@@ -2586,6 +2612,7 @@ export function paintableNewEmpty(intrinsicWidth: number, intrinsicHeight: numbe
 export function pixbufGetFromSurface(surface: cairo.Surface, srcX: number, srcY: number, width: number, height: number): GdkPixbuf.Pixbuf | null
 export function pixbufGetFromTexture(texture: Texture): GdkPixbuf.Pixbuf | null
 export function setAllowedBackends(backends: string): void
+export function textureErrorQuark(): GLib.Quark
 export function toplevelSizeGetType(): GObject.Type
 export function unicodeToKeyval(wc: number): number
 export function vulkanErrorQuark(): GLib.Quark
@@ -2630,6 +2657,7 @@ export class DevicePad {
     getSeat(): Seat
     getSource(): InputSource
     getSurfaceAtPosition(): { returnType: Surface | null, winX: number | null, winY: number | null }
+    getTimestamp(): number
     getVendorId(): string | null
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -3068,6 +3096,7 @@ export class Toplevel {
     setTransientFor(parent: Surface): void
     showWindowMenu(event: Event): boolean
     supportsEdgeConstraints(): boolean
+    titlebarGesture(gesture: TitlebarGesture): boolean
     /* Methods of Gdk-4.0.Gdk.Surface */
     beep(): void
     createCairoContext(): CairoContext
@@ -3289,6 +3318,11 @@ export class AppLaunchContext {
     once(sigName: "launch-failed", callback: (startupNotifyId: string) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "launch-failed", callback: (startupNotifyId: string) => void): NodeJS.EventEmitter
     emit(sigName: "launch-failed", startupNotifyId: string): void
+    connect(sigName: "launch-started", callback: (($obj: AppLaunchContext, info: Gio.AppInfo, platformData?: GLib.Variant | null) => void)): number
+    on(sigName: "launch-started", callback: (info: Gio.AppInfo, platformData?: GLib.Variant | null) => void, after?: boolean): NodeJS.EventEmitter
+    once(sigName: "launch-started", callback: (info: Gio.AppInfo, platformData?: GLib.Variant | null) => void, after?: boolean): NodeJS.EventEmitter
+    off(sigName: "launch-started", callback: (info: Gio.AppInfo, platformData?: GLib.Variant | null) => void): NodeJS.EventEmitter
+    emit(sigName: "launch-started", info: Gio.AppInfo, platformData?: GLib.Variant | null): void
     connect(sigName: "launched", callback: (($obj: AppLaunchContext, info: Gio.AppInfo, platformData: GLib.Variant) => void)): number
     on(sigName: "launched", callback: (info: Gio.AppInfo, platformData: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
     once(sigName: "launched", callback: (info: Gio.AppInfo, platformData: GLib.Variant) => void, after?: boolean): NodeJS.EventEmitter
@@ -3341,8 +3375,6 @@ export class ButtonEvent {
 export interface CairoContext_ConstructProps extends DrawContext_ConstructProps {
 }
 export class CairoContext {
-    /* Properties of Gdk-4.0.Gdk.DrawContext */
-    readonly display: Display
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.CairoContext */
@@ -3382,11 +3414,6 @@ export class CairoContext {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::display", callback: (($obj: CairoContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::display", callback: (($obj: CairoContext, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::display", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::display", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::display", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -3414,7 +3441,7 @@ export class Clipboard {
     getDisplay(): Display
     getFormats(): ContentFormats
     isLocal(): boolean
-    readAsync(mimeTypes: string, ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    readAsync(mimeTypes: string[], ioPriority: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     readFinish(result: Gio.AsyncResult): { returnType: Gio.InputStream | null, outMimeType: string | null }
     readTextAsync(cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
     readTextFinish(result: Gio.AsyncResult): string | null
@@ -3861,6 +3888,7 @@ export class Device {
     getSeat(): Seat
     getSource(): InputSource
     getSurfaceAtPosition(): { returnType: Surface | null, winX: number | null, winY: number | null }
+    getTimestamp(): number
     getVendorId(): string | null
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
@@ -4024,6 +4052,7 @@ export class Display {
     /* Methods of Gdk-4.0.Gdk.Display */
     beep(): void
     close(): void
+    createGlContext(): GLContext
     deviceIsGrabbed(device: Device): boolean
     flush(): void
     getAppLaunchContext(): AppLaunchContext
@@ -4042,6 +4071,7 @@ export class Display {
     mapKeycode(keycode: number): { returnType: boolean, keys: KeymapKey[] | null, keyvals: number[] | null }
     mapKeyval(keyval: number): { returnType: boolean, keys: KeymapKey[] }
     notifyStartupComplete(startupId: string): void
+    prepareGl(): boolean
     putEvent(event: Event): void
     supportsInputShapes(): boolean
     sync(): void
@@ -4296,11 +4326,10 @@ export class Drag {
     static $gtype: GObject.Type
 }
 export interface DrawContext_ConstructProps extends GObject.Object_ConstructProps {
+    display?: Display
     surface?: Surface
 }
 export class DrawContext {
-    /* Properties of Gdk-4.0.Gdk.DrawContext */
-    readonly display: Display
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.DrawContext */
@@ -4338,11 +4367,6 @@ export class DrawContext {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::display", callback: (($obj: DrawContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::display", callback: (($obj: DrawContext, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::display", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::display", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::display", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4568,14 +4592,18 @@ export class FrameClock {
     static $gtype: GObject.Type
 }
 export interface GLContext_ConstructProps extends DrawContext_ConstructProps {
+    allowedApis?: GLAPI
     sharedContext?: GLContext
 }
 export class GLContext {
-    /* Properties of Gdk-4.0.Gdk.DrawContext */
-    readonly display: Display
+    /* Properties of Gdk-4.0.Gdk.GLContext */
+    allowedApis: GLAPI
+    readonly api: GLAPI
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.GLContext */
+    getAllowedApis(): GLAPI
+    getApi(): GLAPI
     getDebugEnabled(): boolean
     getDisplay(): Display | null
     getForwardCompatible(): boolean
@@ -4585,8 +4613,10 @@ export class GLContext {
     getUseEs(): boolean
     getVersion(): { major: number, minor: number }
     isLegacy(): boolean
+    isShared(other: GLContext): boolean
     makeCurrent(): void
     realize(): boolean
+    setAllowedApis(apis: GLAPI): void
     setDebugEnabled(enabled: boolean): void
     setForwardCompatible(compatible: boolean): void
     setRequiredVersion(major: number, minor: number): void
@@ -4624,11 +4654,16 @@ export class GLContext {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::display", callback: (($obj: GLContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::display", callback: (($obj: GLContext, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::display", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::display", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::display", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::allowed-apis", callback: (($obj: GLContext, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::allowed-apis", callback: (($obj: GLContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::allowed-apis", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::allowed-apis", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::allowed-apis", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    connect(sigName: "notify::api", callback: (($obj: GLContext, pspec: GObject.ParamSpec) => void)): number
+    connect_after(sigName: "notify::api", callback: (($obj: GLContext, pspec: GObject.ParamSpec) => void)): number
+    on(sigName: "notify::api", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    once(sigName: "notify::api", callback: (...args: any[]) => void): NodeJS.EventEmitter
+    off(sigName: "notify::api", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -4653,9 +4688,13 @@ export class GLTexture {
     release(): void
     /* Methods of Gdk-4.0.Gdk.Texture */
     download(data: any[], stride: number): void
+    downloadFloat(data: number[], stride: number): void
     getHeight(): number
     getWidth(): number
     saveToPng(filename: string): boolean
+    saveToPngBytes(): any
+    saveToTiff(filename: string): boolean
+    saveToTiffBytes(): any
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -4688,6 +4727,14 @@ export class GLTexture {
     invalidateContents(): void
     invalidateSize(): void
     snapshot(snapshot: Snapshot, width: number, height: number): void
+    /* Methods of Gio-2.0.Gio.Icon */
+    equal(icon2?: Gio.Icon | null): boolean
+    serialize(): GLib.Variant | null
+    toString(): string | null
+    /* Methods of Gio-2.0.Gio.LoadableIcon */
+    load(size: number, cancellable?: Gio.Cancellable | null): { returnType: Gio.InputStream, type: string | null }
+    loadAsync(size: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    loadFinish(res: Gio.AsyncResult): { returnType: Gio.InputStream, type: string | null }
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: GLTexture, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -4786,9 +4833,13 @@ export class MemoryTexture {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.Texture */
     download(data: any[], stride: number): void
+    downloadFloat(data: number[], stride: number): void
     getHeight(): number
     getWidth(): number
     saveToPng(filename: string): boolean
+    saveToPngBytes(): any
+    saveToTiff(filename: string): boolean
+    saveToTiffBytes(): any
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -4821,6 +4872,14 @@ export class MemoryTexture {
     invalidateContents(): void
     invalidateSize(): void
     snapshot(snapshot: Snapshot, width: number, height: number): void
+    /* Methods of Gio-2.0.Gio.Icon */
+    equal(icon2?: Gio.Icon | null): boolean
+    serialize(): GLib.Variant | null
+    toString(): string | null
+    /* Methods of Gio-2.0.Gio.LoadableIcon */
+    load(size: number, cancellable?: Gio.Cancellable | null): { returnType: Gio.InputStream, type: string | null }
+    loadAsync(size: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    loadFinish(res: Gio.AsyncResult): { returnType: Gio.InputStream, type: string | null }
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: MemoryTexture, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -5344,9 +5403,13 @@ export class Texture {
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.Texture */
     download(data: any[], stride: number): void
+    downloadFloat(data: number[], stride: number): void
     getHeight(): number
     getWidth(): number
     saveToPng(filename: string): boolean
+    saveToPngBytes(): any
+    saveToTiff(filename: string): boolean
+    saveToTiffBytes(): any
     /* Methods of GObject-2.0.GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: Function, transformFrom: Function): GObject.Binding
@@ -5379,6 +5442,14 @@ export class Texture {
     invalidateContents(): void
     invalidateSize(): void
     snapshot(snapshot: Snapshot, width: number, height: number): void
+    /* Methods of Gio-2.0.Gio.Icon */
+    equal(icon2?: Gio.Icon | null): boolean
+    serialize(): GLib.Variant | null
+    toString(): string | null
+    /* Methods of Gio-2.0.Gio.LoadableIcon */
+    load(size: number, cancellable?: Gio.Cancellable | null): { returnType: Gio.InputStream, type: string | null }
+    loadAsync(size: number, cancellable?: Gio.Cancellable | null, callback?: Gio.AsyncReadyCallback | null): void
+    loadFinish(res: Gio.AsyncResult): { returnType: Gio.InputStream, type: string | null }
     /* Signals of GObject-2.0.GObject.Object */
     connect(sigName: "notify", callback: (($obj: Texture, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
@@ -5408,9 +5479,14 @@ export class Texture {
     _init (config?: Texture_ConstructProps): void
     /* Static methods and pseudo-constructors */
     static newForPixbuf(pixbuf: GdkPixbuf.Pixbuf): Texture
+    static newFromBytes(bytes: any): Texture
     static newFromFile(file: Gio.File): Texture
+    static newFromFilename(path: string): Texture
     static newFromResource(resourcePath: string): Texture
     static newEmpty(intrinsicWidth: number, intrinsicHeight: number): Paintable
+    static deserialize(value: GLib.Variant): Gio.Icon | null
+    static hash(icon: object): number
+    static newForString(str: string): Gio.Icon
     static $gtype: GObject.Type
 }
 export class TouchEvent {
@@ -5472,8 +5548,6 @@ export class TouchpadEvent {
 export interface VulkanContext_ConstructProps extends DrawContext_ConstructProps {
 }
 export class VulkanContext {
-    /* Properties of Gdk-4.0.Gdk.DrawContext */
-    readonly display: Display
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of Gdk-4.0.Gdk.DrawContext */
@@ -5519,11 +5593,6 @@ export class VulkanContext {
     once(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void, after?: boolean): NodeJS.EventEmitter
     off(sigName: "notify", callback: (pspec: GObject.ParamSpec) => void): NodeJS.EventEmitter
     emit(sigName: "notify", pspec: GObject.ParamSpec): void
-    connect(sigName: "notify::display", callback: (($obj: VulkanContext, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::display", callback: (($obj: VulkanContext, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::display", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::display", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::display", callback: (...args: any[]) => void): NodeJS.EventEmitter
     connect(sigName: string, callback: any): number
     connect_after(sigName: string, callback: any): number
     emit(sigName: string, ...args: any[]): void
@@ -5543,7 +5612,7 @@ export class ContentFormats {
     containGtype(type: GObject.Type): boolean
     containMimeType(mimeType: string): boolean
     getGtypes(): GObject.Type[] | null
-    getMimeTypes(): { returnType: string[] | null, nMimeTypes: number | null }
+    getMimeTypes(): string[] | null
     match(second: ContentFormats): boolean
     matchGtype(second: ContentFormats): GObject.Type
     matchMimeType(second: ContentFormats): string | null
@@ -5562,6 +5631,7 @@ export class ContentFormats {
     /* Static methods and pseudo-constructors */
     static new(mimeTypes: string[] | null): ContentFormats
     static newForGtype(type: GObject.Type): ContentFormats
+    static parse(string: string): ContentFormats | null
 }
 export class ContentFormatsBuilder {
     /* Methods of Gdk-4.0.Gdk.ContentFormatsBuilder */
@@ -5596,10 +5666,12 @@ export abstract class DevicePadInterface {
 export abstract class DragSurfaceInterface {
     static name: string
 }
-export class DrawingContext {
+export class EventSequence {
     static name: string
 }
-export class EventSequence {
+export class FileList {
+    /* Methods of Gdk-4.0.Gdk.FileList */
+    getFiles(): Gio.File[]
     static name: string
 }
 export abstract class FrameClockClass {

@@ -185,6 +185,7 @@ export function objectInfoGetAbstract(info: ObjectInfo): boolean
 export function objectInfoGetClassStruct(info: ObjectInfo): StructInfo | null
 export function objectInfoGetConstant(info: ObjectInfo, n: number): ConstantInfo
 export function objectInfoGetField(info: ObjectInfo, n: number): FieldInfo
+export function objectInfoGetFinal(info: ObjectInfo): boolean
 export function objectInfoGetFundamental(info: ObjectInfo): boolean
 export function objectInfoGetGetValueFunction(info: ObjectInfo): string | null
 export function objectInfoGetInterface(info: ObjectInfo, n: number): InterfaceInfo
@@ -206,7 +207,9 @@ export function objectInfoGetTypeName(info: ObjectInfo): string
 export function objectInfoGetUnrefFunction(info: ObjectInfo): string | null
 export function objectInfoGetVfunc(info: ObjectInfo, n: number): VFuncInfo
 export function propertyInfoGetFlags(info: PropertyInfo): GObject.ParamFlags
+export function propertyInfoGetGetter(info: PropertyInfo): FunctionInfo | null
 export function propertyInfoGetOwnershipTransfer(info: PropertyInfo): Transfer
+export function propertyInfoGetSetter(info: PropertyInfo): FunctionInfo | null
 export function propertyInfoGetType(info: PropertyInfo): TypeInfo
 export function registeredTypeInfoGetGType(info: RegisteredTypeInfo): GObject.Type
 export function registeredTypeInfoGetTypeInit(info: RegisteredTypeInfo): string

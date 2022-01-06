@@ -55,13 +55,14 @@ export class Font {
     /* Methods of Pango-1.0.Pango.Font */
     describe(): Pango.FontDescription
     describe_with_absolute_size(): Pango.FontDescription
-    find_shaper(language: Pango.Language, ch: number): Pango.EngineShape
     get_coverage(language: Pango.Language): Pango.Coverage
     get_face(): Pango.FontFace
     get_features(num_features: number): [ /* features */ HarfBuzz.feature_t[], /* num_features */ number ]
     get_font_map(): Pango.FontMap | null
     get_glyph_extents(glyph: Pango.Glyph): [ /* ink_rect */ Pango.Rectangle | null, /* logical_rect */ Pango.Rectangle | null ]
+    get_languages(): Pango.Language[] | null
     get_metrics(language?: Pango.Language | null): Pango.FontMetrics
+    serialize(): GLib.Bytes
     /* Methods of GObject-2.0.GObject.Object */
     bind_property(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags): GObject.Binding
     bind_property_full(source_property: string, target: GObject.Object, target_property: string, flags: GObject.BindingFlags, transform_to: Function, transform_from: Function): GObject.Binding

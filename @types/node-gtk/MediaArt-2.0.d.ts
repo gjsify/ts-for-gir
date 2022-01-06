@@ -39,8 +39,6 @@ export function stripInvalidEntities(original?: string | null): string
 export interface Process_ConstructProps extends GObject.Object_ConstructProps {
 }
 export class Process {
-    /* Fields of MediaArt-2.0.MediaArt.Process */
-    parent: GObject.Object
     /* Fields of GObject-2.0.GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of MediaArt-2.0.MediaArt.Process */
@@ -99,8 +97,6 @@ export class Process {
     static $gtype: GObject.Type
 }
 export abstract class ProcessClass {
-    /* Fields of MediaArt-2.0.MediaArt.ProcessClass */
-    parent: GObject.ObjectClass
     static name: string
 }
 }

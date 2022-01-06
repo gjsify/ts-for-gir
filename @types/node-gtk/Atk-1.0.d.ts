@@ -235,6 +235,7 @@ export enum StateType {
     HAS_POPUP,
     HAS_TOOLTIP,
     READ_ONLY,
+    COLLAPSED,
     LAST_DEFINED,
 }
 export enum TextAttribute {

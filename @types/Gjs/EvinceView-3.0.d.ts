@@ -2292,6 +2292,9 @@ export class View {
     connect(sigName: "annot-added", callback: (($obj: View, object: EvinceDocument.Annotation) => void)): number
     connect_after(sigName: "annot-added", callback: (($obj: View, object: EvinceDocument.Annotation) => void)): number
     emit(sigName: "annot-added", object: EvinceDocument.Annotation): void
+    connect(sigName: "annot-changed", callback: (($obj: View, object: EvinceDocument.Annotation) => void)): number
+    connect_after(sigName: "annot-changed", callback: (($obj: View, object: EvinceDocument.Annotation) => void)): number
+    emit(sigName: "annot-changed", object: EvinceDocument.Annotation): void
     connect(sigName: "annot-removed", callback: (($obj: View, object: EvinceDocument.Annotation) => void)): number
     connect_after(sigName: "annot-removed", callback: (($obj: View, object: EvinceDocument.Annotation) => void)): number
     emit(sigName: "annot-removed", object: EvinceDocument.Annotation): void

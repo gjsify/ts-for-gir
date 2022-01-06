@@ -2073,10 +2073,14 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Camel.Index': [
     'GObject.Object',
 ],
+<<<<<<< HEAD
     'Camel.IndexCursor': [
     'GObject.Object',
 ],
     'Camel.IndexName': [
+=======
+    'Colord.Client': [
+>>>>>>> aca4fe3 (Fix ignore conflicts option loading from config file)
     'GObject.Object',
 ],
     'Camel.InternetAddress': [
@@ -2114,6 +2118,11 @@ const inheritanceTable: { [key: string]: string[] } = {
 ],
     'Camel.MimeFilterBestenc': [
     'Camel.MimeFilter',
+],
+    'Colorhug.DeviceQueue': [
+    'GObject.Object',
+],
+    'DBusGLib.Proxy': [
     'GObject.Object',
 ],
     'Camel.MimeFilterCRLF': [
@@ -6724,6 +6733,18 @@ const inheritanceTable: { [key: string]: string[] } = {
     'GData.GDPhoneNumber': [
     'GData.Parsable',
     'GData.Comparable',
+],
+    'GXml.ElementList': [
+    'Gee.ArrayList',
+    'Gee.ArrayList',
+    'GXml.DomHTMLCollection',
+    'Gee.ArrayList',
+    'GXml.DomHTMLCollection',
+    'Gee.ArrayList',
+    'GXml.DomHTMLCollection',
+    'Gee.AbstractBidirList',
+    'Gee.AbstractList',
+    'Gee.AbstractCollection',
     'GObject.Object',
 ],
     'GData.GDPostalAddress': [
@@ -19935,6 +19956,34 @@ const inheritanceTable: { [key: string]: string[] } = {
     'Gtk.PageSetupUnixDialog': [
     'Gtk.Dialog',
     'Gtk.Accessible',
+],
+    'Gxps.CoreProperties': [
+    'GObject.Object',
+    'Gio.Initable',
+],
+    'Gxps.Document': [
+    'GObject.Object',
+    'Gio.Initable',
+],
+    'Gxps.DocumentStructure': [
+    'GObject.Object',
+],
+    'Gxps.File': [
+    'GObject.Object',
+    'Gio.Initable',
+],
+    'Gxps.Page': [
+    'GObject.Object',
+    'Gio.Initable',
+],
+    'Handy.ActionRow': [
+    'Handy.PreferencesRow',
+    'Atk.ImplementorIface',
+    'Gtk.Actionable',
+    'Gtk.Buildable',
+    'Handy.PreferencesRow',
+    'Atk.ImplementorIface',
+    'Gtk.Actionable',
     'Gtk.Buildable',
     'Gtk.ConstraintTarget',
     'Gtk.Native',

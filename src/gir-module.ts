@@ -931,37 +931,6 @@ export class GirModule {
         }
     }
 
-    /**
-     * Get4 symTable key, we use this method to prepend the package version to each key for version conflicts
-     * @param implementation E.g. Gtk.Window
-     */
-    private getSymTableKey(implementation: string) {
-        if (implementation.startsWith(this.packageName + '.')) {
-            return implementation
-        }
-
-        if (implementation.startsWith(this.namespace + '.')) {
-            return this.packageName + '.' + implementation
-        }
-
-        if (!implementation.includes('.')) {
-            return this.packageName + '.' + this.namespace + '.' + implementation
-        }
-
-        const split = implementation.split('.')
-        // const typeName = split[split.length - 1]
-        const namespace = split.slice(0, split.length - 1).join('.')
-        const packageName = this.allDependencies.find((dependency) => dependency.startsWith(namespace + '-'))
-        if (!packageName) {
-            this.log.warn(`Package name for namespace ${namespace} not found! (${implementation})`)
-            if (namespace === 'Atk') {
-                console.log('dependencies', this.dependencies)
-            }
-            return implementation
-        }
-        return packageName + '.' + implementation
-    }
-
     private forEachInterface(
         girClass: GirClass,
         callback: (cls: GirClass) => void,

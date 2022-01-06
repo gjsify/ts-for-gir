@@ -11,9 +11,9 @@ import type { GObject } from './GObject-2.0';
 export declare namespace Tracker {
 =======
 /// <reference types="node" />
-import type { GLib } from './GLib-2.0';
-import type { GObject } from './GObject-2.0';
-import type { Gio } from './Gio-2.0';
+/// <reference path="GLib-2.0.d.ts" />
+/// <reference path="Gio-2.0.d.ts" />
+/// <reference path="GObject-2.0.d.ts" />
 
 declare namespace Tracker {
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))

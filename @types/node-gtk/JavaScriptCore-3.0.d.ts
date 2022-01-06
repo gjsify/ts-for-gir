@@ -9,8 +9,7 @@ import type { GObject } from './GObject-2.0';
 export declare namespace JavaScriptCore {
 =======
 /// <reference types="node" />
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
+/// <reference path="GObject-2.0.d.ts" />
 
 declare namespace JavaScriptCore {
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))

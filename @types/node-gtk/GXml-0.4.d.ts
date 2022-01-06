@@ -12,10 +12,10 @@ import type { GLib } from './GLib-2.0';
 export declare namespace GXml {
 =======
 /// <reference types="node" />
-import type { Gee } from './Gee-0.8';
-import type { Gio } from './Gio-2.0';
-import type { GObject } from './GObject-2.0';
-import type { GLib } from './GLib-2.0';
+/// <reference path="Gee-0.8.d.ts" />
+/// <reference path="Gio-2.0.d.ts" />
+/// <reference path="GObject-2.0.d.ts" />
+/// <reference path="GLib-2.0.d.ts" />
 
 declare namespace GXml {
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
@@ -5878,7 +5878,6 @@ export interface SerializableTreeMap_ConstructProps extends Gee.TreeMap_Construc
 }
 export class SerializableTreeMap {
 <<<<<<< HEAD
-<<<<<<< HEAD
     /* Properties of Gee-0.8.Gee.AbstractBidirSortedMap */
     readonly readOnlyView: Gee.BidirSortedMap
     /* Properties of Gee-0.8.Gee.AbstractSortedMap */
@@ -5895,19 +5894,13 @@ export class SerializableTreeMap {
     /* Properties of Gee.TreeMap */
     keyCompareFunc: GLib.CompareFunc
     valueEqualFunc: GLib.EqualFunc
-=======
-    /* Properties of Gee.AbstractBidirSortedMap */
-    readonly readOnlyView: Gee.BidirSortedMap
-    /* Properties of Gee.AbstractSortedMap */
-    readonly ascendingKeys: Gee.SortedSet
-    readonly ascendingEntries: Gee.SortedSet
->>>>>>> 2968f8b (Update types)
     /* Properties of Gee.AbstractMap */
     readonly size: number
-    readonly readOnly: boolean
+    readonly isEmpty: boolean
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
+    readonly readOnlyView: Gee.Map
     /* Properties of GXml.Serializable */
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     properties: GObject.ParamSpec[]
@@ -5955,17 +5948,10 @@ export class SerializableTreeMap {
     deserializeProperty(propertyNode: Node): boolean
     defaultDeserializeProperty(propertyNode: Node): boolean
 <<<<<<< HEAD
-<<<<<<< HEAD
     /* Methods of Gee-0.8.Gee.TreeMap */
     getKeyCompareFunc(): { returnType: GLib.CompareDataFunc, resultTarget: object | null }
     getValueEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
     /* Methods of Gee-0.8.Gee.AbstractBidirSortedMap */
-=======
-    /* Methods of Gee.TreeMap */
-    getKeyCompareFunc(): [ /* returnType */ GLib.CompareDataFunc, /* resultTarget */ object | null ]
-    getValueEqualFunc(): [ /* returnType */ Gee.EqualDataFunc, /* resultTarget */ object | null ]
-    /* Methods of Gee.AbstractBidirSortedMap */
->>>>>>> 2968f8b (Update types)
     bidirMapIterator(): Gee.BidirMapIterator
     reserved0(): void
     reserved1(): void
@@ -5978,21 +5964,14 @@ export class SerializableTreeMap {
     reserved8(): void
     reserved9(): void
     getReadOnlyView(): Gee.BidirSortedMap
-<<<<<<< HEAD
     /* Methods of Gee-0.8.Gee.AbstractSortedMap */
-=======
-    /* Methods of Gee.AbstractSortedMap */
->>>>>>> 2968f8b (Update types)
     headMap(before?: object | null): Gee.SortedMap
     tailMap(after?: object | null): Gee.SortedMap
     subMap(before?: object | null, after?: object | null): Gee.SortedMap
     getAscendingKeys(): Gee.SortedSet
     getAscendingEntries(): Gee.SortedSet
-<<<<<<< HEAD
     /* Methods of Gee-0.8.Gee.AbstractMap */
 =======
-=======
->>>>>>> 2968f8b (Update types)
     /* Methods of Gee.AbstractMap */
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     hasKey(key?: object | null): boolean
@@ -6024,14 +6003,9 @@ export class SerializableTreeMap {
     unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     mapIterator(): Gee.MapIterator
     clear(): void
-    foreach(f: Gee.ForallFunc): boolean
-    stream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    getSize(): number
-    getReadOnly(): boolean
-    getKeys(): Gee.Set
-    getValues(): Gee.Collection
-    getEntries(): Gee.Set
-    getReadOnlyView(): Gee.Map
+    setAll(map: Gee.Map): void
+    unsetAll(map: Gee.Map): boolean
+    hasAll(map: Gee.Map): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -6161,46 +6135,6 @@ export class SerializableTreeMap {
     vfuncGetSerializedXmlNodeValue(): string | null
     vfuncSetSerializedXmlNodeValue(value?: string | null): void
     vfuncIsCollection(): boolean
-    vfuncGetReadOnlyView(): Gee.BidirSortedMap
-    vfuncGetReadOnlyView(): Gee.SortedMap
-    vfuncGetReadOnlyView(): Gee.Map
-    /* Virtual methods of Gee.TreeMap */
-    vfuncGetReadOnlyView(): Gee.BidirSortedMap
-    vfuncGetReadOnlyView(): Gee.SortedMap
-    vfuncGetReadOnlyView(): Gee.Map
-    /* Virtual methods of Gee.AbstractBidirSortedMap */
-    vfuncBidirMapIterator(): Gee.BidirMapIterator
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetReadOnlyView(): Gee.BidirSortedMap
-    vfuncGetReadOnlyView(): Gee.SortedMap
-    vfuncGetReadOnlyView(): Gee.Map
-    /* Virtual methods of Gee.AbstractSortedMap */
-    vfuncHeadMap(before?: object | null): Gee.SortedMap
-    vfuncTailMap(after?: object | null): Gee.SortedMap
-    vfuncSubMap(before?: object | null, after?: object | null): Gee.SortedMap
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetAscendingKeys(): Gee.SortedSet
-    vfuncGetAscendingEntries(): Gee.SortedSet
-    vfuncGetReadOnlyView(): Gee.SortedMap
-    vfuncGetReadOnlyView(): Gee.Map
     /* Virtual methods of Gee.AbstractMap */
     vfuncHasKey(key?: object | null): boolean
     vfuncHas(key?: object | null, value?: object | null): boolean
@@ -6209,43 +6143,14 @@ export class SerializableTreeMap {
     vfuncUnset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfuncMapIterator(): Gee.MapIterator
     vfuncClear(): void
-    vfuncForeach(f: Gee.ForallFunc): boolean
-    vfuncStream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetSize(): number
-    vfuncGetReadOnly(): boolean
-    vfuncGetKeys(): Gee.Set
-    vfuncGetValues(): Gee.Collection
-    vfuncGetEntries(): Gee.Set
-    vfuncGetReadOnlyView(): Gee.Map
-    vfuncFold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfuncScan(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfuncFilter(pred: Gee.Predicate): Gee.Iterator
-    vfuncChop(offset: number, length: number): Gee.Iterator
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfuncTee(forks: number): Gee.Iterator[]
-    vfuncFirstMatch(pred: Gee.Predicate): object | null
-    vfuncAnyMatch(pred: Gee.Predicate): boolean
-    vfuncAllMatch(pred: Gee.Predicate): boolean
-    vfuncMax(compare: GLib.CompareDataFunc): object | null
-    vfuncMin(compare: GLib.CompareDataFunc): object | null
-    vfuncOrderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfuncGetElementType(): GObject.Type
-    vfuncIterator(): Gee.Iterator
     vfuncSetAll(map: Gee.Map): void
     vfuncUnsetAll(map: Gee.Map): boolean
     vfuncHasAll(map: Gee.Map): boolean
-    vfuncGetIsEmpty(): boolean
+    vfuncIterator(): Gee.Iterator
+    vfuncContains(key?: object | null): boolean
+    vfuncRemove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
+    vfuncRemoveAll(map: Gee.Map): boolean
+    vfuncContainsAll(map: Gee.Map): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -6286,7 +6191,6 @@ export class SerializableTreeMap {
     on(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-<<<<<<< HEAD
     connect(sigName: "notify::key-compare-func", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::key-compare-func", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::key-compare-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6298,38 +6202,17 @@ export class SerializableTreeMap {
     once(sigName: "notify::value-equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::value-equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
-=======
-    connect(sigName: "notify::read-only-view", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::read-only-view", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::ascending-keys", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::ascending-keys", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::ascending-keys", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::ascending-keys", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::ascending-keys", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    connect(sigName: "notify::ascending-entries", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    connect_after(sigName: "notify::ascending-entries", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
-    on(sigName: "notify::ascending-entries", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    once(sigName: "notify::ascending-entries", callback: (...args: any[]) => void): NodeJS.EventEmitter
-    off(sigName: "notify::ascending-entries", callback: (...args: any[]) => void): NodeJS.EventEmitter
->>>>>>> 2968f8b (Update types)
     connect(sigName: "notify::size", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 2968f8b (Update types)
     connect(sigName: "notify::read-only", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
-<<<<<<< HEAD
 =======
     connect(sigName: "notify::is-empty", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-empty", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
@@ -6337,8 +6220,6 @@ export class SerializableTreeMap {
     once(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
-=======
->>>>>>> 2968f8b (Update types)
     connect(sigName: "notify::keys", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::keys", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6355,7 +6236,6 @@ export class SerializableTreeMap {
     once(sigName: "notify::entries", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::entries", callback: (...args: any[]) => void): NodeJS.EventEmitter
 <<<<<<< HEAD
-<<<<<<< HEAD
 =======
     connect(sigName: "notify::read-only-view", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
@@ -6363,8 +6243,6 @@ export class SerializableTreeMap {
     once(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
-=======
->>>>>>> 2968f8b (Update types)
     connect(sigName: "notify::properties", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableTreeMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::properties", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6398,14 +6276,10 @@ export class SerializableTreeMap {
     /* Static methods and pseudo-constructors */
     static new(): SerializableTreeMap
 <<<<<<< HEAD
-<<<<<<< HEAD
     static new(kType: GObject.Type, kDupFunc: GObject.BoxedCopyFunc, kDestroyFunc: GLib.DestroyNotify, vType: GObject.Type, vDupFunc: GObject.BoxedCopyFunc, vDestroyFunc: GLib.DestroyNotify, keyCompareFunc: GLib.CompareDataFunc | null, valueEqualFunc: Gee.EqualDataFunc | null): SerializableTreeMap
     static stringToGvalue(str: string, dest: any): { returnType: boolean, dest: any }
 =======
     static new(keyCompareFunc?: GLib.CompareFunc | null, valueEqualFunc?: GLib.EqualFunc | null): SerializableTreeMap
-=======
-    static new(kType: GObject.Type, kDupFunc: GObject.BoxedCopyFunc, kDestroyFunc: GLib.DestroyNotify, vType: GObject.Type, vDupFunc: GObject.BoxedCopyFunc, vDestroyFunc: GLib.DestroyNotify, keyCompareFunc: GLib.CompareDataFunc | null, valueEqualFunc: Gee.EqualDataFunc | null): SerializableTreeMap
->>>>>>> 2968f8b (Update types)
     static stringToGvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     static gvalueToString(val: any): string
@@ -6419,7 +6293,6 @@ export interface SerializableHashMap_ConstructProps extends Gee.HashMap_Construc
 }
 export class SerializableHashMap {
 <<<<<<< HEAD
-<<<<<<< HEAD
     /* Properties of Gee-0.8.Gee.AbstractMap */
     readonly size: number
     readonly readOnly: boolean
@@ -6432,11 +6305,6 @@ export class SerializableHashMap {
     readonly size: number
     readonly isEmpty: boolean
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
-=======
-    /* Properties of Gee.AbstractMap */
-    readonly size: number
-    readonly readOnly: boolean
->>>>>>> 2968f8b (Update types)
     readonly keys: Gee.Set
     readonly values: Gee.Collection
     readonly entries: Gee.Set
@@ -6492,19 +6360,12 @@ export class SerializableHashMap {
     deserializeProperty(propertyNode: Node): boolean
     defaultDeserializeProperty(propertyNode: Node): boolean
 <<<<<<< HEAD
-<<<<<<< HEAD
     /* Methods of Gee-0.8.Gee.HashMap */
     getKeyHashFunc(): { returnType: Gee.HashDataFunc, resultTarget: object | null }
     getKeyEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
     getValueEqualFunc(): { returnType: Gee.EqualDataFunc, resultTarget: object | null }
     /* Methods of Gee-0.8.Gee.AbstractMap */
 =======
-=======
-    /* Methods of Gee.HashMap */
-    getKeyHashFunc(): [ /* returnType */ Gee.HashDataFunc, /* resultTarget */ object | null ]
-    getKeyEqualFunc(): [ /* returnType */ Gee.EqualDataFunc, /* resultTarget */ object | null ]
-    getValueEqualFunc(): [ /* returnType */ Gee.EqualDataFunc, /* resultTarget */ object | null ]
->>>>>>> 2968f8b (Update types)
     /* Methods of Gee.AbstractMap */
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     hasKey(key?: object | null): boolean
@@ -6546,24 +6407,9 @@ export class SerializableHashMap {
     unset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     mapIterator(): Gee.MapIterator
     clear(): void
-    foreach(f: Gee.ForallFunc): boolean
-    stream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    reserved0(): void
-    reserved1(): void
-    reserved2(): void
-    reserved3(): void
-    reserved4(): void
-    reserved5(): void
-    reserved6(): void
-    reserved7(): void
-    reserved8(): void
-    reserved9(): void
-    getSize(): number
-    getReadOnly(): boolean
-    getKeys(): Gee.Set
-    getValues(): Gee.Collection
-    getEntries(): Gee.Set
-    getReadOnlyView(): Gee.Map
+    setAll(map: Gee.Map): void
+    unsetAll(map: Gee.Map): boolean
+    hasAll(map: Gee.Map): boolean
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -6685,43 +6531,14 @@ export class SerializableHashMap {
     vfuncUnset(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
     vfuncMapIterator(): Gee.MapIterator
     vfuncClear(): void
-    vfuncForeach(f: Gee.ForallFunc): boolean
-    vfuncStream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetSize(): number
-    vfuncGetReadOnly(): boolean
-    vfuncGetKeys(): Gee.Set
-    vfuncGetValues(): Gee.Collection
-    vfuncGetEntries(): Gee.Set
-    vfuncGetReadOnlyView(): Gee.Map
-    vfuncFold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfuncScan(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfuncFilter(pred: Gee.Predicate): Gee.Iterator
-    vfuncChop(offset: number, length: number): Gee.Iterator
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfuncTee(forks: number): Gee.Iterator[]
-    vfuncFirstMatch(pred: Gee.Predicate): object | null
-    vfuncAnyMatch(pred: Gee.Predicate): boolean
-    vfuncAllMatch(pred: Gee.Predicate): boolean
-    vfuncMax(compare: GLib.CompareDataFunc): object | null
-    vfuncMin(compare: GLib.CompareDataFunc): object | null
-    vfuncOrderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfuncGetElementType(): GObject.Type
-    vfuncIterator(): Gee.Iterator
     vfuncSetAll(map: Gee.Map): void
     vfuncUnsetAll(map: Gee.Map): boolean
     vfuncHasAll(map: Gee.Map): boolean
-    vfuncGetIsEmpty(): boolean
+    vfuncIterator(): Gee.Iterator
+    vfuncContains(key?: object | null): boolean
+    vfuncRemove(key?: object | null): [ /* returnType */ boolean, /* value */ object | null ]
+    vfuncRemoveAll(map: Gee.Map): boolean
+    vfuncContainsAll(map: Gee.Map): boolean
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -6762,7 +6579,6 @@ export class SerializableHashMap {
     on(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-<<<<<<< HEAD
     connect(sigName: "notify::key-hash-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::key-hash-func", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::key-hash-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6779,23 +6595,17 @@ export class SerializableHashMap {
     once(sigName: "notify::value-equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::value-equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
-=======
->>>>>>> 2968f8b (Update types)
     connect(sigName: "notify::size", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::size", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 2968f8b (Update types)
     connect(sigName: "notify::read-only", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
-<<<<<<< HEAD
 =======
     connect(sigName: "notify::is-empty", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-empty", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
@@ -6803,8 +6613,6 @@ export class SerializableHashMap {
     once(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
-=======
->>>>>>> 2968f8b (Update types)
     connect(sigName: "notify::keys", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::keys", callback: (($obj: SerializableHashMap, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::keys", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -6858,14 +6666,10 @@ export class SerializableHashMap {
     /* Static methods and pseudo-constructors */
     static new(): SerializableHashMap
 <<<<<<< HEAD
-<<<<<<< HEAD
     static new(kType: GObject.Type, kDupFunc: GObject.BoxedCopyFunc, kDestroyFunc: GLib.DestroyNotify, vType: GObject.Type, vDupFunc: GObject.BoxedCopyFunc, vDestroyFunc: GLib.DestroyNotify, keyHashFunc: Gee.HashDataFunc | null, keyEqualFunc: Gee.EqualDataFunc | null, valueEqualFunc: Gee.EqualDataFunc | null): SerializableHashMap
     static stringToGvalue(str: string, dest: any): { returnType: boolean, dest: any }
 =======
     static new(keyHashFunc?: GLib.HashFunc | null, keyEqualFunc?: GLib.EqualFunc | null, valueEqualFunc?: GLib.EqualFunc | null): SerializableHashMap
-=======
-    static new(kType: GObject.Type, kDupFunc: GObject.BoxedCopyFunc, kDestroyFunc: GLib.DestroyNotify, vType: GObject.Type, vDupFunc: GObject.BoxedCopyFunc, vDestroyFunc: GLib.DestroyNotify, keyHashFunc: Gee.HashDataFunc | null, keyEqualFunc: Gee.EqualDataFunc | null, valueEqualFunc: Gee.EqualDataFunc | null): SerializableHashMap
->>>>>>> 2968f8b (Update types)
     static stringToGvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     static gvalueToString(val: any): string
@@ -7188,7 +6992,6 @@ export interface SerializableArrayList_ConstructProps extends Gee.ArrayList_Cons
 }
 export class SerializableArrayList {
 <<<<<<< HEAD
-<<<<<<< HEAD
     /* Properties of Gee-0.8.Gee.AbstractBidirList */
     readonly readOnlyView: Gee.BidirList
     /* Properties of Gee-0.8.Gee.AbstractCollection */
@@ -7200,13 +7003,9 @@ export class SerializableArrayList {
     equalFunc: GLib.EqualFunc
     /* Properties of Gee.AbstractList */
     readonly readOnlyView: Gee.List
-=======
-    /* Properties of Gee.AbstractBidirList */
-    readonly readOnlyView: Gee.BidirList
->>>>>>> 2968f8b (Update types)
     /* Properties of Gee.AbstractCollection */
     readonly size: number
-    readonly readOnly: boolean
+    readonly isEmpty: boolean
     /* Properties of GXml.Serializable */
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     properties: GObject.ParamSpec[]
@@ -7227,9 +7026,6 @@ export class SerializableArrayList {
     /* Fields of GXml.SerializableArrayList */
     parentInstance: Gee.ArrayList
     priv: SerializableArrayListPrivate
-    /* Fields of Gee.ArrayList */
-    items: object[]
-    itemsLength1: number
     /* Fields of GObject.Object */
     gTypeInstance: GObject.TypeInstance
     /* Methods of GXml.SerializableArrayList */
@@ -7279,21 +7075,7 @@ export class SerializableArrayList {
     /* Methods of Gee-0.8.Gee.AbstractList */
 =======
     /* Methods of Gee.ArrayList */
-    addAll(collection: Gee.Collection): boolean
-    getEqualFunc(): [ /* returnType */ Gee.EqualDataFunc, /* resultTarget */ object | null ]
-    /* Methods of Gee.AbstractBidirList */
-    bidirListIterator(): Gee.BidirListIterator
-    reserved0(): void
-    reserved1(): void
-    reserved2(): void
-    reserved3(): void
-    reserved4(): void
-    reserved5(): void
-    reserved6(): void
-    reserved7(): void
-    reserved8(): void
-    reserved9(): void
-    getReadOnlyView(): Gee.BidirList
+    sortWithData(compare: GLib.CompareDataFunc): void
     /* Methods of Gee.AbstractList */
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     listIterator(): Gee.ListIterator
@@ -7304,23 +7086,18 @@ export class SerializableArrayList {
     removeAt(index: number): object | null
     slice(start: number, stop: number): Gee.List | null
 <<<<<<< HEAD
-<<<<<<< HEAD
     getReadOnlyView(): Gee.List
     /* Methods of Gee-0.8.Gee.AbstractCollection */
 =======
     first(): object | null
     last(): object | null
     insertAll(index: number, collection: Gee.Collection): void
-=======
-    getReadOnlyView(): Gee.List
->>>>>>> 2968f8b (Update types)
     /* Methods of Gee.AbstractCollection */
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     contains(item?: object | null): boolean
     add(item?: object | null): boolean
     remove(item?: object | null): boolean
     clear(): void
-<<<<<<< HEAD
 <<<<<<< HEAD
     iterator(): Gee.Iterator
     foreach(f: Gee.ForallFunc): boolean
@@ -7342,13 +7119,7 @@ export class SerializableArrayList {
     containsAll(collection: Gee.Collection): boolean
     removeAll(collection: Gee.Collection): boolean
     retainAll(collection: Gee.Collection): boolean
-=======
->>>>>>> 2968f8b (Update types)
     iterator(): Gee.Iterator
-    foreach(f: Gee.ForallFunc): boolean
-    getSize(): number
-    getReadOnly(): boolean
-    getReadOnlyView(): Gee.Collection
     /* Methods of GObject.Object */
     bindProperty(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags): GObject.Binding
     bindPropertyFull(sourceProperty: string, target: GObject.Object, targetProperty: string, flags: GObject.BindingFlags, transformTo: GObject.Closure, transformFrom: GObject.Closure): GObject.Binding
@@ -7463,28 +7234,6 @@ export class SerializableArrayList {
     vfuncGetSerializedXmlNodeValue(): string | null
     vfuncSetSerializedXmlNodeValue(value?: string | null): void
     vfuncIsCollection(): boolean
-    vfuncGetReadOnlyView(): Gee.BidirList
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    /* Virtual methods of Gee.ArrayList */
-    vfuncGetReadOnlyView(): Gee.BidirList
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
-    /* Virtual methods of Gee.AbstractBidirList */
-    vfuncBidirListIterator(): Gee.BidirListIterator
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetReadOnlyView(): Gee.BidirList
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
     /* Virtual methods of Gee.AbstractList */
     vfuncListIterator(): Gee.ListIterator
     vfuncGet(index: number): object | null
@@ -7493,69 +7242,21 @@ export class SerializableArrayList {
     vfuncInsert(index: number, item?: object | null): void
     vfuncRemoveAt(index: number): object | null
     vfuncSlice(start: number, stop: number): Gee.List | null
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetReadOnlyView(): Gee.List
-    vfuncGetReadOnlyView(): Gee.Collection
     vfuncFirst(): object | null
     vfuncLast(): object | null
     vfuncInsertAll(index: number, collection: Gee.Collection): void
-    vfuncSort(compareFunc: GLib.CompareDataFunc | null): void
+    vfuncSort(compareFunc?: GLib.CompareFunc | null): void
     /* Virtual methods of Gee.AbstractCollection */
     vfuncContains(item?: object | null): boolean
     vfuncAdd(item?: object | null): boolean
     vfuncRemove(item?: object | null): boolean
     vfuncClear(): void
-    vfuncIterator(): Gee.Iterator
-    vfuncForeach(f: Gee.ForallFunc): boolean
-    vfuncReserved0(): void
-    vfuncReserved1(): void
-    vfuncReserved2(): void
-    vfuncReserved3(): void
-    vfuncReserved4(): void
-    vfuncReserved5(): void
-    vfuncReserved6(): void
-    vfuncReserved7(): void
-    vfuncReserved8(): void
-    vfuncReserved9(): void
-    vfuncGetSize(): number
-    vfuncGetReadOnly(): boolean
-    vfuncGetReadOnlyView(): Gee.Collection
-    vfuncStream(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.StreamFunc): Gee.Iterator
-    vfuncFold(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): object | null
-    vfuncMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.MapFunc): Gee.Iterator
-    vfuncScan(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FoldFunc, seed?: object | null): Gee.Iterator
-    vfuncFilter(pred: Gee.Predicate): Gee.Iterator
-    vfuncChop(offset: number, length: number): Gee.Iterator
-    vfuncFlatMap(aType: GObject.Type, aDupFunc: GObject.BoxedCopyFunc, aDestroyFunc: GLib.DestroyNotify, f: Gee.FlatMapFunc): Gee.Iterator
-    vfuncTee(forks: number): Gee.Iterator[]
-    vfuncFirstMatch(pred: Gee.Predicate): object | null
-    vfuncAnyMatch(pred: Gee.Predicate): boolean
-    vfuncAllMatch(pred: Gee.Predicate): boolean
-    vfuncMax(compare: GLib.CompareDataFunc): object | null
-    vfuncMin(compare: GLib.CompareDataFunc): object | null
-    vfuncOrderBy(compare: GLib.CompareDataFunc | null): Gee.Iterator
-    vfuncGetElementType(): GObject.Type
+    vfuncToArray(): object[]
     vfuncAddAll(collection: Gee.Collection): boolean
     vfuncContainsAll(collection: Gee.Collection): boolean
     vfuncRemoveAll(collection: Gee.Collection): boolean
     vfuncRetainAll(collection: Gee.Collection): boolean
-    vfuncToArray(): object[]
-    vfuncAddAllArray(array: object[]): boolean
-    vfuncContainsAllArray(array: object[]): boolean
-    vfuncRemoveAllArray(array: object[]): boolean
-    vfuncAddAllIterator(iter: Gee.Iterator): boolean
-    vfuncContainsAllIterator(iter: Gee.Iterator): boolean
-    vfuncRemoveAllIterator(iter: Gee.Iterator): boolean
-    vfuncGetIsEmpty(): boolean
+    vfuncIterator(): Gee.Iterator
     /* Virtual methods of GObject.Object */
     vfuncConstructed(): void
     vfuncDispatchPropertiesChanged(nPspecs: number, pspecs: GObject.ParamSpec): void
@@ -7596,15 +7297,12 @@ export class SerializableArrayList {
     on(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "deserialize_unknown_property_type", callback: (...args: any[]) => void): NodeJS.EventEmitter
-<<<<<<< HEAD
     connect(sigName: "notify::equal-func", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::equal-func", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::equal-func", callback: (...args: any[]) => void): NodeJS.EventEmitter
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
-=======
->>>>>>> 2968f8b (Update types)
     connect(sigName: "notify::read-only-view", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only-view", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::read-only-view", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7616,15 +7314,11 @@ export class SerializableArrayList {
     once(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::size", callback: (...args: any[]) => void): NodeJS.EventEmitter
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 2968f8b (Update types)
     connect(sigName: "notify::read-only", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::read-only", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
     once(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::read-only", callback: (...args: any[]) => void): NodeJS.EventEmitter
-<<<<<<< HEAD
 =======
     connect(sigName: "notify::is-empty", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::is-empty", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
@@ -7632,8 +7326,6 @@ export class SerializableArrayList {
     once(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
     off(sigName: "notify::is-empty", callback: (...args: any[]) => void): NodeJS.EventEmitter
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
-=======
->>>>>>> 2968f8b (Update types)
     connect(sigName: "notify::properties", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     connect_after(sigName: "notify::properties", callback: (($obj: SerializableArrayList, pspec: GObject.ParamSpec) => void)): number
     on(sigName: "notify::properties", callback: (...args: any[]) => void): NodeJS.EventEmitter
@@ -7667,14 +7359,10 @@ export class SerializableArrayList {
     /* Static methods and pseudo-constructors */
     static new(): SerializableArrayList
 <<<<<<< HEAD
-<<<<<<< HEAD
     static new(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, equalFunc: Gee.EqualDataFunc | null): SerializableArrayList
     static stringToGvalue(str: string, dest: any): { returnType: boolean, dest: any }
 =======
     static new(equalFunc?: GLib.EqualFunc | null): SerializableArrayList
-=======
-    static new(gType: GObject.Type, gDupFunc: GObject.BoxedCopyFunc, gDestroyFunc: GLib.DestroyNotify, equalFunc: Gee.EqualDataFunc | null): SerializableArrayList
->>>>>>> 2968f8b (Update types)
     static stringToGvalue(str: string, dest: any): [ /* returnType */ boolean, /* dest */ any ]
 >>>>>>> e7399ae (Do not ignore type definitions anymore (to make it compareable in git to check new generation features))
     static gvalueToString(val: any): string

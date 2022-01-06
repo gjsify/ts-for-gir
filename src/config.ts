@@ -29,6 +29,7 @@ export class Config {
         ignore: [],
         verbose: true,
         ignoreConflicts: false,
+        exportDefault: false,
     }
 
     /**
@@ -86,6 +87,11 @@ export class Config {
         }),
         configName: flags.string({
             description: 'name of the config if you want to use a different name',
+        }),
+        exportDefault: flags.boolean({
+            char: 'd',
+            description: 'Export all symbols for each module as a single entity using ES6 export default',
+            default: Config.defaults.exportDefault,
         }),
     }
 
@@ -154,6 +160,7 @@ export class Config {
             pretty: config.pretty,
             verbose: config.verbose,
             buildType: config.buildType || defaultBuildType,
+            exportDefault: config.exportDefault,
         }
         return generateConfig
     }
@@ -177,6 +184,7 @@ export class Config {
             girDirectories: flags.girDirectories,
             ignore: flags.ignore,
             modules,
+            exportDefault: flags.exportDefault,
         }
 
         if (configFile) {
@@ -237,6 +245,12 @@ export class Config {
                 configFile.config.modules
             ) {
                 config.modules = configFile.config.modules
+            }
+            if (
+                config.exportDefault === Config.defaultCliFlags.exportDefault.default &&
+                typeof configFile.config.exportDefault === 'boolean'
+            ) {
+                config.exportDefault = configFile.config.exportDefault
             }
         }
         return config

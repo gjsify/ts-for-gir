@@ -1547,6 +1547,14 @@ export class GirModule {
         return def
     }
 
+    private addExport(def: string[], t: string, name: string, definition: string) {
+        const exp = this.config.exportDefault ? '' : 'export '
+        if (!definition.startsWith(':')) {
+            definition = ' ' + definition
+        }
+        def.push(`${exp}${t} ${name}${definition}`)
+    }
+
     private generateConstructPropsInterface(
         girClass: GirClass,
         name: string,
@@ -1615,7 +1623,7 @@ export class GirModule {
         // E.g. the NetworkManager-1.0 has enum names starting with 80211
         name = this.transformation.transformEnumName(name)
 
-        def.push(`export enum ${name} {`)
+        this.addExport(def, 'enum', name, '{')
         if (e.member) {
             for (const member of e.member) {
                 const _name = member.$.name || member.$['glib:nick'] || member.$['c:identifier']
@@ -1674,9 +1682,9 @@ export class GirModule {
 
         // START CLASS
         if (isAbstract) {
-            def.push(`export abstract class ${name} {`)
+            this.addExport(def, 'abstract class', name, '{')
         } else {
-            def.push(`export class ${name} {`)
+            this.addExport(def, 'class', name, '{')
         }
 
         const localNames: LocalNames = {}
@@ -1718,8 +1726,8 @@ export class GirModule {
     }
 
     public exportFunction(e: GirFunction): string[] {
-        const { desc } = this.getFunction(e, 'export function ')
-        return desc
+        const exp = this.config.exportDefault ? '' : 'export '
+        return this.getFunction(e, exp + 'function ')[0]
     }
 
     public exportCallback(e: GirFunction): string[] {
@@ -1730,7 +1738,7 @@ export class GirModule {
         const [params] = this.getParameters(outArrayLengthIndex, e.parameters)
 
         const def: string[] = []
-        def.push(`export interface ${name} {`)
+        this.addExport(def, 'interface', name, '{')
         def.push(`    (${params}): ${retType}`)
         def.push('}')
         return def
@@ -1741,7 +1749,8 @@ export class GirModule {
 
         const typeName = this.typeLookup(girAlias).result
         const name = girAlias.$.name
-        return [`export type ${name} = ${typeName}`]
+        const exp = this.config.exportDefault ? '' : 'export '
+        return [`${exp}type ${name} = ${typeName}`]
     }
 
     public exportInterface(girClass: GirClass): string[] {
@@ -1753,10 +1762,11 @@ export class GirModule {
     }
 
     public async exportJs(): Promise<void> {
+        const template = this.config.exportDefault ? 'esmodule.js' : 'module.js'
         if (this.config.outdir) {
-            await this.templateProcessor.create('module.js', this.config.outdir, `${this.packageName}.js`)
+            await this.templateProcessor.create(template, this.config.outdir, `${this.packageName}.js`)
         } else {
-            const moduleContent = this.templateProcessor.load('module.js')
+            const moduleContent = this.templateProcessor.load(template)
             this.log.log(moduleContent)
         }
     }
@@ -1801,7 +1811,10 @@ export class GirModule {
         // START Namespace
         if (this.config.buildType === 'types') {
             out.push('')
-            out.push(`export declare namespace ${this.namespace} {`)
+            out.push(`declare namespace ${this.namespace} {`)
+        } else if (this.config.exportDefault) {
+            out.push('')
+            out.push(`export namespace ${this.namespace} {`)
         }
 
         // Newline
@@ -1848,8 +1861,12 @@ export class GirModule {
         if (this.packageName === 'GObject-2.0') out.push('export interface Type {', '    name: string', '}')
 
         // END Namespace
-        if (this.config.buildType === 'types') {
+        if (this.config.buildType === 'types' || this.config.exportDefault) {
             out.push(`}`)
+        }
+
+        if (this.config.exportDefault) {
+            out.push(`export default ${this.namespace}`)
         }
 
         // End of file

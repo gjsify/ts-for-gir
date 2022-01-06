@@ -30,7 +30,8 @@ export class Generator {
         // Lib
         if (this.config.buildType === 'lib') {
             templateProcessor.create('index.js', this.config.outdir, 'index.js')
-            templateProcessor.create('Gjs.js', this.config.outdir, 'Gjs.js')
+            const template = this.config.exportDefault ? 'esGjs.js' : 'Gjs.js'
+            templateProcessor.create(template, this.config.outdir, 'Gjs.js')
         }
     }
 

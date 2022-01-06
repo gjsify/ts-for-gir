@@ -63,7 +63,8 @@ export class TemplateProcessor {
     ): string[] {
         const result: string[] = []
         if (config.buildType === 'lib') {
-            result.push(`import type * as ${namespace} from './${packageName}';`)
+            const sas = config.exportDefault && packageName !== 'Gjs' ? '' : '* as '
+            result.push(`import type ${sas}${namespace} from './${packageName}';`)
         } else {
             if (asExternType) {
                 // result.push(`/// <reference types="${packageName}" />`)
